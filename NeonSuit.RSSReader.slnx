@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="NeonSuit.RSSReader.Core/NeonSuit.RSSReader.Core.csproj" />
+  <Project Path="NeonSuit.RSSReader.Data/NeonSuit.RSSReader.Data.csproj" />
+  <Project Path="NeonSuit.RSSReader.Desktop/NeonSuit.RSSReader.Desktop.csproj" />
+  <Project Path="NeonSuit.RSSReader.Services/NeonSuit.RSSReader.Services.csproj" />
+</Solution>
