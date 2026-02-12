@@ -1,6 +1,12 @@
 <Solution>
-  <Project Path="NeonSuit.RSSReader.Core/NeonSuit.RSSReader.Core.csproj" />
-  <Project Path="NeonSuit.RSSReader.Data/NeonSuit.RSSReader.Data.csproj" />
-  <Project Path="NeonSuit.RSSReader.Desktop/NeonSuit.RSSReader.Desktop.csproj" />
-  <Project Path="NeonSuit.RSSReader.Services/NeonSuit.RSSReader.Services.csproj" />
+  <Folder Name="/src/">
+    <Project Path="NeonSuit.RSSReader.Core/NeonSuit.RSSReader.Core.csproj" />
+    <Project Path="NeonSuit.RSSReader.Data/NeonSuit.RSSReader.Data.csproj" />
+    <Project Path="NeonSuit.RSSReader.Desktop/NeonSuit.RSSReader.Desktop.csproj" />
+    <Project Path="NeonSuit.RSSReader.Services/NeonSuit.RSSReader.Services.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="tests/NeonSuit.RSSReader.Tests.Integration/NeonSuit.RSSReader.Tests.Integration.csproj" Id="848f5920-9490-471d-b987-b58029f6b9d8" />
+    <Project Path="tests/NeonSuit.RSSReader.Tests.Unit/NeonSuit.RSSReader.Tests.Unit.csproj" Id="537bd503-21db-41b7-bc0f-36fd47b0ca3b" />
+  </Folder>
 </Solution>

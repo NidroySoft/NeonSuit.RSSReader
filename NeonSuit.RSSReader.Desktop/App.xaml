@@ -1,9 +1,23 @@
 ﻿<Application x:Class="NeonSuit.RSSReader.Desktop.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:NeonSuit.RSSReader.Desktop"
-             StartupUri="MainWindow.xaml">
-    <Application.Resources>
-         
+             xmlns:local="clr-namespace:NeonSuit.RSSReader.Desktop.Converters"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             >
+    <Application.Resources>       
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+            <local:UnreadToBackgroundConverter x:Key="UnreadToBackgroundConverter"/>
+            <local:StarredToIconConverter x:Key="StarredToIconConverter"/>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
+
+                <ResourceDictionary Source="Themes/DarkTheme.xaml" />
+
+                <!-- Nuestros estilos personalizados -->
+                <!--<ResourceDictionary Source="Styles/MaterialDesignOverrides.xaml" />-->
+            </ResourceDictionary.MergedDictionaries>            
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
