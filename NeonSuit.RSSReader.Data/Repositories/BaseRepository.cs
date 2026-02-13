@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
-using NeonSuit.RSSReader.Data.Database;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
+using NeonSuit.RSSReader.Data.Database;
+using System.Linq.Expressions;
+using System.Reflection;
 
 namespace NeonSuit.RSSReader.Data.Repositories
 {
@@ -18,7 +19,6 @@ namespace NeonSuit.RSSReader.Data.Repositories
         public BaseRepository(RssReaderDbContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
-
         }
 
         public virtual async Task<List<T>> GetAllAsync()
@@ -31,6 +31,14 @@ namespace NeonSuit.RSSReader.Data.Repositories
             return await _dbSet.FindAsync(id);
         }
 
+        /// <summary>
+        /// Gets an entity by ID without tracking (for read-only operations).
+        /// </summary>
+        public virtual async Task<T?> GetByIdNoTrackingAsync(int id)
+        {
+            return await _dbSet.AsNoTracking().FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == id);
+        }
+
         public virtual async Task<int> InsertAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
@@ -39,24 +47,111 @@ namespace NeonSuit.RSSReader.Data.Repositories
 
         public virtual async Task<int> UpdateAsync(T entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            return await _context.SaveChangesAsync();
+            try
+            {
+                var entry = _context.Entry(entity);
+
+                // Si ya está siendo trackeada, actualizar el estado
+                if (entry.State != EntityState.Detached)
+                {
+                    entry.State = EntityState.Modified;
+                    return await _context.SaveChangesAsync();
+                }
+
+                // Si no está trackeada, obtener la entidad existente
+                var idProperty = entity.GetType().GetProperty("Id");
+                if (idProperty != null)
+                {
+                    var idValue = (int?)idProperty.GetValue(entity) ?? 0;
+                    if (idValue > 0)
+                    {
+                        var existing = await _dbSet.FindAsync(idValue);
+                        if (existing != null)
+                        {
+                            _context.Entry(existing).CurrentValues.SetValues(entity);
+                            return await _context.SaveChangesAsync();
+                        }
+                    }
+                }
+
+                // Fallback al attach
+                _dbSet.Attach(entity);
+                entry.State = EntityState.Modified;
+                return await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                // Si falla, intentar con una nueva instancia
+                var idProperty = entity.GetType().GetProperty("Id");
+                if (idProperty != null)
+                {
+                    var idValue = (int?)idProperty.GetValue(entity) ?? 0;
+                    var freshEntity = await _dbSet.AsNoTracking().FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == idValue);
+                    if (freshEntity != null)
+                    {
+                        _context.Entry(freshEntity).CurrentValues.SetValues(entity);
+                        return await _context.SaveChangesAsync();
+                    }
+                }
+                throw;
+            }
         }
 
         public virtual async Task<int> DeleteAsync(T entity)
         {
-            _dbSet.Remove(entity);
-            return await _context.SaveChangesAsync();
-        }
+            try
+            {
+                // ? VALIDACIÓN DE NULL PRIMERO
+                if (entity == null)
+                    throw new ArgumentNullException(nameof(entity));
 
+                var entry = _context.Entry(entity);
+
+                if (entry.State == EntityState.Detached)
+                {
+                    // Si está detached, attachar y eliminar
+                    _dbSet.Attach(entity);
+                }
+
+                _dbSet.Remove(entity);
+                return await _context.SaveChangesAsync();
+            }
+            catch (ArgumentNullException)
+            {
+                // ? RELANZAR ArgumentNullException sin modificarla
+                throw;
+            }
+            catch
+            {
+                // Si falla, intentar eliminar por ID
+                var idProperty = entity.GetType().GetProperty("Id");
+                if (idProperty != null)
+                {
+                    var idValue = (int?)idProperty.GetValue(entity) ?? 0;
+                    return await DeleteByIdAsync(idValue);
+                }
+                throw;
+            }
+        }
         public virtual async Task<int> DeleteByIdAsync(int id)
         {
-            var entity = await GetByIdAsync(id);
+            var entity = await _dbSet.FindAsync(id);
             if (entity != null)
             {
-                return await DeleteAsync(entity);
+                _dbSet.Remove(entity);
+                return await _context.SaveChangesAsync();
             }
             return 0;
+        }
+
+        /// <summary>
+        /// Elimina una entidad por ID usando SQL directo (sin tracking).
+        /// </summary>
+        public virtual async Task<int> DeleteDirectAsync(int id)
+        {
+            var tableName = GetTableName();
+            var sql = $"DELETE FROM {tableName} WHERE Id = @p0";
+            return await _context.ExecuteSqlCommandAsync(sql,cancellationToken:default, id);
         }
 
         public virtual async Task<int> CountAsync()
@@ -103,7 +198,7 @@ namespace NeonSuit.RSSReader.Data.Repositories
                     var idValue = (int?)idProperty.GetValue(entity) ?? 0;
                     if (idValue > 0)
                     {
-                        var existing = await GetByIdAsync(idValue);
+                        var existing = await _dbSet.FindAsync(idValue);
                         if (existing != null)
                         {
                             _context.Entry(existing).CurrentValues.SetValues(entity);
@@ -147,12 +242,40 @@ namespace NeonSuit.RSSReader.Data.Repositories
         /// </summary>
         public virtual async Task<int> DeleteAllAsync()
         {
-            var entities = await GetAllAsync();
-            if (!entities.Any())
-                return 0;
+            var tableName = GetTableName();
+            var sql = $"DELETE FROM {tableName}";
+            return await _context.ExecuteSqlCommandAsync(sql);
+        }
 
-            _dbSet.RemoveRange(entities);
-            return await _context.SaveChangesAsync();
+        /// <summary>
+        /// Detaches an entity from the change tracker.
+        /// </summary>
+        public virtual void DetachEntity(T entity)
+        {
+            var entry = _context.Entry(entity);
+            if (entry != null)
+            {
+                entry.State = EntityState.Detached;
+            }
+        }
+
+        /// <summary>
+        /// Detaches an entity by ID from the change tracker.
+        /// </summary>
+        public virtual async Task DetachEntityAsync(int id)
+        {
+            var tracked = _context.ChangeTracker.Entries<T>()
+                .FirstOrDefault(e => {
+                    var prop = e.Property("Id");
+                    return prop != null && prop.CurrentValue != null && (int)prop.CurrentValue == id;
+                });
+
+            if (tracked != null)
+            {
+                tracked.State = EntityState.Detached;
+            }
+
+            await Task.CompletedTask;
         }
 
         /// <summary>
@@ -226,6 +349,13 @@ namespace NeonSuit.RSSReader.Data.Repositories
         protected IQueryable<T> GetQueryableWithTracking()
         {
             return _dbSet.AsQueryable();
+        }
+
+        private string GetTableName()
+        {
+            var type = typeof(T);
+            var tableAttr = type.GetCustomAttribute<System.ComponentModel.DataAnnotations.Schema.TableAttribute>();
+            return tableAttr?.Name ?? $"{type.Name}s";
         }
     }
 }

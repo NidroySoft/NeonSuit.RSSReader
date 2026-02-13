@@ -158,11 +158,17 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
         public async Task GetFeedByIdAsync_WithExistingId_ShouldReturnFeed()
         {
             var expectedFeed = new Feed { Id = 1, Title = "Test Feed" };
-            _mockFeedRepository.Setup(x => x.GetByIdAsync(1)).ReturnsAsync(expectedFeed);
+
+            // ✅ MOCKEAR EL MÉTODO CORRECTO
+            _mockFeedRepository.Setup(x => x.GetByIdNoTrackingAsync(1)).ReturnsAsync(expectedFeed);
 
             var result = await _service.GetFeedByIdAsync(1);
 
+            result.Should().NotBeNull();
             result.Should().BeEquivalentTo(expectedFeed);
+
+            // ✅ VERIFICAR QUE SE LLAMÓ AL MÉTODO CORRECTO
+            _mockFeedRepository.Verify(x => x.GetByIdNoTrackingAsync(1), Times.Once);
         }
 
         [Fact]
@@ -391,13 +397,14 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
         [Fact]
         public async Task DeleteFeedAsync_ShouldDeleteArticlesThenFeed()
         {
-            _mockFeedRepository.Setup(x => x.DeleteAsync(It.IsAny<Feed>())).ReturnsAsync(1);
+            // ✅ MOCKEAR DeleteFeedDirectAsync, NO DeleteAsync
+            _mockFeedRepository.Setup(x => x.DeleteFeedDirectAsync(1)).ReturnsAsync(1);
 
             var result = await _service.DeleteFeedAsync(1);
 
             result.Should().BeTrue();
             _mockArticleRepository.Verify(x => x.DeleteByFeedAsync(1), Times.Once);
-            _mockFeedRepository.Verify(x => x.DeleteAsync(It.Is<Feed>(f => f.Id == 1)), Times.Once);
+            _mockFeedRepository.Verify(x => x.DeleteFeedDirectAsync(1), Times.Once);
         }
 
         [Fact]

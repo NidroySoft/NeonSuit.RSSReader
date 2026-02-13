@@ -97,7 +97,7 @@ namespace NeonSuit.RSSReader.Data.Repositories
             }
         }
 
-        public async Task<Feed?> GetByIdNoTrackingAsync(int id)
+        public new async Task<Feed?> GetByIdNoTrackingAsync(int id)
         {
             try
             {
@@ -723,6 +723,30 @@ namespace NeonSuit.RSSReader.Data.Repositories
             catch (Exception ex)
             {
                 _logger.Error(ex, "Failed to get feeds for category: {CategoryId}", categoryId);
+                throw;
+            }
+        }
+
+        public new async Task DetachEntityAsync(int id)
+        {
+            try
+            {
+                _logger.Debug("Detaching feed with ID: {FeedId} from change tracker", id);
+
+                var tracked = _context.ChangeTracker.Entries<Feed>()
+                    .FirstOrDefault(e => e.Entity.Id == id);
+
+                if (tracked != null)
+                {
+                    tracked.State = EntityState.Detached;
+                    _logger.Debug("Successfully detached feed ID: {FeedId}", id);
+                }
+
+                await Task.CompletedTask;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error detaching feed with ID: {FeedId}", id);
                 throw;
             }
         }

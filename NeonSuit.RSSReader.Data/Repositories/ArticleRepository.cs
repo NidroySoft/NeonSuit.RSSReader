@@ -934,5 +934,37 @@ namespace NeonSuit.RSSReader.Data.Repositories
                 throw;
             }
         }
+
+        /// <summary>
+        /// Detaches an article entity from the change tracker by ID.
+        /// </summary>
+        /// <param name="id">The ID of the article to detach.</param>
+        public new async Task DetachEntityAsync(int id)
+        {
+            try
+            {
+                _logger.Debug("Detaching article with ID: {ArticleId} from change tracker", id);
+
+                var tracked = _context.ChangeTracker.Entries<Article>()
+                    .FirstOrDefault(e => e.Entity.Id == id);
+
+                if (tracked != null)
+                {
+                    tracked.State = EntityState.Detached;
+                    _logger.Debug("Successfully detached article ID: {ArticleId}", id);
+                }
+                else
+                {
+                    _logger.Debug("Article ID: {ArticleId} was not being tracked", id);
+                }
+
+                await Task.CompletedTask;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error detaching article with ID: {ArticleId}", id);
+                throw;
+            }
+        }
     }
 }

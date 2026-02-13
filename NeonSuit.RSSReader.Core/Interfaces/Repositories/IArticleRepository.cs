@@ -10,6 +10,7 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Repositories
     {
         // CRUD Operations
         Task<Article?> GetByIdAsync(int id);
+        Task DetachEntityAsync(int id);
         Task<List<Article>> GetAllAsync();
         Task<List<Article>> GetWhereAsync(Func<Article, bool> predicate);
         Task<int> InsertAsync(Article entity);

@@ -66,4 +66,15 @@ public class ServiceFactory
 
         return new CategoryService(categoryRepo, feedRepo, _dbFixture.Logger);
     }
+
+    public IRuleService CreateRuleService()
+    {
+        var dbContext = GetDbContext();
+
+        var ruleRepo = new RuleRepository(dbContext, _dbFixture.Logger);
+        var articleRepo = new ArticleRepository(dbContext, _dbFixture.Logger);
+        var feedRepo = new FeedRepository(dbContext, _dbFixture.Logger);
+
+        return new RuleService(ruleRepo, articleRepo, feedRepo, _dbFixture.Logger);
+    }
 }

@@ -16,6 +16,13 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Repositories
         Task<Rule?> GetByIdAsync(int id);
 
         /// <summary>
+        /// Detaches an entity from the database.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task DetachEntityAsync(int id);
+
+        /// <summary>
         /// Retrieves all rules from the database.
         /// </summary>
         /// <returns>A list of all rules.</returns>

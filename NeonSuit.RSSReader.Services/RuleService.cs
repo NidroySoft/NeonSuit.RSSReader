@@ -126,7 +126,6 @@ namespace NeonSuit.RSSReader.Services
 
                 // Set default values if not provided
                 if (rule.Priority <= 0) rule.Priority = 100;
-                rule.IsEnabled = true;
                 rule.CreatedAt = DateTime.UtcNow;
                 rule.LastModified = DateTime.UtcNow;
                 rule.MatchCount = 0;
@@ -247,8 +246,16 @@ namespace NeonSuit.RSSReader.Services
 
                         // Update rule statistics
                         await _ruleRepository.IncrementMatchCountAsync(rule.Id);
-                        rule.LastMatchDate = DateTime.UtcNow;
-                        await _ruleRepository.UpdateAsync(rule);
+                        //rule.LastMatchDate = DateTime.UtcNow;
+                        //await _ruleRepository.UpdateAsync(rule);
+
+                        var updated = await _ruleRepository.GetByIdAsync(rule.Id);
+                        if (updated != null)
+                        {
+                            rule.LastMatchDate = updated.LastMatchDate;
+                            rule.MatchCount = updated.MatchCount;
+                        }
+
 
                         // Stop processing if rule has StopOnMatch enabled
                         if (rule.StopOnMatch)
@@ -319,9 +326,18 @@ namespace NeonSuit.RSSReader.Services
                             if (feed != null)
                             {
                                 feed.CategoryId = rule.CategoryId.Value;
+
+                                // ✅ 1. DETACH PRIMERO
+                                await _feedRepository.DetachEntityAsync(feed.Id);
+
+                                // ✅ 2. LUEGO ACTUALIZAR
                                 await _feedRepository.UpdateAsync(feed);
+
+                                _logger.Information("Moved feed {FeedId} to category {CategoryId}",
+                                    feed.Id, rule.CategoryId.Value);
                             }
                         }
+
                         break;
 
                     case Core.Enums.RuleActionType.HighlightArticle:
@@ -336,14 +352,24 @@ namespace NeonSuit.RSSReader.Services
                 // Update article if modified
                 if (articleModified)
                 {
+                    await _articleRepository.DetachEntityAsync(article.Id);
                     await _articleRepository.UpdateAsync(article);
                     _logger.Debug("Article updated with rule actions from {RuleName}", rule.Name);
                 }
 
-                // Update rule statistics
+                // ✅ ACTUALIZAR RULE DIRECTAMENTE EN BD SIN USAR EL OBJETO DESACTUALIZADO
                 await _ruleRepository.IncrementMatchCountAsync(rule.Id);
-                rule.LastMatchDate = DateTime.UtcNow;
-                await _ruleRepository.UpdateAsync(rule);
+
+                await _ruleRepository.DetachEntityAsync(rule.Id);
+
+
+                // ✅ NO actualizar el objeto rule - recargarlo si es necesario
+                var updatedRule = await _ruleRepository.GetByIdAsync(rule.Id);
+                if (updatedRule != null)
+                {
+                    rule.MatchCount = updatedRule.MatchCount;
+                    rule.LastMatchDate = updatedRule.LastMatchDate;
+                }
 
                 return true;
             }

@@ -29,6 +29,7 @@ namespace NeonSuit.RSSReader.Data.Repositories
         {
             try
             {
+
                 var rules = await _dbSet
                     .AsNoTracking()
                     .Where(r => r.IsEnabled)
@@ -280,16 +281,11 @@ namespace NeonSuit.RSSReader.Data.Repositories
         {
             try
             {
-                var rule = await _dbSet.FindAsync(ruleId);
-                if (rule == null) return 0;
+                // ✅ USAR SQL DIRECTO - 100% EFECTIVO, SIN TRACKING
+                var sql = "UPDATE Rules SET MatchCount = MatchCount + 1, LastMatchDate = @p1 WHERE Id = @p0";
+                var result = await _context.ExecuteSqlCommandAsync(sql, cancellationToken: default, ruleId, DateTime.UtcNow);
 
-                rule.MatchCount++;
-                rule.LastMatchDate = DateTime.UtcNow;
-
-                _context.Entry(rule).State = EntityState.Modified;
-                var result = await _context.SaveChangesAsync();
-
-                _logger.Debug("Incremented match count for rule: {RuleName} (ID: {RuleId})", rule.Name, ruleId);
+                _logger.Debug("Incremented match count for rule ID: {RuleId}, affected: {Count}", ruleId, result);
                 return result;
             }
             catch (Exception ex)
@@ -298,7 +294,6 @@ namespace NeonSuit.RSSReader.Data.Repositories
                 throw;
             }
         }
-
         /// <summary>
         /// Retrieves all rule conditions for a specific rule.
         /// </summary>
