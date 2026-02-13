@@ -88,6 +88,13 @@ namespace NeonSuit.RSSReader.Data.Logging
                     // Logging disabled - null sink would be configured here if necessary
                 }
 
+#if DEBUG
+                // ✅ SIEMPRE agregar Debug sink en modo DEBUG (aparece en Output Window de VS)
+                loggerConfig.WriteTo.Debug(
+                    outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] [{SourceContext}] {Message:lj}{NewLine}{Exception}",
+                    restrictedToMinimumLevel: LogEventLevel.Debug);
+#endif
+
                 _logger = loggerConfig.CreateLogger();
                 Log.Logger = _logger;
 

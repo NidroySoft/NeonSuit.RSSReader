@@ -69,7 +69,9 @@ namespace NeonSuit.RSSReader.Services
             try
             {
                 _logger.Debug("Getting feed by ID: {FeedId}", id);
-                var feed = await _feedRepository.GetByIdAsync(id);
+
+                // ? USAR AsNoTracking() PARA NO CACHEAR
+                var feed = await _feedRepository.GetByIdNoTrackingAsync(id);
 
                 if (feed == null)
                     _logger.Debug("Feed {FeedId} not found", id);
@@ -84,6 +86,8 @@ namespace NeonSuit.RSSReader.Services
                 throw;
             }
         }
+
+
 
         /// <summary>
         /// Adds a new feed to the system with comprehensive network error handling.
@@ -148,12 +152,19 @@ namespace NeonSuit.RSSReader.Services
                 feed.LastUpdated = DateTime.UtcNow;
                 feed.NextUpdateSchedule = DateTime.UtcNow.AddMinutes((int)FeedUpdateFrequency.EveryHour);
 
+                // ? IMPORTANTE: ASEGURAR QUE EL ID ES 0 PARA NUEVA ENTIDAD
+                feed.Id = 0;
+
                 await _feedRepository.InsertAsync(feed);
                 _logger.Information("Feed added successfully: {Title} ({Url})", feed.Title, url);
 
                 if (articles != null && articles.Any())
                 {
-                    articles.ForEach(a => a.FeedId = feed.Id);
+                    articles.ForEach(a =>
+                    {
+                        a.FeedId = feed.Id;
+                        a.Id = 0; // ? NUEVA ENTIDAD
+                    });
                     var insertedCount = await _articleRepository.InsertAllAsync(articles);
                     await UpdateFeedCountsAsync(feed.Id);
                     _logger.Information("Inserted {Count} initial articles for feed {FeedId}", insertedCount, feed.Id);
@@ -352,19 +363,24 @@ namespace NeonSuit.RSSReader.Services
             try
             {
                 _logger.Debug("Deleting feed {FeedId} and its articles", feedId);
-                await _articleRepository.DeleteByFeedAsync(feedId);
-                var result = await _feedRepository.DeleteAsync(new Feed { Id = feedId }) > 0;
 
-                if (result)
+                // ? 1. ELIMINAR ARTÍCULOS - YA FUNCIONA
+                var articlesDeleted = await _articleRepository.DeleteByFeedAsync(feedId);
+                _logger.Debug("Deleted {Count} articles for feed {FeedId}", articlesDeleted, feedId);
+
+                // ? 2. ELIMINAR FEED - FUERZA BRUTA CON NUEVO MÉTODO
+                var feedDeleted = await _feedRepository.DeleteFeedDirectAsync(feedId);
+                _logger.Debug("Feed deletion returned: {Result}", feedDeleted);
+
+                if (feedDeleted > 0)
                 {
-                    _logger.Information("Feed {FeedId} and its articles deleted successfully", feedId);
-                }
-                else
-                {
-                    _logger.Warning("Feed {FeedId} not found for deletion", feedId);
+                    _logger.Information("Feed {FeedId} and {ArticleCount} articles deleted successfully",
+                        feedId, articlesDeleted);
+                    return true;
                 }
 
-                return result;
+                _logger.Warning("Feed {FeedId} not found for deletion", feedId);
+                return false;
             }
             catch (Exception ex)
             {

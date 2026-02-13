@@ -330,6 +330,8 @@ namespace NeonSuit.RSSReader.Services
             {
                 _logger.Debug("Deleting articles older than {DaysOld} days", daysOld);
                 var cutoffDate = DateTime.UtcNow.AddDays(-daysOld);
+
+                // ? No cargar las entidades, solo obtener IDs y eliminar directamente
                 var deletedCount = await _articleRepository.DeleteOlderThanAsync(cutoffDate);
 
                 _logger.Information("Deleted {Count} articles older than {DaysOld} days", deletedCount, daysOld);
@@ -341,7 +343,6 @@ namespace NeonSuit.RSSReader.Services
                 throw;
             }
         }
-
         /// <summary>
         /// Gets the total count of unread articles.
         /// </summary>

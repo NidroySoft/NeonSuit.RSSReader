@@ -20,6 +20,8 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Repositories
         Task<List<Feed>> GetActiveAsync();
         Task<List<Feed>> GetInactiveAsync();
         Task<Feed?> GetByUrlAsync(string url);
+        Task<Feed?> GetByIdNoTrackingAsync(int id);
+        Task<int> DeleteFeedDirectAsync(int feedId);
         Task<bool> ExistsByUrlAsync(string url);
         Task<List<Feed>> GetFeedsToUpdateAsync();
         Task<int> UpdateLastUpdatedAsync(int feedId);

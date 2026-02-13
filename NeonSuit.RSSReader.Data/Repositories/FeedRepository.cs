@@ -1,9 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using NeonSuit.RSSReader.Core.Enums;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
 using NeonSuit.RSSReader.Core.Models;
 using NeonSuit.RSSReader.Data.Database;
-using NeonSuit.RSSReader.Data.Logging;
 using Serilog;
 
 namespace NeonSuit.RSSReader.Data.Repositories
@@ -23,7 +21,7 @@ namespace NeonSuit.RSSReader.Data.Repositories
         public FeedRepository(RssReaderDbContext context, ILogger logger) : base(context)
         {
             _logger = (logger ?? throw new ArgumentNullException(nameof(logger))).ForContext<FeedRepository>();
-           
+
         }
 
         /// <summary>
@@ -72,6 +70,50 @@ namespace NeonSuit.RSSReader.Data.Repositories
             }
         }
 
+        // FeedRepository.cs
+        public async Task<int> DeleteFeedDirectAsync(int feedId)
+        {
+            try
+            {
+                _logger.Debug("Directly deleting feed with ID: {FeedId}", feedId);
+
+                // ? SOLO DELETE - SIN VERIFICACIÓN PREVIA
+                var sql = "DELETE FROM Feeds WHERE Id = @p0";
+                var result = await _context.ExecuteSqlCommandAsync(sql, cancellationToken: default, feedId);
+
+                _logger.Debug("DeleteFeedDirectAsync affected {Count} rows for ID {FeedId}", result, feedId);
+
+                if (result == 0)
+                {
+                    _logger.Warning("No feed found with ID {FeedId} to delete", feedId);
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error directly deleting feed {FeedId}", feedId);
+                throw;
+            }
+        }
+
+        public async Task<Feed?> GetByIdNoTrackingAsync(int id)
+        {
+            try
+            {
+                _logger.Debug("Getting feed by ID with no tracking: {FeedId}", id);
+
+                // ? SIN TRACKING - NO USA CACHE
+                return await _context.Feeds
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(f => f.Id == id);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error getting feed by ID with no tracking: {FeedId}", id);
+                throw;
+            }
+        }
         /// <summary>
         /// Retrieves feeds associated with a specific category.
         /// </summary>

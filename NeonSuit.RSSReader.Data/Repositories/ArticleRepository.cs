@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using NeonSuit.RSSReader.Core.Enums;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
 using NeonSuit.RSSReader.Core.Models;
@@ -426,22 +427,24 @@ namespace NeonSuit.RSSReader.Data.Repositories
             {
                 _logger.Debug("Marking all articles as read");
 
-                var articlesToUpdate = await GetWhereAsync(a => a.Status == ArticleStatus.Unread);
+                // ? EF Core 7+: ExecuteUpdateAsync actualiza directamente sin cargar entidades
+                // No hay problema de tracking porque no se cargan objetos en memoria
+                var updatedCount = await _context.Articles
+                    .Where(a => a.Status == ArticleStatus.Unread)
+                    .ExecuteUpdateAsync(setters => setters
+                        .SetProperty(a => a.Status, ArticleStatus.Read)
+                        .SetProperty(a => a.AddedDate, DateTime.UtcNow));
 
-                if (!articlesToUpdate.Any())
+                if (updatedCount > 0)
+                {
+                    _logger.Information("Marked {Count} articles as read", updatedCount);
+                }
+                else
                 {
                     _logger.Debug("No unread articles found");
-                    return 0;
                 }
 
-                foreach (var article in articlesToUpdate)
-                {
-                    article.Status = ArticleStatus.Read;
-                }
-
-                var result = await UpdateAllAsync(articlesToUpdate);
-                _logger.Information("Marked {Count} articles as read", articlesToUpdate.Count);
-                return result;
+                return updatedCount;
             }
             catch (Exception ex)
             {
@@ -449,7 +452,6 @@ namespace NeonSuit.RSSReader.Data.Repositories
                 throw;
             }
         }
-
         /// <summary>
         /// Gets the total count of unread articles.
         /// </summary>
@@ -556,22 +558,14 @@ namespace NeonSuit.RSSReader.Data.Repositories
             {
                 _logger.Debug("Deleting articles older than {Date}", date);
 
-                var oldArticles = await GetWhereAsync(a => a.PublishedDate < date && !a.IsStarred && !a.IsFavorite);
+                // ? EF Core 7+: ExecuteDeleteAsync elimina directamente sin cargar entidades
+                // No hay problema de tracking porque no se cargan objetos en memoria
+                var deletedCount = await _context.Articles
+                    .Where(a => a.PublishedDate < date && !a.IsStarred && !a.IsFavorite)
+                    .ExecuteDeleteAsync();
 
-                if (!oldArticles.Any())
-                {
-                    _logger.Debug("No articles to delete older than {Date}", date);
-                    return 0;
-                }
-
-                var count = 0;
-                foreach (var article in oldArticles)
-                {
-                    count += await DeleteAsync(article);
-                }
-
-                _logger.Information("Deleted {Count} articles older than {Date}", count, date);
-                return count;
+                _logger.Information("Deleted {Count} articles older than {Date}", deletedCount, date);
+                return deletedCount;
             }
             catch (Exception ex)
             {
@@ -589,22 +583,12 @@ namespace NeonSuit.RSSReader.Data.Repositories
             {
                 _logger.Debug("Deleting all articles for feed {FeedId}", feedId);
 
-                var articles = await GetWhereAsync(a => a.FeedId == feedId);
+                // ? SQL CORRECTO CON PARÁMETRO
+                var sql = "DELETE FROM Articles WHERE FeedId = @p0";
+                var result = await _context.ExecuteSqlCommandAsync(sql,cancellationToken:default  ,feedId);
 
-                if (!articles.Any())
-                {
-                    _logger.Debug("No articles found for feed {FeedId}", feedId);
-                    return 0;
-                }
-
-                var count = 0;
-                foreach (var article in articles)
-                {
-                    count += await DeleteAsync(article);
-                }
-
-                _logger.Information("Deleted {Count} articles for feed {FeedId}", count, feedId);
-                return count;
+                _logger.Information("Deleted {Count} articles for feed {FeedId}", result, feedId);
+                return result;
             }
             catch (Exception ex)
             {

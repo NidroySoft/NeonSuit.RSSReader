@@ -12,6 +12,8 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Services
         Task<bool> UpdateFeedAsync(Feed feed);
         Task<bool> DeleteFeedAsync(int feedId);
         Task<bool> FeedExistsAsync(string url);
+        
+
         /// <summary>
         /// Retrieves a feed by its URL.
         /// </summary>
