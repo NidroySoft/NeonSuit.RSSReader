@@ -160,6 +160,7 @@ namespace NeonSuit.RSSReader.Data.Repositories
 
         /// <summary>
         /// Removes a tag association from an article.
+        /// CORREGIDO: Maneja clave compuesta correctamente sin usar DeleteByIdAsync
         /// </summary>
         /// <param name="articleId">The ID of the article.</param>
         /// <param name="tagId">The ID of the tag.</param>
@@ -168,14 +169,20 @@ namespace NeonSuit.RSSReader.Data.Repositories
         {
             try
             {
-                var articleTag = await GetByArticleAndTagAsync(articleId, tagId);
+                // Buscar la entidad trackeada o no trackeada
+                var articleTag = await _dbSet
+                    .FirstOrDefaultAsync(at => at.ArticleId == articleId && at.TagId == tagId);
+
                 if (articleTag == null)
                 {
                     _logger.Debug("Tag {TagId} not associated with article {ArticleId}", tagId, articleId);
                     return false;
                 }
 
-                await DeleteAsync(articleTag);
+                // Eliminar directamente sin usar DeleteAsync del base que requiere ID simple
+                _dbSet.Remove(articleTag);
+                await _dbContext.SaveChangesAsync();
+
                 _logger.Debug("Tag {TagId} removed from article {ArticleId}", tagId, articleId);
                 return true;
             }

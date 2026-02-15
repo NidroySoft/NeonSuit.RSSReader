@@ -15,10 +15,12 @@ namespace NeonSuit.RSSReader.Services
         private readonly IArticleTagRepository _articleTagRepository;
         private readonly ITagService _tagService;
         private readonly ILogger _logger;
+        private readonly IArticleRepository? _articleRepository; // Opcional para validaciones
 
         public event EventHandler<ArticleTaggedEventArgs>? OnArticleTagged;
         public event EventHandler<ArticleUntaggedEventArgs>? OnArticleUntagged;
 
+        // Constructor principal para producción
         public ArticleTagService(IArticleTagRepository articleTagRepository, ITagService tagService, ILogger logger)
         {
             _articleTagRepository = articleTagRepository;
@@ -26,12 +28,38 @@ namespace NeonSuit.RSSReader.Services
             _logger = logger.ForContext<ArticleTagService>();
         }
 
+        // Constructor extendido que permite validación de artículos
+        public ArticleTagService(
+            IArticleTagRepository articleTagRepository,
+            ITagService tagService,
+            IArticleRepository articleRepository,
+            ILogger logger) : this(articleTagRepository, tagService, logger)
+        {
+            _articleRepository = articleRepository;
+        }
+
         public async Task<bool> TagArticleAsync(int articleId, int tagId, string appliedBy = "user", int? ruleId = null, double? confidence = null)
         {
             try
             {
-                // Get tag name for event
+                // ✅ VALIDACIÓN: Verificar que el artículo existe
+                if (_articleRepository != null)
+                {
+                    var articleExists = await _articleRepository.GetByIdAsync(articleId);
+                    if (articleExists == null)
+                    {
+                        _logger.Error("Cannot tag non-existent article {ArticleId}", articleId);
+                        throw new InvalidOperationException($"Article with ID {articleId} does not exist.");
+                    }
+                }
+
+                // ✅ VALIDACIÓN: Verificar que el tag existe
                 var tag = await _tagService.GetTagAsync(tagId);
+                if (tag == null)
+                {
+                    _logger.Error("Cannot tag with non-existent tag {TagId}", tagId);
+                    throw new InvalidOperationException($"Tag with ID {tagId} does not exist.");
+                }
 
                 // Associate tag with article
                 var result = await _articleTagRepository.AssociateTagWithArticleAsync(
@@ -52,7 +80,7 @@ namespace NeonSuit.RSSReader.Services
 
                 return result;
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is not InvalidOperationException)
             {
                 _logger.Error(ex, "Failed to tag article {ArticleId} with tag {TagId}", articleId, tagId);
                 throw;
@@ -63,20 +91,39 @@ namespace NeonSuit.RSSReader.Services
         {
             try
             {
-                // Get tag name for event
-                var tag = await _tagService.GetTagAsync(tagId);
+                // ✅ PRIMERO verificar si la asociación existe (más barato y evita excepciones)
+                var exists = await _articleTagRepository.ExistsAsync(articleId, tagId);
+                if (!exists)
+                {
+                    _logger.Debug("No association found between article {ArticleId} and tag {TagId}",
+                        articleId, tagId);
+                    return false;
+                }
 
-                // Remove association
+                // ✅ SOLO si existe, obtener el tag para el nombre (y manejar caso donde tag fue borrado)
+                string tagName;
+                try
+                {
+                    var tag = await _tagService.GetTagAsync(tagId);
+                    tagName = tag.Name;
+                }
+                catch (KeyNotFoundException)
+                {
+                    // Tag fue eliminado pero asociación aún existe (inconsistencia de datos)
+                    tagName = $"Tag_{tagId}";
+                    _logger.Warning("Tag {TagId} not found during untag (orphaned association)", tagId);
+                }
+
+                // Eliminar la asociación
                 var result = await _articleTagRepository.RemoveTagFromArticleAsync(articleId, tagId);
 
                 if (result)
                 {
-                    // Raise event
                     OnArticleUntagged?.Invoke(this,
-                        new ArticleUntaggedEventArgs(articleId, tagId, tag.Name));
+                        new ArticleUntaggedEventArgs(articleId, tagId, tagName));
 
-                    _logger.Information("Tag '{TagName}' removed from article {ArticleId}",
-                        tag.Name, articleId);
+                    _logger.Information("Tag '{TagName}' (ID: {TagId}) removed from article {ArticleId}",
+                        tagName, tagId, articleId);
                 }
 
                 return result;

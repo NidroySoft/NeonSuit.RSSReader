@@ -237,6 +237,11 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
             var tagId = 2;
             var testTag = CreateTestTag(tagId);
 
+            // ✅ FIX: Configurar ExistsAsync para retornar true (asociación existe)
+            _mockArticleTagRepository
+                .Setup(repo => repo.ExistsAsync(articleId, tagId))
+                .ReturnsAsync(true);
+
             _mockTagService
                 .Setup(service => service.GetTagAsync(tagId))
                 .ReturnsAsync(testTag);
@@ -398,6 +403,14 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
             var articleId = 1;
             var tagIds = new List<int> { 1, 2, 3, 4 };
 
+            // ✅ FIX: Configurar ExistsAsync para retornar true para todos los tags
+            foreach (var tagId in tagIds)
+            {
+                _mockArticleTagRepository
+                    .Setup(repo => repo.ExistsAsync(articleId, tagId))
+                    .ReturnsAsync(true);
+            }
+
             // Setup UntagArticleAsync to succeed for tags 1, 3 and fail for 2, 4
             var setupSequence = _mockArticleTagRepository.SetupSequence(
                 repo => repo.RemoveTagFromArticleAsync(articleId, It.IsAny<int>()));
@@ -426,7 +439,6 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
         #endregion
 
         #region ReplaceArticleTagsAsync Tests
-
         [Fact]
         [Trait("Category", "ArticleTagService")]
         [Trait("Scope", "BulkOperations")]
@@ -442,6 +454,14 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
             _mockArticleTagRepository
                 .Setup(repo => repo.GetTagsForArticleWithDetailsAsync(articleId))
                 .ReturnsAsync(currentTags);
+
+            // ✅ FIX: Configurar ExistsAsync para los tags que serán removidos (1 y 3)
+            _mockArticleTagRepository
+                .Setup(repo => repo.ExistsAsync(articleId, 1))
+                .ReturnsAsync(true);
+            _mockArticleTagRepository
+                .Setup(repo => repo.ExistsAsync(articleId, 3))
+                .ReturnsAsync(true);
 
             // Setup untagging for tags 1 and 3
             _mockArticleTagRepository
@@ -745,7 +765,6 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
         #endregion
 
         #region RemoveRuleTagsAsync Tests
-
         [Fact]
         [Trait("Category", "ArticleTagService")]
         [Trait("Scope", "RuleOperations")]
@@ -755,15 +774,23 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
             // Arrange
             var ruleId = 1;
             var ruleTags = new List<ArticleTag>
-            {
-                CreateTestArticleTag(1, 1, "rule", ruleId),
-                CreateTestArticleTag(1, 2, "rule", ruleId),
-                CreateTestArticleTag(2, 1, "rule", ruleId)
-            };
+    {
+        CreateTestArticleTag(1, 1, "rule", ruleId),
+        CreateTestArticleTag(1, 2, "rule", ruleId),
+        CreateTestArticleTag(2, 1, "rule", ruleId)
+    };
 
             _mockArticleTagRepository
                 .Setup(repo => repo.GetTagsAppliedByRuleAsync(ruleId))
                 .ReturnsAsync(ruleTags);
+
+            // ✅ FIX: Configurar ExistsAsync para cada combinación de articleId y tagId
+            foreach (var ruleTag in ruleTags)
+            {
+                _mockArticleTagRepository
+                    .Setup(repo => repo.ExistsAsync(ruleTag.ArticleId, ruleTag.TagId))
+                    .ReturnsAsync(true);
+            }
 
             _mockArticleTagRepository
                 .Setup(repo => repo.RemoveTagFromArticleAsync(It.IsAny<int>(), It.IsAny<int>()))
@@ -939,8 +966,14 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
                 .Setup(repo => repo.GetTagsAppliedByRuleAsync(ruleId))
                 .ReturnsAsync(new List<ArticleTag>
                 {
-                    new ArticleTag { ArticleId = articleId, TagId = 5, AppliedBy = "rule", RuleId = ruleId }
+            new ArticleTag { ArticleId = articleId, TagId = 5, AppliedBy = "rule", RuleId = ruleId }
                 });
+
+            // ✅ FIX: Configurar ExistsAsync para retornar true cuando se verifica la asociación del rule tag
+            _mockArticleTagRepository
+                .Setup(repo => repo.ExistsAsync(articleId, 5))
+                .ReturnsAsync(true);
+
             _mockArticleTagRepository
                 .Setup(repo => repo.RemoveTagFromArticleAsync(articleId, 5))
                 .ReturnsAsync(true);
