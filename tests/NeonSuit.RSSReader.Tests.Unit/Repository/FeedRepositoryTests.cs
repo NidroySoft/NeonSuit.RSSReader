@@ -808,23 +808,30 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
         [Fact]
         public async Task UpdateArticleCountsAsync_WithValidFeed_ShouldUpdateCounts()
         {
-            // Arrange
-            await SeedTestFeedsAsync(1);
-            var feedId = DEFAULT_FEED_ID;
-            await SeedArticlesForFeedAsync(feedId, 15);
-            ClearEntityTracking();
+            // Arrange - Crear un feed primero
+            var feed = new Feed
+            {
+                Title = "Test Feed",
+                Url = $"https://test{Guid.NewGuid():N}.com/rss",
+                WebsiteUrl = "https://test.com",
+                IsActive = true,
+                CreatedAt = DateTime.UtcNow,
+                LastUpdated = DateTime.UtcNow
+            };
 
-            var unreadCount = await _dbContext.Articles
-                .CountAsync(a => a.FeedId == feedId && a.Status == ArticleStatus.Unread);
+            _dbContext.Feeds.Add(feed);
+            await _dbContext.SaveChangesAsync();
+            ClearEntityTracking();
 
             // Act
-            var result = await _repository.UpdateArticleCountsAsync(feedId, 15, unreadCount);
-            ClearEntityTracking();
+            var result = await _repository.UpdateArticleCountsAsync(feed.Id, 10, 5);
 
             // Assert
             result.Should().Be(1);
-            var updatedFeed = await _repository.GetByIdAsync(feedId);
-            updatedFeed?.TotalArticleCount.Should().Be(15);
+            ClearEntityTracking();
+
+            var updatedFeed = await _repository.GetByIdAsync(feed.Id);
+            updatedFeed?.TotalArticleCount.Should().Be(10);
         }
 
         [Fact]

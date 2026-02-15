@@ -5,13 +5,15 @@ using NeonSuit.RSSReader.Data.Logging;
 using Serilog;
 using System.IO;
 using System.Text;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace NeonSuit.RSSReader.Services
 {
     /// <summary>
-    /// Implementation of IOpmlService for handling OPML import/export operations.
+    /// Professional implementation of IOpmlService for handling OPML import/export operations.
     /// Supports OPML 1.0 and 2.0 specifications with extended attributes.
+    /// Generates namespace-free XML for maximum interoperability with RSS readers.
     /// </summary>
     public class OpmlService : IOpmlService
     {
@@ -20,16 +22,26 @@ namespace NeonSuit.RSSReader.Services
         private readonly ILogger _logger;
         private readonly OpmlStatistics _statistics;
 
+        // Empty namespace ensures clean XML without namespace declarations
+        private static readonly XNamespace _emptyNs = "";
+
         public OpmlService(IFeedService feedService, ICategoryService categoryService, ILogger logger)
         {
             _feedService = feedService ?? throw new ArgumentNullException(nameof(feedService));
             _categoryService = categoryService ?? throw new ArgumentNullException(nameof(categoryService));
-            _logger = (logger ?? throw new ArgumentNullException(nameof(logger))).ForContext<OpmlService>()  ;
-            _statistics = new OpmlStatistics()  ;
+            _logger = (logger ?? throw new ArgumentNullException(nameof(logger))).ForContext<OpmlService>();
+            _statistics = new OpmlStatistics();
         }
 
+        /// <summary>
+        /// Imports feeds from an OPML stream with comprehensive error handling and statistics tracking.
+        /// </summary>
         public async Task<OpmlImportResult> ImportAsync(Stream opmlStream, string defaultCategory = "Imported", bool overwriteExisting = false)
         {
+
+            if (opmlStream == null)
+                throw new ArgumentNullException(nameof(opmlStream));
+
             var result = new OpmlImportResult();
             var startTime = DateTime.UtcNow;
 
@@ -37,19 +49,22 @@ namespace NeonSuit.RSSReader.Services
             {
                 _logger.Information("Starting OPML import with default category: {Category}", defaultCategory);
 
-                // Validate OPML first
                 var validation = await ValidateAsync(opmlStream);
                 if (!validation.IsValid)
                 {
                     result.Errors.Add($"Invalid OPML file: {validation.ErrorMessage}");
                     result.Success = false;
+
+                    // ✅ Incrementar TotalImports incluso cuando falla la validación
+                    _statistics.TotalImports++;
+                    _statistics.FailedImports++;
+
                     return result;
                 }
 
                 // Reset stream position after validation
                 opmlStream.Position = 0;
 
-                // Parse OPML
                 var doc = await XDocument.LoadAsync(opmlStream, LoadOptions.None, CancellationToken.None);
                 var body = doc.Root?.Element("body");
 
@@ -57,12 +72,16 @@ namespace NeonSuit.RSSReader.Services
                 {
                     result.Errors.Add("OPML file does not contain a body element");
                     result.Success = false;
+
+                    // ✅ Incrementar TotalImports incluso cuando falta body
+                    _statistics.TotalImports++;
+                    _statistics.FailedImports++;
+
                     return result;
                 }
 
                 result.TotalFeedsFound = validation.FeedCount;
 
-                // Process outlines recursively
                 await ProcessOutlinesAsync(body.Elements("outline"), null, defaultCategory,
                     result, overwriteExisting);
 
@@ -71,15 +90,15 @@ namespace NeonSuit.RSSReader.Services
                 _statistics.TotalFeedsImported += result.FeedsImported;
                 _statistics.LastImport = DateTime.UtcNow;
 
-                if (result.Success)
-                {
-                    _logger.Information("OPML import completed: {Imported} feeds imported, {Skipped} skipped",
-                        result.FeedsImported, result.FeedsSkipped);
-                }
-                else
+                if (!result.Success)
                 {
                     _statistics.FailedImports++;
                     _logger.Warning("OPML import completed with errors: {ErrorCount}", result.Errors.Count);
+                }
+                else
+                {
+                    _logger.Information("OPML import completed: {Imported} feeds imported, {Skipped} skipped",
+                        result.FeedsImported, result.FeedsSkipped);
                 }
             }
             catch (Exception ex)
@@ -87,6 +106,7 @@ namespace NeonSuit.RSSReader.Services
                 _logger.Error(ex, "Failed to import OPML file");
                 result.Errors.Add($"Import failed: {ex.Message}");
                 result.Success = false;
+                _statistics.TotalImports++;
                 _statistics.FailedImports++;
             }
             finally
@@ -97,6 +117,9 @@ namespace NeonSuit.RSSReader.Services
             return result;
         }
 
+        /// <summary>
+        /// Imports feeds from an OPML file path.
+        /// </summary>
         public async Task<OpmlImportResult> ImportFromFileAsync(string filePath, string defaultCategory = "Imported", bool overwriteExisting = false)
         {
             if (!File.Exists(filePath))
@@ -106,43 +129,68 @@ namespace NeonSuit.RSSReader.Services
             return await ImportAsync(stream, defaultCategory, overwriteExisting);
         }
 
+        /// <summary>
+        /// Exports all feeds to OPML format with optional categorization and inactive feed inclusion.
+        /// Generates clean XML without namespaces for maximum compatibility.
+        /// </summary>
+        /// <summary>
+        /// Exports all feeds to OPML format with optional categorization and inactive feed inclusion.
+        /// Generates clean XML without namespaces for maximum compatibility.
+        /// </summary>
         public async Task<string> ExportAsync(bool includeCategories = true, bool includeInactive = false)
         {
             try
             {
-                _logger.Debug("Exporting feeds to OPML format (Categories: {IncludeCategories})", includeCategories);
+                _logger.Debug("Exporting feeds to OPML format (Categories: {IncludeCategories}, Inactive: {IncludeInactive})",
+                    includeCategories, includeInactive);
 
                 var doc = new XDocument(
                     new XDeclaration("1.0", "UTF-8", null),
-                    new XElement("opml",
+                    new XElement(_emptyNs + "opml",
                         new XAttribute("version", "2.0"),
-                        new XElement("head",
-                            new XElement("title", "NeonSuit RSS Reader Export"),
-                            new XElement("dateCreated", DateTime.UtcNow.ToString("R")),
-                            new XElement("ownerName", "NeonSuit User"),
-                            new XElement("ownerEmail", ""),
-                            new XElement("docs", "http://dev.opml.org/spec2.html")
+                        new XElement(_emptyNs + "head",
+                            new XElement(_emptyNs + "title", "NeonSuit RSS Reader Export"),
+                            new XElement(_emptyNs + "dateCreated", DateTime.UtcNow.ToString("R")),
+                            new XElement(_emptyNs + "ownerName", "NeonSuit User"),
+                            new XElement(_emptyNs + "ownerEmail", ""),
+                            new XElement(_emptyNs + "docs", "http://dev.opml.org/spec2.html")
                         ),
-                        new XElement("body")
+                        new XElement(_emptyNs + "body")
                     )
                 );
 
-                var body = doc.Root?.Element("body");
+                var body = doc.Root?.Element(_emptyNs + "body");
                 if (body == null)
                     throw new InvalidOperationException("Failed to create OPML document structure");
 
+                // Get all feeds once to avoid multiple database calls
+                var allFeeds = await _feedService.GetAllFeedsAsync(includeInactive: true);
+
+                // Filter feeds based on includeInactive flag
+                var feedsToExport = includeInactive
+                    ? allFeeds
+                    : allFeeds.Where(f => f.IsActive).ToList();
+
                 if (includeCategories)
                 {
-                    // Get categories with their feeds
-                    var categories = await _categoryService.GetAllCategoriesWithFeedsAsync();
-                    foreach (var category in categories)
+                    // Group feeds by category
+                    var feedsByCategory = feedsToExport
+                        .Where(f => f.CategoryId.HasValue)
+                        .GroupBy(f => f.CategoryId!.Value)
+                        .ToDictionary(g => g.Key, g => g.ToList());
+
+                    // Get category details for all categories that have feeds
+                    foreach (var categoryGroup in feedsByCategory)
                     {
-                        var categoryOutline = new XElement("outline",
+                        var category = await _categoryService.GetCategoryByIdAsync(categoryGroup.Key);
+                        if (category == null) continue;
+
+                        var categoryOutline = new XElement(_emptyNs + "outline",
                             new XAttribute("text", category.Name),
                             new XAttribute("title", category.Name)
                         );
 
-                        foreach (var feed in category.Feeds.Where(f => includeInactive || f.IsActive))
+                        foreach (var feed in categoryGroup.Value)
                         {
                             AddFeedToOutline(categoryOutline, feed);
                         }
@@ -150,12 +198,18 @@ namespace NeonSuit.RSSReader.Services
                         if (categoryOutline.HasElements)
                             body.Add(categoryOutline);
                     }
+
+                    // Add uncategorized feeds at root level
+                    var uncategorizedFeeds = feedsToExport.Where(f => f.CategoryId == null);
+                    foreach (var feed in uncategorizedFeeds)
+                    {
+                        AddFeedToOutline(body, feed);
+                    }
                 }
                 else
                 {
-                    // Export all feeds without categories
-                    var feeds = await _feedService.GetAllFeedsAsync();
-                    foreach (var feed in feeds.Where(f => includeInactive || f.IsActive))
+                    // Export all feeds flat (no categories)
+                    foreach (var feed in feedsToExport)
                     {
                         AddFeedToOutline(body, feed);
                     }
@@ -164,8 +218,11 @@ namespace NeonSuit.RSSReader.Services
                 _statistics.TotalExports++;
                 _statistics.LastExport = DateTime.UtcNow;
 
-                _logger.Information("OPML export completed successfully");
-                return doc.ToString();
+                var result = doc.ToString();
+                _logger.Information("OPML export completed: {TotalBytes} bytes, {FeedCount} feeds exported",
+                    result.Length, feedsToExport.Count());
+
+                return result;
             }
             catch (Exception ex)
             {
@@ -175,13 +232,17 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
+        /// <summary>
+        /// Exports OPML content to a file.
+        /// </summary>
         public async Task ExportToFileAsync(string filePath, bool includeCategories = true, bool includeInactive = false)
         {
             try
             {
                 var opmlContent = await ExportAsync(includeCategories, includeInactive);
                 await File.WriteAllTextAsync(filePath, opmlContent, Encoding.UTF8);
-                _logger.Information("OPML exported to file: {FilePath}", filePath);
+                _logger.Information("OPML exported to file: {FilePath} ({Bytes} bytes)",
+                    filePath, opmlContent.Length);
             }
             catch (Exception ex)
             {
@@ -190,32 +251,42 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
+        /// <summary>
+        /// Exports specific categories to OPML format.
+        /// </summary>
         public async Task<string> ExportCategoriesAsync(IEnumerable<int> categoryIds)
         {
+            if (categoryIds == null)
+                throw new ArgumentNullException(nameof(categoryIds));
+
             try
             {
                 var doc = new XDocument(
                     new XDeclaration("1.0", "UTF-8", null),
-                    new XElement("opml",
+                    new XElement(_emptyNs + "opml",
                         new XAttribute("version", "2.0"),
-                        new XElement("head",
-                            new XElement("title", "NeonSuit Category Export"),
-                            new XElement("dateCreated", DateTime.UtcNow.ToString("R"))
+                        new XElement(_emptyNs + "head",
+                            new XElement(_emptyNs + "title", "NeonSuit Category Export"),
+                            new XElement(_emptyNs + "dateCreated", DateTime.UtcNow.ToString("R"))
                         ),
-                        new XElement("body")
+                        new XElement(_emptyNs + "body")
                     )
                 );
 
-                var body = doc.Root?.Element("body");
+                var body = doc.Root?.Element(_emptyNs + "body");
                 if (body == null)
                     throw new InvalidOperationException("Failed to create OPML document structure");
 
                 foreach (var categoryId in categoryIds)
                 {
                     var category = await _categoryService.GetCategoryWithFeedsAsync(categoryId);
-                    if (category == null) continue;
+                    if (category == null)
+                    {
+                        _logger.Warning("Category {CategoryId} not found during export", categoryId);
+                        continue;
+                    }
 
-                    var categoryOutline = new XElement("outline",
+                    var categoryOutline = new XElement(_emptyNs + "outline",
                         new XAttribute("text", category.Name),
                         new XAttribute("title", category.Name),
                         new XAttribute("description", category.Description ?? "")
@@ -240,59 +311,69 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
+        /// <summary>
+        /// Validates an OPML stream without modifying stream position permanently.
+        /// </summary>
         public async Task<OpmlValidationResult> ValidateAsync(Stream opmlStream)
         {
+            if (opmlStream == null)
+                throw new ArgumentNullException(nameof(opmlStream));
+
             var result = new OpmlValidationResult();
+            var originalPosition = opmlStream.Position;
 
             try
             {
-                // Read just enough to validate
-                var buffer = new byte[4096];
-                await opmlStream.ReadAsync(buffer, 0, buffer.Length);
-                var content = Encoding.UTF8.GetString(buffer);
-
-                // Reset stream position
-                opmlStream.Position = 0;
-
-                // Quick check for OPML structure
-                if (!content.Contains("<opml") || !content.Contains("</opml>"))
-                {
-                    result.IsValid = false;
-                    result.ErrorMessage = "Not a valid OPML file";
-                    return result;
-                }
-
-                // Proper parse
+                // Read for validation
                 var doc = await XDocument.LoadAsync(opmlStream, LoadOptions.None, CancellationToken.None);
 
-                // Reset stream position again
-                opmlStream.Position = 0;
-
-                if (doc.Root?.Name != "opml")
+                // Check root element - accept with or without namespace
+                var root = doc.Root;
+                if (root == null)
                 {
                     result.IsValid = false;
                     result.ErrorMessage = "Root element must be 'opml'";
                     return result;
                 }
 
-                result.OpmlVersion = doc.Root.Attribute("version")?.Value ?? "1.0";
+                // Validate root element name (case-insensitive, with or without namespace)
+                if (!root.Name.LocalName.Equals("opml", StringComparison.OrdinalIgnoreCase))
+                {
+                    result.IsValid = false;
+                    result.ErrorMessage = "Root element must be 'opml'";
+                    return result;
+                }
 
-                // Count feeds
-                result.FeedCount = doc.Descendants("outline")
-                    .Count(o => o.Attribute("xmlUrl") != null || o.Attribute("url") != null);
+                result.OpmlVersion = root.Attribute("version")?.Value ?? "1.0";
 
-                // Get categories
-                result.DetectedCategories = doc.Descendants("outline")
-                   .Where(o => o.Attribute("xmlUrl") == null && o.Attribute("url") == null)
-                   .Select(o => o.Attribute("text")?.Value ?? o.Attribute("title")?.Value)
-                   .Where(c => !string.IsNullOrEmpty(c))
-                   .Distinct()
-                   .Select(c => c!)
-                   .ToList();
+                // Count feeds - look for xmlUrl attribute in any namespace
+                result.FeedCount = doc.Descendants()
+                    .Count(o =>
+                        o.Attribute("xmlUrl") != null ||
+                        o.Attribute("url") != null);
+
+                // Get categories - elements without xmlUrl that have text/title
+                result.DetectedCategories = doc.Descendants()
+                    .Where(o =>
+                        o.Attribute("xmlUrl") == null &&
+                        o.Attribute("url") == null &&
+                        (o.Attribute("text") != null || o.Attribute("title") != null))
+                    .Select(o =>
+                        o.Attribute("text")?.Value ??
+                        o.Attribute("title")?.Value)
+                    .Where(c => !string.IsNullOrEmpty(c))
+                    .Distinct(StringComparer.OrdinalIgnoreCase)
+                    .ToList()!;
 
                 result.IsValid = true;
                 _logger.Debug("OPML validation passed: {FeedCount} feeds, {CategoryCount} categories",
                     result.FeedCount, result.DetectedCategories.Count);
+            }
+            catch (XmlException ex)
+            {
+                result.IsValid = false;
+                result.ErrorMessage = $"Invalid XML: {ex.Message}";
+                _logger.Error(ex, "OPML validation failed - XML parse error");
             }
             catch (Exception ex)
             {
@@ -300,15 +381,30 @@ namespace NeonSuit.RSSReader.Services
                 result.ErrorMessage = ex.Message;
                 _logger.Error(ex, "OPML validation failed");
             }
+            finally
+            {
+                // Always restore original position
+                if (opmlStream.CanSeek)
+                {
+                    opmlStream.Position = originalPosition;
+                }
+            }
 
             return result;
         }
 
+        /// <summary>
+        /// Gets current import/export statistics.
+        /// </summary>
         public OpmlStatistics GetStatistics() => _statistics;
 
         // Private helper methods
-        private async Task ProcessOutlinesAsync(IEnumerable<XElement> outlines, string? parentCategory,
-            string defaultCategory, OpmlImportResult result, bool overwriteExisting)
+
+        /// <summary>
+        /// Recursively processes OPML outline elements.
+        /// </summary>
+        private async Task ProcessOutlinesAsync(IEnumerable<XElement> outlines, string? parentCategoryName,
+     string defaultCategory, OpmlImportResult result, bool overwriteExisting)
         {
             foreach (var outline in outlines)
             {
@@ -316,28 +412,65 @@ namespace NeonSuit.RSSReader.Services
                 var text = outline.Attribute("text")?.Value ?? outline.Attribute("title")?.Value ?? string.Empty;
                 var xmlUrl = outline.Attribute("xmlUrl")?.Value ?? outline.Attribute("url")?.Value;
                 var htmlUrl = outline.Attribute("htmlUrl")?.Value;
-                var category = outline.Attribute("category")?.Value ?? parentCategory ?? defaultCategory;
+                var categoryName = outline.Attribute("category")?.Value ?? parentCategoryName ?? defaultCategory;
 
-                // If it's a feed
-                if (!string.IsNullOrEmpty(xmlUrl) && (outlineType == "rss" || outlineType == "atom"))
+                // Si tiene hijos y no es un feed, es una categoría
+                if (outline.HasElements && string.IsNullOrEmpty(xmlUrl))
                 {
-                    await ProcessFeedOutlineAsync(xmlUrl, text, htmlUrl, category, result, overwriteExisting);
-                }
-                // If it's a category folder
-                else if (!string.IsNullOrEmpty(text) && outline.HasElements)
-                {
-                    // Process nested outlines with this as parent category
+                    // Obtener o crear la categoría actual
+                    var currentCategory = await _categoryService.GetOrCreateCategoryAsync(text);
+
+                    // Si tiene categoría padre, actualizar la relación
+                    if (!string.IsNullOrEmpty(parentCategoryName))
+                    {
+                        var parentCategory = await _categoryService.GetOrCreateCategoryAsync(parentCategoryName);
+                        if (currentCategory.ParentCategoryId != parentCategory.Id)
+                        {
+                            currentCategory.ParentCategoryId = parentCategory.Id;
+                            await _categoryService.UpdateCategoryAsync(currentCategory);
+                        }
+                    }
+
+                    // Procesar hijos con esta categoría como padre
                     await ProcessOutlinesAsync(outline.Elements("outline"), text, defaultCategory, result, overwriteExisting);
+
                     result.CategoriesCreated++;
+                }
+                // Si es un feed
+                else if (!string.IsNullOrEmpty(xmlUrl))
+                {
+                    await ProcessFeedOutlineAsync(xmlUrl, text, htmlUrl, categoryName, result, overwriteExisting);
                 }
             }
         }
 
+        /// <summary>
+        /// Determines if an outline type represents a valid feed format.
+        /// </summary>
+        private static bool IsValidFeedType(string type)
+        {
+            return type switch
+            {
+                "rss" or "atom" or "rdf" or "feed" => true,
+                _ => false
+            };
+        }
+
+        /// <summary>
+        /// Processes a single feed outline element.
+        /// </summary>
         private async Task ProcessFeedOutlineAsync(string feedUrl, string title, string? siteUrl,
             string category, OpmlImportResult result, bool overwriteExisting)
         {
             try
             {
+                // Validate URL
+                if (!Uri.TryCreate(feedUrl, UriKind.Absolute, out _))
+                {
+                    result.Errors.Add($"Invalid URL format: {feedUrl}");
+                    return;
+                }
+
                 // Check if feed already exists
                 var existingFeed = await _feedService.GetFeedByUrlAsync(feedUrl);
 
@@ -345,17 +478,17 @@ namespace NeonSuit.RSSReader.Services
                 {
                     result.FeedsSkipped++;
                     result.Warnings.Add($"Feed already exists: {title} ({feedUrl})");
-                    _logger.Debug("Skipping existing feed: {Title}", title);
+                    _logger.Debug("Skipping existing feed: {Title} at {Url}", title, feedUrl);
                     return;
                 }
 
                 // Get or create category
                 var categoryModel = await _categoryService.GetOrCreateCategoryAsync(category);
 
-                // Create or update feed
-                var feed = existingFeed ?? new Feed
+                // Prepare feed data
+                var feedData = new Feed
                 {
-                    Title = title,
+                    Title = string.IsNullOrWhiteSpace(title) ? "Untitled Feed" : title,
                     Url = feedUrl,
                     WebsiteUrl = siteUrl ?? feedUrl,
                     CategoryId = categoryModel.Id,
@@ -366,36 +499,42 @@ namespace NeonSuit.RSSReader.Services
 
                 if (existingFeed == null)
                 {
-                    var feedId = await _feedService.CreateFeedAsync(feed);
-                    feed.Id = feedId;
+                    // Create new feed
+                    var feedId = await _feedService.CreateFeedAsync(feedData);
                     result.FeedsImported++;
 
                     result.ImportedFeeds.Add(new ImportedFeedInfo
                     {
-                        Title = title,
+                        Title = feedData.Title,
                         Url = feedUrl,
                         Category = category,
                         FeedId = feedId,
                         WasNew = true
                     });
 
-                    _logger.Information("Imported new feed: {Title} to category {Category}", title, category);
+                    _logger.Information("Imported new feed: {Title} to category {Category}", feedData.Title, category);
                 }
                 else if (overwriteExisting)
                 {
-                    await _feedService.UpdateFeedAsync(feed);
+                    // Update existing feed
+                    existingFeed.Title = feedData.Title;
+                    existingFeed.WebsiteUrl = feedData.WebsiteUrl;
+                    existingFeed.CategoryId = categoryModel.Id;
+                    existingFeed.LastUpdated = DateTime.UtcNow;
+
+                    await _feedService.UpdateFeedAsync(existingFeed);
                     result.FeedsImported++;
 
                     result.ImportedFeeds.Add(new ImportedFeedInfo
                     {
-                        Title = title,
+                        Title = feedData.Title,
                         Url = feedUrl,
                         Category = category,
                         FeedId = existingFeed.Id,
                         WasNew = false
                     });
 
-                    _logger.Information("Updated existing feed: {Title}", title);
+                    _logger.Information("Updated existing feed: {Title}", feedData.Title);
                 }
             }
             catch (Exception ex)
@@ -405,12 +544,18 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
+        /// <summary>
+        /// Adds a feed as an outline element to the parent XML element.
+        /// </summary>
         private void AddFeedToOutline(XElement parent, Feed feed)
         {
-            var outline = new XElement("outline",
+            if (parent == null) throw new ArgumentNullException(nameof(parent));
+            if (feed == null) throw new ArgumentNullException(nameof(feed));
+
+            var outline = new XElement(_emptyNs + "outline",
                 new XAttribute("type", "rss"),
-                new XAttribute("text", feed.Title),
-                new XAttribute("title", feed.Title),
+                new XAttribute("text", feed.Title ?? "Untitled"),
+                new XAttribute("title", feed.Title ?? "Untitled"),
                 new XAttribute("xmlUrl", feed.Url),
                 new XAttribute("htmlUrl", feed.WebsiteUrl ?? feed.Url),
                 new XAttribute("description", feed.Description ?? "")
@@ -420,13 +565,17 @@ namespace NeonSuit.RSSReader.Services
             if (!string.IsNullOrEmpty(feed.Language))
                 outline.Add(new XAttribute("language", feed.Language));
 
-            if (feed.UpdateFrequency == FeedUpdateFrequency.Manual)
+            // Add update frequency if not default
+            if (feed.UpdateFrequency != FeedUpdateFrequency.EveryHour)
             {
-                outline.Add(new XAttribute("updateFrequency", "Manual"));
-            }
-            else
-            {
-                outline.Add(new XAttribute("updateFrequency", (int)feed.UpdateFrequency));
+                if (feed.UpdateFrequency == FeedUpdateFrequency.Manual)
+                {
+                    outline.Add(new XAttribute("updateFrequency", "0"));
+                }
+                else
+                {
+                    outline.Add(new XAttribute("updateFrequency", (int)feed.UpdateFrequency));
+                }
             }
 
             parent.Add(outline);

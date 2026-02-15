@@ -533,13 +533,21 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
         public async Task UpdateAsync_WithNonExistingLog_ThrowsDbUpdateConcurrencyException()
         {
             // Arrange
-            var nonExistingLog = new NotificationLog { Id = 999, Title = "Non Existing" };
+            var nonExistentLog = new NotificationLog
+            {
+                Id = 999,
+                ArticleId = 1,
+                NotificationType = NotificationType.Banner,
+                SentAt = DateTime.UtcNow
+            };
 
-            // Act
-            Func<Task> act = async () => await _repository.UpdateAsync(nonExistingLog);
+            // Act & Assert
+            Func<Task> act = async () => await _repository.UpdateAsync(nonExistentLog);
 
-            // Assert
-            await act.Should().ThrowAsync<DbUpdateConcurrencyException>();
+            // ✅ Verificar que la excepción lanzada es DbUpdateException con inner exception de concurrencia
+            await act.Should().ThrowAsync<DbUpdateException>()
+                .Where(e => e.InnerException is DbUpdateConcurrencyException)
+                .WithMessage("*Failed to save changes affecting entities: NotificationLog*");
         }
 
         #endregion

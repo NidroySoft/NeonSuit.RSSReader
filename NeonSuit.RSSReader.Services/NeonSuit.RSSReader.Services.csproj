@@ -13,7 +13,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="CodeHollow.FeedReader" Version="1.2.6" />
-		<PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
 	</ItemGroup>
 
 </Project>

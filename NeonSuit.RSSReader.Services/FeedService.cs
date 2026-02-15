@@ -11,8 +11,9 @@ using System.Net.Sockets;
 namespace NeonSuit.RSSReader.Services
 {
     /// <summary>
-    /// Professional Feed Service.
-    /// Handles RSS synchronization and feed management with optimized batch inserts.
+    /// Professional implementation of the feed service providing comprehensive RSS feed management.
+    /// Handles feed CRUD operations, synchronization, health monitoring, and maintenance tasks
+    /// with full support for active/inactive feed filtering.
     /// </summary>
     public class FeedService : IFeedService
     {
@@ -22,11 +23,13 @@ namespace NeonSuit.RSSReader.Services
         private readonly ILogger _logger;
 
         /// <summary>
-        /// Initializes a new instance of the FeedService class.
+        /// Initializes a new instance of the <see cref="FeedService"/> class.
         /// </summary>
-        /// <param name="feedRepository">The feed repository.</param>
-        /// <param name="articleRepository">The article repository.</param>
-        /// <param name="feedParser">The RSS feed parser.</param>
+        /// <param name="feedRepository">The feed repository for data access operations.</param>
+        /// <param name="articleRepository">The article repository for article management.</param>
+        /// <param name="feedParser">The feed parser for RSS/Atom feed parsing.</param>
+        /// <param name="logger">The logger instance for diagnostic tracking.</param>
+        /// <exception cref="ArgumentNullException">Thrown when any dependency is null.</exception>
         public FeedService(
             IFeedRepository feedRepository,
             IArticleRepository articleRepository,
@@ -39,39 +42,32 @@ namespace NeonSuit.RSSReader.Services
             _logger = (logger ?? throw new ArgumentNullException(nameof(logger))).ForContext<FeedService>();
         }
 
-        /// <summary>
-        /// Retrieves all feeds from the database.
-        /// </summary>
-        /// <returns>A list of all feeds.</returns>
-        public async Task<List<Feed>> GetAllFeedsAsync()
+        #region Basic CRUD Operations
+
+        /// <inheritdoc />
+        public async Task<List<Feed>> GetAllFeedsAsync(bool includeInactive = false)
         {
             try
             {
-                _logger.Debug("Getting all feeds");
-                var feeds = await _feedRepository.GetAllAsync();
+                _logger.Debug("Retrieving all feeds (IncludeInactive: {IncludeInactive})", includeInactive);
+                var feeds = await _feedRepository.GetAllAsync(includeInactive);
                 _logger.Information("Retrieved {Count} feeds", feeds.Count);
                 return feeds;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error getting all feeds");
+                _logger.Error(ex, "Error retrieving all feeds");
                 throw;
             }
         }
 
-        /// <summary>
-        /// Retrieves a feed by its identifier.
-        /// </summary>
-        /// <param name="id">The feed identifier.</param>
-        /// <returns>The feed or null if not found.</returns>
-        public async Task<Feed?> GetFeedByIdAsync(int id)
+        /// <inheritdoc />
+        public async Task<Feed?> GetFeedByIdAsync(int id, bool includeInactive = false)
         {
             try
             {
-                _logger.Debug("Getting feed by ID: {FeedId}", id);
-
-                // ? USAR AsNoTracking() PARA NO CACHEAR
-                var feed = await _feedRepository.GetByIdNoTrackingAsync(id);
+                _logger.Debug("Retrieving feed by ID: {FeedId} (IncludeInactive: {IncludeInactive})", id, includeInactive);
+                var feed = await _feedRepository.GetByIdAsync(id, includeInactive);
 
                 if (feed == null)
                     _logger.Debug("Feed {FeedId} not found", id);
@@ -82,22 +78,12 @@ namespace NeonSuit.RSSReader.Services
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error getting feed by ID: {FeedId}", id);
+                _logger.Error(ex, "Error retrieving feed by ID: {FeedId}", id);
                 throw;
             }
         }
 
-
-
-        /// <summary>
-        /// Adds a new feed to the system with comprehensive network error handling.
-        /// </summary>  /// <summary>
-        /// Adds a new feed to the system.
-        /// </summary>
-        /// <param name="url">The feed URL.</param>
-        /// <param name="categoryId">Optional category identifier.</param>
-        /// <returns>The newly created feed.</returns>
-        /// <exception cref="InvalidOperationException">Thrown when feed already exists or cannot be parsed.</exception>
+        /// <inheritdoc />
         public async Task<Feed> AddFeedAsync(string url, int? categoryId = null)
         {
             try
@@ -151,20 +137,19 @@ namespace NeonSuit.RSSReader.Services
                 feed.IsActive = true;
                 feed.LastUpdated = DateTime.UtcNow;
                 feed.NextUpdateSchedule = DateTime.UtcNow.AddMinutes((int)FeedUpdateFrequency.EveryHour);
-
-                // ? IMPORTANTE: ASEGURAR QUE EL ID ES 0 PARA NUEVA ENTIDAD
                 feed.Id = 0;
 
                 await _feedRepository.InsertAsync(feed);
                 _logger.Information("Feed added successfully: {Title} ({Url})", feed.Title, url);
 
-                if (articles != null && articles.Any())
+                if (articles?.Any() == true)
                 {
                     articles.ForEach(a =>
                     {
                         a.FeedId = feed.Id;
-                        a.Id = 0; // ? NUEVA ENTIDAD
+                        a.Id = 0;
                     });
+
                     var insertedCount = await _articleRepository.InsertAllAsync(articles);
                     await UpdateFeedCountsAsync(feed.Id);
                     _logger.Information("Inserted {Count} initial articles for feed {FeedId}", insertedCount, feed.Id);
@@ -179,18 +164,154 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
-        /// <summary>
-        /// Refreshes a specific feed by downloading and parsing new articles.
-        /// Comprehensive network error handling with failure count management.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <returns>True if refresh succeeded, otherwise false.</returns>
+        /// <inheritdoc />
+        public async Task<bool> UpdateFeedAsync(Feed feed)
+        {
+            try
+            {
+                _logger.Debug("Updating feed {FeedId}: {Title}", feed.Id, feed.Title);
+                var result = await _feedRepository.UpdateAsync(feed);
+
+                if (result > 0)
+                {
+                    _logger.Information("Feed {FeedId} updated successfully", feed.Id);
+                }
+                else
+                {
+                    _logger.Warning("Feed {FeedId} not found for update", feed.Id);
+                }
+
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error updating feed {FeedId}", feed.Id);
+                throw;
+            }
+        }
+
+        /// <inheritdoc />
+        public async Task<bool> DeleteFeedAsync(int feedId)
+        {
+            try
+            {
+                _logger.Debug("Deleting feed {FeedId} and its articles", feedId);
+
+                var articlesDeleted = await _articleRepository.DeleteByFeedAsync(feedId);
+                _logger.Debug("Deleted {Count} articles for feed {FeedId}", articlesDeleted, feedId);
+
+                var feedDeleted = await _feedRepository.DeleteFeedDirectAsync(feedId);
+                _logger.Debug("Feed deletion returned: {Result}", feedDeleted);
+
+                if (feedDeleted > 0)
+                {
+                    _logger.Information("Feed {FeedId} and {ArticleCount} articles deleted successfully",
+                        feedId, articlesDeleted);
+                    return true;
+                }
+
+                _logger.Warning("Feed {FeedId} not found for deletion", feedId);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error deleting feed {FeedId}", feedId);
+                throw;
+            }
+        }
+
+        /// <inheritdoc />
+        public async Task<bool> FeedExistsAsync(string url)
+        {
+            try
+            {
+                _logger.Debug("Checking if feed exists: {Url}", url);
+                var exists = await _feedRepository.ExistsByUrlAsync(url);
+                _logger.Debug("Feed {Url} exists: {Exists}", url, exists);
+                return exists;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error checking if feed exists: {Url}", url);
+                throw;
+            }
+        }
+
+        /// <inheritdoc />
+        public async Task<Feed?> GetFeedByUrlAsync(string url, bool includeInactive = false)
+        {
+            try
+            {
+                _logger.Debug("Retrieving feed by URL: {Url} (IncludeInactive: {IncludeInactive})", url, includeInactive);
+                var result = await _feedRepository.GetByUrlAsync(url, includeInactive);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Failed to retrieve feed by URL: {Url}", url);
+                throw;
+            }
+        }
+
+        /// <inheritdoc />
+        public async Task<int> CreateFeedAsync(Feed feed)
+        {
+            if (feed == null)
+                throw new ArgumentNullException(nameof(feed));
+
+            if (string.IsNullOrWhiteSpace(feed.Url))
+                throw new ArgumentException("Feed URL cannot be empty", nameof(feed));
+
+            try
+            {
+                var existing = await GetFeedByUrlAsync(feed.Url, true);
+                if (existing != null)
+                    throw new InvalidOperationException($"Feed with URL '{feed.Url}' already exists");
+
+                var newFeed = new Feed
+                {
+                    Title = feed.Title,
+                    Url = feed.Url,
+                    WebsiteUrl = feed.WebsiteUrl,
+                    Description = feed.Description,
+                    CategoryId = feed.CategoryId,
+                    IsActive = feed.IsActive,
+                    UpdateFrequency = feed.UpdateFrequency,
+                    CreatedAt = feed.CreatedAt == default ? DateTime.UtcNow : feed.CreatedAt,
+                    LastUpdated = feed.LastUpdated ?? DateTime.UtcNow,
+                    IconUrl = feed.IconUrl,
+                    Language = feed.Language,
+                    ArticleRetentionDays = feed.ArticleRetentionDays,
+                    FailureCount = 0,
+                    TotalArticleCount = 0
+                };
+
+                var id = await _feedRepository.InsertAsync(newFeed);
+
+                feed.Id = id;
+
+                _logger.Information("Feed created successfully: {Title} (ID: {FeedId})", feed.Title, id);
+
+                return id;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Failed to create feed: {Title}", feed.Title);
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Feed Refresh and Synchronization
+
+        /// <inheritdoc />
         public async Task<bool> RefreshFeedAsync(int feedId)
         {
             try
             {
                 _logger.Debug("Refreshing feed {FeedId}", feedId);
-                var feed = await _feedRepository.GetByIdAsync(feedId);
+                var feed = await _feedRepository.GetByIdAsync(feedId, true); // Include inactive to refresh even inactive feeds
 
                 if (feed == null)
                 {
@@ -202,8 +323,6 @@ namespace NeonSuit.RSSReader.Services
                 try
                 {
                     newArticles = await _feedParser.ParseArticlesAsync(feed.Url, feedId);
-
-                    // Success - reset failure count
                     await _feedRepository.ResetFailureCountAsync(feedId);
                 }
                 catch (HttpRequestException ex)
@@ -263,17 +382,14 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
-        /// <summary>
-        /// Refreshes all active feeds that are due for update.
-        /// </summary>
-        /// <returns>The number of feeds successfully refreshed.</returns>
+        /// <inheritdoc />
         public async Task<int> RefreshAllFeedsAsync()
         {
             try
             {
                 _logger.Debug("Refreshing all feeds");
                 var feedsToUpdate = await _feedRepository.GetFeedsToUpdateAsync();
-                int updatedCount = 0;
+                var updatedCount = 0;
 
                 _logger.Information("Found {Count} feeds ready for update", feedsToUpdate.Count);
 
@@ -294,20 +410,16 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
-        /// <summary>
-        /// Refreshes feeds belonging to a specific category.
-        /// </summary>
-        /// <param name="categoryId">The category identifier.</param>
-        /// <returns>The number of feeds successfully refreshed.</returns>
+        /// <inheritdoc />
         public async Task<int> RefreshFeedsByCategoryAsync(int categoryId)
         {
             try
             {
                 _logger.Debug("Refreshing feeds for category {CategoryId}", categoryId);
-                var feeds = await _feedRepository.GetByCategoryAsync(categoryId);
-                int updatedCount = 0;
+                var feeds = await _feedRepository.GetByCategoryAsync(categoryId, true); // Include inactive to refresh all
+                var updatedCount = 0;
 
-                foreach (var feed in feeds.Where(f => f.IsActive))
+                foreach (var feed in feeds.Where(f => f.IsActive)) // Only refresh active feeds
                 {
                     if (await RefreshFeedAsync(feed.Id))
                         updatedCount++;
@@ -323,180 +435,172 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
-        /// <summary>
-        /// Updates an existing feed.
-        /// </summary>
-        /// <param name="feed">The feed to update.</param>
-        /// <returns>True if the update succeeded, otherwise false.</returns>
-        public async Task<bool> UpdateFeedAsync(Feed feed)
+        #endregion
+
+        #region Feed Management
+
+        /// <inheritdoc />
+        public async Task<bool> SetFeedActiveStatusAsync(int feedId, bool isActive)
         {
             try
             {
-                _logger.Debug("Updating feed {FeedId}: {Title}", feed.Id, feed.Title);
-                var result = await _feedRepository.UpdateAsync(feed);
+                _logger.Debug("Setting active status for feed {FeedId} to {IsActive}", feedId, isActive);
+                var result = await _feedRepository.SetActiveStatusAsync(feedId, isActive) > 0;
 
-                if (result > 0)
+                if (result)
                 {
-                    _logger.Information("Feed {FeedId} updated successfully", feed.Id);
+                    _logger.Information("Set active status for feed {FeedId} to {IsActive}", feedId, isActive);
                 }
                 else
                 {
-                    _logger.Warning("Feed {FeedId} not found for update", feed.Id);
+                    _logger.Warning("Feed {FeedId} not found for active status update", feedId);
                 }
 
-                return result > 0;
+                return result;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error updating feed {FeedId}", feed.Id);
+                _logger.Error(ex, "Error setting active status for feed {FeedId}", feedId);
                 throw;
             }
         }
 
-        /// <summary>
-        /// Deletes a feed and all its associated articles.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <returns>True if the deletion succeeded, otherwise false.</returns>
-        public async Task<bool> DeleteFeedAsync(int feedId)
+        /// <inheritdoc />
+        public async Task<bool> UpdateFeedCategoryAsync(int feedId, int? categoryId)
         {
             try
             {
-                _logger.Debug("Deleting feed {FeedId} and its articles", feedId);
+                _logger.Debug("Updating category for feed {FeedId} to {CategoryId}", feedId, categoryId);
+                var feed = await _feedRepository.GetByIdAsync(feedId, true); // Include inactive to update even inactive feeds
 
-                // ? 1. ELIMINAR ARTÍCULOS - YA FUNCIONA
-                var articlesDeleted = await _articleRepository.DeleteByFeedAsync(feedId);
-                _logger.Debug("Deleted {Count} articles for feed {FeedId}", articlesDeleted, feedId);
-
-                // ? 2. ELIMINAR FEED - FUERZA BRUTA CON NUEVO MÉTODO
-                var feedDeleted = await _feedRepository.DeleteFeedDirectAsync(feedId);
-                _logger.Debug("Feed deletion returned: {Result}", feedDeleted);
-
-                if (feedDeleted > 0)
+                if (feed == null)
                 {
-                    _logger.Information("Feed {FeedId} and {ArticleCount} articles deleted successfully",
-                        feedId, articlesDeleted);
-                    return true;
+                    _logger.Warning("Feed {FeedId} not found for category update", feedId);
+                    return false;
                 }
 
-                _logger.Warning("Feed {FeedId} not found for deletion", feedId);
-                return false;
+                feed.CategoryId = categoryId;
+                var result = await _feedRepository.UpdateAsync(feed) > 0;
+
+                if (result)
+                {
+                    _logger.Information("Updated category for feed {FeedId} to {CategoryId}", feedId, categoryId);
+                }
+
+                return result;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error deleting feed {FeedId}", feedId);
+                _logger.Error(ex, "Error updating category for feed {FeedId}", feedId);
                 throw;
             }
         }
 
-        /// <summary>
-        /// Checks if a feed with the specified URL already exists.
-        /// </summary>
-        /// <param name="url">The feed URL.</param>
-        /// <returns>True if the feed exists, otherwise false.</returns>
-        public async Task<bool> FeedExistsAsync(string url)
+        /// <inheritdoc />
+        public async Task<bool> UpdateFeedRetentionAsync(int feedId, int? retentionDays)
         {
             try
             {
-                _logger.Debug("Checking if feed exists: {Url}", url);
-                var exists = await _feedRepository.ExistsByUrlAsync(url);
-                _logger.Debug("Feed {Url} exists: {Exists}", url, exists);
-                return exists;
+                _logger.Debug("Updating retention days for feed {FeedId} to {RetentionDays}", feedId, retentionDays);
+                var feed = await _feedRepository.GetByIdAsync(feedId, true); // Include inactive to update even inactive feeds
+
+                if (feed == null)
+                {
+                    _logger.Warning("Feed {FeedId} not found for retention update", feedId);
+                    return false;
+                }
+
+                feed.ArticleRetentionDays = retentionDays;
+                var result = await _feedRepository.UpdateAsync(feed) > 0;
+
+                if (result)
+                {
+                    _logger.Information("Updated retention days for feed {FeedId} to {RetentionDays}", feedId, retentionDays);
+                }
+
+                return result;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error checking if feed exists: {Url}", url);
+                _logger.Error(ex, "Error updating retention days for feed {FeedId}", feedId);
                 throw;
             }
         }
 
-        /// <summary>
-        /// Gets unread article counts grouped by feed.
-        /// </summary>
-        /// <returns>A dictionary mapping feed IDs to unread counts.</returns>
+        #endregion
+
+        #region Health and Monitoring
+
+        /// <inheritdoc />
         public async Task<Dictionary<int, int>> GetUnreadCountsAsync()
         {
             try
             {
-                _logger.Debug("Getting unread counts by feed");
+                _logger.Debug("Retrieving unread counts by feed");
                 var counts = await _articleRepository.GetUnreadCountsByFeedAsync();
                 _logger.Debug("Retrieved unread counts for {Count} feeds", counts.Count);
                 return counts;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error getting unread counts by feed");
+                _logger.Error(ex, "Error retrieving unread counts by feed");
                 throw;
             }
         }
 
-        /// <summary>
-        /// Gets total article counts grouped by feed.
-        /// </summary>
-        /// <returns>A dictionary mapping feed IDs to total article counts.</returns>
+        /// <inheritdoc />
         public async Task<Dictionary<int, int>> GetArticleCountsAsync()
         {
             try
             {
-                _logger.Debug("Getting article counts by feed");
-                var feeds = await _feedRepository.GetAllAsync();
+                _logger.Debug("Retrieving article counts by feed");
+                var feeds = await _feedRepository.GetAllAsync(true); // Include inactive for complete stats
                 var counts = feeds.ToDictionary(f => f.Id, f => f.TotalArticleCount);
                 _logger.Debug("Retrieved article counts for {Count} feeds", counts.Count);
                 return counts;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error getting article counts by feed");
+                _logger.Error(ex, "Error retrieving article counts by feed");
                 throw;
             }
         }
 
-        /// <summary>
-        /// Retrieves feeds with failure count above threshold.
-        /// </summary>
-        /// <param name="maxFailureCount">The maximum allowed failure count.</param>
-        /// <returns>A list of failed feeds.</returns>
+        /// <inheritdoc />
         public async Task<List<Feed>> GetFailedFeedsAsync(int maxFailureCount = 3)
         {
             try
             {
-                _logger.Debug("Getting failed feeds with threshold {MaxFailureCount}", maxFailureCount);
+                _logger.Debug("Retrieving failed feeds with threshold {MaxFailureCount}", maxFailureCount);
                 var feeds = await _feedRepository.GetFailedFeedsAsync(maxFailureCount);
                 _logger.Information("Found {Count} failed feeds", feeds.Count);
                 return feeds;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error getting failed feeds with threshold {MaxFailureCount}", maxFailureCount);
+                _logger.Error(ex, "Error retrieving failed feeds with threshold {MaxFailureCount}", maxFailureCount);
                 throw;
             }
         }
 
-        /// <summary>
-        /// Retrieves feeds with zero failures.
-        /// </summary>
-        /// <returns>A list of healthy feeds.</returns>
+        /// <inheritdoc />
         public async Task<List<Feed>> GetHealthyFeedsAsync()
         {
             try
             {
-                _logger.Debug("Getting healthy feeds");
+                _logger.Debug("Retrieving healthy feeds");
                 var feeds = await _feedRepository.GetHealthyFeedsAsync();
                 _logger.Information("Found {Count} healthy feeds", feeds.Count);
                 return feeds;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error getting healthy feeds");
+                _logger.Error(ex, "Error retrieving healthy feeds");
                 throw;
             }
         }
 
-        /// <summary>
-        /// Resets failure count for a specific feed.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <returns>True if the operation succeeded, otherwise false.</returns>
+        /// <inheritdoc />
         public async Task<bool> ResetFeedFailuresAsync(int feedId)
         {
             try
@@ -522,16 +626,13 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
-        /// <summary>
-        /// Gets feed health statistics.
-        /// </summary>
-        /// <returns>A dictionary mapping health status to count of feeds.</returns>
+        /// <inheritdoc />
         public async Task<Dictionary<FeedHealthStatus, int>> GetFeedHealthStatsAsync()
         {
             try
             {
-                _logger.Debug("Getting feed health statistics");
-                var feeds = await _feedRepository.GetAllAsync();
+                _logger.Debug("Retrieving feed health statistics");
+                var feeds = await _feedRepository.GetAllAsync(true); // Include inactive for complete stats
                 var stats = new Dictionary<FeedHealthStatus, int>
                 {
                     { FeedHealthStatus.Healthy, 0 },
@@ -550,17 +651,17 @@ namespace NeonSuit.RSSReader.Services
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error getting feed health statistics");
+                _logger.Error(ex, "Error retrieving feed health statistics");
                 throw;
             }
         }
 
-        /// <summary>
-        /// Searches for feeds by title, description, or URL.
-        /// </summary>
-        /// <param name="searchText">The search text.</param>
-        /// <returns>A list of matching feeds.</returns>
-        public async Task<List<Feed>> SearchFeedsAsync(string searchText)
+        #endregion
+
+        #region Search and Filtering
+
+        /// <inheritdoc />
+        public async Task<List<Feed>> SearchFeedsAsync(string searchText, bool includeInactive = false)
         {
             try
             {
@@ -570,8 +671,8 @@ namespace NeonSuit.RSSReader.Services
                     return new List<Feed>();
                 }
 
-                _logger.Debug("Searching feeds for: {SearchText}", searchText);
-                var feeds = await _feedRepository.SearchAsync(searchText);
+                _logger.Debug("Searching feeds for: {SearchText} (IncludeInactive: {IncludeInactive})", searchText, includeInactive);
+                var feeds = await _feedRepository.SearchAsync(searchText, includeInactive);
                 _logger.Information("Found {Count} feeds for search: {SearchText}", feeds.Count, searchText);
                 return feeds;
             }
@@ -582,106 +683,86 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
-        /// <summary>
-        /// Retrieves feeds belonging to a specific category.
-        /// </summary>
-        /// <param name="categoryId">The category identifier.</param>
-        /// <returns>A list of feeds in the category.</returns>
-        public async Task<List<Feed>> GetFeedsByCategoryAsync(int categoryId)
+        /// <inheritdoc />
+        public async Task<List<Feed>> GetFeedsByCategoryAsync(int categoryId, bool includeInactive = false)
         {
             try
             {
-                _logger.Debug("Getting feeds for category {CategoryId}", categoryId);
-                var feeds = await _feedRepository.GetByCategoryAsync(categoryId);
+                _logger.Debug("Retrieving feeds for category {CategoryId} (IncludeInactive: {IncludeInactive})", categoryId, includeInactive);
+                var feeds = await _feedRepository.GetByCategoryAsync(categoryId, includeInactive);
                 _logger.Debug("Found {Count} feeds for category {CategoryId}", feeds.Count, categoryId);
                 return feeds;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error getting feeds for category {CategoryId}", categoryId);
+                _logger.Error(ex, "Error retrieving feeds for category {CategoryId}", categoryId);
                 throw;
             }
         }
 
-        /// <summary>
-        /// Retrieves feeds that are not assigned to any category.
-        /// </summary>
-        /// <returns>A list of uncategorized feeds.</returns>
-        public async Task<List<Feed>> GetUncategorizedFeedsAsync()
+        /// <inheritdoc />
+        public async Task<List<Feed>> GetUncategorizedFeedsAsync(bool includeInactive = false)
         {
             try
             {
-                _logger.Debug("Getting uncategorized feeds");
-                var feeds = await _feedRepository.GetUncategorizedAsync();
+                _logger.Debug("Retrieving uncategorized feeds (IncludeInactive: {IncludeInactive})", includeInactive);
+                var feeds = await _feedRepository.GetUncategorizedAsync(includeInactive);
                 _logger.Debug("Found {Count} uncategorized feeds", feeds.Count);
                 return feeds;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error getting uncategorized feeds");
+                _logger.Error(ex, "Error retrieving uncategorized feeds");
                 throw;
             }
         }
 
-       
+        #endregion
 
-        /// <summary>
-        /// Gets the total article count for a specific feed.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <returns>The total article count.</returns>
+        #region Feed Properties
+
+        /// <inheritdoc />
         public async Task<int> GetTotalArticleCountAsync(int feedId)
         {
             try
             {
-                _logger.Debug("Getting total article count for feed {FeedId}", feedId);
-                var feed = await _feedRepository.GetByIdAsync(feedId);
+                _logger.Debug("Retrieving total article count for feed {FeedId}", feedId);
+                var feed = await _feedRepository.GetByIdAsync(feedId, true); // Include inactive for complete data
                 var count = feed?.TotalArticleCount ?? 0;
                 _logger.Debug("Total articles for feed {FeedId}: {Count}", feedId, count);
                 return count;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error getting total article count for feed {FeedId}", feedId);
+                _logger.Error(ex, "Error retrieving total article count for feed {FeedId}", feedId);
                 throw;
             }
         }
 
-        /// <summary>
-        /// Gets the unread article count for a specific feed.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <returns>The unread article count.</returns>
+        /// <inheritdoc />
         public async Task<int> GetUnreadCountByFeedAsync(int feedId)
         {
             try
             {
-                _logger.Debug("Getting unread count for feed {FeedId}", feedId);
+                _logger.Debug("Retrieving unread count for feed {FeedId}", feedId);
                 var count = await _articleRepository.GetUnreadCountByFeedAsync(feedId);
                 _logger.Debug("Unread articles for feed {FeedId}: {Count}", feedId, count);
                 return count;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error getting unread count for feed {FeedId}", feedId);
+                _logger.Error(ex, "Error retrieving unread count for feed {FeedId}", feedId);
                 throw;
             }
         }
 
-        /// <summary>
-        /// Updates specific properties of a feed.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <param name="title">Optional new title.</param>
-        /// <param name="description">Optional new description.</param>
-        /// <param name="websiteUrl">Optional new website URL.</param>
-        /// <returns>True if the update succeeded, otherwise false.</returns>
+        /// <inheritdoc />
         public async Task<bool> UpdateFeedPropertiesAsync(int feedId, string? title = null, string? description = null, string? websiteUrl = null)
         {
             try
             {
                 _logger.Debug("Updating properties for feed {FeedId}", feedId);
-                var feed = await _feedRepository.GetByIdAsync(feedId);
+                var feed = await _feedRepository.GetByIdAsync(feedId, true); // Include inactive to update even inactive feeds
 
                 if (feed == null)
                 {
@@ -709,113 +790,11 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
-        /// <summary>
-        /// Sets the active status of a feed.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <param name="isActive">The new active status.</param>
-        /// <returns>True if the update succeeded, otherwise false.</returns>
-        public async Task<bool> SetFeedActiveStatusAsync(int feedId, bool isActive)
-        {
-            try
-            {
-                _logger.Debug("Setting active status for feed {FeedId} to {IsActive}", feedId, isActive);
-                var result = await _feedRepository.SetActiveStatusAsync(feedId, isActive) > 0;
+        #endregion
 
-                if (result)
-                {
-                    _logger.Information("Set active status for feed {FeedId} to {IsActive}", feedId, isActive);
-                }
-                else
-                {
-                    _logger.Warning("Feed {FeedId} not found for active status update", feedId);
-                }
+        #region Maintenance
 
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error setting active status for feed {FeedId}", feedId);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Updates the category of a feed.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <param name="categoryId">The new category identifier (null for uncategorized).</param>
-        /// <returns>True if the update succeeded, otherwise false.</returns>
-        public async Task<bool> UpdateFeedCategoryAsync(int feedId, int? categoryId)
-        {
-            try
-            {
-                _logger.Debug("Updating category for feed {FeedId} to {CategoryId}", feedId, categoryId);
-                var feed = await _feedRepository.GetByIdAsync(feedId);
-
-                if (feed == null)
-                {
-                    _logger.Warning("Feed {FeedId} not found for category update", feedId);
-                    return false;
-                }
-
-                feed.CategoryId = categoryId;
-                var result = await _feedRepository.UpdateAsync(feed) > 0;
-
-                if (result)
-                {
-                    _logger.Information("Updated category for feed {FeedId} to {CategoryId}", feedId, categoryId);
-                }
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error updating category for feed {FeedId}", feedId);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Updates the article retention days for a feed.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <param name="retentionDays">The new retention days (null for default).</param>
-        /// <returns>True if the update succeeded, otherwise false.</returns>
-        public async Task<bool> UpdateFeedRetentionAsync(int feedId, int? retentionDays)
-        {
-            try
-            {
-                _logger.Debug("Updating retention days for feed {FeedId} to {RetentionDays}", feedId, retentionDays);
-                var feed = await _feedRepository.GetByIdAsync(feedId);
-
-                if (feed == null)
-                {
-                    _logger.Warning("Feed {FeedId} not found for retention update", feedId);
-                    return false;
-                }
-
-                feed.ArticleRetentionDays = retentionDays;
-                var result = await _feedRepository.UpdateAsync(feed) > 0;
-
-                if (result)
-                {
-                    _logger.Information("Updated retention days for feed {FeedId} to {RetentionDays}", feedId, retentionDays);
-                }
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error updating retention days for feed {FeedId}", feedId);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Cleans up old articles based on feed retention settings.
-        /// </summary>
-        /// <returns>The total number of articles deleted.</returns>
+        /// <inheritdoc />
         public async Task<int> CleanupOldArticlesAsync()
         {
             try
@@ -852,16 +831,13 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
-        /// <summary>
-        /// Updates article counts for all feeds.
-        /// </summary>
-        /// <returns>The number of feeds updated.</returns>
+        /// <inheritdoc />
         public async Task<int> UpdateAllFeedCountsAsync()
         {
             try
             {
                 _logger.Debug("Updating article counts for all feeds");
-                var feeds = await _feedRepository.GetAllAsync();
+                var feeds = await _feedRepository.GetAllAsync(true); // Include inactive to update all
                 var updatedCount = 0;
 
                 foreach (var feed in feeds)
@@ -880,8 +856,12 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
+        #endregion
+
+        #region Private Helpers
+
         /// <summary>
-        /// Updates article counts for a specific feed.
+        /// Updates the article counts for a specific feed.
         /// </summary>
         /// <param name="feedId">The feed identifier.</param>
         private async Task UpdateFeedCountsAsync(int feedId)
@@ -902,51 +882,6 @@ namespace NeonSuit.RSSReader.Services
             }
         }
 
-        public async Task<Feed?> GetFeedByUrlAsync(string url)
-        {
-            try
-            {
-                // Usar el repositorio que ya tiene este método
-                return await _feedRepository.GetByUrlAsync(url);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to get feed by URL: {Url}", url);
-                throw;
-            }
-        }
-
-        public async Task<int> CreateFeedAsync(Feed feed)
-        {
-            try
-            {
-                // Validaciones básicas
-                if (feed == null)
-                    throw new ArgumentNullException(nameof(feed));
-
-                if (string.IsNullOrWhiteSpace(feed.Url))
-                    throw new ArgumentException("Feed URL cannot be empty");
-
-                // Verificar si ya existe
-                var existing = await GetFeedByUrlAsync(feed.Url);
-                if (existing != null)
-                    throw new InvalidOperationException($"Feed with URL '{feed.Url}' already exists");
-
-                // Establecer valores por defecto si es necesario
-                if (feed.CreatedAt == default)
-                    feed.CreatedAt = DateTime.UtcNow;
-
-                if (feed.LastUpdated == null)
-                    feed.LastUpdated = DateTime.UtcNow;
-
-                // Insertar en la base de datos
-                return await _feedRepository.InsertAsync(feed);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to create feed: {Title}", feed?.Title);
-                throw;
-            }
-        }
+        #endregion
     }
 }

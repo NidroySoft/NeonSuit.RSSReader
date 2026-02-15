@@ -1,4 +1,3 @@
-using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using NeonSuit.RSSReader.Core.Interfaces.Database;
@@ -10,16 +9,12 @@ using System.Runtime.CompilerServices;
 
 namespace NeonSuit.RSSReader.Data.Database
 {
-    /// <summary>
-    /// Professional DbContext implementation using EF Core with SQLite.
-    /// Follows best practices for performance, maintainability, and robustness.
-    /// </summary>
     public class RssReaderDbContext : DbContext, IRssReaderDbContext
     {
         private readonly ILogger _logger;
         private bool _isDisposed;
 
-        #region DbSets with Proper Initialization
+        #region DbSets
 
         public DbSet<Category> Categories => Set<Category>();
         public DbSet<Feed> Feeds => Set<Feed>();
@@ -37,24 +32,16 @@ namespace NeonSuit.RSSReader.Data.Database
 
         #region Constructors
 
-        /// <summary>
-        /// Primary constructor for dependency injection.
-        /// Use this constructor in production and testing.
-        /// </summary>
         public RssReaderDbContext(DbContextOptions<RssReaderDbContext> options, ILogger logger)
             : base(options)
         {
             _logger = logger?.ForContext<RssReaderDbContext>()
                 ?? throw new ArgumentNullException(nameof(logger));
 
-            _logger.Information("EF Core DbContext initialized via Dependency Injection. Path: {DatabasePath}",
+            _logger.Information("EF Core DbContext initialized. Path: {DatabasePath}",
                 DatabasePath ?? "unknown");
         }
 
-        /// <summary>
-        /// Factory method for manual creation without dependency injection.
-        /// Prefer this over direct instantiation for better configuration consistency.
-        /// </summary>
         public static RssReaderDbContext Create(string dbPath, ILogger logger)
         {
             if (string.IsNullOrWhiteSpace(dbPath))
@@ -62,27 +49,6 @@ namespace NeonSuit.RSSReader.Data.Database
 
             var options = BuildOptions(dbPath);
             return new RssReaderDbContext(options, logger);
-        }
-
-        /// <summary>
-        /// Legacy constructor for backward compatibility.
-        /// Delegates to primary constructor to ensure consistent initialization.
-        /// </summary>
-        [Obsolete("Use the Create factory method instead for clarity and consistency.")]
-        public RssReaderDbContext(string dbPath, ILogger logger)
-            : this(BuildOptions(dbPath), logger)
-        {
-            _logger.Warning("Using deprecated constructor. Consider migrating to RssReaderDbContext.Create()");
-        }
-
-        /// <summary>
-        /// Legacy constructor without ILogger (avoid if possible).
-        /// </summary>
-        [Obsolete("Use the constructor with ILogger parameter or the Create factory method.")]
-        public RssReaderDbContext(DbContextOptions<RssReaderDbContext> options)
-            : this(options, Log.Logger?.ForContext<RssReaderDbContext>()
-                ?? throw new InvalidOperationException("Serilog.Log.Logger not configured. Use constructor with explicit ILogger."))
-        {
         }
 
         private static DbContextOptions<RssReaderDbContext> BuildOptions(string dbPath)
@@ -135,7 +101,7 @@ namespace NeonSuit.RSSReader.Data.Database
                 ConfigureValueConversions(modelBuilder);
                 ConfigureQueryFilters(modelBuilder);
 
-                _logger.Debug("EF Core model configuration completed successfully");
+                _logger.Debug("EF Core model configuration completed");
             }
             catch (Exception ex)
             {
@@ -153,9 +119,6 @@ namespace NeonSuit.RSSReader.Data.Database
 
         private static void ConfigureEntities(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ArticleTag>()
-                .HasKey(at => new { at.ArticleId, at.TagId });
-
             modelBuilder.Entity<RuleCondition>()
                 .Property(rc => rc.Order)
                 .IsRequired();
@@ -200,7 +163,6 @@ namespace NeonSuit.RSSReader.Data.Database
                     .HasMaxLength(9)
                     .IsRequired();
             });
-
         }
 
         private static void ConfigureIndexes(ModelBuilder modelBuilder)
@@ -276,11 +238,6 @@ namespace NeonSuit.RSSReader.Data.Database
                 .HasFilter("[RuleId] IS NOT NULL");
 
             modelBuilder.Entity<ArticleTag>()
-                .HasIndex(at => new { at.ArticleId, at.TagId })
-                .HasDatabaseName("IX_ArticleTag_Composite")
-                .IsUnique();
-
-            modelBuilder.Entity<ArticleTag>()
                 .HasIndex(at => at.TagId)
                 .HasDatabaseName("IX_ArticleTag_TagId");
 
@@ -331,7 +288,7 @@ namespace NeonSuit.RSSReader.Data.Database
                 .HasMany(r => r.Conditions)
                 .WithOne(rc => rc.Rule)
                 .HasForeignKey(rc => rc.RuleId)
-                .OnDelete(DeleteBehavior.Cascade);        
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
         private static void ConfigureValueConversions(ModelBuilder modelBuilder)
@@ -369,7 +326,7 @@ namespace NeonSuit.RSSReader.Data.Database
 
         public async Task EnsureDatabaseCreatedAsync(CancellationToken cancellationToken = default)
         {
-            _logger.Information("Ensuring database is created and optimized...");
+            _logger.Information("Ensuring database is created...");
             var stopwatch = Stopwatch.StartNew();
 
             try
@@ -378,8 +335,7 @@ namespace NeonSuit.RSSReader.Data.Database
                 await ApplySqliteOptimizationsAsync(cancellationToken);
 
                 stopwatch.Stop();
-                _logger.Information("Database ensured and optimized in {ElapsedMs}ms",
-                    stopwatch.ElapsedMilliseconds);
+                _logger.Information("Database ensured in {ElapsedMs}ms", stopwatch.ElapsedMilliseconds);
             }
             catch (Exception ex)
             {
@@ -398,11 +354,11 @@ namespace NeonSuit.RSSReader.Data.Database
                 await Database.ExecuteSqlRawAsync("PRAGMA temp_store = MEMORY;", cancellationToken);
                 await Database.ExecuteSqlRawAsync("PRAGMA mmap_size = 268435456;", cancellationToken);
 
-                _logger.Debug("SQLite performance optimizations applied");
+                _logger.Debug("SQLite optimizations applied");
             }
             catch (Exception ex)
             {
-                _logger.Warning(ex, "Some SQLite optimizations failed, continuing without them");
+                _logger.Warning(ex, "Some SQLite optimizations failed, continuing");
             }
         }
 
@@ -428,10 +384,6 @@ namespace NeonSuit.RSSReader.Data.Database
                     _logger.Error(ex, "Failed to apply migrations");
                     throw new InvalidOperationException("Failed to apply migrations", ex);
                 }
-            }
-            else
-            {
-                _logger.Debug("Database is up to date, no migrations to apply");
             }
         }
 
@@ -460,12 +412,8 @@ namespace NeonSuit.RSSReader.Data.Database
 
             try
             {
-                // VACUUM INTO no soporta parámetros SQL, pero validamos y escapamos el path
                 var safePath = backupPath.Replace("'", "''");
-
-                // Usar FormattableString para suppress warning (sabemos que es seguro por validación previa)
                 var sql = FormattableStringFactory.Create($"VACUUM INTO '{safePath}';");
-
                 await Database.ExecuteSqlAsync(sql, cancellationToken);
 
                 stopwatch.Stop();
@@ -511,7 +459,7 @@ namespace NeonSuit.RSSReader.Data.Database
 
         public async Task VacuumAsync(CancellationToken cancellationToken = default)
         {
-            _logger.Information("Running database vacuum to reclaim space...");
+            _logger.Information("Running database vacuum...");
             var stopwatch = Stopwatch.StartNew();
 
             try
@@ -544,7 +492,7 @@ namespace NeonSuit.RSSReader.Data.Database
                     NotificationCount = await NotificationLogs.CountAsync(cancellationToken)
                 };
 
-                _logger.Debug("Database statistics gathered successfully");
+                _logger.Debug("Database statistics gathered");
                 return stats;
             }
             catch (Exception ex)
@@ -564,13 +512,8 @@ namespace NeonSuit.RSSReader.Data.Database
         {
             if (isolationLevel != IsolationLevel.ReadCommitted && isolationLevel != IsolationLevel.Serializable)
             {
-                _logger.Warning("SQLite limited isolation level support. Requested {Requested}, using ReadCommitted",
-                    isolationLevel);
                 isolationLevel = IsolationLevel.ReadCommitted;
             }
-
-            _logger.Debug("Beginning database transaction with isolation level: {IsolationLevel}",
-                isolationLevel);
 
             return await Database.BeginTransactionAsync(isolationLevel, cancellationToken);
         }
@@ -582,7 +525,6 @@ namespace NeonSuit.RSSReader.Data.Database
         {
             if (Database.CurrentTransaction != null)
             {
-                _logger.Debug("Already within a transaction, executing action directly");
                 return await action();
             }
 
@@ -590,17 +532,12 @@ namespace NeonSuit.RSSReader.Data.Database
 
             try
             {
-                _logger.Debug("Executing action within new transaction");
                 var result = await action();
-
                 await transaction.CommitAsync(cancellationToken);
-                _logger.Debug("Transaction committed successfully");
-
                 return result;
             }
-            catch (Exception ex)
+            catch
             {
-                _logger.Error(ex, "Transaction failed, rolling back");
                 await transaction.RollbackAsync(cancellationToken);
                 throw;
             }
@@ -628,23 +565,19 @@ namespace NeonSuit.RSSReader.Data.Database
                     .ToListAsync(cancellationToken);
 
                 stopwatch.Stop();
-                _logger.Debug("Raw query executed in {ElapsedMs}ms. Rows returned: {RowCount}",
+                _logger.Debug("Raw query executed in {ElapsedMs}ms. Rows: {RowCount}",
                     stopwatch.ElapsedMilliseconds, result.Count);
 
                 return result;
             }
             catch (InvalidOperationException ex) when (ex.Message.Contains("is not part of the model"))
             {
-                stopwatch.Stop();
-                _logger.Error(ex, "Type {TypeName} is not a mapped entity", typeof(T).Name);
                 throw new InvalidOperationException(
-                    $"Type {typeof(T).Name} is not a mapped entity. Use only entity types with this method.",
-                    ex);
+                    $"Type {typeof(T).Name} is not a mapped entity. Use only entity types.", ex);
             }
             catch (Exception ex)
             {
-                stopwatch.Stop();
-                _logger.Error(ex, "Raw query failed after {ElapsedMs}ms", stopwatch.ElapsedMilliseconds);
+                _logger.Error(ex, "Raw query failed");
                 throw;
             }
         }
@@ -671,8 +604,7 @@ namespace NeonSuit.RSSReader.Data.Database
             }
             catch (Exception ex)
             {
-                stopwatch.Stop();
-                _logger.Error(ex, "SQL command failed after {ElapsedMs}ms", stopwatch.ElapsedMilliseconds);
+                _logger.Error(ex, "SQL command failed");
                 throw;
             }
         }
@@ -688,20 +620,7 @@ namespace NeonSuit.RSSReader.Data.Database
 
         public Task CloseAsync()
         {
-            _logger.Debug("CloseAsync called (connection pooling managed by EF Core)");
             return Task.CompletedTask;
-        }
-
-        [Obsolete("Use ExecuteInTransactionAsync instead for better type safety and error handling.")]
-        public Task ExecuteBatchAsync(Func<object, Task> action)
-        {
-            _logger.Warning("ExecuteBatchAsync is deprecated, use ExecuteInTransactionAsync instead");
-
-            return ExecuteInTransactionAsync(async () =>
-            {
-                await action(this);
-                return true;
-            });
         }
 
         #endregion
@@ -714,30 +633,13 @@ namespace NeonSuit.RSSReader.Data.Database
                 .Where(e => e.State is EntityState.Added or EntityState.Modified or EntityState.Deleted)
                 .ToList();
 
-            if (entries.Count != 0)
-            {
-                _logger.Debug("Saving {Count} changes to database", entries.Count);
-
-                if (_logger.IsEnabled(Serilog.Events.LogEventLevel.Verbose))
-                {
-                    foreach (var entry in entries.Where(e => e.State == EntityState.Added).Take(5))
-                    {
-                        _logger.Verbose("Adding entity: {EntityType}", entry.Entity.GetType().Name);
-                    }
-                }
-            }
-
             try
             {
                 return await base.SaveChangesAsync(cancellationToken);
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                throw;
-            }
             catch (DbUpdateException ex)
             {
-                _logger.Error(ex, "Failed to save changes to database");
+                _logger.Error(ex, "Failed to save changes");
 
                 var entityEntries = ex.Entries.Select(e => e.Entity.GetType().Name).Distinct();
                 throw new DbUpdateException(
@@ -750,10 +652,7 @@ namespace NeonSuit.RSSReader.Data.Database
         {
             try
             {
-                var canConnect = await Database.CanConnectAsync(cancellationToken);
-                _logger.Debug("Database connection test: {Result}",
-                    canConnect ? "Successful" : "Failed");
-                return canConnect;
+                return await Database.CanConnectAsync(cancellationToken);
             }
             catch (Exception ex)
             {
@@ -784,7 +683,7 @@ namespace NeonSuit.RSSReader.Data.Database
         {
             if (!_isDisposed)
             {
-                _logger?.Debug("Disposing DbContext synchronously");
+                _logger?.Debug("Disposing DbContext");
                 base.Dispose();
                 _isDisposed = true;
                 GC.SuppressFinalize(this);
@@ -803,7 +702,7 @@ namespace NeonSuit.RSSReader.Data.Database
                 }
                 catch (Exception ex)
                 {
-                    _logger?.Error(ex, "Error disposing DbContext asynchronously");
+                    _logger?.Error(ex, "Error disposing DbContext");
                     throw;
                 }
                 finally

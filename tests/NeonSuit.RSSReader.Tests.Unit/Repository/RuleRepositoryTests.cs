@@ -572,24 +572,29 @@ public class RuleRepositoryTests : IAsyncLifetime
     public async Task UpdateAsync_WithNonExistingRule_ThrowsDbUpdateConcurrencyException()
     {
         // Arrange
-        var nonExisting = new Rule
+        var nonExistentRule = new Rule
         {
-            Id = -9999,
-            Name = "Non Existing",
+            Id = 999,
+            Name = "Non-existent Rule",
             Target = RuleFieldTarget.Title,
             Operator = RuleOperator.Contains,
             Value = "test",
-            Scope = RuleScope.AllFeeds,
             IsEnabled = true,
-            ActionType = RuleActionType.MarkAsRead
+            Priority = 100,
+            ActionType = RuleActionType.MarkAsRead,
+            Scope = RuleScope.AllFeeds,
+            CreatedAt = DateTime.UtcNow,
+            LastModified = DateTime.UtcNow
         };
 
-        // Act
-        Func<Task> act = async () => await _repository.UpdateAsync(nonExisting);
+        // Act & Assert
+        Func<Task> act = async () => await _repository.UpdateAsync(nonExistentRule);
 
-        // Assert
-        await act.Should().ThrowAsync<DbUpdateConcurrencyException>();
+        await act.Should().ThrowAsync<DbUpdateException>()
+            .Where(e => e.InnerException is DbUpdateConcurrencyException)
+            .WithMessage("*Failed to save changes affecting entities: Rule*");
     }
+
 
     #endregion
 

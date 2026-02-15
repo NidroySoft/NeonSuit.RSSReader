@@ -416,6 +416,10 @@ namespace NeonSuit.RSSReader.Services
                 if (existing != null)
                     return existing;
 
+                // ? SOLUCIÓN: Limpiar el ChangeTracker ANTES de insertar categoría nueva
+                // Esto elimina cualquier feed trackeado que esté causando conflicto
+                _categoryRepository.ClearChangeTracker(); // ? Necesitamos este método
+
                 // Crear nueva categoría
                 var category = new Category
                 {
@@ -425,10 +429,9 @@ namespace NeonSuit.RSSReader.Services
                     CreatedAt = DateTime.UtcNow
                 };
 
-                var id = await _categoryRepository.InsertAsync(category);
-                category.Id = id;
+                await _categoryRepository.InsertAsync(category);
 
-                _logger.Information("Created new category: {CategoryName} (ID: {CategoryId})", name, id);
+                _logger.Information("Created new category: {CategoryName} (ID: {CategoryId})", name, category.Id);
                 return category;
             }
             catch (Exception ex)

@@ -36,6 +36,63 @@ public class ServiceFactory
         return _currentDbContext;
     }
 
+    /// <summary>
+    /// Crea un FeedService con DbContext NUEVO en cada llamada.
+    /// Útil para pruebas que requieren aislamiento total.
+    /// </summary>
+    public IFeedService CreateFreshFeedService()
+    {
+        var dbContext = _dbFixture.CreateNewDbContext(); // ✅ SIEMPRE NUEVO
+
+        var feedRepo = new FeedRepository(dbContext, _dbFixture.Logger);
+        var articleRepo = new ArticleRepository(dbContext, _dbFixture.Logger);
+        var parser = new RssFeedParser(_dbFixture.Logger);
+
+        return new FeedService(feedRepo, articleRepo, parser, _dbFixture.Logger);
+    }
+
+    /// <summary>
+    /// Crea un CategoryService con DbContext NUEVO en cada llamada.
+    /// Útil para pruebas que requieren aislamiento total.
+    /// </summary>
+    public ICategoryService CreateFreshCategoryService()
+    {
+        var dbContext = _dbFixture.CreateNewDbContext(); // ✅ SIEMPRE NUEVO
+
+        var categoryRepo = new CategoryRepository(dbContext, _dbFixture.Logger);
+        var feedRepo = new FeedRepository(dbContext, _dbFixture.Logger);
+
+        return new CategoryService(categoryRepo, feedRepo, _dbFixture.Logger);
+    }
+
+    /// <summary>
+    /// Crea un ArticleService con DbContext NUEVO en cada llamada.
+    /// </summary>
+    public IArticleService CreateFreshArticleService()
+    {
+        var dbContext = _dbFixture.CreateNewDbContext(); // ✅ SIEMPRE NUEVO
+
+        var articleRepo = new ArticleRepository(dbContext, _dbFixture.Logger);
+        var feedRepo = new FeedRepository(dbContext, _dbFixture.Logger);
+
+        return new ArticleService(articleRepo, feedRepo, _dbFixture.Logger);
+    }
+
+    /// <summary>
+    /// Crea un OpmlService con servicios FRESCOS (DbContext nuevos).
+    /// </summary>
+    public IOpmlService CreateFreshOpmlService()
+    {
+        return new OpmlService(
+            CreateFreshFeedService(),
+            CreateFreshCategoryService(),
+            _dbFixture.Logger);
+    }
+
+    // ===== MÉTODOS ORIGINALES (con DbContext compartido) =====
+    // Se mantienen para compatibilidad con pruebas existentes
+    // pero las nuevas pruebas deberían usar los métodos Fresh
+
     public IFeedService CreateFeedService()
     {
         var dbContext = GetDbContext();

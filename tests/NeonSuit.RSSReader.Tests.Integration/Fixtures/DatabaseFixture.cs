@@ -21,6 +21,7 @@ namespace NeonSuit.RSSReader.Tests.Integration.Fixtures
         public RssReaderDbContext CreateNewDbContext()
         {
             var dbPath = $"testdb_{Guid.NewGuid():N}.db"; // ✅ NUEVO GUID CADA VEZ
+
             Logger.Debug("Creating new database: {Path}", dbPath);
 
             var connection = new SqliteConnection($"DataSource={dbPath}");

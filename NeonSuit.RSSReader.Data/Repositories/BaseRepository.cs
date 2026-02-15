@@ -23,7 +23,9 @@ namespace NeonSuit.RSSReader.Data.Repositories
 
         public virtual async Task<List<T>> GetAllAsync()
         {
-            return await _dbSet.AsNoTracking().ToListAsync();
+            var result = await _dbSet.AsNoTracking().ToListAsync();
+
+            return result;
         }
 
         public virtual async Task<T?> GetByIdAsync(int id)
@@ -42,7 +44,33 @@ namespace NeonSuit.RSSReader.Data.Repositories
         public virtual async Task<int> InsertAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
-            return await _context.SaveChangesAsync();
+            var rowsAffected = await _context.SaveChangesAsync();
+
+            // ? Buscar la propiedad Id
+            var idProperty = entity.GetType().GetProperty("Id");
+            if (idProperty != null)
+            {
+                var id = idProperty.GetValue(entity);
+
+                // Si el ID es 0 pero rowsAffected = 1, forzar la recarga
+                if (id is int intId && intId == 0 && rowsAffected == 1)
+                {
+                    // Opción 1: Recargar la entidad
+                    await _context.Entry(entity).ReloadAsync();
+                    id = idProperty.GetValue(entity);
+
+                    // Opción 2: Si sigue siendo 0, devolver rowsAffected
+                    if (id is int reloadedId && reloadedId > 0)
+                        return reloadedId;
+                }
+                else if (id is int validId && validId > 0)
+                {
+                    return validId;
+                }
+            }
+
+            // Fallback: devolver filas afectadas (1)
+            return rowsAffected;
         }
 
         public virtual async Task<int> UpdateAsync(T entity)
@@ -356,6 +384,11 @@ namespace NeonSuit.RSSReader.Data.Repositories
             var type = typeof(T);
             var tableAttr = type.GetCustomAttribute<System.ComponentModel.DataAnnotations.Schema.TableAttribute>();
             return tableAttr?.Name ?? $"{type.Name}s";
+        }
+
+        public void ClearChangeTracker()
+        {
+            _context.ChangeTracker.Clear();
         }
     }
 }

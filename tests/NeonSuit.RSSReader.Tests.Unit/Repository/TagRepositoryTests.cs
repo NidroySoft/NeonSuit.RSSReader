@@ -710,18 +710,21 @@ public class TagRepositoryTests : IAsyncLifetime
     public async Task UpdateAsync_WithNonExistingTag_ThrowsDbUpdateConcurrencyException()
     {
         // Arrange
-        var nonExisting = new Tag
+        var nonExistentTag = new Tag
         {
-            Id = -9999,
-            Name = "Non Existing",
-            Color = "#ff5733"
+            Id = 999,
+            Name = "Non-existent Tag",
+            Color = "#FF5733",
+            Description = "This tag does not exist",
+            CreatedAt = DateTime.UtcNow
         };
 
-        // Act
-        Func<Task> act = async () => await _repository.UpdateAsync(nonExisting);
+        // Act & Assert
+        Func<Task> act = async () => await _repository.UpdateAsync(nonExistentTag);
 
-        // Assert
-        await act.Should().ThrowAsync<DbUpdateConcurrencyException>();
+        await act.Should().ThrowAsync<DbUpdateException>()
+            .Where(e => e.InnerException is DbUpdateConcurrencyException)
+            .WithMessage("*Failed to save changes affecting entities: Tag*");
     }
 
     #endregion
@@ -750,18 +753,21 @@ public class TagRepositoryTests : IAsyncLifetime
     public async Task DeleteAsync_WithNonExistingTag_ThrowsDbUpdateConcurrencyException()
     {
         // Arrange
-        var nonExisting = new Tag
+        var nonExistentTag = new Tag
         {
-            Id = -9999,
-            Name = "Non Existing",
-            Color = "#ff5733"
+            Id = 999,
+            Name = "Non-existent Tag",
+            Color = "#FF5733",
+            Description = "This tag does not exist",
+            CreatedAt = DateTime.UtcNow
         };
 
-        // Act
-        Func<Task> act = async () => await _repository.DeleteAsync(nonExisting);
+        // Act & Assert
+        Func<Task> act = async () => await _repository.DeleteAsync(nonExistentTag);
 
-        // Assert
-        await act.Should().ThrowAsync<DbUpdateConcurrencyException>();
+        await act.Should().ThrowAsync<DbUpdateException>()
+            .Where(e => e.InnerException is DbUpdateConcurrencyException)
+            .WithMessage("*Failed to save changes affecting entities: Tag*");
     }
 
     [Fact]

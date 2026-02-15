@@ -466,23 +466,23 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task UpdateAsync_WithNonExistingCondition_ThrowsDbUpdateConcurrencyException()
     {
         // Arrange
-        var nonExisting = new RuleCondition
+        var nonExistentCondition = new RuleCondition
         {
-            Id = -9999,
-            RuleId = -2001,
-            GroupId = 1,
-            Order = 1,
+            Id = 999,
+            RuleId = 1,
             Field = RuleFieldTarget.Title,
             Operator = RuleOperator.Contains,
             Value = "test",
-            Negate = false
+            Order = 1
         };
 
-        // Act
-        Func<Task> act = async () => await _repository.UpdateAsync(nonExisting);
+        // Act & Assert
+        var exception = await Assert.ThrowsAsync<DbUpdateException>(() =>
+            _repository.UpdateAsync(nonExistentCondition));
 
-        // Assert
-        await act.Should().ThrowAsync<DbUpdateConcurrencyException>();
+        // Assert - Verificar que el inner exception es de tipo DbUpdateConcurrencyException
+        exception.InnerException.Should().BeOfType<DbUpdateConcurrencyException>();
+        exception.InnerException?.Message.Should().Contain("expected to affect 1 row(s), but actually affected 0");
     }
 
     #endregion

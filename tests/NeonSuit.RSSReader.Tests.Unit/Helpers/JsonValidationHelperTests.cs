@@ -1,4 +1,5 @@
-﻿using NeonSuit.RSSReader.Core.Helpers;
+﻿using FluentAssertions;
+using NeonSuit.RSSReader.Core.Helpers;
 using System.Text.Json;
 
 namespace NeonSuit.RSSReader.Tests.Unit.Helpers;
@@ -46,12 +47,19 @@ public class JsonValidationHelperTests
     [Fact]
     public void EnsureValidJson_InvalidJson_ThrowsArgumentException()
     {
-        var ex = Assert.Throws<ArgumentException>(() =>
-            JsonValidationHelper.EnsureValidJson("[1,2,", "testField"));
+        // Arrange
+        var invalidJson = "{ invalid json }";
+        var fieldName = "testField";
 
-        Assert.Equal("testField", ex.ParamName);
-        Assert.Contains("JSON inválido", ex.Message);
-        Assert.IsAssignableFrom<JsonException>(ex.InnerException);
+        // Act
+        var exception = Record.Exception(() =>
+            JsonValidationHelper.EnsureValidJson(invalidJson, fieldName));
+
+        // Assert
+        exception.Should().NotBeNull();
+        exception.Should().BeOfType<ArgumentException>();
+        exception.Message.Should().Contain($"{fieldName} contains invalid JSON");
+        ((ArgumentException)exception).ParamName.Should().Be(fieldName);
     }
 
     [Fact]
@@ -67,16 +75,22 @@ public class JsonValidationHelperTests
 
         Assert.Null(exception);
     }
-
     [Fact]
     public void EnsureValidJson_ExpectIntArray_InvalidType_Throws()
     {
-        var ex = Assert.Throws<ArgumentException>(() =>
-            JsonValidationHelper.EnsureValidJson("{\"key\":1}", "test", expectIntArray: true));
+        // Arrange
+        var jsonArrayOfStrings = "[\"string1\", \"string2\"]";
+        var fieldName = "test";
 
-        Assert.Equal("test", ex.ParamName);
-        Assert.Contains("JSON inválido", ex.Message);
-        Assert.IsType<JsonException>(ex.InnerException);
+        // Act
+        var exception = Record.Exception(() =>
+            JsonValidationHelper.EnsureValidJson(jsonArrayOfStrings, fieldName, expectIntArray: true));
+
+        // Assert
+        exception.Should().NotBeNull();
+        exception.Should().BeOfType<ArgumentException>();
+        exception.Message.Should().Contain($"{fieldName} contains invalid JSON");
+        ((ArgumentException)exception).ParamName.Should().Be(fieldName);
     }
 
     [Fact]
@@ -93,14 +107,19 @@ public class JsonValidationHelperTests
 
         Assert.Null(exception);
     }
-
     [Fact]
     public void EnsureValidJson_Generic_InvalidJson_Throws()
     {
-        var ex = Assert.Throws<ArgumentException>(() =>
-            JsonValidationHelper.EnsureValidJson<List<int>>("[1,2,", "test"));
+        // Arrange
+        var invalidJson = "{ invalid json }";
+        var fieldName = "test";
 
-        Assert.Equal("test", ex.ParamName);
-        Assert.Contains("JSON inválido para tipo List", ex.Message);
+        // Act & Assert
+        var exception = Assert.Throws<ArgumentException>(() =>
+            JsonValidationHelper.EnsureValidJson<List<int>>(invalidJson, fieldName));
+
+       
+        exception.Message.Should().Contain("test contains invalid JSON for type List");
+        exception.ParamName.Should().Be("test");
     }
 }

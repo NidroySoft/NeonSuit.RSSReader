@@ -10,7 +10,7 @@ namespace NeonSuit.RSSReader.Core.Models
     public class ArticleTag
     {
         /// <summary>
-        /// Composite primary key: ArticleId + TagId
+        /// Unique identifier
         /// </summary>
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

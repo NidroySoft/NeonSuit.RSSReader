@@ -157,6 +157,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
         [Fact]
         public async Task InsertAsync_WithValidCategory_ShouldAddToDatabase()
         {
+            // Arrange
             var category = new Category
             {
                 Name = DEFAULT_CATEGORY_NAME,
@@ -166,18 +167,20 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
                 CreatedAt = DateTime.UtcNow
             };
 
+            // Act
             var result = await _repository.InsertAsync(category);
 
-            result.Should().Be(1);
+            // Assert - Ahora esperamos un ID > 0, no 1
+            result.Should().BeGreaterThan(0);
             category.Id.Should().BeGreaterThan(0);
 
             ClearEntityTracking();
+
             var retrieved = await _repository.GetByIdAsync(category.Id);
             retrieved.Should().NotBeNull();
             retrieved?.Name.Should().Be(DEFAULT_CATEGORY_NAME);
             retrieved?.Description.Should().Be(DEFAULT_DESCRIPTION);
         }
-
         /// <summary>
         /// Tests that GetByIdAsync returns an existing Category.
         /// </summary>

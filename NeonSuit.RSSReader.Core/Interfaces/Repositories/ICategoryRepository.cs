@@ -16,6 +16,18 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Repositories
         Task<Category?> GetByIdAsync(int id);
 
         /// <summary>
+        /// Clears the Entity Framework ChangeTracker.
+        /// Use with caution - only in specific scenarios like bulk imports.
+        /// </summary>
+        void ClearChangeTracker();
+
+        /// <summary>
+        /// Detaches a category entity from the change tracker by ID.
+        /// </summary>
+        /// <param name="id">The ID of the category to detach.</param>
+        Task DetachEntityAsync(int id);
+
+        /// <summary>
         /// Retrieves all categories from the database.
         /// </summary>
         /// <returns>A list of all categories.</returns>
