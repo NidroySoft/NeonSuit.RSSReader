@@ -134,4 +134,25 @@ public class ServiceFactory
 
         return new RuleService(ruleRepo, articleRepo, feedRepo, _dbFixture.Logger);
     }
+
+    /// <summary>
+    /// Creates a fresh instance of ISettingsService with a new DbContext.
+    /// </summary>
+    public ISettingsService CreateSettingsService()
+    {
+        var dbContext = _dbFixture.CreateNewDbContext();
+        var settingsRepo = new UserPreferencesRepository(dbContext, _dbFixture.Logger);
+        return new SettingsService(settingsRepo, _dbFixture.Logger);
+    }
+
+    /// <summary>
+    /// Creates a fresh instance of ITagService with a new DbContext.
+    /// </summary>
+    public ITagService CreateTagService()
+    {
+        var dbContext = _dbFixture.CreateNewDbContext();
+        var tagRepo = new TagRepository(dbContext, _dbFixture.Logger);
+        var articleTagRepo = new ArticleTagRepository(dbContext, _dbFixture.Logger);
+        return new TagService(tagRepo, _dbFixture.Logger);
+    }
 }

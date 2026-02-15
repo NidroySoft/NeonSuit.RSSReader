@@ -1,11 +1,9 @@
 ﻿using FluentAssertions;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
 using NeonSuit.RSSReader.Core.Enums;
 using NeonSuit.RSSReader.Core.Interfaces.Services;
 using NeonSuit.RSSReader.Core.Models;
 using NeonSuit.RSSReader.Tests.Integration.Factories;
 using NeonSuit.RSSReader.Tests.Integration.Fixtures;
-using System.Diagnostics;
 using System.Text.RegularExpressions;
 using Xunit.Abstractions;
 

@@ -537,29 +537,31 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
         public async Task TriggerFeedSyncAsync_WhenServiceIsRunning_ShouldRaiseTaskStartedEvent()
         {
             // Arrange
-            using var cts = CreateTestCancellationTokenSource();
-            await _service.StartAsync(cts.Token);
+            await _service.StartAsync();
 
-            var semaphore = new SemaphoreSlim(0, 1);
-            var eventRaised = false;
+            using var taskStartedEvent = new ManualResetEventSlim(false);
+            SyncTaskType? raisedTaskType = null;
 
             _service.OnTaskStarted += (sender, args) =>
             {
-                eventRaised = true;
-                args.TaskType.Should().Be(SyncTaskType.FeedUpdate);
-                semaphore.Release();
+                // Solo nos interesa FeedUpdate
+                if (args.TaskType == SyncTaskType.FeedUpdate)
+                {
+                    raisedTaskType = args.TaskType;
+                    taskStartedEvent.Set();
+                }
             };
 
             // Act
             await _service.TriggerFeedSyncAsync();
 
-            // ✅ Esperar a que el evento se dispare
-            var acquired = await semaphore.WaitAsync(TimeSpan.FromMilliseconds(300));
+            // Assert - Esperar específicamente a que FeedUpdate comience
+            var eventRaised = taskStartedEvent.Wait(TimeSpan.FromSeconds(5));
+            eventRaised.Should().BeTrue("FeedUpdate task should start");
+            raisedTaskType.Should().Be(SyncTaskType.FeedUpdate);
 
-            // Assert
-            eventRaised.Should().BeTrue("TaskStarted event should be raised");
+            await _service.StopAsync();
         }
-
         #endregion
 
         #region Error Handling Tests

@@ -1109,7 +1109,7 @@ public class RuleServiceTests
     [InlineData("")]
     [InlineData(" ")]
     [InlineData(null)]
-    public async Task ValidateRuleAsync_WithInvalidName_ShouldReturnFalse(string ruleName)
+    public async Task ValidateRuleAsync_WithInvalidName_ShouldReturnFalse(string? ruleName)
     {
         var rule = CreateTestRule(name: ruleName!);
         var result = await _ruleService.ValidateRuleAsync(rule);
