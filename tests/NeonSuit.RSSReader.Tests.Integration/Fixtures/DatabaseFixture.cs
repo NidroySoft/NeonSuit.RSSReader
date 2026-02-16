@@ -20,11 +20,11 @@ namespace NeonSuit.RSSReader.Tests.Integration.Fixtures
         // ✅ NUEVO - CADA LLAMADA genera su PROPIO archivo único
         public RssReaderDbContext CreateNewDbContext()
         {
-            var dbPath = $"testdb_{Guid.NewGuid():N}.db"; // ✅ NUEVO GUID CADA VEZ
+            var connectionString = $"DataSource=file:memdb-{Guid.NewGuid():N}?mode=memory&cache=private";
 
-            Logger.Debug("Creating new database: {Path}", dbPath);
+            Logger.Debug("Creating new in-memory database with connection: {Connection}", connectionString);
 
-            var connection = new SqliteConnection($"DataSource={dbPath}");
+            var connection = new SqliteConnection(connectionString);
             connection.Open();
 
             var options = new DbContextOptionsBuilder<RssReaderDbContext>()
@@ -32,8 +32,12 @@ namespace NeonSuit.RSSReader.Tests.Integration.Fixtures
                 .Options;
 
             var context = new RssReaderDbContext(options, Logger);
-            context.Database.EnsureCreated();
-            context.Database.ExecuteSqlRawAsync("PRAGMA foreign_keys = OFF;").Wait();
+
+            // ✅ FORZAR eliminación y recreación para aplicar configuraciones
+            context.Database.EnsureDeleted(); // Asegura que no haya tablas viejas
+            context.Database.EnsureCreated(); // Recrea con la configuración ACTUAL
+
+            context.Database.ExecuteSqlRaw("PRAGMA foreign_keys = OFF;");
 
             return context;
         }

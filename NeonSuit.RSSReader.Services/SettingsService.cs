@@ -121,32 +121,70 @@ namespace NeonSuit.RSSReader.Services
         /// <inheritdoc />
         public async Task SetValueAsync(string key, string value)
         {
+            if (string.IsNullOrWhiteSpace(key))
+                throw new ArgumentNullException(nameof(key));
+
+            var safeValue = value ?? string.Empty;
+
             await EnsureCacheInitializedAsync().ConfigureAwait(false);
 
             await _cacheLock.WaitAsync().ConfigureAwait(false);
             try
             {
-                if (!PreferenceHelper.ValidateValue(key, value))
+                if (!PreferenceHelper.ValidateValue(key, safeValue))
                 {
-                    _logger.Warning("Invalid setting attempt: {Key} = {Value}", key, value);
+                    _logger.Warning("Invalid setting attempt: {Key} = {Value}", key, safeValue);
                     return;
                 }
 
-                await _repository.SetValueAsync(key, value).ConfigureAwait(false);
+                var existingPref = await _repository.GetByKeyAsync(key).ConfigureAwait(false);
+                var shouldRaiseEvent = false;
 
-                if (_cache.TryGetValue(key, out var cached))
+                if (existingPref == null)
                 {
-                    cached.Value = value;
-                    cached.LastModified = DateTime.UtcNow;
+                    // ✅ Nueva preferencia - siempre disparar evento
+                    var newPref = new UserPreferences
+                    {
+                        Key = key,
+                        Value = safeValue,
+                        LastModified = DateTime.UtcNow
+                    };
+
+                    await _repository.InsertAsync(newPref).ConfigureAwait(false);
+                    _cache[key] = newPref;
+                    shouldRaiseEvent = true;
                 }
                 else
                 {
-                    var updated = await _repository.GetByKeyAsync(key).ConfigureAwait(false);
-                    if (updated != null) _cache[key] = updated;
+                    // ✅ Solo disparar evento si el valor cambió realmente
+                    if (existingPref.Value != safeValue)
+                    {
+                        await _repository.SetValueAsync(key, safeValue).ConfigureAwait(false);
+                        shouldRaiseEvent = true;
+
+                        if (_cache.TryGetValue(key, out var cached))
+                        {
+                            cached.Value = safeValue;
+                            cached.LastModified = DateTime.UtcNow;
+                        }
+                        else
+                        {
+                            var updated = await _repository.GetByKeyAsync(key).ConfigureAwait(false);
+                            if (updated != null) _cache[key] = updated;
+                        }
+                    }
+                    else
+                    {
+                        _logger.Debug("Setting unchanged: {Key} = {Value} (no update)", key, safeValue);
+                    }
                 }
 
-                OnPreferenceChanged?.Invoke(this, new PreferenceChangedEventArgs(key, value));
-                _logger.Debug("Setting updated: {Key}", key);
+                // ✅ Disparar evento solo si shouldRaiseEvent es true
+                if (shouldRaiseEvent)
+                {
+                    OnPreferenceChanged?.Invoke(this, new PreferenceChangedEventArgs(key, safeValue));
+                    _logger.Debug("Setting updated: {Key} = {Value}", key, safeValue);
+                }
             }
             catch (Exception ex)
             {

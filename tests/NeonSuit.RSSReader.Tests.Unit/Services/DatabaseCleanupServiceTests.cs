@@ -624,11 +624,12 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
         public async Task UpdateConfigurationAsync_WithValidConfiguration_ShouldPersistAllSettings()
         {
             // Arrange
-            var config = new CleanupConfiguration
+            var newConfig = new CleanupConfiguration
             {
                 ArticleRetentionDays = 60,
-                KeepFavorites = false,
-                AutoCleanupEnabled = true,
+                KeepFavorites = false,               // se guarda en keep_favorite_articles
+                KeepUnread = true,                   // se guarda en keep_unread_articles
+                AutoCleanupEnabled = false,
                 MaxImageCacheSizeMB = 1000,
                 CleanupHourOfDay = 3,
                 CleanupDayOfWeek = DayOfWeek.Monday,
@@ -637,42 +638,48 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
             };
 
             // Act
-            await _service.UpdateConfigurationAsync(config);
+            await _service.UpdateConfigurationAsync(newConfig);
 
-            // Assert
-            _mockSettingsService.Verify(
-                x => x.SetIntAsync(PreferenceKeys.ArticleRetentionDays, 60),
-                Times.Once);
+            // Assert - Verificar que se llamaron los Set con las claves reales y valores correctos
+            _mockSettingsService.Verify(x => x.SetIntAsync(
+                PreferenceKeys.ArticleRetentionDays,
+                60), Times.Once());
 
-            _mockSettingsService.Verify(
-                x => x.SetBoolAsync(PreferenceKeys.KeepReadArticles, false),
-                Times.Once);
+            _mockSettingsService.Verify(x => x.SetBoolAsync(
+                PreferenceKeys.KeepFavoriteArticles,
+                false), Times.Once());
 
-            _mockSettingsService.Verify(
-                x => x.SetBoolAsync(PreferenceKeys.AutoCleanupEnabled, true),
-                Times.Once);
+            _mockSettingsService.Verify(x => x.SetBoolAsync(
+                PreferenceKeys.KeepUnreadArticles,
+                true), Times.Once());
 
-            _mockSettingsService.Verify(
-                x => x.SetIntAsync("image_cache_max_size_mb", 1000),
-                Times.Once);
+            _mockSettingsService.Verify(x => x.SetBoolAsync(
+                PreferenceKeys.AutoCleanupEnabled,
+                false), Times.Once());
 
-            _mockSettingsService.Verify(
-                x => x.SetIntAsync("cleanup_hour_of_day", 3),
-                Times.Once);
+            _mockSettingsService.Verify(x => x.SetIntAsync(
+                "image_cache_max_size_mb",
+                1000), Times.Once());
 
-            _mockSettingsService.Verify(
-                x => x.SetIntAsync("cleanup_day_of_week", (int)DayOfWeek.Monday),
-                Times.Once);
+            _mockSettingsService.Verify(x => x.SetIntAsync(
+                "cleanup_hour_of_day",
+                3), Times.Once());
 
-            _mockSettingsService.Verify(
-                x => x.SetBoolAsync("vacuum_after_cleanup", false),
-                Times.Once);
+            _mockSettingsService.Verify(x => x.SetIntAsync(
+                "cleanup_day_of_week",
+                (int)DayOfWeek.Monday), Times.Once());
 
-            _mockSettingsService.Verify(
-                x => x.SetBoolAsync("rebuild_indexes_after_cleanup", true),
-                Times.Once);
+            _mockSettingsService.Verify(x => x.SetBoolAsync(
+                "vacuum_after_cleanup",
+                false), Times.Once());
+
+            _mockSettingsService.Verify(x => x.SetBoolAsync(
+                "rebuild_indexes_after_cleanup",
+                true), Times.Once());
+
+            // Opcional: verificar que NO se llamó la clave vieja
+            _mockSettingsService.Verify(x => x.SetBoolAsync("keep_read_articles", It.IsAny<bool>()), Times.Never());
         }
-
         /// <summary>
         /// Verifies that exceptions during save are logged and re-thrown.
         /// </summary>

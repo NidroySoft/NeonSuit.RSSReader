@@ -140,7 +140,7 @@ public class ServiceFactory
     /// </summary>
     public ISettingsService CreateSettingsService()
     {
-        var dbContext = _dbFixture.CreateNewDbContext();
+        var dbContext = GetDbContext();
         var settingsRepo = new UserPreferencesRepository(dbContext, _dbFixture.Logger);
         return new SettingsService(settingsRepo, _dbFixture.Logger);
     }
@@ -153,6 +153,17 @@ public class ServiceFactory
         var dbContext = _dbFixture.CreateNewDbContext();
         var tagRepo = new TagRepository(dbContext, _dbFixture.Logger);
         var articleTagRepo = new ArticleTagRepository(dbContext, _dbFixture.Logger);
+        return new TagService(tagRepo, _dbFixture.Logger);
+    }
+
+    /// <summary>
+    /// Creates a fresh instance of ITagService with a NEW DbContext each time.
+    /// Único método que debe usarse en pruebas para evitar conflictos.
+    /// </summary>
+    public ITagService CreateFreshTagService()
+    {
+        var dbContext = _dbFixture.CreateNewDbContext(); // ✅ SIEMPRE NUEVO
+        var tagRepo = new TagRepository(dbContext, _dbFixture.Logger);
         return new TagService(tagRepo, _dbFixture.Logger);
     }
 }

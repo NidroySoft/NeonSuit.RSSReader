@@ -115,6 +115,7 @@ namespace NeonSuit.RSSReader.Data.Database
             modelBuilder.Entity<ArticleTag>().ToTable("ArticleTags");
             modelBuilder.Entity<RuleCondition>().ToTable("RuleConditions");
             modelBuilder.Entity<NotificationLog>().ToTable("NotificationLogs");
+            modelBuilder.Entity<UserPreferences>().ToTable("UserPreferences");
         }
 
         private static void ConfigureEntities(ModelBuilder modelBuilder)

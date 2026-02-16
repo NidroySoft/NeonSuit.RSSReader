@@ -157,7 +157,7 @@
         /// regardless of retention period.
         /// </summary>
         /// <value>true to keep unread articles; otherwise, false. Default is true.</value>
-        public bool KeepUnread { get; set; } = true;
+        public bool KeepUnread { get; set; } = true;       
 
         /// <summary>
         /// Gets or sets a value indicating whether automatic cleanup is enabled.

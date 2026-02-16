@@ -200,12 +200,17 @@ namespace NeonSuit.RSSReader.Services
                     configuration.ArticleRetentionDays);
 
                 await _settingsService.SetBoolAsync(
-                    PreferenceKeys.KeepReadArticles,
+                    PreferenceKeys.KeepFavoriteArticles,
                     configuration.KeepFavorites);
 
                 await _settingsService.SetBoolAsync(
                     PreferenceKeys.AutoCleanupEnabled,
                     configuration.AutoCleanupEnabled);
+
+                await _settingsService.SetBoolAsync(
+                    PreferenceKeys.KeepUnreadArticles,
+                    configuration.KeepUnread);
+
 
                 await _settingsService.SetIntAsync(
                     "image_cache_max_size_mb",
@@ -377,15 +382,19 @@ namespace NeonSuit.RSSReader.Services
                 {
                     ArticleRetentionDays = await _settingsService.GetIntAsync(
                         PreferenceKeys.ArticleRetentionDays,
-                        PreferenceDefaults.ArticleRetentionDays),
-
-                    KeepFavorites = await _settingsService.GetBoolAsync(
-                        PreferenceKeys.KeepReadArticles,
-                        PreferenceDefaults.KeepReadArticles > 0),
+                        PreferenceDefaults.ArticleRetentionDays),                  
 
                     AutoCleanupEnabled = await _settingsService.GetBoolAsync(
                         PreferenceKeys.AutoCleanupEnabled,
                         PreferenceDefaults.AutoCleanupEnabled),
+
+                    KeepFavorites = await _settingsService.GetBoolAsync(
+                        PreferenceKeys.KeepFavoriteArticles,
+                        PreferenceDefaults.KeepFavoriteArticles),
+
+                    KeepUnread = await _settingsService.GetBoolAsync(
+                        PreferenceKeys.KeepUnreadArticles,
+                        PreferenceDefaults.KeepUnreadArticles),
 
                     MaxImageCacheSizeMB = await _settingsService.GetIntAsync(
                         "image_cache_max_size_mb",

@@ -149,31 +149,46 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
 
             // Assert
             _mockRepository.Verify(x => x.SetValueAsync(key, value), Times.Once);
-            _mockLogger.Verify(x => x.Debug("Setting updated: {Key}", key), Times.Once);
         }
 
         [Fact]
-        public async Task SetValueAsync_WhenRepositoryThrows_ShouldPropagateException()
+        public async Task SetValueAsync_WhenValidationFails_ShouldLogWarningAndReturnEarly()
         {
             // Arrange
-            var key = "errorKey";
-            var value = "errorValue";
-            var expectedException = new InvalidOperationException("Test exception");
+            var key = "theme";
+            var invalidValue = "invalid-theme-value"; // asume que falla validación para Theme
+
+            // Act
+            await _service.SetValueAsync(key, invalidValue);
+
+            // Assert
+            _mockRepository.Verify(x => x.SetValueAsync(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+            _mockRepository.Verify(x => x.InsertAsync(It.IsAny<UserPreferences>()), Times.Never);
+
+            _mockLogger.Verify(x => x.Warning("Invalid setting attempt: {Key} = {Value}", key, invalidValue), Times.Once);
+        }
+
+        [Fact]
+        public async Task SetValueAsync_WhenRepositoryThrowsOnUpdate_ShouldPropagateAndLogError()
+        {
+            // Arrange
+            var key = PreferenceKeys.Theme; // clave que pasa validación
+            var value = PreferenceDefaults.Theme; // valor válido
+
+            var expectedException = new InvalidOperationException("Database error");
+
+            _mockRepository.Setup(x => x.GetByKeyAsync(key))
+                           .ReturnsAsync(new UserPreferences { Key = key, Value = "old" });
 
             _mockRepository.Setup(x => x.SetValueAsync(key, value))
-                          .ThrowsAsync(expectedException);
-
-            // Initialize cache
-            var initField = typeof(SettingsService).GetField("_isCacheInitialized",
-                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            initField?.SetValue(_service, true);
+                           .ThrowsAsync(expectedException);
 
             // Act & Assert
             await _service.Invoking(s => s.SetValueAsync(key, value))
                          .Should().ThrowAsync<InvalidOperationException>()
-                         .WithMessage("Test exception");
+                         .WithMessage("Database error");
 
-            _mockLogger.Verify(x => x.Error(expectedException, "Error updating setting {Key}.", key), Times.Once);
+            _mockLogger.Verify(x => x.Error(It.IsAny<Exception>(), "Error updating setting {Key}.", key), Times.Once);
         }
 
         [Fact]
@@ -504,96 +519,119 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
             result.Should().BeEquivalentTo(expectedDict);
             _mockRepository.Verify(x => x.GetAllCategorizedAsync(), Times.Once);
         }
-
         [Fact]
-        public async Task ResetToDefaultAsync_ShouldCallSetValueWithDefault()
+        public async Task ResetToDefaultAsync_ShouldCallSetValueWithDefault_WhenKeyExists()
         {
             // Arrange
             var key = "resetKey";
+            var defaultValue = ""; // lo que realmente retorna GetDefaultValue para claves desconocidas
 
-            _mockRepository.Setup(x => x.SetValueAsync(key, It.IsAny<string>()))
-                          .Returns(Task.CompletedTask)
-                          .Verifiable();
+            var existingPref = new UserPreferences { Key = key, Value = "oldValue" };
+            _mockRepository.Setup(x => x.GetByKeyAsync(key))
+                           .ReturnsAsync(existingPref);
 
-            // Initialize cache
-            var initField = typeof(SettingsService).GetField("_isCacheInitialized",
-                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            initField?.SetValue(_service, true);
+            _mockRepository.Setup(x => x.SetValueAsync(key, defaultValue))
+                           .Returns(Task.CompletedTask)
+                           .Verifiable();
 
             // Act
             await _service.ResetToDefaultAsync(key);
 
             // Assert
-            _mockRepository.Verify(x => x.SetValueAsync(key, It.IsAny<string>()), Times.Once);
+            _mockRepository.Verify(x => x.SetValueAsync(key, defaultValue), Times.Once);
+            _mockRepository.Verify(x => x.InsertAsync(It.IsAny<UserPreferences>()), Times.Never);
         }
 
         [Fact]
-        public async Task SetBoolAsync_ShouldCallSetValueWithStringRepresentation()
+        public async Task SetBoolAsync_ShouldCallInsertWhenKeyDoesNotExist()
         {
             // Arrange
             var key = "boolKey";
             bool value = true;
+            string expectedStringValue = "True";
 
-            _mockRepository.Setup(x => x.SetValueAsync(key, "True"))
-                          .Returns(Task.CompletedTask)
-                          .Verifiable();
+            // Simular que la clave NO existe
+            _mockRepository.Setup(x => x.GetByKeyAsync(key))
+                           .ReturnsAsync((UserPreferences?)null);
 
-            // Initialize cache
-            var initField = typeof(SettingsService).GetField("_isCacheInitialized",
-                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            initField?.SetValue(_service, true);
+            // Verificar que se llama InsertAsync con el valor correcto
+            _mockRepository.Setup(x => x.InsertAsync(It.Is<UserPreferences>(p =>
+                p.Key == key &&
+                p.Value == expectedStringValue &&
+                p.LastModified != default(DateTime)
+            ))).ReturnsAsync(1).Verifiable();
+
+            // NO configurar SetValueAsync aquí (porque no debe llamarse)
+            // Si quieres ser muy estricto, puedes verificar después que NO se llamó
 
             // Act
             await _service.SetBoolAsync(key, value);
 
             // Assert
-            _mockRepository.Verify(x => x.SetValueAsync(key, "True"), Times.Once);
+            _mockRepository.Verify(x => x.InsertAsync(It.IsAny<UserPreferences>()), Times.Once);
+
+            // Confirmar que NO se llamó SetValueAsync (esto es lo que querías probar)
+            _mockRepository.Verify(x => x.SetValueAsync(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+
+            // Opcional: verificar que el caché se actualizó
+            var cachedValue = await _service.GetValueAsync(key, "fallback");
+            cachedValue.Should().Be(expectedStringValue);
         }
 
         [Fact]
-        public async Task SetIntAsync_ShouldCallSetValueWithStringRepresentation()
+        public async Task SetIntAsync_ShouldCallInsertWhenKeyDoesNotExist()
         {
             // Arrange
             var key = "intKey";
             int value = 42;
+            string expectedStringValue = "42";  // ToString() por defecto
 
-            _mockRepository.Setup(x => x.SetValueAsync(key, "42"))
-                          .Returns(Task.CompletedTask)
-                          .Verifiable();
+            // Simular que la clave NO existe
+            _mockRepository.Setup(x => x.GetByKeyAsync(key))
+                           .ReturnsAsync((UserPreferences?)null);
 
-            // Initialize cache
-            var initField = typeof(SettingsService).GetField("_isCacheInitialized",
-                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            initField?.SetValue(_service, true);
+            // Verificar que se llama InsertAsync con el valor correcto
+            _mockRepository.Setup(x => x.InsertAsync(It.Is<UserPreferences>(p =>
+                p.Key == key &&
+                p.Value == expectedStringValue &&
+                p.LastModified != default(DateTime)
+            ))).ReturnsAsync(1).Verifiable();
 
             // Act
             await _service.SetIntAsync(key, value);
 
             // Assert
-            _mockRepository.Verify(x => x.SetValueAsync(key, "42"), Times.Once);
+            _mockRepository.Verify(x => x.InsertAsync(It.IsAny<UserPreferences>()), Times.Once());
+            _mockRepository.Verify(x => x.SetValueAsync(It.IsAny<string>(), It.IsAny<string>()), Times.Never());
+
+            // Opcional: verificar caché
+            var cachedValue = await _service.GetValueAsync(key, "fallback");
+            cachedValue.Should().Be(expectedStringValue);
         }
 
         [Fact]
-        public async Task SetDoubleAsync_ShouldCallSetValueWithStringRepresentation()
+        public async Task SetDoubleAsync_ShouldCallSetValueWhenKeyExists()
         {
             // Arrange
             var key = "doubleKey";
             double value = 3.14159;
+            string expectedStringValue = "3.14159";
 
-            _mockRepository.Setup(x => x.SetValueAsync(key, value.ToString()))
-                          .Returns(Task.CompletedTask)
-                          .Verifiable();
+            // Simular clave existente
+            var existing = new UserPreferences { Key = key, Value = "2.718" };
+            _mockRepository.Setup(x => x.GetByKeyAsync(key))
+                           .ReturnsAsync(existing);
 
-            // Initialize cache
-            var initField = typeof(SettingsService).GetField("_isCacheInitialized",
-                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            initField?.SetValue(_service, true);
+            _mockRepository.Setup(x => x.SetValueAsync(key, expectedStringValue))
+                           .Returns(Task.CompletedTask)
+                           .Verifiable();
 
             // Act
             await _service.SetDoubleAsync(key, value);
 
             // Assert
-            _mockRepository.Verify(x => x.SetValueAsync(key, value.ToString()), Times.Once);
+            _mockRepository.Verify(x => x.SetValueAsync(key, expectedStringValue), Times.Once());
+            _mockRepository.Verify(x => x.InsertAsync(It.IsAny<UserPreferences>()), Times.Never());
         }
 
         [Fact]

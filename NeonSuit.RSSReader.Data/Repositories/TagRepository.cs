@@ -214,22 +214,28 @@ namespace NeonSuit.RSSReader.Data.Repositories
         {
             try
             {
-                // ✅ Validar longitud del nombre con ParamName
+                // ✅ 1. Validaciones específicas de Tag
                 if (entity.Name?.Length > 50)
                     throw new ArgumentException($"Tag name cannot exceed 50 characters. Provided: {entity.Name.Length}", nameof(entity.Name));
 
-                // ✅ Validar nombre duplicado
+                // ✅ 2. Validar nombre duplicado (case insensitive)
                 var exists = await _dbSet
                     .AnyAsync(t => EF.Functions.Collate(t.Name, "NOCASE") == entity.Name);
 
                 if (exists)
                     throw new InvalidOperationException($"Tag with name '{entity.Name}' already exists.");
 
+                // ✅ 3. Validar y establecer color por defecto si es necesario
                 ValidateAndSetColor(entity);
-                entity.CreatedAt = DateTime.UtcNow;
 
-                await _dbSet.AddAsync(entity);
-                return await _context.SaveChangesAsync();
+                // ✅ 4. DELEGAR al BaseRepository que ya tiene toda la lógica compleja del ID
+                //    El base ya hace: AddAsync, SaveChangesAsync, recarga si ID=0, y retorna el ID correcto
+                var id = await base.InsertAsync(entity);
+
+                // ✅ 5. Log de éxito (opcional, el base ya debe tener su propio log)
+                _logger.Debug("Tag inserted successfully with ID: {TagId}", id);
+
+                return id;
             }
             catch (Exception ex)
             {

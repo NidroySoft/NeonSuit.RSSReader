@@ -126,6 +126,8 @@ namespace NeonSuit.RSSReader.Core.Models
         public const string ArticleRetentionDays = "article_retention_days"; // 0 = infinito
         public const string KeepReadArticles = "keep_read_articles"; // días
         public const string AutoCleanupEnabled = "auto_cleanup_enabled";
+        public const string KeepFavoriteArticles = "keep_favorite_articles";     // bool
+        public const string KeepUnreadArticles = "keep_unread_articles";       // bool
 
         // ===== SISTEMA DE REGLAS =====
         public const string RulesEnabled = "rules_enabled";
@@ -229,6 +231,8 @@ namespace NeonSuit.RSSReader.Core.Models
         public const double LineHeight = 1.5;
         public const bool NightMode = false;
         public const string NightModeSchedule = "manual";
+        public const bool KeepFavoriteArticles = true;
+        public const bool KeepUnreadArticles = true;
 
         // Navegación
         public const bool OpenLinksInApp = true;
@@ -411,6 +415,7 @@ namespace NeonSuit.RSSReader.Core.Models
                     PreferenceKeys.ProxyAddress,
                     PreferenceKeys.ProxyPort
                 },
+
                 ["Backup"] = new List<string>
                 {
                     PreferenceKeys.AutoBackupEnabled,
@@ -699,7 +704,9 @@ namespace NeonSuit.RSSReader.Core.Models
                     // ===== VALIDACIONES DE TEXTO GENERAL =====
                     var k when k == PreferenceKeys.ArticleFont =>
                         !string.IsNullOrEmpty(value) && value.Length <= 50,
-
+                    var k when k == PreferenceKeys.KeepFavoriteArticles ||
+                               k == PreferenceKeys.KeepUnreadArticles =>
+                        bool.TryParse(value, out _),
                     var k when k == PreferenceKeys.MarkAsReadShortcut ||
                                k == PreferenceKeys.NextArticleShortcut ||
                                k == PreferenceKeys.PrevArticleShortcut =>

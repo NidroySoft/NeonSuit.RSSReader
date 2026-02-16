@@ -1258,12 +1258,13 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
                               existingTag.Description = t.Description;
                           });
 
-            // Configurar logger para todas las operaciones
+            // ✅ Mock para GetByIdAsync (necesario para UpdateTagAsync)
+            _mockRepository.Setup(x => x.GetByIdAsync(1))
+                          .ReturnsAsync(existingTag);
+
             SetupCompleteMockLogger();
 
             var service = new TagService(_mockRepository.Object, _mockLogger.Object);
-
-            // Inicializar cache con el tag existente
             InitializeCacheWithTag(service, existingTag);
 
             // Act
@@ -1273,8 +1274,8 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
             result.Should().HaveCount(1);
             result[0].Description.Should().Be("Updated");
             result[0].Color.Should().Be("#ff0000");
+            result[0].Id.Should().Be(1); // Verificar que mantiene el ID original
 
-            // Verificar que se llamó a UpdateAsync
             _mockRepository.Verify(x => x.UpdateAsync(It.IsAny<Tag>()), Times.Once);
         }
 

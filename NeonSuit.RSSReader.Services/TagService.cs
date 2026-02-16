@@ -135,8 +135,8 @@ namespace NeonSuit.RSSReader.Services
             if (tag.Id <= 0)
                 throw new ArgumentException("Invalid tag ID.");
 
-            // Get existing tag to preserve some properties
-            var existingTag = await GetTagAsync(tag.Id);
+            // ✅ Obtener la entidad trackeada del repositorio (sin caché)
+            var existingTag = await _tagRepository.GetByIdAsync(tag.Id); // ← SIN AsNoTracking
             if (existingTag == null)
                 throw new KeyNotFoundException($"Tag with ID {tag.Id} not found.");
 
@@ -149,15 +149,23 @@ namespace NeonSuit.RSSReader.Services
 
             try
             {
-                await _tagRepository.UpdateAsync(tag);
+                // ✅ Actualizar las propiedades del existingTag (que SÍ está trackeado)
+                existingTag.Name = tag.Name;
+                existingTag.Description = tag.Description;
+                existingTag.Color = tag.Color;
+                existingTag.Icon = tag.Icon;
+                existingTag.IsPinned = tag.IsPinned;
+                existingTag.IsVisible = tag.IsVisible;
 
-                // Update cache
-                _tagCache[tag.Id] = tag;
+                await _tagRepository.UpdateAsync(existingTag); // ← Ahora sí funciona
 
-                // Raise event
-                OnTagChanged?.Invoke(this, new TagChangedEventArgs(tag.Id, tag.Name, TagChangeType.Updated));
+                // Update cache con el existingTag actualizado
+                _tagCache[tag.Id] = existingTag;
 
-                _logger.Debug("Tag updated: {TagName} (ID: {TagId})", tag.Name, tag.Id);
+                // Raise event (usar el nombre actualizado)
+                OnTagChanged?.Invoke(this, new TagChangedEventArgs(tag.Id, existingTag.Name, TagChangeType.Updated));
+
+                _logger.Debug("Tag updated: {TagName} (ID: {TagId})", existingTag.Name, tag.Id);
             }
             catch (Exception ex)
             {

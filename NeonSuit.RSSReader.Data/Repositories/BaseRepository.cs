@@ -383,7 +383,16 @@ namespace NeonSuit.RSSReader.Data.Repositories
         {
             var type = typeof(T);
             var tableAttr = type.GetCustomAttribute<System.ComponentModel.DataAnnotations.Schema.TableAttribute>();
-            return tableAttr?.Name ?? $"{type.Name}s";
+
+            if (tableAttr?.Name != null)
+                return tableAttr.Name;
+
+            // ? Si el nombre ya termina en 's', no agregues otra
+            if (type.Name.EndsWith("s", StringComparison.OrdinalIgnoreCase))
+                return type.Name;
+
+            // ? Si no, pluraliza agregando 's'
+            return $"{type.Name}s";
         }
 
         public void ClearChangeTracker()
