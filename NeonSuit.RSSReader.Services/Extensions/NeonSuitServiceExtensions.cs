@@ -1,13 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
 using NeonSuit.RSSReader.Core.Interfaces.Services;
 using NeonSuit.RSSReader.Data.Database;
 using NeonSuit.RSSReader.Data.Repositories;
 using NeonSuit.RSSReader.Services.FeedParser;
-using Serilog;
 
 namespace NeonSuit.RSSReader.Services.Extensions
 {
