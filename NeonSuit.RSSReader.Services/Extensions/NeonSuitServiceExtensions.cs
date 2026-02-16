@@ -1,11 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
 using NeonSuit.RSSReader.Core.Interfaces.Services;
 using NeonSuit.RSSReader.Data.Database;
 using NeonSuit.RSSReader.Data.Repositories;
 using NeonSuit.RSSReader.Services.FeedParser;
+using Serilog;
 
 namespace NeonSuit.RSSReader.Services.Extensions
 {
@@ -30,15 +32,41 @@ namespace NeonSuit.RSSReader.Services.Extensions
         /// </summary>
         /// <param name="services">The DI service collection.</param>
         /// <param name="dbPath">Path to the SQLite database file.</param>
+        /// <param name="configureOptions">Optional callback to configure DbContext options.</param>
         /// <returns>The updated service collection.</returns>
-        public static IServiceCollection AddNeonSuitBackend(this IServiceCollection services, string dbPath)
+        /// <exception cref="ArgumentNullException">Thrown when services is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when dbPath is null or empty.</exception>
+        public static IServiceCollection AddNeonSuitBackend(
+            this IServiceCollection services,
+            string dbPath,
+            Action<DbContextOptionsBuilder>? configureOptions = null)
         {
+            if (services == null)
+                throw new ArgumentNullException(nameof(services));
+
+            if (string.IsNullOrWhiteSpace(dbPath))
+                throw new ArgumentException("Database path cannot be null or empty", nameof(dbPath));
+
             // --- 0. Infrastructure and Context ---
             // Configure DbContext with SQLite
             services.AddDbContext<RssReaderDbContext>(options =>
-                options.UseSqlite($"Data Source={dbPath}")
-                       .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking),
-                ServiceLifetime.Singleton); // Singleton: one shared connection manager per application
+            {
+                options.UseSqlite($"Data Source={dbPath}", sqliteOptions =>
+                {
+                    sqliteOptions.CommandTimeout(30);
+                    sqliteOptions.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+                });
+
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+
+                // Apply custom configuration if provided
+                configureOptions?.Invoke(options);
+
+#if DEBUG
+                options.EnableDetailedErrors();
+                options.EnableSensitiveDataLogging(true);
+#endif
+            }, ServiceLifetime.Singleton); // Singleton: one shared connection manager per application
 
             // Register DbContext as a resolvable service
             services.AddSingleton(provider => provider.GetRequiredService<RssReaderDbContext>());
@@ -86,37 +114,40 @@ namespace NeonSuit.RSSReader.Services.Extensions
         /// </summary>
         /// <param name="services">The DI service collection.</param>
         /// <param name="configuration">Configuration provider.</param>
+        /// <param name="configureOptions">Optional callback to configure DbContext options.</param>
         /// <returns>The updated service collection.</returns>
-        public static IServiceCollection AddNeonSuitBackendWithConfiguration(
+        /// <exception cref="ArgumentNullException">Thrown when services or configuration is null.</exception>
+        public static IServiceCollection AddNeonSuitBackend(
             this IServiceCollection services,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            Action<DbContextOptionsBuilder>? configureOptions = null)
         {
+            if (services == null)
+                throw new ArgumentNullException(nameof(services));
+
+            if (configuration == null)
+                throw new ArgumentNullException(nameof(configuration));
+
             // Get connection string from configuration
             var dbPath = configuration.GetConnectionString("RssReaderDatabase")
                 ?? configuration["Database:Path"]
                 ?? "rssreader.db";
 
-            // Configure DbContext
-            services.AddDbContext<RssReaderDbContext>(options =>
-                options.UseSqlite($"Data Source={dbPath}")
-                       .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
-
-            // Register repositories and services (same as above)
-            return services.AddNeonSuitBackend(dbPath);
+            return services.AddNeonSuitBackend(dbPath, configureOptions);
         }
 
         /// <summary>
-        /// Adds support for SQLite migrations and ensures database is created.
+        /// Ensures database is created and migrations are applied.
+        /// Call this method after service registration in your application startup.
         /// </summary>
-        public static IServiceCollection AddNeonSuitDatabaseMigrations(this IServiceCollection services)
+        /// <param name="serviceProvider">The service provider.</param>
+        /// <returns>The service provider for chaining.</returns>
+        public static IServiceProvider UseNeonSuitDatabase(this IServiceProvider serviceProvider)
         {
-            using var scope = services.BuildServiceProvider().CreateScope();
+            using var scope = serviceProvider.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<RssReaderDbContext>();
-
-            // Apply any pending migrations
             context.Database.Migrate();
-
-            return services;
+            return serviceProvider;
         }
     }
 }
