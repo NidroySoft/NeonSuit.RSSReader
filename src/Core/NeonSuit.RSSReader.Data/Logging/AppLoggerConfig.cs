@@ -1,4 +1,4 @@
-﻿using NeonSuit.RSSReader.Core.Configuration;
+﻿using NeonSuit.RSSReader.Data.Configuration;
 using Serilog;
 using Serilog.Events;
 using System.Diagnostics;

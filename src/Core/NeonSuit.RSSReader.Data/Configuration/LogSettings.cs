@@ -3,7 +3,7 @@ using SQLite;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace NeonSuit.RSSReader.Core.Configuration
+namespace NeonSuit.RSSReader.Data.Configuration
 {
     /// <summary>
     /// Configuración del sistema de logging.
