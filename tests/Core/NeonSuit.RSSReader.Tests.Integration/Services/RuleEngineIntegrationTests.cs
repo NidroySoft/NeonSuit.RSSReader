@@ -31,7 +31,7 @@ public class RuleEngineIntegrationTests : IAsyncLifetime
     {
         _dbFixture = dbFixture;
         _logger = dbFixture.Logger;
-        _ruleEngine = new IRuleEngine(_logger);
+        _ruleEngine = new RuleEngine(_logger);
         _output = output;
 
         _factory = new ServiceFactory(_dbFixture);

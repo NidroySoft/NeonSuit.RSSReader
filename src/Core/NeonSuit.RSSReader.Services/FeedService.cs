@@ -4,7 +4,7 @@ using NeonSuit.RSSReader.Core.Interfaces.Repositories;
 using NeonSuit.RSSReader.Core.Interfaces.Services;
 using NeonSuit.RSSReader.Core.Models;
 using NeonSuit.RSSReader.Data.Logging;
-using NeonSuit.RSSReader.Services.FeedParser;
+using NeonSuit.RSSReader.Services.RssFeedParser;
 using Serilog;
 using System.Net.Sockets;
 
@@ -19,7 +19,7 @@ namespace NeonSuit.RSSReader.Services
     {
         private readonly IFeedRepository _feedRepository;
         private readonly IArticleRepository _articleRepository;
-        private readonly IFeedParser _feedParser;
+        private readonly IRssFeedParser _feedParser;
         private readonly ILogger _logger;
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace NeonSuit.RSSReader.Services
         public FeedService(
             IFeedRepository feedRepository,
             IArticleRepository articleRepository,
-            IFeedParser feedParser,
+            IRssFeedParser feedParser,
             ILogger logger)
         {
             _feedRepository = feedRepository ?? throw new ArgumentNullException(nameof(feedRepository));

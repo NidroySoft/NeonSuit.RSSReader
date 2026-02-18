@@ -16,7 +16,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
     {
         private readonly Mock<IFeedRepository> _mockFeedRepository;
         private readonly Mock<IArticleRepository> _mockArticleRepository;
-        private readonly Mock<IFeedParser> _mockFeedParser;
+        private readonly Mock<IRssFeedParser> _mockFeedParser;
         private readonly Mock<ILogger> _mockLogger;
         private readonly IFeedService _service;
 
@@ -24,7 +24,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
         {
             _mockFeedRepository = new Mock<IFeedRepository>();
             _mockArticleRepository = new Mock<IArticleRepository>();
-            _mockFeedParser = new Mock<IFeedParser>();
+            _mockFeedParser = new Mock<IRssFeedParser>();
             _mockLogger = new Mock<ILogger>();
 
             _mockLogger.Setup(x => x.ForContext<It.IsAnyType>())

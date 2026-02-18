@@ -8,9 +8,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
-namespace NeonSuit.RSSReader.Services.FeedParser
+namespace NeonSuit.RSSReader.Services.RssFeedParser
 {
-    public class RssFeedParser : IFeedParser
+    public class RssFeedParser : IRssFeedParser
     {
         private readonly HttpClient _httpClient;
         private readonly ILogger _logger;

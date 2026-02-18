@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using NeonSuit.RSSReader.Services.FeedParser;
+using NeonSuit.RSSReader.Services.RssFeedParser;
 using NeonSuit.RSSReader.Tests.Integration.Fixtures;
 using Serilog;
 

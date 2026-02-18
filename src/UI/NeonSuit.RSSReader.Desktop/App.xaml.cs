@@ -6,7 +6,7 @@ using NeonSuit.RSSReader.Data.Repositories;
 using NeonSuit.RSSReader.Desktop.ViewModels;
 using NeonSuit.RSSReader.Desktop.Views;
 using NeonSuit.RSSReader.Services;
-using NeonSuit.RSSReader.Services.FeedParser;
+using NeonSuit.RSSReader.Services.RssFeedParser;
 using System;
 using System.IO;
 using System.Windows;

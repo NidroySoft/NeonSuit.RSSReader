@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Moq;
 using NeonSuit.RSSReader.Core.Enums;
+using NeonSuit.RSSReader.Core.Interfaces.Services;
 using NeonSuit.RSSReader.Core.Models;
 using NeonSuit.RSSReader.Services;
 using Serilog;
@@ -29,7 +30,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
                       .Returns(_mockLogger.Object);
 
             // Create rule engine and replace its private logger using reflection
-            _ruleEngine = new IRuleEngine(_mockLogger.Object);
+            _ruleEngine = new RuleEngine(_mockLogger.Object);
             var loggerField = typeof(IRuleEngine).GetField("_logger",
                 System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             loggerField?.SetValue(_ruleEngine, _mockLogger.Object);
@@ -906,7 +907,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
         public void EvaluateCondition_WithRegexOperatorAndTimeout_ShouldReturnFalse()
         {
             // Arrange
-            var engine = new IRuleEngine(_mockLogger.Object);
+            var engine = new RuleEngine(_mockLogger.Object);
             var article = CreateTestArticle(content: new string('a', 100000)); // Texto muy largo
 
             var condition = new RuleCondition
@@ -928,7 +929,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Services
         public void EvaluateCondition_WithRegexOperatorAndInvalidPattern_ShouldReturnFalse()
         {
             // Arrange
-            var engine = new IRuleEngine(_mockLogger.Object);
+            var engine = new RuleEngine(_mockLogger.Object);
             var article = CreateTestArticle(content: "test content");
 
             var condition = new RuleCondition

@@ -1,6 +1,5 @@
-﻿using NeonSuit.RSSReader.Core.Interfaces;
+﻿using NeonSuit.RSSReader.Core.Interfaces.Services;
 using NeonSuit.RSSReader.Core.Models;
-using NeonSuit.RSSReader.Data.Logging;
 using Serilog;
 using System.Text.RegularExpressions;
 
@@ -10,13 +9,13 @@ namespace NeonSuit.RSSReader.Services
     /// Advanced rule engine with support for complex logical expressions.
     /// Provides pattern matching, regex evaluation, and multi-condition processing.
     /// </summary>
-    public class IRuleEngine
+    public class RuleEngine : IRuleEngine
     {
         private readonly ILogger _logger;
 
-        public IRuleEngine(ILogger logger)
+        public RuleEngine(ILogger logger)
         {
-            _logger = logger.ForContext<IRuleEngine>();
+            _logger = logger.ForContext<RuleEngine>();
         }
 
         /// <summary>

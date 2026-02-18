@@ -4,7 +4,7 @@ using NeonSuit.RSSReader.Core.Interfaces.Services;
 using NeonSuit.RSSReader.Data.Database;
 using NeonSuit.RSSReader.Data.Repositories;
 using NeonSuit.RSSReader.Services;
-using NeonSuit.RSSReader.Services.FeedParser;
+using NeonSuit.RSSReader.Services.RssFeedParser;
 using NeonSuit.RSSReader.Tests.Integration.Fixtures;
 
 namespace NeonSuit.RSSReader.Tests.Integration.Factories;
