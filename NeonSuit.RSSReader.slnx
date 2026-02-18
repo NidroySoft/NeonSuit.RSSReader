@@ -5,8 +5,8 @@
     <Project Path="src/Core/NeonSuit.RSSReader.Data/NeonSuit.RSSReader.Data.csproj" />
     <Project Path="src/Core/NeonSuit.RSSReader.Services/NeonSuit.RSSReader.Services.csproj" />
   </Folder>
-  <Folder Name="/src/Modules/">
-    <Project Path="src/Modules/NeonSuit.RSSReader.Module.AI/NeonSuit.RSSReader.Module.AI.csproj" />
+  <Folder Name="/src/NeonSuit.RSSReader.Modules/">
+    <Project Path="src/NeonSuit.RSSReader.Modules/NeonSuit.RSSReader.Module.AI/NeonSuit.RSSReader.Module.AI.csproj" />
   </Folder>
   <Folder Name="/src/UI/">
     <Project Path="src/UI/NeonSuit.RSSReader.Desktop/NeonSuit.RSSReader.Desktop.csproj" />
