@@ -1,0 +1,885 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  commentId: T:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  id: AppLoggerConfig
+  parent: NeonSuit.RSSReader.Data.Logging
+  children:
+  - NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.ClearAllLogs
+  - NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CompressOldLogsAsync(System.Int32)
+  - NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CreateLogger``1
+  - NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetCurrentSettings
+  - NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogStats
+  - NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogger
+  - NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.InitializeLogger(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+  - NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.OpenLogDirectory
+  - NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+  langs:
+  - csharp
+  - vb
+  name: AppLoggerConfig
+  nameWithType: AppLoggerConfig
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AppLoggerConfig
+    path: ../src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+    startLine: 41
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Logging
+  summary: >-
+    Centralized Serilog configuration manager with support for runtime configuration changes.
+
+    Handles logger initialization, persistence of settings, and log file management.
+  remarks: >-
+    <p>
+
+    This static class provides:
+
+    <ul><li>Thread-safe singleton logger instance</li><li>Runtime configuration updates via <xref href="NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration(NeonSuit.RSSReader.Data.Configuration.LogSettings)" data-throw-if-not-resolved="false"></xref></li><li>Persistence of log settings to JSON</li><li>Log file management (cleanup, compression, statistics)</li></ul>
+
+    </p>
+
+    <p>
+
+    Usage:
+
+    <pre><code class="lang-csharp">// Initialize at application startup
+
+    var logger = AppLoggerConfig.InitializeLogger();
+
+
+    // Get logger for specific class
+
+    var classLogger = AppLoggerConfig.CreateLogger&lt;MyClass&gt;();
+
+
+    // Update settings at runtime
+
+    AppLoggerConfig.UpdateConfiguration(new LogSettings { LogLevel = "Debug" });</code></pre>
+
+    </p>
+  example: []
+  syntax:
+    content: public static class AppLoggerConfig
+    content.vb: Public Module AppLoggerConfig
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.InitializeLogger(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+  commentId: M:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.InitializeLogger(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+  id: InitializeLogger(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+  parent: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  langs:
+  - csharp
+  - vb
+  name: InitializeLogger(LogSettings?)
+  nameWithType: AppLoggerConfig.InitializeLogger(LogSettings?)
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.InitializeLogger(NeonSuit.RSSReader.Data.Configuration.LogSettings?)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: InitializeLogger
+    path: ../src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+    startLine: 60
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Logging
+  summary: Initializes the logger with default or saved settings.
+  remarks: >-
+    This method is thread-safe and ensures only one logger instance is created.
+
+    If settings are provided, they are saved and used; otherwise, saved settings
+
+    are loaded or defaults are created.
+  example: []
+  syntax:
+    content: public static ILogger InitializeLogger(LogSettings? settings = null)
+    parameters:
+    - id: settings
+      type: NeonSuit.RSSReader.Data.Configuration.LogSettings
+      description: Optional settings to override saved/default values.
+    return:
+      type: Serilog.ILogger
+      description: The configured ILogger instance.
+    content.vb: Public Shared Function InitializeLogger(settings As LogSettings = Nothing) As ILogger
+  overload: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.InitializeLogger*
+  nameWithType.vb: AppLoggerConfig.InitializeLogger(LogSettings)
+  fullName.vb: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.InitializeLogger(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+  name.vb: InitializeLogger(LogSettings)
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+  commentId: M:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+  id: UpdateConfiguration(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+  parent: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  langs:
+  - csharp
+  - vb
+  name: UpdateConfiguration(LogSettings)
+  nameWithType: AppLoggerConfig.UpdateConfiguration(LogSettings)
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateConfiguration
+    path: ../src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+    startLine: 177
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Logging
+  summary: Updates the logger configuration at runtime.
+  remarks: >-
+    This method closes the existing logger, saves the new settings,
+
+    and re-initializes the logger with the updated configuration.
+  example: []
+  syntax:
+    content: public static void UpdateConfiguration(LogSettings newSettings)
+    parameters:
+    - id: newSettings
+      type: NeonSuit.RSSReader.Data.Configuration.LogSettings
+      description: The new settings to apply.
+    content.vb: Public Shared Sub UpdateConfiguration(newSettings As LogSettings)
+  overload: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration*
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetCurrentSettings
+  commentId: M:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetCurrentSettings
+  id: GetCurrentSettings
+  parent: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  langs:
+  - csharp
+  - vb
+  name: GetCurrentSettings()
+  nameWithType: AppLoggerConfig.GetCurrentSettings()
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetCurrentSettings()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetCurrentSettings
+    path: ../src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+    startLine: 203
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Logging
+  summary: Retrieves the current log settings.
+  example: []
+  syntax:
+    content: public static LogSettings GetCurrentSettings()
+    return:
+      type: NeonSuit.RSSReader.Data.Configuration.LogSettings
+      description: The current LogSettings instance.
+    content.vb: Public Shared Function GetCurrentSettings() As LogSettings
+  overload: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetCurrentSettings*
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogger
+  commentId: M:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogger
+  id: GetLogger
+  parent: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  langs:
+  - csharp
+  - vb
+  name: GetLogger()
+  nameWithType: AppLoggerConfig.GetLogger()
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogger()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetLogger
+    path: ../src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+    startLine: 220
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Logging
+  summary: Retrieves the current ILogger instance.
+  example: []
+  syntax:
+    content: public static ILogger GetLogger()
+    return:
+      type: Serilog.ILogger
+      description: The global logger instance.
+    content.vb: Public Shared Function GetLogger() As ILogger
+  overload: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogger*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if logger hasn't been initialized.
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CreateLogger``1
+  commentId: M:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CreateLogger``1
+  id: CreateLogger``1
+  parent: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  langs:
+  - csharp
+  - vb
+  name: CreateLogger<T>()
+  nameWithType: AppLoggerConfig.CreateLogger<T>()
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CreateLogger<T>()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CreateLogger
+    path: ../src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+    startLine: 233
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Logging
+  summary: Creates a logger instance for a specific class context.
+  example: []
+  syntax:
+    content: 'public static ILogger CreateLogger<T>() where T : class'
+    typeParameters:
+    - id: T
+      description: The class type for context enrichment.
+    return:
+      type: Serilog.ILogger
+      description: A contextual logger for the specified type.
+    content.vb: Public Shared Function CreateLogger(Of T As Class)() As ILogger
+  overload: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CreateLogger*
+  nameWithType.vb: AppLoggerConfig.CreateLogger(Of T)()
+  fullName.vb: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CreateLogger(Of T)()
+  name.vb: CreateLogger(Of T)()
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.OpenLogDirectory
+  commentId: M:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.OpenLogDirectory
+  id: OpenLogDirectory
+  parent: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  langs:
+  - csharp
+  - vb
+  name: OpenLogDirectory()
+  nameWithType: AppLoggerConfig.OpenLogDirectory()
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.OpenLogDirectory()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OpenLogDirectory
+    path: ../src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+    startLine: 245
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Logging
+  summary: Opens the log directory in Windows Explorer.
+  example: []
+  syntax:
+    content: public static void OpenLogDirectory()
+    content.vb: Public Shared Sub OpenLogDirectory()
+  overload: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.OpenLogDirectory*
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.ClearAllLogs
+  commentId: M:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.ClearAllLogs
+  id: ClearAllLogs
+  parent: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  langs:
+  - csharp
+  - vb
+  name: ClearAllLogs()
+  nameWithType: AppLoggerConfig.ClearAllLogs()
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.ClearAllLogs()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ClearAllLogs
+    path: ../src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+    startLine: 257
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Logging
+  summary: Deletes all log files in the directory.
+  example: []
+  syntax:
+    content: public static void ClearAllLogs()
+    content.vb: Public Shared Sub ClearAllLogs()
+  overload: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.ClearAllLogs*
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CompressOldLogsAsync(System.Int32)
+  commentId: M:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CompressOldLogsAsync(System.Int32)
+  id: CompressOldLogsAsync(System.Int32)
+  parent: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  langs:
+  - csharp
+  - vb
+  name: CompressOldLogsAsync(int)
+  nameWithType: AppLoggerConfig.CompressOldLogsAsync(int)
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CompressOldLogsAsync(int)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CompressOldLogsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+    startLine: 275
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Logging
+  summary: Compresses log files older than the specified number of days.
+  example: []
+  syntax:
+    content: public static Task CompressOldLogsAsync(int daysOld = 7)
+    parameters:
+    - id: daysOld
+      type: System.Int32
+      description: 'Age threshold in days for compression (default: 7).'
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Shared Function CompressOldLogsAsync(daysOld As Integer = 7) As Task
+  overload: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CompressOldLogsAsync*
+  nameWithType.vb: AppLoggerConfig.CompressOldLogsAsync(Integer)
+  fullName.vb: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CompressOldLogsAsync(Integer)
+  name.vb: CompressOldLogsAsync(Integer)
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogStats
+  commentId: M:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogStats
+  id: GetLogStats
+  parent: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  langs:
+  - csharp
+  - vb
+  name: GetLogStats()
+  nameWithType: AppLoggerConfig.GetLogStats()
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogStats()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetLogStats
+    path: ../src/Core/NeonSuit.RSSReader.Data/Logging/AppLoggerConfig.cs
+    startLine: 324
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Logging
+  summary: Gets statistics about log file usage.
+  example: []
+  syntax:
+    content: public static AppLoggerConfig.LogStats GetLogStats()
+    return:
+      type: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats
+      description: A LogStats object with file statistics.
+    content.vb: Public Shared Function GetLogStats() As AppLoggerConfig.LogStats
+  overload: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogStats*
+references:
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+  commentId: M:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+  href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html#NeonSuit_RSSReader_Data_Logging_AppLoggerConfig_UpdateConfiguration_NeonSuit_RSSReader_Data_Configuration_LogSettings_
+  name: UpdateConfiguration(LogSettings)
+  nameWithType: AppLoggerConfig.UpdateConfiguration(LogSettings)
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+    name: UpdateConfiguration
+    href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html#NeonSuit_RSSReader_Data_Logging_AppLoggerConfig_UpdateConfiguration_NeonSuit_RSSReader_Data_Configuration_LogSettings_
+  - name: (
+  - uid: NeonSuit.RSSReader.Data.Configuration.LogSettings
+    name: LogSettings
+    href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration(NeonSuit.RSSReader.Data.Configuration.LogSettings)
+    name: UpdateConfiguration
+    href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html#NeonSuit_RSSReader_Data_Logging_AppLoggerConfig_UpdateConfiguration_NeonSuit_RSSReader_Data_Configuration_LogSettings_
+  - name: (
+  - uid: NeonSuit.RSSReader.Data.Configuration.LogSettings
+    name: LogSettings
+    href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html
+  - name: )
+- uid: NeonSuit.RSSReader.Data.Logging
+  commentId: N:NeonSuit.RSSReader.Data.Logging
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Data.Logging
+  nameWithType: NeonSuit.RSSReader.Data.Logging
+  fullName: NeonSuit.RSSReader.Data.Logging
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data
+    name: Data
+    href: NeonSuit.RSSReader.Data.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Logging
+    name: Logging
+    href: NeonSuit.RSSReader.Data.Logging.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data
+    name: Data
+    href: NeonSuit.RSSReader.Data.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Logging
+    name: Logging
+    href: NeonSuit.RSSReader.Data.Logging.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.InitializeLogger*
+  commentId: Overload:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.InitializeLogger
+  href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html#NeonSuit_RSSReader_Data_Logging_AppLoggerConfig_InitializeLogger_NeonSuit_RSSReader_Data_Configuration_LogSettings_
+  name: InitializeLogger
+  nameWithType: AppLoggerConfig.InitializeLogger
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.InitializeLogger
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  commentId: T:NeonSuit.RSSReader.Data.Configuration.LogSettings
+  parent: NeonSuit.RSSReader.Data.Configuration
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html
+  name: LogSettings
+  nameWithType: LogSettings
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings
+- uid: Serilog.ILogger
+  commentId: T:Serilog.ILogger
+  parent: Serilog
+  isExternal: true
+  name: ILogger
+  nameWithType: ILogger
+  fullName: Serilog.ILogger
+- uid: NeonSuit.RSSReader.Data.Configuration
+  commentId: N:NeonSuit.RSSReader.Data.Configuration
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Data.Configuration
+  nameWithType: NeonSuit.RSSReader.Data.Configuration
+  fullName: NeonSuit.RSSReader.Data.Configuration
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data
+    name: Data
+    href: NeonSuit.RSSReader.Data.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Configuration
+    name: Configuration
+    href: NeonSuit.RSSReader.Data.Configuration.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data
+    name: Data
+    href: NeonSuit.RSSReader.Data.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Configuration
+    name: Configuration
+    href: NeonSuit.RSSReader.Data.Configuration.html
+- uid: Serilog
+  commentId: N:Serilog
+  isExternal: true
+  name: Serilog
+  nameWithType: Serilog
+  fullName: Serilog
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration*
+  commentId: Overload:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration
+  href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html#NeonSuit_RSSReader_Data_Logging_AppLoggerConfig_UpdateConfiguration_NeonSuit_RSSReader_Data_Configuration_LogSettings_
+  name: UpdateConfiguration
+  nameWithType: AppLoggerConfig.UpdateConfiguration
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.UpdateConfiguration
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetCurrentSettings*
+  commentId: Overload:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetCurrentSettings
+  href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html#NeonSuit_RSSReader_Data_Logging_AppLoggerConfig_GetCurrentSettings
+  name: GetCurrentSettings
+  nameWithType: AppLoggerConfig.GetCurrentSettings
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetCurrentSettings
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogger*
+  commentId: Overload:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogger
+  href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html#NeonSuit_RSSReader_Data_Logging_AppLoggerConfig_GetLogger
+  name: GetLogger
+  nameWithType: AppLoggerConfig.GetLogger
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogger
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CreateLogger*
+  commentId: Overload:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CreateLogger
+  href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html#NeonSuit_RSSReader_Data_Logging_AppLoggerConfig_CreateLogger__1
+  name: CreateLogger
+  nameWithType: AppLoggerConfig.CreateLogger
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CreateLogger
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.OpenLogDirectory*
+  commentId: Overload:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.OpenLogDirectory
+  href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html#NeonSuit_RSSReader_Data_Logging_AppLoggerConfig_OpenLogDirectory
+  name: OpenLogDirectory
+  nameWithType: AppLoggerConfig.OpenLogDirectory
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.OpenLogDirectory
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.ClearAllLogs*
+  commentId: Overload:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.ClearAllLogs
+  href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html#NeonSuit_RSSReader_Data_Logging_AppLoggerConfig_ClearAllLogs
+  name: ClearAllLogs
+  nameWithType: AppLoggerConfig.ClearAllLogs
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.ClearAllLogs
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CompressOldLogsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CompressOldLogsAsync
+  href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html#NeonSuit_RSSReader_Data_Logging_AppLoggerConfig_CompressOldLogsAsync_System_Int32_
+  name: CompressOldLogsAsync
+  nameWithType: AppLoggerConfig.CompressOldLogsAsync
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.CompressOldLogsAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogStats*
+  commentId: Overload:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogStats
+  href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html#NeonSuit_RSSReader_Data_Logging_AppLoggerConfig_GetLogStats
+  name: GetLogStats
+  nameWithType: AppLoggerConfig.GetLogStats
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.GetLogStats
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats
+  commentId: T:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats
+  parent: NeonSuit.RSSReader.Data.Logging
+  href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html
+  name: AppLoggerConfig.LogStats
+  nameWithType: AppLoggerConfig.LogStats
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+    name: AppLoggerConfig
+    href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats
+    name: LogStats
+    href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats.html
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+    name: AppLoggerConfig
+    href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats
+    name: LogStats
+    href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats.html

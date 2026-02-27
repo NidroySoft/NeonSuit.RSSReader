@@ -1,0 +1,1201 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  id: IDatabaseCleanupRepository
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.CheckIntegrityAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.DeleteOldArticlesAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetDatabaseSizeAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetStatisticsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RebuildIndexesAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RemoveOrphanedRecordsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateStatisticsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateTagUsageCountsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.VacuumDatabaseAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IDatabaseCleanupRepository
+  nameWithType: IDatabaseCleanupRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IDatabaseCleanupRepository
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+    startLine: 35
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: >-
+    Repository interface dedicated to low-level database maintenance, cleanup, integrity verification,
+
+    and performance optimization tasks for the RSS reader SQLite database.
+  remarks: >-
+    <p>
+
+    This repository handles operations that are not tied to specific business entities (like articles or feeds)
+
+    but are essential for long-term database health, storage management, and performance.
+
+    </p>
+
+
+    <p>
+
+    Typical use cases:
+
+    </p>
+
+    <ul><li>Scheduled nightly/weekly cleanup of old articles</li><li>Post-import vacuum and reindexing after bulk sync</li><li>Integrity checks before/after major migrations or backups</li><li>Monitoring database size and statistics for alerts (e.g., storage nearly full)</li><li>Dry-run analysis before destructive cleanup operations</li></ul>
+
+
+    <p>
+
+    Important behavioral guidelines for implementations:
+
+    </p>
+
+    <ul><li>All methods are asynchronous and fully support <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.</li><li>Operations that modify data should be executed with progress reporting.</li><li>Long-running tasks (VACUUM, REINDEX) may lock the database — implementations should use WAL mode.</li><li>Results DTOs provide detailed feedback for logging/UI.</li></ul>
+  example: []
+  syntax:
+    content: public interface IDatabaseCleanupRepository
+    content.vb: Public Interface IDatabaseCleanupRepository
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.DeleteOldArticlesAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.DeleteOldArticlesAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)
+  id: DeleteOldArticlesAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  langs:
+  - csharp
+  - vb
+  name: DeleteOldArticlesAsync(DateTime, bool, bool, CancellationToken)
+  nameWithType: IDatabaseCleanupRepository.DeleteOldArticlesAsync(DateTime, bool, bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.DeleteOldArticlesAsync(System.DateTime, bool, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DeleteOldArticlesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+    startLine: 48
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Deletes articles older than the specified cutoff date, with configurable protection for favorites and unread items.
+  example: []
+  syntax:
+    content: Task<ArticleDeletionResult> DeleteOldArticlesAsync(DateTime cutoffDate, bool keepFavorites, bool keepUnread, CancellationToken cancellationToken = default)
+    parameters:
+    - id: cutoffDate
+      type: System.DateTime
+      description: Articles with PublicationDate &lt; this date are candidates for deletion.
+    - id: keepFavorites
+      type: System.Boolean
+      description: If <code>true</code>, favorited articles are excluded from deletion.
+    - id: keepUnread
+      type: System.Boolean
+      description: If <code>true</code>, unread articles are excluded regardless of age.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult}
+      description: A result object with deletion statistics.
+    content.vb: Function DeleteOldArticlesAsync(cutoffDate As Date, keepFavorites As Boolean, keepUnread As Boolean, cancellationToken As CancellationToken = Nothing) As Task(Of ArticleDeletionResult)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.DeleteOldArticlesAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: When cutoffDate is in the future.
+  nameWithType.vb: IDatabaseCleanupRepository.DeleteOldArticlesAsync(Date, Boolean, Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.DeleteOldArticlesAsync(Date, Boolean, Boolean, System.Threading.CancellationToken)
+  name.vb: DeleteOldArticlesAsync(Date, Boolean, Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)
+  id: AnalyzeCleanupImpactAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  langs:
+  - csharp
+  - vb
+  name: AnalyzeCleanupImpactAsync(DateTime, bool, bool, CancellationToken)
+  nameWithType: IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync(DateTime, bool, bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync(System.DateTime, bool, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AnalyzeCleanupImpactAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+    startLine: 62
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Simulates a cleanup operation and returns projected impact without modifying data.
+  example: []
+  syntax:
+    content: Task<CleanupAnalysis> AnalyzeCleanupImpactAsync(DateTime cutoffDate, bool keepFavorites, bool keepUnread, CancellationToken cancellationToken = default)
+    parameters:
+    - id: cutoffDate
+      type: System.DateTime
+      description: Hypothetical cutoff date.
+    - id: keepFavorites
+      type: System.Boolean
+      description: Whether favorites would be preserved.
+    - id: keepUnread
+      type: System.Boolean
+      description: Whether unread would be preserved.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis}
+      description: Analysis result with projected deletion count, and estimated space savings.
+    content.vb: Function AnalyzeCleanupImpactAsync(cutoffDate As Date, keepFavorites As Boolean, keepUnread As Boolean, cancellationToken As CancellationToken = Nothing) As Task(Of CleanupAnalysis)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync*
+  nameWithType.vb: IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync(Date, Boolean, Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync(Date, Boolean, Boolean, System.Threading.CancellationToken)
+  name.vb: AnalyzeCleanupImpactAsync(Date, Boolean, Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)
+  id: GetAffectedArticlesDateRangeAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  langs:
+  - csharp
+  - vb
+  name: GetAffectedArticlesDateRangeAsync(DateTime, bool, bool, CancellationToken)
+  nameWithType: IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync(DateTime, bool, bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync(System.DateTime, bool, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetAffectedArticlesDateRangeAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+    startLine: 76
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Queries the date range of articles that would be affected by a cleanup operation.
+  example: []
+  syntax:
+    content: Task<(DateTime? Oldest, DateTime? Newest)?> GetAffectedArticlesDateRangeAsync(DateTime cutoffDate, bool keepFavorites, bool keepUnread, CancellationToken cancellationToken = default)
+    parameters:
+    - id: cutoffDate
+      type: System.DateTime
+      description: Cutoff date for analysis.
+    - id: keepFavorites
+      type: System.Boolean
+      description: Exclude favorites?
+    - id: keepUnread
+      type: System.Boolean
+      description: Exclude unread?
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Nullable{System.ValueTuple{System.Nullable{System.DateTime},System.Nullable{System.DateTime}}}}
+      description: Tuple with oldest and newest publication dates of affected articles (or null if none).
+    content.vb: Function GetAffectedArticlesDateRangeAsync(cutoffDate As Date, keepFavorites As Boolean, keepUnread As Boolean, cancellationToken As CancellationToken = Nothing) As Task(Of (Oldest As Date?, Newest As Date?)?)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync*
+  nameWithType.vb: IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync(Date, Boolean, Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync(Date, Boolean, Boolean, System.Threading.CancellationToken)
+  name.vb: GetAffectedArticlesDateRangeAsync(Date, Boolean, Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RemoveOrphanedRecordsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RemoveOrphanedRecordsAsync(System.Threading.CancellationToken)
+  id: RemoveOrphanedRecordsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  langs:
+  - csharp
+  - vb
+  name: RemoveOrphanedRecordsAsync(CancellationToken)
+  nameWithType: IDatabaseCleanupRepository.RemoveOrphanedRecordsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RemoveOrphanedRecordsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RemoveOrphanedRecordsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+    startLine: 91
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Removes orphaned records from junction tables (e.g., ArticleTag, FeedCategory) and entities without valid parent references.
+  example: []
+  syntax:
+    content: Task<OrphanRemovalResult> RemoveOrphanedRecordsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult}
+      description: Result with counts of removed records per table/type.
+    content.vb: Function RemoveOrphanedRecordsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of OrphanRemovalResult)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RemoveOrphanedRecordsAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.VacuumDatabaseAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.VacuumDatabaseAsync(System.Threading.CancellationToken)
+  id: VacuumDatabaseAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  langs:
+  - csharp
+  - vb
+  name: VacuumDatabaseAsync(CancellationToken)
+  nameWithType: IDatabaseCleanupRepository.VacuumDatabaseAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.VacuumDatabaseAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: VacuumDatabaseAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+    startLine: 102
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Executes SQLite VACUUM to reclaim unused space and defragment the database file.
+  example: []
+  syntax:
+    content: Task<VacuumResult> VacuumDatabaseAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult}
+      description: Result with file size before/after and bytes reclaimed.
+    content.vb: Function VacuumDatabaseAsync(cancellationToken As CancellationToken = Nothing) As Task(Of VacuumResult)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.VacuumDatabaseAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RebuildIndexesAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RebuildIndexesAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  id: RebuildIndexesAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  langs:
+  - csharp
+  - vb
+  name: RebuildIndexesAsync(IEnumerable<string>?, CancellationToken)
+  nameWithType: IDatabaseCleanupRepository.RebuildIndexesAsync(IEnumerable<string>?, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RebuildIndexesAsync(System.Collections.Generic.IEnumerable<string>?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RebuildIndexesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+    startLine: 109
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Rebuilds one or more database indexes to eliminate fragmentation and improve query performance.
+  example: []
+  syntax:
+    content: Task RebuildIndexesAsync(IEnumerable<string>? tableNames = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: tableNames
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: 'Optional: specific tables to reindex. If null, reindexes main tables.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function RebuildIndexesAsync(tableNames As IEnumerable(Of String) = Nothing, cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RebuildIndexesAsync*
+  nameWithType.vb: IDatabaseCleanupRepository.RebuildIndexesAsync(IEnumerable(Of String), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RebuildIndexesAsync(System.Collections.Generic.IEnumerable(Of String), System.Threading.CancellationToken)
+  name.vb: RebuildIndexesAsync(IEnumerable(Of String), CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateStatisticsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateStatisticsAsync(System.Threading.CancellationToken)
+  id: UpdateStatisticsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  langs:
+  - csharp
+  - vb
+  name: UpdateStatisticsAsync(CancellationToken)
+  nameWithType: IDatabaseCleanupRepository.UpdateStatisticsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateStatisticsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateStatisticsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+    startLine: 117
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Updates database statistics used by the SQLite query planner.
+  example: []
+  syntax:
+    content: Task UpdateStatisticsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function UpdateStatisticsAsync(cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateStatisticsAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.CheckIntegrityAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.CheckIntegrityAsync(System.Threading.CancellationToken)
+  id: CheckIntegrityAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  langs:
+  - csharp
+  - vb
+  name: CheckIntegrityAsync(CancellationToken)
+  nameWithType: IDatabaseCleanupRepository.CheckIntegrityAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.CheckIntegrityAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CheckIntegrityAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+    startLine: 124
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Performs a full integrity check on the SQLite database.
+  example: []
+  syntax:
+    content: Task<IntegrityCheckResult> CheckIntegrityAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult}
+      description: Result object with overall status and any corruption/errors found.
+    content.vb: Function CheckIntegrityAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IntegrityCheckResult)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.CheckIntegrityAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetStatisticsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetStatisticsAsync(System.Threading.CancellationToken)
+  id: GetStatisticsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  langs:
+  - csharp
+  - vb
+  name: GetStatisticsAsync(CancellationToken)
+  nameWithType: IDatabaseCleanupRepository.GetStatisticsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetStatisticsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetStatisticsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+    startLine: 131
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Retrieves comprehensive database-level statistics for monitoring and diagnostics.
+  example: []
+  syntax:
+    content: Task<DatabaseStatistics> GetStatisticsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics}
+      description: Detailed statistics object.
+    content.vb: Function GetStatisticsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of DatabaseStatistics)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetStatisticsAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetDatabaseSizeAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetDatabaseSizeAsync(System.Threading.CancellationToken)
+  id: GetDatabaseSizeAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  langs:
+  - csharp
+  - vb
+  name: GetDatabaseSizeAsync(CancellationToken)
+  nameWithType: IDatabaseCleanupRepository.GetDatabaseSizeAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetDatabaseSizeAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetDatabaseSizeAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+    startLine: 138
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Returns the current physical file size of the SQLite database.
+  example: []
+  syntax:
+    content: Task<long> GetDatabaseSizeAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int64}
+      description: Size in bytes (or 0 if in-memory DB).
+    content.vb: Function GetDatabaseSizeAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Long)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetDatabaseSizeAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateTagUsageCountsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateTagUsageCountsAsync(System.Threading.CancellationToken)
+  id: UpdateTagUsageCountsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  langs:
+  - csharp
+  - vb
+  name: UpdateTagUsageCountsAsync(CancellationToken)
+  nameWithType: IDatabaseCleanupRepository.UpdateTagUsageCountsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateTagUsageCountsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateTagUsageCountsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs
+    startLine: 145
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Recalculates and updates usage/count fields on tags based on current associations.
+  example: []
+  syntax:
+    content: Task<int> UpdateTagUsageCountsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: Number of tags whose count was updated.
+    content.vb: Function UpdateTagUsageCountsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateTagUsageCountsAsync*
+references:
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Repositories
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories
+    name: Repositories
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories
+    name: Repositories
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.DeleteOldArticlesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.DeleteOldArticlesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_DeleteOldArticlesAsync_System_DateTime_System_Boolean_System_Boolean_System_Threading_CancellationToken_
+  name: DeleteOldArticlesAsync
+  nameWithType: IDatabaseCleanupRepository.DeleteOldArticlesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.DeleteOldArticlesAsync
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ArticleDeletionResult>
+  nameWithType: Task<ArticleDeletionResult>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult>
+  nameWithType.vb: Task(Of ArticleDeletionResult)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult)
+  name.vb: Task(Of ArticleDeletionResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult
+    name: ArticleDeletionResult
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult
+    name: ArticleDeletionResult
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_AnalyzeCleanupImpactAsync_System_DateTime_System_Boolean_System_Boolean_System_Threading_CancellationToken_
+  name: AnalyzeCleanupImpactAsync
+  nameWithType: IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<CleanupAnalysis>
+  nameWithType: Task<CleanupAnalysis>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis>
+  nameWithType.vb: Task(Of CleanupAnalysis)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis)
+  name.vb: Task(Of CleanupAnalysis)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis
+    name: CleanupAnalysis
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis
+    name: CleanupAnalysis
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_GetAffectedArticlesDateRangeAsync_System_DateTime_System_Boolean_System_Boolean_System_Threading_CancellationToken_
+  name: GetAffectedArticlesDateRangeAsync
+  nameWithType: IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync
+- uid: System.Threading.Tasks.Task{System.Nullable{System.ValueTuple{System.Nullable{System.DateTime},System.Nullable{System.DateTime}}}}
+  commentId: T:System.Threading.Tasks.Task{System.Nullable{System.ValueTuple{System.Nullable{System.DateTime},System.Nullable{System.DateTime}}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<(DateTime? Oldest, DateTime? Newest)?>
+  nameWithType: Task<(DateTime? Oldest, DateTime? Newest)?>
+  fullName: System.Threading.Tasks.Task<(System.DateTime? Oldest, System.DateTime? Newest)?>
+  nameWithType.vb: Task(Of (Oldest As Date?, Newest As Date?)?)
+  fullName.vb: System.Threading.Tasks.Task(Of (Oldest As Date?, Newest As Date?)?)
+  name.vb: Task(Of (Oldest As Date?, Newest As Date?)?)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: (
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  - name: " "
+  - uid: System.ValueTuple{System.Nullable{System.DateTime},System.Nullable{System.DateTime}}.Oldest
+    name: Oldest
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.nullable-system.datetime-,system.nullable-system.datetime--.oldest
+  - name: ','
+  - name: " "
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  - name: " "
+  - uid: System.ValueTuple{System.Nullable{System.DateTime},System.Nullable{System.DateTime}}.Newest
+    name: Newest
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.nullable-system.datetime-,system.nullable-system.datetime--.newest
+  - name: )
+  - name: '?'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{System.Nullable{System.DateTime},System.Nullable{System.DateTime}}.Oldest
+    name: Oldest
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.nullable-system.datetime-,system.nullable-system.datetime--.oldest
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Nullable{System.DateTime},System.Nullable{System.DateTime}}.Newest
+    name: Newest
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.nullable-system.datetime-,system.nullable-system.datetime--.newest
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  - name: )
+  - name: '?'
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RemoveOrphanedRecordsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RemoveOrphanedRecordsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_RemoveOrphanedRecordsAsync_System_Threading_CancellationToken_
+  name: RemoveOrphanedRecordsAsync
+  nameWithType: IDatabaseCleanupRepository.RemoveOrphanedRecordsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RemoveOrphanedRecordsAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<OrphanRemovalResult>
+  nameWithType: Task<OrphanRemovalResult>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult>
+  nameWithType.vb: Task(Of OrphanRemovalResult)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult)
+  name.vb: Task(Of OrphanRemovalResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult
+    name: OrphanRemovalResult
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult
+    name: OrphanRemovalResult
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.VacuumDatabaseAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.VacuumDatabaseAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_VacuumDatabaseAsync_System_Threading_CancellationToken_
+  name: VacuumDatabaseAsync
+  nameWithType: IDatabaseCleanupRepository.VacuumDatabaseAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.VacuumDatabaseAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<VacuumResult>
+  nameWithType: Task<VacuumResult>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult>
+  nameWithType.vb: Task(Of VacuumResult)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult)
+  name.vb: Task(Of VacuumResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+    name: VacuumResult
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+    name: VacuumResult
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RebuildIndexesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RebuildIndexesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_RebuildIndexesAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_
+  name: RebuildIndexesAsync
+  nameWithType: IDatabaseCleanupRepository.RebuildIndexesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RebuildIndexesAsync
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateStatisticsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateStatisticsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_UpdateStatisticsAsync_System_Threading_CancellationToken_
+  name: UpdateStatisticsAsync
+  nameWithType: IDatabaseCleanupRepository.UpdateStatisticsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateStatisticsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.CheckIntegrityAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.CheckIntegrityAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_CheckIntegrityAsync_System_Threading_CancellationToken_
+  name: CheckIntegrityAsync
+  nameWithType: IDatabaseCleanupRepository.CheckIntegrityAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.CheckIntegrityAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IntegrityCheckResult>
+  nameWithType: Task<IntegrityCheckResult>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult>
+  nameWithType.vb: Task(Of IntegrityCheckResult)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult)
+  name.vb: Task(Of IntegrityCheckResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult
+    name: IntegrityCheckResult
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult
+    name: IntegrityCheckResult
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetStatisticsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetStatisticsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_GetStatisticsAsync_System_Threading_CancellationToken_
+  name: GetStatisticsAsync
+  nameWithType: IDatabaseCleanupRepository.GetStatisticsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetStatisticsAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<DatabaseStatistics>
+  nameWithType: Task<DatabaseStatistics>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics>
+  nameWithType.vb: Task(Of DatabaseStatistics)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics)
+  name.vb: Task(Of DatabaseStatistics)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics
+    name: DatabaseStatistics
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics
+    name: DatabaseStatistics
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetDatabaseSizeAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetDatabaseSizeAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_GetDatabaseSizeAsync_System_Threading_CancellationToken_
+  name: GetDatabaseSizeAsync
+  nameWithType: IDatabaseCleanupRepository.GetDatabaseSizeAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetDatabaseSizeAsync
+- uid: System.Threading.Tasks.Task{System.Int64}
+  commentId: T:System.Threading.Tasks.Task{System.Int64}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<long>
+  nameWithType: Task<long>
+  fullName: System.Threading.Tasks.Task<long>
+  nameWithType.vb: Task(Of Long)
+  fullName.vb: System.Threading.Tasks.Task(Of Long)
+  name.vb: Task(Of Long)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateTagUsageCountsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateTagUsageCountsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_UpdateTagUsageCountsAsync_System_Threading_CancellationToken_
+  name: UpdateTagUsageCountsAsync
+  nameWithType: IDatabaseCleanupRepository.UpdateTagUsageCountsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateTagUsageCountsAsync
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )

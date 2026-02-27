@@ -1,0 +1,1398 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  id: CleanupResult
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  children:
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.#ctor
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddError(System.String)
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddWarning(System.String)
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ArticleCleanup
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Duration
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Errors
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.GenerateReport
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasErrors
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasWarnings
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ImageCacheCleanup
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.OrphanCleanup
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.PerformedAt
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Skipped
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedBytes
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedFormatted
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedMB
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Success
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ToString
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalArticlesDeleted
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalRecordsDeleted
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.VacuumResult
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Warnings
+  langs:
+  - csharp
+  - vb
+  name: CleanupResult
+  nameWithType: CleanupResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CleanupResult
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 7
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: >-
+    Represents the comprehensive results of a database cleanup operation.
+
+    Aggregates results from all sub-operations including article deletion,
+
+    orphan removal, vacuum, and index rebuild.
+  example: []
+  syntax:
+    content: public class CleanupResult
+    content.vb: Public Class CleanupResult
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.#ctor
+  commentId: M:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.#ctor
+  id: '#ctor'
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: CleanupResult()
+  nameWithType: CleanupResult.CleanupResult()
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.CleanupResult()
+  type: Constructor
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: .ctor
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 12
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Initializes a new instance of the <xref href="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public CleanupResult()
+    content.vb: Public Sub New()
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.#ctor*
+  nameWithType.vb: CleanupResult.New()
+  fullName.vb: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.New()
+  name.vb: New()
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Success
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Success
+  id: Success
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: CleanupResult.Success
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Success
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Success
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 26
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets a value indicating whether the cleanup operation completed successfully.
+  example: []
+  syntax:
+    content: public bool Success { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Success As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Success*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Skipped
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Skipped
+  id: Skipped
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: Skipped
+  nameWithType: CleanupResult.Skipped
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Skipped
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Skipped
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 32
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: >-
+    Gets or sets a value indicating whether the cleanup was skipped 
+
+    (e.g., if auto-cleanup is disabled).
+  example: []
+  syntax:
+    content: public bool Skipped { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Skipped As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Skipped*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.PerformedAt
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.PerformedAt
+  id: PerformedAt
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: PerformedAt
+  nameWithType: CleanupResult.PerformedAt
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.PerformedAt
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: PerformedAt
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 37
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets the UTC timestamp when the cleanup operation was performed.
+  example: []
+  syntax:
+    content: public DateTime PerformedAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property PerformedAt As Date
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.PerformedAt*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Duration
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Duration
+  id: Duration
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: CleanupResult.Duration
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Duration
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Duration
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 42
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets the total duration of the cleanup operation.
+  example: []
+  syntax:
+    content: public TimeSpan Duration { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property Duration As TimeSpan
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Duration*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ArticleCleanup
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ArticleCleanup
+  id: ArticleCleanup
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: ArticleCleanup
+  nameWithType: CleanupResult.ArticleCleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ArticleCleanup
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ArticleCleanup
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 52
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: >-
+    Gets or sets the detailed results of the article cleanup sub-operation.
+
+    Contains information about deleted articles and retention statistics.
+  example: []
+  syntax:
+    content: public ArticleDeletionResult? ArticleCleanup { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult
+    content.vb: Public Property ArticleCleanup As ArticleDeletionResult
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ArticleCleanup*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.OrphanCleanup
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.OrphanCleanup
+  id: OrphanCleanup
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: OrphanCleanup
+  nameWithType: CleanupResult.OrphanCleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.OrphanCleanup
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OrphanCleanup
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 58
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: >-
+    Gets or sets the detailed results of the orphan record removal sub-operation.
+
+    Contains counts of removed orphaned records from junction tables.
+  example: []
+  syntax:
+    content: public OrphanRemovalResult OrphanCleanup { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult
+    content.vb: Public Property OrphanCleanup As OrphanRemovalResult
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.OrphanCleanup*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ImageCacheCleanup
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ImageCacheCleanup
+  id: ImageCacheCleanup
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: ImageCacheCleanup
+  nameWithType: CleanupResult.ImageCacheCleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ImageCacheCleanup
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ImageCacheCleanup
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 64
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: >-
+    Gets or sets the results of the image cache cleanup sub-operation.
+
+    Contains information about deleted images and space reclaimed.
+  example: []
+  syntax:
+    content: public ImageCacheCleanupResult ImageCacheCleanup { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+    content.vb: Public Property ImageCacheCleanup As ImageCacheCleanupResult
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ImageCacheCleanup*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.VacuumResult
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.VacuumResult
+  id: VacuumResult
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: VacuumResult
+  nameWithType: CleanupResult.VacuumResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.VacuumResult
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: VacuumResult
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 70
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: >-
+    Gets or sets the results of the database vacuum sub-operation.
+
+    Contains space statistics before and after the vacuum.
+  example: []
+  syntax:
+    content: public VacuumResult VacuumResult { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+    content.vb: Public Property VacuumResult As VacuumResult
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.VacuumResult*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalArticlesDeleted
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalArticlesDeleted
+  id: TotalArticlesDeleted
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: TotalArticlesDeleted
+  nameWithType: CleanupResult.TotalArticlesDeleted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalArticlesDeleted
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TotalArticlesDeleted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 79
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets the total number of articles deleted during the cleanup.
+  example: []
+  syntax:
+    content: public int TotalArticlesDeleted { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property TotalArticlesDeleted As Integer
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalArticlesDeleted*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalRecordsDeleted
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalRecordsDeleted
+  id: TotalRecordsDeleted
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: TotalRecordsDeleted
+  nameWithType: CleanupResult.TotalRecordsDeleted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalRecordsDeleted
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TotalRecordsDeleted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 85
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets the total number of records deleted (articles + orphans + tags).
+  example: []
+  syntax:
+    content: public int TotalRecordsDeleted { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property TotalRecordsDeleted As Integer
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalRecordsDeleted*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedBytes
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedBytes
+  id: SpaceFreedBytes
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: SpaceFreedBytes
+  nameWithType: CleanupResult.SpaceFreedBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedBytes
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SpaceFreedBytes
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 91
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets the total space freed in bytes across all operations.
+  example: []
+  syntax:
+    content: public long SpaceFreedBytes { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property SpaceFreedBytes As Long
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedBytes*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedMB
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedMB
+  id: SpaceFreedMB
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: SpaceFreedMB
+  nameWithType: CleanupResult.SpaceFreedMB
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedMB
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SpaceFreedMB
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 96
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets the total space freed in megabytes.
+  example: []
+  syntax:
+    content: public double SpaceFreedMB { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property SpaceFreedMB As Double
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedMB*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedFormatted
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedFormatted
+  id: SpaceFreedFormatted
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: SpaceFreedFormatted
+  nameWithType: CleanupResult.SpaceFreedFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedFormatted
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SpaceFreedFormatted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 101
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets the total space freed in a human-readable format.
+  example: []
+  syntax:
+    content: public string SpaceFreedFormatted { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property SpaceFreedFormatted As String
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedFormatted*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Errors
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Errors
+  id: Errors
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: Errors
+  nameWithType: CleanupResult.Errors
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Errors
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Errors
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 110
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets the collection of error messages encountered during the cleanup.
+  example: []
+  syntax:
+    content: public List<string> Errors { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property Errors As List(Of String)
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Errors*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Warnings
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Warnings
+  id: Warnings
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: Warnings
+  nameWithType: CleanupResult.Warnings
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Warnings
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Warnings
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 115
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets the collection of warning messages encountered during the cleanup.
+  example: []
+  syntax:
+    content: public List<string> Warnings { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property Warnings As List(Of String)
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Warnings*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasErrors
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasErrors
+  id: HasErrors
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: HasErrors
+  nameWithType: CleanupResult.HasErrors
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasErrors
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: HasErrors
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 120
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets a value indicating whether any errors occurred during cleanup.
+  example: []
+  syntax:
+    content: public bool HasErrors { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasErrors As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasErrors*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasWarnings
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasWarnings
+  id: HasWarnings
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: HasWarnings
+  nameWithType: CleanupResult.HasWarnings
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasWarnings
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: HasWarnings
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 125
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets a value indicating whether any warnings occurred during cleanup.
+  example: []
+  syntax:
+    content: public bool HasWarnings { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasWarnings As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasWarnings*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddError(System.String)
+  commentId: M:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddError(System.String)
+  id: AddError(System.String)
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: AddError(string)
+  nameWithType: CleanupResult.AddError(string)
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddError(string)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AddError
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 131
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Adds an error message to the result and sets Success to false.
+  example: []
+  syntax:
+    content: public void AddError(string error)
+    parameters:
+    - id: error
+      type: System.String
+      description: The error message to add.
+    content.vb: Public Sub AddError([error] As String)
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddError*
+  nameWithType.vb: CleanupResult.AddError(String)
+  fullName.vb: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddError(String)
+  name.vb: AddError(String)
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddWarning(System.String)
+  commentId: M:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddWarning(System.String)
+  id: AddWarning(System.String)
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: AddWarning(string)
+  nameWithType: CleanupResult.AddWarning(string)
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddWarning(string)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AddWarning
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 141
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Adds a warning message to the result.
+  example: []
+  syntax:
+    content: public void AddWarning(string warning)
+    parameters:
+    - id: warning
+      type: System.String
+      description: The warning message to add.
+    content.vb: Public Sub AddWarning(warning As String)
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddWarning*
+  nameWithType.vb: CleanupResult.AddWarning(String)
+  fullName.vb: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddWarning(String)
+  name.vb: AddWarning(String)
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.GenerateReport
+  commentId: M:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.GenerateReport
+  id: GenerateReport
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: GenerateReport()
+  nameWithType: CleanupResult.GenerateReport()
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.GenerateReport()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GenerateReport
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 154
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Generates a summary report of the cleanup operation.
+  example: []
+  syntax:
+    content: public string GenerateReport()
+    return:
+      type: System.String
+      description: A formatted multi-line string suitable for logging or display.
+    content.vb: Public Function GenerateReport() As String
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.GenerateReport*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ToString
+  commentId: M:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ToString
+  id: ToString
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: CleanupResult.ToString()
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ToString
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs
+    startLine: 196
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets a brief summary of the cleanup result.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ToString*
+references:
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup
+  commentId: N:NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models.Cleanup
+  nameWithType: NeonSuit.RSSReader.Core.Models.Cleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup
+    name: Cleanup
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup
+    name: Cleanup
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html
+  name: CleanupResult
+  nameWithType: CleanupResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.#ctor*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.#ctor
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult__ctor
+  name: CleanupResult
+  nameWithType: CleanupResult.CleanupResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.CleanupResult
+  nameWithType.vb: CleanupResult.New
+  fullName.vb: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.New
+  name.vb: New
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Success*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Success
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Success
+  name: Success
+  nameWithType: CleanupResult.Success
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Success
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Skipped*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Skipped
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Skipped
+  name: Skipped
+  nameWithType: CleanupResult.Skipped
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Skipped
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.PerformedAt*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.PerformedAt
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_PerformedAt
+  name: PerformedAt
+  nameWithType: CleanupResult.PerformedAt
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.PerformedAt
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Duration*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Duration
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Duration
+  name: Duration
+  nameWithType: CleanupResult.Duration
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Duration
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ArticleCleanup*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ArticleCleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_ArticleCleanup
+  name: ArticleCleanup
+  nameWithType: CleanupResult.ArticleCleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ArticleCleanup
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult.html
+  name: ArticleDeletionResult
+  nameWithType: ArticleDeletionResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.OrphanCleanup*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.OrphanCleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_OrphanCleanup
+  name: OrphanCleanup
+  nameWithType: CleanupResult.OrphanCleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.OrphanCleanup
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult.html
+  name: OrphanRemovalResult
+  nameWithType: OrphanRemovalResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ImageCacheCleanup*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ImageCacheCleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_ImageCacheCleanup
+  name: ImageCacheCleanup
+  nameWithType: CleanupResult.ImageCacheCleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ImageCacheCleanup
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html
+  name: ImageCacheCleanupResult
+  nameWithType: ImageCacheCleanupResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.VacuumResult*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.VacuumResult
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_VacuumResult
+  name: VacuumResult
+  nameWithType: CleanupResult.VacuumResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.VacuumResult
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html
+  name: VacuumResult
+  nameWithType: VacuumResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalArticlesDeleted*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalArticlesDeleted
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_TotalArticlesDeleted
+  name: TotalArticlesDeleted
+  nameWithType: CleanupResult.TotalArticlesDeleted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalArticlesDeleted
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalRecordsDeleted*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalRecordsDeleted
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_TotalRecordsDeleted
+  name: TotalRecordsDeleted
+  nameWithType: CleanupResult.TotalRecordsDeleted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalRecordsDeleted
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedBytes*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedBytes
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_SpaceFreedBytes
+  name: SpaceFreedBytes
+  nameWithType: CleanupResult.SpaceFreedBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedBytes
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedMB*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedMB
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_SpaceFreedMB
+  name: SpaceFreedMB
+  nameWithType: CleanupResult.SpaceFreedMB
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedMB
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedFormatted*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedFormatted
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_SpaceFreedFormatted
+  name: SpaceFreedFormatted
+  nameWithType: CleanupResult.SpaceFreedFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedFormatted
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Errors*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Errors
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Errors
+  name: Errors
+  nameWithType: CleanupResult.Errors
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Errors
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Warnings*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Warnings
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Warnings
+  name: Warnings
+  nameWithType: CleanupResult.Warnings
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Warnings
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasErrors*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasErrors
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_HasErrors
+  name: HasErrors
+  nameWithType: CleanupResult.HasErrors
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasErrors
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasWarnings*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasWarnings
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_HasWarnings
+  name: HasWarnings
+  nameWithType: CleanupResult.HasWarnings
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasWarnings
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddError*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddError
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_AddError_System_String_
+  name: AddError
+  nameWithType: CleanupResult.AddError
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddError
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddWarning*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddWarning
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_AddWarning_System_String_
+  name: AddWarning
+  nameWithType: CleanupResult.AddWarning
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddWarning
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.GenerateReport*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.GenerateReport
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_GenerateReport
+  name: GenerateReport
+  nameWithType: CleanupResult.GenerateReport
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.GenerateReport
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ToString*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ToString
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_ToString
+  name: ToString
+  nameWithType: CleanupResult.ToString
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ToString

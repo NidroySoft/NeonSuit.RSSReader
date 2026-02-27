@@ -1,0 +1,99 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Notifications
+  id: NeonSuit.RSSReader.Core.DTOs.Notifications
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.DTOs.Notifications
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Notifications
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.html
+  name: CreateNotificationDto
+  nameWithType: CreateNotificationDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.html
+  name: NotificationDto
+  nameWithType: NotificationDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html
+  name: NotificationStatsDto
+  nameWithType: NotificationStatsDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto.html
+  name: NotificationSummaryDto
+  nameWithType: NotificationSummaryDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto.html
+  name: UpdateNotificationActionDto
+  nameWithType: UpdateNotificationActionDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Notifications
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Notifications
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Notifications
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+    name: Notifications
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+    name: Notifications
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.html

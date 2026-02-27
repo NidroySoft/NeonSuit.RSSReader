@@ -1,970 +1,1077 @@
-using Microsoft.EntityFrameworkCore;
+ï»¿using Microsoft.EntityFrameworkCore;
 using NeonSuit.RSSReader.Core.Enums;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
 using NeonSuit.RSSReader.Core.Models;
 using NeonSuit.RSSReader.Data.Database;
-using NeonSuit.RSSReader.Data.Logging;
 using Serilog;
+using System.Linq.Expressions;
 
-namespace NeonSuit.RSSReader.Data.Repositories
+namespace NeonSuit.RSSReader.Data.Repositories;
+
+/// <summary>
+/// Repository implementation for <see cref="Article"/> entities using Entity Framework Core with SQLite.
+/// Optimized for low-resource environments with server-side filtering and minimal memory usage.
+/// </summary>
+internal class ArticleRepository : BaseRepository<Article>, IArticleRepository
 {
+    #region Constructor
+
     /// <summary>
-    /// Professional repository for RSS Articles using Entity Framework Core.
-    /// Implements comprehensive data access with logging and transaction support.
+    /// Initializes a new instance of the <see cref="ArticleRepository"/> class.
     /// </summary>
-    public class ArticleRepository : BaseRepository<Article>, IArticleRepository
+    /// <param name="context">The EF Core database context.</param>
+    /// <param name="logger">The Serilog logger instance.</param>
+    /// <exception cref="ArgumentNullException">Thrown if context or logger is null.</exception>
+    public ArticleRepository(RSSReaderDbContext context, ILogger logger)
+        : base(context, logger)
     {
-        private readonly ILogger _logger;
+        ArgumentNullException.ThrowIfNull(context);
+        ArgumentNullException.ThrowIfNull(logger);
 
-        public ArticleRepository(RssReaderDbContext context, ILogger logger) : base(context)
+#if DEBUG
+        _logger.Debug("ArticleRepository initialized");
+#endif
+    }
+
+    #endregion
+
+    #region Read Operations
+
+    /// <inheritdoc />
+    public new async Task<Article?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+    {
+        try
         {
-            _logger = logger.ForContext<ArticleRepository>();
+            return await _dbSet
+                .Include(a => a.Feed)
+                .Include(a => a.ArticleTags)
+                    .ThenInclude(at => at.Tag)
+                .FirstOrDefaultAsync(a => a.Id == id, cancellationToken)
+                .ConfigureAwait(false);
         }
-
-        // Implementation of missing methods from IArticleRepository
-        public async Task<List<Article>> GetWhereAsync(Func<Article, bool> predicate)
+        catch (OperationCanceledException)
         {
-            try
-            {
-                _logger.Debug("Getting articles with predicate");
-                var allArticles = await GetAllAsync();
-                var result = allArticles.Where(predicate).ToList();
-                _logger.Debug("Retrieved {Count} articles with predicate", result.Count);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error in GetWhereAsync");
-                throw;
-            }
+            _logger.Debug("GetByIdAsync cancelled for article ID {ArticleId}", id);
+            throw;
         }
-
-        public async Task<int> CountWhereAsync(Func<Article, bool> predicate)
+        catch (Exception ex)
         {
-            try
-            {
-                _logger.Debug("Counting articles with predicate");
-                var allArticles = await GetAllAsync();
-                var count = allArticles.Count(predicate);
-                _logger.Debug("Counted {Count} articles with predicate", count);
-                return count;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error in CountWhereAsync");
-                throw;
-            }
+            _logger.Error(ex, "Error retrieving article {ArticleId}", id);
+            throw;
         }
+    }
 
-        /// <summary>
-        /// Retrieves articles associated with a specific feed.
-        /// </summary>
-        public async Task<List<Article>> GetByFeedAsync(int feedId, int limit = 100)
+    /// <inheritdoc />
+    public override async Task<Article?> GetByIdReadOnlyAsync(int id, CancellationToken cancellationToken = default)
+    {
+        try
         {
-            try
-            {
-                _logger.Debug("Getting articles for feed {FeedId} with limit {Limit}", feedId, limit);
-
-                var articles = await GetWhereAsync(a => a.FeedId == feedId);
-                articles = articles
-                    .OrderByDescending(a => a.PublishedDate)
-                    .Take(limit)
-                    .ToList();
-
-                _logger.Debug("Retrieved {Count} articles for feed {FeedId}", articles.Count, feedId);
-                return articles;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting articles for feed {FeedId}", feedId);
-                throw;
-            }
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .Include(a => a.ArticleTags)
+                    .ThenInclude(at => at.Tag)
+                .FirstOrDefaultAsync(a => a.Id == id, cancellationToken)
+                .ConfigureAwait(false);
         }
-
-        /// <summary>
-        /// Retrieves articles belonging to a list of feeds.
-        /// </summary>
-        public async Task<List<Article>> GetByFeedsAsync(List<int> feedIds, int limit = 100)
+        catch (OperationCanceledException)
         {
-            try
-            {
-                _logger.Debug("Getting articles for {FeedCount} feeds with limit {Limit}", feedIds.Count, limit);
-
-                var articles = await GetWhereAsync(a => feedIds.Contains(a.FeedId));
-                articles = articles
-                    .OrderByDescending(a => a.PublishedDate)
-                    .Take(limit)
-                    .ToList();
-
-                _logger.Debug("Retrieved {ArticleCount} articles for {FeedCount} feeds", articles.Count, feedIds.Count);
-                return articles;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting articles for {FeedCount} feeds", feedIds.Count);
-                throw;
-            }
+            _logger.Debug("GetByIdReadOnlyAsync cancelled for article ID {ArticleId}", id);
+            throw;
         }
-
-        /// <summary>
-        /// Retrieves all unread articles.
-        /// </summary>
-        public async Task<List<Article>> GetUnreadAsync(int limit = 100)
+        catch (Exception ex)
         {
-            try
-            {
-                _logger.Debug("Getting unread articles with limit {Limit}", limit);
-
-                var articles = await GetWhereAsync(a => a.Status == ArticleStatus.Unread);
-                articles = articles
-                    .OrderByDescending(a => a.PublishedDate)
-                    .Take(limit)
-                    .ToList();
-
-                _logger.Debug("Retrieved {Count} unread articles", articles.Count);
-                return articles;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting unread articles");
-                throw;
-            }
+            _logger.Error(ex, "Error retrieving article {ArticleId} (read-only)", id);
+            throw;
         }
+    }
 
-        /// <summary>
-        /// Retrieves articles marked as starred (bookmarked).
-        /// </summary>
-        public async Task<List<Article>> GetStarredAsync()
+    /// <inheritdoc />
+    public new async Task<List<Article>> GetAllAsync(CancellationToken cancellationToken = default)
+    {
+        try
         {
-            try
-            {
-                _logger.Debug("Getting starred articles");
-
-                var articles = await GetWhereAsync(a => a.IsStarred);
-                articles = articles
-                    .OrderByDescending(a => a.PublishedDate)
-                    .ToList();
-
-                _logger.Debug("Retrieved {Count} starred articles", articles.Count);
-                return articles;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting starred articles");
-                throw;
-            }
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .OrderByDescending(a => a.PublishedDate)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
         }
-
-        /// <summary>
-        /// Retrieves articles marked as favorites.
-        /// </summary>
-        public async Task<List<Article>> GetFavoritesAsync()
+        catch (OperationCanceledException)
         {
-            try
-            {
-                _logger.Debug("Getting favorite articles");
-
-                var articles = await GetWhereAsync(a => a.IsFavorite);
-                articles = articles
-                    .OrderByDescending(a => a.PublishedDate)
-                    .ToList();
-
-                _logger.Debug("Retrieved {Count} favorite articles", articles.Count);
-                return articles;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting favorite articles");
-                throw;
-            }
+            _logger.Debug("GetAllAsync cancelled for articles");
+            throw;
         }
-
-        /// <summary>
-        /// Retrieves unread articles for a specific feed.
-        /// </summary>
-        public async Task<List<Article>> GetUnreadByFeedAsync(int feedId)
+        catch (Exception ex)
         {
-            try
-            {
-                _logger.Debug("Getting unread articles for feed {FeedId}", feedId);
-
-                var articles = await GetWhereAsync(a => a.FeedId == feedId && a.Status == ArticleStatus.Unread);
-                articles = articles
-                    .OrderByDescending(a => a.PublishedDate)
-                    .ToList();
-
-                _logger.Debug("Retrieved {Count} unread articles for feed {FeedId}", articles.Count, feedId);
-                return articles;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting unread articles for feed {FeedId}", feedId);
-                throw;
-            }
+            _logger.Error(ex, "Error retrieving all articles");
+            throw;
         }
+    }
 
-        /// <summary>
-        /// Finds an article by its unique GUID.
-        /// </summary>
-        public async Task<Article?> GetByGuidAsync(string guid)
+    /// <inheritdoc />
+    public override async Task<List<Article>> GetWhereAsync(Expression<Func<Article, bool>> predicate, CancellationToken cancellationToken = default)
+    {
+        try
         {
-            try
-            {
-                _logger.Debug("Getting article by GUID: {Guid}", guid);
-
-                var article = await GetFirstOrDefaultAsync(a => a.Guid == guid);
-
-                if (article == null)
-                    _logger.Debug("Article with GUID {Guid} not found", guid);
-                else
-                    _logger.Debug("Found article with GUID {Guid}: {Title}", guid, article.Title);
-
-                return article;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting article by GUID: {Guid}", guid);
-                throw;
-            }
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .Where(predicate)
+                .OrderByDescending(a => a.PublishedDate)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
         }
-
-        /// <summary>
-        /// Finds an article by its content hash.
-        /// </summary>
-        public async Task<Article?> GetByContentHashAsync(string hash)
+        catch (OperationCanceledException)
         {
-            try
-            {
-                _logger.Debug("Getting article by content hash: {Hash}", hash);
-
-                var article = await GetFirstOrDefaultAsync(a => a.ContentHash == hash);
-
-                if (article == null)
-                    _logger.Debug("Article with content hash {Hash} not found", hash);
-                else
-                    _logger.Debug("Found article with content hash {Hash}: {Title}", hash, article.Title);
-
-                return article;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting article by content hash: {Hash}", hash);
-                throw;
-            }
+            _logger.Debug("GetWhereAsync cancelled for articles");
+            throw;
         }
-
-        /// <summary>
-        /// Checks if an article with the specified GUID already exists.
-        /// </summary>
-        public async Task<bool> ExistsByGuidAsync(string guid)
+        catch (Exception ex)
         {
-            try
-            {
-                _logger.Debug("Checking if article exists by GUID: {Guid}", guid);
-                var article = await GetByGuidAsync(guid);
-                var exists = article != null;
-
-                _logger.Debug("Article with GUID {Guid} exists: {Exists}", guid, exists);
-                return exists;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error checking if article exists by GUID: {Guid}", guid);
-                throw;
-            }
+            _logger.Error(ex, "Error retrieving filtered articles");
+            throw;
         }
+    }
 
-        /// <summary>
-        /// Checks if an article with the specified content hash already exists.
-        /// </summary>
-        public async Task<bool> ExistsByContentHashAsync(string hash)
+    /// <inheritdoc />
+    public override async Task<int> CountWhereAsync(Expression<Func<Article, bool>> predicate, CancellationToken cancellationToken = default)
+    {
+        try
         {
-            try
-            {
-                _logger.Debug("Checking if article exists by content hash: {Hash}", hash);
-                var article = await GetByContentHashAsync(hash);
-                var exists = article != null;
-
-                _logger.Debug("Article with content hash {Hash} exists: {Exists}", hash, exists);
-                return exists;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error checking if article exists by content hash: {Hash}", hash);
-                throw;
-            }
+            return await _dbSet
+                .AsNoTracking()
+                .CountAsync(predicate, cancellationToken)
+                .ConfigureAwait(false);
         }
-
-        /// <summary>
-        /// Updates the status (Read/Unread) of a specific article.
-        /// </summary>
-        public async Task<int> MarkAsAsync(int articleId, ArticleStatus status)
+        catch (OperationCanceledException)
         {
-            try
+            _logger.Debug("CountWhereAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error counting filtered articles");
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Specialized Retrieval
+
+    /// <inheritdoc />
+    public async Task<List<Article>> GetByFeedAsync(int feedId, int limit = 100, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .Where(a => a.FeedId == feedId)
+                .OrderByDescending(a => a.PublishedDate)
+                .Take(limit)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetByFeedAsync cancelled for feed {FeedId}", feedId);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting articles for feed {FeedId}", feedId);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Article>> GetByFeedsAsync(List<int> feedIds, int limit = 100, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .Where(a => feedIds.Contains(a.FeedId))
+                .OrderByDescending(a => a.PublishedDate)
+                .Take(limit)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetByFeedsAsync cancelled for {Count} feeds", feedIds.Count);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting articles for {FeedCount} feeds", feedIds.Count);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Article>> GetUnreadAsync(int limit = 100, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .Where(a => a.Status == ArticleStatus.Unread)
+                .OrderByDescending(a => a.PublishedDate)
+                .Take(limit)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetUnreadAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting unread articles");
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Article>> GetStarredAsync(CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .Where(a => a.IsStarred)
+                .OrderByDescending(a => a.PublishedDate)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetStarredAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting starred articles");
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Article>> GetFavoritesAsync(CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .Where(a => a.IsFavorite)
+                .OrderByDescending(a => a.PublishedDate)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetFavoritesAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting favorite articles");
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Article>> GetUnreadByFeedAsync(int feedId, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .Where(a => a.FeedId == feedId && a.Status == ArticleStatus.Unread)
+                .OrderByDescending(a => a.PublishedDate)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetUnreadByFeedAsync cancelled for feed {FeedId}", feedId);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting unread articles for feed {FeedId}", feedId);
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Duplicate Detection & Lookup
+
+    /// <inheritdoc />
+    public async Task<Article?> GetByGuidAsync(string guid, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .FirstOrDefaultAsync(a => a.Guid == guid, cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetByGuidAsync cancelled for GUID {Guid}", guid);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting article by GUID: {Guid}", guid);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<Article?> GetByContentHashAsync(string hash, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .FirstOrDefaultAsync(a => a.ContentHash == hash, cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetByContentHashAsync cancelled for hash {Hash}", hash);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting article by content hash: {Hash}", hash);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<bool> ExistsByGuidAsync(string guid, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .AnyAsync(a => a.Guid == guid, cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("ExistsByGuidAsync cancelled for GUID {Guid}", guid);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error checking existence by GUID {Guid}", guid);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<bool> ExistsByContentHashAsync(string hash, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .AnyAsync(a => a.ContentHash == hash, cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("ExistsByContentHashAsync cancelled for hash {Hash}", hash);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error checking existence by content hash {Hash}", hash);
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Status & Toggle Operations
+
+    /// <inheritdoc />
+    public async Task<int> MarkAsAsync(int articleId, ArticleStatus status, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var article = await _dbSet.FindAsync(new object[] { articleId }, cancellationToken).ConfigureAwait(false);
+            if (article == null)
             {
-                _logger.Debug("Marking article {ArticleId} as {Status}", articleId, status);
-                var article = await GetByIdAsync(articleId);
-                if (article != null)
-                {
-                    var oldStatus = article.Status;
-                    article.Status = status;
-                    var result = await UpdateAsync(article);
-
-                    _logger.Information("Article {ArticleId} status changed from {OldStatus} to {NewStatus}",
-                        articleId, oldStatus, status);
-                    return result;
-                }
-
                 _logger.Warning("Article {ArticleId} not found for status update", articleId);
                 return 0;
             }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error marking article {ArticleId} as {Status}", articleId, status);
-                throw;
-            }
+
+            article.Status = status;
+            return await _context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
         }
-
-        /// <summary>
-        /// Toggles the starred status of an article.
-        /// </summary>
-        public async Task<int> ToggleStarAsync(int articleId)
+        catch (OperationCanceledException)
         {
-            try
+            _logger.Debug("MarkAsAsync cancelled for article {ArticleId}", articleId);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error marking article {ArticleId} as {Status}", articleId, status);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<int> ToggleStarAsync(int articleId, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var article = await _dbSet.FindAsync(new object[] { articleId }, cancellationToken).ConfigureAwait(false);
+            if (article == null)
             {
-                _logger.Debug("Toggling star status for article {ArticleId}", articleId);
-                var article = await GetByIdAsync(articleId);
-                if (article != null)
-                {
-                    var oldStatus = article.IsStarred;
-                    article.IsStarred = !article.IsStarred;
-                    var result = await UpdateAsync(article);
-
-                    _logger.Information("Article {ArticleId} star status changed from {OldStatus} to {NewStatus}",
-                        articleId, oldStatus, article.IsStarred);
-                    return result;
-                }
-
                 _logger.Warning("Article {ArticleId} not found for star toggle", articleId);
                 return 0;
             }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error toggling star status for article {ArticleId}", articleId);
-                throw;
-            }
+
+            article.IsStarred = !article.IsStarred;
+            return await _context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
         }
-
-        /// <summary>
-        /// Toggles the favorite status of an article.
-        /// </summary>
-        public async Task<int> ToggleFavoriteAsync(int articleId)
+        catch (OperationCanceledException)
         {
-            try
+            _logger.Debug("ToggleStarAsync cancelled for article {ArticleId}", articleId);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error toggling star for article {ArticleId}", articleId);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<int> ToggleFavoriteAsync(int articleId, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var article = await _dbSet.FindAsync(new object[] { articleId }, cancellationToken).ConfigureAwait(false);
+            if (article == null)
             {
-                _logger.Debug("Toggling favorite status for article {ArticleId}", articleId);
-                var article = await GetByIdAsync(articleId);
-                if (article != null)
-                {
-                    var oldStatus = article.IsFavorite;
-                    article.IsFavorite = !article.IsFavorite;
-                    var result = await UpdateAsync(article);
-
-                    _logger.Information("Article {ArticleId} favorite status changed from {OldStatus} to {NewStatus}",
-                        articleId, oldStatus, article.IsFavorite);
-                    return result;
-                }
-
                 _logger.Warning("Article {ArticleId} not found for favorite toggle", articleId);
                 return 0;
             }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error toggling favorite status for article {ArticleId}", articleId);
-                throw;
-            }
+
+            article.IsFavorite = !article.IsFavorite;
+            return await _context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
         }
-
-        /// <summary>
-        /// Marks all articles in a feed as read.
-        /// </summary>
-        public async Task<int> MarkAllAsReadByFeedAsync(int feedId)
+        catch (OperationCanceledException)
         {
-            try
-            {
-                _logger.Debug("Marking all articles as read for feed {FeedId}", feedId);
-
-                var articles = await GetWhereAsync(a => a.FeedId == feedId && a.Status == ArticleStatus.Unread);
-
-                if (!articles.Any())
-                {
-                    _logger.Debug("No unread articles found for feed {FeedId}", feedId);
-                    return 0;
-                }
-
-                foreach (var article in articles)
-                {
-                    article.Status = ArticleStatus.Read;
-                }
-
-                var result = await UpdateAllAsync(articles);
-                _logger.Information("Marked {Count} articles as read for feed {FeedId}", articles.Count, feedId);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error marking all articles as read for feed {FeedId}", feedId);
-                throw;
-            }
+            _logger.Debug("ToggleFavoriteAsync cancelled for article {ArticleId}", articleId);
+            throw;
         }
-
-        /// <summary>
-        /// Marks all articles as read.
-        /// </summary>
-        public async Task<int> MarkAllAsReadAsync()
+        catch (Exception ex)
         {
-            try
-            {
-                _logger.Debug("Marking all articles as read");
-
-                // ? EF Core 7+: ExecuteUpdateAsync actualiza directamente sin cargar entidades
-                // No hay problema de tracking porque no se cargan objetos en memoria
-                var updatedCount = await _context.Articles
-                    .Where(a => a.Status == ArticleStatus.Unread)
-                    .ExecuteUpdateAsync(setters => setters
-                        .SetProperty(a => a.Status, ArticleStatus.Read)
-                        .SetProperty(a => a.AddedDate, DateTime.UtcNow));
-
-                if (updatedCount > 0)
-                {
-                    _logger.Information("Marked {Count} articles as read", updatedCount);
-                }
-                else
-                {
-                    _logger.Debug("No unread articles found");
-                }
-
-                return updatedCount;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error marking all articles as read");
-                throw;
-            }
-        }
-        /// <summary>
-        /// Gets the total count of unread articles.
-        /// </summary>
-        public async Task<int> GetUnreadCountAsync()
-        {
-            try
-            {
-                _logger.Debug("Getting total unread count");
-                var count = await CountWhereAsync(a => a.Status == ArticleStatus.Unread);
-                _logger.Debug("Total unread articles: {Count}", count);
-                return count;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting total unread count");
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Gets the unread count for a specific feed.
-        /// </summary>
-        public async Task<int> GetUnreadCountByFeedAsync(int feedId)
-        {
-            try
-            {
-                _logger.Debug("Getting unread count for feed {FeedId}", feedId);
-                var count = await CountWhereAsync(a => a.FeedId == feedId && a.Status == ArticleStatus.Unread);
-                _logger.Debug("Unread articles for feed {FeedId}: {Count}", feedId, count);
-                return count;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting unread count for feed {FeedId}", feedId);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Retrieves unread counts grouped by FeedId.
-        /// </summary>
-        public async Task<Dictionary<int, int>> GetUnreadCountsByFeedAsync()
-        {
-            try
-            {
-                _logger.Debug("Getting unread counts grouped by feed");
-
-                var unreadArticles = await GetWhereAsync(a => a.Status == ArticleStatus.Unread);
-                var result = unreadArticles
-                    .GroupBy(a => a.FeedId)
-                    .ToDictionary(g => g.Key, g => g.Count());
-
-                _logger.Debug("Retrieved unread counts for {Count} feeds", result.Count);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting unread counts grouped by feed");
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Searches for articles containing the search text in title, content, or summary.
-        /// </summary>
-        public async Task<List<Article>> SearchAsync(string searchText)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(searchText))
-                {
-                    _logger.Debug("Empty search text provided");
-                    return new List<Article>();
-                }
-
-                _logger.Debug("Searching articles for: {SearchText}", searchText);
-
-                var allArticles = await GetAllAsync();
-                var articles = allArticles
-                    .Where(a => a.Title.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-                               a.Content.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-                               a.Summary.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-                               a.Author.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-                               a.Categories.Contains(searchText, StringComparison.OrdinalIgnoreCase))
-                    .OrderByDescending(a => a.PublishedDate)
-                    .ToList();
-
-                _logger.Debug("Found {Count} articles for search: {SearchText}", articles.Count, searchText);
-                return articles;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error searching articles for: {SearchText}", searchText);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Deletes articles older than the specified date, excluding starred and favorite items.
-        /// </summary>
-        public async Task<int> DeleteOlderThanAsync(DateTime date)
-        {
-            try
-            {
-                _logger.Debug("Deleting articles older than {Date}", date);
-
-                // ? EF Core 7+: ExecuteDeleteAsync elimina directamente sin cargar entidades
-                // No hay problema de tracking porque no se cargan objetos en memoria
-                var deletedCount = await _context.Articles
-                    .Where(a => a.PublishedDate < date && !a.IsStarred && !a.IsFavorite)
-                    .ExecuteDeleteAsync();
-
-                _logger.Information("Deleted {Count} articles older than {Date}", deletedCount, date);
-                return deletedCount;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error deleting articles older than {Date}", date);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Deletes all articles belonging to a specific feed.
-        /// </summary>
-        public async Task<int> DeleteByFeedAsync(int feedId)
-        {
-            try
-            {
-                _logger.Debug("Deleting all articles for feed {FeedId}", feedId);
-
-                // ? SQL CORRECTO CON PARÁMETRO
-                var sql = "DELETE FROM Articles WHERE FeedId = @p0";
-                var result = await _context.ExecuteSqlCommandAsync(sql,cancellationToken:default  ,feedId);
-
-                _logger.Information("Deleted {Count} articles for feed {FeedId}", result, feedId);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error deleting articles for feed {FeedId}", feedId);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Retrieves articles that haven't been processed by rules.
-        /// </summary>
-        public async Task<List<Article>> GetUnprocessedArticlesAsync(int limit = 100)
-        {
-            try
-            {
-                _logger.Debug("Getting unprocessed articles with limit {Limit}", limit);
-
-                var articles = await GetWhereAsync(a => !a.ProcessedByRules);
-                articles = articles
-                    .OrderByDescending(a => a.PublishedDate)
-                    .Take(limit)
-                    .ToList();
-
-                _logger.Debug("Retrieved {Count} unprocessed articles", articles.Count);
-                return articles;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting unprocessed articles");
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Retrieves articles that haven't been notified to the user.
-        /// </summary>
-        public async Task<List<Article>> GetUnnotifiedArticlesAsync(int limit = 100)
-        {
-            try
-            {
-                _logger.Debug("Getting unnotified articles with limit {Limit}", limit);
-
-                var articles = await GetWhereAsync(a => !a.IsNotified);
-                articles = articles
-                    .OrderByDescending(a => a.PublishedDate)
-                    .Take(limit)
-                    .ToList();
-
-                _logger.Debug("Retrieved {Count} unnotified articles", articles.Count);
-                return articles;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting unnotified articles");
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Retrieves articles by categories.
-        /// </summary>
-        public async Task<List<Article>> GetByCategoriesAsync(string categories, int limit = 100)
-        {
-            try
-            {
-                _logger.Debug("Getting articles by categories: {Categories} with limit {Limit}", categories, limit);
-
-                var articles = await GetWhereAsync(a => a.Categories.Contains(categories));
-                articles = articles
-                    .OrderByDescending(a => a.PublishedDate)
-                    .Take(limit)
-                    .ToList();
-
-                _logger.Debug("Retrieved {Count} articles for categories: {Categories}", articles.Count, categories);
-                return articles;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting articles by categories: {Categories}", categories);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Marks an article as processed by rules.
-        /// </summary>
-        public async Task<int> MarkAsProcessedAsync(int articleId)
-        {
-            try
-            {
-                _logger.Debug("Marking article {ArticleId} as processed", articleId);
-                var article = await GetByIdAsync(articleId);
-                if (article != null)
-                {
-                    article.ProcessedByRules = true;
-                    var result = await UpdateAsync(article);
-
-                    _logger.Information("Article {ArticleId} marked as processed", articleId);
-                    return result;
-                }
-
-                _logger.Warning("Article {ArticleId} not found for processing", articleId);
-                return 0;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error marking article {ArticleId} as processed", articleId);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Marks an article as notified.
-        /// </summary>
-        public async Task<int> MarkAsNotifiedAsync(int articleId)
-        {
-            try
-            {
-                _logger.Debug("Marking article {ArticleId} as notified", articleId);
-                var article = await GetByIdAsync(articleId);
-                if (article != null)
-                {
-                    article.IsNotified = true;
-                    var result = await UpdateAsync(article);
-
-                    _logger.Information("Article {ArticleId} marked as notified", articleId);
-                    return result;
-                }
-
-                _logger.Warning("Article {ArticleId} not found for notification", articleId);
-                return 0;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error marking article {ArticleId} as notified", articleId);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Marks multiple articles as processed by rules.
-        /// </summary>
-        public async Task<int> BulkMarkAsProcessedAsync(List<int> articleIds)
-        {
-            try
-            {
-                _logger.Debug("Bulk marking {Count} articles as processed", articleIds.Count);
-                if (!articleIds.Any())
-                {
-                    _logger.Debug("No article IDs provided for bulk processing");
-                    return 0;
-                }
-
-                var allArticles = await GetAllAsync();
-                var articles = allArticles
-                    .Where(a => articleIds.Contains(a.Id))
-                    .ToList();
-
-                if (!articles.Any())
-                {
-                    _logger.Debug("No articles found for bulk processing");
-                    return 0;
-                }
-
-                foreach (var article in articles)
-                {
-                    article.ProcessedByRules = true;
-                }
-
-                var result = await UpdateAllAsync(articles);
-                _logger.Information("Bulk marked {Count} articles as processed", articles.Count);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error bulk marking {Count} articles as processed", articleIds.Count);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Marks multiple articles as notified.
-        /// </summary>
-        public async Task<int> BulkMarkAsNotifiedAsync(List<int> articleIds)
-        {
-            try
-            {
-                _logger.Debug("Bulk marking {Count} articles as notified", articleIds.Count);
-                if (!articleIds.Any())
-                {
-                    _logger.Debug("No article IDs provided for bulk notification");
-                    return 0;
-                }
-
-                var allArticles = await GetAllAsync();
-                var articles = allArticles
-                    .Where(a => articleIds.Contains(a.Id))
-                    .ToList();
-
-                if (!articles.Any())
-                {
-                    _logger.Debug("No articles found for bulk notification");
-                    return 0;
-                }
-
-                foreach (var article in articles)
-                {
-                    article.IsNotified = true;
-                }
-
-                var result = await UpdateAllAsync(articles);
-                _logger.Information("Bulk marked {Count} articles as notified", articles.Count);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error bulk marking {Count} articles as notified", articleIds.Count);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Retrieves paged articles with optional status filter.
-        /// </summary>
-        public async Task<List<Article>> GetPagedAsync(int page, int pageSize, ArticleStatus? status = null)
-        {
-            try
-            {
-                _logger.Debug("Getting paged articles - Page: {Page}, PageSize: {PageSize}, Status: {Status}",
-                    page, pageSize, status?.ToString() ?? "Any");
-
-                var allArticles = await GetAllAsync();
-                var query = allArticles.AsQueryable();
-
-                if (status.HasValue)
-                {
-                    query = query.Where(a => a.Status == status.Value);
-                }
-
-                var articles = query
-                    .OrderByDescending(a => a.PublishedDate)
-                    .Skip((page - 1) * pageSize)
-                    .Take(pageSize)
-                    .ToList();
-
-                _logger.Debug("Retrieved {Count} paged articles", articles.Count);
-                return articles;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting paged articles - Page: {Page}, PageSize: {PageSize}", page, pageSize);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Retrieves paged articles for a specific feed with optional status filter.
-        /// </summary>
-        public async Task<List<Article>> GetPagedByFeedAsync(int feedId, int page, int pageSize, ArticleStatus? status = null)
-        {
-            try
-            {
-                _logger.Debug("Getting paged articles for feed {FeedId} - Page: {Page}, PageSize: {PageSize}, Status: {Status}",
-                    feedId, page, pageSize, status?.ToString() ?? "Any");
-
-                var allArticles = await GetAllAsync();
-                var query = allArticles
-                    .Where(a => a.FeedId == feedId)
-                    .AsQueryable();
-
-                if (status.HasValue)
-                {
-                    query = query.Where(a => a.Status == status.Value);
-                }
-
-                var articles = query
-                    .OrderByDescending(a => a.PublishedDate)
-                    .Skip((page - 1) * pageSize)
-                    .Take(pageSize)
-                    .ToList();
-
-                _logger.Debug("Retrieved {Count} paged articles for feed {FeedId}", articles.Count, feedId);
-                return articles;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error getting paged articles for feed {FeedId} - Page: {Page}, PageSize: {PageSize}",
-                    feedId, page, pageSize);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Inserts multiple articles in a single transaction.
-        /// </summary>
-        public async Task<int> InsertAllAsync(List<Article> entities)
-        {
-            try
-            {
-                if (entities == null || !entities.Any())
-                {
-                    _logger.Debug("No entities to insert");
-                    return 0;
-                }
-
-                _logger.Debug("Inserting {Count} articles in bulk", entities.Count);
-
-                var result = await base.InsertAllAsync(entities);
-
-                _logger.Information("Successfully inserted {Count} articles in bulk", entities.Count);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error inserting {Count} articles in bulk", entities?.Count ?? 0);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Updates multiple articles in a single transaction.
-        /// </summary>
-        public async Task<int> UpdateAllAsync(List<Article> entities)
-        {
-            try
-            {
-                if (entities == null || !entities.Any())
-                {
-                    _logger.Debug("No entities to update");
-                    return 0;
-                }
-
-                _logger.Debug("Updating {Count} articles in bulk", entities.Count);
-
-                var result = await base.UpdateAllAsync(entities);
-
-                _logger.Information("Successfully updated {Count} articles in bulk", entities.Count);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error updating {Count} articles in bulk", entities?.Count ?? 0);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Detaches an article entity from the change tracker by ID.
-        /// </summary>
-        /// <param name="id">The ID of the article to detach.</param>
-        public new async Task DetachEntityAsync(int id)
-        {
-            try
-            {
-                _logger.Debug("Detaching article with ID: {ArticleId} from change tracker", id);
-
-                var tracked = _context.ChangeTracker.Entries<Article>()
-                    .FirstOrDefault(e => e.Entity.Id == id);
-
-                if (tracked != null)
-                {
-                    tracked.State = EntityState.Detached;
-                    _logger.Debug("Successfully detached article ID: {ArticleId}", id);
-                }
-                else
-                {
-                    _logger.Debug("Article ID: {ArticleId} was not being tracked", id);
-                }
-
-                await Task.CompletedTask;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Error detaching article with ID: {ArticleId}", id);
-                throw;
-            }
+            _logger.Error(ex, "Error toggling favorite for article {ArticleId}", articleId);
+            throw;
         }
     }
+
+    /// <inheritdoc />
+    public async Task<int> MarkAllAsReadByFeedAsync(int feedId, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var updatedCount = await _dbSet
+                .Where(a => a.FeedId == feedId && a.Status == ArticleStatus.Unread)
+                .ExecuteUpdateAsync(
+                    setters => setters.SetProperty(a => a.Status, ArticleStatus.Read),
+                    cancellationToken)
+                .ConfigureAwait(false);
+
+            _logger.Information("Marked {Count} articles as read for feed {FeedId}", updatedCount, feedId);
+            return updatedCount;
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("MarkAllAsReadByFeedAsync cancelled for feed {FeedId}", feedId);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error marking all as read for feed {FeedId}", feedId);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<int> MarkAllAsReadAsync(CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var updatedCount = await _dbSet
+                .Where(a => a.Status == ArticleStatus.Unread)
+                .ExecuteUpdateAsync(
+                    setters => setters.SetProperty(a => a.Status, ArticleStatus.Read),
+                    cancellationToken)
+                .ConfigureAwait(false);
+
+            _logger.Information("Marked {Count} articles as read globally", updatedCount);
+            return updatedCount;
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("MarkAllAsReadAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error marking all articles as read");
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Counters & Aggregates
+
+    /// <inheritdoc />
+    public async Task<int> GetUnreadCountAsync(CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .CountAsync(a => a.Status == ArticleStatus.Unread, cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetUnreadCountAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting total unread count");
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<int> GetUnreadCountByFeedAsync(int feedId, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .CountAsync(a => a.FeedId == feedId && a.Status == ArticleStatus.Unread, cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetUnreadCountByFeedAsync cancelled for feed {FeedId}", feedId);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting unread count for feed {FeedId}", feedId);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<Dictionary<int, int>> GetUnreadCountsByFeedAsync(CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Where(a => a.Status == ArticleStatus.Unread)
+                .GroupBy(a => a.FeedId)
+                .Select(g => new { FeedId = g.Key, Count = g.Count() })
+                .ToDictionaryAsync(x => x.FeedId, x => x.Count, cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetUnreadCountsByFeedAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting unread counts by feed");
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Search & Advanced Filtering
+
+    /// <inheritdoc />
+    public async Task<List<Article>> SearchAsync(string searchText, CancellationToken cancellationToken = default)
+    {
+        if (string.IsNullOrWhiteSpace(searchText))
+        {
+            return new List<Article>();
+        }
+
+        try
+        {
+            var lowerSearch = searchText.ToLowerInvariant();
+
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .Where(a =>
+                    EF.Functions.Like(a.Title.ToLower(), $"%{lowerSearch}%") ||
+                    (a.Content != null && EF.Functions.Like(a.Content.ToLower(), $"%{lowerSearch}%")) ||
+                    (a.Summary != null && EF.Functions.Like(a.Summary.ToLower(), $"%{lowerSearch}%")) ||
+                    (a.Author != null && EF.Functions.Like(a.Author.ToLower(), $"%{lowerSearch}%")) ||
+                    (a.Categories != null && EF.Functions.Like(a.Categories.ToLower(), $"%{lowerSearch}%")))
+                .OrderByDescending(a => a.PublishedDate)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("SearchAsync cancelled for: {SearchText}", searchText);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error searching articles for: {SearchText}", searchText);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Article>> GetByCategoriesAsync(string categories, int limit = 100, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .Where(a => a.Categories != null && a.Categories.Contains(categories))
+                .OrderByDescending(a => a.PublishedDate)
+                .Take(limit)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetByCategoriesAsync cancelled for: {Categories}", categories);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting articles by categories: {Categories}", categories);
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Processing & Notification Workflow
+
+    /// <inheritdoc />
+    public async Task<List<Article>> GetUnprocessedArticlesAsync(int limit = 100, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .Where(a => !a.ProcessedByRules)
+                .OrderByDescending(a => a.PublishedDate)
+                .Take(limit)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetUnprocessedArticlesAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting unprocessed articles");
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Article>> GetUnnotifiedArticlesAsync(int limit = 100, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .Where(a => !a.IsNotified)
+                .OrderByDescending(a => a.PublishedDate)
+                .Take(limit)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetUnnotifiedArticlesAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting unnotified articles");
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<int> MarkAsProcessedAsync(int articleId, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var article = await _dbSet.FindAsync(new object[] { articleId }, cancellationToken).ConfigureAwait(false);
+            if (article == null)
+            {
+                _logger.Warning("Article {ArticleId} not found for processing mark", articleId);
+                return 0;
+            }
+
+            article.ProcessedByRules = true;
+            return await _context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("MarkAsProcessedAsync cancelled for article {ArticleId}", articleId);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error marking article {ArticleId} as processed", articleId);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<int> MarkAsNotifiedAsync(int articleId, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var article = await _dbSet.FindAsync(new object[] { articleId }, cancellationToken).ConfigureAwait(false);
+            if (article == null)
+            {
+                _logger.Warning("Article {ArticleId} not found for notification mark", articleId);
+                return 0;
+            }
+
+            article.IsNotified = true;
+            return await _context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("MarkAsNotifiedAsync cancelled for article {ArticleId}", articleId);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error marking article {ArticleId} as notified", articleId);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<int> BulkMarkAsProcessedAsync(List<int> articleIds, CancellationToken cancellationToken = default)
+    {
+        if (articleIds == null || !articleIds.Any())
+        {
+            return 0;
+        }
+
+        try
+        {
+            var updatedCount = await _dbSet
+                .Where(a => articleIds.Contains(a.Id))
+                .ExecuteUpdateAsync(
+                    setters => setters.SetProperty(a => a.ProcessedByRules, true),
+                    cancellationToken)
+                .ConfigureAwait(false);
+
+            _logger.Information("Bulk marked {Count} articles as processed", updatedCount);
+            return updatedCount;
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("BulkMarkAsProcessedAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error bulk marking articles as processed");
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<int> BulkMarkAsNotifiedAsync(List<int> articleIds, CancellationToken cancellationToken = default)
+    {
+        if (articleIds == null || !articleIds.Any())
+        {
+            return 0;
+        }
+
+        try
+        {
+            var updatedCount = await _dbSet
+                .Where(a => articleIds.Contains(a.Id))
+                .ExecuteUpdateAsync(
+                    setters => setters.SetProperty(a => a.IsNotified, true),
+                    cancellationToken)
+                .ConfigureAwait(false);
+
+            _logger.Information("Bulk marked {Count} articles as notified", updatedCount);
+            return updatedCount;
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("BulkMarkAsNotifiedAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error bulk marking articles as notified");
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Cleanup Operations
+
+    /// <inheritdoc />
+    public async Task<int> DeleteOlderThanAsync(DateTime date, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var deletedCount = await _dbSet
+                .Where(a => a.PublishedDate < date && !a.IsStarred && !a.IsFavorite)
+                .ExecuteDeleteAsync(cancellationToken)
+                .ConfigureAwait(false);
+
+            _logger.Information("Deleted {Count} articles older than {Date}", deletedCount, date);
+            return deletedCount;
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("DeleteOlderThanAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error deleting articles older than {Date}", date);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<int> DeleteByFeedAsync(int feedId, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var deletedCount = await _dbSet
+                .Where(a => a.FeedId == feedId)
+                .ExecuteDeleteAsync(cancellationToken)
+                .ConfigureAwait(false);
+
+            _logger.Information("Deleted {Count} articles for feed {FeedId}", deletedCount, feedId);
+            return deletedCount;
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("DeleteByFeedAsync cancelled for feed {FeedId}", feedId);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error deleting articles for feed {FeedId}", feedId);
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Pagination Support
+
+    /// <inheritdoc />
+    public async Task<List<Article>> GetPagedAsync(int page, int pageSize, ArticleStatus? status = null, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var query = _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .OrderByDescending(a => a.PublishedDate);
+
+            if (status.HasValue)
+            {
+                query = (IOrderedQueryable<Article>)query.Where(a => a.Status == status.Value);
+            }
+
+            return await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetPagedAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting paged articles");
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Article>> GetPagedByFeedAsync(int feedId, int page, int pageSize, ArticleStatus? status = null, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var query = _dbSet
+                .AsNoTracking()
+                .Include(a => a.Feed)
+                .Where(a => a.FeedId == feedId)
+                .OrderByDescending(a => a.PublishedDate);
+
+            if (status.HasValue)
+            {
+                query = (IOrderedQueryable<Article>)query.Where(a => a.Status == status.Value);
+            }
+
+            return await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetPagedByFeedAsync cancelled for feed {FeedId}", feedId);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error getting paged articles for feed {FeedId}", feedId);
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Bulk Insert/Update
+
+    /// <inheritdoc />
+    public async Task<int> InsertAllAsync(List<Article> entities, CancellationToken cancellationToken = default)
+    {
+        if (entities == null || !entities.Any())
+        {
+            return 0;
+        }
+
+        try
+        {
+            await _dbSet.AddRangeAsync(entities, cancellationToken).ConfigureAwait(false);
+            var result = await _context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+
+            _logger.Debug("Inserted {Count} articles in bulk", entities.Count);
+            return result;
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("InsertAllAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error inserting {Count} articles in bulk", entities.Count);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<int> UpdateAllAsync(List<Article> entities, CancellationToken cancellationToken = default)
+    {
+        if (entities == null || !entities.Any())
+        {
+            return 0;
+        }
+
+        try
+        {
+            _dbSet.UpdateRange(entities);
+            var result = await _context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+
+            _logger.Debug("Updated {Count} articles in bulk", entities.Count);
+            return result;
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("UpdateAllAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error updating {Count} articles in bulk", entities.Count);
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Entity Management
+
+    /// <inheritdoc />
+    public async Task DetachEntityAsync(int id, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var entry = _context.ChangeTracker.Entries<Article>()
+                .FirstOrDefault(e => e.Entity.Id == id);
+
+            if (entry != null)
+            {
+                entry.State = EntityState.Detached;
+                _logger.Debug("Detached article ID: {ArticleId}", id);
+            }
+
+            await Task.CompletedTask;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error detaching article with ID: {ArticleId}", id);
+            throw;
+        }
+    }
+
+    #endregion
 }

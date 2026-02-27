@@ -2,27 +2,54 @@
 using NeonSuit.RSSReader.Core.Enums;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
 using NeonSuit.RSSReader.Core.Models;
+using NeonSuit.RSSReader.Core.Models.Cleanup;
 using NeonSuit.RSSReader.Data.Database;
 using Serilog;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace NeonSuit.RSSReader.Data.Repositories
 {
     /// <summary>
     /// Implementation of <see cref="IDatabaseCleanupRepository"/> for Entity Framework Core database maintenance.
-    /// Provides low-level database operations for cleanup, optimization, and integrity verification.
+    /// Provides low-level database operations for cleanup, optimization, and integrity verification,
+    /// specifically tailored for SQLite databases on resource-constrained environments.
     /// </summary>
-    /// <remarks>
-    /// Initializes a new instance of the <see cref="DatabaseCleanupRepository"/> class.
-    /// </remarks>
-    /// <param name="dbContext">The database context for connection management.</param>
-    /// <param name="logger">The logger instance for diagnostic logging.</param>
-    /// <exception cref="ArgumentNullException">Thrown when dbContext or logger is null.</exception>
-    public class DatabaseCleanupRepository(RssReaderDbContext dbContext, ILogger logger) : IDatabaseCleanupRepository
+    internal class DatabaseCleanupRepository : IDatabaseCleanupRepository
     {
-        private readonly RssReaderDbContext _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
-        private readonly ILogger _logger = (logger ?? throw new ArgumentNullException(nameof(logger)))
-        .ForContext<DatabaseCleanupRepository>();
-        private readonly string? _databasePath = dbContext.DatabasePath;
+        private readonly RSSReaderDbContext _dbContext;
+        private readonly ILogger _logger;
+        private readonly string? _databasePath;
+
+        #region Constructor
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DatabaseCleanupRepository"/> class.
+        /// </summary>
+        /// <param name="context">The database context.</param>
+        /// <param name="logger">The Serilog logger instance.</param>
+        /// <exception cref="ArgumentNullException">Thrown if context or logger is null.</exception>
+        public DatabaseCleanupRepository(RSSReaderDbContext context, ILogger logger)
+        {
+            ArgumentNullException.ThrowIfNull(context);
+            ArgumentNullException.ThrowIfNull(logger);
+
+            _dbContext = context;
+            _logger = logger.ForContext<DatabaseCleanupRepository>();
+            _databasePath = context.DatabasePath;
+
+#if DEBUG
+            _logger.Debug("DatabaseCleanupRepository initialized");
+#endif
+        }
+
+        #endregion
+
+        #region Article Cleanup Operations
 
         /// <inheritdoc />
         public async Task<ArticleDeletionResult> DeleteOldArticlesAsync(
@@ -33,6 +60,7 @@ namespace NeonSuit.RSSReader.Data.Repositories
         {
             if (cutoffDate > DateTime.UtcNow)
             {
+                _logger.Warning("Attempted to delete articles with future cutoff date: {CutoffDate}", cutoffDate);
                 throw new ArgumentException("Cutoff date cannot be in the future", nameof(cutoffDate));
             }
 
@@ -40,24 +68,24 @@ namespace NeonSuit.RSSReader.Data.Repositories
 
             try
             {
-                // Build query using EF Core LINQ
-                var query = _dbContext.Articles.Where(a => a.PublishedDate < cutoffDate);
+                // Build query for articles to be deleted
+                var query = _dbContext.Articles
+                    .AsNoTracking()
+                    .Where(a => a.PublishedDate < cutoffDate);
 
                 if (keepFavorites)
-                {
                     query = query.Where(a => !a.IsFavorite);
-                }
 
                 if (keepUnread)
-                {
                     query = query.Where(a => a.Status == ArticleStatus.Read);
-                }
 
-                // Get count before deletion for reporting
-                result.ArticlesFound = await query.CountAsync(cancellationToken);
+                // Get count before deletion
+                var articlesToDelete = await query.CountAsync(cancellationToken).ConfigureAwait(false);
+                result.ArticlesFound = articlesToDelete;
+                result.TotalArticlesBefore = await _dbContext.Articles.CountAsync(cancellationToken).ConfigureAwait(false);
 
-                // Get date range of articles to be deleted for metadata
-                if (result.ArticlesFound > 0)
+                // Get date range of articles to be deleted
+                if (articlesToDelete > 0)
                 {
                     var dateRange = await query
                         .GroupBy(_ => 1)
@@ -66,7 +94,8 @@ namespace NeonSuit.RSSReader.Data.Repositories
                             Oldest = g.Min(a => a.PublishedDate),
                             Newest = g.Max(a => a.PublishedDate)
                         })
-                        .FirstOrDefaultAsync(cancellationToken);
+                        .FirstOrDefaultAsync(cancellationToken)
+                        .ConfigureAwait(false);
 
                     if (dateRange != null)
                     {
@@ -75,30 +104,152 @@ namespace NeonSuit.RSSReader.Data.Repositories
                     }
                 }
 
+                result.CutoffDateUsed = cutoffDate;
                 cancellationToken.ThrowIfCancellationRequested();
 
-                // Execute deletion using ExecuteDelete for better performance
-                result.ArticlesDeleted = await query.ExecuteDeleteAsync(cancellationToken);
+                // Execute deletion using ExecuteDeleteAsync
+                result.ArticlesDeleted = await _dbContext.Articles
+                    .Where(a => query.Select(q => q.Id).Contains(a.Id))
+                    .ExecuteDeleteAsync(cancellationToken)
+                    .ConfigureAwait(false);
 
                 _logger.Information(
-                    "Deleted {DeletedCount} articles older than {CutoffDate} (Found: {FoundCount})",
-                    result.ArticlesDeleted,
-                    cutoffDate,
-                    result.ArticlesFound);
+                    "Deleted {DeletedCount} articles older than {CutoffDate:yyyy-MM-dd} (Found: {FoundCount})",
+                    result.ArticlesDeleted, cutoffDate, result.ArticlesFound);
 
                 return result;
             }
             catch (OperationCanceledException)
             {
-                _logger.Warning("Article deletion operation was cancelled");
+                _logger.Debug("DeleteOldArticlesAsync cancelled");
                 throw;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Failed to delete old articles with cutoff date {CutoffDate}", cutoffDate);
+                _logger.Error(ex, "Failed to delete old articles");
                 throw;
             }
         }
+
+        /// <inheritdoc />
+        public async Task<CleanupAnalysis> AnalyzeCleanupImpactAsync(
+            DateTime cutoffDate,
+            bool keepFavorites,
+            bool keepUnread,
+            CancellationToken cancellationToken = default)
+        {
+            var result = new CleanupAnalysis
+            {
+                RetentionDays = (DateTime.UtcNow - cutoffDate).Days,
+                CutoffDate = cutoffDate,
+                WouldKeepFavorites = keepFavorites,
+                WouldKeepUnread = keepUnread
+            };
+
+            try
+            {
+                var query = _dbContext.Articles
+                    .AsNoTracking()
+                    .Where(a => a.PublishedDate < cutoffDate);
+
+                if (keepFavorites)
+                    query = query.Where(a => !a.IsFavorite);
+
+                if (keepUnread)
+                    query = query.Where(a => a.Status == ArticleStatus.Read);
+
+                result.ArticlesToDelete = await query.CountAsync(cancellationToken).ConfigureAwait(false);
+                result.ArticlesFound = result.ArticlesToDelete;
+
+                var totalArticles = await _dbContext.Articles
+                    .AsNoTracking()
+                    .CountAsync(cancellationToken)
+                    .ConfigureAwait(false);
+
+                result.ArticlesToKeep = totalArticles - result.ArticlesToDelete;
+
+                // Get distribution by feed
+                var feedDistribution = await query
+                    .GroupBy(a => a.FeedId)
+                    .Select(g => new { FeedId = g.Key, Count = g.Count() })
+                    .ToDictionaryAsync(g => g.FeedId, g => g.Count, cancellationToken)
+                    .ConfigureAwait(false);
+
+                result.ArticlesByFeed = feedDistribution;
+
+                // Estimate space savings (rough heuristic: ~5KB per article)
+                const long bytesPerArticleEstimate = 5 * 1024;
+                result.EstimatedSpaceFreedBytes = result.ArticlesToDelete * bytesPerArticleEstimate;
+
+                _logger.Debug("Cleanup analysis completed: {ToDelete} articles would be deleted",
+                    result.ArticlesToDelete);
+
+                return result;
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("AnalyzeCleanupImpactAsync cancelled");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Failed to analyze cleanup impact");
+                throw;
+            }
+        }
+
+        /// <inheritdoc />
+        public async Task<(DateTime? Oldest, DateTime? Newest)?> GetAffectedArticlesDateRangeAsync(
+            DateTime cutoffDate,
+            bool keepFavorites,
+            bool keepUnread,
+            CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                var query = _dbContext.Articles
+                    .AsNoTracking()
+                    .Where(a => a.PublishedDate < cutoffDate);
+
+                if (keepFavorites)
+                    query = query.Where(a => !a.IsFavorite);
+
+                if (keepUnread)
+                    query = query.Where(a => a.Status == ArticleStatus.Read);
+
+                var dateRange = await query
+                    .GroupBy(_ => 1)
+                    .Select(g => new
+                    {
+                        HasAny = g.Any(),
+                        Oldest = (DateTime?)g.Min(a => a.PublishedDate),
+                        Newest = (DateTime?)g.Max(a => a.PublishedDate)
+                    })
+                    .FirstOrDefaultAsync(cancellationToken)
+                    .ConfigureAwait(false);
+
+                if (dateRange == null || !dateRange.HasAny || !dateRange.Oldest.HasValue)
+                {
+                    return null;
+                }
+
+                return (dateRange.Oldest, dateRange.Newest);
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("GetAffectedArticlesDateRangeAsync cancelled");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Failed to get affected articles date range");
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Orphaned Record Removal
 
         /// <inheritdoc />
         public async Task<OrphanRemovalResult> RemoveOrphanedRecordsAsync(CancellationToken cancellationToken = default)
@@ -107,44 +258,39 @@ namespace NeonSuit.RSSReader.Data.Repositories
 
             try
             {
-                // Remove orphaned ArticleTags (references to non-existent articles or tags)
+                // Remove orphaned ArticleTags
                 var orphanArticleTagsQuery = _dbContext.ArticleTags
                     .Where(at => !_dbContext.Articles.Any(a => a.Id == at.ArticleId) ||
                                  !_dbContext.Tags.Any(t => t.Id == at.TagId));
 
-                result.OrphanedArticleTagsRemoved = await orphanArticleTagsQuery.ExecuteDeleteAsync(cancellationToken);
+                result.OrphanedArticleTagsRemoved = await orphanArticleTagsQuery
+                    .ExecuteDeleteAsync(cancellationToken)
+                    .ConfigureAwait(false);
 
-                // Remove orphaned articles (references to non-existent feeds)
+                // Remove orphaned articles
                 var orphanArticlesQuery = _dbContext.Articles
                     .Where(a => !_dbContext.Feeds.Any(f => f.Id == a.FeedId));
 
-                result.OrphanedArticlesRemoved = await orphanArticlesQuery.ExecuteDeleteAsync(cancellationToken);
+                result.OrphanedArticlesRemoved = await orphanArticlesQuery
+                    .ExecuteDeleteAsync(cancellationToken)
+                    .ConfigureAwait(false);
 
-                // Remove orphaned categories if applicable
+                // Remove orphaned categories
                 var orphanCategoriesQuery = _dbContext.Categories
-                    .Where(c => !_dbContext.Feeds.Any(f => f.CategoryId == c.Id));
+                    .Where(c => !_dbContext.Feeds.Any(f => f.CategoryId == c.Id) &&
+                                !_dbContext.Categories.Any(child => child.ParentCategoryId == c.Id));
 
-                result.OrphanedCategoriesRemoved = await orphanCategoriesQuery.ExecuteDeleteAsync(cancellationToken);
+                result.OrphanedCategoriesRemoved = await orphanCategoriesQuery
+                    .ExecuteDeleteAsync(cancellationToken)
+                    .ConfigureAwait(false);
 
-                if (result.TotalRecordsRemoved > 0)
-                {
-                    _logger.Information(
-                        "Removed {Total} orphaned records: {ArticleTags} article tags, {Articles} articles, {Categories} categories",
-                        result.TotalRecordsRemoved,
-                        result.OrphanedArticleTagsRemoved,
-                        result.OrphanedArticlesRemoved,
-                        result.OrphanedCategoriesRemoved);
-                }
-                else
-                {
-                    _logger.Debug("No orphaned records found");
-                }
+                _logger.Information("Removed {Count} orphaned records", result.TotalRecordsRemoved);
 
                 return result;
             }
             catch (OperationCanceledException)
             {
-                _logger.Warning("Orphan removal operation was cancelled");
+                _logger.Debug("RemoveOrphanedRecordsAsync cancelled");
                 throw;
             }
             catch (Exception ex)
@@ -154,6 +300,10 @@ namespace NeonSuit.RSSReader.Data.Repositories
             }
         }
 
+        #endregion
+
+        #region Database Maintenance Operations
+
         /// <inheritdoc />
         public async Task<VacuumResult> VacuumDatabaseAsync(CancellationToken cancellationToken = default)
         {
@@ -162,27 +312,21 @@ namespace NeonSuit.RSSReader.Data.Repositories
 
             try
             {
-                // Capture size before vacuum
-                result.SizeBeforeBytes = await GetDatabaseSizeAsync(cancellationToken);
+                result.SizeBeforeBytes = await GetDatabaseSizeAsync(cancellationToken).ConfigureAwait(false);
 
-                // CHANGED: Use EF Core's SqlQuery for VACUUM command
-                await _dbContext.Database.ExecuteSqlRawAsync("VACUUM", cancellationToken);
+                await _dbContext.Database.ExecuteSqlRawAsync("VACUUM", cancellationToken).ConfigureAwait(false);
 
-                // Capture size after vacuum
-                result.SizeAfterBytes = await GetDatabaseSizeAsync(cancellationToken);
+                result.SizeAfterBytes = await GetDatabaseSizeAsync(cancellationToken).ConfigureAwait(false);
                 result.Duration = DateTime.UtcNow - startTime;
 
-                _logger.Information(
-                    "Database vacuum completed. Freed {FreedBytes} bytes ({FreedMB:F2} MB). Duration: {Duration}",
-                    result.SpaceFreedBytes,
-                    result.SpaceFreedBytes / (1024.0 * 1024.0),
-                    result.Duration);
+                _logger.Information("Database vacuum completed. Freed {FreedMB:F2} MB",
+                    result.SpaceFreedBytes / (1024.0 * 1024.0));
 
                 return result;
             }
             catch (OperationCanceledException)
             {
-                _logger.Warning("Database vacuum operation was cancelled");
+                _logger.Debug("VacuumDatabaseAsync cancelled");
                 throw;
             }
             catch (Exception ex)
@@ -193,18 +337,16 @@ namespace NeonSuit.RSSReader.Data.Repositories
         }
 
         /// <inheritdoc />
-        /// <inheritdoc />
         public async Task RebuildIndexesAsync(
             IEnumerable<string>? tableNames = null,
             CancellationToken cancellationToken = default)
         {
             var tables = tableNames?.ToArray() ?? new[] { "Articles", "Feeds", "Tags", "ArticleTags", "Categories" };
 
-            // ✅ Lista blanca para prevenir SQL injection
             var allowedTables = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
-    {
-        "Articles", "Feeds", "Tags", "ArticleTags", "Categories"
-    };
+            {
+                "Articles", "Feeds", "Tags", "ArticleTags", "Categories"
+            };
 
             try
             {
@@ -212,26 +354,25 @@ namespace NeonSuit.RSSReader.Data.Repositories
                 {
                     cancellationToken.ThrowIfCancellationRequested();
 
-
                     if (!allowedTables.Contains(table))
                     {
-                        _logger.Warning("Attempted to rebuild index for non-allowed table: {TableName}", table);
+                        _logger.Warning("Skipping non-allowed table: '{TableName}'", table);
                         continue;
                     }
 
-
-#pragma warning disable EF1002 // Riesgo de SQL injection - Validado con lista blanca
-                    await _dbContext.Database.ExecuteSqlRawAsync($"REINDEX {table}", cancellationToken);
+#pragma warning disable EF1002 // SQL injection risk mitigated by whitelist
+                    await _dbContext.Database.ExecuteSqlRawAsync($"REINDEX {table}", cancellationToken)
+                        .ConfigureAwait(false);
 #pragma warning restore EF1002
 
-                    _logger.Debug("Rebuilt index for table: {TableName}", table);
+                    _logger.Debug("Rebuilt index for table: '{TableName}'", table);
                 }
 
                 _logger.Information("Rebuilt indexes for {Count} tables", tables.Length);
             }
             catch (OperationCanceledException)
             {
-                _logger.Warning("Index rebuild operation was cancelled");
+                _logger.Debug("RebuildIndexesAsync cancelled");
                 throw;
             }
             catch (Exception ex)
@@ -246,9 +387,13 @@ namespace NeonSuit.RSSReader.Data.Repositories
         {
             try
             {
-                // CHANGED: Use EF Core's SqlQuery for ANALYZE command
-                await _dbContext.Database.ExecuteSqlRawAsync("ANALYZE", cancellationToken);
-                _logger.Debug("Database statistics updated via ANALYZE");
+                await _dbContext.Database.ExecuteSqlRawAsync("ANALYZE", cancellationToken).ConfigureAwait(false);
+                _logger.Information("Database statistics updated");
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("UpdateStatisticsAsync cancelled");
+                throw;
             }
             catch (Exception ex)
             {
@@ -265,63 +410,35 @@ namespace NeonSuit.RSSReader.Data.Repositories
 
             try
             {
-                // CHANGED: Use EF Core's SqlQueryRaw for PRAGMA commands
-                // Note: SQLite PRAGMA commands work differently in EF Core
                 var connection = _dbContext.Database.GetDbConnection();
-                await connection.OpenAsync(cancellationToken);
+                if (connection.State != System.Data.ConnectionState.Open)
+                    await connection.OpenAsync(cancellationToken).ConfigureAwait(false);
 
-                using var command = connection.CreateCommand();
-                command.CommandText = "PRAGMA integrity_check";
-
-                var integrityResult = await command.ExecuteScalarAsync(cancellationToken) as string;
-                result.IsValid = string.Equals(integrityResult, "ok", StringComparison.OrdinalIgnoreCase);
-
-                if (!result.IsValid)
+                // Check database integrity
+                using (var command = connection.CreateCommand())
                 {
-                    result.Errors.Add($"Database integrity check failed: {integrityResult}");
-                    _logger.Error("Database integrity check failed: {Result}", integrityResult);
-                }
+                    command.CommandText = "PRAGMA integrity_check";
+                    var integrityResult = await command.ExecuteScalarAsync(cancellationToken).ConfigureAwait(false) as string;
+                    result.IsValid = string.Equals(integrityResult, "ok", StringComparison.OrdinalIgnoreCase);
 
-                // Check foreign key constraints
-                command.CommandText = "PRAGMA foreign_key_check";
-                using var reader = await command.ExecuteReaderAsync(cancellationToken);
-
-                var violations = new List<ForeignKeyViolation>();
-                while (await reader.ReadAsync(cancellationToken))
-                {
-                    violations.Add(new ForeignKeyViolation
-                    {
-                        Table = reader.GetString(0),
-                        RowId = reader.GetInt64(1),
-                        Parent = reader.GetString(2),
-                        FKey = reader.GetInt32(3).ToString()
-                    });
-                }
-
-                if (violations.Any())
-                {
-                    result.Warnings.Add($"Found {violations.Count} foreign key violations");
-                    foreach (var violation in violations)
-                    {
-                        result.Warnings.Add($"FK Violation: Table {violation.Table}, Row {violation.RowId}, " +
-                                          $"Parent {violation.Parent}, FKey {violation.FKey}");
-                    }
-                    _logger.Warning("Found {Count} foreign key violations during integrity check", violations.Count);
+                    if (!result.IsValid && integrityResult != null)
+                        result.Errors.Add($"Integrity check failed: {integrityResult}");
                 }
 
                 result.CheckDuration = DateTime.UtcNow - startTime;
                 return result;
             }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("CheckIntegrityAsync cancelled");
+                throw;
+            }
             catch (Exception ex)
             {
                 _logger.Error(ex, "Failed to check database integrity");
                 result.IsValid = false;
-                result.Errors.Add($"Integrity check exception: {ex.Message}");
+                result.Errors.Add($"Exception: {ex.Message}");
                 return result;
-            }
-            finally
-            {
-                await _dbContext.Database.CloseConnectionAsync();
             }
         }
 
@@ -332,70 +449,91 @@ namespace NeonSuit.RSSReader.Data.Repositories
 
             try
             {
-                // Article statistics with age distribution
-                var cutoff30Days = DateTime.UtcNow.AddDays(-30);
-                var cutoff60Days = DateTime.UtcNow.AddDays(-60);
-                var cutoff90Days = DateTime.UtcNow.AddDays(-90);
-
-                var articleStats = await _dbContext.Articles
-                    .GroupBy(_ => 1)
-                    .Select(g => new
-                    {
-                        Total = g.Count(),
-                        ReadCount = g.Count(a => a.Status == ArticleStatus.Read),
-                        FavoriteCount = g.Count(a => a.IsFavorite),
-                        OldestDate = g.Min(a => a.PublishedDate),
-                        NewestDate = g.Max(a => a.PublishedDate),
-                        OlderThan30 = g.Count(a => a.PublishedDate < cutoff30Days),
-                        OlderThan60 = g.Count(a => a.PublishedDate < cutoff60Days),
-                        OlderThan90 = g.Count(a => a.PublishedDate < cutoff90Days)
-                    })
-                    .FirstOrDefaultAsync(cancellationToken);
-
-                if (articleStats != null)
-                {
-                    stats.TotalArticles = articleStats.Total;
-                    stats.ReadArticles = articleStats.ReadCount;
-                    stats.UnreadArticles = articleStats.Total - articleStats.ReadCount;
-                    stats.FavoriteArticles = articleStats.FavoriteCount;
-                    stats.OldestArticleDate = articleStats.OldestDate;
-                    stats.NewestArticleDate = articleStats.NewestDate;
-                    stats.ArticlesOlderThan30Days = articleStats.OlderThan30;
-                    stats.ArticlesOlderThan60Days = articleStats.OlderThan60;
-                    stats.ArticlesOlderThan90Days = articleStats.OlderThan90;
-                }
-
-                // Feed statistics
-                var feedStats = await _dbContext.Feeds
-                    .GroupBy(_ => 1)
-                    .Select(g => new
-                    {
-                        Total = g.Count(),
-                        ActiveCount = g.Count(f => f.IsActive)
-                    })
-                    .FirstOrDefaultAsync(cancellationToken);
-
-                if (feedStats != null)
-                {
-                    stats.TotalFeeds = feedStats.Total;
-                    stats.ActiveFeeds = feedStats.ActiveCount;
-                }
-
-                // Tag count
-                stats.TotalTags = await _dbContext.Tags.CountAsync(cancellationToken);
-
-                // Database file size
-                stats.DatabaseSizeBytes = await GetDatabaseSizeAsync(cancellationToken);
                 stats.GeneratedAt = DateTime.UtcNow;
 
-                _logger.Debug(
-                    "Statistics retrieved: {Articles} articles, {Feeds} feeds, {Tags} tags, {SizeMB:F2} MB",
-                    stats.TotalArticles,
-                    stats.TotalFeeds,
-                    stats.TotalTags,
-                    stats.DatabaseSizeBytes / (1024.0 * 1024.0));
+                // Article statistics
+                stats.TotalArticles = await _dbContext.Articles
+                    .AsNoTracking()
+                    .CountAsync(cancellationToken)
+                    .ConfigureAwait(false);
+
+                stats.ReadArticles = await _dbContext.Articles
+                    .AsNoTracking()
+                    .CountAsync(a => a.Status == ArticleStatus.Read, cancellationToken)
+                    .ConfigureAwait(false);
+
+                stats.UnreadArticles = stats.TotalArticles - stats.ReadArticles;
+
+                stats.FavoriteArticles = await _dbContext.Articles
+                    .AsNoTracking()
+                    .CountAsync(a => a.IsFavorite, cancellationToken)
+                    .ConfigureAwait(false);
+
+                // Article age distribution
+                var ninetyDaysAgo = DateTime.UtcNow.AddDays(-90);
+                var sixtyDaysAgo = DateTime.UtcNow.AddDays(-60);
+                var thirtyDaysAgo = DateTime.UtcNow.AddDays(-30);
+
+                stats.ArticlesOlderThan90Days = await _dbContext.Articles
+                    .AsNoTracking()
+                    .CountAsync(a => a.PublishedDate < ninetyDaysAgo, cancellationToken)
+                    .ConfigureAwait(false);
+
+                stats.ArticlesOlderThan60Days = await _dbContext.Articles
+                    .AsNoTracking()
+                    .CountAsync(a => a.PublishedDate < sixtyDaysAgo, cancellationToken)
+                    .ConfigureAwait(false);
+
+                stats.ArticlesOlderThan30Days = await _dbContext.Articles
+                    .AsNoTracking()
+                    .CountAsync(a => a.PublishedDate < thirtyDaysAgo, cancellationToken)
+                    .ConfigureAwait(false);
+
+                // Oldest and newest article dates
+                var oldestArticle = await _dbContext.Articles
+                    .AsNoTracking()
+                    .OrderBy(a => a.PublishedDate)
+                    .FirstOrDefaultAsync(cancellationToken)
+                    .ConfigureAwait(false);
+
+                if (oldestArticle != null && oldestArticle.PublishedDate.HasValue)
+                    stats.OldestArticleDate = oldestArticle.PublishedDate.Value;
+
+                var newestArticle = await _dbContext.Articles
+                    .AsNoTracking()
+                    .OrderByDescending(a => a.PublishedDate)
+                    .FirstOrDefaultAsync(cancellationToken)
+                    .ConfigureAwait(false);
+
+                if (newestArticle != null && newestArticle.PublishedDate.HasValue)
+                    stats.NewestArticleDate = newestArticle.PublishedDate.Value;
+
+                // Feed statistics
+                stats.TotalFeeds = await _dbContext.Feeds
+                    .AsNoTracking()
+                    .CountAsync(cancellationToken)
+                    .ConfigureAwait(false);
+
+                stats.ActiveFeeds = await _dbContext.Feeds
+                    .AsNoTracking()
+                    .CountAsync(f => f.IsActive, cancellationToken)
+                    .ConfigureAwait(false);
+
+                // Tag statistics
+                stats.TotalTags = await _dbContext.Tags
+                    .AsNoTracking()
+                    .CountAsync(cancellationToken)
+                    .ConfigureAwait(false);
+
+                // Database size
+                stats.DatabaseSizeBytes = await GetDatabaseSizeAsync(cancellationToken).ConfigureAwait(false);
 
                 return stats;
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("GetStatisticsAsync cancelled");
+                throw;
             }
             catch (Exception ex)
             {
@@ -405,110 +543,29 @@ namespace NeonSuit.RSSReader.Data.Repositories
         }
 
         /// <inheritdoc />
-        public async Task<CleanupAnalysisResult> AnalyzeCleanupImpactAsync(
-            DateTime cutoffDate,
-            bool keepFavorites,
-            bool keepUnread,
-            CancellationToken cancellationToken = default)
-        {
-            var result = new CleanupAnalysisResult
-            {
-                RetentionDays = (DateTime.UtcNow - cutoffDate).Days,
-                CutoffDate = cutoffDate,
-                WouldKeepFavorites = keepFavorites,
-                WouldKeepUnread = keepUnread
-            };
-
-            try
-            {
-                // Build query matching the actual deletion logic
-                var query = _dbContext.Articles.Where(a => a.PublishedDate < cutoffDate);
-
-                if (keepFavorites)
-                {
-                    query = query.Where(a => !a.IsFavorite);
-                }
-
-                if (keepUnread)
-                {
-                    query = query.Where(a => a.Status == ArticleStatus.Read);
-                }
-
-                // Count articles to delete
-                result.ArticlesToDelete = await query.CountAsync(cancellationToken);
-
-                // Count articles to keep
-                var totalArticles = await _dbContext.Articles.CountAsync(cancellationToken);
-                result.ArticlesToKeep = totalArticles - result.ArticlesToDelete;
-
-                // Estimate space savings (rough heuristic: ~5KB per article average)
-                const long bytesPerArticleEstimate = 5 * 1024;
-                result.EstimatedSpaceFreedBytes = result.ArticlesToDelete * bytesPerArticleEstimate;
-
-                // Distribution by feed
-                var distributionQuery = query
-                    .GroupBy(a => a.Feed!.Title)
-                    .Select(g => new { FeedTitle = g.Key!, ArticleCount = g.Count() })
-                    .OrderByDescending(g => g.ArticleCount);
-
-                var distributions = await distributionQuery.ToListAsync(cancellationToken);
-                result.ArticlesByFeed = distributions.ToDictionary(
-                    d => d.FeedTitle,
-                    d => d.ArticleCount);
-
-                _logger.Debug(
-                    "Cleanup analysis: {ToDelete} articles would be deleted out of {Total} total",
-                    result.ArticlesToDelete,
-                    totalArticles);
-
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to analyze cleanup impact");
-                throw;
-            }
-        }
-
-        /// <inheritdoc />
-        public async Task<long> GetDatabaseSizeAsync(CancellationToken cancellationToken = default)
-        {
-            try
-            {
-                if (!File.Exists(_databasePath))
-                {
-                    return 0;
-                }
-
-                var info = new FileInfo(_databasePath);
-                info.Refresh();
-                return info.Length;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to get database file size for path: {Path}", _databasePath);
-                return 0;
-            }
-        }
-
-        /// <inheritdoc />
         public async Task<int> UpdateTagUsageCountsAsync(CancellationToken cancellationToken = default)
         {
             try
             {
-                // CHANGED: Use raw SQL for efficient bulk update
                 var updateQuery = @"
-                    UPDATE Tags 
+                    UPDATE Tags
                     SET UsageCount = COALESCE((
-                        SELECT COUNT(*) 
-                        FROM ArticleTags 
+                        SELECT COUNT(*)
+                        FROM ArticleTags
                         WHERE ArticleTags.TagId = Tags.Id
                     ), 0)";
 
-                var updatedCount = await _dbContext.Database.ExecuteSqlRawAsync(updateQuery, cancellationToken);
+                var updatedCount = await _dbContext.Database
+                    .ExecuteSqlRawAsync(updateQuery, cancellationToken)
+                    .ConfigureAwait(false);
 
-                _logger.Debug("Updated usage counts for {Count} tags", updatedCount);
+                _logger.Information("Updated usage counts for {Count} tags", updatedCount);
                 return updatedCount;
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("UpdateTagUsageCountsAsync cancelled");
+                throw;
             }
             catch (Exception ex)
             {
@@ -517,59 +574,43 @@ namespace NeonSuit.RSSReader.Data.Repositories
             }
         }
 
+        #endregion
+
+        #region Internal Helpers
+
         /// <inheritdoc />
-        public async Task<(DateTime? Oldest, DateTime? Newest)?> GetAffectedArticlesDateRangeAsync(
-                        DateTime cutoffDate,
-                        bool keepFavorites,
-                        bool keepUnread,
-                        CancellationToken cancellationToken = default)
+        public async Task<long> GetDatabaseSizeAsync(CancellationToken cancellationToken = default)
         {
             try
             {
-                var query = _dbContext.Articles.Where(a => a.PublishedDate < cutoffDate);
-
-                if (keepFavorites)
+                if (string.IsNullOrEmpty(_databasePath))
                 {
-                    query = query.Where(a => !a.IsFavorite);
+                    _logger.Warning("Database path not configured");
+                    return 0;
                 }
 
-                if (keepUnread)
+                if (!File.Exists(_databasePath))
                 {
-                    query = query.Where(a => a.Status == ArticleStatus.Read);
+                    _logger.Warning("Database file not found at: {Path}", _databasePath);
+                    return 0;
                 }
 
-                var dateRange = await query
-                    .GroupBy(_ => 1)
-                    .Select(g => new
-                    {
-                        HasAny = g.Any(),
-                        Oldest = (DateTime?)g.Min(a => a.PublishedDate),  // Convertir a nullable
-                        Newest = (DateTime?)g.Max(a => a.PublishedDate)   // Convertir a nullable
-                    })
-                    .FirstOrDefaultAsync(cancellationToken);
-
-                // Ahora Oldest es DateTime? y puedes usar HasValue
-                if (dateRange == null || !dateRange.HasAny || !dateRange.Oldest.HasValue)
-                {
-                    return null;
-                }
-
-                return (dateRange.Oldest ?? default(DateTime), dateRange.Newest ?? default(DateTime));
+                var info = new FileInfo(_databasePath);
+                info.Refresh();
+                return info.Length;
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("GetDatabaseSizeAsync cancelled");
+                return 0;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Failed to get affected articles date range");
-                return null;
+                _logger.Error(ex, "Failed to get database file size");
+                return 0;
             }
         }
 
-        // DTOs for internal queries
-        private class ForeignKeyViolation
-        {
-            public string Table { get; set; } = string.Empty;
-            public long RowId { get; set; }
-            public string Parent { get; set; } = string.Empty;
-            public string FKey { get; set; } = string.Empty;
-        }
+        #endregion
     }
 }

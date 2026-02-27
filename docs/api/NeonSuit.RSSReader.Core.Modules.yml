@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Modules
+  commentId: N:NeonSuit.RSSReader.Core.Modules
+  id: NeonSuit.RSSReader.Core.Modules
+  children:
+  - NeonSuit.RSSReader.Core.Modules.IConfigurableModule
+  - NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies
+  - NeonSuit.RSSReader.Core.Modules.IModuleWithLifecycle
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigProperty
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigSchema
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigValidationResult
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.Modules
+  nameWithType: NeonSuit.RSSReader.Core.Modules
+  fullName: NeonSuit.RSSReader.Core.Modules
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.Modules.IConfigurableModule
+  commentId: T:NeonSuit.RSSReader.Core.Modules.IConfigurableModule
+  href: NeonSuit.RSSReader.Core.Modules.IConfigurableModule.html
+  name: IConfigurableModule
+  nameWithType: IConfigurableModule
+  fullName: NeonSuit.RSSReader.Core.Modules.IConfigurableModule
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigSchema
+  commentId: T:NeonSuit.RSSReader.Core.Modules.ModuleConfigSchema
+  parent: NeonSuit.RSSReader.Core.Modules
+  href: NeonSuit.RSSReader.Core.Modules.ModuleConfigSchema.html
+  name: ModuleConfigSchema
+  nameWithType: ModuleConfigSchema
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigSchema
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigProperty
+  commentId: T:NeonSuit.RSSReader.Core.Modules.ModuleConfigProperty
+  href: NeonSuit.RSSReader.Core.Modules.ModuleConfigProperty.html
+  name: ModuleConfigProperty
+  nameWithType: ModuleConfigProperty
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigProperty
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  commentId: T:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  parent: NeonSuit.RSSReader.Core.Modules
+  href: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.html
+  name: ModuleConfigPropertyType
+  nameWithType: ModuleConfigPropertyType
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigValidationResult
+  commentId: T:NeonSuit.RSSReader.Core.Modules.ModuleConfigValidationResult
+  parent: NeonSuit.RSSReader.Core.Modules
+  href: NeonSuit.RSSReader.Core.Modules.ModuleConfigValidationResult.html
+  name: ModuleConfigValidationResult
+  nameWithType: ModuleConfigValidationResult
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigValidationResult
+- uid: NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies
+  commentId: T:NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies
+  href: NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies.html
+  name: IModuleWithDependencies
+  nameWithType: IModuleWithDependencies
+  fullName: NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies
+- uid: NeonSuit.RSSReader.Core.Modules.IModuleWithLifecycle
+  commentId: T:NeonSuit.RSSReader.Core.Modules.IModuleWithLifecycle
+  href: NeonSuit.RSSReader.Core.Modules.IModuleWithLifecycle.html
+  name: IModuleWithLifecycle
+  nameWithType: IModuleWithLifecycle
+  fullName: NeonSuit.RSSReader.Core.Modules.IModuleWithLifecycle
+- uid: NeonSuit.RSSReader.Core.Modules
+  commentId: N:NeonSuit.RSSReader.Core.Modules
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Modules
+  nameWithType: NeonSuit.RSSReader.Core.Modules
+  fullName: NeonSuit.RSSReader.Core.Modules
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.Modules.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.Modules.html

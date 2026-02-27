@@ -1,0 +1,358 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  id: RuleFieldTarget
+  parent: NeonSuit.RSSReader.Core.Enums
+  children:
+  - NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AllFields
+  - NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AnyField
+  - NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Author
+  - NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Categories
+  - NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Content
+  - NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Title
+  langs:
+  - csharp
+  - vb
+  name: RuleFieldTarget
+  nameWithType: RuleFieldTarget
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RuleFieldTarget
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+    startLine: 53
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: >-
+    Specifies the target field(s) of an article where a rule condition (e.g., keyword match, 
+
+    pattern search, or value comparison) is evaluated in the RSS reader's rule/filter engine.
+  remarks: >-
+    <p>
+
+    This enumeration determines which part(s) of an article are inspected when applying 
+
+    a rule condition. It is used in combination with operators (contains, equals, starts with, 
+
+    regex match, etc.) and values to define precise matching criteria.
+
+    </p>
+
+
+    <p>
+
+    Typical usage in rule definitions:
+
+    </p>
+
+    <ul><li>RuleCondition { Field = RuleFieldTarget.Title, Operator = Contains, Value = "urgent" }</li><li>RuleCondition { Field = RuleFieldTarget.AllFields, Operator = MatchesRegex, Value = @"\bimportant\b" }</li></ul>
+
+
+    <p>
+
+    Behavioral impact and system considerations:
+
+    </p>
+
+    <ul><li>Choosing a narrow target (<xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Title" data-throw-if-not-resolved="false"></xref>, <xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Author" data-throw-if-not-resolved="false"></xref>) improves performance 
+              and reduces false positives compared to broader targets (<xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AllFields" data-throw-if-not-resolved="false"></xref>).</li><li><xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Categories" data-throw-if-not-resolved="false"></xref> typically refers to the article's tags/labels or feed categories 
+              (exact semantics depend on whether tags are per-article or inherited from feed).</li><li><xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AllFields" data-throw-if-not-resolved="false"></xref> and <xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AnyField" data-throw-if-not-resolved="false"></xref> perform searches across multiple parts 
+              of the article, usually title + content (and sometimes author/description if indexed).</li><li>Full-text search targets may be case-insensitive and support stemming/tokenization 
+              depending on the underlying search implementation.</li><li>When using <xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AllFields" data-throw-if-not-resolved="false"></xref> or <xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AnyField" data-throw-if-not-resolved="false"></xref>, the rule engine may apply 
+              different logical operators internally (AND for AllFields, OR for AnyField).</li></ul>
+
+    <p>
+
+    Business rules and recommendations:
+
+    </p>
+
+    <ul><li>Default recommended target for keyword rules: <xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Title" data-throw-if-not-resolved="false"></xref> (fastest, most relevant for headlines).</li><li>Use <xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Content" data-throw-if-not-resolved="false"></xref> for deeper semantic matches (e.g., body text contains specific phrases).</li><li><xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AllFields" data-throw-if-not-resolved="false"></xref> is convenient for broad keyword alerts but may increase false positives 
+              and slightly slow evaluation during bulk syncs.</li><li><xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AnyField" data-throw-if-not-resolved="false"></xref> is useful when users want to catch a term anywhere prominent 
+              without requiring it in every field.</li><li>For performance-critical environments, discourage widespread use of <xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AllFields" data-throw-if-not-resolved="false"></xref> 
+              and <xref href="NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AnyField" data-throw-if-not-resolved="false"></xref> on very large article sets unless indexed properly.</li><li>When exposing in UI, label clearly: "Title only", "Article body", "Author", "Tags/Categories", 
+              "Title and content (all must match)", "Title or content (any match)".</li></ul>
+  example: []
+  syntax:
+    content: public enum RuleFieldTarget
+    content.vb: Public Enum RuleFieldTarget
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Title
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Title
+  id: Title
+  parent: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: RuleFieldTarget.Title
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Title
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Title
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+    startLine: 66
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The condition is evaluated only against the article's title/headline.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Fastest evaluation — title is usually a short indexed field.</li><li>Most relevant for catching important topics from headlines.</li><li>Recommended default for keyword-based rules.</li></ul>
+  example: []
+  syntax:
+    content: Title = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Content
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Content
+  id: Content
+  parent: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: RuleFieldTarget.Content
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Content
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Content
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+    startLine: 79
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The condition is evaluated only against the article's main content/body text.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Checks full article text (or summary/excerpt if full content not available).</li><li>Slower than title-only but catches deeper context.</li><li>Useful for rules like "contains technical term" or "mentions specific company".</li></ul>
+  example: []
+  syntax:
+    content: Content = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Author
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Author
+  id: Author
+  parent: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  langs:
+  - csharp
+  - vb
+  name: Author
+  nameWithType: RuleFieldTarget.Author
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Author
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Author
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+    startLine: 92
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The condition is evaluated against the article's author name(s) or byline.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Matches single or multiple authors (comma-separated or array).</li><li>Common for author-specific rules (e.g., "from trusted journalist X").</li><li>Usually case-insensitive exact or partial match.</li></ul>
+  example: []
+  syntax:
+    content: Author = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Categories
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Categories
+  id: Categories
+  parent: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  langs:
+  - csharp
+  - vb
+  name: Categories
+  nameWithType: RuleFieldTarget.Categories
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Categories
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Categories
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+    startLine: 105
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The condition is evaluated against the article's assigned categories, tags, or labels.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Checks per-article tags or inherited feed categories.</li><li>Typically supports "contains tag X" or "has any of [X, Y]".</li><li>Fast if tags are stored/indexed as arrays or sets.</li></ul>
+  example: []
+  syntax:
+    content: Categories = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AllFields
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AllFields
+  id: AllFields
+  parent: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  langs:
+  - csharp
+  - vb
+  name: AllFields
+  nameWithType: RuleFieldTarget.AllFields
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AllFields
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AllFields
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+    startLine: 119
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The condition must be true in **all** searched fields (usually title AND content).
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Restrictive: term must appear in both title and content (or all targeted fields).</li><li>Reduces false positives significantly.</li><li>Internally applies logical AND across fields.</li><li>Higher performance cost than single-field targets.</li></ul>
+  example: []
+  syntax:
+    content: AllFields = 4
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AnyField
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AnyField
+  id: AnyField
+  parent: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  langs:
+  - csharp
+  - vb
+  name: AnyField
+  nameWithType: RuleFieldTarget.AnyField
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AnyField
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AnyField
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleFieldTarget.cs
+    startLine: 133
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The condition is satisfied if true in **any** of the searched fields (usually title OR content).
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Inclusive: term found in title, content, or both.</li><li>Broadens matches — useful for general keyword discovery.</li><li>Internally applies logical OR across fields.</li><li>May increase false positives compared to narrower targets.</li></ul>
+  example: []
+  syntax:
+    content: AnyField = 5
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+references:
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Title
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Title
+  href: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.html#NeonSuit_RSSReader_Core_Enums_RuleFieldTarget_Title
+  name: Title
+  nameWithType: RuleFieldTarget.Title
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Title
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Author
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Author
+  href: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.html#NeonSuit_RSSReader_Core_Enums_RuleFieldTarget_Author
+  name: Author
+  nameWithType: RuleFieldTarget.Author
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Author
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AllFields
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AllFields
+  href: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.html#NeonSuit_RSSReader_Core_Enums_RuleFieldTarget_AllFields
+  name: AllFields
+  nameWithType: RuleFieldTarget.AllFields
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AllFields
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Categories
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Categories
+  href: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.html#NeonSuit_RSSReader_Core_Enums_RuleFieldTarget_Categories
+  name: Categories
+  nameWithType: RuleFieldTarget.Categories
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Categories
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AnyField
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AnyField
+  href: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.html#NeonSuit_RSSReader_Core_Enums_RuleFieldTarget_AnyField
+  name: AnyField
+  nameWithType: RuleFieldTarget.AnyField
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.AnyField
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Content
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Content
+  href: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.html#NeonSuit_RSSReader_Core_Enums_RuleFieldTarget_Content
+  name: Content
+  nameWithType: RuleFieldTarget.Content
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.Content
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.html
+  name: RuleFieldTarget
+  nameWithType: RuleFieldTarget
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget

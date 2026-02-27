@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IOpmlService | NeonSuit RSS Reader API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IOpmlService | NeonSuit RSS Reader API ">
+      
+      <meta name="description" content="Service interface for importing and exporting RSS feeds in OPML format. OPML (Outline Processor Markup Language) is the standard format for RSS feed lists exchange between applications.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/NidroySoft/NeonSuit.RSSReader/new/master/apiSpec/new?filename=NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService.md&amp;value=---%0Auid%3A%20NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService">
+
+
+
+  <h1 id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService" class="text-break">
+Interface IOpmlService  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IOpmlService.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NeonSuit.html">NeonSuit</a>.<a class="xref" href="NeonSuit.RSSReader.html">RSSReader</a>.<a class="xref" href="NeonSuit.RSSReader.Core.html">Core</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.html">Interfaces</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.html">Services</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NeonSuit.RSSReader.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Service interface for importing and exporting RSS feeds in OPML format.
+OPML (Outline Processor Markup Language) is the standard format for RSS feed lists exchange between applications.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IOpmlService</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This service provides comprehensive OPML import/export functionality with the following features:
+<ul><li>Import feeds from OPML files with automatic category creation</li><li>Export feeds to OPML format with optional category structure preservation</li><li>Validation of OPML files before import to prevent corruption</li><li>Statistics tracking for monitoring import/export operations</li><li>Support for both streams and file paths for flexible integration</li></ul>
+
+<p>
+All methods return DTOs instead of entities to maintain separation of concerns.
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_ExportAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.ExportAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_ExportAsync_System_Boolean_System_Boolean_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.ExportAsync(System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+  ExportAsync(bool, bool, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IOpmlService.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exports all feeds to OPML format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;string&gt; ExportAsync(bool includeCategories = true, bool includeInactive = false, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>includeCategories</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to include category structure in the OPML outline. Default: true.</p>
+</dd>
+    <dt><code>includeInactive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to include inactive feeds in the export. Default: false.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>OPML document as a string.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_ExportCategoriesAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.ExportCategoriesAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_ExportCategoriesAsync_System_Collections_Generic_IEnumerable_System_Int32__System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.ExportCategoriesAsync(System.Collections.Generic.IEnumerable{System.Int32},System.Threading.CancellationToken)">
+  ExportCategoriesAsync(IEnumerable&lt;int&gt;, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IOpmlService.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exports specific categories to OPML format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;string&gt; ExportCategoriesAsync(IEnumerable&lt;int&gt; categoryIds, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>categoryIds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>IDs of categories to export.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>OPML document as a string containing only feeds from the specified categories.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown if <code class="paramref">categoryIds</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if <code class="paramref">categoryIds</code> is empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_ExportToFileAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.ExportToFileAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_ExportToFileAsync_System_String_System_Boolean_System_Boolean_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.ExportToFileAsync(System.String,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+  ExportToFileAsync(string, bool, bool, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IOpmlService.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exports feeds to an OPML file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task ExportToFileAsync(string filePath, bool includeCategories = true, bool includeInactive = false, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Path where to save the OPML file.</p>
+</dd>
+    <dt><code>includeCategories</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to include category structure. Default: true.</p>
+</dd>
+    <dt><code>includeInactive</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to include inactive feeds. Default: false.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task representing the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if <code class="paramref">filePath</code> is null or whitespace.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Thrown if write access to the directory is denied.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.directorynotfoundexception">DirectoryNotFoundException</a></dt>
+    <dd><p>Thrown if the directory path doesn't exist.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.ioexception">IOException</a></dt>
+    <dd><p>Thrown if an I/O error occurs while creating the file.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_GetStatisticsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.GetStatisticsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_GetStatisticsAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.GetStatisticsAsync(System.Threading.CancellationToken)">
+  GetStatisticsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IOpmlService.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets statistics about OPML import/export operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;OpmlStatisticsDto&gt; GetStatisticsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Opml.OpmlStatisticsDto.html">OpmlStatisticsDto</a>&gt;</dt>
+    <dd><p>An <a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Opml.OpmlStatisticsDto.html">OpmlStatisticsDto</a> object containing operation metrics.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_ImportAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.ImportAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_ImportAsync_System_IO_Stream_System_String_System_Boolean_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.ImportAsync(System.IO.Stream,System.String,System.Boolean,System.Threading.CancellationToken)">
+  ImportAsync(Stream, string, bool, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IOpmlService.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Imports feeds from an OPML file stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;OpmlImportResultDto&gt; ImportAsync(Stream opmlStream, string defaultCategory = &quot;Imported&quot;, bool overwriteExisting = false, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>opmlStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>Stream containing OPML data.</p>
+</dd>
+    <dt><code>defaultCategory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Default category for uncategorized feeds. Default: &quot;Imported&quot;.</p>
+</dd>
+    <dt><code>overwriteExisting</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to overwrite existing feeds with same URL. Default: false.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto.html">OpmlImportResultDto</a>&gt;</dt>
+    <dd><p>An <a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto.html">OpmlImportResultDto</a> containing import statistics and details.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown if <code class="paramref">opmlStream</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if <code class="paramref">defaultCategory</code> is null or whitespace.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the OPML format is invalid or cannot be parsed.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_ImportFromFileAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.ImportFromFileAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_ImportFromFileAsync_System_String_System_String_System_Boolean_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.ImportFromFileAsync(System.String,System.String,System.Boolean,System.Threading.CancellationToken)">
+  ImportFromFileAsync(string, string, bool, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IOpmlService.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Imports feeds from an OPML file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;OpmlImportResultDto&gt; ImportFromFileAsync(string filePath, string defaultCategory = &quot;Imported&quot;, bool overwriteExisting = false, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Path to the OPML file.</p>
+</dd>
+    <dt><code>defaultCategory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Default category for uncategorized feeds. Default: &quot;Imported&quot;.</p>
+</dd>
+    <dt><code>overwriteExisting</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to overwrite existing feeds with same URL. Default: false.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto.html">OpmlImportResultDto</a>&gt;</dt>
+    <dd><p>An <a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto.html">OpmlImportResultDto</a> containing import statistics and details.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if <code class="paramref">filePath</code> is null or whitespace.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filenotfoundexception">FileNotFoundException</a></dt>
+    <dd><p>Thrown if the specified file does not exist.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception">UnauthorizedAccessException</a></dt>
+    <dd><p>Thrown if read access to the file is denied.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the OPML format is invalid or cannot be parsed.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_ValidateAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.ValidateAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_IOpmlService_ValidateAsync_System_IO_Stream_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.ValidateAsync(System.IO.Stream,System.Threading.CancellationToken)">
+  ValidateAsync(Stream, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IOpmlService.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Validates an OPML file for correct structure and content.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;OpmlValidationResultDto&gt; ValidateAsync(Stream opmlStream, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>opmlStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>Stream containing OPML data.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Opml.OpmlValidationResultDto.html">OpmlValidationResultDto</a>&gt;</dt>
+    <dd><p>An <a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Opml.OpmlValidationResultDto.html">OpmlValidationResultDto</a> with validation details and detected feeds.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown if <code class="paramref">opmlStream</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IOpmlService.cs/#L29" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2026 NeonSuit - Professional RSS Engine
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class NotificationDto | NeonSuit RSS Reader API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class NotificationDto | NeonSuit RSS Reader API ">
+      
+      <meta name="description" content="Data Transfer Object for complete notification information. Used in notification history views and detail panels.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/NidroySoft/NeonSuit.RSSReader/new/master/apiSpec/new?filename=NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto.md&amp;value=---%0Auid%3A%20NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto">
+
+
+
+  <h1 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto" class="text-break">
+Class NotificationDto  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NeonSuit.html">NeonSuit</a>.<a class="xref" href="NeonSuit.RSSReader.html">RSSReader</a>.<a class="xref" href="NeonSuit.RSSReader.Core.html">Core</a>.<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.html">DTOs</a>.<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Notifications.html">Notifications</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NeonSuit.RSSReader.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Data Transfer Object for complete notification information.
+Used in notification history views and detail panels.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class NotificationDto</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">NotificationDto</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Action_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Action*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Action" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Action">
+  Action
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Type of user action (clicked, dismissed, snoozed).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NotificationAction Action { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NeonSuit.RSSReader.Core.Enums.NotificationAction.html">NotificationAction</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_ActionAt_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.ActionAt*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_ActionAt" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.ActionAt">
+  ActionAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Timestamp when the user interacted with the notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? ActionAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_ArticleId_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.ArticleId*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_ArticleId" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.ArticleId">
+  ArticleId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ID of the article that triggered this notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ArticleId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_ArticleTitle_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.ArticleTitle*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_ArticleTitle" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.ArticleTitle">
+  ArticleTitle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Title of the article (for display).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ArticleTitle { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Channel_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Channel*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Channel" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Channel">
+  Channel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Channel the notification was sent from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Channel { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Clicked_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Clicked*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Clicked" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Clicked">
+  Clicked
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the user clicked the notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Clicked { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Delivered_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Delivered*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Delivered" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Delivered">
+  Delivered
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the notification was successfully delivered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Delivered { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Dismissed_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Dismissed*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Dismissed" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Dismissed">
+  Dismissed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the user dismissed the notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Dismissed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Duration_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Duration*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Duration" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Duration">
+  Duration
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Notification display duration in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Duration { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Error_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Error*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Error" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Error">
+  Error
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Error message if delivery failed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Error { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Id_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Id*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Id" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unique identifier of the notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Id { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Message_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Message*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Message" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Message">
+  Message
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Message body of the notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Message { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_NotificationType_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.NotificationType*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_NotificationType" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.NotificationType">
+  NotificationType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Type of notification (Toast, Sound, Both, etc.).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NotificationType NotificationType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NeonSuit.RSSReader.Core.Enums.NotificationType.html">NotificationType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Priority_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Priority*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Priority" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Priority">
+  Priority
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Priority level of the notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NotificationPriority Priority { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NeonSuit.RSSReader.Core.Enums.NotificationPriority.html">NotificationPriority</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_ResponseTimeSeconds_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.ResponseTimeSeconds*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_ResponseTimeSeconds" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.ResponseTimeSeconds">
+  ResponseTimeSeconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Response time in seconds (sent to action).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? ResponseTimeSeconds { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_RuleId_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.RuleId*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_RuleId" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.RuleId">
+  RuleId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ID of the rule that triggered this notification (if any).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? RuleId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_RuleName_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.RuleName*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_RuleName" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.RuleName">
+  RuleName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Name of the rule that triggered this notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? RuleName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_SentAt_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.SentAt*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_SentAt" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.SentAt">
+  SentAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Timestamp when the notification was sent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime SentAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_SoundPlayed_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.SoundPlayed*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_SoundPlayed" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.SoundPlayed">
+  SoundPlayed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sound played (if any).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? SoundPlayed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Tags_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Tags*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Tags" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Tags">
+  Tags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tags associated with this notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Tags { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_TimeAgo_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.TimeAgo*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_TimeAgo" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.TimeAgo">
+  TimeAgo
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Human-readable time ago string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string TimeAgo { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Title_" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Title*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationDto_Title" data-uid="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.Title">
+  Title
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Title shown in the notification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Title { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationDto.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2026 NeonSuit - Professional RSS Engine
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

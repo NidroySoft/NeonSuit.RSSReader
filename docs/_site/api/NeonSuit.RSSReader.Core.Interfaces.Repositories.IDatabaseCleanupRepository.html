@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IDatabaseCleanupRepository | NeonSuit RSS Reader API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IDatabaseCleanupRepository | NeonSuit RSS Reader API ">
+      
+      <meta name="description" content="Repository interface dedicated to low-level database maintenance, cleanup, integrity verification, and performance optimization tasks for the RSS reader SQLite database.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/NidroySoft/NeonSuit.RSSReader/new/master/apiSpec/new?filename=NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository.md&amp;value=---%0Auid%3A%20NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository">
+
+
+
+  <h1 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository" class="text-break">
+Interface IDatabaseCleanupRepository  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NeonSuit.html">NeonSuit</a>.<a class="xref" href="NeonSuit.RSSReader.html">RSSReader</a>.<a class="xref" href="NeonSuit.RSSReader.Core.html">Core</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.html">Interfaces</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.html">Repositories</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NeonSuit.RSSReader.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Repository interface dedicated to low-level database maintenance, cleanup, integrity verification,
+and performance optimization tasks for the RSS reader SQLite database.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IDatabaseCleanupRepository</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This repository handles operations that are not tied to specific business entities (like articles or feeds)
+but are essential for long-term database health, storage management, and performance.
+</p>
+<p>
+Typical use cases:
+</p>
+<ul><li>Scheduled nightly/weekly cleanup of old articles</li><li>Post-import vacuum and reindexing after bulk sync</li><li>Integrity checks before/after major migrations or backups</li><li>Monitoring database size and statistics for alerts (e.g., storage nearly full)</li><li>Dry-run analysis before destructive cleanup operations</li></ul>
+<p>
+Important behavioral guidelines for implementations:
+</p>
+<ul><li>All methods are asynchronous and fully support <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>.</li><li>Operations that modify data should be executed with progress reporting.</li><li>Long-running tasks (VACUUM, REINDEX) may lock the database — implementations should use WAL mode.</li><li>Results DTOs provide detailed feedback for logging/UI.</li></ul>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_AnalyzeCleanupImpactAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_AnalyzeCleanupImpactAsync_System_DateTime_System_Boolean_System_Boolean_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.AnalyzeCleanupImpactAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+  AnalyzeCleanupImpactAsync(DateTime, bool, bool, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Simulates a cleanup operation and returns projected impact without modifying data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;CleanupAnalysis&gt; AnalyzeCleanupImpactAsync(DateTime cutoffDate, bool keepFavorites, bool keepUnread, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cutoffDate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>Hypothetical cutoff date.</p>
+</dd>
+    <dt><code>keepFavorites</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether favorites would be preserved.</p>
+</dd>
+    <dt><code>keepUnread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether unread would be preserved.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis.html">CleanupAnalysis</a>&gt;</dt>
+    <dd><p>Analysis result with projected deletion count, and estimated space savings.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_CheckIntegrityAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.CheckIntegrityAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_CheckIntegrityAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.CheckIntegrityAsync(System.Threading.CancellationToken)">
+  CheckIntegrityAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a full integrity check on the SQLite database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IntegrityCheckResult&gt; CheckIntegrityAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult.html">IntegrityCheckResult</a>&gt;</dt>
+    <dd><p>Result object with overall status and any corruption/errors found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_DeleteOldArticlesAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.DeleteOldArticlesAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_DeleteOldArticlesAsync_System_DateTime_System_Boolean_System_Boolean_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.DeleteOldArticlesAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+  DeleteOldArticlesAsync(DateTime, bool, bool, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes articles older than the specified cutoff date, with configurable protection for favorites and unread items.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ArticleDeletionResult&gt; DeleteOldArticlesAsync(DateTime cutoffDate, bool keepFavorites, bool keepUnread, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cutoffDate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>Articles with PublicationDate &lt; this date are candidates for deletion.</p>
+</dd>
+    <dt><code>keepFavorites</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <code>true</code>, favorited articles are excluded from deletion.</p>
+</dd>
+    <dt><code>keepUnread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If <code>true</code>, unread articles are excluded regardless of age.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult.html">ArticleDeletionResult</a>&gt;</dt>
+    <dd><p>A result object with deletion statistics.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>When cutoffDate is in the future.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_GetAffectedArticlesDateRangeAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_GetAffectedArticlesDateRangeAsync_System_DateTime_System_Boolean_System_Boolean_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetAffectedArticlesDateRangeAsync(System.DateTime,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+  GetAffectedArticlesDateRangeAsync(DateTime, bool, bool, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Queries the date range of articles that would be affected by a cleanup operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;(DateTime? Oldest, DateTime? Newest)?&gt; GetAffectedArticlesDateRangeAsync(DateTime cutoffDate, bool keepFavorites, bool keepUnread, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cutoffDate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>Cutoff date for analysis.</p>
+</dd>
+    <dt><code>keepFavorites</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Exclude favorites?</p>
+</dd>
+    <dt><code>keepUnread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Exclude unread?</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>? <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.nullable-system.datetime-,system.nullable-system.datetime--.oldest">Oldest</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>? <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.nullable-system.datetime-,system.nullable-system.datetime--.newest">Newest</a>)?&gt;</dt>
+    <dd><p>Tuple with oldest and newest publication dates of affected articles (or null if none).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_GetDatabaseSizeAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetDatabaseSizeAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_GetDatabaseSizeAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetDatabaseSizeAsync(System.Threading.CancellationToken)">
+  GetDatabaseSizeAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the current physical file size of the SQLite database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;long&gt; GetDatabaseSizeAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;</dt>
+    <dd><p>Size in bytes (or 0 if in-memory DB).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_GetStatisticsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetStatisticsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_GetStatisticsAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.GetStatisticsAsync(System.Threading.CancellationToken)">
+  GetStatisticsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves comprehensive database-level statistics for monitoring and diagnostics.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;DatabaseStatistics&gt; GetStatisticsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.html">DatabaseStatistics</a>&gt;</dt>
+    <dd><p>Detailed statistics object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_RebuildIndexesAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RebuildIndexesAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_RebuildIndexesAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RebuildIndexesAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+  RebuildIndexesAsync(IEnumerable&lt;string&gt;?, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rebuilds one or more database indexes to eliminate fragmentation and improve query performance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RebuildIndexesAsync(IEnumerable&lt;string&gt;? tableNames = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tableNames</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>Optional: specific tables to reindex. If null, reindexes main tables.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_RemoveOrphanedRecordsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RemoveOrphanedRecordsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_RemoveOrphanedRecordsAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.RemoveOrphanedRecordsAsync(System.Threading.CancellationToken)">
+  RemoveOrphanedRecordsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes orphaned records from junction tables (e.g., ArticleTag, FeedCategory) and entities without valid parent references.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;OrphanRemovalResult&gt; RemoveOrphanedRecordsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult.html">OrphanRemovalResult</a>&gt;</dt>
+    <dd><p>Result with counts of removed records per table/type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_UpdateStatisticsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateStatisticsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_UpdateStatisticsAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateStatisticsAsync(System.Threading.CancellationToken)">
+  UpdateStatisticsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates database statistics used by the SQLite query planner.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task UpdateStatisticsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_UpdateTagUsageCountsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateTagUsageCountsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_UpdateTagUsageCountsAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.UpdateTagUsageCountsAsync(System.Threading.CancellationToken)">
+  UpdateTagUsageCountsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Recalculates and updates usage/count fields on tags based on current associations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; UpdateTagUsageCountsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>Number of tags whose count was updated.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_VacuumDatabaseAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.VacuumDatabaseAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IDatabaseCleanupRepository_VacuumDatabaseAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.VacuumDatabaseAsync(System.Threading.CancellationToken)">
+  VacuumDatabaseAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes SQLite VACUUM to reclaim unused space and defragment the database file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;VacuumResult&gt; VacuumDatabaseAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html">VacuumResult</a>&gt;</dt>
+    <dd><p>Result with file size before/after and bytes reclaimed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IDatabaseCleanupRepository.cs/#L36" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2026 NeonSuit - Professional RSS Engine
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

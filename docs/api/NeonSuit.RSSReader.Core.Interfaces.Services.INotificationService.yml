@@ -1,0 +1,1232 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+  id: INotificationService
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.CleanupOldNotificationsAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetArticleNotificationHistoryAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetNotificationStatisticsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetPendingNotificationsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetRecentNotificationsAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.OnNotificationCreated
+  - NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.RecordNotificationActionAsync(NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.SendNotificationAsync(NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: INotificationService
+  nameWithType: INotificationService
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: INotificationService
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+    startLine: 36
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Service interface for notification management and delivery.
+
+    Provides comprehensive notification handling with support for different notification types,
+
+    priority levels, and user action tracking.
+  remarks: >-
+    <p>
+
+    This service centralizes all notification-related functionality including:
+
+    <ul><li>Notification creation and delivery based on article events and rules</li><li>User action tracking (click, dismiss) for notification analytics</li><li>Notification history and pending notification management</li><li>Duplicate notification prevention through intelligent checks</li><li>Notification cleanup based on retention policy</li></ul>
+
+    </p>
+
+    <p>
+
+    All methods return DTOs instead of entities to maintain separation of concerns.
+
+    Implementations must ensure:
+
+    <ul><li>All operations support cancellation via <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref></li><li>Notifications are stored durably and survive application restarts</li><li>Event-driven architecture allows UI to react to new notifications in real-time</li><li>Proper logging for audit and debugging purposes</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: public interface INotificationService
+    content.vb: Public Interface INotificationService
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.OnNotificationCreated
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.OnNotificationCreated
+  id: OnNotificationCreated
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+  langs:
+  - csharp
+  - vb
+  name: OnNotificationCreated
+  nameWithType: INotificationService.OnNotificationCreated
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.OnNotificationCreated
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnNotificationCreated
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+    startLine: 48
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Event raised when a new notification is created.
+  remarks: >-
+    UI components should subscribe to this event to display toast notifications
+
+    and update notification badges/counters in real-time.
+
+    Event arguments contain the notification DTO with all relevant information.
+  example: []
+  syntax:
+    content: event EventHandler<NotificationDto>? OnNotificationCreated
+    return:
+      type: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto}
+    content.vb: Event OnNotificationCreated As EventHandler(Of NotificationDto)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.SendNotificationAsync(NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.SendNotificationAsync(NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto,System.Threading.CancellationToken)
+  id: SendNotificationAsync(NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+  langs:
+  - csharp
+  - vb
+  name: SendNotificationAsync(CreateNotificationDto, CancellationToken)
+  nameWithType: INotificationService.SendNotificationAsync(CreateNotificationDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.SendNotificationAsync(NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SendNotificationAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+    startLine: 71
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Sends a notification for an article, optionally triggered by a specific rule.
+  remarks: >-
+    This method performs the following steps:
+
+    <ul><li>Checks for duplicate notifications using <xref href="NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync(System.Int32%2cSystem.Nullable%7bSystem.Int32%7d%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref></li><li>Creates a notification record in the database</li><li>Raises the <xref href="NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.OnNotificationCreated" data-throw-if-not-resolved="false"></xref> event for UI consumption</li></ul>
+  example: []
+  syntax:
+    content: Task<NotificationDto?> SendNotificationAsync(CreateNotificationDto createDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: createDto
+      type: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+      description: The DTO containing notification creation data.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto}
+      description: The created notification DTO if successful; otherwise, null.
+    content.vb: Function SendNotificationAsync(createDto As CreateNotificationDto, cancellationToken As CancellationToken = Nothing) As Task(Of NotificationDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.SendNotificationAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">createDto</code> is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if article ID is invalid.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.RecordNotificationActionAsync(NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.RecordNotificationActionAsync(NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto,System.Threading.CancellationToken)
+  id: RecordNotificationActionAsync(NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+  langs:
+  - csharp
+  - vb
+  name: RecordNotificationActionAsync(UpdateNotificationActionDto, CancellationToken)
+  nameWithType: INotificationService.RecordNotificationActionAsync(UpdateNotificationActionDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.RecordNotificationActionAsync(NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RecordNotificationActionAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+    startLine: 89
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Records a user action performed on a notification.
+  remarks: This method updates the notification with action timestamp and type for analytics.
+  example: []
+  syntax:
+    content: Task<bool> RecordNotificationActionAsync(UpdateNotificationActionDto actionDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: actionDto
+      type: NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto
+      description: The DTO containing action information.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the action was successfully recorded; otherwise, false.
+    content.vb: Function RecordNotificationActionAsync(actionDto As UpdateNotificationActionDto, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.RecordNotificationActionAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">actionDto</code> is null.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if notification ID is invalid.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetRecentNotificationsAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetRecentNotificationsAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetRecentNotificationsAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+  langs:
+  - csharp
+  - vb
+  name: GetRecentNotificationsAsync(int, CancellationToken)
+  nameWithType: INotificationService.GetRecentNotificationsAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetRecentNotificationsAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetRecentNotificationsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+    startLine: 103
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves the most recent notifications.
+  example: []
+  syntax:
+    content: Task<List<NotificationSummaryDto>> GetRecentNotificationsAsync(int limit = 20, CancellationToken cancellationToken = default)
+    parameters:
+    - id: limit
+      type: System.Int32
+      description: 'Maximum number of notifications to return. Default: 20.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto}}
+      description: A list of the most recent notification DTOs.
+    content.vb: Function GetRecentNotificationsAsync(limit As Integer = 20, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of NotificationSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetRecentNotificationsAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">limit</code> is less than 1.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: INotificationService.GetRecentNotificationsAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetRecentNotificationsAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetRecentNotificationsAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetPendingNotificationsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetPendingNotificationsAsync(System.Threading.CancellationToken)
+  id: GetPendingNotificationsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+  langs:
+  - csharp
+  - vb
+  name: GetPendingNotificationsAsync(CancellationToken)
+  nameWithType: INotificationService.GetPendingNotificationsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetPendingNotificationsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetPendingNotificationsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+    startLine: 111
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves notifications that are still pending (not yet acted upon).
+  example: []
+  syntax:
+    content: Task<List<NotificationSummaryDto>> GetPendingNotificationsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto}}
+      description: A list of pending notification summary DTOs.
+    content.vb: Function GetPendingNotificationsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of NotificationSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetPendingNotificationsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetArticleNotificationHistoryAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetArticleNotificationHistoryAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetArticleNotificationHistoryAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+  langs:
+  - csharp
+  - vb
+  name: GetArticleNotificationHistoryAsync(int, CancellationToken)
+  nameWithType: INotificationService.GetArticleNotificationHistoryAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetArticleNotificationHistoryAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetArticleNotificationHistoryAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+    startLine: 121
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all notifications for a specific article.
+  example: []
+  syntax:
+    content: Task<List<NotificationDto>> GetArticleNotificationHistoryAsync(int articleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The ID of the article.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto}}
+      description: A list of notification DTOs for the specified article.
+    content.vb: Function GetArticleNotificationHistoryAsync(articleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of NotificationDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetArticleNotificationHistoryAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">articleId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: INotificationService.GetArticleNotificationHistoryAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetArticleNotificationHistoryAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetArticleNotificationHistoryAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  id: MarkAllAsReadAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+  langs:
+  - csharp
+  - vb
+  name: MarkAllAsReadAsync(CancellationToken)
+  nameWithType: INotificationService.MarkAllAsReadAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MarkAllAsReadAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+    startLine: 133
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Marks all pending notifications as read.
+  example: []
+  syntax:
+    content: Task<int> MarkAllAsReadAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of notifications marked as read.
+    content.vb: Function MarkAllAsReadAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.MarkAllAsReadAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.CleanupOldNotificationsAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.CleanupOldNotificationsAsync(System.Int32,System.Threading.CancellationToken)
+  id: CleanupOldNotificationsAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+  langs:
+  - csharp
+  - vb
+  name: CleanupOldNotificationsAsync(int, CancellationToken)
+  nameWithType: INotificationService.CleanupOldNotificationsAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.CleanupOldNotificationsAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CleanupOldNotificationsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+    startLine: 143
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Cleans up old notifications based on retention policy.
+  example: []
+  syntax:
+    content: Task<int> CleanupOldNotificationsAsync(int retentionDays = 30, CancellationToken cancellationToken = default)
+    parameters:
+    - id: retentionDays
+      type: System.Int32
+      description: 'Number of days to keep notifications. Default: 30.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of notifications deleted.
+    content.vb: Function CleanupOldNotificationsAsync(retentionDays As Integer = 30, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.CleanupOldNotificationsAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">retentionDays</code> is less than 1.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: INotificationService.CleanupOldNotificationsAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.CleanupOldNotificationsAsync(Integer, System.Threading.CancellationToken)
+  name.vb: CleanupOldNotificationsAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  id: ShouldNotifyAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+  langs:
+  - csharp
+  - vb
+  name: ShouldNotifyAsync(int, int?, CancellationToken)
+  nameWithType: INotificationService.ShouldNotifyAsync(int, int?, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync(int, int?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ShouldNotifyAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+    startLine: 162
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Determines whether a notification should be sent for the specified article.
+  remarks: >-
+    This method checks if a notification for this article was already sent recently
+
+    to prevent duplicate notifications.
+  example: []
+  syntax:
+    content: Task<bool> ShouldNotifyAsync(int articleId, int? ruleId = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The ID of the article.
+    - id: ruleId
+      type: System.Nullable{System.Int32}
+      description: Optional rule ID to check specific rule conditions.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if a notification should be sent; otherwise, false.
+    content.vb: Function ShouldNotifyAsync(articleId As Integer, ruleId As Integer? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">articleId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: INotificationService.ShouldNotifyAsync(Integer, Integer?, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync(Integer, Integer?, System.Threading.CancellationToken)
+  name.vb: ShouldNotifyAsync(Integer, Integer?, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetNotificationStatisticsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetNotificationStatisticsAsync(System.Threading.CancellationToken)
+  id: GetNotificationStatisticsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+  langs:
+  - csharp
+  - vb
+  name: GetNotificationStatisticsAsync(CancellationToken)
+  nameWithType: INotificationService.GetNotificationStatisticsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetNotificationStatisticsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetNotificationStatisticsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/INotificationService.cs
+    startLine: 174
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves notification statistics for monitoring and analytics.
+  example: []
+  syntax:
+    content: Task<NotificationStatsDto> GetNotificationStatisticsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto}
+      description: A <xref href="NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto" data-throw-if-not-resolved="false"></xref> object containing various metrics.
+    content.vb: Function GetNotificationStatisticsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of NotificationStatsDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetNotificationStatisticsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+references:
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Services
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Services
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Services
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto}
+  commentId: T:System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<NotificationDto>
+  nameWithType: EventHandler<NotificationDto>
+  fullName: System.EventHandler<NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto>
+  nameWithType.vb: EventHandler(Of NotificationDto)
+  fullName.vb: System.EventHandler(Of NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto)
+  name.vb: EventHandler(Of NotificationDto)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto
+    name: NotificationDto
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto
+    name: NotificationDto
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html#NeonSuit_RSSReader_Core_Interfaces_Services_INotificationService_ShouldNotifyAsync_System_Int32_System_Nullable_System_Int32__System_Threading_CancellationToken_
+  name: ShouldNotifyAsync(int, int?, CancellationToken)
+  nameWithType: INotificationService.ShouldNotifyAsync(int, int?, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync(int, int?, System.Threading.CancellationToken)
+  nameWithType.vb: INotificationService.ShouldNotifyAsync(Integer, Integer?, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync(Integer, Integer?, System.Threading.CancellationToken)
+  name.vb: ShouldNotifyAsync(Integer, Integer?, CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+    name: ShouldNotifyAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html#NeonSuit_RSSReader_Core_Interfaces_Services_INotificationService_ShouldNotifyAsync_System_Int32_System_Nullable_System_Int32__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+    name: ShouldNotifyAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html#NeonSuit_RSSReader_Core_Interfaces_Services_INotificationService_ShouldNotifyAsync_System_Int32_System_Nullable_System_Int32__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.OnNotificationCreated
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.OnNotificationCreated
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html#NeonSuit_RSSReader_Core_Interfaces_Services_INotificationService_OnNotificationCreated
+  name: OnNotificationCreated
+  nameWithType: INotificationService.OnNotificationCreated
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.OnNotificationCreated
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: System.OperationCanceledException
+  commentId: T:System.OperationCanceledException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.operationcanceledexception
+  name: OperationCanceledException
+  nameWithType: OperationCanceledException
+  fullName: System.OperationCanceledException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.SendNotificationAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.SendNotificationAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html#NeonSuit_RSSReader_Core_Interfaces_Services_INotificationService_SendNotificationAsync_NeonSuit_RSSReader_Core_DTOs_Notifications_CreateNotificationDto_System_Threading_CancellationToken_
+  name: SendNotificationAsync
+  nameWithType: INotificationService.SendNotificationAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.SendNotificationAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.html
+  name: CreateNotificationDto
+  nameWithType: CreateNotificationDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<NotificationDto>
+  nameWithType: Task<NotificationDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto>
+  nameWithType.vb: Task(Of NotificationDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto)
+  name.vb: Task(Of NotificationDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto
+    name: NotificationDto
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto
+    name: NotificationDto
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Notifications
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Notifications
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Notifications
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+    name: Notifications
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+    name: Notifications
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.html
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.RecordNotificationActionAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.RecordNotificationActionAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html#NeonSuit_RSSReader_Core_Interfaces_Services_INotificationService_RecordNotificationActionAsync_NeonSuit_RSSReader_Core_DTOs_Notifications_UpdateNotificationActionDto_System_Threading_CancellationToken_
+  name: RecordNotificationActionAsync
+  nameWithType: INotificationService.RecordNotificationActionAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.RecordNotificationActionAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto.html
+  name: UpdateNotificationActionDto
+  nameWithType: UpdateNotificationActionDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetRecentNotificationsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetRecentNotificationsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html#NeonSuit_RSSReader_Core_Interfaces_Services_INotificationService_GetRecentNotificationsAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetRecentNotificationsAsync
+  nameWithType: INotificationService.GetRecentNotificationsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetRecentNotificationsAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<NotificationSummaryDto>>
+  nameWithType: Task<List<NotificationSummaryDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto>>
+  nameWithType.vb: Task(Of List(Of NotificationSummaryDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto))
+  name.vb: Task(Of List(Of NotificationSummaryDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto
+    name: NotificationSummaryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto
+    name: NotificationSummaryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetPendingNotificationsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetPendingNotificationsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html#NeonSuit_RSSReader_Core_Interfaces_Services_INotificationService_GetPendingNotificationsAsync_System_Threading_CancellationToken_
+  name: GetPendingNotificationsAsync
+  nameWithType: INotificationService.GetPendingNotificationsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetPendingNotificationsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetArticleNotificationHistoryAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetArticleNotificationHistoryAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html#NeonSuit_RSSReader_Core_Interfaces_Services_INotificationService_GetArticleNotificationHistoryAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetArticleNotificationHistoryAsync
+  nameWithType: INotificationService.GetArticleNotificationHistoryAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetArticleNotificationHistoryAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<NotificationDto>>
+  nameWithType: Task<List<NotificationDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto>>
+  nameWithType.vb: Task(Of List(Of NotificationDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto))
+  name.vb: Task(Of List(Of NotificationDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto
+    name: NotificationDto
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto
+    name: NotificationDto
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.MarkAllAsReadAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.MarkAllAsReadAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html#NeonSuit_RSSReader_Core_Interfaces_Services_INotificationService_MarkAllAsReadAsync_System_Threading_CancellationToken_
+  name: MarkAllAsReadAsync
+  nameWithType: INotificationService.MarkAllAsReadAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.MarkAllAsReadAsync
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.CleanupOldNotificationsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.CleanupOldNotificationsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html#NeonSuit_RSSReader_Core_Interfaces_Services_INotificationService_CleanupOldNotificationsAsync_System_Int32_System_Threading_CancellationToken_
+  name: CleanupOldNotificationsAsync
+  nameWithType: INotificationService.CleanupOldNotificationsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.CleanupOldNotificationsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html#NeonSuit_RSSReader_Core_Interfaces_Services_INotificationService_ShouldNotifyAsync_System_Int32_System_Nullable_System_Int32__System_Threading_CancellationToken_
+  name: ShouldNotifyAsync
+  nameWithType: INotificationService.ShouldNotifyAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.ShouldNotifyAsync
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html
+  name: NotificationStatsDto
+  nameWithType: NotificationStatsDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetNotificationStatisticsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetNotificationStatisticsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html#NeonSuit_RSSReader_Core_Interfaces_Services_INotificationService_GetNotificationStatisticsAsync_System_Threading_CancellationToken_
+  name: GetNotificationStatisticsAsync
+  nameWithType: INotificationService.GetNotificationStatisticsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.GetNotificationStatisticsAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<NotificationStatsDto>
+  nameWithType: Task<NotificationStatsDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto>
+  nameWithType.vb: Task(Of NotificationStatsDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto)
+  name.vb: Task(Of NotificationStatsDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+    name: NotificationStatsDto
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+    name: NotificationStatsDto
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html
+  - name: )

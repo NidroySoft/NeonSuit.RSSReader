@@ -1,0 +1,1688 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog
+  commentId: T:NeonSuit.RSSReader.Core.Models.NotificationLog
+  id: NotificationLog
+  parent: NeonSuit.RSSReader.Core.Models
+  children:
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.#ctor
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Action
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.ActionAt
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Article
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.ArticleId
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Channel
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Clicked
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Delivered
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Dismissed
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Duration
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Error
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Id
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Message
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.NotificationType
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Priority
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.ResponseTimeSeconds
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Rule
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.RuleId
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.SentAt
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Snoozed
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.SoundPlayed
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Tags
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.TimeAgo
+  - NeonSuit.RSSReader.Core.Models.NotificationLog.Title
+  langs:
+  - csharp
+  - vb
+  name: NotificationLog
+  nameWithType: NotificationLog
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotificationLog
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 40
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: >-
+    Audit log for all notifications sent to the user.
+
+    Tracks delivery, interaction, and effectiveness metrics for analytics and debugging.
+  remarks: >-
+    <p>
+
+    This entity records every notification sent to the user, including:
+
+    <ul><li>Which article triggered the notification</li><li>Which rule (if any) generated it</li><li>Delivery status and any errors</li><li>User interaction (clicked, dismissed, snoozed)</li><li>Performance metrics (duration, timing)</li></ul>
+
+    </p>
+
+    <p>
+
+    Used for:
+
+    <ul><li>Notification history UI</li><li>Analytics on notification effectiveness</li><li>Debugging failed notifications</li><li>Preventing duplicate notifications</li></ul>
+
+    </p>
+
+    <p>
+
+    Performance optimizations:
+
+    <ul><li>Indexed on ArticleId for quick history lookups</li><li>Indexed on RuleId for rule effectiveness analysis</li><li>Indexed on SentAt for time-based queries and cleanup</li><li>MaxLength constraints on text fields to optimize storage</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: >-
+      [Table("NotificationLogs")]
+
+      public class NotificationLog
+    content.vb: >-
+      <Table("NotificationLogs")>
+
+      Public Class NotificationLog
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.TableAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.TableAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: NotificationLogs
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.#ctor
+  commentId: M:NeonSuit.RSSReader.Core.Models.NotificationLog.#ctor
+  id: '#ctor'
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: NotificationLog()
+  nameWithType: NotificationLog.NotificationLog()
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.NotificationLog()
+  type: Constructor
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: .ctor
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 47
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: >-
+    Initializes a new instance of the <xref href="NeonSuit.RSSReader.Core.Models.NotificationLog" data-throw-if-not-resolved="false"></xref> class.
+
+    Sets default values for timestamps and delivery status.
+  example: []
+  syntax:
+    content: public NotificationLog()
+    content.vb: Public Sub New()
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.#ctor*
+  nameWithType.vb: NotificationLog.New()
+  fullName.vb: NeonSuit.RSSReader.Core.Models.NotificationLog.New()
+  name.vb: New()
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Id
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Id
+  id: Id
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: NotificationLog.Id
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Id
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Id
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 63
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Internal auto-increment primary key.
+  example: []
+  syntax:
+    content: >-
+      [Key]
+
+      [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
+      public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Key>
+
+      <DatabaseGenerated(DatabaseGeneratedOption.Identity)>
+
+      Public Property Id As Integer
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Id*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.KeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.KeyAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedAttribute.#ctor(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption)
+    arguments:
+    - type: System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption
+      value: 1
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.ArticleId
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.ArticleId
+  id: ArticleId
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: ArticleId
+  nameWithType: NotificationLog.ArticleId
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.ArticleId
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ArticleId
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 74
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Foreign key to the notified article.
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public int ArticleId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Required>
+
+      Public Property ArticleId As Integer
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.ArticleId*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.RuleId
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.RuleId
+  id: RuleId
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: RuleId
+  nameWithType: NotificationLog.RuleId
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.RuleId
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RuleId
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 81
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: >-
+    Foreign key to the rule that triggered the notification.
+
+    Null if notification was triggered manually or by system.
+  example: []
+  syntax:
+    content: public int? RuleId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property RuleId As Integer?
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.RuleId*
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Article
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Article
+  id: Article
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Article
+  nameWithType: NotificationLog.Article
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Article
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Article
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 90
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Navigation property to the associated article.
+  example: []
+  syntax:
+    content: >-
+      [ForeignKey("ArticleId")]
+
+      public virtual Article? Article { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Article
+    content.vb: >-
+      <ForeignKey("ArticleId")>
+
+      Public Overridable Property Article As Article
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Article*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.ForeignKeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.ForeignKeyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ArticleId
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Rule
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Rule
+  id: Rule
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Rule
+  nameWithType: NotificationLog.Rule
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Rule
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Rule
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 96
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Navigation property to the rule that triggered this notification.
+  example: []
+  syntax:
+    content: >-
+      [ForeignKey("RuleId")]
+
+      public virtual Rule? Rule { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Rule
+    content.vb: >-
+      <ForeignKey("RuleId")>
+
+      Public Overridable Property Rule As Rule
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Rule*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.ForeignKeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.ForeignKeyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: RuleId
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.NotificationType
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.NotificationType
+  id: NotificationType
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: NotificationType
+  nameWithType: NotificationLog.NotificationType
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.NotificationType
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotificationType
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 106
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Type of notification (Toast, Sound, Both, Email, etc.).
+  example: []
+  syntax:
+    content: public NotificationType NotificationType { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.NotificationType
+    content.vb: Public Property NotificationType As NotificationType
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.NotificationType*
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Priority
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Priority
+  id: Priority
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Priority
+  nameWithType: NotificationLog.Priority
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Priority
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Priority
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 111
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Priority level of the notification (affects display duration and behavior).
+  example: []
+  syntax:
+    content: public NotificationPriority Priority { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+    content.vb: Public Property Priority As NotificationPriority
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Priority*
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Title
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Title
+  id: Title
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: NotificationLog.Title
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Title
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Title
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 116
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Title shown in the notification.
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      [MaxLength(200)]
+
+      public string Title { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      <MaxLength(200)>
+
+      Public Property Title As String
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Title*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 200
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Message
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Message
+  id: Message
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: NotificationLog.Message
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Message
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Message
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 123
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Message body of the notification.
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      [MaxLength(1000)]
+
+      public string Message { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      <MaxLength(1000)>
+
+      Public Property Message As String
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Message*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1000
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Channel
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Channel
+  id: Channel
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Channel
+  nameWithType: NotificationLog.Channel
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Channel
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Channel
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 130
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Channel the notification was sent from (e.g., "system", "rule", "manual").
+  example: []
+  syntax:
+    content: >-
+      [MaxLength(50)]
+
+      public string Channel { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <MaxLength(50)>
+
+      Public Property Channel As String
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Channel*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 50
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Tags
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Tags
+  id: Tags
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Tags
+  nameWithType: NotificationLog.Tags
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Tags
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Tags
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 137
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: >-
+    Tags associated with this notification for filtering and categorization.
+
+    Stored as comma-separated values.
+  example: []
+  syntax:
+    content: >-
+      [MaxLength(500)]
+
+      public string Tags { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <MaxLength(500)>
+
+      Public Property Tags As String
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Tags*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 500
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.SoundPlayed
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.SoundPlayed
+  id: SoundPlayed
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: SoundPlayed
+  nameWithType: NotificationLog.SoundPlayed
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.SoundPlayed
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SoundPlayed
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 143
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Sound played (if any). Null means default system sound.
+  example: []
+  syntax:
+    content: >-
+      [MaxLength(255)]
+
+      public string? SoundPlayed { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <MaxLength(255)>
+
+      Public Property SoundPlayed As String
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.SoundPlayed*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 255
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Duration
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Duration
+  id: Duration
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: NotificationLog.Duration
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Duration
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Duration
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 149
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Notification display duration in seconds.
+  example: []
+  syntax:
+    content: public int Duration { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Duration As Integer
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Duration*
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.SentAt
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.SentAt
+  id: SentAt
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: SentAt
+  nameWithType: NotificationLog.SentAt
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.SentAt
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SentAt
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 158
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Timestamp when the notification was sent (UTC).
+  example: []
+  syntax:
+    content: public DateTime SentAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property SentAt As Date
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.SentAt*
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Delivered
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Delivered
+  id: Delivered
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Delivered
+  nameWithType: NotificationLog.Delivered
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Delivered
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Delivered
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 163
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether the notification was successfully delivered.
+  example: []
+  syntax:
+    content: public bool Delivered { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Delivered As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Delivered*
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Error
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Error
+  id: Error
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: NotificationLog.Error
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Error
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Error
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 168
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Error message if delivery failed.
+  example: []
+  syntax:
+    content: >-
+      [MaxLength(500)]
+
+      public string? Error { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <MaxLength(500)>
+
+      Public Property [Error] As String
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Error*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 500
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.ActionAt
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.ActionAt
+  id: ActionAt
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: ActionAt
+  nameWithType: NotificationLog.ActionAt
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.ActionAt
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ActionAt
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 178
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Timestamp when the user interacted with the notification (clicked, dismissed, etc.).
+  example: []
+  syntax:
+    content: public DateTime? ActionAt { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Property ActionAt As Date?
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.ActionAt*
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Action
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Action
+  id: Action
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Action
+  nameWithType: NotificationLog.Action
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Action
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Action
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 183
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Type of user action (clicked, dismissed, snoozed, etc.).
+  example: []
+  syntax:
+    content: public NotificationAction Action { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.NotificationAction
+    content.vb: Public Property Action As NotificationAction
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Action*
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Clicked
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Clicked
+  id: Clicked
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Clicked
+  nameWithType: NotificationLog.Clicked
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Clicked
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Clicked
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 192
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Indicates whether the user clicked the notification.
+  example: []
+  syntax:
+    content: >-
+      [NotMapped]
+
+      public bool Clicked { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <NotMapped>
+
+      Public ReadOnly Property Clicked As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Clicked*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute.#ctor
+    arguments: []
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Dismissed
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Dismissed
+  id: Dismissed
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Dismissed
+  nameWithType: NotificationLog.Dismissed
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Dismissed
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Dismissed
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 198
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Indicates whether the user dismissed the notification without interacting.
+  example: []
+  syntax:
+    content: >-
+      [NotMapped]
+
+      public bool Dismissed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <NotMapped>
+
+      Public ReadOnly Property Dismissed As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Dismissed*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute.#ctor
+    arguments: []
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Snoozed
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.Snoozed
+  id: Snoozed
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: Snoozed
+  nameWithType: NotificationLog.Snoozed
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Snoozed
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Snoozed
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 204
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Indicates whether the user snoozed the notification for later.
+  example: []
+  syntax:
+    content: >-
+      [NotMapped]
+
+      public bool Snoozed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <NotMapped>
+
+      Public ReadOnly Property Snoozed As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.Snoozed*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute.#ctor
+    arguments: []
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.TimeAgo
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.TimeAgo
+  id: TimeAgo
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: TimeAgo
+  nameWithType: NotificationLog.TimeAgo
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.TimeAgo
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TimeAgo
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 210
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Human-readable time ago string for UI display (e.g., "5m", "2h", "3d").
+  example: []
+  syntax:
+    content: >-
+      [NotMapped]
+
+      public string TimeAgo { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <NotMapped>
+
+      Public ReadOnly Property TimeAgo As String
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.TimeAgo*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute.#ctor
+    arguments: []
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.ResponseTimeSeconds
+  commentId: P:NeonSuit.RSSReader.Core.Models.NotificationLog.ResponseTimeSeconds
+  id: ResponseTimeSeconds
+  parent: NeonSuit.RSSReader.Core.Models.NotificationLog
+  langs:
+  - csharp
+  - vb
+  name: ResponseTimeSeconds
+  nameWithType: NotificationLog.ResponseTimeSeconds
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.ResponseTimeSeconds
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ResponseTimeSeconds
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/NotificationLog.cs
+    startLine: 216
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Response time in seconds (time between sent and user action).
+  example: []
+  syntax:
+    content: >-
+      [NotMapped]
+
+      public double? ResponseTimeSeconds { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: >-
+      <NotMapped>
+
+      Public ReadOnly Property ResponseTimeSeconds As Double?
+  overload: NeonSuit.RSSReader.Core.Models.NotificationLog.ResponseTimeSeconds*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute.#ctor
+    arguments: []
+references:
+- uid: NeonSuit.RSSReader.Core.Models
+  commentId: N:NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models
+  nameWithType: NeonSuit.RSSReader.Core.Models
+  fullName: NeonSuit.RSSReader.Core.Models
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog
+  commentId: T:NeonSuit.RSSReader.Core.Models.NotificationLog
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html
+  name: NotificationLog
+  nameWithType: NotificationLog
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.#ctor*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.#ctor
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog__ctor
+  name: NotificationLog
+  nameWithType: NotificationLog.NotificationLog
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.NotificationLog
+  nameWithType.vb: NotificationLog.New
+  fullName.vb: NeonSuit.RSSReader.Core.Models.NotificationLog.New
+  name.vb: New
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Id*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Id
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Id
+  name: Id
+  nameWithType: NotificationLog.Id
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.ArticleId*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.ArticleId
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_ArticleId
+  name: ArticleId
+  nameWithType: NotificationLog.ArticleId
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.ArticleId
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.RuleId*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.RuleId
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_RuleId
+  name: RuleId
+  nameWithType: NotificationLog.RuleId
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.RuleId
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Article*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Article
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Article
+  name: Article
+  nameWithType: NotificationLog.Article
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Article
+- uid: NeonSuit.RSSReader.Core.Models.Article
+  commentId: T:NeonSuit.RSSReader.Core.Models.Article
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.Article.html
+  name: Article
+  nameWithType: Article
+  fullName: NeonSuit.RSSReader.Core.Models.Article
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Rule*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Rule
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Rule
+  name: Rule
+  nameWithType: NotificationLog.Rule
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Rule
+- uid: NeonSuit.RSSReader.Core.Models.Rule
+  commentId: T:NeonSuit.RSSReader.Core.Models.Rule
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.Rule.html
+  name: Rule
+  nameWithType: Rule
+  fullName: NeonSuit.RSSReader.Core.Models.Rule
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.NotificationType*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.NotificationType
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_NotificationType
+  name: NotificationType
+  nameWithType: NotificationLog.NotificationType
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.NotificationType
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationType
+  commentId: T:NeonSuit.RSSReader.Core.Enums.NotificationType
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.NotificationType.html
+  name: NotificationType
+  nameWithType: NotificationType
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationType
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Priority*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Priority
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Priority
+  name: Priority
+  nameWithType: NotificationLog.Priority
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Priority
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  commentId: T:NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.NotificationPriority.html
+  name: NotificationPriority
+  nameWithType: NotificationPriority
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Title*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Title
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Title
+  name: Title
+  nameWithType: NotificationLog.Title
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Title
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Message*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Message
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Message
+  name: Message
+  nameWithType: NotificationLog.Message
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Message
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Channel*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Channel
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Channel
+  name: Channel
+  nameWithType: NotificationLog.Channel
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Channel
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Tags*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Tags
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Tags
+  name: Tags
+  nameWithType: NotificationLog.Tags
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Tags
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.SoundPlayed*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.SoundPlayed
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_SoundPlayed
+  name: SoundPlayed
+  nameWithType: NotificationLog.SoundPlayed
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.SoundPlayed
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Duration*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Duration
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Duration
+  name: Duration
+  nameWithType: NotificationLog.Duration
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Duration
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.SentAt*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.SentAt
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_SentAt
+  name: SentAt
+  nameWithType: NotificationLog.SentAt
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.SentAt
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Delivered*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Delivered
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Delivered
+  name: Delivered
+  nameWithType: NotificationLog.Delivered
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Delivered
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Error*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Error
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Error
+  name: Error
+  nameWithType: NotificationLog.Error
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Error
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.ActionAt*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.ActionAt
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_ActionAt
+  name: ActionAt
+  nameWithType: NotificationLog.ActionAt
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.ActionAt
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Action*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Action
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Action
+  name: Action
+  nameWithType: NotificationLog.Action
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Action
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationAction
+  commentId: T:NeonSuit.RSSReader.Core.Enums.NotificationAction
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.NotificationAction.html
+  name: NotificationAction
+  nameWithType: NotificationAction
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationAction
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Clicked*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Clicked
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Clicked
+  name: Clicked
+  nameWithType: NotificationLog.Clicked
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Clicked
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Dismissed*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Dismissed
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Dismissed
+  name: Dismissed
+  nameWithType: NotificationLog.Dismissed
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Dismissed
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.Snoozed*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.Snoozed
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_Snoozed
+  name: Snoozed
+  nameWithType: NotificationLog.Snoozed
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.Snoozed
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.TimeAgo*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.TimeAgo
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_TimeAgo
+  name: TimeAgo
+  nameWithType: NotificationLog.TimeAgo
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.TimeAgo
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog.ResponseTimeSeconds*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.NotificationLog.ResponseTimeSeconds
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html#NeonSuit_RSSReader_Core_Models_NotificationLog_ResponseTimeSeconds
+  name: ResponseTimeSeconds
+  nameWithType: NotificationLog.ResponseTimeSeconds
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog.ResponseTimeSeconds
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'

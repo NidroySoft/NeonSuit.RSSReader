@@ -1,0 +1,161 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup
+  commentId: N:NeonSuit.RSSReader.Core.Models.Cleanup
+  id: NeonSuit.RSSReader.Core.Models.Cleanup
+  children:
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.PreferenceKeys
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+  - NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  - NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult
+  - NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult
+  - NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.Models.Cleanup
+  nameWithType: NeonSuit.RSSReader.Core.Models.Cleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult.html
+  name: ArticleDeletionResult
+  nameWithType: ArticleDeletionResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis.html
+  name: CleanupAnalysis
+  nameWithType: CleanupAnalysis
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.html
+  name: CleanupConfiguration
+  nameWithType: CleanupConfiguration
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.PreferenceKeys
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.PreferenceKeys
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.html
+  name: CleanupConfiguration.PreferenceKeys
+  nameWithType: CleanupConfiguration.PreferenceKeys
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.PreferenceKeys
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration
+    name: CleanupConfiguration
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.PreferenceKeys
+    name: PreferenceKeys
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.PreferenceKeys.html
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration
+    name: CleanupConfiguration
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.PreferenceKeys
+    name: PreferenceKeys
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.PreferenceKeys.html
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.html
+  name: CleanupRiskLevel
+  nameWithType: CleanupRiskLevel
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html
+  name: CleanupResult
+  nameWithType: CleanupResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.html
+  name: DatabaseStatistics
+  nameWithType: DatabaseStatistics
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html
+  name: ImageCacheCleanupResult
+  nameWithType: ImageCacheCleanupResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult.html
+  name: IntegrityCheckResult
+  nameWithType: IntegrityCheckResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult.html
+  name: OrphanRemovalResult
+  nameWithType: OrphanRemovalResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html
+  name: VacuumResult
+  nameWithType: VacuumResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup
+  commentId: N:NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models.Cleanup
+  nameWithType: NeonSuit.RSSReader.Core.Models.Cleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup
+    name: Cleanup
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup
+    name: Cleanup
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.html

@@ -1,0 +1,1035 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  id: NotificationStatsDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.AverageResponseTimeSeconds
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.ClickThroughRate
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last24Hours
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last30Days
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last7Days
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.LastNotificationDate
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TopRules
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalClicked
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDelivered
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDismissed
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalFailed
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSent
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSnoozed
+  langs:
+  - csharp
+  - vb
+  name: NotificationStatsDto
+  nameWithType: NotificationStatsDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotificationStatsDto
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 12
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: >-
+    Data Transfer Object for notification statistics and analytics.
+
+    Used in dashboards and reporting views.
+  example: []
+  syntax:
+    content: public class NotificationStatsDto
+    content.vb: Public Class NotificationStatsDto
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSent
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSent
+  id: TotalSent
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  langs:
+  - csharp
+  - vb
+  name: TotalSent
+  nameWithType: NotificationStatsDto.TotalSent
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSent
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TotalSent
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 17
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Total number of notifications sent.
+  example: []
+  syntax:
+    content: public int TotalSent { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TotalSent As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSent*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDelivered
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDelivered
+  id: TotalDelivered
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  langs:
+  - csharp
+  - vb
+  name: TotalDelivered
+  nameWithType: NotificationStatsDto.TotalDelivered
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDelivered
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TotalDelivered
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 22
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Number of notifications delivered successfully.
+  example: []
+  syntax:
+    content: public int TotalDelivered { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TotalDelivered As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDelivered*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalFailed
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalFailed
+  id: TotalFailed
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  langs:
+  - csharp
+  - vb
+  name: TotalFailed
+  nameWithType: NotificationStatsDto.TotalFailed
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalFailed
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TotalFailed
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 27
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Number of failed notifications.
+  example: []
+  syntax:
+    content: public int TotalFailed { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TotalFailed As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalFailed*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalClicked
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalClicked
+  id: TotalClicked
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  langs:
+  - csharp
+  - vb
+  name: TotalClicked
+  nameWithType: NotificationStatsDto.TotalClicked
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalClicked
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TotalClicked
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 32
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Number of notifications clicked by user.
+  example: []
+  syntax:
+    content: public int TotalClicked { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TotalClicked As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalClicked*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDismissed
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDismissed
+  id: TotalDismissed
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  langs:
+  - csharp
+  - vb
+  name: TotalDismissed
+  nameWithType: NotificationStatsDto.TotalDismissed
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDismissed
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TotalDismissed
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 37
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Number of notifications dismissed.
+  example: []
+  syntax:
+    content: public int TotalDismissed { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TotalDismissed As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDismissed*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSnoozed
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSnoozed
+  id: TotalSnoozed
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  langs:
+  - csharp
+  - vb
+  name: TotalSnoozed
+  nameWithType: NotificationStatsDto.TotalSnoozed
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSnoozed
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TotalSnoozed
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 42
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Number of notifications snoozed.
+  example: []
+  syntax:
+    content: public int TotalSnoozed { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TotalSnoozed As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSnoozed*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.ClickThroughRate
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.ClickThroughRate
+  id: ClickThroughRate
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  langs:
+  - csharp
+  - vb
+  name: ClickThroughRate
+  nameWithType: NotificationStatsDto.ClickThroughRate
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.ClickThroughRate
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ClickThroughRate
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 47
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Click-through rate (clicked / delivered).
+  example: []
+  syntax:
+    content: public double ClickThroughRate { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property ClickThroughRate As Double
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.ClickThroughRate*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.AverageResponseTimeSeconds
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.AverageResponseTimeSeconds
+  id: AverageResponseTimeSeconds
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  langs:
+  - csharp
+  - vb
+  name: AverageResponseTimeSeconds
+  nameWithType: NotificationStatsDto.AverageResponseTimeSeconds
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.AverageResponseTimeSeconds
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AverageResponseTimeSeconds
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 52
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Average response time in seconds (sent to click).
+  example: []
+  syntax:
+    content: public double? AverageResponseTimeSeconds { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public Property AverageResponseTimeSeconds As Double?
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.AverageResponseTimeSeconds*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last24Hours
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last24Hours
+  id: Last24Hours
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  langs:
+  - csharp
+  - vb
+  name: Last24Hours
+  nameWithType: NotificationStatsDto.Last24Hours
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last24Hours
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Last24Hours
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 57
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Number of notifications in the last 24 hours.
+  example: []
+  syntax:
+    content: public int Last24Hours { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Last24Hours As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last24Hours*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last7Days
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last7Days
+  id: Last7Days
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  langs:
+  - csharp
+  - vb
+  name: Last7Days
+  nameWithType: NotificationStatsDto.Last7Days
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last7Days
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Last7Days
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 62
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Number of notifications in the last 7 days.
+  example: []
+  syntax:
+    content: public int Last7Days { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Last7Days As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last7Days*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last30Days
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last30Days
+  id: Last30Days
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  langs:
+  - csharp
+  - vb
+  name: Last30Days
+  nameWithType: NotificationStatsDto.Last30Days
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last30Days
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Last30Days
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 67
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Number of notifications in the last 30 days.
+  example: []
+  syntax:
+    content: public int Last30Days { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Last30Days As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last30Days*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.LastNotificationDate
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.LastNotificationDate
+  id: LastNotificationDate
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  langs:
+  - csharp
+  - vb
+  name: LastNotificationDate
+  nameWithType: NotificationStatsDto.LastNotificationDate
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.LastNotificationDate
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LastNotificationDate
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 72
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Date of the last notification sent.
+  example: []
+  syntax:
+    content: public DateTime? LastNotificationDate { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Property LastNotificationDate As Date?
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.LastNotificationDate*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TopRules
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TopRules
+  id: TopRules
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+  langs:
+  - csharp
+  - vb
+  name: TopRules
+  nameWithType: NotificationStatsDto.TopRules
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TopRules
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TopRules
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/NotificationStatsDto.cs
+    startLine: 77
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Top rules by notification count.
+  example: []
+  syntax:
+    content: public Dictionary<string, int> TopRules { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Int32}
+    content.vb: Public Property TopRules As Dictionary(Of String, Integer)
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TopRules*
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Notifications
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Notifications
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Notifications
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+    name: Notifications
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+    name: Notifications
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSent*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSent
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationStatsDto_TotalSent
+  name: TotalSent
+  nameWithType: NotificationStatsDto.TotalSent
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSent
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDelivered*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDelivered
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationStatsDto_TotalDelivered
+  name: TotalDelivered
+  nameWithType: NotificationStatsDto.TotalDelivered
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDelivered
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalFailed*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalFailed
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationStatsDto_TotalFailed
+  name: TotalFailed
+  nameWithType: NotificationStatsDto.TotalFailed
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalFailed
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalClicked*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalClicked
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationStatsDto_TotalClicked
+  name: TotalClicked
+  nameWithType: NotificationStatsDto.TotalClicked
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalClicked
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDismissed*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDismissed
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationStatsDto_TotalDismissed
+  name: TotalDismissed
+  nameWithType: NotificationStatsDto.TotalDismissed
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalDismissed
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSnoozed*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSnoozed
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationStatsDto_TotalSnoozed
+  name: TotalSnoozed
+  nameWithType: NotificationStatsDto.TotalSnoozed
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TotalSnoozed
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.ClickThroughRate*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.ClickThroughRate
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationStatsDto_ClickThroughRate
+  name: ClickThroughRate
+  nameWithType: NotificationStatsDto.ClickThroughRate
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.ClickThroughRate
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.AverageResponseTimeSeconds*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.AverageResponseTimeSeconds
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationStatsDto_AverageResponseTimeSeconds
+  name: AverageResponseTimeSeconds
+  nameWithType: NotificationStatsDto.AverageResponseTimeSeconds
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.AverageResponseTimeSeconds
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last24Hours*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last24Hours
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationStatsDto_Last24Hours
+  name: Last24Hours
+  nameWithType: NotificationStatsDto.Last24Hours
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last24Hours
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last7Days*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last7Days
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationStatsDto_Last7Days
+  name: Last7Days
+  nameWithType: NotificationStatsDto.Last7Days
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last7Days
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last30Days*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last30Days
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationStatsDto_Last30Days
+  name: Last30Days
+  nameWithType: NotificationStatsDto.Last30Days
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.Last30Days
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.LastNotificationDate*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.LastNotificationDate
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationStatsDto_LastNotificationDate
+  name: LastNotificationDate
+  nameWithType: NotificationStatsDto.LastNotificationDate
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.LastNotificationDate
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TopRules*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TopRules
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_NotificationStatsDto_TopRules
+  name: TopRules
+  nameWithType: NotificationStatsDto.TopRules
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.TopRules
+- uid: System.Collections.Generic.Dictionary{System.String,System.Int32}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, int>
+  nameWithType: Dictionary<string, int>
+  fullName: System.Collections.Generic.Dictionary<string, int>
+  nameWithType.vb: Dictionary(Of String, Integer)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, Integer)
+  name.vb: Dictionary(Of String, Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

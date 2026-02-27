@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class FeedDto | NeonSuit RSS Reader API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class FeedDto | NeonSuit RSS Reader API ">
+      
+      <meta name="description" content="Data Transfer Object for complete feed information. Used for feed details view and editing.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/NidroySoft/NeonSuit.RSSReader/new/master/apiSpec/new?filename=NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto.md&amp;value=---%0Auid%3A%20NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto">
+
+
+
+  <h1 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto" class="text-break">
+Class FeedDto  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NeonSuit.html">NeonSuit</a>.<a class="xref" href="NeonSuit.RSSReader.html">RSSReader</a>.<a class="xref" href="NeonSuit.RSSReader.Core.html">Core</a>.<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.html">DTOs</a>.<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Feeds.html">Feeds</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NeonSuit.RSSReader.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Data Transfer Object for complete feed information.
+Used for feed details view and editing.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FeedDto</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">FeedDto</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_ArticleRetentionDays_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.ArticleRetentionDays*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_ArticleRetentionDays" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.ArticleRetentionDays">
+  ArticleRetentionDays
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Feed-specific article retention days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? ArticleRetentionDays { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_CategoryId_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.CategoryId*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_CategoryId" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.CategoryId">
+  CategoryId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ID of the parent category (null if uncategorized).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? CategoryId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_CategoryName_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.CategoryName*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_CategoryName" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.CategoryName">
+  CategoryName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Name of the parent category.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? CategoryName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_CreatedAt_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.CreatedAt*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_CreatedAt" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.CreatedAt">
+  CreatedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Timestamp when the feed was added.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime CreatedAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_Description_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.Description*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_Description" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.Description">
+  Description
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Feed description or subtitle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Description { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_EffectiveRetentionDays_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.EffectiveRetentionDays*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_EffectiveRetentionDays" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.EffectiveRetentionDays">
+  EffectiveRetentionDays
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Effective retention days (feed-specific or global default).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int EffectiveRetentionDays { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_FailureCount_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.FailureCount*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_FailureCount" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.FailureCount">
+  FailureCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of consecutive failed updates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FailureCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_HealthStatus_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.HealthStatus*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_HealthStatus" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.HealthStatus">
+  HealthStatus
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Health status based on failure count.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FeedHealthStatus HealthStatus { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NeonSuit.RSSReader.Core.Enums.FeedHealthStatus.html">FeedHealthStatus</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_IconUrl_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.IconUrl*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_IconUrl" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.IconUrl">
+  IconUrl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>URL of the feed favicon or logo.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? IconUrl { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_Id_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.Id*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_Id" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unique identifier of the feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Id { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_IsActive_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.IsActive*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_IsActive" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.IsActive">
+  IsActive
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether automatic updates are enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsActive { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_IsPodcastFeed_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.IsPodcastFeed*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_IsPodcastFeed" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.IsPodcastFeed">
+  IsPodcastFeed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether this is a podcast feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPodcastFeed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_Language_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.Language*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_Language" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.Language">
+  Language
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Detected or declared language code.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Language { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_LastError_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.LastError*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_LastError" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.LastError">
+  LastError
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Last error message from failed update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? LastError { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_LastUpdated_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.LastUpdated*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_LastUpdated" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.LastUpdated">
+  LastUpdated
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Timestamp of the last successful update.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? LastUpdated { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_NextUpdateSchedule_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.NextUpdateSchedule*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_NextUpdateSchedule" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.NextUpdateSchedule">
+  NextUpdateSchedule
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Next scheduled update time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? NextUpdateSchedule { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_Title_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.Title*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_Title" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.Title">
+  Title
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Human-readable title of the feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Title { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_TotalArticleCount_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.TotalArticleCount*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_TotalArticleCount" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.TotalArticleCount">
+  TotalArticleCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Total number of articles in this feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TotalArticleCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_UnreadCount_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.UnreadCount*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_UnreadCount" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.UnreadCount">
+  UnreadCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of unread articles in this feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int UnreadCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_UpdateFrequency_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.UpdateFrequency*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_UpdateFrequency" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.UpdateFrequency">
+  UpdateFrequency
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Desired refresh interval for automatic updates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FeedUpdateFrequency UpdateFrequency { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.html">FeedUpdateFrequency</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_Url_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.Url*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_Url" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.Url">
+  Url
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Canonical URL of the feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Url { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_WebsiteUrl_" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.WebsiteUrl*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_DTOs_Feeds_FeedDto_WebsiteUrl" data-uid="NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.WebsiteUrl">
+  WebsiteUrl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Website/homepage URL associated with the feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string WebsiteUrl { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/DTOs/Feeds/FeedDto.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2026 NeonSuit - Professional RSS Engine
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

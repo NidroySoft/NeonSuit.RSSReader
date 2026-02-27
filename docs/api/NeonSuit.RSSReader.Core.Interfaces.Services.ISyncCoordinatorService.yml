@@ -1,0 +1,1776 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  id: ISyncCoordinatorService
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ClearErrorHistoryAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ConfigureTaskAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.CurrentStatus
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetRecentErrorsAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskExecutionInfoAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskStatusesAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnStatusChanged
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnSyncError
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnSyncProgress
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnTaskCompleted
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnTaskStarted
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.PauseAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ResumeAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxConcurrentTasksAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxSyncDurationAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StartAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.Statistics
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StopAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerBackupSyncAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerCleanupSyncAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFeedSyncAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFullSyncAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerSingleFeedSyncAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerTagProcessingSyncAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ISyncCoordinatorService
+  nameWithType: ISyncCoordinatorService
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ISyncCoordinatorService
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 24
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Service interface for synchronization coordinator that manages and coordinates background tasks.
+
+    Handles feed updates, tag processing, cleanup operations, and backups with proper prioritization,
+
+    error handling, and resource management for low-resource environments.
+  remarks: >-
+    <p>
+
+    This service centralizes all background synchronization activities including:
+
+    <ul><li>Feed update scheduling based on individual feed frequencies</li><li>Article retention cleanup and database maintenance</li><li>Auto-tagging rule processing and tag statistics updates</li><li>Automated backup creation with rotation policies</li><li>Performance monitoring and error tracking</li></ul>
+
+    </p>
+
+    <p>
+
+    All methods return DTOs instead of internal models to maintain separation of concerns.
+
+    </p>
+  example: []
+  syntax:
+    content: public interface ISyncCoordinatorService
+    content.vb: Public Interface ISyncCoordinatorService
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.CurrentStatus
+  commentId: P:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.CurrentStatus
+  id: CurrentStatus
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: CurrentStatus
+  nameWithType: ISyncCoordinatorService.CurrentStatus
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.CurrentStatus
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CurrentStatus
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 31
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets the current overall synchronization status.
+  example: []
+  syntax:
+    content: SyncStatusDto CurrentStatus { get; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto
+    content.vb: ReadOnly Property CurrentStatus As SyncStatusDto
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.CurrentStatus*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.Statistics
+  commentId: P:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.Statistics
+  id: Statistics
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: Statistics
+  nameWithType: ISyncCoordinatorService.Statistics
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.Statistics
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Statistics
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 36
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets aggregated statistics about synchronization performance.
+  example: []
+  syntax:
+    content: SyncStatisticsDto Statistics { get; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatisticsDto
+    content.vb: ReadOnly Property Statistics As SyncStatisticsDto
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.Statistics*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StartAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StartAsync(System.Threading.CancellationToken)
+  id: StartAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: StartAsync(CancellationToken)
+  nameWithType: ISyncCoordinatorService.StartAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StartAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: StartAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 50
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Starts the synchronization coordinator service.
+
+    Initializes all managed sync tasks and begins the synchronization loop.
+  example: []
+  syntax:
+    content: Task StartAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Function StartAsync(cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StartAsync*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the service is already running.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StopAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StopAsync(System.Threading.CancellationToken)
+  id: StopAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: StopAsync(CancellationToken)
+  nameWithType: ISyncCoordinatorService.StopAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StopAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: StopAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 59
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Stops the synchronization coordinator service gracefully.
+
+    Completes current tasks and cleans up resources.
+  example: []
+  syntax:
+    content: Task StopAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Function StopAsync(cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StopAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.PauseAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.PauseAsync(System.Threading.CancellationToken)
+  id: PauseAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: PauseAsync(CancellationToken)
+  nameWithType: ISyncCoordinatorService.PauseAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.PauseAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: PauseAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 69
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Pauses all synchronization activities.
+
+    Allows temporary suspension without stopping the service.
+  example: []
+  syntax:
+    content: Task PauseAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Function PauseAsync(cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.PauseAsync*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the service is not running.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ResumeAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ResumeAsync(System.Threading.CancellationToken)
+  id: ResumeAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: ResumeAsync(CancellationToken)
+  nameWithType: ISyncCoordinatorService.ResumeAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ResumeAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ResumeAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 78
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Resumes synchronization activities after a pause.
+  example: []
+  syntax:
+    content: Task ResumeAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Function ResumeAsync(cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ResumeAsync*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the service is not paused.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFeedSyncAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFeedSyncAsync(System.Threading.CancellationToken)
+  id: TriggerFeedSyncAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: TriggerFeedSyncAsync(CancellationToken)
+  nameWithType: ISyncCoordinatorService.TriggerFeedSyncAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFeedSyncAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TriggerFeedSyncAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 92
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Manually triggers a feed update synchronization.
+
+    Updates all feeds according to their configured frequencies.
+  example: []
+  syntax:
+    content: Task<SyncActionResultDto> TriggerFeedSyncAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto}
+      description: A DTO containing the result of the action.
+    content.vb: Function TriggerFeedSyncAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SyncActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFeedSyncAsync*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the service is not running or is paused.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerSingleFeedSyncAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerSingleFeedSyncAsync(System.Int32,System.Threading.CancellationToken)
+  id: TriggerSingleFeedSyncAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: TriggerSingleFeedSyncAsync(int, CancellationToken)
+  nameWithType: ISyncCoordinatorService.TriggerSingleFeedSyncAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerSingleFeedSyncAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TriggerSingleFeedSyncAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 103
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Manually triggers a specific feed update regardless of its schedule.
+  example: []
+  syntax:
+    content: Task<SyncActionResultDto> TriggerSingleFeedSyncAsync(int feedId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The ID of the feed to update.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto}
+      description: A DTO containing the result of the action.
+    content.vb: Function TriggerSingleFeedSyncAsync(feedId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of SyncActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerSingleFeedSyncAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">feedId</code> is less than or equal to 0.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the service is not running or is paused.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISyncCoordinatorService.TriggerSingleFeedSyncAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerSingleFeedSyncAsync(Integer, System.Threading.CancellationToken)
+  name.vb: TriggerSingleFeedSyncAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerCleanupSyncAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerCleanupSyncAsync(System.Threading.CancellationToken)
+  id: TriggerCleanupSyncAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: TriggerCleanupSyncAsync(CancellationToken)
+  nameWithType: ISyncCoordinatorService.TriggerCleanupSyncAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerCleanupSyncAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TriggerCleanupSyncAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 113
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Manually triggers a cleanup synchronization.
+
+    Performs article retention and database maintenance.
+  example: []
+  syntax:
+    content: Task<SyncActionResultDto> TriggerCleanupSyncAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto}
+      description: A DTO containing the result of the action.
+    content.vb: Function TriggerCleanupSyncAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SyncActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerCleanupSyncAsync*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the service is not running or is paused.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerTagProcessingSyncAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerTagProcessingSyncAsync(System.Threading.CancellationToken)
+  id: TriggerTagProcessingSyncAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: TriggerTagProcessingSyncAsync(CancellationToken)
+  nameWithType: ISyncCoordinatorService.TriggerTagProcessingSyncAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerTagProcessingSyncAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TriggerTagProcessingSyncAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 123
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Manually triggers a tag processing synchronization.
+
+    Applies auto-tagging rules and updates tag statistics.
+  example: []
+  syntax:
+    content: Task<SyncActionResultDto> TriggerTagProcessingSyncAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto}
+      description: A DTO containing the result of the action.
+    content.vb: Function TriggerTagProcessingSyncAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SyncActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerTagProcessingSyncAsync*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the service is not running or is paused.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerBackupSyncAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerBackupSyncAsync(System.Threading.CancellationToken)
+  id: TriggerBackupSyncAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: TriggerBackupSyncAsync(CancellationToken)
+  nameWithType: ISyncCoordinatorService.TriggerBackupSyncAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerBackupSyncAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TriggerBackupSyncAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 133
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Manually triggers a backup synchronization.
+
+    Creates backup copies of the database and settings.
+  example: []
+  syntax:
+    content: Task<SyncActionResultDto> TriggerBackupSyncAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto}
+      description: A DTO containing the result of the action.
+    content.vb: Function TriggerBackupSyncAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SyncActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerBackupSyncAsync*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the service is not running or is paused.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFullSyncAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFullSyncAsync(System.Threading.CancellationToken)
+  id: TriggerFullSyncAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: TriggerFullSyncAsync(CancellationToken)
+  nameWithType: ISyncCoordinatorService.TriggerFullSyncAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFullSyncAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TriggerFullSyncAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 143
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Manually triggers a full synchronization cycle.
+
+    Executes all synchronization tasks in proper order.
+  example: []
+  syntax:
+    content: Task<SyncActionResultDto> TriggerFullSyncAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto}
+      description: A DTO containing the result of the action.
+    content.vb: Function TriggerFullSyncAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SyncActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFullSyncAsync*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the service is not running or is paused.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ConfigureTaskAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ConfigureTaskAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto,System.Threading.CancellationToken)
+  id: ConfigureTaskAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: ConfigureTaskAsync(ConfigureTaskDto, CancellationToken)
+  nameWithType: ISyncCoordinatorService.ConfigureTaskAsync(ConfigureTaskDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ConfigureTaskAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ConfigureTaskAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 158
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Enables or disables a specific synchronization task type.
+  example: []
+  syntax:
+    content: Task<SyncActionResultDto> ConfigureTaskAsync(ConfigureTaskDto configureDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: configureDto
+      type: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto
+      description: The DTO containing task configuration.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto}
+      description: A DTO containing the result of the action.
+    content.vb: Function ConfigureTaskAsync(configureDto As ConfigureTaskDto, cancellationToken As CancellationToken = Nothing) As Task(Of SyncActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ConfigureTaskAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">configureDto</code> is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if task type is invalid.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxSyncDurationAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxSyncDurationAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto,System.Threading.CancellationToken)
+  id: SetMaxSyncDurationAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: SetMaxSyncDurationAsync(ConfigureMaxDurationDto, CancellationToken)
+  nameWithType: ISyncCoordinatorService.SetMaxSyncDurationAsync(ConfigureMaxDurationDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxSyncDurationAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SetMaxSyncDurationAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 168
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Sets the maximum duration for synchronization tasks.
+  example: []
+  syntax:
+    content: Task<SyncActionResultDto> SetMaxSyncDurationAsync(ConfigureMaxDurationDto configureDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: configureDto
+      type: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto
+      description: The DTO containing max duration configuration.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto}
+      description: A DTO containing the result of the action.
+    content.vb: Function SetMaxSyncDurationAsync(configureDto As ConfigureMaxDurationDto, cancellationToken As CancellationToken = Nothing) As Task(Of SyncActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxSyncDurationAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">configureDto</code> is null.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxConcurrentTasksAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxConcurrentTasksAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto,System.Threading.CancellationToken)
+  id: SetMaxConcurrentTasksAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: SetMaxConcurrentTasksAsync(ConfigureConcurrencyDto, CancellationToken)
+  nameWithType: ISyncCoordinatorService.SetMaxConcurrentTasksAsync(ConfigureConcurrencyDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxConcurrentTasksAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SetMaxConcurrentTasksAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 178
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Sets the maximum number of concurrent synchronization tasks.
+  example: []
+  syntax:
+    content: Task<SyncActionResultDto> SetMaxConcurrentTasksAsync(ConfigureConcurrencyDto configureDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: configureDto
+      type: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto
+      description: The DTO containing concurrency configuration.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto}
+      description: A DTO containing the result of the action.
+    content.vb: Function SetMaxConcurrentTasksAsync(configureDto As ConfigureConcurrencyDto, cancellationToken As CancellationToken = Nothing) As Task(Of SyncActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxConcurrentTasksAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">configureDto</code> is null.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskStatusesAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskStatusesAsync(System.Threading.CancellationToken)
+  id: GetTaskStatusesAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: GetTaskStatusesAsync(CancellationToken)
+  nameWithType: ISyncCoordinatorService.GetTaskStatusesAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskStatusesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetTaskStatusesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 190
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets the current status of all managed synchronization tasks.
+  example: []
+  syntax:
+    content: Task<List<SyncTaskStatusDto>> GetTaskStatusesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto}}
+      description: A list of task status DTOs.
+    content.vb: Function GetTaskStatusesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of SyncTaskStatusDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskStatusesAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskExecutionInfoAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskExecutionInfoAsync(System.String,System.Threading.CancellationToken)
+  id: GetTaskExecutionInfoAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: GetTaskExecutionInfoAsync(string, CancellationToken)
+  nameWithType: ISyncCoordinatorService.GetTaskExecutionInfoAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskExecutionInfoAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetTaskExecutionInfoAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 200
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets detailed information about the last execution of a specific task.
+  example: []
+  syntax:
+    content: Task<SyncTaskExecutionInfoDto> GetTaskExecutionInfoAsync(string taskType, CancellationToken cancellationToken = default)
+    parameters:
+    - id: taskType
+      type: System.String
+      description: The type of synchronization task.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto}
+      description: Detailed execution information DTO for the specified task.
+    content.vb: Function GetTaskExecutionInfoAsync(taskType As String, cancellationToken As CancellationToken = Nothing) As Task(Of SyncTaskExecutionInfoDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskExecutionInfoAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if task type is invalid.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISyncCoordinatorService.GetTaskExecutionInfoAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskExecutionInfoAsync(String, System.Threading.CancellationToken)
+  name.vb: GetTaskExecutionInfoAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetRecentErrorsAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetRecentErrorsAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetRecentErrorsAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: GetRecentErrorsAsync(int, CancellationToken)
+  nameWithType: ISyncCoordinatorService.GetRecentErrorsAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetRecentErrorsAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetRecentErrorsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 210
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets recent synchronization errors.
+  example: []
+  syntax:
+    content: Task<List<SyncErrorInfoDto>> GetRecentErrorsAsync(int maxErrors = 50, CancellationToken cancellationToken = default)
+    parameters:
+    - id: maxErrors
+      type: System.Int32
+      description: 'Maximum number of errors to retrieve. Default: 50.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto}}
+      description: A list of recent synchronization error DTOs.
+    content.vb: Function GetRecentErrorsAsync(maxErrors As Integer = 50, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of SyncErrorInfoDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetRecentErrorsAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">maxErrors</code> is less than 1.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISyncCoordinatorService.GetRecentErrorsAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetRecentErrorsAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetRecentErrorsAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ClearErrorHistoryAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ClearErrorHistoryAsync(System.Threading.CancellationToken)
+  id: ClearErrorHistoryAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: ClearErrorHistoryAsync(CancellationToken)
+  nameWithType: ISyncCoordinatorService.ClearErrorHistoryAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ClearErrorHistoryAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ClearErrorHistoryAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 218
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Clears the error history.
+  example: []
+  syntax:
+    content: Task<SyncActionResultDto> ClearErrorHistoryAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto}
+      description: A DTO containing the result of the action.
+    content.vb: Function ClearErrorHistoryAsync(cancellationToken As CancellationToken = Nothing) As Task(Of SyncActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ClearErrorHistoryAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnStatusChanged
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnStatusChanged
+  id: OnStatusChanged
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: OnStatusChanged
+  nameWithType: ISyncCoordinatorService.OnStatusChanged
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnStatusChanged
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnStatusChanged
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 227
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Raised when the overall synchronization status changes.
+  example: []
+  syntax:
+    content: event EventHandler<SyncStatusDto> OnStatusChanged
+    return:
+      type: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto}
+    content.vb: Event OnStatusChanged As EventHandler(Of SyncStatusDto)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnTaskStarted
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnTaskStarted
+  id: OnTaskStarted
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: OnTaskStarted
+  nameWithType: ISyncCoordinatorService.OnTaskStarted
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnTaskStarted
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnTaskStarted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 232
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Raised when a synchronization task starts.
+  example: []
+  syntax:
+    content: event EventHandler<SyncProgressDto> OnTaskStarted
+    return:
+      type: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto}
+    content.vb: Event OnTaskStarted As EventHandler(Of SyncProgressDto)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnTaskCompleted
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnTaskCompleted
+  id: OnTaskCompleted
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: OnTaskCompleted
+  nameWithType: ISyncCoordinatorService.OnTaskCompleted
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnTaskCompleted
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnTaskCompleted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 237
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Raised when a synchronization task completes.
+  example: []
+  syntax:
+    content: event EventHandler<SyncTaskExecutionInfoDto> OnTaskCompleted
+    return:
+      type: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto}
+    content.vb: Event OnTaskCompleted As EventHandler(Of SyncTaskExecutionInfoDto)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnSyncError
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnSyncError
+  id: OnSyncError
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: OnSyncError
+  nameWithType: ISyncCoordinatorService.OnSyncError
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnSyncError
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnSyncError
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 242
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Raised when a synchronization error occurs.
+  example: []
+  syntax:
+    content: event EventHandler<SyncErrorInfoDto> OnSyncError
+    return:
+      type: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto}
+    content.vb: Event OnSyncError As EventHandler(Of SyncErrorInfoDto)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnSyncProgress
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnSyncProgress
+  id: OnSyncProgress
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+  langs:
+  - csharp
+  - vb
+  name: OnSyncProgress
+  nameWithType: ISyncCoordinatorService.OnSyncProgress
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnSyncProgress
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnSyncProgress
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs
+    startLine: 247
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Raised when synchronization progress is made during long-running tasks.
+  example: []
+  syntax:
+    content: event EventHandler<SyncProgressDto> OnSyncProgress
+    return:
+      type: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto}
+    content.vb: Event OnSyncProgress As EventHandler(Of SyncProgressDto)
+references:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Services
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Services
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Services
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.CurrentStatus*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.CurrentStatus
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_CurrentStatus
+  name: CurrentStatus
+  nameWithType: ISyncCoordinatorService.CurrentStatus
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.CurrentStatus
+- uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Sync
+  href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto.html
+  name: SyncStatusDto
+  nameWithType: SyncStatusDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Sync
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Sync
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Sync
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Sync
+  fullName: NeonSuit.RSSReader.Core.DTOs.Sync
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync
+    name: Sync
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync
+    name: Sync
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.html
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.Statistics*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.Statistics
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_Statistics
+  name: Statistics
+  nameWithType: ISyncCoordinatorService.Statistics
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.Statistics
+- uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatisticsDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatisticsDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Sync
+  href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatisticsDto.html
+  name: SyncStatisticsDto
+  nameWithType: SyncStatisticsDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatisticsDto
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: System.OperationCanceledException
+  commentId: T:System.OperationCanceledException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.operationcanceledexception
+  name: OperationCanceledException
+  nameWithType: OperationCanceledException
+  fullName: System.OperationCanceledException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StartAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StartAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_StartAsync_System_Threading_CancellationToken_
+  name: StartAsync
+  nameWithType: ISyncCoordinatorService.StartAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StartAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StopAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StopAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_StopAsync_System_Threading_CancellationToken_
+  name: StopAsync
+  nameWithType: ISyncCoordinatorService.StopAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StopAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.PauseAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.PauseAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_PauseAsync_System_Threading_CancellationToken_
+  name: PauseAsync
+  nameWithType: ISyncCoordinatorService.PauseAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.PauseAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ResumeAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ResumeAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_ResumeAsync_System_Threading_CancellationToken_
+  name: ResumeAsync
+  nameWithType: ISyncCoordinatorService.ResumeAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ResumeAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFeedSyncAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFeedSyncAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerFeedSyncAsync_System_Threading_CancellationToken_
+  name: TriggerFeedSyncAsync
+  nameWithType: ISyncCoordinatorService.TriggerFeedSyncAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFeedSyncAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SyncActionResultDto>
+  nameWithType: Task<SyncActionResultDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto>
+  nameWithType.vb: Task(Of SyncActionResultDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto)
+  name.vb: Task(Of SyncActionResultDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto
+    name: SyncActionResultDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto
+    name: SyncActionResultDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerSingleFeedSyncAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerSingleFeedSyncAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerSingleFeedSyncAsync_System_Int32_System_Threading_CancellationToken_
+  name: TriggerSingleFeedSyncAsync
+  nameWithType: ISyncCoordinatorService.TriggerSingleFeedSyncAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerSingleFeedSyncAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerCleanupSyncAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerCleanupSyncAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerCleanupSyncAsync_System_Threading_CancellationToken_
+  name: TriggerCleanupSyncAsync
+  nameWithType: ISyncCoordinatorService.TriggerCleanupSyncAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerCleanupSyncAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerTagProcessingSyncAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerTagProcessingSyncAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerTagProcessingSyncAsync_System_Threading_CancellationToken_
+  name: TriggerTagProcessingSyncAsync
+  nameWithType: ISyncCoordinatorService.TriggerTagProcessingSyncAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerTagProcessingSyncAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerBackupSyncAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerBackupSyncAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerBackupSyncAsync_System_Threading_CancellationToken_
+  name: TriggerBackupSyncAsync
+  nameWithType: ISyncCoordinatorService.TriggerBackupSyncAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerBackupSyncAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFullSyncAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFullSyncAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerFullSyncAsync_System_Threading_CancellationToken_
+  name: TriggerFullSyncAsync
+  nameWithType: ISyncCoordinatorService.TriggerFullSyncAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFullSyncAsync
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ConfigureTaskAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ConfigureTaskAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_ConfigureTaskAsync_NeonSuit_RSSReader_Core_DTOs_Sync_ConfigureTaskDto_System_Threading_CancellationToken_
+  name: ConfigureTaskAsync
+  nameWithType: ISyncCoordinatorService.ConfigureTaskAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ConfigureTaskAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Sync
+  href: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto.html
+  name: ConfigureTaskDto
+  nameWithType: ConfigureTaskDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxSyncDurationAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxSyncDurationAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_SetMaxSyncDurationAsync_NeonSuit_RSSReader_Core_DTOs_Sync_ConfigureMaxDurationDto_System_Threading_CancellationToken_
+  name: SetMaxSyncDurationAsync
+  nameWithType: ISyncCoordinatorService.SetMaxSyncDurationAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxSyncDurationAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Sync
+  href: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto.html
+  name: ConfigureMaxDurationDto
+  nameWithType: ConfigureMaxDurationDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxConcurrentTasksAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxConcurrentTasksAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_SetMaxConcurrentTasksAsync_NeonSuit_RSSReader_Core_DTOs_Sync_ConfigureConcurrencyDto_System_Threading_CancellationToken_
+  name: SetMaxConcurrentTasksAsync
+  nameWithType: ISyncCoordinatorService.SetMaxConcurrentTasksAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxConcurrentTasksAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Sync
+  href: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto.html
+  name: ConfigureConcurrencyDto
+  nameWithType: ConfigureConcurrencyDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskStatusesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskStatusesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_GetTaskStatusesAsync_System_Threading_CancellationToken_
+  name: GetTaskStatusesAsync
+  nameWithType: ISyncCoordinatorService.GetTaskStatusesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskStatusesAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<SyncTaskStatusDto>>
+  nameWithType: Task<List<SyncTaskStatusDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto>>
+  nameWithType.vb: Task(Of List(Of SyncTaskStatusDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto))
+  name.vb: Task(Of List(Of SyncTaskStatusDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto
+    name: SyncTaskStatusDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto
+    name: SyncTaskStatusDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskExecutionInfoAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskExecutionInfoAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_GetTaskExecutionInfoAsync_System_String_System_Threading_CancellationToken_
+  name: GetTaskExecutionInfoAsync
+  nameWithType: ISyncCoordinatorService.GetTaskExecutionInfoAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskExecutionInfoAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<SyncTaskExecutionInfoDto>
+  nameWithType: Task<SyncTaskExecutionInfoDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto>
+  nameWithType.vb: Task(Of SyncTaskExecutionInfoDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto)
+  name.vb: Task(Of SyncTaskExecutionInfoDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto
+    name: SyncTaskExecutionInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto
+    name: SyncTaskExecutionInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetRecentErrorsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetRecentErrorsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_GetRecentErrorsAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetRecentErrorsAsync
+  nameWithType: ISyncCoordinatorService.GetRecentErrorsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetRecentErrorsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<SyncErrorInfoDto>>
+  nameWithType: Task<List<SyncErrorInfoDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto>>
+  nameWithType.vb: Task(Of List(Of SyncErrorInfoDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto))
+  name.vb: Task(Of List(Of SyncErrorInfoDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto
+    name: SyncErrorInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto
+    name: SyncErrorInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ClearErrorHistoryAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ClearErrorHistoryAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_ClearErrorHistoryAsync_System_Threading_CancellationToken_
+  name: ClearErrorHistoryAsync
+  nameWithType: ISyncCoordinatorService.ClearErrorHistoryAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ClearErrorHistoryAsync
+- uid: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto}
+  commentId: T:System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<SyncStatusDto>
+  nameWithType: EventHandler<SyncStatusDto>
+  fullName: System.EventHandler<NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto>
+  nameWithType.vb: EventHandler(Of SyncStatusDto)
+  fullName.vb: System.EventHandler(Of NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto)
+  name.vb: EventHandler(Of SyncStatusDto)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto
+    name: SyncStatusDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto
+    name: SyncStatusDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto}
+  commentId: T:System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<SyncProgressDto>
+  nameWithType: EventHandler<SyncProgressDto>
+  fullName: System.EventHandler<NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto>
+  nameWithType.vb: EventHandler(Of SyncProgressDto)
+  fullName.vb: System.EventHandler(Of NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto)
+  name.vb: EventHandler(Of SyncProgressDto)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto
+    name: SyncProgressDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto
+    name: SyncProgressDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto.html
+  - name: )
+- uid: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto}
+  commentId: T:System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<SyncTaskExecutionInfoDto>
+  nameWithType: EventHandler<SyncTaskExecutionInfoDto>
+  fullName: System.EventHandler<NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto>
+  nameWithType.vb: EventHandler(Of SyncTaskExecutionInfoDto)
+  fullName.vb: System.EventHandler(Of NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto)
+  name.vb: EventHandler(Of SyncTaskExecutionInfoDto)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto
+    name: SyncTaskExecutionInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto
+    name: SyncTaskExecutionInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto.html
+  - name: )
+- uid: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto}
+  commentId: T:System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<SyncErrorInfoDto>
+  nameWithType: EventHandler<SyncErrorInfoDto>
+  fullName: System.EventHandler<NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto>
+  nameWithType.vb: EventHandler(Of SyncErrorInfoDto)
+  fullName.vb: System.EventHandler(Of NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto)
+  name.vb: EventHandler(Of SyncErrorInfoDto)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto
+    name: SyncErrorInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto
+    name: SyncErrorInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto.html
+  - name: )

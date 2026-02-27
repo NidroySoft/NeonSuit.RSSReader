@@ -1,0 +1,930 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  id: CreateNotificationDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.ArticleId
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Channel
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Duration
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Message
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.NotificationType
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Priority
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.RuleId
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.SoundPlayed
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Tags
+  - NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Title
+  langs:
+  - csharp
+  - vb
+  name: CreateNotificationDto
+  nameWithType: CreateNotificationDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CreateNotificationDto
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+    startLine: 13
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: >-
+    Data Transfer Object for creating a new notification.
+
+    Used by the rule engine and manual notification triggers.
+  example: []
+  syntax:
+    content: public class CreateNotificationDto
+    content.vb: Public Class CreateNotificationDto
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.ArticleId
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.ArticleId
+  id: ArticleId
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  langs:
+  - csharp
+  - vb
+  name: ArticleId
+  nameWithType: CreateNotificationDto.ArticleId
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.ArticleId
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ArticleId
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+    startLine: 18
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: ID of the article to notify about.
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public int ArticleId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Required>
+
+      Public Property ArticleId As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.ArticleId*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.RuleId
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.RuleId
+  id: RuleId
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  langs:
+  - csharp
+  - vb
+  name: RuleId
+  nameWithType: CreateNotificationDto.RuleId
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.RuleId
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RuleId
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+    startLine: 24
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: ID of the rule that triggered this notification (if any).
+  example: []
+  syntax:
+    content: public int? RuleId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property RuleId As Integer?
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.RuleId*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.NotificationType
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.NotificationType
+  id: NotificationType
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  langs:
+  - csharp
+  - vb
+  name: NotificationType
+  nameWithType: CreateNotificationDto.NotificationType
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.NotificationType
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotificationType
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+    startLine: 29
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Type of notification to send.
+  example: []
+  syntax:
+    content: public NotificationType NotificationType { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.NotificationType
+    content.vb: Public Property NotificationType As NotificationType
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.NotificationType*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Priority
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Priority
+  id: Priority
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  langs:
+  - csharp
+  - vb
+  name: Priority
+  nameWithType: CreateNotificationDto.Priority
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Priority
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Priority
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+    startLine: 34
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Priority level.
+  example: []
+  syntax:
+    content: public NotificationPriority Priority { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+    content.vb: Public Property Priority As NotificationPriority
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Priority*
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Title
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Title
+  id: Title
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: CreateNotificationDto.Title
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Title
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Title
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+    startLine: 39
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Title to display.
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      [MaxLength(200)]
+
+      public string Title { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      <MaxLength(200)>
+
+      Public Property Title As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Title*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 200
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Message
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Message
+  id: Message
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: CreateNotificationDto.Message
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Message
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Message
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+    startLine: 46
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Message to display.
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      [MaxLength(1000)]
+
+      public string Message { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      <MaxLength(1000)>
+
+      Public Property Message As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Message*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1000
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Channel
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Channel
+  id: Channel
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  langs:
+  - csharp
+  - vb
+  name: Channel
+  nameWithType: CreateNotificationDto.Channel
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Channel
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Channel
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+    startLine: 53
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Channel identifier.
+  example: []
+  syntax:
+    content: >-
+      [MaxLength(50)]
+
+      public string Channel { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <MaxLength(50)>
+
+      Public Property Channel As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Channel*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 50
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Tags
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Tags
+  id: Tags
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  langs:
+  - csharp
+  - vb
+  name: Tags
+  nameWithType: CreateNotificationDto.Tags
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Tags
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Tags
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+    startLine: 59
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Comma-separated tags for filtering.
+  example: []
+  syntax:
+    content: >-
+      [MaxLength(500)]
+
+      public string Tags { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <MaxLength(500)>
+
+      Public Property Tags As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Tags*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 500
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.SoundPlayed
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.SoundPlayed
+  id: SoundPlayed
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  langs:
+  - csharp
+  - vb
+  name: SoundPlayed
+  nameWithType: CreateNotificationDto.SoundPlayed
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.SoundPlayed
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SoundPlayed
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+    startLine: 65
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Sound to play (optional).
+  example: []
+  syntax:
+    content: >-
+      [MaxLength(255)]
+
+      public string? SoundPlayed { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <MaxLength(255)>
+
+      Public Property SoundPlayed As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.SoundPlayed*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 255
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Duration
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Duration
+  id: Duration
+  parent: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: CreateNotificationDto.Duration
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Duration
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Duration
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Notifications/CreateNotificationDto.cs
+    startLine: 71
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Notifications
+  summary: Display duration in seconds.
+  example: []
+  syntax:
+    content: >-
+      [Range(1, 60)]
+
+      public int Duration { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Range(1, 60)>
+
+      Public Property Duration As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Duration*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RangeAttribute
+    ctor: System.ComponentModel.DataAnnotations.RangeAttribute.#ctor(System.Int32,System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1
+    - type: System.Int32
+      value: 60
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Notifications
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Notifications
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Notifications
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+    name: Notifications
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+    name: Notifications
+    href: NeonSuit.RSSReader.Core.DTOs.Notifications.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.ArticleId*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.ArticleId
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_CreateNotificationDto_ArticleId
+  name: ArticleId
+  nameWithType: CreateNotificationDto.ArticleId
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.ArticleId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.RuleId*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.RuleId
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_CreateNotificationDto_RuleId
+  name: RuleId
+  nameWithType: CreateNotificationDto.RuleId
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.RuleId
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.NotificationType*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.NotificationType
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_CreateNotificationDto_NotificationType
+  name: NotificationType
+  nameWithType: CreateNotificationDto.NotificationType
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.NotificationType
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationType
+  commentId: T:NeonSuit.RSSReader.Core.Enums.NotificationType
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.NotificationType.html
+  name: NotificationType
+  nameWithType: NotificationType
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationType
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Priority*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Priority
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_CreateNotificationDto_Priority
+  name: Priority
+  nameWithType: CreateNotificationDto.Priority
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Priority
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  commentId: T:NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.NotificationPriority.html
+  name: NotificationPriority
+  nameWithType: NotificationPriority
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Title*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Title
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_CreateNotificationDto_Title
+  name: Title
+  nameWithType: CreateNotificationDto.Title
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Title
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Message*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Message
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_CreateNotificationDto_Message
+  name: Message
+  nameWithType: CreateNotificationDto.Message
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Message
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Channel*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Channel
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_CreateNotificationDto_Channel
+  name: Channel
+  nameWithType: CreateNotificationDto.Channel
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Channel
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Tags*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Tags
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_CreateNotificationDto_Tags
+  name: Tags
+  nameWithType: CreateNotificationDto.Tags
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Tags
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.SoundPlayed*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.SoundPlayed
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_CreateNotificationDto_SoundPlayed
+  name: SoundPlayed
+  nameWithType: CreateNotificationDto.SoundPlayed
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.SoundPlayed
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Duration*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Duration
+  href: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.html#NeonSuit_RSSReader_Core_DTOs_Notifications_CreateNotificationDto_Duration
+  name: Duration
+  nameWithType: CreateNotificationDto.Duration
+  fullName: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.Duration

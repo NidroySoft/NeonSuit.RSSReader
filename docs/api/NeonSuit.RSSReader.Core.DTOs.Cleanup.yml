@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Cleanup
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Cleanup
+  id: NeonSuit.RSSReader.Core.DTOs.Cleanup
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupAnalysisDto
+  - NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupConfigurationDto
+  - NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupResultDto
+  - NeonSuit.RSSReader.Core.DTOs.Cleanup.ImageCacheCleanupResultDto
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.DTOs.Cleanup
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Cleanup
+  fullName: NeonSuit.RSSReader.Core.DTOs.Cleanup
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupAnalysisDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupAnalysisDto
+  href: NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupAnalysisDto.html
+  name: CleanupAnalysisDto
+  nameWithType: CleanupAnalysisDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupAnalysisDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupConfigurationDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupConfigurationDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Cleanup
+  href: NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupConfigurationDto.html
+  name: CleanupConfigurationDto
+  nameWithType: CleanupConfigurationDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupConfigurationDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupResultDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupResultDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Cleanup
+  href: NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupResultDto.html
+  name: CleanupResultDto
+  nameWithType: CleanupResultDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupResultDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Cleanup.ImageCacheCleanupResultDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Cleanup.ImageCacheCleanupResultDto
+  href: NeonSuit.RSSReader.Core.DTOs.Cleanup.ImageCacheCleanupResultDto.html
+  name: ImageCacheCleanupResultDto
+  nameWithType: ImageCacheCleanupResultDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Cleanup.ImageCacheCleanupResultDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Cleanup
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Cleanup
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Cleanup
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Cleanup
+  fullName: NeonSuit.RSSReader.Core.DTOs.Cleanup
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Cleanup
+    name: Cleanup
+    href: NeonSuit.RSSReader.Core.DTOs.Cleanup.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Cleanup
+    name: Cleanup
+    href: NeonSuit.RSSReader.Core.DTOs.Cleanup.html

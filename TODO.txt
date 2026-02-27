@@ -1,0 +1,30 @@
+
+
+
+// TODO (High priority - v1.5): Implement hybrid article display modes: Clean Text View + Filtered WebView2 View
+// Current: Only one display mode planned (decide between clean text or full WebView)
+// Goal: Allow user to switch between:
+//   1. Clean Text View (TextBlock/RichTextBox using Summary or Content.StripHtml()) – no ads, no trackers, lightweight, fully offline
+//   2. Filtered WebView2 View (using Content HTML) – original formatting + aggressive ad/tracker blocking via WebResourceRequested filter + CSS injection
+// Benefit: 
+//   - User choice: fast/light reading vs rich original experience
+//   - Eliminates most annoying ads/trackers without external extensions
+//   - Full offline support in both modes
+// Risk level if implemented now: Low risk (adds optional UI toggle, no breaking change to existing data flow or backend)
+// Estimated effort: Medium (~1–2 days for WPF/MAUI: ViewModel toggle + XAML conditional ContentControl + WebView2 filter setup)
+// Potential impact: 
+//   - Significantly improved UX (no ads frustration)
+//   - Differentiator vs other RSS readers
+//   - Better performance on low-resource machines (clean mode)
+// Tracked as: "Hybrid Article Viewer - Ad-Free Experience"
+
+// TODO (High priority - v1.5): Implement Reader View in WebView2 using generated clean HTML
+// Use GenerateReaderViewHtml(Article) from backend or copy logic to frontend
+// - Load NavigateToString(ReaderHtml) when UseReaderMode == true
+// - Disable JS (Settings.IsScriptEnabled = false) in Reader Mode
+// - Add responsive CSS with dark mode (@media prefers-color-scheme)
+// - Fallback to Summary if Content is empty
+// Benefit: Ad-free, formatted, offline, lightweight reader experience
+// Risk level: Low risk (UI-only, no backend impact)
+// Estimated effort: Medium (~1–2 days: ViewModel + XAML + testing)
+// Potential impact: Major UX improvement, eliminates ad frustration

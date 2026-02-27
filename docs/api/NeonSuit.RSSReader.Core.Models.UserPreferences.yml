@@ -1,0 +1,928 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+  commentId: T:NeonSuit.RSSReader.Core.Models.UserPreferences
+  id: UserPreferences
+  parent: NeonSuit.RSSReader.Core.Models
+  children:
+  - NeonSuit.RSSReader.Core.Models.UserPreferences.#ctor
+  - NeonSuit.RSSReader.Core.Models.UserPreferences.BoolValue
+  - NeonSuit.RSSReader.Core.Models.UserPreferences.DoubleValue
+  - NeonSuit.RSSReader.Core.Models.UserPreferences.Id
+  - NeonSuit.RSSReader.Core.Models.UserPreferences.IntValue
+  - NeonSuit.RSSReader.Core.Models.UserPreferences.Key
+  - NeonSuit.RSSReader.Core.Models.UserPreferences.LastModified
+  - NeonSuit.RSSReader.Core.Models.UserPreferences.OnPropertyChanged(System.String)
+  - NeonSuit.RSSReader.Core.Models.UserPreferences.PropertyChanged
+  - NeonSuit.RSSReader.Core.Models.UserPreferences.Value
+  langs:
+  - csharp
+  - vb
+  name: UserPreferences
+  nameWithType: UserPreferences
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UserPreferences
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+    startLine: 16
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: >-
+    Represents a single user preference stored in the database.
+
+    Implements INotifyPropertyChanged to support two-way data binding in UI layers.
+  remarks: >-
+    All values are persisted as strings. Use typed accessors (BoolValue, IntValue, DoubleValue)
+
+    for convenient and type-safe access from business logic or view-models.
+
+    LastModified is maintained automatically for cache invalidation and audit purposes.
+  example: []
+  syntax:
+    content: >-
+      [Table("UserPreferences")]
+
+      public class UserPreferences : INotifyPropertyChanged
+    content.vb: >-
+      <Table("UserPreferences")>
+
+      Public Class UserPreferences Implements INotifyPropertyChanged
+  inheritance:
+  - System.Object
+  implements:
+  - System.ComponentModel.INotifyPropertyChanged
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.TableAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.TableAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: UserPreferences
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.#ctor
+  commentId: M:NeonSuit.RSSReader.Core.Models.UserPreferences.#ctor
+  id: '#ctor'
+  parent: NeonSuit.RSSReader.Core.Models.UserPreferences
+  langs:
+  - csharp
+  - vb
+  name: UserPreferences()
+  nameWithType: UserPreferences.UserPreferences()
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.UserPreferences()
+  type: Constructor
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: .ctor
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+    startLine: 25
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: >-
+    Initializes a new instance of the <xref href="NeonSuit.RSSReader.Core.Models.UserPreferences" data-throw-if-not-resolved="false"></xref> class.
+
+    Sets LastModified to current UTC time.
+  example: []
+  syntax:
+    content: public UserPreferences()
+    content.vb: Public Sub New()
+  overload: NeonSuit.RSSReader.Core.Models.UserPreferences.#ctor*
+  nameWithType.vb: UserPreferences.New()
+  fullName.vb: NeonSuit.RSSReader.Core.Models.UserPreferences.New()
+  name.vb: New()
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.Id
+  commentId: P:NeonSuit.RSSReader.Core.Models.UserPreferences.Id
+  id: Id
+  parent: NeonSuit.RSSReader.Core.Models.UserPreferences
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: UserPreferences.Id
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.Id
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Id
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+    startLine: 37
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Primary key (auto-increment).
+  example: []
+  syntax:
+    content: >-
+      [Key]
+
+      [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
+      public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Key>
+
+      <DatabaseGenerated(DatabaseGeneratedOption.Identity)>
+
+      Public Property Id As Integer
+  overload: NeonSuit.RSSReader.Core.Models.UserPreferences.Id*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.KeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.KeyAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedAttribute.#ctor(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption)
+    arguments:
+    - type: System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption
+      value: 1
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.Key
+  commentId: P:NeonSuit.RSSReader.Core.Models.UserPreferences.Key
+  id: Key
+  parent: NeonSuit.RSSReader.Core.Models.UserPreferences
+  langs:
+  - csharp
+  - vb
+  name: Key
+  nameWithType: UserPreferences.Key
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.Key
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Key
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+    startLine: 48
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Unique preference identifier (case-sensitive).
+  remarks: >-
+    Should be indexed with uniqueness constraint in DbContext configuration.
+
+    Recommended format: "Category.SubCategory.KeyName"
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      [MaxLength(255)]
+
+      public string Key { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      <MaxLength(255)>
+
+      Public Property Key As String
+  overload: NeonSuit.RSSReader.Core.Models.UserPreferences.Key*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 255
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.Value
+  commentId: P:NeonSuit.RSSReader.Core.Models.UserPreferences.Value
+  id: Value
+  parent: NeonSuit.RSSReader.Core.Models.UserPreferences
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: UserPreferences.Value
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.Value
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Value
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+    startLine: 55
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Serialized string value of the preference.
+  example: []
+  syntax:
+    content: >-
+      [MaxLength(4000)]
+
+      public string Value { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <MaxLength(4000)>
+
+      Public Property Value As String
+  overload: NeonSuit.RSSReader.Core.Models.UserPreferences.Value*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 4000
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.LastModified
+  commentId: P:NeonSuit.RSSReader.Core.Models.UserPreferences.LastModified
+  id: LastModified
+  parent: NeonSuit.RSSReader.Core.Models.UserPreferences
+  langs:
+  - csharp
+  - vb
+  name: LastModified
+  nameWithType: UserPreferences.LastModified
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.LastModified
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LastModified
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+    startLine: 62
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: >-
+    UTC timestamp of the last modification.
+
+    Used for cache invalidation and optimistic concurrency detection.
+  example: []
+  syntax:
+    content: public DateTime LastModified { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property LastModified As Date
+  overload: NeonSuit.RSSReader.Core.Models.UserPreferences.LastModified*
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.BoolValue
+  commentId: P:NeonSuit.RSSReader.Core.Models.UserPreferences.BoolValue
+  id: BoolValue
+  parent: NeonSuit.RSSReader.Core.Models.UserPreferences
+  langs:
+  - csharp
+  - vb
+  name: BoolValue
+  nameWithType: UserPreferences.BoolValue
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.BoolValue
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: BoolValue
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+    startLine: 71
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Convenience boolean wrapper around the string Value.
+  example: []
+  syntax:
+    content: >-
+      [NotMapped]
+
+      public bool BoolValue { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <NotMapped>
+
+      Public Property BoolValue As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.UserPreferences.BoolValue*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute.#ctor
+    arguments: []
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.IntValue
+  commentId: P:NeonSuit.RSSReader.Core.Models.UserPreferences.IntValue
+  id: IntValue
+  parent: NeonSuit.RSSReader.Core.Models.UserPreferences
+  langs:
+  - csharp
+  - vb
+  name: IntValue
+  nameWithType: UserPreferences.IntValue
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.IntValue
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IntValue
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+    startLine: 87
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: >-
+    Convenience integer wrapper around the string Value.
+
+    Returns 0 when parsing fails.
+  example: []
+  syntax:
+    content: >-
+      [NotMapped]
+
+      public int IntValue { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <NotMapped>
+
+      Public Property IntValue As Integer
+  overload: NeonSuit.RSSReader.Core.Models.UserPreferences.IntValue*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute.#ctor
+    arguments: []
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.DoubleValue
+  commentId: P:NeonSuit.RSSReader.Core.Models.UserPreferences.DoubleValue
+  id: DoubleValue
+  parent: NeonSuit.RSSReader.Core.Models.UserPreferences
+  langs:
+  - csharp
+  - vb
+  name: DoubleValue
+  nameWithType: UserPreferences.DoubleValue
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.DoubleValue
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DoubleValue
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+    startLine: 103
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: >-
+    Convenience double wrapper around the string Value.
+
+    Returns 0.0 when parsing fails.
+  example: []
+  syntax:
+    content: >-
+      [NotMapped]
+
+      public double DoubleValue { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <NotMapped>
+
+      Public Property DoubleValue As Double
+  overload: NeonSuit.RSSReader.Core.Models.UserPreferences.DoubleValue*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute.#ctor
+    arguments: []
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.PropertyChanged
+  commentId: E:NeonSuit.RSSReader.Core.Models.UserPreferences.PropertyChanged
+  id: PropertyChanged
+  parent: NeonSuit.RSSReader.Core.Models.UserPreferences
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: UserPreferences.PropertyChanged
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.PropertyChanged
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: PropertyChanged
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+    startLine: 120
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Occurs when a property value changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler? PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+  implements:
+  - System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.OnPropertyChanged(System.String)
+  commentId: M:NeonSuit.RSSReader.Core.Models.UserPreferences.OnPropertyChanged(System.String)
+  id: OnPropertyChanged(System.String)
+  parent: NeonSuit.RSSReader.Core.Models.UserPreferences
+  langs:
+  - csharp
+  - vb
+  name: OnPropertyChanged(string?)
+  nameWithType: UserPreferences.OnPropertyChanged(string?)
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.OnPropertyChanged(string?)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnPropertyChanged
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/UserPreferences.cs
+    startLine: 126
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Raises the PropertyChanged event.
+  example: []
+  syntax:
+    content: protected virtual void OnPropertyChanged(string? propertyName = null)
+    parameters:
+    - id: propertyName
+      type: System.String
+      description: Name of the property that changed.
+    content.vb: Protected Overridable Sub OnPropertyChanged(propertyName As String = Nothing)
+  overload: NeonSuit.RSSReader.Core.Models.UserPreferences.OnPropertyChanged*
+  nameWithType.vb: UserPreferences.OnPropertyChanged(String)
+  fullName.vb: NeonSuit.RSSReader.Core.Models.UserPreferences.OnPropertyChanged(String)
+  name.vb: OnPropertyChanged(String)
+references:
+- uid: NeonSuit.RSSReader.Core.Models
+  commentId: N:NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models
+  nameWithType: NeonSuit.RSSReader.Core.Models
+  fullName: NeonSuit.RSSReader.Core.Models
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.ComponentModel.INotifyPropertyChanged
+  commentId: T:System.ComponentModel.INotifyPropertyChanged
+  parent: System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged
+  name: INotifyPropertyChanged
+  nameWithType: INotifyPropertyChanged
+  fullName: System.ComponentModel.INotifyPropertyChanged
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ComponentModel
+  commentId: N:System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel
+  nameWithType: System.ComponentModel
+  fullName: System.ComponentModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+  commentId: T:NeonSuit.RSSReader.Core.Models.UserPreferences
+  href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  name: UserPreferences
+  nameWithType: UserPreferences
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.#ctor*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.UserPreferences.#ctor
+  href: NeonSuit.RSSReader.Core.Models.UserPreferences.html#NeonSuit_RSSReader_Core_Models_UserPreferences__ctor
+  name: UserPreferences
+  nameWithType: UserPreferences.UserPreferences
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.UserPreferences
+  nameWithType.vb: UserPreferences.New
+  fullName.vb: NeonSuit.RSSReader.Core.Models.UserPreferences.New
+  name.vb: New
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.Id*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.UserPreferences.Id
+  href: NeonSuit.RSSReader.Core.Models.UserPreferences.html#NeonSuit_RSSReader_Core_Models_UserPreferences_Id
+  name: Id
+  nameWithType: UserPreferences.Id
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.Key*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.UserPreferences.Key
+  href: NeonSuit.RSSReader.Core.Models.UserPreferences.html#NeonSuit_RSSReader_Core_Models_UserPreferences_Key
+  name: Key
+  nameWithType: UserPreferences.Key
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.Key
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.Value*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.UserPreferences.Value
+  href: NeonSuit.RSSReader.Core.Models.UserPreferences.html#NeonSuit_RSSReader_Core_Models_UserPreferences_Value
+  name: Value
+  nameWithType: UserPreferences.Value
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.Value
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.LastModified*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.UserPreferences.LastModified
+  href: NeonSuit.RSSReader.Core.Models.UserPreferences.html#NeonSuit_RSSReader_Core_Models_UserPreferences_LastModified
+  name: LastModified
+  nameWithType: UserPreferences.LastModified
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.LastModified
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.BoolValue*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.UserPreferences.BoolValue
+  href: NeonSuit.RSSReader.Core.Models.UserPreferences.html#NeonSuit_RSSReader_Core_Models_UserPreferences_BoolValue
+  name: BoolValue
+  nameWithType: UserPreferences.BoolValue
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.BoolValue
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.IntValue*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.UserPreferences.IntValue
+  href: NeonSuit.RSSReader.Core.Models.UserPreferences.html#NeonSuit_RSSReader_Core_Models_UserPreferences_IntValue
+  name: IntValue
+  nameWithType: UserPreferences.IntValue
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.IntValue
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.DoubleValue*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.UserPreferences.DoubleValue
+  href: NeonSuit.RSSReader.Core.Models.UserPreferences.html#NeonSuit_RSSReader_Core_Models_UserPreferences_DoubleValue
+  name: DoubleValue
+  nameWithType: UserPreferences.DoubleValue
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.DoubleValue
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+  commentId: E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+  parent: System.ComponentModel.INotifyPropertyChanged
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged.propertychanged
+  name: PropertyChanged
+  nameWithType: INotifyPropertyChanged.PropertyChanged
+  fullName: System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+- uid: System.ComponentModel.PropertyChangedEventHandler
+  commentId: T:System.ComponentModel.PropertyChangedEventHandler
+  parent: System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.propertychangedeventhandler
+  name: PropertyChangedEventHandler
+  nameWithType: PropertyChangedEventHandler
+  fullName: System.ComponentModel.PropertyChangedEventHandler
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences.OnPropertyChanged*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.UserPreferences.OnPropertyChanged
+  href: NeonSuit.RSSReader.Core.Models.UserPreferences.html#NeonSuit_RSSReader_Core_Models_UserPreferences_OnPropertyChanged_System_String_
+  name: OnPropertyChanged
+  nameWithType: UserPreferences.OnPropertyChanged
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences.OnPropertyChanged

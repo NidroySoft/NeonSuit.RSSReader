@@ -1,0 +1,850 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  commentId: T:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  id: ArticleTaggedEventArgs
+  parent: NeonSuit.RSSReader.Core.Models.Events
+  children:
+  - NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.#ctor(System.Int32,System.Int32,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Double})
+  - NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.AppliedBy
+  - NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ArticleId
+  - NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.Confidence
+  - NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.IsAutoApplied
+  - NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.RuleId
+  - NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagId
+  - NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagName
+  - NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ToString
+  langs:
+  - csharp
+  - vb
+  name: ArticleTaggedEventArgs
+  nameWithType: ArticleTaggedEventArgs
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ArticleTaggedEventArgs
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+    startLine: 9
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: >-
+    Event arguments for the <xref href="NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleTagged" data-throw-if-not-resolved="false"></xref> event.
+
+    Carries data related to an article being tagged, including the article and tag details,
+
+    who applied the tag, and optional information about the rule and confidence.
+  example: []
+  syntax:
+    content: 'public class ArticleTaggedEventArgs : EventArgs'
+    content.vb: Public Class ArticleTaggedEventArgs Inherits EventArgs
+  inheritance:
+  - System.Object
+  - System.EventArgs
+  inheritedMembers:
+  - System.EventArgs.Empty
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.#ctor(System.Int32,System.Int32,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Double})
+  commentId: M:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.#ctor(System.Int32,System.Int32,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Double})
+  id: '#ctor(System.Int32,System.Int32,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Double})'
+  parent: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: ArticleTaggedEventArgs(int, int, string, string, int?, double?)
+  nameWithType: ArticleTaggedEventArgs.ArticleTaggedEventArgs(int, int, string, string, int?, double?)
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ArticleTaggedEventArgs(int, int, string, string, int?, double?)
+  type: Constructor
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: .ctor
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+    startLine: 22
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Initializes a new instance of the <xref href="NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ArticleTaggedEventArgs(int articleId, int tagId, string tagName, string appliedBy, int? ruleId = null, double? confidence = null)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article that was tagged.
+    - id: tagId
+      type: System.Int32
+      description: The unique identifier of the tag that was applied.
+    - id: tagName
+      type: System.String
+      description: The name of the tag that was applied.
+    - id: appliedBy
+      type: System.String
+      description: The identifier of the entity or user who applied the tag.
+    - id: ruleId
+      type: System.Nullable{System.Int32}
+      description: The optional unique identifier of the rule that triggered the tagging.
+    - id: confidence
+      type: System.Nullable{System.Double}
+      description: The optional confidence score associated with the tag application.
+    content.vb: Public Sub New(articleId As Integer, tagId As Integer, tagName As String, appliedBy As String, ruleId As Integer? = Nothing, confidence As Double? = Nothing)
+  overload: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.#ctor*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if tagName or appliedBy is null.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId or tagId is less than or equal to 0.
+  nameWithType.vb: ArticleTaggedEventArgs.New(Integer, Integer, String, String, Integer?, Double?)
+  fullName.vb: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.New(Integer, Integer, String, String, Integer?, Double?)
+  name.vb: New(Integer, Integer, String, String, Integer?, Double?)
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ArticleId
+  commentId: P:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ArticleId
+  id: ArticleId
+  parent: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: ArticleId
+  nameWithType: ArticleTaggedEventArgs.ArticleId
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ArticleId
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ArticleId
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+    startLine: 40
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Gets the unique identifier of the article that was tagged.
+  example: []
+  syntax:
+    content: public int ArticleId { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property ArticleId As Integer
+  overload: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ArticleId*
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagId
+  commentId: P:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagId
+  id: TagId
+  parent: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: TagId
+  nameWithType: ArticleTaggedEventArgs.TagId
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagId
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TagId
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+    startLine: 45
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Gets the unique identifier of the tag that was applied.
+  example: []
+  syntax:
+    content: public int TagId { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property TagId As Integer
+  overload: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagId*
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagName
+  commentId: P:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagName
+  id: TagName
+  parent: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: TagName
+  nameWithType: ArticleTaggedEventArgs.TagName
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagName
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TagName
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+    startLine: 50
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Gets the name of the tag that was applied.
+  example: []
+  syntax:
+    content: public string TagName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property TagName As String
+  overload: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagName*
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.AppliedBy
+  commentId: P:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.AppliedBy
+  id: AppliedBy
+  parent: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: AppliedBy
+  nameWithType: ArticleTaggedEventArgs.AppliedBy
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.AppliedBy
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AppliedBy
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+    startLine: 55
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Gets the identifier of the entity or user who applied the tag.
+  example: []
+  syntax:
+    content: public string AppliedBy { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property AppliedBy As String
+  overload: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.AppliedBy*
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.RuleId
+  commentId: P:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.RuleId
+  id: RuleId
+  parent: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: RuleId
+  nameWithType: ArticleTaggedEventArgs.RuleId
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.RuleId
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RuleId
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+    startLine: 60
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Gets the optional unique identifier of the rule that triggered the tagging.
+  example: []
+  syntax:
+    content: public int? RuleId { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public ReadOnly Property RuleId As Integer?
+  overload: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.RuleId*
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.Confidence
+  commentId: P:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.Confidence
+  id: Confidence
+  parent: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Confidence
+  nameWithType: ArticleTaggedEventArgs.Confidence
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.Confidence
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Confidence
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+    startLine: 65
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Gets the optional confidence score associated with the tag application.
+  example: []
+  syntax:
+    content: public double? Confidence { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public ReadOnly Property Confidence As Double?
+  overload: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.Confidence*
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.IsAutoApplied
+  commentId: P:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.IsAutoApplied
+  id: IsAutoApplied
+  parent: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: IsAutoApplied
+  nameWithType: ArticleTaggedEventArgs.IsAutoApplied
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.IsAutoApplied
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IsAutoApplied
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+    startLine: 70
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Gets a value indicating whether this tag was applied automatically by a rule.
+  example: []
+  syntax:
+    content: public bool IsAutoApplied { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsAutoApplied As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.IsAutoApplied*
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ToString
+  commentId: M:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ToString
+  id: ToString
+  parent: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ArticleTaggedEventArgs.ToString()
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ToString
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/ArticleTaggedEventArgs.cs
+    startLine: 75
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Gets a human-readable summary of the tagging event.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ToString*
+references:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleTagged
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleTagged
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_OnArticleTagged
+  name: OnArticleTagged
+  nameWithType: IArticleTagService.OnArticleTagged
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleTagged
+- uid: NeonSuit.RSSReader.Core.Models.Events
+  commentId: N:NeonSuit.RSSReader.Core.Models.Events
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models.Events
+  nameWithType: NeonSuit.RSSReader.Core.Models.Events
+  fullName: NeonSuit.RSSReader.Core.Models.Events
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Events
+    name: Events
+    href: NeonSuit.RSSReader.Core.Models.Events.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Events
+    name: Events
+    href: NeonSuit.RSSReader.Core.Models.Events.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.EventArgs
+  commentId: T:System.EventArgs
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs
+  name: EventArgs
+  nameWithType: EventArgs
+  fullName: System.EventArgs
+- uid: System.EventArgs.Empty
+  commentId: F:System.EventArgs.Empty
+  parent: System.EventArgs
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventargs.empty
+  name: Empty
+  nameWithType: EventArgs.Empty
+  fullName: System.EventArgs.Empty
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  commentId: T:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  href: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html
+  name: ArticleTaggedEventArgs
+  nameWithType: ArticleTaggedEventArgs
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.#ctor*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.#ctor
+  href: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html#NeonSuit_RSSReader_Core_Models_Events_ArticleTaggedEventArgs__ctor_System_Int32_System_Int32_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Double__
+  name: ArticleTaggedEventArgs
+  nameWithType: ArticleTaggedEventArgs.ArticleTaggedEventArgs
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ArticleTaggedEventArgs
+  nameWithType.vb: ArticleTaggedEventArgs.New
+  fullName.vb: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ArticleId*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ArticleId
+  href: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html#NeonSuit_RSSReader_Core_Models_Events_ArticleTaggedEventArgs_ArticleId
+  name: ArticleId
+  nameWithType: ArticleTaggedEventArgs.ArticleId
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ArticleId
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagId*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagId
+  href: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html#NeonSuit_RSSReader_Core_Models_Events_ArticleTaggedEventArgs_TagId
+  name: TagId
+  nameWithType: ArticleTaggedEventArgs.TagId
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagId
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagName*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagName
+  href: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html#NeonSuit_RSSReader_Core_Models_Events_ArticleTaggedEventArgs_TagName
+  name: TagName
+  nameWithType: ArticleTaggedEventArgs.TagName
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.TagName
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.AppliedBy*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.AppliedBy
+  href: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html#NeonSuit_RSSReader_Core_Models_Events_ArticleTaggedEventArgs_AppliedBy
+  name: AppliedBy
+  nameWithType: ArticleTaggedEventArgs.AppliedBy
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.AppliedBy
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.RuleId*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.RuleId
+  href: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html#NeonSuit_RSSReader_Core_Models_Events_ArticleTaggedEventArgs_RuleId
+  name: RuleId
+  nameWithType: ArticleTaggedEventArgs.RuleId
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.RuleId
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.Confidence*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.Confidence
+  href: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html#NeonSuit_RSSReader_Core_Models_Events_ArticleTaggedEventArgs_Confidence
+  name: Confidence
+  nameWithType: ArticleTaggedEventArgs.Confidence
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.Confidence
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.IsAutoApplied*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.IsAutoApplied
+  href: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html#NeonSuit_RSSReader_Core_Models_Events_ArticleTaggedEventArgs_IsAutoApplied
+  name: IsAutoApplied
+  nameWithType: ArticleTaggedEventArgs.IsAutoApplied
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.IsAutoApplied
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ToString*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ToString
+  href: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html#NeonSuit_RSSReader_Core_Models_Events_ArticleTaggedEventArgs_ToString
+  name: ToString
+  nameWithType: ArticleTaggedEventArgs.ToString
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.ToString

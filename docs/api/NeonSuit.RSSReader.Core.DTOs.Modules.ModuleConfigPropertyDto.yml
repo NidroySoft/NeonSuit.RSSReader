@@ -1,0 +1,839 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  id: ModuleConfigPropertyDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Modules
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.AllowedValues
+  - NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DefaultValue
+  - NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Description
+  - NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DisplayName
+  - NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.IsRequired
+  - NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MaxValue
+  - NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MinValue
+  - NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.RegexPattern
+  - NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Type
+  langs:
+  - csharp
+  - vb
+  name: ModuleConfigPropertyDto
+  nameWithType: ModuleConfigPropertyDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ModuleConfigPropertyDto
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+    startLine: 18
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Modules
+  summary: Data Transfer Object for module configuration property.
+  example: []
+  syntax:
+    content: public class ModuleConfigPropertyDto
+    content.vb: Public Class ModuleConfigPropertyDto
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Type
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Type
+  id: Type
+  parent: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: ModuleConfigPropertyDto.Type
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Type
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Type
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+    startLine: 23
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Modules
+  summary: Property type.
+  example: []
+  syntax:
+    content: public string Type { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Type As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Type*
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DisplayName
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DisplayName
+  id: DisplayName
+  parent: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  langs:
+  - csharp
+  - vb
+  name: DisplayName
+  nameWithType: ModuleConfigPropertyDto.DisplayName
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DisplayName
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DisplayName
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+    startLine: 28
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Modules
+  summary: Display name.
+  example: []
+  syntax:
+    content: public string DisplayName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property DisplayName As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DisplayName*
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Description
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Description
+  id: Description
+  parent: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: ModuleConfigPropertyDto.Description
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Description
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Description
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+    startLine: 33
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Modules
+  summary: Description.
+  example: []
+  syntax:
+    content: public string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Description*
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DefaultValue
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DefaultValue
+  id: DefaultValue
+  parent: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  langs:
+  - csharp
+  - vb
+  name: DefaultValue
+  nameWithType: ModuleConfigPropertyDto.DefaultValue
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DefaultValue
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DefaultValue
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+    startLine: 38
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Modules
+  summary: Default value.
+  example: []
+  syntax:
+    content: public object? DefaultValue { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property DefaultValue As Object
+  overload: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DefaultValue*
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.IsRequired
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.IsRequired
+  id: IsRequired
+  parent: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  langs:
+  - csharp
+  - vb
+  name: IsRequired
+  nameWithType: ModuleConfigPropertyDto.IsRequired
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.IsRequired
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IsRequired
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+    startLine: 43
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Modules
+  summary: Whether the property is required.
+  example: []
+  syntax:
+    content: public bool IsRequired { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsRequired As Boolean
+  overload: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.IsRequired*
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MinValue
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MinValue
+  id: MinValue
+  parent: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  langs:
+  - csharp
+  - vb
+  name: MinValue
+  nameWithType: ModuleConfigPropertyDto.MinValue
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MinValue
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MinValue
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+    startLine: 48
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Modules
+  summary: Minimum value (for numeric types).
+  example: []
+  syntax:
+    content: public double? MinValue { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public Property MinValue As Double?
+  overload: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MinValue*
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MaxValue
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MaxValue
+  id: MaxValue
+  parent: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  langs:
+  - csharp
+  - vb
+  name: MaxValue
+  nameWithType: ModuleConfigPropertyDto.MaxValue
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MaxValue
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MaxValue
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+    startLine: 53
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Modules
+  summary: Maximum value (for numeric types).
+  example: []
+  syntax:
+    content: public double? MaxValue { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Double}
+    content.vb: Public Property MaxValue As Double?
+  overload: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MaxValue*
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.AllowedValues
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.AllowedValues
+  id: AllowedValues
+  parent: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  langs:
+  - csharp
+  - vb
+  name: AllowedValues
+  nameWithType: ModuleConfigPropertyDto.AllowedValues
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.AllowedValues
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AllowedValues
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+    startLine: 58
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Modules
+  summary: Allowed values (for enum/select types).
+  example: []
+  syntax:
+    content: public List<string>? AllowedValues { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property AllowedValues As List(Of String)
+  overload: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.AllowedValues*
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.RegexPattern
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.RegexPattern
+  id: RegexPattern
+  parent: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  langs:
+  - csharp
+  - vb
+  name: RegexPattern
+  nameWithType: ModuleConfigPropertyDto.RegexPattern
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.RegexPattern
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RegexPattern
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Modules/ModuleConfigSchemaDto.cs
+    startLine: 63
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Modules
+  summary: Regular expression pattern (for string validation).
+  example: []
+  syntax:
+    content: public string? RegexPattern { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RegexPattern As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.RegexPattern*
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Modules
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Modules
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Modules
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Type*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Type
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.html#NeonSuit_RSSReader_Core_DTOs_Modules_ModuleConfigPropertyDto_Type
+  name: Type
+  nameWithType: ModuleConfigPropertyDto.Type
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Type
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DisplayName*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DisplayName
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.html#NeonSuit_RSSReader_Core_DTOs_Modules_ModuleConfigPropertyDto_DisplayName
+  name: DisplayName
+  nameWithType: ModuleConfigPropertyDto.DisplayName
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DisplayName
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Description*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Description
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.html#NeonSuit_RSSReader_Core_DTOs_Modules_ModuleConfigPropertyDto_Description
+  name: Description
+  nameWithType: ModuleConfigPropertyDto.Description
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.Description
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DefaultValue*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DefaultValue
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.html#NeonSuit_RSSReader_Core_DTOs_Modules_ModuleConfigPropertyDto_DefaultValue
+  name: DefaultValue
+  nameWithType: ModuleConfigPropertyDto.DefaultValue
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.DefaultValue
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.IsRequired*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.IsRequired
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.html#NeonSuit_RSSReader_Core_DTOs_Modules_ModuleConfigPropertyDto_IsRequired
+  name: IsRequired
+  nameWithType: ModuleConfigPropertyDto.IsRequired
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.IsRequired
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MinValue*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MinValue
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.html#NeonSuit_RSSReader_Core_DTOs_Modules_ModuleConfigPropertyDto_MinValue
+  name: MinValue
+  nameWithType: ModuleConfigPropertyDto.MinValue
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MinValue
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MaxValue*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MaxValue
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.html#NeonSuit_RSSReader_Core_DTOs_Modules_ModuleConfigPropertyDto_MaxValue
+  name: MaxValue
+  nameWithType: ModuleConfigPropertyDto.MaxValue
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.MaxValue
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.AllowedValues*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.AllowedValues
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.html#NeonSuit_RSSReader_Core_DTOs_Modules_ModuleConfigPropertyDto_AllowedValues
+  name: AllowedValues
+  nameWithType: ModuleConfigPropertyDto.AllowedValues
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.AllowedValues
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.RegexPattern*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.RegexPattern
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.html#NeonSuit_RSSReader_Core_DTOs_Modules_ModuleConfigPropertyDto_RegexPattern
+  name: RegexPattern
+  nameWithType: ModuleConfigPropertyDto.RegexPattern
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.RegexPattern

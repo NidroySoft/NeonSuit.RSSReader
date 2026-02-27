@@ -1,347 +1,252 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using NeonSuit.RSSReader.Core.DTOs.Sync;
 
 namespace NeonSuit.RSSReader.Core.Interfaces.Services
 {
     /// <summary>
-    /// Defines the contract for a synchronization coordinator service.
-    /// Manages and coordinates various background synchronization tasks 
-    /// (feed updates, tag processing, cleanup, backups) with proper prioritization,
-    /// error handling, and resource management.
+    /// Service interface for synchronization coordinator that manages and coordinates background tasks.
+    /// Handles feed updates, tag processing, cleanup operations, and backups with proper prioritization,
+    /// error handling, and resource management for low-resource environments.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This service centralizes all background synchronization activities including:
+    /// <list type="bullet">
+    /// <item>Feed update scheduling based on individual feed frequencies</item>
+    /// <item>Article retention cleanup and database maintenance</item>
+    /// <item>Auto-tagging rule processing and tag statistics updates</item>
+    /// <item>Automated backup creation with rotation policies</item>
+    /// <item>Performance monitoring and error tracking</item>
+    /// </list>
+    /// </para>
+    /// <para>
+    /// All methods return DTOs instead of internal models to maintain separation of concerns.
+    /// </para>
+    /// </remarks>
     public interface ISyncCoordinatorService
     {
-        // Synchronization Status
-        /// <summary>
-        /// Gets the current synchronization status.
-        /// </summary>
-        SyncStatus CurrentStatus { get; }
+        #region Synchronization Status
 
         /// <summary>
-        /// Gets whether any synchronization task is currently running.
+        /// Gets the current overall synchronization status.
         /// </summary>
-        bool IsSynchronizing { get; }
+        SyncStatusDto CurrentStatus { get; }
 
         /// <summary>
-        /// Gets the time when the last synchronization cycle completed.
+        /// Gets aggregated statistics about synchronization performance.
         /// </summary>
-        DateTime? LastSyncCompleted { get; }
+        SyncStatisticsDto Statistics { get; }
 
-        /// <summary>
-        /// Gets the time when the next synchronization is scheduled.
-        /// </summary>
-        DateTime? NextSyncScheduled { get; }
+        #endregion
 
-        /// <summary>
-        /// Gets statistics about synchronization performance.
-        /// </summary>
-        SyncStatistics Statistics { get; }
+        #region Control Methods
 
-        // Control Methods
         /// <summary>
         /// Starts the synchronization coordinator service.
         /// Initializes all managed sync tasks and begins the synchronization loop.
         /// </summary>
-        /// <param name="cancellationToken">Token to cancel the service.</param>
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the service is already running.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
         Task StartAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Stops the synchronization coordinator service gracefully.
         /// Completes current tasks and cleans up resources.
         /// </summary>
-        Task StopAsync();
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task StopAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Pauses all synchronization activities.
         /// Allows temporary suspension without stopping the service.
         /// </summary>
-        Task PauseAsync();
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the service is not running.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task PauseAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Resumes synchronization activities after a pause.
         /// </summary>
-        Task ResumeAsync();
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the service is not paused.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task ResumeAsync(CancellationToken cancellationToken = default);
 
-        // Manual Trigger Methods
+        #endregion
+
+        #region Manual Trigger Methods
+
         /// <summary>
         /// Manually triggers a feed update synchronization.
         /// Updates all feeds according to their configured frequencies.
         /// </summary>
-        Task TriggerFeedSyncAsync();
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A DTO containing the result of the action.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the service is not running or is paused.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task<SyncActionResultDto> TriggerFeedSyncAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Manually triggers a specific feed update.
+        /// Manually triggers a specific feed update regardless of its schedule.
         /// </summary>
         /// <param name="feedId">The ID of the feed to update.</param>
-        Task TriggerSingleFeedSyncAsync(int feedId);
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A DTO containing the result of the action.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="feedId"/> is less than or equal to 0.</exception>
+        /// <exception cref="InvalidOperationException">Thrown if the service is not running or is paused.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task<SyncActionResultDto> TriggerSingleFeedSyncAsync(int feedId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Manually triggers a cleanup synchronization.
         /// Performs article retention and database maintenance.
         /// </summary>
-        Task TriggerCleanupSyncAsync();
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A DTO containing the result of the action.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the service is not running or is paused.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task<SyncActionResultDto> TriggerCleanupSyncAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Manually triggers a tag processing synchronization.
         /// Applies auto-tagging rules and updates tag statistics.
         /// </summary>
-        Task TriggerTagProcessingSyncAsync();
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A DTO containing the result of the action.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the service is not running or is paused.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task<SyncActionResultDto> TriggerTagProcessingSyncAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Manually triggers a backup synchronization.
         /// Creates backup copies of the database and settings.
         /// </summary>
-        Task TriggerBackupSyncAsync();
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A DTO containing the result of the action.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the service is not running or is paused.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task<SyncActionResultDto> TriggerBackupSyncAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Manually triggers a full synchronization cycle.
         /// Executes all synchronization tasks in proper order.
         /// </summary>
-        Task TriggerFullSyncAsync();
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A DTO containing the result of the action.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the service is not running or is paused.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task<SyncActionResultDto> TriggerFullSyncAsync(CancellationToken cancellationToken = default);
 
-        // Configuration Methods
+        #endregion
+
+        #region Configuration Methods
+
         /// <summary>
         /// Enables or disables a specific synchronization task type.
         /// </summary>
-        /// <param name="taskType">The type of synchronization task to configure.</param>
-        /// <param name="enabled">Whether the task should be enabled.</param>
-        Task ConfigureTaskAsync(SyncTaskType taskType, bool enabled);
-
-        /// <summary>
-        /// Sets the interval for a specific synchronization task.
-        /// </summary>
-        /// <param name="taskType">The type of synchronization task to configure.</param>
-        /// <param name="intervalMinutes">The interval in minutes.</param>
-        Task ConfigureTaskIntervalAsync(SyncTaskType taskType, int intervalMinutes);
+        /// <param name="configureDto">The DTO containing task configuration.</param>
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A DTO containing the result of the action.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="configureDto"/> is null.</exception>
+        /// <exception cref="ArgumentException">Thrown if task type is invalid.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task<SyncActionResultDto> ConfigureTaskAsync(ConfigureTaskDto configureDto, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Sets the maximum duration for synchronization tasks.
-        /// Tasks exceeding this duration will be cancelled.
         /// </summary>
-        /// <param name="maxDurationMinutes">Maximum duration in minutes.</param>
-        Task SetMaxSyncDurationAsync(int maxDurationMinutes);
+        /// <param name="configureDto">The DTO containing max duration configuration.</param>
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A DTO containing the result of the action.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="configureDto"/> is null.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task<SyncActionResultDto> SetMaxSyncDurationAsync(ConfigureMaxDurationDto configureDto, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Sets the maximum number of concurrent synchronization tasks.
         /// </summary>
-        /// <param name="maxConcurrentTasks">Maximum concurrent tasks allowed.</param>
-        Task SetMaxConcurrentTasksAsync(int maxConcurrentTasks);
+        /// <param name="configureDto">The DTO containing concurrency configuration.</param>
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A DTO containing the result of the action.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="configureDto"/> is null.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task<SyncActionResultDto> SetMaxConcurrentTasksAsync(ConfigureConcurrencyDto configureDto, CancellationToken cancellationToken = default);
 
-        // Monitoring Methods
+        #endregion
+
+        #region Monitoring Methods
+
         /// <summary>
-        /// Gets the status of all managed synchronization tasks.
+        /// Gets the current status of all managed synchronization tasks.
         /// </summary>
-        Task<Dictionary<SyncTaskType, SyncTaskStatus>> GetTaskStatusesAsync();
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A list of task status DTOs.</returns>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task<List<SyncTaskStatusDto>> GetTaskStatusesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets detailed information about the last execution of a specific task.
         /// </summary>
-        Task<SyncTaskExecutionInfo> GetTaskExecutionInfoAsync(SyncTaskType taskType);
+        /// <param name="taskType">The type of synchronization task.</param>
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>Detailed execution information DTO for the specified task.</returns>
+        /// <exception cref="ArgumentException">Thrown if task type is invalid.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task<SyncTaskExecutionInfoDto> GetTaskExecutionInfoAsync(string taskType, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets recent synchronization errors.
         /// </summary>
-        /// <param name="maxErrors">Maximum number of errors to retrieve.</param>
-        Task<List<SyncErrorInfo>> GetRecentErrorsAsync(int maxErrors = 50);
+        /// <param name="maxErrors">Maximum number of errors to retrieve. Default: 50.</param>
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A list of recent synchronization error DTOs.</returns>
+        /// <exception cref="ArgumentException">Thrown if <paramref name="maxErrors"/> is less than 1.</exception>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task<List<SyncErrorInfoDto>> GetRecentErrorsAsync(int maxErrors = 50, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Clears the error history.
         /// </summary>
-        Task ClearErrorHistoryAsync();
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        /// <returns>A DTO containing the result of the action.</returns>
+        /// <exception cref="OperationCanceledException">Thrown if the operation is canceled via the cancellation token.</exception>
+        Task<SyncActionResultDto> ClearErrorHistoryAsync(CancellationToken cancellationToken = default);
 
-        // Events
+        #endregion
+
+        #region Events
+
         /// <summary>
-        /// Raised when synchronization status changes.
+        /// Raised when the overall synchronization status changes.
         /// </summary>
-        event EventHandler<SyncStatusChangedEventArgs> OnStatusChanged;
+        event EventHandler<SyncStatusDto> OnStatusChanged;
 
         /// <summary>
         /// Raised when a synchronization task starts.
         /// </summary>
-        event EventHandler<SyncTaskStartedEventArgs> OnTaskStarted;
+        event EventHandler<SyncProgressDto> OnTaskStarted;
 
         /// <summary>
         /// Raised when a synchronization task completes.
         /// </summary>
-        event EventHandler<SyncTaskCompletedEventArgs> OnTaskCompleted;
+        event EventHandler<SyncTaskExecutionInfoDto> OnTaskCompleted;
 
         /// <summary>
         /// Raised when a synchronization error occurs.
         /// </summary>
-        event EventHandler<SyncErrorEventArgs> OnSyncError;
+        event EventHandler<SyncErrorInfoDto> OnSyncError;
 
         /// <summary>
-        /// Raised when synchronization progress is made.
+        /// Raised when synchronization progress is made during long-running tasks.
         /// </summary>
-        event EventHandler<SyncProgressEventArgs> OnSyncProgress;
-    }
+        event EventHandler<SyncProgressDto> OnSyncProgress;
 
-    /// <summary>
-    /// Represents the overall synchronization status.
-    /// </summary>
-    public enum SyncStatus
-    {
-        Stopped,
-        Starting,
-        Running,
-        Paused,
-        Stopping,
-        Error
-    }
-
-    /// <summary>
-    /// Types of synchronization tasks managed by the coordinator.
-    /// </summary>
-    public enum SyncTaskType
-    {
-        FeedUpdate,
-        TagProcessing,
-        ArticleCleanup,
-        BackupCreation,
-        StatisticsUpdate,
-        RuleProcessing,
-        CacheMaintenance,
-        FullSync
-    }
-
-    /// <summary>
-    /// Status of an individual synchronization task.
-    /// </summary>
-    public enum SyncTaskStatus
-    {
-        Idle,
-        Scheduled,
-        Running,
-        Completed,
-        Failed,
-        Cancelled,
-        Disabled
-    }
-
-    /// <summary>
-    /// Statistics about synchronization performance.
-    /// </summary>
-    public class SyncStatistics
-    {
-        public int TotalSyncCycles { get; set; }
-        public int SuccessfulSyncs { get; set; }
-        public int FailedSyncs { get; set; }
-        public double AverageSyncDurationSeconds { get; set; }
-        public TimeSpan TotalSyncTime { get; set; }
-        public int ArticlesProcessed { get; set; }
-        public int FeedsUpdated { get; set; }
-        public int TagsApplied { get; set; }
-        public DateTime LastStatisticsUpdate { get; set; }
-    }
-
-    /// <summary>
-    /// Information about a synchronization task execution.
-    /// </summary>
-    public class SyncTaskExecutionInfo
-    {
-        public SyncTaskType TaskType { get; set; }
-        public DateTime? LastRunStart { get; set; }
-        public DateTime? LastRunEnd { get; set; }
-        public TimeSpan? LastRunDuration { get; set; }
-        public bool LastRunSuccessful { get; set; }
-        public string? LastRunError { get; set; }
-        public int TotalRuns { get; set; }
-        public int SuccessfulRuns { get; set; }
-        public TimeSpan AverageRunDuration { get; set; }
-        public DateTime? NextScheduledRun { get; set; }
-    }
-
-    /// <summary>
-    /// Information about a synchronization error.
-    /// </summary>
-    public class SyncErrorInfo
-    {
-        public DateTime ErrorTime { get; set; }
-        public SyncTaskType TaskType { get; set; }
-        public string ErrorMessage { get; set; } = string.Empty;
-        public string? StackTrace { get; set; }
-        public bool IsRecoverable { get; set; }
-        public int RetryCount { get; set; }
-    }
-
-    // Event Arguments
-    public class SyncStatusChangedEventArgs : EventArgs
-    {
-        public SyncStatus PreviousStatus { get; }
-        public SyncStatus NewStatus { get; }
-
-        public SyncStatusChangedEventArgs(SyncStatus previousStatus, SyncStatus newStatus)
-        {
-            PreviousStatus = previousStatus;
-            NewStatus = newStatus;
-        }
-    }
-
-    public class SyncTaskStartedEventArgs : EventArgs
-    {
-        public SyncTaskType TaskType { get; }
-        public DateTime StartTime { get; }
-
-        public SyncTaskStartedEventArgs(SyncTaskType taskType, DateTime startTime)
-        {
-            TaskType = taskType;
-            StartTime = startTime;
-        }
-    }
-
-    public class SyncTaskCompletedEventArgs : EventArgs
-    {
-        public SyncTaskType TaskType { get; }
-        public DateTime StartTime { get; }
-        public DateTime EndTime { get; }
-        public TimeSpan Duration { get; }
-        public bool Success { get; }
-        public string? ErrorMessage { get; }
-        public Dictionary<string, object> Results { get; }
-
-        public SyncTaskCompletedEventArgs(SyncTaskType taskType, DateTime startTime, DateTime endTime, bool success,
-                                         string? errorMessage = null, Dictionary<string, object>? results = null)
-        {
-            TaskType = taskType;
-            StartTime = startTime;
-            EndTime = endTime;
-            Duration = endTime - startTime;
-            Success = success;
-            ErrorMessage = errorMessage;
-            Results = results ?? new Dictionary<string, object>();
-        }
-    }
-
-    public class SyncErrorEventArgs : EventArgs
-    {
-        public SyncTaskType TaskType { get; }
-        public Exception Exception { get; }
-        public bool IsFatal { get; }
-
-        public SyncErrorEventArgs(SyncTaskType taskType, Exception exception, bool isFatal = false)
-        {
-            TaskType = taskType;
-            Exception = exception;
-            IsFatal = isFatal;
-        }
-    }
-
-    public class SyncProgressEventArgs : EventArgs
-    {
-        public SyncTaskType TaskType { get; }
-        public string Operation { get; }
-        public int Current { get; }
-        public int Total { get; }
-        public double Percentage => Total > 0 ? (Current * 100.0) / Total : 0;
-
-        public SyncProgressEventArgs(SyncTaskType taskType, string operation, int current, int total)
-        {
-            TaskType = taskType;
-            Operation = operation;
-            Current = current;
-            Total = total;
-        }
+        #endregion
     }
 }

@@ -1,0 +1,1998 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  id: IRuleService
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.AddRuleConditionAsync(NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.CreateRuleAsync(NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleConditionAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticleAgainstRulesAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticlesBatchAsync(System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ExecuteRuleActionsAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetActiveRulesAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetAllRulesAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleByIdAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleConditionsAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleStatisticsAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetTopRulesByMatchCountAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ReorderConditionsAsync(System.Int32,System.Int32,System.Collections.Generic.Dictionary{System.Int32,System.Int32},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.RuleExistsByNameAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.TestRuleAsync(System.Int32,System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleConditionAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IRuleService
+  nameWithType: IRuleService
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IRuleService
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 28
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Service interface for automated rules engine management.
+
+    Provides comprehensive rule lifecycle management, article evaluation, and action execution capabilities.
+  remarks: >-
+    <p>
+
+    This service centralizes all rule-related functionality including:
+
+    <ul><li>Rule CRUD operations with validation and duplicate prevention</li><li>Article evaluation against all active rules</li><li>Rule action execution (notifications, tagging, marking read, etc.)</li><li>Statistics tracking for rule effectiveness monitoring</li><li>Performance-optimized batch processing for multiple articles</li></ul>
+
+    </p>
+
+    <p>
+
+    All methods return DTOs instead of entities to maintain separation of concerns.
+
+    </p>
+  example: []
+  syntax:
+    content: public interface IRuleService
+    content.vb: Public Interface IRuleService
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleByIdAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleByIdAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetRuleByIdAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: GetRuleByIdAsync(int, CancellationToken)
+  nameWithType: IRuleService.GetRuleByIdAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleByIdAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetRuleByIdAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 40
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves a specific rule by its unique identifier.
+  example: []
+  syntax:
+    content: Task<RuleDto?> GetRuleByIdAsync(int ruleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ruleId
+      type: System.Int32
+      description: The unique identifier of the rule.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto}
+      description: The rule DTO if found; otherwise, null.
+    content.vb: Function GetRuleByIdAsync(ruleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of RuleDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleByIdAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">ruleId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.GetRuleByIdAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleByIdAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetRuleByIdAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetAllRulesAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetAllRulesAsync(System.Threading.CancellationToken)
+  id: GetAllRulesAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: GetAllRulesAsync(CancellationToken)
+  nameWithType: IRuleService.GetAllRulesAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetAllRulesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetAllRulesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 48
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all rules from the system, regardless of active status.
+  example: []
+  syntax:
+    content: Task<List<RuleSummaryDto>> GetAllRulesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto}}
+      description: A list of all rule DTOs.
+    content.vb: Function GetAllRulesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of RuleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetAllRulesAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetActiveRulesAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetActiveRulesAsync(System.Threading.CancellationToken)
+  id: GetActiveRulesAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: GetActiveRulesAsync(CancellationToken)
+  nameWithType: IRuleService.GetActiveRulesAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetActiveRulesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetActiveRulesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 60
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves only active rules that should be evaluated against new articles.
+  remarks: >-
+    Only rules with <code>IsEnabled = true</code> are returned.
+
+    This method is optimized for frequent calls during article processing.
+  example: []
+  syntax:
+    content: Task<List<RuleDto>> GetActiveRulesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto}}
+      description: A list of active rule DTOs.
+    content.vb: Function GetActiveRulesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of RuleDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetActiveRulesAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.CreateRuleAsync(NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.CreateRuleAsync(NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto,System.Threading.CancellationToken)
+  id: CreateRuleAsync(NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: CreateRuleAsync(CreateRuleDto, CancellationToken)
+  nameWithType: IRuleService.CreateRuleAsync(CreateRuleDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.CreateRuleAsync(NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CreateRuleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 72
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Creates a new rule in the system.
+  example: []
+  syntax:
+    content: Task<RuleDto> CreateRuleAsync(CreateRuleDto createDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: createDto
+      type: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto
+      description: The DTO containing rule creation data.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto}
+      description: The created rule DTO with generated ID and timestamps.
+    content.vb: Function CreateRuleAsync(createDto As CreateRuleDto, cancellationToken As CancellationToken = Nothing) As Task(Of RuleDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.CreateRuleAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">createDto</code> is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if rule validation fails (invalid name, conditions, etc.).
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if a rule with the same name already exists.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto,System.Threading.CancellationToken)
+  id: UpdateRuleAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: UpdateRuleAsync(int, UpdateRuleDto, CancellationToken)
+  nameWithType: IRuleService.UpdateRuleAsync(int, UpdateRuleDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleAsync(int, NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateRuleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 86
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Updates an existing rule.
+  example: []
+  syntax:
+    content: Task<RuleDto?> UpdateRuleAsync(int ruleId, UpdateRuleDto updateDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ruleId
+      type: System.Int32
+      description: The ID of the rule to update.
+    - id: updateDto
+      type: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto
+      description: The DTO containing rule update data.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto}
+      description: The updated rule DTO if successful; otherwise, null.
+    content.vb: Function UpdateRuleAsync(ruleId As Integer, updateDto As UpdateRuleDto, cancellationToken As CancellationToken = Nothing) As Task(Of RuleDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">updateDto</code> is null.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">ruleId</code> is less than or equal to 0.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if rule validation fails.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if another rule with the same name already exists.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.UpdateRuleAsync(Integer, UpdateRuleDto, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleAsync(Integer, NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto, System.Threading.CancellationToken)
+  name.vb: UpdateRuleAsync(Integer, UpdateRuleDto, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleAsync(System.Int32,System.Threading.CancellationToken)
+  id: DeleteRuleAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: DeleteRuleAsync(int, CancellationToken)
+  nameWithType: IRuleService.DeleteRuleAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DeleteRuleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 96
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Deletes a rule by its unique identifier.
+  example: []
+  syntax:
+    content: Task<bool> DeleteRuleAsync(int ruleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ruleId
+      type: System.Int32
+      description: The ID of the rule to delete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if deletion was successful; otherwise, false (e.g., rule not found).
+    content.vb: Function DeleteRuleAsync(ruleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">ruleId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.DeleteRuleAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleAsync(Integer, System.Threading.CancellationToken)
+  name.vb: DeleteRuleAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticleAgainstRulesAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticleAgainstRulesAsync(System.Int32,System.Threading.CancellationToken)
+  id: EvaluateArticleAgainstRulesAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: EvaluateArticleAgainstRulesAsync(int, CancellationToken)
+  nameWithType: IRuleService.EvaluateArticleAgainstRulesAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticleAgainstRulesAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EvaluateArticleAgainstRulesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 110
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Evaluates an article against all active rules to determine which rules match.
+  example: []
+  syntax:
+    content: Task<List<RuleDto>> EvaluateArticleAgainstRulesAsync(int articleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The ID of the article to evaluate.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto}}
+      description: A list of rule DTOs that matched the article.
+    content.vb: Function EvaluateArticleAgainstRulesAsync(articleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of RuleDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticleAgainstRulesAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">articleId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.EvaluateArticleAgainstRulesAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticleAgainstRulesAsync(Integer, System.Threading.CancellationToken)
+  name.vb: EvaluateArticleAgainstRulesAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ExecuteRuleActionsAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ExecuteRuleActionsAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  id: ExecuteRuleActionsAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: ExecuteRuleActionsAsync(int, int, CancellationToken)
+  nameWithType: IRuleService.ExecuteRuleActionsAsync(int, int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ExecuteRuleActionsAsync(int, int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ExecuteRuleActionsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 121
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Executes all actions associated with a rule for a specific article.
+  example: []
+  syntax:
+    content: Task<bool> ExecuteRuleActionsAsync(int ruleId, int articleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ruleId
+      type: System.Int32
+      description: The ID of the rule whose actions to execute.
+    - id: articleId
+      type: System.Int32
+      description: The ID of the article that triggered the rule.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if all actions were executed successfully; otherwise, false.
+    content.vb: Function ExecuteRuleActionsAsync(ruleId As Integer, articleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ExecuteRuleActionsAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">ruleId</code> or <code class="paramref">articleId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.ExecuteRuleActionsAsync(Integer, Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ExecuteRuleActionsAsync(Integer, Integer, System.Threading.CancellationToken)
+  name.vb: ExecuteRuleActionsAsync(Integer, Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticlesBatchAsync(System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticlesBatchAsync(System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  id: EvaluateArticlesBatchAsync(System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: EvaluateArticlesBatchAsync(List<int>, CancellationToken)
+  nameWithType: IRuleService.EvaluateArticlesBatchAsync(List<int>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticlesBatchAsync(System.Collections.Generic.List<int>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EvaluateArticlesBatchAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 131
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Evaluates multiple articles against all active rules in batch.
+  example: []
+  syntax:
+    content: Task<Dictionary<int, List<RuleDto>>> EvaluateArticlesBatchAsync(List<int> articleIds, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleIds
+      type: System.Collections.Generic.List{System.Int32}
+      description: The list of article IDs to evaluate.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto}}}
+      description: A dictionary mapping article IDs to lists of matching rule DTOs.
+    content.vb: Function EvaluateArticlesBatchAsync(articleIds As List(Of Integer), cancellationToken As CancellationToken = Nothing) As Task(Of Dictionary(Of Integer, List(Of RuleDto)))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticlesBatchAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">articleIds</code> is null.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.EvaluateArticlesBatchAsync(List(Of Integer), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticlesBatchAsync(System.Collections.Generic.List(Of Integer), System.Threading.CancellationToken)
+  name.vb: EvaluateArticlesBatchAsync(List(Of Integer), CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleConditionsAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleConditionsAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetRuleConditionsAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: GetRuleConditionsAsync(int, CancellationToken)
+  nameWithType: IRuleService.GetRuleConditionsAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleConditionsAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetRuleConditionsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 145
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all conditions for a specific rule, organized by group.
+  example: []
+  syntax:
+    content: Task<List<RuleConditionGroupDto>> GetRuleConditionsAsync(int ruleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ruleId
+      type: System.Int32
+      description: The ID of the rule.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto}}
+      description: A list of condition groups for the rule.
+    content.vb: Function GetRuleConditionsAsync(ruleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of RuleConditionGroupDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleConditionsAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">ruleId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.GetRuleConditionsAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleConditionsAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetRuleConditionsAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.AddRuleConditionAsync(NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.AddRuleConditionAsync(NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto,System.Threading.CancellationToken)
+  id: AddRuleConditionAsync(NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: AddRuleConditionAsync(CreateRuleConditionDto, CancellationToken)
+  nameWithType: IRuleService.AddRuleConditionAsync(CreateRuleConditionDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.AddRuleConditionAsync(NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AddRuleConditionAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 157
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Adds a condition to an existing rule.
+  example: []
+  syntax:
+    content: Task<RuleConditionDto> AddRuleConditionAsync(CreateRuleConditionDto createDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: createDto
+      type: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto
+      description: The DTO containing condition creation data.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto}
+      description: The created condition DTO.
+    content.vb: Function AddRuleConditionAsync(createDto As CreateRuleConditionDto, cancellationToken As CancellationToken = Nothing) As Task(Of RuleConditionDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.AddRuleConditionAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">createDto</code> is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if condition validation fails.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the parent rule doesn't exist.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleConditionAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleConditionAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto,System.Threading.CancellationToken)
+  id: UpdateRuleConditionAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: UpdateRuleConditionAsync(int, UpdateRuleConditionDto, CancellationToken)
+  nameWithType: IRuleService.UpdateRuleConditionAsync(int, UpdateRuleConditionDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleConditionAsync(int, NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateRuleConditionAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 170
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Updates an existing rule condition.
+  example: []
+  syntax:
+    content: Task<RuleConditionDto?> UpdateRuleConditionAsync(int conditionId, UpdateRuleConditionDto updateDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: conditionId
+      type: System.Int32
+      description: The ID of the condition to update.
+    - id: updateDto
+      type: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto
+      description: The DTO containing condition update data.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto}
+      description: The updated condition DTO if successful; otherwise, null.
+    content.vb: Function UpdateRuleConditionAsync(conditionId As Integer, updateDto As UpdateRuleConditionDto, cancellationToken As CancellationToken = Nothing) As Task(Of RuleConditionDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleConditionAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">updateDto</code> is null.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">conditionId</code> is less than or equal to 0.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if condition validation fails.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.UpdateRuleConditionAsync(Integer, UpdateRuleConditionDto, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleConditionAsync(Integer, NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto, System.Threading.CancellationToken)
+  name.vb: UpdateRuleConditionAsync(Integer, UpdateRuleConditionDto, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleConditionAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleConditionAsync(System.Int32,System.Threading.CancellationToken)
+  id: DeleteRuleConditionAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: DeleteRuleConditionAsync(int, CancellationToken)
+  nameWithType: IRuleService.DeleteRuleConditionAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleConditionAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DeleteRuleConditionAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 180
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Deletes a rule condition.
+  example: []
+  syntax:
+    content: Task<bool> DeleteRuleConditionAsync(int conditionId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: conditionId
+      type: System.Int32
+      description: The ID of the condition to delete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if deletion was successful; otherwise, false.
+    content.vb: Function DeleteRuleConditionAsync(conditionId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleConditionAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">conditionId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.DeleteRuleConditionAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleConditionAsync(Integer, System.Threading.CancellationToken)
+  name.vb: DeleteRuleConditionAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ReorderConditionsAsync(System.Int32,System.Int32,System.Collections.Generic.Dictionary{System.Int32,System.Int32},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ReorderConditionsAsync(System.Int32,System.Int32,System.Collections.Generic.Dictionary{System.Int32,System.Int32},System.Threading.CancellationToken)
+  id: ReorderConditionsAsync(System.Int32,System.Int32,System.Collections.Generic.Dictionary{System.Int32,System.Int32},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: ReorderConditionsAsync(int, int, Dictionary<int, int>, CancellationToken)
+  nameWithType: IRuleService.ReorderConditionsAsync(int, int, Dictionary<int, int>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ReorderConditionsAsync(int, int, System.Collections.Generic.Dictionary<int, int>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ReorderConditionsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 193
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Reorders conditions within a rule group.
+  example: []
+  syntax:
+    content: Task<int> ReorderConditionsAsync(int ruleId, int groupId, Dictionary<int, int> conditionOrderMap, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ruleId
+      type: System.Int32
+      description: The ID of the rule.
+    - id: groupId
+      type: System.Int32
+      description: The group ID.
+    - id: conditionOrderMap
+      type: System.Collections.Generic.Dictionary{System.Int32,System.Int32}
+      description: Dictionary mapping condition ID to new order value.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of conditions updated.
+    content.vb: Function ReorderConditionsAsync(ruleId As Integer, groupId As Integer, conditionOrderMap As Dictionary(Of Integer, Integer), cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ReorderConditionsAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">conditionOrderMap</code> is null.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if ruleId or groupId is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.ReorderConditionsAsync(Integer, Integer, Dictionary(Of Integer, Integer), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ReorderConditionsAsync(Integer, Integer, System.Collections.Generic.Dictionary(Of Integer, Integer), System.Threading.CancellationToken)
+  name.vb: ReorderConditionsAsync(Integer, Integer, Dictionary(Of Integer, Integer), CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetTopRulesByMatchCountAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetTopRulesByMatchCountAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetTopRulesByMatchCountAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: GetTopRulesByMatchCountAsync(int, CancellationToken)
+  nameWithType: IRuleService.GetTopRulesByMatchCountAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetTopRulesByMatchCountAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetTopRulesByMatchCountAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 207
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves the most frequently matched rules.
+  example: []
+  syntax:
+    content: Task<List<RuleHealthDto>> GetTopRulesByMatchCountAsync(int limit = 10, CancellationToken cancellationToken = default)
+    parameters:
+    - id: limit
+      type: System.Int32
+      description: 'Maximum number of rules to return. Default: 10.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto}}
+      description: A list of rule health DTOs ordered by match count descending.
+    content.vb: Function GetTopRulesByMatchCountAsync(limit As Integer = 10, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of RuleHealthDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetTopRulesByMatchCountAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">limit</code> is less than 1.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.GetTopRulesByMatchCountAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetTopRulesByMatchCountAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetTopRulesByMatchCountAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleStatisticsAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleStatisticsAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetRuleStatisticsAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: GetRuleStatisticsAsync(int, CancellationToken)
+  nameWithType: IRuleService.GetRuleStatisticsAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleStatisticsAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetRuleStatisticsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 217
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets detailed statistics for a specific rule.
+  example: []
+  syntax:
+    content: Task<RuleHealthDto?> GetRuleStatisticsAsync(int ruleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ruleId
+      type: System.Int32
+      description: The ID of the rule.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto}
+      description: A rule health DTO with detailed metrics.
+    content.vb: Function GetRuleStatisticsAsync(ruleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of RuleHealthDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleStatisticsAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">ruleId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.GetRuleStatisticsAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleStatisticsAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetRuleStatisticsAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.RuleExistsByNameAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.RuleExistsByNameAsync(System.String,System.Threading.CancellationToken)
+  id: RuleExistsByNameAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: RuleExistsByNameAsync(string, CancellationToken)
+  nameWithType: IRuleService.RuleExistsByNameAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.RuleExistsByNameAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RuleExistsByNameAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 231
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Checks if a rule with the specified name already exists.
+  example: []
+  syntax:
+    content: Task<bool> RuleExistsByNameAsync(string name, CancellationToken cancellationToken = default)
+    parameters:
+    - id: name
+      type: System.String
+      description: The rule name to check.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if a rule with this name exists; otherwise, false.
+    content.vb: Function RuleExistsByNameAsync(name As String, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.RuleExistsByNameAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">name</code> is null or whitespace.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.RuleExistsByNameAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.RuleExistsByNameAsync(String, System.Threading.CancellationToken)
+  name.vb: RuleExistsByNameAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.TestRuleAsync(System.Int32,System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.TestRuleAsync(System.Int32,System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  id: TestRuleAsync(System.Int32,System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+  langs:
+  - csharp
+  - vb
+  name: TestRuleAsync(int, List<int>, CancellationToken)
+  nameWithType: IRuleService.TestRuleAsync(int, List<int>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.TestRuleAsync(int, System.Collections.Generic.List<int>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TestRuleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IRuleService.cs
+    startLine: 250
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Tests a rule against sample articles without saving or executing actions.
+  remarks: >-
+    This method provides a safe way to preview which articles would match a rule
+
+    without affecting real data or executing actions.
+  example: []
+  syntax:
+    content: Task<RuleTestResultDto> TestRuleAsync(int ruleId, List<int> sampleArticleIds, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ruleId
+      type: System.Int32
+      description: The ID of the rule to test (can be unsaved, pass 0 for new rule).
+    - id: sampleArticleIds
+      type: System.Collections.Generic.List{System.Int32}
+      description: List of article IDs to test against.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto}
+      description: A test result containing match statistics.
+    content.vb: Function TestRuleAsync(ruleId As Integer, sampleArticleIds As List(Of Integer), cancellationToken As CancellationToken = Nothing) As Task(Of RuleTestResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.TestRuleAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">sampleArticleIds</code> is null.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IRuleService.TestRuleAsync(Integer, List(Of Integer), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.TestRuleAsync(Integer, System.Collections.Generic.List(Of Integer), System.Threading.CancellationToken)
+  name.vb: TestRuleAsync(Integer, List(Of Integer), CancellationToken)
+references:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Services
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Services
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Services
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: System.OperationCanceledException
+  commentId: T:System.OperationCanceledException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.operationcanceledexception
+  name: OperationCanceledException
+  nameWithType: OperationCanceledException
+  fullName: System.OperationCanceledException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleByIdAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleByIdAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_GetRuleByIdAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetRuleByIdAsync
+  nameWithType: IRuleService.GetRuleByIdAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleByIdAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<RuleDto>
+  nameWithType: Task<RuleDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto>
+  nameWithType.vb: Task(Of RuleDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto)
+  name.vb: Task(Of RuleDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+    name: RuleDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+    name: RuleDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetAllRulesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetAllRulesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_GetAllRulesAsync_System_Threading_CancellationToken_
+  name: GetAllRulesAsync
+  nameWithType: IRuleService.GetAllRulesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetAllRulesAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<RuleSummaryDto>>
+  nameWithType: Task<List<RuleSummaryDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto>>
+  nameWithType.vb: Task(Of List(Of RuleSummaryDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto))
+  name.vb: Task(Of List(Of RuleSummaryDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto
+    name: RuleSummaryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto
+    name: RuleSummaryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetActiveRulesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetActiveRulesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_GetActiveRulesAsync_System_Threading_CancellationToken_
+  name: GetActiveRulesAsync
+  nameWithType: IRuleService.GetActiveRulesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetActiveRulesAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<RuleDto>>
+  nameWithType: Task<List<RuleDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto>>
+  nameWithType.vb: Task(Of List(Of RuleDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto))
+  name.vb: Task(Of List(Of RuleDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+    name: RuleDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+    name: RuleDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html
+  - name: )
+  - name: )
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.CreateRuleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.CreateRuleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_CreateRuleAsync_NeonSuit_RSSReader_Core_DTOs_Rules_CreateRuleDto_System_Threading_CancellationToken_
+  name: CreateRuleAsync
+  nameWithType: IRuleService.CreateRuleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.CreateRuleAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto.html
+  name: CreateRuleDto
+  nameWithType: CreateRuleDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Rules
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Rules
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Rules
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules
+    name: Rules
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules
+    name: Rules
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.html
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_UpdateRuleAsync_System_Int32_NeonSuit_RSSReader_Core_DTOs_Rules_UpdateRuleDto_System_Threading_CancellationToken_
+  name: UpdateRuleAsync
+  nameWithType: IRuleService.UpdateRuleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto.html
+  name: UpdateRuleDto
+  nameWithType: UpdateRuleDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_DeleteRuleAsync_System_Int32_System_Threading_CancellationToken_
+  name: DeleteRuleAsync
+  nameWithType: IRuleService.DeleteRuleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleAsync
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticleAgainstRulesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticleAgainstRulesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_EvaluateArticleAgainstRulesAsync_System_Int32_System_Threading_CancellationToken_
+  name: EvaluateArticleAgainstRulesAsync
+  nameWithType: IRuleService.EvaluateArticleAgainstRulesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticleAgainstRulesAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ExecuteRuleActionsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ExecuteRuleActionsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_ExecuteRuleActionsAsync_System_Int32_System_Int32_System_Threading_CancellationToken_
+  name: ExecuteRuleActionsAsync
+  nameWithType: IRuleService.ExecuteRuleActionsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ExecuteRuleActionsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticlesBatchAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticlesBatchAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_EvaluateArticlesBatchAsync_System_Collections_Generic_List_System_Int32__System_Threading_CancellationToken_
+  name: EvaluateArticlesBatchAsync
+  nameWithType: IRuleService.EvaluateArticlesBatchAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.EvaluateArticlesBatchAsync
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<int>
+  nameWithType: List<int>
+  fullName: System.Collections.Generic.List<int>
+  nameWithType.vb: List(Of Integer)
+  fullName.vb: System.Collections.Generic.List(Of Integer)
+  name.vb: List(Of Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto}}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Dictionary<int, List<RuleDto>>>
+  nameWithType: Task<Dictionary<int, List<RuleDto>>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto>>>
+  nameWithType.vb: Task(Of Dictionary(Of Integer, List(Of RuleDto)))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.Dictionary(Of Integer, System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto)))
+  name.vb: Task(Of Dictionary(Of Integer, List(Of RuleDto)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+    name: RuleDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+    name: RuleDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleConditionsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleConditionsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_GetRuleConditionsAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetRuleConditionsAsync
+  nameWithType: IRuleService.GetRuleConditionsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleConditionsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<RuleConditionGroupDto>>
+  nameWithType: Task<List<RuleConditionGroupDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto>>
+  nameWithType.vb: Task(Of List(Of RuleConditionGroupDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto))
+  name.vb: Task(Of List(Of RuleConditionGroupDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto
+    name: RuleConditionGroupDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto
+    name: RuleConditionGroupDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.AddRuleConditionAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.AddRuleConditionAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_AddRuleConditionAsync_NeonSuit_RSSReader_Core_DTOs_Rules_CreateRuleConditionDto_System_Threading_CancellationToken_
+  name: AddRuleConditionAsync
+  nameWithType: IRuleService.AddRuleConditionAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.AddRuleConditionAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto.html
+  name: CreateRuleConditionDto
+  nameWithType: CreateRuleConditionDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<RuleConditionDto>
+  nameWithType: Task<RuleConditionDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto>
+  nameWithType.vb: Task(Of RuleConditionDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto)
+  name.vb: Task(Of RuleConditionDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto
+    name: RuleConditionDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto
+    name: RuleConditionDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleConditionAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleConditionAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_UpdateRuleConditionAsync_System_Int32_NeonSuit_RSSReader_Core_DTOs_Rules_UpdateRuleConditionDto_System_Threading_CancellationToken_
+  name: UpdateRuleConditionAsync
+  nameWithType: IRuleService.UpdateRuleConditionAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.UpdateRuleConditionAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto.html
+  name: UpdateRuleConditionDto
+  nameWithType: UpdateRuleConditionDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleConditionAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleConditionAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_DeleteRuleConditionAsync_System_Int32_System_Threading_CancellationToken_
+  name: DeleteRuleConditionAsync
+  nameWithType: IRuleService.DeleteRuleConditionAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.DeleteRuleConditionAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ReorderConditionsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ReorderConditionsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_ReorderConditionsAsync_System_Int32_System_Int32_System_Collections_Generic_Dictionary_System_Int32_System_Int32__System_Threading_CancellationToken_
+  name: ReorderConditionsAsync
+  nameWithType: IRuleService.ReorderConditionsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.ReorderConditionsAsync
+- uid: System.Collections.Generic.Dictionary{System.Int32,System.Int32}
+  commentId: T:System.Collections.Generic.Dictionary{System.Int32,System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<int, int>
+  nameWithType: Dictionary<int, int>
+  fullName: System.Collections.Generic.Dictionary<int, int>
+  nameWithType.vb: Dictionary(Of Integer, Integer)
+  fullName.vb: System.Collections.Generic.Dictionary(Of Integer, Integer)
+  name.vb: Dictionary(Of Integer, Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetTopRulesByMatchCountAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetTopRulesByMatchCountAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_GetTopRulesByMatchCountAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetTopRulesByMatchCountAsync
+  nameWithType: IRuleService.GetTopRulesByMatchCountAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetTopRulesByMatchCountAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<RuleHealthDto>>
+  nameWithType: Task<List<RuleHealthDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto>>
+  nameWithType.vb: Task(Of List(Of RuleHealthDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto))
+  name.vb: Task(Of List(Of RuleHealthDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto
+    name: RuleHealthDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto
+    name: RuleHealthDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleStatisticsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleStatisticsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_GetRuleStatisticsAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetRuleStatisticsAsync
+  nameWithType: IRuleService.GetRuleStatisticsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.GetRuleStatisticsAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<RuleHealthDto>
+  nameWithType: Task<RuleHealthDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto>
+  nameWithType.vb: Task(Of RuleHealthDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto)
+  name.vb: Task(Of RuleHealthDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto
+    name: RuleHealthDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto
+    name: RuleHealthDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.RuleExistsByNameAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.RuleExistsByNameAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_RuleExistsByNameAsync_System_String_System_Threading_CancellationToken_
+  name: RuleExistsByNameAsync
+  nameWithType: IRuleService.RuleExistsByNameAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.RuleExistsByNameAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.TestRuleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.TestRuleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IRuleService_TestRuleAsync_System_Int32_System_Collections_Generic_List_System_Int32__System_Threading_CancellationToken_
+  name: TestRuleAsync
+  nameWithType: IRuleService.TestRuleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.TestRuleAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<RuleTestResultDto>
+  nameWithType: Task<RuleTestResultDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto>
+  nameWithType.vb: Task(Of RuleTestResultDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto)
+  name.vb: Task(Of RuleTestResultDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto
+    name: RuleTestResultDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto
+    name: RuleTestResultDto
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto.html
+  - name: )

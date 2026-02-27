@@ -1,0 +1,1926 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  id: IArticleTagService
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ApplyRuleTaggingAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.IEnumerable{System.Int32},System.Double,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.CleanupOrphanedAssociationsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticleTagAssociationsAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagNameAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetMostUsedTagsAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetRecentlyTaggedArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagUsageCountsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTaggingStatisticsAsync(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagsForArticleAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.IsArticleTaggedAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleTagged
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleUntagged
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RecalculateTagUsageCountsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RemoveRuleTagsAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ReplaceArticleTagsAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleAsync(System.Int32,System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Double},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleWithMultipleAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleMultipleAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IArticleTagService
+  nameWithType: IArticleTagService
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IArticleTagService
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 24
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Service interface for managing article-tag relationships.
+
+    Provides business logic for tagging operations, batch processing, retrieval,
+
+    statistics, rule-based tagging, maintenance, and event notifications.
+  remarks: >-
+    <p>
+
+    This service coordinates tagging workflows between articles and tags,
+
+    ensuring atomicity, validation, and proper event raising for UI reactivity
+
+    and rule engine integration.
+
+    </p>
+
+    <p>
+
+    All methods return DTOs instead of entities to maintain separation of concerns
+
+    and prevent leaking persistence details to the presentation layer.
+
+    </p>
+  example: []
+  syntax:
+    content: public interface IArticleTagService
+    content.vb: Public Interface IArticleTagService
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleTagged
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleTagged
+  id: OnArticleTagged
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: OnArticleTagged
+  nameWithType: IArticleTagService.OnArticleTagged
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleTagged
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnArticleTagged
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 31
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Event raised after a tag is successfully applied to an article.
+  example: []
+  syntax:
+    content: event EventHandler<ArticleTaggedEventArgs> OnArticleTagged
+    return:
+      type: System.EventHandler{NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs}
+    content.vb: Event OnArticleTagged As EventHandler(Of ArticleTaggedEventArgs)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleUntagged
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleUntagged
+  id: OnArticleUntagged
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: OnArticleUntagged
+  nameWithType: IArticleTagService.OnArticleUntagged
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleUntagged
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnArticleUntagged
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 36
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Event raised after a tag is successfully removed from an article.
+  example: []
+  syntax:
+    content: event EventHandler<ArticleUntaggedEventArgs> OnArticleUntagged
+    return:
+      type: System.EventHandler{NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs}
+    content.vb: Event OnArticleUntagged As EventHandler(Of ArticleUntaggedEventArgs)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleAsync(System.Int32,System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Double},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleAsync(System.Int32,System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Double},System.Threading.CancellationToken)
+  id: TagArticleAsync(System.Int32,System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Double},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: TagArticleAsync(int, int, string, int?, double?, CancellationToken)
+  nameWithType: IArticleTagService.TagArticleAsync(int, int, string, int?, double?, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleAsync(int, int, string, int?, double?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TagArticleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 55
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Associates a single tag with an article.
+  example: []
+  syntax:
+    content: Task<bool> TagArticleAsync(int articleId, int tagId, string appliedBy = "user", int? ruleId = null, double? confidence = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article.
+    - id: tagId
+      type: System.Int32
+      description: The unique identifier of the tag.
+    - id: appliedBy
+      type: System.String
+      description: Source of the tagging (user, rule, system).
+    - id: ruleId
+      type: System.Nullable{System.Int32}
+      description: Optional ID of the rule that triggered the tagging.
+    - id: confidence
+      type: System.Nullable{System.Double}
+      description: Optional confidence score (0.0–1.0) for auto-tagging.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the tag was successfully applied; false if already exists.
+    content.vb: Function TagArticleAsync(articleId As Integer, tagId As Integer, appliedBy As String = "user", ruleId As Integer? = Nothing, confidence As Double? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId or tagId is less than or equal to 0, or confidence is out of range.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if appliedBy is null or whitespace.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the specified article or tag does not exist.
+  nameWithType.vb: IArticleTagService.TagArticleAsync(Integer, Integer, String, Integer?, Double?, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleAsync(Integer, Integer, String, Integer?, Double?, System.Threading.CancellationToken)
+  name.vb: TagArticleAsync(Integer, Integer, String, Integer?, Double?, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  id: UntagArticleAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: UntagArticleAsync(int, int, CancellationToken)
+  nameWithType: IArticleTagService.UntagArticleAsync(int, int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleAsync(int, int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UntagArticleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 65
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Removes a tag association from an article.
+  example: []
+  syntax:
+    content: Task<bool> UntagArticleAsync(int articleId, int tagId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article.
+    - id: tagId
+      type: System.Int32
+      description: The unique identifier of the tag.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the tag was successfully removed; false if association did not exist.
+    content.vb: Function UntagArticleAsync(articleId As Integer, tagId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId or tagId is less than or equal to 0.
+  nameWithType.vb: IArticleTagService.UntagArticleAsync(Integer, Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleAsync(Integer, Integer, System.Threading.CancellationToken)
+  name.vb: UntagArticleAsync(Integer, Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.IsArticleTaggedAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.IsArticleTaggedAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  id: IsArticleTaggedAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: IsArticleTaggedAsync(int, int, CancellationToken)
+  nameWithType: IArticleTagService.IsArticleTaggedAsync(int, int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.IsArticleTaggedAsync(int, int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IsArticleTaggedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 75
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Checks if a specific tag is currently associated with an article.
+  example: []
+  syntax:
+    content: Task<bool> IsArticleTaggedAsync(int articleId, int tagId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article.
+    - id: tagId
+      type: System.Int32
+      description: The unique identifier of the tag.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the tag is associated with the article; otherwise false.
+    content.vb: Function IsArticleTaggedAsync(articleId As Integer, tagId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.IsArticleTaggedAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId or tagId is less than or equal to 0.
+  nameWithType.vb: IArticleTagService.IsArticleTaggedAsync(Integer, Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.IsArticleTaggedAsync(Integer, Integer, System.Threading.CancellationToken)
+  name.vb: IsArticleTaggedAsync(Integer, Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleWithMultipleAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleWithMultipleAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  id: TagArticleWithMultipleAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: TagArticleWithMultipleAsync(int, IEnumerable<int>, string, int?, CancellationToken)
+  nameWithType: IArticleTagService.TagArticleWithMultipleAsync(int, IEnumerable<int>, string, int?, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleWithMultipleAsync(int, System.Collections.Generic.IEnumerable<int>, string, int?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TagArticleWithMultipleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 93
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Associates multiple tags with a single article.
+  example: []
+  syntax:
+    content: Task<int> TagArticleWithMultipleAsync(int articleId, IEnumerable<int> tagIds, string appliedBy = "user", int? ruleId = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article.
+    - id: tagIds
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+      description: Collection of tag IDs to apply.
+    - id: appliedBy
+      type: System.String
+      description: Source of the tagging.
+    - id: ruleId
+      type: System.Nullable{System.Int32}
+      description: Optional rule ID for batch rule-based tagging.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of new associations created.
+    content.vb: Function TagArticleWithMultipleAsync(articleId As Integer, tagIds As IEnumerable(Of Integer), appliedBy As String = "user", ruleId As Integer? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleWithMultipleAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId is less than or equal to 0.
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if tagIds is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if appliedBy is null or whitespace.
+  nameWithType.vb: IArticleTagService.TagArticleWithMultipleAsync(Integer, IEnumerable(Of Integer), String, Integer?, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleWithMultipleAsync(Integer, System.Collections.Generic.IEnumerable(Of Integer), String, Integer?, System.Threading.CancellationToken)
+  name.vb: TagArticleWithMultipleAsync(Integer, IEnumerable(Of Integer), String, Integer?, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleMultipleAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleMultipleAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Threading.CancellationToken)
+  id: UntagArticleMultipleAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: UntagArticleMultipleAsync(int, IEnumerable<int>, CancellationToken)
+  nameWithType: IArticleTagService.UntagArticleMultipleAsync(int, IEnumerable<int>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleMultipleAsync(int, System.Collections.Generic.IEnumerable<int>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UntagArticleMultipleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 104
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Removes multiple tags from a single article.
+  example: []
+  syntax:
+    content: Task<int> UntagArticleMultipleAsync(int articleId, IEnumerable<int> tagIds, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article.
+    - id: tagIds
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+      description: Collection of tag IDs to remove.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of associations successfully removed.
+    content.vb: Function UntagArticleMultipleAsync(articleId As Integer, tagIds As IEnumerable(Of Integer), cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleMultipleAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId is less than or equal to 0.
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if tagIds is null.
+  nameWithType.vb: IArticleTagService.UntagArticleMultipleAsync(Integer, IEnumerable(Of Integer), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleMultipleAsync(Integer, System.Collections.Generic.IEnumerable(Of Integer), System.Threading.CancellationToken)
+  name.vb: UntagArticleMultipleAsync(Integer, IEnumerable(Of Integer), CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ReplaceArticleTagsAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ReplaceArticleTagsAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Threading.CancellationToken)
+  id: ReplaceArticleTagsAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: ReplaceArticleTagsAsync(int, IEnumerable<int>, string, CancellationToken)
+  nameWithType: IArticleTagService.ReplaceArticleTagsAsync(int, IEnumerable<int>, string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ReplaceArticleTagsAsync(int, System.Collections.Generic.IEnumerable<int>, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ReplaceArticleTagsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 117
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Replaces all existing tags on an article with a new set of tags.
+  example: []
+  syntax:
+    content: Task<int> ReplaceArticleTagsAsync(int articleId, IEnumerable<int> newTagIds, string appliedBy = "user", CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article.
+    - id: newTagIds
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+      description: New set of tag IDs to apply.
+    - id: appliedBy
+      type: System.String
+      description: Source of the tagging.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of tags applied after replacement.
+    content.vb: Function ReplaceArticleTagsAsync(articleId As Integer, newTagIds As IEnumerable(Of Integer), appliedBy As String = "user", cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ReplaceArticleTagsAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId is less than or equal to 0.
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if newTagIds is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if appliedBy is null or whitespace.
+  nameWithType.vb: IArticleTagService.ReplaceArticleTagsAsync(Integer, IEnumerable(Of Integer), String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ReplaceArticleTagsAsync(Integer, System.Collections.Generic.IEnumerable(Of Integer), String, System.Threading.CancellationToken)
+  name.vb: ReplaceArticleTagsAsync(Integer, IEnumerable(Of Integer), String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagsForArticleAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagsForArticleAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetTagsForArticleAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: GetTagsForArticleAsync(int, CancellationToken)
+  nameWithType: IArticleTagService.GetTagsForArticleAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagsForArticleAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetTagsForArticleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 130
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all tags currently associated with a specific article.
+  example: []
+  syntax:
+    content: Task<List<TagDto>> GetTagsForArticleAsync(int articleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Tags.TagDto}}
+      description: List of tag DTOs associated with the article.
+    content.vb: Function GetTagsForArticleAsync(articleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of TagDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagsForArticleAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId is less than or equal to 0.
+  nameWithType.vb: IArticleTagService.GetTagsForArticleAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagsForArticleAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetTagsForArticleAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetArticlesWithTagAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: GetArticlesWithTagAsync(int, CancellationToken)
+  nameWithType: IArticleTagService.GetArticlesWithTagAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetArticlesWithTagAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 139
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all articles currently associated with a specific tag.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetArticlesWithTagAsync(int tagId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: tagId
+      type: System.Int32
+      description: The unique identifier of the tag.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: List of article summary DTOs tagged with the specified tag.
+    content.vb: Function GetArticlesWithTagAsync(tagId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if tagId is less than or equal to 0.
+  nameWithType.vb: IArticleTagService.GetArticlesWithTagAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetArticlesWithTagAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagNameAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagNameAsync(System.String,System.Threading.CancellationToken)
+  id: GetArticlesWithTagNameAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: GetArticlesWithTagNameAsync(string, CancellationToken)
+  nameWithType: IArticleTagService.GetArticlesWithTagNameAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagNameAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetArticlesWithTagNameAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 148
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all articles currently associated with a tag by its name.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetArticlesWithTagNameAsync(string tagName, CancellationToken cancellationToken = default)
+    parameters:
+    - id: tagName
+      type: System.String
+      description: The name of the tag.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: List of article summary DTOs with the specified tag name.
+    content.vb: Function GetArticlesWithTagNameAsync(tagName As String, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagNameAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if tagName is null or whitespace.
+  nameWithType.vb: IArticleTagService.GetArticlesWithTagNameAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagNameAsync(String, System.Threading.CancellationToken)
+  name.vb: GetArticlesWithTagNameAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticleTagAssociationsAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticleTagAssociationsAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetArticleTagAssociationsAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: GetArticleTagAssociationsAsync(int, CancellationToken)
+  nameWithType: IArticleTagService.GetArticleTagAssociationsAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticleTagAssociationsAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetArticleTagAssociationsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 157
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves the detailed association information for a specific article.
+  example: []
+  syntax:
+    content: Task<List<ArticleTagInfoDto>> GetArticleTagAssociationsAsync(int articleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto}}
+      description: List of article-tag info DTOs for the article.
+    content.vb: Function GetArticleTagAssociationsAsync(articleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleTagInfoDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticleTagAssociationsAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId is less than or equal to 0.
+  nameWithType.vb: IArticleTagService.GetArticleTagAssociationsAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticleTagAssociationsAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetArticleTagAssociationsAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagUsageCountsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagUsageCountsAsync(System.Threading.CancellationToken)
+  id: GetTagUsageCountsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: GetTagUsageCountsAsync(CancellationToken)
+  nameWithType: IArticleTagService.GetTagUsageCountsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagUsageCountsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetTagUsageCountsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 168
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves current usage counts for all tags.
+  example: []
+  syntax:
+    content: Task<Dictionary<int, int>> GetTagUsageCountsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+      description: Dictionary mapping tag IDs to their respective usage counts.
+    content.vb: Function GetTagUsageCountsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Dictionary(Of Integer, Integer))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagUsageCountsAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetMostUsedTagsAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetMostUsedTagsAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetMostUsedTagsAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: GetMostUsedTagsAsync(int, CancellationToken)
+  nameWithType: IArticleTagService.GetMostUsedTagsAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetMostUsedTagsAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetMostUsedTagsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 177
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves a limited number of the most frequently used tags.
+  example: []
+  syntax:
+    content: Task<List<TagDto>> GetMostUsedTagsAsync(int limit = 10, CancellationToken cancellationToken = default)
+    parameters:
+    - id: limit
+      type: System.Int32
+      description: Maximum number of tags to return. Must be greater than 0.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Tags.TagDto}}
+      description: List of the most used tag DTOs.
+    content.vb: Function GetMostUsedTagsAsync(limit As Integer = 10, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of TagDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetMostUsedTagsAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if limit is less than or equal to 0.
+  nameWithType.vb: IArticleTagService.GetMostUsedTagsAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetMostUsedTagsAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetMostUsedTagsAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetRecentlyTaggedArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetRecentlyTaggedArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetRecentlyTaggedArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: GetRecentlyTaggedArticlesAsync(int, CancellationToken)
+  nameWithType: IArticleTagService.GetRecentlyTaggedArticlesAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetRecentlyTaggedArticlesAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetRecentlyTaggedArticlesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 186
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves a limited number of articles that were most recently tagged.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetRecentlyTaggedArticlesAsync(int limit = 20, CancellationToken cancellationToken = default)
+    parameters:
+    - id: limit
+      type: System.Int32
+      description: Maximum number of articles to return. Must be greater than 0.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: List of recently tagged article summary DTOs.
+    content.vb: Function GetRecentlyTaggedArticlesAsync(limit As Integer = 20, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetRecentlyTaggedArticlesAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if limit is less than or equal to 0.
+  nameWithType.vb: IArticleTagService.GetRecentlyTaggedArticlesAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetRecentlyTaggedArticlesAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetRecentlyTaggedArticlesAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTaggingStatisticsAsync(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTaggingStatisticsAsync(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  id: GetTaggingStatisticsAsync(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: GetTaggingStatisticsAsync(DateTime?, DateTime?, CancellationToken)
+  nameWithType: IArticleTagService.GetTaggingStatisticsAsync(DateTime?, DateTime?, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTaggingStatisticsAsync(System.DateTime?, System.DateTime?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetTaggingStatisticsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 195
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves tagging statistics aggregated over an optional time range.
+  example: []
+  syntax:
+    content: Task<Dictionary<string, int>> GetTaggingStatisticsAsync(DateTime? startDate = null, DateTime? endDate = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: startDate
+      type: System.Nullable{System.DateTime}
+      description: Optional start date for the statistics window.
+    - id: endDate
+      type: System.Nullable{System.DateTime}
+      description: Optional end date for the statistics window.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.String,System.Int32}}
+      description: Dictionary with tagging statistics.
+    content.vb: Function GetTaggingStatisticsAsync(startDate As Date? = Nothing, endDate As Date? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of Dictionary(Of String, Integer))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTaggingStatisticsAsync*
+  nameWithType.vb: IArticleTagService.GetTaggingStatisticsAsync(Date?, Date?, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTaggingStatisticsAsync(Date?, Date?, System.Threading.CancellationToken)
+  name.vb: GetTaggingStatisticsAsync(Date?, Date?, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ApplyRuleTaggingAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.IEnumerable{System.Int32},System.Double,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ApplyRuleTaggingAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.IEnumerable{System.Int32},System.Double,System.Threading.CancellationToken)
+  id: ApplyRuleTaggingAsync(System.Int32,System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.IEnumerable{System.Int32},System.Double,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: ApplyRuleTaggingAsync(int, IEnumerable<int>, IEnumerable<int>, double, CancellationToken)
+  nameWithType: IArticleTagService.ApplyRuleTaggingAsync(int, IEnumerable<int>, IEnumerable<int>, double, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ApplyRuleTaggingAsync(int, System.Collections.Generic.IEnumerable<int>, System.Collections.Generic.IEnumerable<int>, double, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ApplyRuleTaggingAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 212
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Applies a set of tags to multiple articles as a result of a rule execution.
+  example: []
+  syntax:
+    content: Task<int> ApplyRuleTaggingAsync(int ruleId, IEnumerable<int> articleIds, IEnumerable<int> tagIds, double confidence = 0.8, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ruleId
+      type: System.Int32
+      description: The unique identifier of the rule that triggered the tagging.
+    - id: articleIds
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+      description: Collection of article IDs to tag.
+    - id: tagIds
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+      description: Collection of tag IDs to apply.
+    - id: confidence
+      type: System.Double
+      description: Confidence score for auto-tagging.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The total number of new tag associations created.
+    content.vb: Function ApplyRuleTaggingAsync(ruleId As Integer, articleIds As IEnumerable(Of Integer), tagIds As IEnumerable(Of Integer), confidence As Double = 0.8, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ApplyRuleTaggingAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if ruleId is less than or equal to 0, or confidence out of range.
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if articleIds or tagIds is null.
+  nameWithType.vb: IArticleTagService.ApplyRuleTaggingAsync(Integer, IEnumerable(Of Integer), IEnumerable(Of Integer), Double, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ApplyRuleTaggingAsync(Integer, System.Collections.Generic.IEnumerable(Of Integer), System.Collections.Generic.IEnumerable(Of Integer), Double, System.Threading.CancellationToken)
+  name.vb: ApplyRuleTaggingAsync(Integer, IEnumerable(Of Integer), IEnumerable(Of Integer), Double, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RemoveRuleTagsAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RemoveRuleTagsAsync(System.Int32,System.Threading.CancellationToken)
+  id: RemoveRuleTagsAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: RemoveRuleTagsAsync(int, CancellationToken)
+  nameWithType: IArticleTagService.RemoveRuleTagsAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RemoveRuleTagsAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RemoveRuleTagsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 221
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Removes all tag associations that were explicitly applied by a specific rule.
+  example: []
+  syntax:
+    content: Task<int> RemoveRuleTagsAsync(int ruleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: ruleId
+      type: System.Int32
+      description: The unique identifier of the rule whose tags should be removed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of tag associations successfully removed.
+    content.vb: Function RemoveRuleTagsAsync(ruleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RemoveRuleTagsAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if ruleId is less than or equal to 0.
+  nameWithType.vb: IArticleTagService.RemoveRuleTagsAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RemoveRuleTagsAsync(Integer, System.Threading.CancellationToken)
+  name.vb: RemoveRuleTagsAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.CleanupOrphanedAssociationsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.CleanupOrphanedAssociationsAsync(System.Threading.CancellationToken)
+  id: CleanupOrphanedAssociationsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: CleanupOrphanedAssociationsAsync(CancellationToken)
+  nameWithType: IArticleTagService.CleanupOrphanedAssociationsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.CleanupOrphanedAssociationsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CleanupOrphanedAssociationsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 232
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Removes orphaned article-tag associations from the database.
+  example: []
+  syntax:
+    content: Task<int> CleanupOrphanedAssociationsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of orphaned associations deleted.
+    content.vb: Function CleanupOrphanedAssociationsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.CleanupOrphanedAssociationsAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RecalculateTagUsageCountsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RecalculateTagUsageCountsAsync(System.Threading.CancellationToken)
+  id: RecalculateTagUsageCountsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+  langs:
+  - csharp
+  - vb
+  name: RecalculateTagUsageCountsAsync(CancellationToken)
+  nameWithType: IArticleTagService.RecalculateTagUsageCountsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RecalculateTagUsageCountsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RecalculateTagUsageCountsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleTagService.cs
+    startLine: 239
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Recalculates and updates the usage count for all tags.
+  example: []
+  syntax:
+    content: Task<int> RecalculateTagUsageCountsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The total number of tags whose usage counts were updated.
+    content.vb: Function RecalculateTagUsageCountsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RecalculateTagUsageCountsAsync*
+references:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Services
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Services
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Services
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+- uid: System.EventHandler{NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs}
+  commentId: T:System.EventHandler{NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<ArticleTaggedEventArgs>
+  nameWithType: EventHandler<ArticleTaggedEventArgs>
+  fullName: System.EventHandler<NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs>
+  nameWithType.vb: EventHandler(Of ArticleTaggedEventArgs)
+  fullName.vb: System.EventHandler(Of NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs)
+  name.vb: EventHandler(Of ArticleTaggedEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+    name: ArticleTaggedEventArgs
+    href: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+    name: ArticleTaggedEventArgs
+    href: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.EventHandler{NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs}
+  commentId: T:System.EventHandler{NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<ArticleUntaggedEventArgs>
+  nameWithType: EventHandler<ArticleUntaggedEventArgs>
+  fullName: System.EventHandler<NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs>
+  nameWithType.vb: EventHandler(Of ArticleUntaggedEventArgs)
+  fullName.vb: System.EventHandler(Of NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs)
+  name.vb: EventHandler(Of ArticleUntaggedEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs
+    name: ArticleUntaggedEventArgs
+    href: NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs
+    name: ArticleUntaggedEventArgs
+    href: NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs.html
+  - name: )
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_TagArticleAsync_System_Int32_System_Int32_System_String_System_Nullable_System_Int32__System_Nullable_System_Double__System_Threading_CancellationToken_
+  name: TagArticleAsync
+  nameWithType: IArticleTagService.TagArticleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable{System.Double}
+  commentId: T:System.Nullable{System.Double}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double?
+  nameWithType: double?
+  fullName: double?
+  nameWithType.vb: Double?
+  fullName.vb: Double?
+  name.vb: Double?
+  spec.csharp:
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '?'
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_UntagArticleAsync_System_Int32_System_Int32_System_Threading_CancellationToken_
+  name: UntagArticleAsync
+  nameWithType: IArticleTagService.UntagArticleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.IsArticleTaggedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.IsArticleTaggedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_IsArticleTaggedAsync_System_Int32_System_Int32_System_Threading_CancellationToken_
+  name: IsArticleTaggedAsync
+  nameWithType: IArticleTagService.IsArticleTaggedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.IsArticleTaggedAsync
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleWithMultipleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleWithMultipleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_TagArticleWithMultipleAsync_System_Int32_System_Collections_Generic_IEnumerable_System_Int32__System_String_System_Nullable_System_Int32__System_Threading_CancellationToken_
+  name: TagArticleWithMultipleAsync
+  nameWithType: IArticleTagService.TagArticleWithMultipleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.TagArticleWithMultipleAsync
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<int>
+  nameWithType: IEnumerable<int>
+  fullName: System.Collections.Generic.IEnumerable<int>
+  nameWithType.vb: IEnumerable(Of Integer)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Integer)
+  name.vb: IEnumerable(Of Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleMultipleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleMultipleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_UntagArticleMultipleAsync_System_Int32_System_Collections_Generic_IEnumerable_System_Int32__System_Threading_CancellationToken_
+  name: UntagArticleMultipleAsync
+  nameWithType: IArticleTagService.UntagArticleMultipleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.UntagArticleMultipleAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ReplaceArticleTagsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ReplaceArticleTagsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_ReplaceArticleTagsAsync_System_Int32_System_Collections_Generic_IEnumerable_System_Int32__System_String_System_Threading_CancellationToken_
+  name: ReplaceArticleTagsAsync
+  nameWithType: IArticleTagService.ReplaceArticleTagsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ReplaceArticleTagsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagsForArticleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagsForArticleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_GetTagsForArticleAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetTagsForArticleAsync
+  nameWithType: IArticleTagService.GetTagsForArticleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagsForArticleAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Tags.TagDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Tags.TagDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<TagDto>>
+  nameWithType: Task<List<TagDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Tags.TagDto>>
+  nameWithType.vb: Task(Of List(Of TagDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Tags.TagDto))
+  name.vb: Task(Of List(Of TagDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Tags.TagDto
+    name: TagDto
+    href: NeonSuit.RSSReader.Core.DTOs.Tags.TagDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Tags.TagDto
+    name: TagDto
+    href: NeonSuit.RSSReader.Core.DTOs.Tags.TagDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_GetArticlesWithTagAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetArticlesWithTagAsync
+  nameWithType: IArticleTagService.GetArticlesWithTagAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<ArticleSummaryDto>>
+  nameWithType: Task<List<ArticleSummaryDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto>>
+  nameWithType.vb: Task(Of List(Of ArticleSummaryDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto))
+  name.vb: Task(Of List(Of ArticleSummaryDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto
+    name: ArticleSummaryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto
+    name: ArticleSummaryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagNameAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagNameAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_GetArticlesWithTagNameAsync_System_String_System_Threading_CancellationToken_
+  name: GetArticlesWithTagNameAsync
+  nameWithType: IArticleTagService.GetArticlesWithTagNameAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticlesWithTagNameAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticleTagAssociationsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticleTagAssociationsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_GetArticleTagAssociationsAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetArticleTagAssociationsAsync
+  nameWithType: IArticleTagService.GetArticleTagAssociationsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetArticleTagAssociationsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<ArticleTagInfoDto>>
+  nameWithType: Task<List<ArticleTagInfoDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto>>
+  nameWithType.vb: Task(Of List(Of ArticleTagInfoDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto))
+  name.vb: Task(Of List(Of ArticleTagInfoDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto
+    name: ArticleTagInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto
+    name: ArticleTagInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagUsageCountsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagUsageCountsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_GetTagUsageCountsAsync_System_Threading_CancellationToken_
+  name: GetTagUsageCountsAsync
+  nameWithType: IArticleTagService.GetTagUsageCountsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTagUsageCountsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Dictionary<int, int>>
+  nameWithType: Task<Dictionary<int, int>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, int>>
+  nameWithType.vb: Task(Of Dictionary(Of Integer, Integer))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.Dictionary(Of Integer, Integer))
+  name.vb: Task(Of Dictionary(Of Integer, Integer))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetMostUsedTagsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetMostUsedTagsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_GetMostUsedTagsAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetMostUsedTagsAsync
+  nameWithType: IArticleTagService.GetMostUsedTagsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetMostUsedTagsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetRecentlyTaggedArticlesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetRecentlyTaggedArticlesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_GetRecentlyTaggedArticlesAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetRecentlyTaggedArticlesAsync
+  nameWithType: IArticleTagService.GetRecentlyTaggedArticlesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetRecentlyTaggedArticlesAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTaggingStatisticsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTaggingStatisticsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_GetTaggingStatisticsAsync_System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Threading_CancellationToken_
+  name: GetTaggingStatisticsAsync
+  nameWithType: IArticleTagService.GetTaggingStatisticsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.GetTaggingStatisticsAsync
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.String,System.Int32}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.String,System.Int32}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Dictionary<string, int>>
+  nameWithType: Task<Dictionary<string, int>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, int>>
+  nameWithType.vb: Task(Of Dictionary(Of String, Integer))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.Dictionary(Of String, Integer))
+  name.vb: Task(Of Dictionary(Of String, Integer))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ApplyRuleTaggingAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ApplyRuleTaggingAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_ApplyRuleTaggingAsync_System_Int32_System_Collections_Generic_IEnumerable_System_Int32__System_Collections_Generic_IEnumerable_System_Int32__System_Double_System_Threading_CancellationToken_
+  name: ApplyRuleTaggingAsync
+  nameWithType: IArticleTagService.ApplyRuleTaggingAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.ApplyRuleTaggingAsync
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RemoveRuleTagsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RemoveRuleTagsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_RemoveRuleTagsAsync_System_Int32_System_Threading_CancellationToken_
+  name: RemoveRuleTagsAsync
+  nameWithType: IArticleTagService.RemoveRuleTagsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RemoveRuleTagsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.CleanupOrphanedAssociationsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.CleanupOrphanedAssociationsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_CleanupOrphanedAssociationsAsync_System_Threading_CancellationToken_
+  name: CleanupOrphanedAssociationsAsync
+  nameWithType: IArticleTagService.CleanupOrphanedAssociationsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.CleanupOrphanedAssociationsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RecalculateTagUsageCountsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RecalculateTagUsageCountsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleTagService_RecalculateTagUsageCountsAsync_System_Threading_CancellationToken_
+  name: RecalculateTagUsageCountsAsync
+  nameWithType: IArticleTagService.RecalculateTagUsageCountsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.RecalculateTagUsageCountsAsync

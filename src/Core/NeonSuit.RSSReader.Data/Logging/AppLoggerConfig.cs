@@ -1,13 +1,44 @@
-﻿using NeonSuit.RSSReader.Data.Configuration;
+﻿// =======================================================
+// Data/Logging/AppLoggerConfig.cs
+// =======================================================
+
+using NeonSuit.RSSReader.Data.Configuration;
 using Serilog;
 using Serilog.Events;
 using System.Diagnostics;
+using System.Reflection;
+using System.Text.Json;
 
 namespace NeonSuit.RSSReader.Data.Logging
 {
     /// <summary>
-    /// Centralized Serilog configuration with support for runtime changes.
+    /// Centralized Serilog configuration manager with support for runtime configuration changes.
+    /// Handles logger initialization, persistence of settings, and log file management.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This static class provides:
+    /// <list type="bullet">
+    /// <item><description>Thread-safe singleton logger instance</description></item>
+    /// <item><description>Runtime configuration updates via <see cref="UpdateConfiguration"/></description></item>
+    /// <item><description>Persistence of log settings to JSON</description></item>
+    /// <item><description>Log file management (cleanup, compression, statistics)</description></item>
+    /// </list>
+    /// </para>
+    /// <para>
+    /// Usage:
+    /// <code>
+    /// // Initialize at application startup
+    /// var logger = AppLoggerConfig.InitializeLogger();
+    /// 
+    /// // Get logger for specific class
+    /// var classLogger = AppLoggerConfig.CreateLogger&lt;MyClass&gt;();
+    /// 
+    /// // Update settings at runtime
+    /// AppLoggerConfig.UpdateConfiguration(new LogSettings { LogLevel = "Debug" });
+    /// </code>
+    /// </para>
+    /// </remarks>
     public static class AppLoggerConfig
     {
         private static ILogger? _logger;
@@ -15,9 +46,18 @@ namespace NeonSuit.RSSReader.Data.Logging
         private static LogSettings? _currentSettings;
         private static string _defaultLogPath = string.Empty;
 
+        #region Initialization
+
         /// <summary>
         /// Initializes the logger with default or saved settings.
         /// </summary>
+        /// <param name="settings">Optional settings to override saved/default values.</param>
+        /// <returns>The configured ILogger instance.</returns>
+        /// <remarks>
+        /// This method is thread-safe and ensures only one logger instance is created.
+        /// If settings are provided, they are saved and used; otherwise, saved settings
+        /// are loaded or defaults are created.
+        /// </remarks>
         public static ILogger InitializeLogger(LogSettings? settings = null)
         {
             lock (_lock)
@@ -27,86 +67,24 @@ namespace NeonSuit.RSSReader.Data.Logging
 
                 _currentSettings = settings ?? LoadSavedSettings() ?? CreateDefaultSettings();
 
-                // Persist settings
+                // Persist settings for future sessions
                 SaveSettings(_currentSettings);
 
                 // Ensure log directory exists
-                var logDir = _currentSettings.FullLogDirectory;
-                if (!Directory.Exists(logDir))
-                    Directory.CreateDirectory(logDir);
+                EnsureLogDirectoryExists(_currentSettings.FullLogDirectory);
 
-                _defaultLogPath = Path.Combine(logDir, "neonsuit_.log");
+                _defaultLogPath = Path.Combine(_currentSettings.FullLogDirectory, "neonsuit_.log");
 
-                // Configure Serilog
-                var loggerConfig = new LoggerConfiguration();
-
-                if (_currentSettings.EnableLogging)
-                {
-                    // Base level
-                    loggerConfig.MinimumLevel.Is(_currentSettings.SerilogLevel);
-
-                    // Overrides
-                    loggerConfig.MinimumLevel.Override("Microsoft", LogEventLevel.Warning);
-                    loggerConfig.MinimumLevel.Override("System", LogEventLevel.Warning);
-
-                    // Enrichment
-                    loggerConfig.Enrich.FromLogContext()
-                        .Enrich.WithProperty("Application", "NeonSuit.RSSReader")
-                        .Enrich.WithProperty("Version", GetAppVersion())
-                        .Enrich.WithProperty("DeviceName", Environment.MachineName)
-                        .Enrich.WithThreadId()
-                        .Enrich.WithProcessId();
-
-                    // Console sink (if enabled)
-                    if (_currentSettings.EnableConsoleLogging)
-                    {
-                        loggerConfig.WriteTo.Console(
-                            outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}",
-                            restrictedToMinimumLevel: _currentSettings.SerilogLevel);
-                    }
-
-                    // File sink (if enabled)
-                    if (_currentSettings.EnableFileLogging)
-                    {
-                        loggerConfig.WriteTo.Async(a => a.File(_defaultLogPath,
-                            rollingInterval: RollingInterval.Day,
-                            retainedFileCountLimit: _currentSettings.RetentionDays,
-                            fileSizeLimitBytes: _currentSettings.MaxFileSizeMB * 1024 * 1024,
-                            rollOnFileSizeLimit: true,
-                            restrictedToMinimumLevel: _currentSettings.SerilogLevel,
-                            outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {ThreadId} {SourceContext} {Message:lj}{NewLine}{Exception}"));
-                    }
-
-                    // Debug sink (if enabled)
-                    if (_currentSettings.EnableDebugWindow)
-                    {
-                        loggerConfig.WriteTo.Debug(restrictedToMinimumLevel: _currentSettings.SerilogLevel);
-                    }
-                }
-                else
-                {
-                    // Logging disabled - null sink would be configured here if necessary
-                }
-
-#if DEBUG
-                // ✅ SIEMPRE agregar Debug sink en modo DEBUG (aparece en Output Window de VS)
-                loggerConfig.WriteTo.Debug(
-                    outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] [{SourceContext}] {Message:lj}{NewLine}{Exception}",
-                    restrictedToMinimumLevel: LogEventLevel.Debug);
-#endif
-
-                _logger = loggerConfig.CreateLogger();
+                // Configure Serilog pipeline
+                _logger = CreateLoggerConfiguration(_currentSettings).CreateLogger();
                 Log.Logger = _logger;
 
-                _logger.Information("=== Logger Initialized ===");
-                _logger.Information("Settings: Level={LogLevel}, Retention={RetentionDays} days, MaxSize={MaxFileSizeMB}MB",
-                    _currentSettings.LogLevel, _currentSettings.RetentionDays, _currentSettings.MaxFileSizeMB);
-                _logger.Information("Log directory: {LogDirectory}", _currentSettings.FullLogDirectory);
+                LogInitializationInfo();
 
-                // Initial cleanup if enabled
+                // Start background compression if enabled
                 if (_currentSettings.CompressOldLogs)
                 {
-                    Task.Run(() => CompressOldLogs());
+                    Task.Run(() => CompressOldLogsAsync());
                 }
 
                 return _logger;
@@ -114,16 +92,99 @@ namespace NeonSuit.RSSReader.Data.Logging
         }
 
         /// <summary>
-        /// Updates the configuration at runtime.
+        /// Creates the Serilog logger configuration based on provided settings.
         /// </summary>
+        private static LoggerConfiguration CreateLoggerConfiguration(LogSettings settings)
+        {
+            var config = new LoggerConfiguration();
+
+            if (settings.EnableLogging)
+            {
+                // Base level and overrides
+                config.MinimumLevel.Is(settings.SerilogLevel)
+                    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+                    .MinimumLevel.Override("System", LogEventLevel.Warning);
+
+                // Enrichment
+                config.Enrich.FromLogContext()
+                    .Enrich.WithProperty("Application", "NeonSuit.RSSReader")
+                    .Enrich.WithProperty("Version", GetAppVersion())
+                    .Enrich.WithProperty("DeviceName", Environment.MachineName)
+                    .Enrich.WithThreadId()
+                    .Enrich.WithProcessId();
+
+                // Console sink
+                if (settings.EnableConsoleLogging)
+                {
+                    config.WriteTo.Console(
+                        outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}",
+                        restrictedToMinimumLevel: settings.SerilogLevel);
+                }
+
+                // File sink
+                if (settings.EnableFileLogging)
+                {
+                    config.WriteTo.Async(a => a.File(_defaultLogPath,
+                        rollingInterval: RollingInterval.Day,
+                        retainedFileCountLimit: settings.RetentionDays,
+                        fileSizeLimitBytes: settings.MaxFileSizeMB * 1024 * 1024,
+                        rollOnFileSizeLimit: true,
+                        restrictedToMinimumLevel: settings.SerilogLevel,
+                        outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {ThreadId} {SourceContext} {Message:lj}{NewLine}{Exception}"));
+                }
+
+                // Debug sink
+                if (settings.EnableDebugWindow)
+                {
+                    config.WriteTo.Debug(restrictedToMinimumLevel: settings.SerilogLevel);
+                }
+            }
+
+#if DEBUG
+            // Always enable Debug sink in DEBUG builds for Visual Studio output window
+            config.WriteTo.Debug(
+                outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] [{SourceContext}] {Message:lj}{NewLine}{Exception}",
+                restrictedToMinimumLevel: LogEventLevel.Debug);
+#endif
+
+            return config;
+        }
+
+        /// <summary>
+        /// Logs initialization information after logger is created.
+        /// </summary>
+        private static void LogInitializationInfo()
+        {
+            if (_logger == null || _currentSettings == null) return;
+
+            _logger.Information("=== Logger Initialized ===");
+            _logger.Information("Settings: Level={LogLevel}, Retention={RetentionDays} days, MaxSize={MaxFileSizeMB}MB",
+                _currentSettings.LogLevel, _currentSettings.RetentionDays, _currentSettings.MaxFileSizeMB);
+            _logger.Information("Log directory: {LogDirectory}", _currentSettings.FullLogDirectory);
+        }
+
+        #endregion
+
+        #region Runtime Configuration
+
+        /// <summary>
+        /// Updates the logger configuration at runtime.
+        /// </summary>
+        /// <param name="newSettings">The new settings to apply.</param>
+        /// <remarks>
+        /// This method closes the existing logger, saves the new settings,
+        /// and re-initializes the logger with the updated configuration.
+        /// </remarks>
         public static void UpdateConfiguration(LogSettings newSettings)
         {
+            ArgumentNullException.ThrowIfNull(newSettings);
+
             lock (_lock)
             {
                 _currentSettings = newSettings;
                 SaveSettings(newSettings);
 
-                // Re-initialize logger with new configuration
+                // Close existing logger and reinitialize
                 if (_logger != null)
                 {
                     Log.CloseAndFlush();
@@ -137,8 +198,9 @@ namespace NeonSuit.RSSReader.Data.Logging
         }
 
         /// <summary>
-        /// Retrieves the current settings.
+        /// Retrieves the current log settings.
         /// </summary>
+        /// <returns>The current LogSettings instance.</returns>
         public static LogSettings GetCurrentSettings()
         {
             lock (_lock)
@@ -146,6 +208,37 @@ namespace NeonSuit.RSSReader.Data.Logging
                 return _currentSettings ?? LoadSavedSettings() ?? CreateDefaultSettings();
             }
         }
+
+        #endregion
+
+        #region Logger Access
+
+        /// <summary>
+        /// Retrieves the current ILogger instance.
+        /// </summary>
+        /// <returns>The global logger instance.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if logger hasn't been initialized.</exception>
+        public static ILogger GetLogger()
+        {
+            if (_logger == null)
+                throw new InvalidOperationException("Logger not initialized. Call InitializeLogger first.");
+
+            return _logger;
+        }
+
+        /// <summary>
+        /// Creates a logger instance for a specific class context.
+        /// </summary>
+        /// <typeparam name="T">The class type for context enrichment.</typeparam>
+        /// <returns>A contextual logger for the specified type.</returns>
+        public static ILogger CreateLogger<T>() where T : class
+        {
+            return GetLogger().ForContext<T>();
+        }
+
+        #endregion
+
+        #region Log File Management
 
         /// <summary>
         /// Opens the log directory in Windows Explorer.
@@ -155,7 +248,7 @@ namespace NeonSuit.RSSReader.Data.Logging
             var settings = GetCurrentSettings();
             if (Directory.Exists(settings.FullLogDirectory))
             {
-                System.Diagnostics.Process.Start("explorer.exe", settings.FullLogDirectory);
+                Process.Start("explorer.exe", settings.FullLogDirectory);
             }
         }
 
@@ -165,25 +258,22 @@ namespace NeonSuit.RSSReader.Data.Logging
         public static void ClearAllLogs()
         {
             var settings = GetCurrentSettings();
-            if (Directory.Exists(settings.FullLogDirectory))
-            {
-                foreach (var file in Directory.GetFiles(settings.FullLogDirectory, "*.log"))
-                {
-                    try { File.Delete(file); } catch { /* Ignore */ }
-                }
-                foreach (var file in Directory.GetFiles(settings.FullLogDirectory, "*.gz"))
-                {
-                    try { File.Delete(file); } catch { /* Ignore */ }
-                }
+            if (!Directory.Exists(settings.FullLogDirectory)) return;
 
-                GetLogger().Information("All log files cleared by user");
+            var files = Directory.GetFiles(settings.FullLogDirectory, "*.*");
+            foreach (var file in files)
+            {
+                try { File.Delete(file); } catch { /* Ignore individual file errors */ }
             }
+
+            GetLogger().Information("All log files cleared by user");
         }
 
         /// <summary>
         /// Compresses log files older than the specified number of days.
         /// </summary>
-        public static void CompressOldLogs(int daysOld = 7)
+        /// <param name="daysOld">Age threshold in days for compression (default: 7).</param>
+        public static async Task CompressOldLogsAsync(int daysOld = 7)
         {
             try
             {
@@ -194,17 +284,7 @@ namespace NeonSuit.RSSReader.Data.Logging
 
                 foreach (var logFile in logFiles)
                 {
-                    var compressedFile = logFile + ".gz";
-                    using (var originalFileStream = File.OpenRead(logFile))
-                    using (var compressedFileStream = File.Create(compressedFile))
-                    using (var compressionStream = new System.IO.Compression.GZipStream(compressedFileStream,
-                        System.IO.Compression.CompressionLevel.Optimal))
-                    {
-                        originalFileStream.CopyTo(compressionStream);
-                    }
-
-                    File.Delete(logFile);
-                    GetLogger().Information("Compressed log file: {LogFile}", Path.GetFileName(logFile));
+                    await CompressFileAsync(logFile);
                 }
             }
             catch (Exception ex)
@@ -214,8 +294,34 @@ namespace NeonSuit.RSSReader.Data.Logging
         }
 
         /// <summary>
-        /// Gets statistics regarding log file usage.
+        /// Compresses a single log file using GZip.
         /// </summary>
+        private static async Task CompressFileAsync(string filePath)
+        {
+            try
+            {
+                var compressedFile = filePath + ".gz";
+                await using var originalStream = File.OpenRead(filePath);
+                await using var compressedStream = File.Create(compressedFile);
+                await using var gzipStream = new System.IO.Compression.GZipStream(
+                    compressedStream,
+                    System.IO.Compression.CompressionLevel.Optimal);
+
+                await originalStream.CopyToAsync(gzipStream);
+                File.Delete(filePath);
+
+                GetLogger().Information("Compressed log file: {LogFile}", Path.GetFileName(filePath));
+            }
+            catch (Exception ex)
+            {
+                GetLogger().Error(ex, "Failed to compress file: {LogFile}", filePath);
+            }
+        }
+
+        /// <summary>
+        /// Gets statistics about log file usage.
+        /// </summary>
+        /// <returns>A LogStats object with file statistics.</returns>
         public static LogStats GetLogStats()
         {
             var settings = GetCurrentSettings();
@@ -226,25 +332,24 @@ namespace NeonSuit.RSSReader.Data.Logging
             return new LogStats
             {
                 TotalFiles = files.Length,
-                TotalSize = files.Sum(f => f != null ? new FileInfo(f).Length : 0),
-                LogFiles = files.Count(f => f.EndsWith(".log")),
-                CompressedFiles = files.Count(f => f.EndsWith(".gz")),
-                OldestFile = files.Any() ?
-                    File.GetCreationTime(files.OrderBy(f => File.GetCreationTime(f)).First()) :
-                    DateTime.MinValue,
-                NewestFile = files.Any() ?
-                    File.GetCreationTime(files.OrderByDescending(f => File.GetCreationTime(f)).First()) :
-                    DateTime.MinValue
+                TotalSize = files.Sum(f => new FileInfo(f).Length),
+                LogFiles = files.Count(f => f.EndsWith(".log", StringComparison.OrdinalIgnoreCase)),
+                CompressedFiles = files.Count(f => f.EndsWith(".gz", StringComparison.OrdinalIgnoreCase)),
+                OldestFile = files.Any() ? files.Min(f => File.GetCreationTime(f)) : DateTime.MinValue,
+                NewestFile = files.Any() ? files.Max(f => File.GetCreationTime(f)) : DateTime.MinValue
             };
         }
 
-        // Private helper methods
+        #endregion
+
+        #region Settings Persistence
+
         private static LogSettings CreateDefaultSettings()
         {
             return new LogSettings();
         }
 
-        private static LogSettings LoadSavedSettings()
+        private static LogSettings? LoadSavedSettings()
         {
             try
             {
@@ -252,15 +357,14 @@ namespace NeonSuit.RSSReader.Data.Logging
                 if (File.Exists(settingsPath))
                 {
                     var json = File.ReadAllText(settingsPath);
-                    return System.Text.Json.JsonSerializer.Deserialize<LogSettings>(json)
-                        ?? CreateDefaultSettings();
+                    return JsonSerializer.Deserialize<LogSettings>(json);
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"Failed to load log settings: {ex.Message}");
             }
-            return CreateDefaultSettings();
+            return null;
         }
 
         private static void SaveSettings(LogSettings settings)
@@ -269,11 +373,9 @@ namespace NeonSuit.RSSReader.Data.Logging
             {
                 var settingsPath = GetSettingsPath();
                 var settingsDir = Path.GetDirectoryName(settingsPath);
-                if (!string.IsNullOrEmpty(settingsDir) && !Directory.Exists(settingsDir))
-                    Directory.CreateDirectory(settingsDir);
+                EnsureDirectoryExists(settingsDir);
 
-                var json = System.Text.Json.JsonSerializer.Serialize(settings,
-                    new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+                var json = JsonSerializer.Serialize(settings, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(settingsPath, json);
             }
             catch (Exception ex)
@@ -289,42 +391,55 @@ namespace NeonSuit.RSSReader.Data.Logging
                 "NeonSuit", "RSSReader", "Config", "logsettings.json");
         }
 
+        #endregion
+
+        #region Helpers
+
+        private static void EnsureLogDirectoryExists(string path)
+        {
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+        }
+
+        private static void EnsureDirectoryExists(string? path)
+        {
+            if (!string.IsNullOrEmpty(path) && !Directory.Exists(path))
+                Directory.CreateDirectory(path);
+        }
+
         private static string GetAppVersion()
         {
-            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "1.0.0";
+            return Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "1.0.0";
         }
 
-        /// <summary>
-        /// Retrieves the current ILogger instance.
-        /// </summary>
-        public static ILogger GetLogger()
-        {
-            if (_logger == null)
-                throw new InvalidOperationException("Logger not initialized. Call InitializeLogger first.");
+        #endregion
 
-            return _logger;
-        }
+        #region LogStats Class
 
         /// <summary>
-        /// Creates a logger instance for a specific class context.
-        /// </summary>
-        public static ILogger CreateLogger<T>() where T : class
-        {
-            return GetLogger().ForContext<T>();
-        }
-
-        /// <summary>
-        /// Represents statistics about the stored log files.
+        /// Represents statistics about stored log files.
         /// </summary>
         public class LogStats
         {
+            /// <summary>Total number of files in the log directory.</summary>
             public int TotalFiles { get; set; }
+
+            /// <summary>Total size of all files in bytes.</summary>
             public long TotalSize { get; set; }
+
+            /// <summary>Number of .log files.</summary>
             public int LogFiles { get; set; }
+
+            /// <summary>Number of compressed (.gz) files.</summary>
             public int CompressedFiles { get; set; }
+
+            /// <summary>Creation date of the oldest file.</summary>
             public DateTime OldestFile { get; set; }
+
+            /// <summary>Creation date of the newest file.</summary>
             public DateTime NewestFile { get; set; }
 
+            /// <summary>Formatted total size (e.g., "2.5 MB").</summary>
             public string FormattedSize
             {
                 get
@@ -335,10 +450,13 @@ namespace NeonSuit.RSSReader.Data.Logging
                 }
             }
 
+            /// <summary>Returns a string representation of the statistics.</summary>
             public override string ToString()
             {
                 return $"Files: {TotalFiles} ({LogFiles} logs, {CompressedFiles} compressed), Size: {FormattedSize}";
             }
         }
+
+        #endregion
     }
 }

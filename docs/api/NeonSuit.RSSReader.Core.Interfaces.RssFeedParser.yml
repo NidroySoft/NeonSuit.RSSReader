@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  id: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  fullName: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser
+  href: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.html
+  name: IRssFeedParser
+  nameWithType: IRssFeedParser
+  fullName: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser

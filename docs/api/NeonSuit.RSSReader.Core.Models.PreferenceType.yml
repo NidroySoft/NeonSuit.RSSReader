@@ -1,0 +1,253 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceType
+  commentId: T:NeonSuit.RSSReader.Core.Models.PreferenceType
+  id: PreferenceType
+  parent: NeonSuit.RSSReader.Core.Models
+  children:
+  - NeonSuit.RSSReader.Core.Models.PreferenceType.Boolean
+  - NeonSuit.RSSReader.Core.Models.PreferenceType.Color
+  - NeonSuit.RSSReader.Core.Models.PreferenceType.Decimal
+  - NeonSuit.RSSReader.Core.Models.PreferenceType.Integer
+  - NeonSuit.RSSReader.Core.Models.PreferenceType.Option
+  - NeonSuit.RSSReader.Core.Models.PreferenceType.String
+  langs:
+  - csharp
+  - vb
+  name: PreferenceType
+  nameWithType: PreferenceType
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceType
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: PreferenceType
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+    startLine: 651
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: >-
+    Enum representing the data type of a preference.
+
+    Used by UI to render appropriate input controls.
+  example: []
+  syntax:
+    content: public enum PreferenceType
+    content.vb: Public Enum PreferenceType
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceType.String
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceType.String
+  id: String
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceType
+  langs:
+  - csharp
+  - vb
+  name: String
+  nameWithType: PreferenceType.String
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceType.String
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: String
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+    startLine: 654
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Plain text input
+  example: []
+  syntax:
+    content: String = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Models.PreferenceType
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceType.Boolean
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceType.Boolean
+  id: Boolean
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceType
+  langs:
+  - csharp
+  - vb
+  name: Boolean
+  nameWithType: PreferenceType.Boolean
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceType.Boolean
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Boolean
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+    startLine: 656
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Checkbox for true/false
+  example: []
+  syntax:
+    content: Boolean = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Models.PreferenceType
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceType.Integer
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceType.Integer
+  id: Integer
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceType
+  langs:
+  - csharp
+  - vb
+  name: Integer
+  nameWithType: PreferenceType.Integer
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceType.Integer
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Integer
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+    startLine: 658
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Number input with optional spinner
+  example: []
+  syntax:
+    content: Integer = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Models.PreferenceType
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceType.Decimal
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceType.Decimal
+  id: Decimal
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceType
+  langs:
+  - csharp
+  - vb
+  name: Decimal
+  nameWithType: PreferenceType.Decimal
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceType.Decimal
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Decimal
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+    startLine: 660
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Number input with decimal support
+  example: []
+  syntax:
+    content: Decimal = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Models.PreferenceType
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceType.Color
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceType.Color
+  id: Color
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceType
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: PreferenceType.Color
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceType.Color
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Color
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+    startLine: 662
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Color picker
+  example: []
+  syntax:
+    content: Color = 4
+    return:
+      type: NeonSuit.RSSReader.Core.Models.PreferenceType
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceType.Option
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceType.Option
+  id: Option
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceType
+  langs:
+  - csharp
+  - vb
+  name: Option
+  nameWithType: PreferenceType.Option
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceType.Option
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Option
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceHelper.cs
+    startLine: 664
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Dropdown select from predefined options
+  example: []
+  syntax:
+    content: Option = 5
+    return:
+      type: NeonSuit.RSSReader.Core.Models.PreferenceType
+references:
+- uid: NeonSuit.RSSReader.Core.Models
+  commentId: N:NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models
+  nameWithType: NeonSuit.RSSReader.Core.Models
+  fullName: NeonSuit.RSSReader.Core.Models
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceType
+  commentId: T:NeonSuit.RSSReader.Core.Models.PreferenceType
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.PreferenceType.html
+  name: PreferenceType
+  nameWithType: PreferenceType
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceType

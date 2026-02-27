@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Article
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Article
+  id: NeonSuit.RSSReader.Core.DTOs.Article
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleListItemDto
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleStateDto
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto
+  - NeonSuit.RSSReader.Core.DTOs.Article.CreateArticleDto
+  - NeonSuit.RSSReader.Core.DTOs.Article.UpdateArticleDto
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.DTOs.Article
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Article
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html
+  name: ArticleDetailDto
+  nameWithType: ArticleDetailDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleListItemDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Article.ArticleListItemDto
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleListItemDto.html
+  name: ArticleListItemDto
+  nameWithType: ArticleListItemDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleListItemDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleStateDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Article.ArticleStateDto
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleStateDto.html
+  name: ArticleStateDto
+  nameWithType: ArticleStateDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleStateDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto.html
+  name: ArticleSummaryDto
+  nameWithType: ArticleSummaryDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.CreateArticleDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Article.CreateArticleDto
+  href: NeonSuit.RSSReader.Core.DTOs.Article.CreateArticleDto.html
+  name: CreateArticleDto
+  nameWithType: CreateArticleDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.CreateArticleDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.UpdateArticleDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Article.UpdateArticleDto
+  href: NeonSuit.RSSReader.Core.DTOs.Article.UpdateArticleDto.html
+  name: UpdateArticleDto
+  nameWithType: UpdateArticleDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.UpdateArticleDto

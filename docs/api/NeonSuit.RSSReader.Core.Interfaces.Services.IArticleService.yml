@@ -1,0 +1,2387 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  id: IArticleService
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsNotifiedAsync(System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsProcessedAsync(System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOldArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOlderThanAsync(System.DateTime,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DetachEntityAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByContentHashAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByGuidAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetAllArticlesAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoriesAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoryAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByFeedAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByContentHashAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByGuidAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetFavoriteArticlesAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync(System.Int32,System.Int32,System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedByFeedAsync(System.Int32,System.Int32,System.Int32,System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetStarredArticlesAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnnotifiedArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnprocessedArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountsByFeedAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsNotifiedAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsProcessedAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsReadAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.SearchArticlesAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleFavoriteAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleStarredAsync(System.Int32,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IArticleService
+  nameWithType: IArticleService
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IArticleService
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 34
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Service interface for managing article-related business logic and operations.
+
+    Acts as an abstraction layer between UI/presentation and data repositories,
+
+    coordinating article retrieval, state changes (read/star/favorite), search,
+
+    cleanup, and statistics.
+  remarks: >-
+    <p>
+
+    This service centralizes all article-related use cases in the RSS reader application,
+
+    ensuring consistent business rules, validation, and transaction boundaries.
+
+    It delegates persistence to <xref href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository" data-throw-if-not-resolved="false"></xref> and related repositories.
+
+    </p>
+
+    <p>
+
+    All methods return DTOs instead of entities to maintain separation of concerns
+
+    and prevent leaking persistence details to the presentation layer.
+
+    </p>
+
+    <p>
+
+    Implementations must ensure:
+
+    <ul><li>All read operations are efficient and memory-safe (pagination, AsNoTracking, server-side filtering).</li><li>State changes (read/star/favorite/notified/processed) are atomic and logged.</li><li>Search supports full-text or keyword matching with relevance ordering.</li><li>Cleanup operations (delete old) are safe and respect user preferences (e.g., starred/favorite protection).</li><li>Statistics (unread counts) are cached or computed efficiently.</li><li>Cancellation support for long-running operations via <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: public interface IArticleService
+    content.vb: Public Interface IArticleService
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetAllArticlesAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetAllArticlesAsync(System.Threading.CancellationToken)
+  id: GetAllArticlesAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetAllArticlesAsync(CancellationToken)
+  nameWithType: IArticleService.GetAllArticlesAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetAllArticlesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetAllArticlesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 47
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all articles from the data store.
+  remarks: >-
+    This method is intended for administrative or export scenarios.
+
+    Prefer <xref href="NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync(System.Int32%2cSystem.Int32%2cSystem.Nullable%7bNeonSuit.RSSReader.Core.Enums.ArticleStatus%7d%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> for display purposes.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetAllArticlesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: A list of article summaries.
+    content.vb: Function GetAllArticlesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetAllArticlesAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByFeedAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByFeedAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  id: GetArticlesByFeedAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetArticlesByFeedAsync(int, int, CancellationToken)
+  nameWithType: IArticleService.GetArticlesByFeedAsync(int, int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByFeedAsync(int, int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetArticlesByFeedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 57
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves articles associated with a specific feed.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetArticlesByFeedAsync(int feedId, int limit = 100, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The unique identifier of the feed.
+    - id: limit
+      type: System.Int32
+      description: 'Maximum number of articles to return. Default: 100.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: A list of article summaries for the specified feed.
+    content.vb: Function GetArticlesByFeedAsync(feedId As Integer, limit As Integer = 100, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByFeedAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if feedId is less than or equal to 0.
+  nameWithType.vb: IArticleService.GetArticlesByFeedAsync(Integer, Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByFeedAsync(Integer, Integer, System.Threading.CancellationToken)
+  name.vb: GetArticlesByFeedAsync(Integer, Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoryAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoryAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  id: GetArticlesByCategoryAsync(System.Int32,System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetArticlesByCategoryAsync(int, int, CancellationToken)
+  nameWithType: IArticleService.GetArticlesByCategoryAsync(int, int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoryAsync(int, int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetArticlesByCategoryAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 67
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves articles associated with a specific category.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetArticlesByCategoryAsync(int categoryId, int limit = 100, CancellationToken cancellationToken = default)
+    parameters:
+    - id: categoryId
+      type: System.Int32
+      description: The unique identifier of the category.
+    - id: limit
+      type: System.Int32
+      description: 'Maximum number of articles to return. Default: 100.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: A list of article summaries for the specified category.
+    content.vb: Function GetArticlesByCategoryAsync(categoryId As Integer, limit As Integer = 100, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoryAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if categoryId is less than or equal to 0.
+  nameWithType.vb: IArticleService.GetArticlesByCategoryAsync(Integer, Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoryAsync(Integer, Integer, System.Threading.CancellationToken)
+  name.vb: GetArticlesByCategoryAsync(Integer, Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetUnreadArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetUnreadArticlesAsync(int, CancellationToken)
+  nameWithType: IArticleService.GetUnreadArticlesAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadArticlesAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetUnreadArticlesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 75
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all unread articles across all feeds.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetUnreadArticlesAsync(int limit = 100, CancellationToken cancellationToken = default)
+    parameters:
+    - id: limit
+      type: System.Int32
+      description: 'Maximum number of articles to return. Default: 100.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: A list of unread article summaries.
+    content.vb: Function GetUnreadArticlesAsync(limit As Integer = 100, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadArticlesAsync*
+  nameWithType.vb: IArticleService.GetUnreadArticlesAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadArticlesAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetUnreadArticlesAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetStarredArticlesAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetStarredArticlesAsync(System.Threading.CancellationToken)
+  id: GetStarredArticlesAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetStarredArticlesAsync(CancellationToken)
+  nameWithType: IArticleService.GetStarredArticlesAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetStarredArticlesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetStarredArticlesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 82
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all starred (bookmarked) articles.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetStarredArticlesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: A list of starred article summaries.
+    content.vb: Function GetStarredArticlesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetStarredArticlesAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetFavoriteArticlesAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetFavoriteArticlesAsync(System.Threading.CancellationToken)
+  id: GetFavoriteArticlesAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetFavoriteArticlesAsync(CancellationToken)
+  nameWithType: IArticleService.GetFavoriteArticlesAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetFavoriteArticlesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetFavoriteArticlesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 89
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all favorite articles.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetFavoriteArticlesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: A list of favorite article summaries.
+    content.vb: Function GetFavoriteArticlesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetFavoriteArticlesAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetUnreadByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetUnreadByFeedAsync(int, CancellationToken)
+  nameWithType: IArticleService.GetUnreadByFeedAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadByFeedAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetUnreadByFeedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 98
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves unread articles for a specific feed.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetUnreadByFeedAsync(int feedId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The unique identifier of the feed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: A list of unread article summaries for the specified feed.
+    content.vb: Function GetUnreadByFeedAsync(feedId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadByFeedAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if feedId is less than or equal to 0.
+  nameWithType.vb: IArticleService.GetUnreadByFeedAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadByFeedAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetUnreadByFeedAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.SearchArticlesAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.SearchArticlesAsync(System.String,System.Threading.CancellationToken)
+  id: SearchArticlesAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: SearchArticlesAsync(string, CancellationToken)
+  nameWithType: IArticleService.SearchArticlesAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.SearchArticlesAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SearchArticlesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 107
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Searches articles by keyword or phrase, matching against title and/or content.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> SearchArticlesAsync(string searchText, CancellationToken cancellationToken = default)
+    parameters:
+    - id: searchText
+      type: System.String
+      description: The search term (case-insensitive).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: A list of matching article summaries, ordered by relevance.
+    content.vb: Function SearchArticlesAsync(searchText As String, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.SearchArticlesAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if searchText is null or whitespace.
+  nameWithType.vb: IArticleService.SearchArticlesAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.SearchArticlesAsync(String, System.Threading.CancellationToken)
+  name.vb: SearchArticlesAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync(System.Int32,System.Int32,System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync(System.Int32,System.Int32,System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus},System.Threading.CancellationToken)
+  id: GetPagedArticlesAsync(System.Int32,System.Int32,System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetPagedArticlesAsync(int, int, ArticleStatus?, CancellationToken)
+  nameWithType: IArticleService.GetPagedArticlesAsync(int, int, ArticleStatus?, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync(int, int, NeonSuit.RSSReader.Core.Enums.ArticleStatus?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetPagedArticlesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 118
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves a paginated list of articles with an optional filter by status.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetPagedArticlesAsync(int page, int pageSize, ArticleStatus? status = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: page
+      type: System.Int32
+      description: The 1-based page number to retrieve.
+    - id: pageSize
+      type: System.Int32
+      description: The maximum number of articles to return per page.
+    - id: status
+      type: System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus}
+      description: Optional filter by article status.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: A list of article summaries for the specified page.
+    content.vb: Function GetPagedArticlesAsync(page As Integer, pageSize As Integer, status As ArticleStatus? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if page or pageSize is less than 1.
+  nameWithType.vb: IArticleService.GetPagedArticlesAsync(Integer, Integer, ArticleStatus?, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync(Integer, Integer, NeonSuit.RSSReader.Core.Enums.ArticleStatus?, System.Threading.CancellationToken)
+  name.vb: GetPagedArticlesAsync(Integer, Integer, ArticleStatus?, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedByFeedAsync(System.Int32,System.Int32,System.Int32,System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedByFeedAsync(System.Int32,System.Int32,System.Int32,System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus},System.Threading.CancellationToken)
+  id: GetPagedByFeedAsync(System.Int32,System.Int32,System.Int32,System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetPagedByFeedAsync(int, int, int, ArticleStatus?, CancellationToken)
+  nameWithType: IArticleService.GetPagedByFeedAsync(int, int, int, ArticleStatus?, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedByFeedAsync(int, int, int, NeonSuit.RSSReader.Core.Enums.ArticleStatus?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetPagedByFeedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 130
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves a paginated list of articles for a specific feed.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetPagedByFeedAsync(int feedId, int page, int pageSize, ArticleStatus? status = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The unique identifier of the feed.
+    - id: page
+      type: System.Int32
+      description: The 1-based page number to retrieve.
+    - id: pageSize
+      type: System.Int32
+      description: The maximum number of articles to return per page.
+    - id: status
+      type: System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus}
+      description: Optional filter by article status.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: A list of article summaries for the specified feed and page.
+    content.vb: Function GetPagedByFeedAsync(feedId As Integer, page As Integer, pageSize As Integer, status As ArticleStatus? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedByFeedAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if feedId, page, or pageSize is invalid.
+  nameWithType.vb: IArticleService.GetPagedByFeedAsync(Integer, Integer, Integer, ArticleStatus?, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedByFeedAsync(Integer, Integer, Integer, NeonSuit.RSSReader.Core.Enums.ArticleStatus?, System.Threading.CancellationToken)
+  name.vb: GetPagedByFeedAsync(Integer, Integer, Integer, ArticleStatus?, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsReadAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsReadAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  id: MarkAsReadAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: MarkAsReadAsync(int, bool, CancellationToken)
+  nameWithType: IArticleService.MarkAsReadAsync(int, bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsReadAsync(int, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MarkAsReadAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 144
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Marks an article as read or unread.
+  example: []
+  syntax:
+    content: Task<bool> MarkAsReadAsync(int articleId, bool isRead, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article.
+    - id: isRead
+      type: System.Boolean
+      description: True to mark as read, false to mark as unread.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the article's read status was successfully changed; otherwise false.
+    content.vb: Function MarkAsReadAsync(articleId As Integer, isRead As Boolean, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsReadAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId is less than or equal to 0.
+  nameWithType.vb: IArticleService.MarkAsReadAsync(Integer, Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsReadAsync(Integer, Boolean, System.Threading.CancellationToken)
+  name.vb: MarkAsReadAsync(Integer, Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleStarredAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleStarredAsync(System.Int32,System.Threading.CancellationToken)
+  id: ToggleStarredAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: ToggleStarredAsync(int, CancellationToken)
+  nameWithType: IArticleService.ToggleStarredAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleStarredAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ToggleStarredAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 153
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Toggles the starred (bookmarked) state of an article.
+  example: []
+  syntax:
+    content: Task<bool> ToggleStarredAsync(int articleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the starred state was successfully toggled; otherwise false.
+    content.vb: Function ToggleStarredAsync(articleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleStarredAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId is less than or equal to 0.
+  nameWithType.vb: IArticleService.ToggleStarredAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleStarredAsync(Integer, System.Threading.CancellationToken)
+  name.vb: ToggleStarredAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleFavoriteAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleFavoriteAsync(System.Int32,System.Threading.CancellationToken)
+  id: ToggleFavoriteAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: ToggleFavoriteAsync(int, CancellationToken)
+  nameWithType: IArticleService.ToggleFavoriteAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleFavoriteAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ToggleFavoriteAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 162
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Toggles the favorite state of an article.
+  example: []
+  syntax:
+    content: Task<bool> ToggleFavoriteAsync(int articleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the favorite state was successfully toggled; otherwise false.
+    content.vb: Function ToggleFavoriteAsync(articleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleFavoriteAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId is less than or equal to 0.
+  nameWithType.vb: IArticleService.ToggleFavoriteAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleFavoriteAsync(Integer, System.Threading.CancellationToken)
+  name.vb: ToggleFavoriteAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsNotifiedAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsNotifiedAsync(System.Int32,System.Threading.CancellationToken)
+  id: MarkAsNotifiedAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: MarkAsNotifiedAsync(int, CancellationToken)
+  nameWithType: IArticleService.MarkAsNotifiedAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsNotifiedAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MarkAsNotifiedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 171
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Marks an article as notified, indicating that a notification for this article has been sent.
+  example: []
+  syntax:
+    content: Task<bool> MarkAsNotifiedAsync(int articleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the article was successfully marked as notified; otherwise false.
+    content.vb: Function MarkAsNotifiedAsync(articleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsNotifiedAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId is less than or equal to 0.
+  nameWithType.vb: IArticleService.MarkAsNotifiedAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsNotifiedAsync(Integer, System.Threading.CancellationToken)
+  name.vb: MarkAsNotifiedAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsProcessedAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsProcessedAsync(System.Int32,System.Threading.CancellationToken)
+  id: MarkAsProcessedAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: MarkAsProcessedAsync(int, CancellationToken)
+  nameWithType: IArticleService.MarkAsProcessedAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsProcessedAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MarkAsProcessedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 180
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Marks an article as processed by the rules engine.
+  example: []
+  syntax:
+    content: Task<bool> MarkAsProcessedAsync(int articleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleId
+      type: System.Int32
+      description: The unique identifier of the article.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the article was successfully marked as processed; otherwise false.
+    content.vb: Function MarkAsProcessedAsync(articleId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsProcessedAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if articleId is less than or equal to 0.
+  nameWithType.vb: IArticleService.MarkAsProcessedAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsProcessedAsync(Integer, System.Threading.CancellationToken)
+  name.vb: MarkAsProcessedAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  id: MarkAllAsReadByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: MarkAllAsReadByFeedAsync(int, CancellationToken)
+  nameWithType: IArticleService.MarkAllAsReadByFeedAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadByFeedAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MarkAllAsReadByFeedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 189
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Marks all articles as read for a specific feed in a bulk operation.
+  example: []
+  syntax:
+    content: Task<int> MarkAllAsReadByFeedAsync(int feedId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The unique identifier of the feed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of articles marked as read.
+    content.vb: Function MarkAllAsReadByFeedAsync(feedId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadByFeedAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if feedId is less than or equal to 0.
+  nameWithType.vb: IArticleService.MarkAllAsReadByFeedAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadByFeedAsync(Integer, System.Threading.CancellationToken)
+  name.vb: MarkAllAsReadByFeedAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  id: MarkAllAsReadAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: MarkAllAsReadAsync(CancellationToken)
+  nameWithType: IArticleService.MarkAllAsReadAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MarkAllAsReadAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 196
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Marks all articles as read in a bulk operation.
+  example: []
+  syntax:
+    content: Task<int> MarkAllAsReadAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of articles marked as read.
+    content.vb: Function MarkAllAsReadAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsProcessedAsync(System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsProcessedAsync(System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  id: BulkMarkAsProcessedAsync(System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: BulkMarkAsProcessedAsync(List<int>, CancellationToken)
+  nameWithType: IArticleService.BulkMarkAsProcessedAsync(List<int>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsProcessedAsync(System.Collections.Generic.List<int>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: BulkMarkAsProcessedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 209
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Bulk marks multiple articles as processed by the rules engine.
+  example: []
+  syntax:
+    content: Task<int> BulkMarkAsProcessedAsync(List<int> articleIds, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleIds
+      type: System.Collections.Generic.List{System.Int32}
+      description: The list of article IDs to mark as processed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of articles successfully marked as processed.
+    content.vb: Function BulkMarkAsProcessedAsync(articleIds As List(Of Integer), cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsProcessedAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if articleIds is null.
+  nameWithType.vb: IArticleService.BulkMarkAsProcessedAsync(List(Of Integer), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsProcessedAsync(System.Collections.Generic.List(Of Integer), System.Threading.CancellationToken)
+  name.vb: BulkMarkAsProcessedAsync(List(Of Integer), CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsNotifiedAsync(System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsNotifiedAsync(System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  id: BulkMarkAsNotifiedAsync(System.Collections.Generic.List{System.Int32},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: BulkMarkAsNotifiedAsync(List<int>, CancellationToken)
+  nameWithType: IArticleService.BulkMarkAsNotifiedAsync(List<int>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsNotifiedAsync(System.Collections.Generic.List<int>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: BulkMarkAsNotifiedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 218
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Bulk marks multiple articles as notified.
+  example: []
+  syntax:
+    content: Task<int> BulkMarkAsNotifiedAsync(List<int> articleIds, CancellationToken cancellationToken = default)
+    parameters:
+    - id: articleIds
+      type: System.Collections.Generic.List{System.Int32}
+      description: The list of article IDs to mark as notified.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of articles successfully marked as notified.
+    content.vb: Function BulkMarkAsNotifiedAsync(articleIds As List(Of Integer), cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsNotifiedAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if articleIds is null.
+  nameWithType.vb: IArticleService.BulkMarkAsNotifiedAsync(List(Of Integer), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsNotifiedAsync(System.Collections.Generic.List(Of Integer), System.Threading.CancellationToken)
+  name.vb: BulkMarkAsNotifiedAsync(List(Of Integer), CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOlderThanAsync(System.DateTime,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOlderThanAsync(System.DateTime,System.Threading.CancellationToken)
+  id: DeleteOlderThanAsync(System.DateTime,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: DeleteOlderThanAsync(DateTime, CancellationToken)
+  nameWithType: IArticleService.DeleteOlderThanAsync(DateTime, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOlderThanAsync(System.DateTime, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DeleteOlderThanAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 233
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Deletes articles older than the specified cutoff date.
+  remarks: This operation protects starred and favorite articles from deletion.
+  example: []
+  syntax:
+    content: Task<int> DeleteOlderThanAsync(DateTime cutoffDate, CancellationToken cancellationToken = default)
+    parameters:
+    - id: cutoffDate
+      type: System.DateTime
+      description: The cutoff date; articles older than this will be deleted.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of articles successfully deleted.
+    content.vb: Function DeleteOlderThanAsync(cutoffDate As Date, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOlderThanAsync*
+  nameWithType.vb: IArticleService.DeleteOlderThanAsync(Date, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOlderThanAsync(Date, System.Threading.CancellationToken)
+  name.vb: DeleteOlderThanAsync(Date, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOldArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOldArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  id: DeleteOldArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: DeleteOldArticlesAsync(int, CancellationToken)
+  nameWithType: IArticleService.DeleteOldArticlesAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOldArticlesAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DeleteOldArticlesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 242
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Deletes articles older than the specified number of days.
+  example: []
+  syntax:
+    content: Task<int> DeleteOldArticlesAsync(int daysOld = 30, CancellationToken cancellationToken = default)
+    parameters:
+    - id: daysOld
+      type: System.Int32
+      description: 'The minimum age in days for an article to be eligible for deletion (default: 30).'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of articles successfully deleted.
+    content.vb: Function DeleteOldArticlesAsync(daysOld As Integer = 30, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOldArticlesAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if daysOld is negative.
+  nameWithType.vb: IArticleService.DeleteOldArticlesAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOldArticlesAsync(Integer, System.Threading.CancellationToken)
+  name.vb: DeleteOldArticlesAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  id: DeleteByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: DeleteByFeedAsync(int, CancellationToken)
+  nameWithType: IArticleService.DeleteByFeedAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteByFeedAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DeleteByFeedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 251
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Deletes all articles for a specific feed.
+  example: []
+  syntax:
+    content: Task<int> DeleteByFeedAsync(int feedId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The unique identifier of the feed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of articles successfully deleted.
+    content.vb: Function DeleteByFeedAsync(feedId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteByFeedAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if feedId is less than or equal to 0.
+  nameWithType.vb: IArticleService.DeleteByFeedAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteByFeedAsync(Integer, System.Threading.CancellationToken)
+  name.vb: DeleteByFeedAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountAsync(System.Threading.CancellationToken)
+  id: GetUnreadCountAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetUnreadCountAsync(CancellationToken)
+  nameWithType: IArticleService.GetUnreadCountAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetUnreadCountAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 262
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets the total number of unread articles across all feeds.
+  example: []
+  syntax:
+    content: Task<int> GetUnreadCountAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The total count of unread articles.
+    content.vb: Function GetUnreadCountAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetUnreadCountByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetUnreadCountByFeedAsync(int, CancellationToken)
+  nameWithType: IArticleService.GetUnreadCountByFeedAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountByFeedAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetUnreadCountByFeedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 271
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets the number of unread articles for a specific feed.
+  example: []
+  syntax:
+    content: Task<int> GetUnreadCountByFeedAsync(int feedId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The unique identifier of the feed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The count of unread articles in the specified feed.
+    content.vb: Function GetUnreadCountByFeedAsync(feedId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountByFeedAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if feedId is less than or equal to 0.
+  nameWithType.vb: IArticleService.GetUnreadCountByFeedAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountByFeedAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetUnreadCountByFeedAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountsByFeedAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountsByFeedAsync(System.Threading.CancellationToken)
+  id: GetUnreadCountsByFeedAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetUnreadCountsByFeedAsync(CancellationToken)
+  nameWithType: IArticleService.GetUnreadCountsByFeedAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountsByFeedAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetUnreadCountsByFeedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 278
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets unread counts for all feeds, grouped by feed ID.
+  example: []
+  syntax:
+    content: Task<Dictionary<int, int>> GetUnreadCountsByFeedAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+      description: A dictionary mapping feed IDs to unread counts.
+    content.vb: Function GetUnreadCountsByFeedAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Dictionary(Of Integer, Integer))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountsByFeedAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnprocessedArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnprocessedArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetUnprocessedArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetUnprocessedArticlesAsync(int, CancellationToken)
+  nameWithType: IArticleService.GetUnprocessedArticlesAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnprocessedArticlesAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetUnprocessedArticlesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 290
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves articles that have not yet been processed by the rules engine.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetUnprocessedArticlesAsync(int limit = 100, CancellationToken cancellationToken = default)
+    parameters:
+    - id: limit
+      type: System.Int32
+      description: 'Maximum number of articles to return. Default: 100.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: A list of unprocessed article summaries.
+    content.vb: Function GetUnprocessedArticlesAsync(limit As Integer = 100, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnprocessedArticlesAsync*
+  nameWithType.vb: IArticleService.GetUnprocessedArticlesAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnprocessedArticlesAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetUnprocessedArticlesAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnnotifiedArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnnotifiedArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetUnnotifiedArticlesAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetUnnotifiedArticlesAsync(int, CancellationToken)
+  nameWithType: IArticleService.GetUnnotifiedArticlesAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnnotifiedArticlesAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetUnnotifiedArticlesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 298
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves articles that have not yet been notified to the user.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetUnnotifiedArticlesAsync(int limit = 100, CancellationToken cancellationToken = default)
+    parameters:
+    - id: limit
+      type: System.Int32
+      description: 'Maximum number of articles to return. Default: 100.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: A list of unnotified article summaries.
+    content.vb: Function GetUnnotifiedArticlesAsync(limit As Integer = 100, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnnotifiedArticlesAsync*
+  nameWithType.vb: IArticleService.GetUnnotifiedArticlesAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnnotifiedArticlesAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetUnnotifiedArticlesAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoriesAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoriesAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  id: GetArticlesByCategoriesAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetArticlesByCategoriesAsync(string, int, CancellationToken)
+  nameWithType: IArticleService.GetArticlesByCategoriesAsync(string, int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoriesAsync(string, int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetArticlesByCategoriesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 308
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves articles belonging to one or more specified categories.
+  example: []
+  syntax:
+    content: Task<List<ArticleSummaryDto>> GetArticlesByCategoriesAsync(string categories, int limit = 100, CancellationToken cancellationToken = default)
+    parameters:
+    - id: categories
+      type: System.String
+      description: A comma-separated string of category IDs or names.
+    - id: limit
+      type: System.Int32
+      description: 'Maximum number of articles to return. Default: 100.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+      description: A list of matching article summaries.
+    content.vb: Function GetArticlesByCategoriesAsync(categories As String, limit As Integer = 100, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ArticleSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoriesAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if categories is null or whitespace.
+  nameWithType.vb: IArticleService.GetArticlesByCategoriesAsync(String, Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoriesAsync(String, Integer, System.Threading.CancellationToken)
+  name.vb: GetArticlesByCategoriesAsync(String, Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByGuidAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByGuidAsync(System.String,System.Threading.CancellationToken)
+  id: GetByGuidAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetByGuidAsync(string, CancellationToken)
+  nameWithType: IArticleService.GetByGuidAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByGuidAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetByGuidAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 321
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves an article by its unique GUID.
+  example: []
+  syntax:
+    content: Task<ArticleDetailDto?> GetByGuidAsync(string guid, CancellationToken cancellationToken = default)
+    parameters:
+    - id: guid
+      type: System.String
+      description: The GUID of the article.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto}
+      description: The article detail if found; otherwise, null.
+    content.vb: Function GetByGuidAsync(guid As String, cancellationToken As CancellationToken = Nothing) As Task(Of ArticleDetailDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByGuidAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if guid is null or whitespace.
+  nameWithType.vb: IArticleService.GetByGuidAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByGuidAsync(String, System.Threading.CancellationToken)
+  name.vb: GetByGuidAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByContentHashAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByContentHashAsync(System.String,System.Threading.CancellationToken)
+  id: GetByContentHashAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: GetByContentHashAsync(string, CancellationToken)
+  nameWithType: IArticleService.GetByContentHashAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByContentHashAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetByContentHashAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 330
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves an article by its content hash.
+  example: []
+  syntax:
+    content: Task<ArticleDetailDto?> GetByContentHashAsync(string hash, CancellationToken cancellationToken = default)
+    parameters:
+    - id: hash
+      type: System.String
+      description: The content hash of the article.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto}
+      description: The article detail if found; otherwise, null.
+    content.vb: Function GetByContentHashAsync(hash As String, cancellationToken As CancellationToken = Nothing) As Task(Of ArticleDetailDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByContentHashAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if hash is null or whitespace.
+  nameWithType.vb: IArticleService.GetByContentHashAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByContentHashAsync(String, System.Threading.CancellationToken)
+  name.vb: GetByContentHashAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByGuidAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByGuidAsync(System.String,System.Threading.CancellationToken)
+  id: ExistsByGuidAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: ExistsByGuidAsync(string, CancellationToken)
+  nameWithType: IArticleService.ExistsByGuidAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByGuidAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ExistsByGuidAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 339
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Checks if an article with the specified GUID exists.
+  example: []
+  syntax:
+    content: Task<bool> ExistsByGuidAsync(string guid, CancellationToken cancellationToken = default)
+    parameters:
+    - id: guid
+      type: System.String
+      description: The GUID to check.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if an article with this GUID exists; otherwise, false.
+    content.vb: Function ExistsByGuidAsync(guid As String, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByGuidAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if guid is null or whitespace.
+  nameWithType.vb: IArticleService.ExistsByGuidAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByGuidAsync(String, System.Threading.CancellationToken)
+  name.vb: ExistsByGuidAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByContentHashAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByContentHashAsync(System.String,System.Threading.CancellationToken)
+  id: ExistsByContentHashAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: ExistsByContentHashAsync(string, CancellationToken)
+  nameWithType: IArticleService.ExistsByContentHashAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByContentHashAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ExistsByContentHashAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 348
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Checks if an article with the specified content hash exists.
+  example: []
+  syntax:
+    content: Task<bool> ExistsByContentHashAsync(string hash, CancellationToken cancellationToken = default)
+    parameters:
+    - id: hash
+      type: System.String
+      description: The content hash to check.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if an article with this content hash exists; otherwise, false.
+    content.vb: Function ExistsByContentHashAsync(hash As String, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByContentHashAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if hash is null or whitespace.
+  nameWithType.vb: IArticleService.ExistsByContentHashAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByContentHashAsync(String, System.Threading.CancellationToken)
+  name.vb: ExistsByContentHashAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DetachEntityAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DetachEntityAsync(System.Int32,System.Threading.CancellationToken)
+  id: DetachEntityAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+  langs:
+  - csharp
+  - vb
+  name: DetachEntityAsync(int, CancellationToken)
+  nameWithType: IArticleService.DetachEntityAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DetachEntityAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DetachEntityAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IArticleService.cs
+    startLine: 360
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Detaches an article entity from the change tracker.
+  example: []
+  syntax:
+    content: Task DetachEntityAsync(int id, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: The ID of the article to detach.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Function DetachEntityAsync(id As Integer, cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DetachEntityAsync*
+  nameWithType.vb: IArticleService.DetachEntityAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DetachEntityAsync(Integer, System.Threading.CancellationToken)
+  name.vb: DetachEntityAsync(Integer, CancellationToken)
+references:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository.html
+  name: IArticleRepository
+  nameWithType: IArticleRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Services
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Services
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Services
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync(System.Int32,System.Int32,System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync(System.Int32,System.Int32,System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus},System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetPagedArticlesAsync_System_Int32_System_Int32_System_Nullable_NeonSuit_RSSReader_Core_Enums_ArticleStatus__System_Threading_CancellationToken_
+  name: GetPagedArticlesAsync(int, int, ArticleStatus?, CancellationToken)
+  nameWithType: IArticleService.GetPagedArticlesAsync(int, int, ArticleStatus?, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync(int, int, NeonSuit.RSSReader.Core.Enums.ArticleStatus?, System.Threading.CancellationToken)
+  nameWithType.vb: IArticleService.GetPagedArticlesAsync(Integer, Integer, ArticleStatus?, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync(Integer, Integer, NeonSuit.RSSReader.Core.Enums.ArticleStatus?, System.Threading.CancellationToken)
+  name.vb: GetPagedArticlesAsync(Integer, Integer, ArticleStatus?, CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync(System.Int32,System.Int32,System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus},System.Threading.CancellationToken)
+    name: GetPagedArticlesAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetPagedArticlesAsync_System_Int32_System_Int32_System_Nullable_NeonSuit_RSSReader_Core_Enums_ArticleStatus__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+    name: ArticleStatus
+    href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync(System.Int32,System.Int32,System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus},System.Threading.CancellationToken)
+    name: GetPagedArticlesAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetPagedArticlesAsync_System_Int32_System_Int32_System_Nullable_NeonSuit_RSSReader_Core_Enums_ArticleStatus__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+    name: ArticleStatus
+    href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html
+  - name: '?'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetAllArticlesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetAllArticlesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetAllArticlesAsync_System_Threading_CancellationToken_
+  name: GetAllArticlesAsync
+  nameWithType: IArticleService.GetAllArticlesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetAllArticlesAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<ArticleSummaryDto>>
+  nameWithType: Task<List<ArticleSummaryDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto>>
+  nameWithType.vb: Task(Of List(Of ArticleSummaryDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto))
+  name.vb: Task(Of List(Of ArticleSummaryDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto
+    name: ArticleSummaryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto
+    name: ArticleSummaryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto.html
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByFeedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByFeedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetArticlesByFeedAsync_System_Int32_System_Int32_System_Threading_CancellationToken_
+  name: GetArticlesByFeedAsync
+  nameWithType: IArticleService.GetArticlesByFeedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByFeedAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoryAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoryAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetArticlesByCategoryAsync_System_Int32_System_Int32_System_Threading_CancellationToken_
+  name: GetArticlesByCategoryAsync
+  nameWithType: IArticleService.GetArticlesByCategoryAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoryAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadArticlesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadArticlesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetUnreadArticlesAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetUnreadArticlesAsync
+  nameWithType: IArticleService.GetUnreadArticlesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadArticlesAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetStarredArticlesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetStarredArticlesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetStarredArticlesAsync_System_Threading_CancellationToken_
+  name: GetStarredArticlesAsync
+  nameWithType: IArticleService.GetStarredArticlesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetStarredArticlesAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetFavoriteArticlesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetFavoriteArticlesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetFavoriteArticlesAsync_System_Threading_CancellationToken_
+  name: GetFavoriteArticlesAsync
+  nameWithType: IArticleService.GetFavoriteArticlesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetFavoriteArticlesAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadByFeedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadByFeedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetUnreadByFeedAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetUnreadByFeedAsync
+  nameWithType: IArticleService.GetUnreadByFeedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadByFeedAsync
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.SearchArticlesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.SearchArticlesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_SearchArticlesAsync_System_String_System_Threading_CancellationToken_
+  name: SearchArticlesAsync
+  nameWithType: IArticleService.SearchArticlesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.SearchArticlesAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetPagedArticlesAsync_System_Int32_System_Int32_System_Nullable_NeonSuit_RSSReader_Core_Enums_ArticleStatus__System_Threading_CancellationToken_
+  name: GetPagedArticlesAsync
+  nameWithType: IArticleService.GetPagedArticlesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedArticlesAsync
+- uid: System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus}
+  commentId: T:System.Nullable{NeonSuit.RSSReader.Core.Enums.ArticleStatus}
+  parent: System
+  definition: System.Nullable`1
+  href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html
+  name: ArticleStatus?
+  nameWithType: ArticleStatus?
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus?
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+    name: ArticleStatus
+    href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html
+  - name: '?'
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+    name: ArticleStatus
+    href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedByFeedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedByFeedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetPagedByFeedAsync_System_Int32_System_Int32_System_Int32_System_Nullable_NeonSuit_RSSReader_Core_Enums_ArticleStatus__System_Threading_CancellationToken_
+  name: GetPagedByFeedAsync
+  nameWithType: IArticleService.GetPagedByFeedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetPagedByFeedAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsReadAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsReadAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_MarkAsReadAsync_System_Int32_System_Boolean_System_Threading_CancellationToken_
+  name: MarkAsReadAsync
+  nameWithType: IArticleService.MarkAsReadAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsReadAsync
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleStarredAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleStarredAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_ToggleStarredAsync_System_Int32_System_Threading_CancellationToken_
+  name: ToggleStarredAsync
+  nameWithType: IArticleService.ToggleStarredAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleStarredAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleFavoriteAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleFavoriteAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_ToggleFavoriteAsync_System_Int32_System_Threading_CancellationToken_
+  name: ToggleFavoriteAsync
+  nameWithType: IArticleService.ToggleFavoriteAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ToggleFavoriteAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsNotifiedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsNotifiedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_MarkAsNotifiedAsync_System_Int32_System_Threading_CancellationToken_
+  name: MarkAsNotifiedAsync
+  nameWithType: IArticleService.MarkAsNotifiedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsNotifiedAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsProcessedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsProcessedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_MarkAsProcessedAsync_System_Int32_System_Threading_CancellationToken_
+  name: MarkAsProcessedAsync
+  nameWithType: IArticleService.MarkAsProcessedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAsProcessedAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadByFeedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadByFeedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_MarkAllAsReadByFeedAsync_System_Int32_System_Threading_CancellationToken_
+  name: MarkAllAsReadByFeedAsync
+  nameWithType: IArticleService.MarkAllAsReadByFeedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadByFeedAsync
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_MarkAllAsReadAsync_System_Threading_CancellationToken_
+  name: MarkAllAsReadAsync
+  nameWithType: IArticleService.MarkAllAsReadAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.MarkAllAsReadAsync
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsProcessedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsProcessedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_BulkMarkAsProcessedAsync_System_Collections_Generic_List_System_Int32__System_Threading_CancellationToken_
+  name: BulkMarkAsProcessedAsync
+  nameWithType: IArticleService.BulkMarkAsProcessedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsProcessedAsync
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<int>
+  nameWithType: List<int>
+  fullName: System.Collections.Generic.List<int>
+  nameWithType.vb: List(Of Integer)
+  fullName.vb: System.Collections.Generic.List(Of Integer)
+  name.vb: List(Of Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsNotifiedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsNotifiedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_BulkMarkAsNotifiedAsync_System_Collections_Generic_List_System_Int32__System_Threading_CancellationToken_
+  name: BulkMarkAsNotifiedAsync
+  nameWithType: IArticleService.BulkMarkAsNotifiedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.BulkMarkAsNotifiedAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOlderThanAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOlderThanAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_DeleteOlderThanAsync_System_DateTime_System_Threading_CancellationToken_
+  name: DeleteOlderThanAsync
+  nameWithType: IArticleService.DeleteOlderThanAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOlderThanAsync
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOldArticlesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOldArticlesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_DeleteOldArticlesAsync_System_Int32_System_Threading_CancellationToken_
+  name: DeleteOldArticlesAsync
+  nameWithType: IArticleService.DeleteOldArticlesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteOldArticlesAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteByFeedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteByFeedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_DeleteByFeedAsync_System_Int32_System_Threading_CancellationToken_
+  name: DeleteByFeedAsync
+  nameWithType: IArticleService.DeleteByFeedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DeleteByFeedAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetUnreadCountAsync_System_Threading_CancellationToken_
+  name: GetUnreadCountAsync
+  nameWithType: IArticleService.GetUnreadCountAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountByFeedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountByFeedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetUnreadCountByFeedAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetUnreadCountByFeedAsync
+  nameWithType: IArticleService.GetUnreadCountByFeedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountByFeedAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountsByFeedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountsByFeedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetUnreadCountsByFeedAsync_System_Threading_CancellationToken_
+  name: GetUnreadCountsByFeedAsync
+  nameWithType: IArticleService.GetUnreadCountsByFeedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnreadCountsByFeedAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Dictionary<int, int>>
+  nameWithType: Task<Dictionary<int, int>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, int>>
+  nameWithType.vb: Task(Of Dictionary(Of Integer, Integer))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.Dictionary(Of Integer, Integer))
+  name.vb: Task(Of Dictionary(Of Integer, Integer))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnprocessedArticlesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnprocessedArticlesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetUnprocessedArticlesAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetUnprocessedArticlesAsync
+  nameWithType: IArticleService.GetUnprocessedArticlesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnprocessedArticlesAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnnotifiedArticlesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnnotifiedArticlesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetUnnotifiedArticlesAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetUnnotifiedArticlesAsync
+  nameWithType: IArticleService.GetUnnotifiedArticlesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetUnnotifiedArticlesAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoriesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoriesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetArticlesByCategoriesAsync_System_String_System_Int32_System_Threading_CancellationToken_
+  name: GetArticlesByCategoriesAsync
+  nameWithType: IArticleService.GetArticlesByCategoriesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetArticlesByCategoriesAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByGuidAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByGuidAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetByGuidAsync_System_String_System_Threading_CancellationToken_
+  name: GetByGuidAsync
+  nameWithType: IArticleService.GetByGuidAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByGuidAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ArticleDetailDto>
+  nameWithType: Task<ArticleDetailDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto>
+  nameWithType.vb: Task(Of ArticleDetailDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto)
+  name.vb: Task(Of ArticleDetailDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+    name: ArticleDetailDto
+    href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+    name: ArticleDetailDto
+    href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByContentHashAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByContentHashAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_GetByContentHashAsync_System_String_System_Threading_CancellationToken_
+  name: GetByContentHashAsync
+  nameWithType: IArticleService.GetByContentHashAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.GetByContentHashAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByGuidAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByGuidAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_ExistsByGuidAsync_System_String_System_Threading_CancellationToken_
+  name: ExistsByGuidAsync
+  nameWithType: IArticleService.ExistsByGuidAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByGuidAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByContentHashAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByContentHashAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_ExistsByContentHashAsync_System_String_System_Threading_CancellationToken_
+  name: ExistsByContentHashAsync
+  nameWithType: IArticleService.ExistsByContentHashAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.ExistsByContentHashAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DetachEntityAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DetachEntityAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IArticleService_DetachEntityAsync_System_Int32_System_Threading_CancellationToken_
+  name: DetachEntityAsync
+  nameWithType: IArticleService.DetachEntityAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.DetachEntityAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task

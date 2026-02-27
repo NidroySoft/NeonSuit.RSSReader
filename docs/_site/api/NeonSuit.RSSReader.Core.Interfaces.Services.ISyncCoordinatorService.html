@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface ISyncCoordinatorService | NeonSuit RSS Reader API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface ISyncCoordinatorService | NeonSuit RSS Reader API ">
+      
+      <meta name="description" content="Service interface for synchronization coordinator that manages and coordinates background tasks. Handles feed updates, tag processing, cleanup operations, and backups with proper prioritization, error handling, and resource management for low-resource environments.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/NidroySoft/NeonSuit.RSSReader/new/master/apiSpec/new?filename=NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService.md&amp;value=---%0Auid%3A%20NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService">
+
+
+
+  <h1 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService" class="text-break">
+Interface ISyncCoordinatorService  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NeonSuit.html">NeonSuit</a>.<a class="xref" href="NeonSuit.RSSReader.html">RSSReader</a>.<a class="xref" href="NeonSuit.RSSReader.Core.html">Core</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.html">Interfaces</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.html">Services</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NeonSuit.RSSReader.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Service interface for synchronization coordinator that manages and coordinates background tasks.
+Handles feed updates, tag processing, cleanup operations, and backups with proper prioritization,
+error handling, and resource management for low-resource environments.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ISyncCoordinatorService</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This service centralizes all background synchronization activities including:
+<ul><li>Feed update scheduling based on individual feed frequencies</li><li>Article retention cleanup and database maintenance</li><li>Auto-tagging rule processing and tag statistics updates</li><li>Automated backup creation with rotation policies</li><li>Performance monitoring and error tracking</li></ul>
+
+<p>
+All methods return DTOs instead of internal models to maintain separation of concerns.
+</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_CurrentStatus_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.CurrentStatus*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_CurrentStatus" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.CurrentStatus">
+  CurrentStatus
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current overall synchronization status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SyncStatusDto CurrentStatus { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto.html">SyncStatusDto</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_Statistics_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.Statistics*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_Statistics" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.Statistics">
+  Statistics
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets aggregated statistics about synchronization performance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SyncStatisticsDto Statistics { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatisticsDto.html">SyncStatisticsDto</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_ClearErrorHistoryAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ClearErrorHistoryAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_ClearErrorHistoryAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ClearErrorHistoryAsync(System.Threading.CancellationToken)">
+  ClearErrorHistoryAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears the error history.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SyncActionResultDto&gt; ClearErrorHistoryAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.html">SyncActionResultDto</a>&gt;</dt>
+    <dd><p>A DTO containing the result of the action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_ConfigureTaskAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ConfigureTaskAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_ConfigureTaskAsync_NeonSuit_RSSReader_Core_DTOs_Sync_ConfigureTaskDto_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ConfigureTaskAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto,System.Threading.CancellationToken)">
+  ConfigureTaskAsync(ConfigureTaskDto, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enables or disables a specific synchronization task type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SyncActionResultDto&gt; ConfigureTaskAsync(ConfigureTaskDto configureDto, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configureDto</code> <a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto.html">ConfigureTaskDto</a></dt>
+    <dd><p>The DTO containing task configuration.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.html">SyncActionResultDto</a>&gt;</dt>
+    <dd><p>A DTO containing the result of the action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown if <code class="paramref">configureDto</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if task type is invalid.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_GetRecentErrorsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetRecentErrorsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_GetRecentErrorsAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetRecentErrorsAsync(System.Int32,System.Threading.CancellationToken)">
+  GetRecentErrorsAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets recent synchronization errors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;SyncErrorInfoDto&gt;&gt; GetRecentErrorsAsync(int maxErrors = 50, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>maxErrors</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Maximum number of errors to retrieve. Default: 50.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto.html">SyncErrorInfoDto</a>&gt;&gt;</dt>
+    <dd><p>A list of recent synchronization error DTOs.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if <code class="paramref">maxErrors</code> is less than 1.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_GetTaskExecutionInfoAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskExecutionInfoAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_GetTaskExecutionInfoAsync_System_String_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskExecutionInfoAsync(System.String,System.Threading.CancellationToken)">
+  GetTaskExecutionInfoAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets detailed information about the last execution of a specific task.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SyncTaskExecutionInfoDto&gt; GetTaskExecutionInfoAsync(string taskType, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>taskType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The type of synchronization task.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto.html">SyncTaskExecutionInfoDto</a>&gt;</dt>
+    <dd><p>Detailed execution information DTO for the specified task.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if task type is invalid.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_GetTaskStatusesAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskStatusesAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_GetTaskStatusesAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.GetTaskStatusesAsync(System.Threading.CancellationToken)">
+  GetTaskStatusesAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current status of all managed synchronization tasks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;SyncTaskStatusDto&gt;&gt; GetTaskStatusesAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto.html">SyncTaskStatusDto</a>&gt;&gt;</dt>
+    <dd><p>A list of task status DTOs.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_PauseAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.PauseAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_PauseAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.PauseAsync(System.Threading.CancellationToken)">
+  PauseAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pauses all synchronization activities.
+Allows temporary suspension without stopping the service.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task PauseAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task representing the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the service is not running.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_ResumeAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ResumeAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_ResumeAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.ResumeAsync(System.Threading.CancellationToken)">
+  ResumeAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resumes synchronization activities after a pause.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task ResumeAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task representing the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the service is not paused.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_SetMaxConcurrentTasksAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxConcurrentTasksAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_SetMaxConcurrentTasksAsync_NeonSuit_RSSReader_Core_DTOs_Sync_ConfigureConcurrencyDto_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxConcurrentTasksAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto,System.Threading.CancellationToken)">
+  SetMaxConcurrentTasksAsync(ConfigureConcurrencyDto, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the maximum number of concurrent synchronization tasks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SyncActionResultDto&gt; SetMaxConcurrentTasksAsync(ConfigureConcurrencyDto configureDto, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configureDto</code> <a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto.html">ConfigureConcurrencyDto</a></dt>
+    <dd><p>The DTO containing concurrency configuration.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.html">SyncActionResultDto</a>&gt;</dt>
+    <dd><p>A DTO containing the result of the action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown if <code class="paramref">configureDto</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_SetMaxSyncDurationAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxSyncDurationAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_SetMaxSyncDurationAsync_NeonSuit_RSSReader_Core_DTOs_Sync_ConfigureMaxDurationDto_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.SetMaxSyncDurationAsync(NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto,System.Threading.CancellationToken)">
+  SetMaxSyncDurationAsync(ConfigureMaxDurationDto, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the maximum duration for synchronization tasks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SyncActionResultDto&gt; SetMaxSyncDurationAsync(ConfigureMaxDurationDto configureDto, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>configureDto</code> <a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto.html">ConfigureMaxDurationDto</a></dt>
+    <dd><p>The DTO containing max duration configuration.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.html">SyncActionResultDto</a>&gt;</dt>
+    <dd><p>A DTO containing the result of the action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown if <code class="paramref">configureDto</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_StartAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StartAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_StartAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StartAsync(System.Threading.CancellationToken)">
+  StartAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts the synchronization coordinator service.
+Initializes all managed sync tasks and begins the synchronization loop.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task StartAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task representing the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the service is already running.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_StopAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StopAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_StopAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.StopAsync(System.Threading.CancellationToken)">
+  StopAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stops the synchronization coordinator service gracefully.
+Completes current tasks and cleans up resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task StopAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task representing the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerBackupSyncAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerBackupSyncAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerBackupSyncAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerBackupSyncAsync(System.Threading.CancellationToken)">
+  TriggerBackupSyncAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Manually triggers a backup synchronization.
+Creates backup copies of the database and settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SyncActionResultDto&gt; TriggerBackupSyncAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.html">SyncActionResultDto</a>&gt;</dt>
+    <dd><p>A DTO containing the result of the action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the service is not running or is paused.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerCleanupSyncAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerCleanupSyncAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerCleanupSyncAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerCleanupSyncAsync(System.Threading.CancellationToken)">
+  TriggerCleanupSyncAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Manually triggers a cleanup synchronization.
+Performs article retention and database maintenance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SyncActionResultDto&gt; TriggerCleanupSyncAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.html">SyncActionResultDto</a>&gt;</dt>
+    <dd><p>A DTO containing the result of the action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the service is not running or is paused.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerFeedSyncAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFeedSyncAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerFeedSyncAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFeedSyncAsync(System.Threading.CancellationToken)">
+  TriggerFeedSyncAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Manually triggers a feed update synchronization.
+Updates all feeds according to their configured frequencies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SyncActionResultDto&gt; TriggerFeedSyncAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.html">SyncActionResultDto</a>&gt;</dt>
+    <dd><p>A DTO containing the result of the action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the service is not running or is paused.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerFullSyncAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFullSyncAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerFullSyncAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerFullSyncAsync(System.Threading.CancellationToken)">
+  TriggerFullSyncAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Manually triggers a full synchronization cycle.
+Executes all synchronization tasks in proper order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SyncActionResultDto&gt; TriggerFullSyncAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.html">SyncActionResultDto</a>&gt;</dt>
+    <dd><p>A DTO containing the result of the action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the service is not running or is paused.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerSingleFeedSyncAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerSingleFeedSyncAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerSingleFeedSyncAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerSingleFeedSyncAsync(System.Int32,System.Threading.CancellationToken)">
+  TriggerSingleFeedSyncAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Manually triggers a specific feed update regardless of its schedule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SyncActionResultDto&gt; TriggerSingleFeedSyncAsync(int feedId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feedId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The ID of the feed to update.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.html">SyncActionResultDto</a>&gt;</dt>
+    <dd><p>A DTO containing the result of the action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown if <code class="paramref">feedId</code> is less than or equal to 0.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the service is not running or is paused.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerTagProcessingSyncAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerTagProcessingSyncAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_TriggerTagProcessingSyncAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.TriggerTagProcessingSyncAsync(System.Threading.CancellationToken)">
+  TriggerTagProcessingSyncAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Manually triggers a tag processing synchronization.
+Applies auto-tagging rules and updates tag statistics.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SyncActionResultDto&gt; TriggerTagProcessingSyncAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.html">SyncActionResultDto</a>&gt;</dt>
+    <dd><p>A DTO containing the result of the action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the service is not running or is paused.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_OnStatusChanged" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnStatusChanged">
+  OnStatusChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when the overall synchronization status changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;SyncStatusDto&gt; OnStatusChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto.html">SyncStatusDto</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_OnSyncError" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnSyncError">
+  OnSyncError
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when a synchronization error occurs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;SyncErrorInfoDto&gt; OnSyncError</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto.html">SyncErrorInfoDto</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_OnSyncProgress" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnSyncProgress">
+  OnSyncProgress
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L248"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when synchronization progress is made during long-running tasks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;SyncProgressDto&gt; OnSyncProgress</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto.html">SyncProgressDto</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_OnTaskCompleted" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnTaskCompleted">
+  OnTaskCompleted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L238"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when a synchronization task completes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;SyncTaskExecutionInfoDto&gt; OnTaskCompleted</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto.html">SyncTaskExecutionInfoDto</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ISyncCoordinatorService_OnTaskStarted" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.OnTaskStarted">
+  OnTaskStarted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when a synchronization task starts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;SyncProgressDto&gt; OnTaskStarted</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto.html">SyncProgressDto</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISyncCoordinatorService.cs/#L25" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2026 NeonSuit - Professional RSS Engine
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

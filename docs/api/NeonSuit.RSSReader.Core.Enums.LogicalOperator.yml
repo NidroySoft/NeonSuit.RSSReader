@@ -1,0 +1,192 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Enums.LogicalOperator
+  commentId: T:NeonSuit.RSSReader.Core.Enums.LogicalOperator
+  id: LogicalOperator
+  parent: NeonSuit.RSSReader.Core.Enums
+  children:
+  - NeonSuit.RSSReader.Core.Enums.LogicalOperator.AND
+  - NeonSuit.RSSReader.Core.Enums.LogicalOperator.OR
+  langs:
+  - csharp
+  - vb
+  name: LogicalOperator
+  nameWithType: LogicalOperator
+  fullName: NeonSuit.RSSReader.Core.Enums.LogicalOperator
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/LogicalOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LogicalOperator
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/LogicalOperator.cs
+    startLine: 40
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: >-
+    Specifies the logical operator used to combine multiple conditions or filters in queries,
+
+    rules, or search expressions within the RSS reader application.
+  remarks: >-
+    <p>
+
+    This enumeration defines how multiple criteria are evaluated when building complex filters
+
+    for articles, feeds, or search operations.
+
+    </p>
+
+
+    <p>
+
+    Typical usage scenarios include:
+
+    </p>
+
+    <ul><li>Combining keyword/tag/category filters in article search or smart feeds</li><li>Defining inclusion/exclusion rules in custom feed views or notification rules</li><li>Building advanced filtering logic for dashboards, saved searches, or automation</li><li>Combining conditions in user-defined rules (e.g., "star articles that match ALL of these tags" vs "ANY")</li></ul>
+
+
+    <p>
+
+    Business rules and behavioral impact:
+
+    </p>
+
+    <ul><li><xref href="NeonSuit.RSSReader.Core.Enums.LogicalOperator.AND" data-throw-if-not-resolved="false"></xref> requires **all** specified conditions to be true for the item to match (restrictive/narrowing).</li><li><xref href="NeonSuit.RSSReader.Core.Enums.LogicalOperator.OR" data-throw-if-not-resolved="false"></xref> requires **at least one** condition to be true for the item to match (inclusive/broadening).</li><li>The operator is usually applied between conditions of the same group/level; nested groups may use different operators.</li><li>Default behavior in UI (when not explicitly chosen) is typically <xref href="NeonSuit.RSSReader.Core.Enums.LogicalOperator.OR" data-throw-if-not-resolved="false"></xref> for keyword/tag searches 
+              (broader discovery) and <xref href="NeonSuit.RSSReader.Core.Enums.LogicalOperator.AND" data-throw-if-not-resolved="false"></xref> for strict filtering rules.</li><li>Changing the operator can dramatically alter result sets — users should be warned when switching between AND/OR in rule editors.</li><li>In most implementations, this value is stored per-filter-group or per-rule to allow mixed logic (e.g., (A AND B) OR C).</li></ul>
+
+    <p>
+
+    Recommendation: When exposing this in UI, label clearly as "All of these" (AND) vs "Any of these" (OR)
+
+    to improve user understanding and reduce configuration errors.
+
+    </p>
+  example: []
+  syntax:
+    content: public enum LogicalOperator
+    content.vb: Public Enum LogicalOperator
+- uid: NeonSuit.RSSReader.Core.Enums.LogicalOperator.AND
+  commentId: F:NeonSuit.RSSReader.Core.Enums.LogicalOperator.AND
+  id: AND
+  parent: NeonSuit.RSSReader.Core.Enums.LogicalOperator
+  langs:
+  - csharp
+  - vb
+  name: AND
+  nameWithType: LogicalOperator.AND
+  fullName: NeonSuit.RSSReader.Core.Enums.LogicalOperator.AND
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/LogicalOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AND
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/LogicalOperator.cs
+    startLine: 53
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: All conditions must be satisfied (conjunction).
+  remarks: >-
+    <p>Effect:</p>
+
+    <ul><li>Narrows down results significantly.</li><li>Common in precise filtering: "has tag X AND published after date Y AND contains keyword Z".</li><li>Higher performance cost in large datasets due to fewer early exits in evaluation.</li></ul>
+  example: []
+  syntax:
+    content: AND = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.LogicalOperator
+- uid: NeonSuit.RSSReader.Core.Enums.LogicalOperator.OR
+  commentId: F:NeonSuit.RSSReader.Core.Enums.LogicalOperator.OR
+  id: OR
+  parent: NeonSuit.RSSReader.Core.Enums.LogicalOperator
+  langs:
+  - csharp
+  - vb
+  name: OR
+  nameWithType: LogicalOperator.OR
+  fullName: NeonSuit.RSSReader.Core.Enums.LogicalOperator.OR
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/LogicalOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OR
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/LogicalOperator.cs
+    startLine: 66
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: At least one condition must be satisfied (disjunction).
+  remarks: >-
+    <p>Effect:</p>
+
+    <ul><li>Expands result sets (union of matches).</li><li>Common in discovery/search: "contains keyword A OR keyword B OR keyword C".</li><li>Usually faster evaluation as any true condition short-circuits the check.</li></ul>
+  example: []
+  syntax:
+    content: OR = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.LogicalOperator
+references:
+- uid: NeonSuit.RSSReader.Core.Enums.LogicalOperator.AND
+  commentId: F:NeonSuit.RSSReader.Core.Enums.LogicalOperator.AND
+  href: NeonSuit.RSSReader.Core.Enums.LogicalOperator.html#NeonSuit_RSSReader_Core_Enums_LogicalOperator_AND
+  name: AND
+  nameWithType: LogicalOperator.AND
+  fullName: NeonSuit.RSSReader.Core.Enums.LogicalOperator.AND
+- uid: NeonSuit.RSSReader.Core.Enums.LogicalOperator.OR
+  commentId: F:NeonSuit.RSSReader.Core.Enums.LogicalOperator.OR
+  href: NeonSuit.RSSReader.Core.Enums.LogicalOperator.html#NeonSuit_RSSReader_Core_Enums_LogicalOperator_OR
+  name: OR
+  nameWithType: LogicalOperator.OR
+  fullName: NeonSuit.RSSReader.Core.Enums.LogicalOperator.OR
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.Enums.LogicalOperator
+  commentId: T:NeonSuit.RSSReader.Core.Enums.LogicalOperator
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.LogicalOperator.html
+  name: LogicalOperator
+  nameWithType: LogicalOperator
+  fullName: NeonSuit.RSSReader.Core.Enums.LogicalOperator

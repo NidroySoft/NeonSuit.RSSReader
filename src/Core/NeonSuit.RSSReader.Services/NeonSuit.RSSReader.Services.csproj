@@ -4,7 +4,12 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="NeonSuit.RSSReader.Setup" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\NeonSuit.RSSReader.Core\NeonSuit.RSSReader.Core.csproj" />
@@ -12,7 +17,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AngleSharp" Version="1.4.0" />
 		<PackageReference Include="CodeHollow.FeedReader" Version="1.2.6" />
+		<PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
 	</ItemGroup>
 
 </Project>

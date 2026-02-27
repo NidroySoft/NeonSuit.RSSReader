@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IRSSReaderDbContext | NeonSuit RSS Reader API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IRSSReaderDbContext | NeonSuit RSS Reader API ">
+      
+      <meta name="description" content="Core interface for the RSS Reader&#39;s Entity Framework Core database context. Defines standardized access to database operations, transaction management, raw SQL execution, maintenance tasks, and basic statistics — with full async support.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/NidroySoft/NeonSuit.RSSReader/new/master/apiSpec/new?filename=NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext.md&amp;value=---%0Auid%3A%20NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext">
+
+
+
+  <h1 id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext" class="text-break">
+Interface IRSSReaderDbContext  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NeonSuit.html">NeonSuit</a>.<a class="xref" href="NeonSuit.RSSReader.html">RSSReader</a>.<a class="xref" href="NeonSuit.RSSReader.Core.html">Core</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.html">Interfaces</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Database.html">Database</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NeonSuit.RSSReader.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Core interface for the RSS Reader's Entity Framework Core database context.
+Defines standardized access to database operations, transaction management,
+raw SQL execution, maintenance tasks, and basic statistics — with full async support.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRSSReaderDbContext : IAsyncDisposable</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync">IAsyncDisposable.DisposeAsync()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This interface abstracts the underlying DbContext implementation and is intended to be:
+</p>
+<ul><li>Implemented by the actual DbContext class (e.g., RssReaderDbContext : DbContext, IRssReaderDbContext)</li><li>Injected via dependency injection into services, repositories, and background workers</li><li>Used consistently across the application to ensure proper async/await usage and transaction safety</li></ul>
+<p>
+Key design principles:
+</p>
+<ul><li>All mutating operations should prefer transactional execution (via ExecuteInTransactionAsync)</li><li>Raw SQL methods are provided for performance-critical or SQLite-specific operations (VACUUM, PRAGMA, etc.)</li><li>Maintenance methods (Backup, Vacuum, Reset) are exposed for admin/debug flows and automated cleanup</li><li>Statistics are lightweight and suitable for periodic health checks or UI dashboard display</li></ul>
+<p>
+Important notes for implementers and consumers:
+</p>
+<ul><li>The context is expected to use SQLite (based on DatabasePath and Vacuum/Backup methods)</li><li>Implementations should handle connection pooling, retry logic, and concurrency appropriately</li><li>Do not call SaveChanges/SaveChangesAsync directly on the underlying DbContext from consumers — use transactional wrappers</li><li>Cancellation support is mandatory on all async methods</li></ul>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_DatabasePath_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.DatabasePath*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_DatabasePath" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.DatabasePath">
+  DatabasePath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the full file-system path to the SQLite database file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string? DatabasePath { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_DatabasePath_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Used for backup operations, file existence checks, and diagnostics.
+Returns null if using in-memory database (testing scenarios).</p>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ApplyMigrationsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ApplyMigrationsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ApplyMigrationsAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ApplyMigrationsAsync(System.Threading.CancellationToken)">
+  ApplyMigrationsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Explicitly applies any pending EF Core migrations to the database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task ApplyMigrationsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ApplyMigrationsAsync_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Usually called internally by EnsureDatabaseCreatedAsync, but exposed for manual migration scenarios.</p>
+</div>
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_BackupAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BackupAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_BackupAsync_System_String_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BackupAsync(System.String,System.Threading.CancellationToken)">
+  BackupAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a full backup copy of the SQLite database file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task BackupAsync(string backupPath, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>backupPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Target path where the backup file will be saved (must include .db extension).</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_BackupAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Uses SQLite backup API for consistency and minimal locking.
+Throws if target path exists or is inaccessible.</p>
+</div>
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_BeginTransactionAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BeginTransactionAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_BeginTransactionAsync_System_Data_IsolationLevel_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BeginTransactionAsync(System.Data.IsolationLevel,System.Threading.CancellationToken)">
+  BeginTransactionAsync(IsolationLevel, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Begins a new database transaction with the specified isolation level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IDbContextTransaction&gt; BeginTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>isolationLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.isolationlevel">IsolationLevel</a></dt>
+    <dd><p>Defaults to ReadCommitted — safest for most operations.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.storage.idbcontexttransaction">IDbContextTransaction</a>&gt;</dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.storage.idbcontexttransaction">IDbContextTransaction</a> that must be committed or rolled back.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_BeginTransactionAsync_System_Data_IsolationLevel_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Prefer <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteInTransactionAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Data_IsolationLevel_System_Threading_CancellationToken_">ExecuteInTransactionAsync&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt;, IsolationLevel, CancellationToken)</a> for most use cases.
+Manual transaction usage requires proper disposal.</p>
+</div>
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_EnsureDatabaseCreatedAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.EnsureDatabaseCreatedAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_EnsureDatabaseCreatedAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.EnsureDatabaseCreatedAsync(System.Threading.CancellationToken)">
+  EnsureDatabaseCreatedAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ensures the database file exists and all pending migrations are applied.
+Safe to call on application startup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task EnsureDatabaseCreatedAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteInTransactionAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteInTransactionAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Data_IsolationLevel_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Data.IsolationLevel,System.Threading.CancellationToken)">
+  ExecuteInTransactionAsync&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt;, IsolationLevel, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes the provided async action inside a new transaction.
+Automatically commits on success or rolls back on exception.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; ExecuteInTransactionAsync&lt;T&gt;(Func&lt;Task&lt;T&gt;&gt; action, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;&gt;</dt>
+    <dd><p>The async lambda or method to execute transactionally.</p>
+</dd>
+    <dt><code>isolationLevel</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.data.isolationlevel">IsolationLevel</a></dt>
+    <dd><p>Transaction isolation level (default: ReadCommitted).</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;T&gt;</dt>
+    <dd><p>The result returned by the action.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Return type of the operation (use Unit/Task for void operations).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteInTransactionAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Data_IsolationLevel_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Recommended pattern for all write operations that should be atomic.
+Example: await db.ExecuteInTransactionAsync(async () =&gt; { await db.Articles.AddAsync(...); await db.SaveChangesAsync(); });</p>
+</div>
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteRawQueryAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteRawQueryAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteRawQueryAsync__1_System_String_System_Threading_CancellationToken_System_Object___" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteRawQueryAsync``1(System.String,System.Threading.CancellationToken,System.Object[])">
+  ExecuteRawQueryAsync&lt;T&gt;(string, CancellationToken, params object[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes a raw SQL SELECT query and maps results to a list of entities of type T.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;T&gt;&gt; ExecuteRawQueryAsync&lt;T&gt;(string sql, CancellationToken cancellationToken = default, params object[] parameters) where T : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sql</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Parameterized SQL query (use {0}, {1} placeholders or named parameters).</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
+    <dd><p>Values to bind to the query parameters.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;&gt;</dt>
+    <dd><p>List of materialized entities.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Entity type with properties matching column names.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteRawQueryAsync__1_System_String_System_Threading_CancellationToken_System_Object____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Use for complex queries or performance-critical reads that cannot be expressed via LINQ.
+Does not track entities by default.</p>
+</div>
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteSqlCommandAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteSqlCommandAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteSqlCommandAsync_System_String_System_Threading_CancellationToken_System_Object___" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteSqlCommandAsync(System.String,System.Threading.CancellationToken,System.Object[])">
+  ExecuteSqlCommandAsync(string, CancellationToken, params object[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes a non-query SQL command (INSERT, UPDATE, DELETE, PRAGMA, etc.).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; ExecuteSqlCommandAsync(string sql, CancellationToken cancellationToken = default, params object[] parameters)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sql</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Parameterized SQL command.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
+    <dd><p>Values to bind.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>Number of rows affected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteSqlCommandAsync_System_String_System_Threading_CancellationToken_System_Object____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Ideal for bulk operations, schema changes, or SQLite-specific commands.</p>
+</div>
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_GetStatisticsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.GetStatisticsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_GetStatisticsAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.GetStatisticsAsync(System.Threading.CancellationToken)">
+  GetStatisticsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves lightweight database statistics (size, counts, last backup).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;DatabaseStatsDto&gt; GetStatisticsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html">DatabaseStatsDto</a>&gt;</dt>
+    <dd><p>A <a class="xref" href="NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html">DatabaseStatsDto</a> object with current metrics.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_GetStatisticsAsync_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Should be fast enough for periodic UI refresh or health monitoring.
+Counts are approximate when called concurrently with writes.</p>
+</div>
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ResetDatabaseAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ResetDatabaseAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ResetDatabaseAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ResetDatabaseAsync(System.Threading.CancellationToken)">
+  ResetDatabaseAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes all data from all tables (truncate-like behavior) while preserving schema.
+Intended for development, testing, or user-initiated &quot;clear all data&quot; actions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task ResetDatabaseAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ResetDatabaseAsync_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Should be wrapped in a transaction and confirmed by user.
+Does not drop/recreate the database file.</p>
+</div>
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_VacuumAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.VacuumAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_VacuumAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.VacuumAsync(System.Threading.CancellationToken)">
+  VacuumAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Executes SQLite VACUUM command to reclaim unused space and defragment the database file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task VacuumAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_VacuumAsync_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Useful after bulk deletes (e.g., article cleanup, archiving).
+May take significant time on large databases — run in background.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs/#L46" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2026 NeonSuit - Professional RSS Engine
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

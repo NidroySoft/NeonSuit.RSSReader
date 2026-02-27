@@ -1,0 +1,713 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  id: VacuumResult
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  children:
+  - NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Duration
+  - NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterBytes
+  - NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterFormatted
+  - NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeBytes
+  - NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeFormatted
+  - NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedBytes
+  - NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedFormatted
+  - NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Success
+  - NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.ToString
+  langs:
+  - csharp
+  - vb
+  name: VacuumResult
+  nameWithType: VacuumResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: VacuumResult
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+    startLine: 10
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: >-
+    Result of database vacuum operation.
+
+    Contains statistics about space reclaimed and operation duration.
+  remarks: >-
+    VACUUM rebuilds the database file, repacking it into a minimal amount of disk space.
+
+    This operation may temporarily double the database file size during execution.
+  example: []
+  syntax:
+    content: public class VacuumResult
+    content.vb: Public Class VacuumResult
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeBytes
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeBytes
+  id: SizeBeforeBytes
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  langs:
+  - csharp
+  - vb
+  name: SizeBeforeBytes
+  nameWithType: VacuumResult.SizeBeforeBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeBytes
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SizeBeforeBytes
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+    startLine: 15
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets the database size in bytes before vacuum operation.
+  example: []
+  syntax:
+    content: public long SizeBeforeBytes { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property SizeBeforeBytes As Long
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeBytes*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterBytes
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterBytes
+  id: SizeAfterBytes
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  langs:
+  - csharp
+  - vb
+  name: SizeAfterBytes
+  nameWithType: VacuumResult.SizeAfterBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterBytes
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SizeAfterBytes
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+    startLine: 20
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets the database size in bytes after vacuum operation.
+  example: []
+  syntax:
+    content: public long SizeAfterBytes { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property SizeAfterBytes As Long
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterBytes*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Duration
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Duration
+  id: Duration
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: VacuumResult.Duration
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Duration
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Duration
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+    startLine: 25
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets the duration of the vacuum operation.
+  example: []
+  syntax:
+    content: public TimeSpan Duration { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property Duration As TimeSpan
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Duration*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedBytes
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedBytes
+  id: SpaceFreedBytes
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  langs:
+  - csharp
+  - vb
+  name: SpaceFreedBytes
+  nameWithType: VacuumResult.SpaceFreedBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedBytes
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SpaceFreedBytes
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+    startLine: 30
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets the space freed by the vacuum operation in bytes.
+  example: []
+  syntax:
+    content: public long SpaceFreedBytes { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property SpaceFreedBytes As Long
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedBytes*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedFormatted
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedFormatted
+  id: SpaceFreedFormatted
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  langs:
+  - csharp
+  - vb
+  name: SpaceFreedFormatted
+  nameWithType: VacuumResult.SpaceFreedFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedFormatted
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SpaceFreedFormatted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+    startLine: 35
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets the space freed in a human-readable format.
+  example: []
+  syntax:
+    content: public string SpaceFreedFormatted { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property SpaceFreedFormatted As String
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedFormatted*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeFormatted
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeFormatted
+  id: SizeBeforeFormatted
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  langs:
+  - csharp
+  - vb
+  name: SizeBeforeFormatted
+  nameWithType: VacuumResult.SizeBeforeFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeFormatted
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SizeBeforeFormatted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+    startLine: 40
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets the size before in a human-readable format.
+  example: []
+  syntax:
+    content: public string SizeBeforeFormatted { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property SizeBeforeFormatted As String
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeFormatted*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterFormatted
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterFormatted
+  id: SizeAfterFormatted
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  langs:
+  - csharp
+  - vb
+  name: SizeAfterFormatted
+  nameWithType: VacuumResult.SizeAfterFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterFormatted
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SizeAfterFormatted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+    startLine: 45
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets the size after in a human-readable format.
+  example: []
+  syntax:
+    content: public string SizeAfterFormatted { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property SizeAfterFormatted As String
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterFormatted*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Success
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Success
+  id: Success
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: VacuumResult.Success
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Success
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Success
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+    startLine: 50
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets a value indicating whether the vacuum operation was successful.
+  example: []
+  syntax:
+    content: public bool Success { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Success As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Success*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.ToString
+  commentId: M:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.ToString
+  id: ToString
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: VacuumResult.ToString()
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ToString
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/VacuumResult.cs
+    startLine: 55
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets a human-readable summary of the vacuum operation.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.ToString*
+references:
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup
+  commentId: N:NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models.Cleanup
+  nameWithType: NeonSuit.RSSReader.Core.Models.Cleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup
+    name: Cleanup
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup
+    name: Cleanup
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeBytes*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeBytes
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_VacuumResult_SizeBeforeBytes
+  name: SizeBeforeBytes
+  nameWithType: VacuumResult.SizeBeforeBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeBytes
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterBytes*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterBytes
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_VacuumResult_SizeAfterBytes
+  name: SizeAfterBytes
+  nameWithType: VacuumResult.SizeAfterBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterBytes
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Duration*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Duration
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_VacuumResult_Duration
+  name: Duration
+  nameWithType: VacuumResult.Duration
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Duration
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedBytes*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedBytes
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_VacuumResult_SpaceFreedBytes
+  name: SpaceFreedBytes
+  nameWithType: VacuumResult.SpaceFreedBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedBytes
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedFormatted*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedFormatted
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_VacuumResult_SpaceFreedFormatted
+  name: SpaceFreedFormatted
+  nameWithType: VacuumResult.SpaceFreedFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SpaceFreedFormatted
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeFormatted*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeFormatted
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_VacuumResult_SizeBeforeFormatted
+  name: SizeBeforeFormatted
+  nameWithType: VacuumResult.SizeBeforeFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeBeforeFormatted
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterFormatted*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterFormatted
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_VacuumResult_SizeAfterFormatted
+  name: SizeAfterFormatted
+  nameWithType: VacuumResult.SizeAfterFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.SizeAfterFormatted
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Success*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Success
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_VacuumResult_Success
+  name: Success
+  nameWithType: VacuumResult.Success
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.Success
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.ToString*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.ToString
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_VacuumResult_ToString
+  name: ToString
+  nameWithType: VacuumResult.ToString
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.ToString

@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
 using Moq;
 using NeonSuit.RSSReader.Core.Enums;
-using NeonSuit.RSSReader.Core.Interfaces.FeedParser;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
+using NeonSuit.RSSReader.Core.Interfaces.RssFeedParser;
 using NeonSuit.RSSReader.Core.Interfaces.Services;
 using NeonSuit.RSSReader.Core.Models;
 using NeonSuit.RSSReader.Services;

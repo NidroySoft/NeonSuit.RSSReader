@@ -1,119 +1,113 @@
 ﻿using NeonSuit.RSSReader.Core.Models;
+using System.Linq.Expressions;
 
-namespace NeonSuit.RSSReader.Core.Interfaces.Repositories
+namespace NeonSuit.RSSReader.Core.Interfaces.Repositories;
+
+/// <summary>
+/// Repository interface for managing automated business rules (<see cref="Rule"/> entities).
+/// Defines the contract for rule persistence, querying, scoping, statistics, and condition retrieval.
+/// </summary>
+/// <remarks>
+/// <para>
+/// This interface abstracts all data access operations related to user-defined rules in the RSS reader application.
+/// It supports rule lifecycle management (CRUD), activation filtering, scoping by feed/category, priority-based execution,
+/// match statistics, and retrieval of associated conditions for the rule engine.
+/// </para>
+/// <para>
+/// Implementations must ensure:
+/// - Efficient indexed queries on frequently filtered columns (e.g., IsEnabled, Priority).
+/// - Atomicity in write operations where business rules require it.
+/// - Avoidance of full table scans in production (prefer server-side filtering).
+/// </para>
+/// </remarks>
+public interface IRuleRepository : IRepository<Rule>
 {
+    #region Read Collection Operations
+
     /// <summary>
-    /// Repository interface for managing automated business rules.
-    /// Provides methods for rule creation, evaluation, and execution.
+    /// Retrieves all rules currently enabled in the system.
     /// </summary>
-    public interface IRuleRepository
-    {
-        /// <summary>
-        /// Retrieves a rule by its unique identifier.
-        /// </summary>
-        /// <param name="id">The rule ID.</param>
-        /// <returns>The Rule object or null if not found.</returns>
-        Task<Rule?> GetByIdAsync(int id);
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>List of active <see cref="Rule"/> entities.</returns>
+    Task<List<Rule>> GetActiveRulesAsync(CancellationToken cancellationToken = default);
 
-        /// <summary>
-        /// Detaches an entity from the database.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        Task DetachEntityAsync(int id);
+    /// <summary>
+    /// Retrieves all rules that are ordered by their priority (lowest first).
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>List of <see cref="Rule"/> entities ordered by <see cref="Rule.Priority"/> ASC.</returns>
+    Task<List<Rule>> GetRulesByPriorityAsync(CancellationToken cancellationToken = default);
 
-        /// <summary>
-        /// Retrieves all rules from the database.
-        /// </summary>
-        /// <returns>A list of all rules.</returns>
-        Task<List<Rule>> GetAllAsync();
+    /// <summary>
+    /// Retrieves rules specifically targeting a given feed.
+    /// </summary>
+    /// <param name="feedId">The ID of the feed.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>List of rules applicable to the feed.</returns>
+    Task<List<Rule>> GetRulesByFeedIdAsync(int feedId, CancellationToken cancellationToken = default);
 
-        /// <summary>
-        /// Retrieves all active rules for the background processing engine.
-        /// </summary>
-        /// <returns>A list of enabled rules.</returns>
-        Task<List<Rule>> GetActiveRulesAsync();
+    /// <summary>
+    /// Retrieves rules targeting all feeds within a specific category.
+    /// </summary>
+    /// <param name="categoryId">The ID of the category.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>List of rules applicable to the category.</returns>
+    Task<List<Rule>> GetRulesByCategoryIdAsync(int categoryId, CancellationToken cancellationToken = default);
 
-        /// <summary>
-        /// Retrieves rules ordered by priority (lower numbers execute first).
-        /// </summary>
-        /// <returns>Rules sorted by priority.</returns>
-        Task<List<Rule>> GetRulesByPriorityAsync();
+    /// <summary>
+    /// Performs a case-insensitive search for rules by name.
+    /// </summary>
+    /// <param name="searchTerm">The string to search for in rule names.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>List of matching <see cref="Rule"/> entities.</returns>
+    Task<List<Rule>> SearchRulesByNameAsync(string searchTerm, CancellationToken cancellationToken = default);
 
-        /// <summary>
-        /// Retrieves rules that apply to a specific feed.
-        /// </summary>
-        /// <param name="feedId">The feed ID.</param>
-        /// <returns>Rules that apply to the specified feed.</returns>
-        Task<List<Rule>> GetRulesByFeedIdAsync(int feedId);
+    #endregion
 
-        /// <summary>
-        /// Retrieves rules that apply to a specific category.
-        /// </summary>
-        /// <param name="categoryId">The category ID.</param>
-        /// <returns>Rules that apply to the specified category.</returns>
-        Task<List<Rule>> GetRulesByCategoryIdAsync(int categoryId);
+    #region Statistics & Metadata
 
-        /// <summary>
-        /// Inserts a new rule into the database.
-        /// </summary>
-        /// <param name="rule">The rule to insert.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> InsertAsync(Rule rule);
+    /// <summary>
+    /// Increments the count of times a specific rule has been successfully matched.
+    /// </summary>
+    /// <param name="ruleId">The unique identifier of the rule.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>The number of rows affected.</returns>
+    Task<int> IncrementMatchCountAsync(int ruleId, CancellationToken cancellationToken = default);
 
-        /// <summary>
-        /// Updates an existing rule.
-        /// </summary>
-        /// <param name="rule">The rule with updated values.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> UpdateAsync(Rule rule);
+    /// <summary>
+    /// Retrieves a summary of match counts for all enabled rules.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>Dictionary where key is the rule name and value is its match count.</returns>
+    Task<Dictionary<string, int>> GetMatchStatisticsAsync(CancellationToken cancellationToken = default);
 
-        /// <summary>
-        /// Deletes a rule by its ID.
-        /// </summary>
-        /// <param name="id">The rule ID to delete.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> DeleteAsync(int id);
+    /// <summary>
+    /// Retrieves the most frequently triggered rules, ordered by match count descending.
+    /// </summary>
+    /// <param name="limit">Maximum number of rules to return (default: 10).</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>List of top <see cref="Rule"/> entities by match count.</returns>
+    Task<List<Rule>> GetTopRulesByMatchCountAsync(int limit = 10, CancellationToken cancellationToken = default);
 
-        /// <summary>
-        /// Increments the match count for a rule (statistics).
-        /// </summary>
-        /// <param name="ruleId">The rule ID.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> IncrementMatchCountAsync(int ruleId);
+    #endregion
 
-        /// <summary>
-        /// Retrieves all rule conditions for a specific rule.
-        /// </summary>
-        /// <param name="ruleId">The rule ID.</param>
-        /// <returns>List of conditions for the rule.</returns>
-        Task<List<RuleCondition>> GetRuleConditionsAsync(int ruleId);
+    #region Condition & Existence Checks
 
-        /// <summary>
-        /// Checks if a rule with the specified name already exists.
-        /// </summary>
-        /// <param name="name">The rule name to check.</param>
-        /// <returns>True if a rule with this name exists, otherwise false.</returns>
-        Task<bool> RuleExistsByNameAsync(string name);
+    /// <summary>
+    /// Retrieves all conditions associated with a specific rule.
+    /// </summary>
+    /// <param name="ruleId">The unique identifier of the rule.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>List of <see cref="RuleCondition"/> entities for the rule.</returns>
+    Task<List<RuleCondition>> GetRuleConditionsAsync(int ruleId, CancellationToken cancellationToken = default);
 
-        /// <summary>
-        /// Updates the last match date for a rule.
-        /// </summary>
-        /// <param name="ruleId">The rule ID.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> UpdateLastMatchDateAsync(int ruleId);
+    /// <summary>
+    /// Checks whether a rule with the specified name already exists.
+    /// </summary>
+    /// <param name="name">The name of the rule to check.</param>
+    /// <param name="cancellationToken">Cancellation token.</param>
+    /// <returns>True if a rule with this name exists; otherwise false.</returns>
+    Task<bool> ExistsByNameAsync(string name, CancellationToken cancellationToken = default);
 
-        /// <summary>
-        /// Retrieves the total number of times all rules have been triggered.
-        /// </summary>
-        /// <returns>Total match count across all rules.</returns>
-        Task<int> GetTotalMatchCountAsync();
-
-        /// <summary>
-        /// Retrieves the most frequently triggered rules.
-        /// </summary>
-        /// <param name="limit">Maximum number of rules to return.</param>
-        /// <returns>Top rules by match count.</returns>
-        Task<List<Rule>> GetTopRulesByMatchCountAsync(int limit = 10);
-    }
+    #endregion
 }

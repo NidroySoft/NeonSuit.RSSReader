@@ -1,0 +1,192 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Enums.SyncPriority
+  commentId: T:NeonSuit.RSSReader.Core.Enums.SyncPriority
+  id: SyncPriority
+  parent: NeonSuit.RSSReader.Core.Enums
+  children:
+  - NeonSuit.RSSReader.Core.Enums.SyncPriority.Critical
+  - NeonSuit.RSSReader.Core.Enums.SyncPriority.High
+  - NeonSuit.RSSReader.Core.Enums.SyncPriority.Low
+  - NeonSuit.RSSReader.Core.Enums.SyncPriority.Medium
+  langs:
+  - csharp
+  - vb
+  name: SyncPriority
+  nameWithType: SyncPriority
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncPriority
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SyncPriority
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 68
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Priority levels for task scheduling.
+  example: []
+  syntax:
+    content: public enum SyncPriority
+    content.vb: Public Enum SyncPriority
+- uid: NeonSuit.RSSReader.Core.Enums.SyncPriority.Low
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncPriority.Low
+  id: Low
+  parent: NeonSuit.RSSReader.Core.Enums.SyncPriority
+  langs:
+  - csharp
+  - vb
+  name: Low
+  nameWithType: SyncPriority.Low
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncPriority.Low
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Low
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 71
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Low priority - runs when system is idle.
+  example: []
+  syntax:
+    content: Low = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncPriority
+- uid: NeonSuit.RSSReader.Core.Enums.SyncPriority.Medium
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncPriority.Medium
+  id: Medium
+  parent: NeonSuit.RSSReader.Core.Enums.SyncPriority
+  langs:
+  - csharp
+  - vb
+  name: Medium
+  nameWithType: SyncPriority.Medium
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncPriority.Medium
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Medium
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 73
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Medium priority - normal background tasks.
+  example: []
+  syntax:
+    content: Medium = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncPriority
+- uid: NeonSuit.RSSReader.Core.Enums.SyncPriority.High
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncPriority.High
+  id: High
+  parent: NeonSuit.RSSReader.Core.Enums.SyncPriority
+  langs:
+  - csharp
+  - vb
+  name: High
+  nameWithType: SyncPriority.High
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncPriority.High
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: High
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 75
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: High priority - user-triggered or critical tasks.
+  example: []
+  syntax:
+    content: High = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncPriority
+- uid: NeonSuit.RSSReader.Core.Enums.SyncPriority.Critical
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncPriority.Critical
+  id: Critical
+  parent: NeonSuit.RSSReader.Core.Enums.SyncPriority
+  langs:
+  - csharp
+  - vb
+  name: Critical
+  nameWithType: SyncPriority.Critical
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncPriority.Critical
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Critical
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 77
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Critical priority - must run immediately.
+  example: []
+  syntax:
+    content: Critical = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncPriority
+references:
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.Enums.SyncPriority
+  commentId: T:NeonSuit.RSSReader.Core.Enums.SyncPriority
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.SyncPriority.html
+  name: SyncPriority
+  nameWithType: SyncPriority
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncPriority

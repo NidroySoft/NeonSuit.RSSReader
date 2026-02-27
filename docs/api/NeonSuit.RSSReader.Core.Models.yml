@@ -1,0 +1,199 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models
+  commentId: N:NeonSuit.RSSReader.Core.Models
+  id: NeonSuit.RSSReader.Core.Models
+  children:
+  - NeonSuit.RSSReader.Core.Models.Article
+  - NeonSuit.RSSReader.Core.Models.ArticleTag
+  - NeonSuit.RSSReader.Core.Models.Category
+  - NeonSuit.RSSReader.Core.Models.Feed
+  - NeonSuit.RSSReader.Core.Models.NotificationLog
+  - NeonSuit.RSSReader.Core.Models.PreferenceDefaults
+  - NeonSuit.RSSReader.Core.Models.PreferenceHelper
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  - NeonSuit.RSSReader.Core.Models.PreferenceType
+  - NeonSuit.RSSReader.Core.Models.Rule
+  - NeonSuit.RSSReader.Core.Models.RuleCondition
+  - NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  - NeonSuit.RSSReader.Core.Models.SyncError
+  - NeonSuit.RSSReader.Core.Models.SyncState
+  - NeonSuit.RSSReader.Core.Models.SyncStatistics
+  - NeonSuit.RSSReader.Core.Models.SyncTaskConfig
+  - NeonSuit.RSSReader.Core.Models.SyncTaskExecution
+  - NeonSuit.RSSReader.Core.Models.Tag
+  - NeonSuit.RSSReader.Core.Models.UserPreferences
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.Models
+  nameWithType: NeonSuit.RSSReader.Core.Models
+  fullName: NeonSuit.RSSReader.Core.Models
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.Models.Article
+  commentId: T:NeonSuit.RSSReader.Core.Models.Article
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.Article.html
+  name: Article
+  nameWithType: Article
+  fullName: NeonSuit.RSSReader.Core.Models.Article
+- uid: NeonSuit.RSSReader.Core.Models.ArticleTag
+  commentId: T:NeonSuit.RSSReader.Core.Models.ArticleTag
+  href: NeonSuit.RSSReader.Core.Models.ArticleTag.html
+  name: ArticleTag
+  nameWithType: ArticleTag
+  fullName: NeonSuit.RSSReader.Core.Models.ArticleTag
+- uid: NeonSuit.RSSReader.Core.Models.Category
+  commentId: T:NeonSuit.RSSReader.Core.Models.Category
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.Category.html
+  name: Category
+  nameWithType: Category
+  fullName: NeonSuit.RSSReader.Core.Models.Category
+- uid: NeonSuit.RSSReader.Core.Models.Feed
+  commentId: T:NeonSuit.RSSReader.Core.Models.Feed
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.Feed.html
+  name: Feed
+  nameWithType: Feed
+  fullName: NeonSuit.RSSReader.Core.Models.Feed
+- uid: NeonSuit.RSSReader.Core.Models.NotificationLog
+  commentId: T:NeonSuit.RSSReader.Core.Models.NotificationLog
+  href: NeonSuit.RSSReader.Core.Models.NotificationLog.html
+  name: NotificationLog
+  nameWithType: NotificationLog
+  fullName: NeonSuit.RSSReader.Core.Models.NotificationLog
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceDefaults
+  commentId: T:NeonSuit.RSSReader.Core.Models.PreferenceDefaults
+  href: NeonSuit.RSSReader.Core.Models.PreferenceDefaults.html
+  name: PreferenceDefaults
+  nameWithType: PreferenceDefaults
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceDefaults
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceHelper
+  commentId: T:NeonSuit.RSSReader.Core.Models.PreferenceHelper
+  href: NeonSuit.RSSReader.Core.Models.PreferenceHelper.html
+  name: PreferenceHelper
+  nameWithType: PreferenceHelper
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceHelper
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceType
+  commentId: T:NeonSuit.RSSReader.Core.Models.PreferenceType
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.PreferenceType.html
+  name: PreferenceType
+  nameWithType: PreferenceType
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceType
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  commentId: T:NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  href: NeonSuit.RSSReader.Core.Models.PreferenceKeys.html
+  name: PreferenceKeys
+  nameWithType: PreferenceKeys
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+- uid: NeonSuit.RSSReader.Core.Models.Rule
+  commentId: T:NeonSuit.RSSReader.Core.Models.Rule
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.Rule.html
+  name: Rule
+  nameWithType: Rule
+  fullName: NeonSuit.RSSReader.Core.Models.Rule
+- uid: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  commentId: T:NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.html
+  name: RuleHealthStatus
+  nameWithType: RuleHealthStatus
+  fullName: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+- uid: NeonSuit.RSSReader.Core.Models.RuleCondition
+  commentId: T:NeonSuit.RSSReader.Core.Models.RuleCondition
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.RuleCondition.html
+  name: RuleCondition
+  nameWithType: RuleCondition
+  fullName: NeonSuit.RSSReader.Core.Models.RuleCondition
+- uid: NeonSuit.RSSReader.Core.Models.SyncError
+  commentId: T:NeonSuit.RSSReader.Core.Models.SyncError
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.SyncError.html
+  name: SyncError
+  nameWithType: SyncError
+  fullName: NeonSuit.RSSReader.Core.Models.SyncError
+- uid: NeonSuit.RSSReader.Core.Models.SyncState
+  commentId: T:NeonSuit.RSSReader.Core.Models.SyncState
+  href: NeonSuit.RSSReader.Core.Models.SyncState.html
+  name: SyncState
+  nameWithType: SyncState
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState
+- uid: NeonSuit.RSSReader.Core.Models.SyncStatistics
+  commentId: T:NeonSuit.RSSReader.Core.Models.SyncStatistics
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.SyncStatistics.html
+  name: SyncStatistics
+  nameWithType: SyncStatistics
+  fullName: NeonSuit.RSSReader.Core.Models.SyncStatistics
+- uid: NeonSuit.RSSReader.Core.Models.SyncTaskConfig
+  commentId: T:NeonSuit.RSSReader.Core.Models.SyncTaskConfig
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.SyncTaskConfig.html
+  name: SyncTaskConfig
+  nameWithType: SyncTaskConfig
+  fullName: NeonSuit.RSSReader.Core.Models.SyncTaskConfig
+- uid: NeonSuit.RSSReader.Core.Models.SyncTaskExecution
+  commentId: T:NeonSuit.RSSReader.Core.Models.SyncTaskExecution
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.SyncTaskExecution.html
+  name: SyncTaskExecution
+  nameWithType: SyncTaskExecution
+  fullName: NeonSuit.RSSReader.Core.Models.SyncTaskExecution
+- uid: NeonSuit.RSSReader.Core.Models.Tag
+  commentId: T:NeonSuit.RSSReader.Core.Models.Tag
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.Tag.html
+  name: Tag
+  nameWithType: Tag
+  fullName: NeonSuit.RSSReader.Core.Models.Tag
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+  commentId: T:NeonSuit.RSSReader.Core.Models.UserPreferences
+  href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  name: UserPreferences
+  nameWithType: UserPreferences
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences
+- uid: NeonSuit.RSSReader.Core.Models
+  commentId: N:NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models
+  nameWithType: NeonSuit.RSSReader.Core.Models
+  fullName: NeonSuit.RSSReader.Core.Models
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html

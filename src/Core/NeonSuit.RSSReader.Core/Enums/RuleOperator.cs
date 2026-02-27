@@ -35,6 +35,8 @@
     ///           as DateTimeOffset or similar; invalid parsing should fail the condition gracefully.</item>
     ///     <item><see cref="NotContains"/> and <see cref="NotEquals"/> are useful for exclusion rules 
     ///           (e.g., "do not star articles containing 'ad' or 'promo'").</item>
+    ///     <item><see cref="Between"/> and <see cref="NotBetween"/> are ideal for range-based filtering
+    ///           (e.g., word count ranges, date ranges).</item>
     ///     <item>UI validation: Disable invalid operators for certain field types 
     ///           (e.g., hide date operators when target is Title/Content).</item>
     ///     <item>Performance note: <see cref="Regex"/> and full-text searches can be expensive on large datasets; 
@@ -177,6 +179,50 @@
         ///     <item>Common for ensuring field presence before other conditions.</item>
         /// </list>
         /// </remarks>
-        IsNotEmpty = 10
+        IsNotEmpty = 10,
+
+        /// <summary>
+        /// The target field value falls within the specified inclusive range (minimum to maximum).
+        /// </summary>
+        /// <remarks>
+        /// <para>Behavior:</para>
+        /// <list type="bullet">
+        ///     <item>Requires two values: minimum and maximum (inclusive).</item>
+        ///     <item>Works with numeric values (article length, word count, etc.).</item>
+        ///     <item>Works with date/time values (publication date, last updated, etc.).</item>
+        ///     <item>For strings, uses lexical/alphabetical comparison (rarely used).</item>
+        ///     <item>Example: WordCount Between 500 and 1000 matches articles with 500-1000 words.</item>
+        ///     <item>Example: Published Between "2025-01-01" and "2025-01-31" matches January 2025 articles.</item>
+        /// </list>
+        /// <para>Implementation notes:</para>
+        /// <list type="bullet">
+        ///     <item>Both values are required; UI should enforce min ≤ max.</item>
+        ///     <item>Parsing failures should fail the condition gracefully (returns false).</item>
+        ///     <item>For dates, consider timezone handling (typically UTC).</item>
+        ///     <item>Inclusive boundaries: value ≥ min AND value ≤ max.</item>
+        /// </list>
+        /// </remarks>
+        Between = 11,
+
+        /// <summary>
+        /// The target field value falls outside the specified inclusive range (less than minimum OR greater than maximum).
+        /// </summary>
+        /// <remarks>
+        /// <para>Behavior:</para>
+        /// <list type="bullet">
+        ///     <item>Negation of <see cref="Between"/>.</item>
+        ///     <item>Requires two values: minimum and maximum (inclusive).</item>
+        ///     <item>Matches if value is less than minimum OR greater than maximum.</item>
+        ///     <item>Useful for outliers, old articles, or extremely long content.</item>
+        ///     <item>Example: WordCount NotBetween 100 and 1000 matches very short or very long articles.</item>
+        /// </list>
+        /// <para>Implementation notes:</para>
+        /// <list type="bullet">
+        ///     <item>Both values are required; UI should enforce min ≤ max.</item>
+        ///     <item>Same parsing requirements as <see cref="Between"/>.</item>
+        ///     <item>Edge case: If min == max, this matches everything except that exact value.</item>
+        /// </list>
+        /// </remarks>
+        NotBetween = 12
     }
 }

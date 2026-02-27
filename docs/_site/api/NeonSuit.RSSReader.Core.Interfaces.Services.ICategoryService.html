@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface ICategoryService | NeonSuit RSS Reader API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface ICategoryService | NeonSuit RSS Reader API ">
+      
+      <meta name="description" content="Service interface for managing category-related business logic and operations. Acts as an abstraction layer between UI/presentation and data repositories, coordinating hierarchical category management, feed organization, and optimized statistics.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/NidroySoft/NeonSuit.RSSReader/new/master/apiSpec/new?filename=NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService.md&amp;value=---%0Auid%3A%20NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService">
+
+
+
+  <h1 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService" class="text-break">
+Interface ICategoryService  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NeonSuit.html">NeonSuit</a>.<a class="xref" href="NeonSuit.RSSReader.html">RSSReader</a>.<a class="xref" href="NeonSuit.RSSReader.Core.html">Core</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.html">Interfaces</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.html">Services</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NeonSuit.RSSReader.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Service interface for managing category-related business logic and operations.
+Acts as an abstraction layer between UI/presentation and data repositories,
+coordinating hierarchical category management, feed organization, and optimized statistics.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ICategoryService</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This service centralizes all category-related use cases in the RSS reader application,
+ensuring consistent business rules, validation, and transaction boundaries.
+All methods return DTOs instead of entities to maintain separation of concerns.
+</p>
+<p>
+Implementations must ensure:
+<ul><li>All read operations are efficient and memory-safe (pagination, server-side filtering).</li><li>Category operations maintain hierarchical integrity and referential integrity with feeds.</li><li>Statistics are cached or computed efficiently to avoid N+1 queries.</li><li>All operations support cancellation via <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a>.</li></ul>
+
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_CategoryExistsByNameAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CategoryExistsByNameAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_CategoryExistsByNameAsync_System_String_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CategoryExistsByNameAsync(System.String,System.Threading.CancellationToken)">
+  CategoryExistsByNameAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks if a category with the specified name already exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;bool&gt; CategoryExistsByNameAsync(string name, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The category name to check.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>True if a category with this name exists; otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if <code class="paramref">name</code> is null, empty, or whitespace.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_CreateCategoryAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CreateCategoryAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_CreateCategoryAsync_NeonSuit_RSSReader_Core_DTOs_Categories_CreateCategoryDto_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CreateCategoryAsync(NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto,System.Threading.CancellationToken)">
+  CreateCategoryAsync(CreateCategoryDto, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new category with automatic sort order assignment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;CategoryDto&gt; CreateCategoryAsync(CreateCategoryDto createDto, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>createDto</code> <a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto.html">CreateCategoryDto</a></dt>
+    <dd><p>The DTO containing category creation data.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html">CategoryDto</a>&gt;</dt>
+    <dd><p>The newly created category DTO with generated ID and sort order.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown if <code class="paramref">createDto</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if <code class="paramref">createDto</code> has invalid data.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if a category with the same name already exists.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_DeleteCategoryAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.DeleteCategoryAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_DeleteCategoryAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.DeleteCategoryAsync(System.Int32,System.Threading.CancellationToken)">
+  DeleteCategoryAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes a category by its ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;bool&gt; DeleteCategoryAsync(int categoryId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>categoryId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The ID of the category to delete.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>True if deletion was successful; otherwise false (e.g., category not found).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown if <code class="paramref">categoryId</code> is less than or equal to 0.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the category contains feeds and deletion is not allowed.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetAllCategoriesAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetAllCategoriesAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesAsync(System.Threading.CancellationToken)">
+  GetAllCategoriesAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves all categories with their feed and unread counts populated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;CategoryDto&gt;&gt; GetAllCategoriesAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html">CategoryDto</a>&gt;&gt;</dt>
+    <dd><p>A list of all categories with calculated statistics.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetAllCategoriesWithFeedsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesWithFeedsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetAllCategoriesWithFeedsAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesWithFeedsAsync(System.Threading.CancellationToken)">
+  GetAllCategoriesWithFeedsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves all categories with their associated feeds fully populated.
+Optimized for scenarios requiring complete category-feed relationships.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;CategoryDto&gt;&gt; GetAllCategoriesWithFeedsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html">CategoryDto</a>&gt;&gt;</dt>
+    <dd><p>A list of categories with populated feed collections.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetAllCategoriesWithFeedsAsync_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Use with caution as this loads all categories and their feeds into memory.
+Consider pagination or lazy loading for large datasets on low-resource machines.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetCategoryByIdAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryByIdAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetCategoryByIdAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryByIdAsync(System.Int32,System.Threading.CancellationToken)">
+  GetCategoryByIdAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a specific category by ID with populated feed and unread counts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;CategoryDto?&gt; GetCategoryByIdAsync(int categoryId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>categoryId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The unique identifier of the category.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html">CategoryDto</a>&gt;</dt>
+    <dd><p>The category DTO with statistics or null if not found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown if <code class="paramref">categoryId</code> is less than or equal to 0.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetCategoryTreeAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryTreeAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetCategoryTreeAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryTreeAsync(System.Threading.CancellationToken)">
+  GetCategoryTreeAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds a complete category tree with hierarchical structure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;CategoryTreeDto&gt;&gt; GetCategoryTreeAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto.html">CategoryTreeDto</a>&gt;&gt;</dt>
+    <dd><p>Hierarchical tree of categories with populated children collections.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetCategoryTreeAsync_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method recursively builds the category hierarchy. Implementations should optimize
+to avoid multiple database round-trips and minimize memory allocation for deep hierarchies.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetCategoryWithFeedsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryWithFeedsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetCategoryWithFeedsAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryWithFeedsAsync(System.Int32,System.Threading.CancellationToken)">
+  GetCategoryWithFeedsAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a specific category with its associated feeds fully populated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;CategoryDto?&gt; GetCategoryWithFeedsAsync(int categoryId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>categoryId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The ID of the category to retrieve.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html">CategoryDto</a>&gt;</dt>
+    <dd><p>The category with populated feed collection or null if not found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown if <code class="paramref">categoryId</code> is less than or equal to 0.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetFeedCountsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetFeedCountsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetFeedCountsAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetFeedCountsAsync(System.Threading.CancellationToken)">
+  GetFeedCountsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets feed counts grouped by category ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Dictionary&lt;int, int&gt;&gt; GetFeedCountsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;&gt;</dt>
+    <dd><p>A dictionary mapping CategoryId to feed count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetOrCreateCategoryAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetOrCreateCategoryAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetOrCreateCategoryAsync_System_String_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetOrCreateCategoryAsync(System.String,System.Threading.CancellationToken)">
+  GetOrCreateCategoryAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or creates a category by name. If the category doesn't exist,
+it will be created with default values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;CategoryDto&gt; GetOrCreateCategoryAsync(string name, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the category to find or create.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html">CategoryDto</a>&gt;</dt>
+    <dd><p>The existing or newly created category DTO.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if <code class="paramref">name</code> is null, empty, or whitespace.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetUnreadCountsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetUnreadCountsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetUnreadCountsAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetUnreadCountsAsync(System.Threading.CancellationToken)">
+  GetUnreadCountsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets unread article counts grouped by category ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Dictionary&lt;int, int&gt;&gt; GetUnreadCountsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;&gt;</dt>
+    <dd><p>A dictionary mapping CategoryId to unread article count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_ReorderCategoriesAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.ReorderCategoriesAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_ReorderCategoriesAsync_NeonSuit_RSSReader_Core_DTOs_Categories_ReorderCategoriesDto_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.ReorderCategoriesAsync(NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto,System.Threading.CancellationToken)">
+  ReorderCategoriesAsync(ReorderCategoriesDto, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reorders categories based on the provided list of IDs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;bool&gt; ReorderCategoriesAsync(ReorderCategoriesDto reorderDto, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reorderDto</code> <a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto.html">ReorderCategoriesDto</a></dt>
+    <dd><p>The DTO containing reordering information.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>True if reordering was successful; otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown if <code class="paramref">reorderDto</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if the category ID list is empty or contains duplicates.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if any category ID in the list does not exist.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_UpdateCategoryAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.UpdateCategoryAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_UpdateCategoryAsync_System_Int32_NeonSuit_RSSReader_Core_DTOs_Categories_UpdateCategoryDto_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.UpdateCategoryAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto,System.Threading.CancellationToken)">
+  UpdateCategoryAsync(int, UpdateCategoryDto, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates an existing category.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;CategoryDto?&gt; UpdateCategoryAsync(int categoryId, UpdateCategoryDto updateDto, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>categoryId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The ID of the category to update.</p>
+</dd>
+    <dt><code>updateDto</code> <a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto.html">UpdateCategoryDto</a></dt>
+    <dd><p>The DTO containing updated category data.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> to observe while waiting for the task to complete.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html">CategoryDto</a>&gt;</dt>
+    <dd><p>The updated category DTO or null if category not found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown if <code class="paramref">updateDto</code> is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown if <code class="paramref">categoryId</code> is less than or equal to 0.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if another category with the same name already exists.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a></dt>
+    <dd><p>Thrown if the operation is canceled via the cancellation token.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs/#L30" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2026 NeonSuit - Professional RSS Engine
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

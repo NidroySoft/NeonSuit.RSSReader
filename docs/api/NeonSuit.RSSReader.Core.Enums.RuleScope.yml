@@ -1,0 +1,272 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Enums.RuleScope
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleScope
+  id: RuleScope
+  parent: NeonSuit.RSSReader.Core.Enums
+  children:
+  - NeonSuit.RSSReader.Core.Enums.RuleScope.AllFeeds
+  - NeonSuit.RSSReader.Core.Enums.RuleScope.CurrentView
+  - NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificCategories
+  - NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificFeeds
+  langs:
+  - csharp
+  - vb
+  name: RuleScope
+  nameWithType: RuleScope
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleScope
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleScope.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RuleScope
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleScope.cs
+    startLine: 41
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: >-
+    Defines the scope of application for a user-defined rule or filter in the RSS reader.
+
+    The scope determines which feeds or articles the rule conditions and actions are evaluated against.
+  remarks: >-
+    <p>
+
+    This enumeration controls the breadth of a rule's influence — from applying globally to all subscribed feeds 
+
+    down to only the currently visible articles in the user's active view.
+
+    It helps users organize rules efficiently and prevent unintended side effects on unrelated content.
+
+    </p>
+
+
+    <p>
+
+    Behavioral impact and system usage:
+
+    </p>
+
+    <ul><li>The scope is evaluated at rule execution time (usually during article ingestion or on-demand re-evaluation).</li><li>Rules with narrower scopes (<xref href="NeonSuit.RSSReader.Core.Enums.RuleScope.CurrentView" data-throw-if-not-resolved="false"></xref>) are typically faster and more targeted.</li><li>Broader scopes (<xref href="NeonSuit.RSSReader.Core.Enums.RuleScope.AllFeeds" data-throw-if-not-resolved="false"></xref>) affect more articles but may increase processing time during bulk syncs.</li><li>Scope is independent of conditions — even if conditions match, the article must fall within the scope to apply actions.</li><li>UI should clearly indicate scope when creating/editing rules (e.g., dropdown: "Apply to all feeds", "Selected feeds only", etc.).</li></ul>
+
+
+    <p>
+
+    Business rules and recommendations:
+
+    </p>
+
+    <ul><li>Default scope for new rules: <xref href="NeonSuit.RSSReader.Core.Enums.RuleScope.AllFeeds" data-throw-if-not-resolved="false"></xref> (broadest, most common for global behaviors like "star articles with keyword X").</li><li>Use <xref href="NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificFeeds" data-throw-if-not-resolved="false"></xref> or <xref href="NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificCategories" data-throw-if-not-resolved="false"></xref> for feed-specific automation 
+              (e.g., archive everything from "Promotions" feed, highlight posts from "Tech News" category).</li><li><xref href="NeonSuit.RSSReader.Core.Enums.RuleScope.CurrentView" data-throw-if-not-resolved="false"></xref> is intended for temporary, context-aware rules 
+              (e.g., bulk mark-as-read in the current search/filter view, or apply tags to visible selection).</li><li>When scope is <xref href="NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificFeeds" data-throw-if-not-resolved="false"></xref> or <xref href="NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificCategories" data-throw-if-not-resolved="false"></xref>, 
+              the rule configuration must include a list of feed IDs or category IDs; otherwise, the rule is inactive.</li><li>Rules scoped to <xref href="NeonSuit.RSSReader.Core.Enums.RuleScope.CurrentView" data-throw-if-not-resolved="false"></xref> should only be triggered via explicit user actions 
+              (e.g., "Apply rules to current view" button), not automatically on sync.</li><li>Performance note: Avoid combining very broad scopes with expensive conditions (e.g., regex on AllFields) 
+              unless the user base and dataset size justify it.</li></ul>
+  example: []
+  syntax:
+    content: public enum RuleScope
+    content.vb: Public Enum RuleScope
+- uid: NeonSuit.RSSReader.Core.Enums.RuleScope.AllFeeds
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleScope.AllFeeds
+  id: AllFeeds
+  parent: NeonSuit.RSSReader.Core.Enums.RuleScope
+  langs:
+  - csharp
+  - vb
+  name: AllFeeds
+  nameWithType: RuleScope.AllFeeds
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleScope.AllFeeds
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleScope.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AllFeeds
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleScope.cs
+    startLine: 54
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The rule applies to articles from all subscribed feeds in the user's account.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Evaluated against every incoming or existing article, regardless of feed or category.</li><li>Most common scope for global behaviors (e.g., "star anything mentioning 'AI'").</li><li>Highest potential performance impact during large syncs.</li></ul>
+  example: []
+  syntax:
+    content: AllFeeds = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleScope
+- uid: NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificFeeds
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificFeeds
+  id: SpecificFeeds
+  parent: NeonSuit.RSSReader.Core.Enums.RuleScope
+  langs:
+  - csharp
+  - vb
+  name: SpecificFeeds
+  nameWithType: RuleScope.SpecificFeeds
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificFeeds
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleScope.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SpecificFeeds
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleScope.cs
+    startLine: 67
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The rule applies only to articles from a specific list of selected feeds.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Requires associated feed IDs in the rule definition.</li><li>Ideal for feed-specific automation (e.g., auto-archive newsletters, notify on job board updates).</li><li>More efficient than <xref href="NeonSuit.RSSReader.Core.Enums.RuleScope.AllFeeds" data-throw-if-not-resolved="false"></xref> when targeting few feeds.</li></ul>
+  example: []
+  syntax:
+    content: SpecificFeeds = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleScope
+- uid: NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificCategories
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificCategories
+  id: SpecificCategories
+  parent: NeonSuit.RSSReader.Core.Enums.RuleScope
+  langs:
+  - csharp
+  - vb
+  name: SpecificCategories
+  nameWithType: RuleScope.SpecificCategories
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificCategories
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleScope.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SpecificCategories
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleScope.cs
+    startLine: 80
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The rule applies only to articles belonging to one or more selected categories/folders.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Requires associated category IDs in the rule definition.</li><li>Useful when feeds are grouped logically (e.g., "Work", "Hobbies", "News") and rules should respect that grouping.</li><li>Allows inheritance: articles inherit category from their parent feed if per-article categories are not used.</li></ul>
+  example: []
+  syntax:
+    content: SpecificCategories = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleScope
+- uid: NeonSuit.RSSReader.Core.Enums.RuleScope.CurrentView
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleScope.CurrentView
+  id: CurrentView
+  parent: NeonSuit.RSSReader.Core.Enums.RuleScope
+  langs:
+  - csharp
+  - vb
+  name: CurrentView
+  nameWithType: RuleScope.CurrentView
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleScope.CurrentView
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleScope.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CurrentView
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleScope.cs
+    startLine: 97
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: >-
+    The rule applies only to articles that are currently visible in the user's active view 
+
+    (based on current filters, search, selected feed/category, unread status, etc.).
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Evaluated against the current filtered/selected set of articles at the moment of rule execution.</li><li>Not applied automatically during background sync — typically triggered by explicit user action 
+              (e.g., "Apply rules to this view", bulk operations).</li><li>Fastest scope — only a small subset of articles is considered.</li><li>Common for temporary/ad-hoc actions (bulk tagging visible results, mark-as-read current page).</li><li>May behave inconsistently if view changes rapidly; UI should warn or lock scope during application.</li></ul>
+  example: []
+  syntax:
+    content: CurrentView = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleScope
+references:
+- uid: NeonSuit.RSSReader.Core.Enums.RuleScope.CurrentView
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleScope.CurrentView
+  href: NeonSuit.RSSReader.Core.Enums.RuleScope.html#NeonSuit_RSSReader_Core_Enums_RuleScope_CurrentView
+  name: CurrentView
+  nameWithType: RuleScope.CurrentView
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleScope.CurrentView
+- uid: NeonSuit.RSSReader.Core.Enums.RuleScope.AllFeeds
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleScope.AllFeeds
+  href: NeonSuit.RSSReader.Core.Enums.RuleScope.html#NeonSuit_RSSReader_Core_Enums_RuleScope_AllFeeds
+  name: AllFeeds
+  nameWithType: RuleScope.AllFeeds
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleScope.AllFeeds
+- uid: NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificFeeds
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificFeeds
+  href: NeonSuit.RSSReader.Core.Enums.RuleScope.html#NeonSuit_RSSReader_Core_Enums_RuleScope_SpecificFeeds
+  name: SpecificFeeds
+  nameWithType: RuleScope.SpecificFeeds
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificFeeds
+- uid: NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificCategories
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificCategories
+  href: NeonSuit.RSSReader.Core.Enums.RuleScope.html#NeonSuit_RSSReader_Core_Enums_RuleScope_SpecificCategories
+  name: SpecificCategories
+  nameWithType: RuleScope.SpecificCategories
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleScope.SpecificCategories
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.Enums.RuleScope
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleScope
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.RuleScope.html
+  name: RuleScope
+  nameWithType: RuleScope
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleScope

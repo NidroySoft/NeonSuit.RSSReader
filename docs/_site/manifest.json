@@ -1,0 +1,3009 @@
+{
+  "source_base_path": "C:/Proyectos/NeonSuit.RSSReader/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.yml\" sourcestartlinenumber=\"1\">Comprehensive Data Transfer Object for article detail views.\nContains all metadata, content, and user interaction state for full article display.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.ArticleListItemDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.ArticleListItemDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Article.ArticleListItemDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Article.ArticleListItemDto.yml\" sourcestartlinenumber=\"1\">Ultra-lightweight Data Transfer Object for article list items in virtualized lists.\nContains minimal fields for memory-efficient rendering of large lists.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.ArticleStateDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.ArticleStateDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Article.ArticleStateDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Article.ArticleStateDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for updating only the user interaction state of an article.\nUltra-lightweight DTO for quick state changes (read, starred, favorite).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto.yml\" sourcestartlinenumber=\"1\">Lightweight Data Transfer Object for article list views (cards, grids, summaries).\nContains only the essential fields needed for displaying article previews.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.CreateArticleDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.CreateArticleDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Article.CreateArticleDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Article.CreateArticleDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for creating a new article.\nUsed when importing articles from feeds or manually adding articles.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.UpdateArticleDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.UpdateArticleDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Article.UpdateArticleDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Article.UpdateArticleDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for updating an existing article.\nOnly user-modifiable fields are included (metadata, tags, and user state).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Article.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Article",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto.yml\" sourcestartlinenumber=\"1\">DTO for article-tag relationship information.\nUsed when displaying tag metadata on articles (who applied it, when, confidence).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationDto.yml\" sourcestartlinenumber=\"1\">DTO for bulk tag operations (add/remove multiple tags to/from multiple articles).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType.yml\" sourcestartlinenumber=\"1\">Type of bulk tag operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.CreateArticleTagDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.CreateArticleTagDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.ArticleTags.CreateArticleTagDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.CreateArticleTagDto.yml\" sourcestartlinenumber=\"1\">DTO for creating a new article-tag association.\nUsed when manually tagging articles or when rules apply tags.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.ArticleTags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.ArticleTags",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for category information.\nUsed for displaying categories in lists and selection controls.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for hierarchical category tree display.\nUsed in navigation sidebars and tree views.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for creating a new category.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for reordering categories.\nUsed when user drags and drops categories to change their order.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for updating an existing category.\nAll properties are optional to support partial updates.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Categories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Categories.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Categories",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupAnalysisDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupAnalysisDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupAnalysisDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupAnalysisDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for cleanup impact analysis results.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupConfigurationDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupConfigurationDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupConfigurationDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupConfigurationDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for database cleanup configuration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupResultDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupResultDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupResultDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupResultDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for comprehensive cleanup operation results.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Cleanup.ImageCacheCleanupResultDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Cleanup.ImageCacheCleanupResultDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Cleanup.ImageCacheCleanupResultDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Cleanup.ImageCacheCleanupResultDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for image cache cleanup results.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Cleanup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Cleanup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Cleanup",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for adding a new feed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for complete feed information.\nUsed for feed details view and editing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for feed health monitoring.\nUsed in dashboard and health checks.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto.yml\" sourcestartlinenumber=\"1\">Lightweight Data Transfer Object for feed list views.\nUsed in feed lists, sidebars, and subscription management.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for updating an existing feed.\nAll properties are optional to support partial updates.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Feeds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Feeds.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Feeds",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for module action results.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for module configuration property.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for module configuration schema.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for module information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for updating module configuration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Modules.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Modules.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Modules",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for creating a new notification.\nUsed by the rule engine and manual notification triggers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for complete notification information.\nUsed in notification history views and detail panels.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for notification statistics and analytics.\nUsed in dashboards and reporting views.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto.yml\" sourcestartlinenumber=\"1\">Lightweight Data Transfer Object for notification list views.\nUsed in notification center, dropdowns, and recent activity lists.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for updating notification action (user interaction).\nUsed when user clicks, dismisses, or snoozes a notification.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Notifications.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Notifications.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Notifications",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Opml.ImportedFeedInfoDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Opml.ImportedFeedInfoDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Opml.ImportedFeedInfoDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Opml.ImportedFeedInfoDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for information about an imported feed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for OPML import operation results.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Opml.OpmlStatisticsDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Opml.OpmlStatisticsDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Opml.OpmlStatisticsDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Opml.OpmlStatisticsDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for OPML operation statistics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Opml.OpmlValidationResultDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Opml.OpmlValidationResultDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Opml.OpmlValidationResultDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Opml.OpmlValidationResultDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for OPML validation results.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Opml.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Opml.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Opml",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.ExportImportDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.ExportImportDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Preferences.ExportImportDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Preferences.ExportImportDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for preference export/import operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for categorized preferences in UI.\nUsed for rendering grouped settings panels.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for user preference information.\nUsed for displaying and editing individual preferences.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto.yml\" sourcestartlinenumber=\"1\">Lightweight Data Transfer Object for preference list views.\nUsed in settings UI for displaying preference lists.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for resetting preferences to defaults.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for updating a preference value.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Preferences.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Preferences",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for creating a new rule condition.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for creating a new rule.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for individual rule conditions.\nUsed in advanced rule editing and condition management.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for a group of rule conditions.\nUsed when organizing conditions into logical groups (AND/OR).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for complete rule information.\nUsed in rule details view and editing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for rule health monitoring.\nUsed in dashboard and rule analytics views.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto.yml\" sourcestartlinenumber=\"1\">Lightweight Data Transfer Object for rule list views.\nUsed in rules management interface and rule selection controls.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for rule test results.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleValidationResultDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleValidationResultDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Rules.RuleValidationResultDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Rules.RuleValidationResultDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for rule validation results.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for updating an existing rule condition.\nAll properties are optional to support partial updates.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for updating an existing rule.\nAll properties are optional to support partial updates.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Rules.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Rules",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for configuring maximum concurrent tasks.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for configuring maximum sync duration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for configuring a synchronization task.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for synchronization action results.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for synchronization error information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for synchronization progress updates.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatisticsDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatisticsDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatisticsDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatisticsDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for synchronization statistics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for synchronization status.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for detailed task execution information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for synchronization task status.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Sync.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Sync",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatisticsDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatisticsDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatisticsDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatisticsDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for database statistics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object containing key database metrics for monitoring,\ndiagnostics, and user-facing statistics dashboards.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.System.IntegrityCheckResultDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.System.IntegrityCheckResultDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.System.IntegrityCheckResultDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.System.IntegrityCheckResultDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for database integrity check results.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.System.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.System.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.System",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.CreateTagDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.CreateTagDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Tags.CreateTagDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Tags.CreateTagDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for creating a new tag.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.MergeTagsDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.MergeTagsDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Tags.MergeTagsDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Tags.MergeTagsDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for merging two tags.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.TagCloudDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.TagCloudDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Tags.TagCloudDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Tags.TagCloudDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for tag cloud display.\nOptimized for visual representation with size/frequency scaling.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.TagDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.TagDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Tags.TagDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Tags.TagDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for complete tag information.\nUsed in tag management views and tag details.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.TagSummaryDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.TagSummaryDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Tags.TagSummaryDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Tags.TagSummaryDto.yml\" sourcestartlinenumber=\"1\">Lightweight Data Transfer Object for tag list views.\nUsed in tag clouds, dropdowns, and article tagging UI.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.UpdateTagDto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.UpdateTagDto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Tags.UpdateTagDto",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.DTOs.Tags.UpdateTagDto.yml\" sourcestartlinenumber=\"1\">Data Transfer Object for updating an existing tag.\nAll properties are optional to support partial updates.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.DTOs.Tags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.DTOs.Tags",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.ArticleStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.ArticleStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.ArticleStatus",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.ArticleStatus.yml\" sourcestartlinenumber=\"1\">Represents the user-facing status of an individual article within the RSS/Atom reader application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.FeedHealthStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.FeedHealthStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.FeedHealthStatus",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.FeedHealthStatus.yml\" sourcestartlinenumber=\"1\">Represents the health and operational status of an RSS/Atom feed, determined by the outcome\nof recent update/fetch attempts and overall accessibility.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.yml\" sourcestartlinenumber=\"1\">Defines the refresh interval options for automatic background polling of RSS/Atom feeds.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.LogicalOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.LogicalOperator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.LogicalOperator",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.LogicalOperator.yml\" sourcestartlinenumber=\"1\">Specifies the logical operator used to combine multiple conditions or filters in queries,\nrules, or search expressions within the RSS reader application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.ModuleStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.ModuleStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.ModuleStatus",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.ModuleStatus.yml\" sourcestartlinenumber=\"1\">Module status enumeration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.NotificationAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.NotificationAction.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.NotificationAction",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.NotificationAction.yml\" sourcestartlinenumber=\"1\">Represents the different types of user interactions or resolutions applied to a notification\ngenerated by the RSS reader application (new articles, feed errors, sync events, etc.).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.NotificationPriority.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.NotificationPriority.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.NotificationPriority",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.NotificationPriority.yml\" sourcestartlinenumber=\"1\">Defines the urgency level and presentation behavior of notifications in the RSS reader application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.NotificationType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.NotificationType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.NotificationType",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.NotificationType.yml\" sourcestartlinenumber=\"1\">Specifies the delivery/presentation method for notifications in the RSS reader application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.RuleActionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.RuleActionType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.RuleActionType",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.RuleActionType.yml\" sourcestartlinenumber=\"1\">Defines the possible automated actions that can be executed when an article matches\nthe conditions of a user-defined rule or filter in the RSS reader application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.RuleFieldTarget",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.yml\" sourcestartlinenumber=\"1\">Specifies the target field(s) of an article where a rule condition (e.g., keyword match,\npattern search, or value comparison) is evaluated in the RSS reader's rule/filter engine.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.RuleOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.RuleOperator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.RuleOperator",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.RuleOperator.yml\" sourcestartlinenumber=\"1\">Defines the comparison operators available for evaluating conditions in the RSS reader's rule/filter engine.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.RuleScope.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.RuleScope.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.RuleScope",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.RuleScope.yml\" sourcestartlinenumber=\"1\">Defines the scope of application for a user-defined rule or filter in the RSS reader.\nThe scope determines which feeds or articles the rule conditions and actions are evaluated against.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.SyncPriority.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.SyncPriority.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.SyncPriority",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.SyncPriority.yml\" sourcestartlinenumber=\"1\">Priority levels for task scheduling.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.SyncStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.SyncStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.SyncStatus",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.SyncStatus.yml\" sourcestartlinenumber=\"1\">Represents the overall synchronization status.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.SyncTaskStatus",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.yml\" sourcestartlinenumber=\"1\">Status of an individual synchronization task.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.SyncTaskType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.SyncTaskType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums.SyncTaskType",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Enums.SyncTaskType.yml\" sourcestartlinenumber=\"1\">Types of synchronization tasks managed by the coordinator.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Enums.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Enums.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Enums",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Extensions.StringExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Extensions.StringExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Extensions.StringExtensions",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Extensions.StringExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension methods for string manipulation, particularly useful for cleaning and processing RSS/Atom feed content.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Helpers.JsonValidationHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Helpers.JsonValidationHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Helpers.JsonValidationHelper",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Helpers.JsonValidationHelper.yml\" sourcestartlinenumber=\"1\">Provides helper methods for validating JSON strings during rule processing, configuration loading,\nand data deserialization in the RSS reader application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Helpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Helpers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Helpers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.yml\" sourcestartlinenumber=\"1\">Core interface for the RSS Reader's Entity Framework Core database context.\nDefines standardized access to database operations, transaction management,\nraw SQL execution, maintenance tasks, and basic statistics — with full async support.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Database.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Database.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Database",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Modules.IModule",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.yml\" sourcestartlinenumber=\"1\">Base interface for all plugable modules.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Modules.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Modules.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Modules",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository.yml\" sourcestartlinenumber=\"1\">Repository interface for managing <xref href=\"NeonSuit.RSSReader.Core.Models.Article\" data-throw-if-not-resolved=\"false\"></xref> domain entities.\nProvides comprehensive data access operations including CRUD, specialized queries,\nbulk status updates, duplicate detection, pagination, search, and maintenance tasks.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleTagRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleTagRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleTagRepository",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleTagRepository.yml\" sourcestartlinenumber=\"1\">Repository interface for managing the many-to-many relationship between <xref href=\"NeonSuit.RSSReader.Core.Models.Article\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"NeonSuit.RSSReader.Core.Models.Tag\" data-throw-if-not-resolved=\"false\"></xref> entities.\nHandles tag associations, bulk operations, removal, and usage statistics for articles.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.ICategoryRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.ICategoryRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories.ICategoryRepository",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Repositories.ICategoryRepository.yml\" sourcestartlinenumber=\"1\">Repository interface for managing <xref href=\"NeonSuit.RSSReader.Core.Models.Category\" data-throw-if-not-resolved=\"false\"></xref> entities, which group RSS feeds\ninto logical folders or collections with support for custom ordering, colors, and hierarchy.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.yml\" sourcestartlinenumber=\"1\">Repository interface dedicated to low-level database maintenance, cleanup, integrity verification,\nand performance optimization tasks for the RSS reader SQLite database.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IFeedRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IFeedRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories.IFeedRepository",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IFeedRepository.yml\" sourcestartlinenumber=\"1\">Repository interface for managing <xref href=\"NeonSuit.RSSReader.Core.Models.Feed\" data-throw-if-not-resolved=\"false\"></xref> entities.\nProvides comprehensive feed operations with support for active/inactive filtering, health tracking, and optimized data retrieval.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.yml\" sourcestartlinenumber=\"1\">Repository interface for managing notification audit logs.\nProvides methods for tracking, querying, and analyzing notification delivery and interactions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.yml\" sourcestartlinenumber=\"1\">Generic repository interface defining standard CRUD, bulk, and query operations\nfor entities in the NeonSuit RSS Reader application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleConditionRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleConditionRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleConditionRepository",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleConditionRepository.yml\" sourcestartlinenumber=\"1\">Repository interface for managing rule conditions.\nProvides methods for condition management, querying, and validation within the rule engine context.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.yml\" sourcestartlinenumber=\"1\">Repository interface for managing automated business rules (<xref href=\"NeonSuit.RSSReader.Core.Models.Rule\" data-throw-if-not-resolved=\"false\"></xref> entities).\nDefines the contract for rule persistence, querying, scoping, statistics, and condition retrieval.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.ISyncRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.ISyncRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories.ISyncRepository",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Repositories.ISyncRepository.yml\" sourcestartlinenumber=\"1\">Repository interface for synchronization state and history.\nPersists sync task configurations, statistics, and error history.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.ITagRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.ITagRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories.ITagRepository",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Repositories.ITagRepository.yml\" sourcestartlinenumber=\"1\">Repository interface for <xref href=\"NeonSuit.RSSReader.Core.Models.Tag\" data-throw-if-not-resolved=\"false\"></xref> entity operations.\nProvides specialized methods for tag management, discovery, usage tracking, and article association beyond basic CRUD.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.yml\" sourcestartlinenumber=\"1\">Repository interface for managing user preferences (<xref href=\"NeonSuit.RSSReader.Core.Models.UserPreferences\" data-throw-if-not-resolved=\"false\"></xref> entities).\nProvides strongly-typed and key-based access to user-specific settings with default value fallback.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.NotificationStatistics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.NotificationStatistics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories.NotificationStatistics",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Repositories.NotificationStatistics.yml\" sourcestartlinenumber=\"1\">Represents comprehensive statistics about notification delivery and user interactions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Repositories.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Repositories",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.yml\" sourcestartlinenumber=\"1\">Defines the operations required to download, clean, and parse RSS/Atom feeds.\nProvides methods for initial feed discovery and incremental article retrieval.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.RssFeedParser",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.yml\" sourcestartlinenumber=\"1\">Service interface for managing article-related business logic and operations.\nActs as an abstraction layer between UI/presentation and data repositories,\ncoordinating article retrieval, state changes (read/star/favorite), search,\ncleanup, and statistics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.yml\" sourcestartlinenumber=\"1\">Service interface for managing article-tag relationships.\nProvides business logic for tagging operations, batch processing, retrieval,\nstatistics, rule-based tagging, maintenance, and event notifications.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.yml\" sourcestartlinenumber=\"1\">Service interface for managing category-related business logic and operations.\nActs as an abstraction layer between UI/presentation and data repositories,\ncoordinating hierarchical category management, feed organization, and optimized statistics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IDatabaseCleanupService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IDatabaseCleanupService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services.IDatabaseCleanupService",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Services.IDatabaseCleanupService.yml\" sourcestartlinenumber=\"1\">Service interface for database maintenance and cleanup operations.\nOrchestrates cleanup workflows, manages configuration, and coordinates\nbetween business rules and data access layers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.yml\" sourcestartlinenumber=\"1\">Service interface for RSS feed management operations.\nProvides comprehensive feed management with support for active/inactive filtering,\nhealth monitoring, and synchronization capabilities.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.yml\" sourcestartlinenumber=\"1\">Service interface for managing plugable modules.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.yml\" sourcestartlinenumber=\"1\">Service interface for notification management and delivery.\nProvides comprehensive notification handling with support for different notification types,\npriority levels, and user action tracking.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.yml\" sourcestartlinenumber=\"1\">Service interface for importing and exporting RSS feeds in OPML format.\nOPML (Outline Processor Markup Language) is the standard format for RSS feed lists exchange between applications.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IRuleEngine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IRuleEngine.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services.IRuleEngine",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Services.IRuleEngine.yml\" sourcestartlinenumber=\"1\">Service interface for rule evaluation engine that processes articles against defined rules and conditions.\nProvides comprehensive rule evaluation with support for complex condition groups and validation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.yml\" sourcestartlinenumber=\"1\">Service interface for automated rules engine management.\nProvides comprehensive rule lifecycle management, article evaluation, and action execution capabilities.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.yml\" sourcestartlinenumber=\"1\">Defines the contract for a centralized settings management service.\nProvides thread-safe access to application preferences with notification events.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.yml\" sourcestartlinenumber=\"1\">Service interface for synchronization coordinator that manages and coordinates background tasks.\nHandles feed updates, tag processing, cleanup operations, and backups with proper prioritization,\nerror handling, and resource management for low-resource environments.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.ITagService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.ITagService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services.ITagService",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Interfaces.Services.ITagService.yml\" sourcestartlinenumber=\"1\">Service interface for tag management operations.\nProvides business logic, validation, and event notifications for tag operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Interfaces.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Interfaces.Services",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Article.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Article.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Article",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Article.yml\" sourcestartlinenumber=\"1\">Represents a single entry (article/item) from an RSS, Atom or JSON Feed source.\nStores metadata, content, user interaction state and processing flags.\nDesigned for efficient querying and low memory usage on low-end hardware.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.ArticleTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.ArticleTag.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.ArticleTag",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.ArticleTag.yml\" sourcestartlinenumber=\"1\">Join entity for the many-to-many relationship between <xref href=\"NeonSuit.RSSReader.Core.Models.ArticleTag.Article\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"NeonSuit.RSSReader.Core.Models.ArticleTag.Tag\" data-throw-if-not-resolved=\"false\"></xref>.\nStores metadata about when and how each tag was applied (user, rule, system).\nOptimized for fast lookups by article, tag, rule or application source.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Category.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Category.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Category",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Category.yml\" sourcestartlinenumber=\"1\">Represents a category (folder/group) for organizing subscribed feeds.\nSupports hierarchical nesting via parent-child relationships and custom sorting.\nOptimized for fast tree traversal, sorting and filtering in UI components.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult.yml\" sourcestartlinenumber=\"1\">Represents the result of an article deletion operation.\nContains statistics about articles that were deleted, including counts and date ranges.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis.yml\" sourcestartlinenumber=\"1\">Represents the projected impact analysis of a database cleanup operation.\nProvides estimates of what would be deleted and how much space would be freed\nwithout actually performing the deletion.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.PreferenceKeys.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.PreferenceKeys.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.PreferenceKeys",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.PreferenceKeys.yml\" sourcestartlinenumber=\"1\">Preference key constants for application settings storage.\nThese keys are used with ISettingsService to persist user preferences.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.yml\" sourcestartlinenumber=\"1\">Configuration settings for database cleanup and maintenance operations.\nControls retention policies, scheduling, and optimization behaviors.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.yml\" sourcestartlinenumber=\"1\">Represents the comprehensive results of a database cleanup operation.\nAggregates results from all sub-operations including article deletion,\norphan removal, vacuum, and index rebuild.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.yml\" sourcestartlinenumber=\"1\">Risk levels for cleanup operations, indicating the potential impact\nbased on the percentage of articles that would be deleted.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.yml\" sourcestartlinenumber=\"1\">Represents comprehensive database statistics for monitoring and diagnostics.\nProvides metrics on articles, feeds, tags, and database file size.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.yml\" sourcestartlinenumber=\"1\">Result of image cache cleanup operation.\nContains statistics about images deleted and space reclaimed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult.yml\" sourcestartlinenumber=\"1\">Result of database integrity check.\nContains validation results, errors, and warnings from integrity verification.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult.yml\" sourcestartlinenumber=\"1\">Result of orphan record removal operation.\nTracks removal of orphaned records from junction tables and entities that have lost their parent references.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.yml\" sourcestartlinenumber=\"1\">Result of database vacuum operation.\nContains statistics about space reclaimed and operation duration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Cleanup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Cleanup",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for the <xref href=\"NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleTagged\" data-throw-if-not-resolved=\"false\"></xref> event.\nCarries data related to an article being tagged, including the article and tag details,\nwho applied the tag, and optional information about the rule and confidence.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for the <xref href=\"NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.OnArticleUntagged\" data-throw-if-not-resolved=\"false\"></xref> event.\nCarries data related to a tag being removed from an article.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.CleanupCompletedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.CleanupCompletedEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Events.CleanupCompletedEventArgs",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Events.CleanupCompletedEventArgs.yml\" sourcestartlinenumber=\"1\">Provides data for the <xref href=\"NeonSuit.RSSReader.Core.Interfaces.Services.IDatabaseCleanupService.OnCleanupCompleted\" data-throw-if-not-resolved=\"false\"></xref> event.\nContains the final results of the cleanup operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.CleanupProgressEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.CleanupProgressEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Events.CleanupProgressEventArgs",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Events.CleanupProgressEventArgs.yml\" sourcestartlinenumber=\"1\">Provides data for the <xref href=\"NeonSuit.RSSReader.Core.Interfaces.Services.IDatabaseCleanupService.OnCleanupProgress\" data-throw-if-not-resolved=\"false\"></xref> event.\nReports progress updates during a cleanup operation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.CleanupStartingEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.CleanupStartingEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Events.CleanupStartingEventArgs",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Events.CleanupStartingEventArgs.yml\" sourcestartlinenumber=\"1\">Provides data for the <xref href=\"NeonSuit.RSSReader.Core.Interfaces.Services.IDatabaseCleanupService.OnCleanupStarting\" data-throw-if-not-resolved=\"false\"></xref> event.\nContains configuration and timing information about the cleanup operation that is about to begin.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for preference change notifications.\nProvides data about which preference was modified and its new value.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.TagChangeType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.TagChangeType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Events.TagChangeType",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Events.TagChangeType.yml\" sourcestartlinenumber=\"1\">Type of change performed on a tag.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.TagChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.TagChangedEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Events.TagChangedEventArgs",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Events.TagChangedEventArgs.yml\" sourcestartlinenumber=\"1\">Event arguments for tag change notifications.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Events.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Events",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Feed.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Feed.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Feed",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Feed.yml\" sourcestartlinenumber=\"1\">Represents a subscribed RSS/Atom/JSON Feed source.\nStores metadata, synchronization state, health indicators, caching info and retention rules.\nOptimized for efficient polling, conditional GET and low-bandwidth sync on constrained devices.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.NotificationLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.NotificationLog.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.NotificationLog",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.NotificationLog.yml\" sourcestartlinenumber=\"1\">Audit log for all notifications sent to the user.\nTracks delivery, interaction, and effectiveness metrics for analytics and debugging.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.PreferenceDefaults.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.PreferenceDefaults.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.PreferenceDefaults",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.PreferenceDefaults.yml\" sourcestartlinenumber=\"1\">Default values for all preferences.\nProvides a centralized source of truth for default configurations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.PreferenceHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.PreferenceHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.PreferenceHelper",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.PreferenceHelper.yml\" sourcestartlinenumber=\"1\">Helper methods for working with application preferences.\nProvides categorization for UI display, default value resolution,\nand comprehensive validation for all preference types.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.PreferenceKeys.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.PreferenceKeys.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.PreferenceKeys",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.PreferenceKeys.yml\" sourcestartlinenumber=\"1\">Complete preference keys for all application features.\nProvides centralized key management to prevent typos and ensure consistency.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.PreferenceType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.PreferenceType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.PreferenceType",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.PreferenceType.yml\" sourcestartlinenumber=\"1\">Enum representing the data type of a preference.\nUsed by UI to render appropriate input controls.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Rule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Rule.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Rule",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Rule.yml\" sourcestartlinenumber=\"1\">Represents a business rule for automated article processing.\nSupports complex conditions, multiple actions, and scope-based filtering.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.RuleCondition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.RuleCondition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.RuleCondition",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.RuleCondition.yml\" sourcestartlinenumber=\"1\">Represents an individual condition within a rule.\nAllows building complex logical expressions with multiple criteria.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.RuleHealthStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.RuleHealthStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.RuleHealthStatus",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.RuleHealthStatus.yml\" sourcestartlinenumber=\"1\">Health status for rules based on recent activity.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.SyncError.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.SyncError.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.SyncError",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.SyncError.yml\" sourcestartlinenumber=\"1\">Records a synchronization error.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.SyncState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.SyncState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.SyncState",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.SyncState.yml\" sourcestartlinenumber=\"1\">Represents the overall synchronization state.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.SyncStatistics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.SyncStatistics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.SyncStatistics",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.SyncStatistics.yml\" sourcestartlinenumber=\"1\">Aggregated sync statistics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.SyncTaskConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.SyncTaskConfig.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.SyncTaskConfig",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.SyncTaskConfig.yml\" sourcestartlinenumber=\"1\">Configuration for a synchronization task.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.SyncTaskExecution.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.SyncTaskExecution.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.SyncTaskExecution",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.SyncTaskExecution.yml\" sourcestartlinenumber=\"1\">Records a single execution of a sync task.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.Tag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.Tag.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.Tag",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.Tag.yml\" sourcestartlinenumber=\"1\">Represents a user-defined tag for categorizing and organizing articles.\nTags are many-to-many with Articles via the <xref href=\"NeonSuit.RSSReader.Core.Models.ArticleTag\" data-throw-if-not-resolved=\"false\"></xref> join entity.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.UserPreferences.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.UserPreferences.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models.UserPreferences",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Models.UserPreferences.yml\" sourcestartlinenumber=\"1\">Represents a single user preference stored in the database.\nImplements INotifyPropertyChanged to support two-way data binding in UI layers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Modules.IConfigurableModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Modules.IConfigurableModule.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Modules.IConfigurableModule",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Modules.IConfigurableModule.yml\" sourcestartlinenumber=\"1\">Interface for modules that support configuration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies.yml\" sourcestartlinenumber=\"1\">Interface for modules that expose services to other modules.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Modules.IModuleWithLifecycle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Modules.IModuleWithLifecycle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Modules.IModuleWithLifecycle",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Modules.IModuleWithLifecycle.yml\" sourcestartlinenumber=\"1\">Interface for modules with custom lifecycle events.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Modules.ModuleConfigProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Modules.ModuleConfigProperty.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Modules.ModuleConfigProperty",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Modules.ModuleConfigProperty.yml\" sourcestartlinenumber=\"1\">Module configuration property.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.yml\" sourcestartlinenumber=\"1\">Module configuration property types.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Modules.ModuleConfigSchema.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Modules.ModuleConfigSchema.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Modules.ModuleConfigSchema",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Modules.ModuleConfigSchema.yml\" sourcestartlinenumber=\"1\">Module configuration schema.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Modules.ModuleConfigValidationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Modules.ModuleConfigValidationResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Modules.ModuleConfigValidationResult",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Modules.ModuleConfigValidationResult.yml\" sourcestartlinenumber=\"1\">Module configuration validation result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Modules.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Modules.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Modules",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Profiles.ArticleProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Profiles.ArticleProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Profiles.ArticleProfile",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Profiles.ArticleProfile.yml\" sourcestartlinenumber=\"1\">AutoMapper profile for Article entity mappings.\nConfigures transformations between Article and its related DTOs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Profiles.ArticleTagProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Profiles.ArticleTagProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Profiles.ArticleTagProfile",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Profiles.ArticleTagProfile.yml\" sourcestartlinenumber=\"1\">AutoMapper profile for ArticleTag entity mappings.\nConfigures transformations between ArticleTag and its related DTOs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Profiles.CategoryProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Profiles.CategoryProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Profiles.CategoryProfile",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Profiles.CategoryProfile.yml\" sourcestartlinenumber=\"1\">AutoMapper profile for Category entity mappings.\nConfigures transformations between Category and its related DTOs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Profiles.FeedProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Profiles.FeedProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Profiles.FeedProfile",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Profiles.FeedProfile.yml\" sourcestartlinenumber=\"1\">AutoMapper profile for Feed entity mappings.\nConfigures transformations between Feed and its related DTOs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Profiles.ModuleProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Profiles.ModuleProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Profiles.ModuleProfile",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Profiles.ModuleProfile.yml\" sourcestartlinenumber=\"1\">AutoMapper profile for module-related entities.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Profiles.NotificationProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Profiles.NotificationProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Profiles.NotificationProfile",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Profiles.NotificationProfile.yml\" sourcestartlinenumber=\"1\">AutoMapper profile for NotificationLog entity mappings.\nConfigures transformations between NotificationLog and its related DTOs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Profiles.OpmlProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Profiles.OpmlProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Profiles.OpmlProfile",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Profiles.OpmlProfile.yml\" sourcestartlinenumber=\"1\">AutoMapper profile for OPML</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Profiles.RuleConditionProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Profiles.RuleConditionProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Profiles.RuleConditionProfile",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Profiles.RuleConditionProfile.yml\" sourcestartlinenumber=\"1\">AutoMapper profile for RuleCondition entity mappings.\nConfigures transformations between RuleCondition and its related DTOs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Profiles.RuleProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Profiles.RuleProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Profiles.RuleProfile",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Profiles.RuleProfile.yml\" sourcestartlinenumber=\"1\">AutoMapper profile for Rule entity mappings.\nConfigures transformations between Rule and its related DTOs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Profiles.SyncProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Profiles.SyncProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Profiles.SyncProfile",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Profiles.SyncProfile.yml\" sourcestartlinenumber=\"1\">AutoMapper profile for synchronization-related entities and DTOs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Profiles.TagProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Profiles.TagProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Profiles.TagProfile",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Profiles.TagProfile.yml\" sourcestartlinenumber=\"1\">AutoMapper profile for Tag entity mappings.\nConfigures transformations between Tag and its related DTOs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Profiles.UserPreferenceProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Profiles.UserPreferenceProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Profiles.UserPreferenceProfile",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Core.Profiles.UserPreferenceProfile.yml\" sourcestartlinenumber=\"1\">AutoMapper profile for UserPreferences entity mappings.\nConfigures transformations between UserPreferences and its related DTOs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Core.Profiles.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Core.Profiles.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Core.Profiles",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Data.Configuration.LogSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Data.Configuration.LogSettings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Data.Configuration.LogSettings",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Data.Configuration.LogSettings.yml\" sourcestartlinenumber=\"1\">Configuration settings for the application's logging system.\nImplements INotifyPropertyChanged to support real-time UI updates.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Data.Configuration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Data.Configuration.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Data.Configuration",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats.yml\" sourcestartlinenumber=\"1\">Represents statistics about stored log files.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Data.Logging.AppLoggerConfig",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.yml\" sourcestartlinenumber=\"1\">Centralized Serilog configuration manager with support for runtime configuration changes.\nHandles logger initialization, persistence of settings, and log file management.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Data.Logging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Data.Logging.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Data.Logging",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions",
+      "Summary": "<p sourcefile=\"api/NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension methods for registering NeonSuit RSS Reader core services,\nrepositories, infrastructure components, and AutoMapper profiles into an\n<xref href=\"Microsoft.Extensions.DependencyInjection.IServiceCollection\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NeonSuit.RSSReader.Setup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NeonSuit.RSSReader.Setup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NeonSuit.RSSReader.Setup",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  commentId: T:NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  id: SyncTaskType
+  parent: NeonSuit.RSSReader.Core.Enums
+  children:
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskType.ArticleCleanup
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskType.BackupCreation
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskType.CacheMaintenance
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskType.FeedUpdate
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskType.FullSync
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskType.RuleProcessing
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskType.StatisticsUpdate
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskType.TagProcessing
+  langs:
+  - csharp
+  - vb
+  name: SyncTaskType
+  nameWithType: SyncTaskType
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SyncTaskType
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 24
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Types of synchronization tasks managed by the coordinator.
+  example: []
+  syntax:
+    content: public enum SyncTaskType
+    content.vb: Public Enum SyncTaskType
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskType.FeedUpdate
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskType.FeedUpdate
+  id: FeedUpdate
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  langs:
+  - csharp
+  - vb
+  name: FeedUpdate
+  nameWithType: SyncTaskType.FeedUpdate
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskType.FeedUpdate
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FeedUpdate
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 27
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Feed content updates and article fetching.
+  example: []
+  syntax:
+    content: FeedUpdate = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskType.TagProcessing
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskType.TagProcessing
+  id: TagProcessing
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  langs:
+  - csharp
+  - vb
+  name: TagProcessing
+  nameWithType: SyncTaskType.TagProcessing
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskType.TagProcessing
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TagProcessing
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 29
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Auto-tagging rule processing.
+  example: []
+  syntax:
+    content: TagProcessing = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskType.ArticleCleanup
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskType.ArticleCleanup
+  id: ArticleCleanup
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  langs:
+  - csharp
+  - vb
+  name: ArticleCleanup
+  nameWithType: SyncTaskType.ArticleCleanup
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskType.ArticleCleanup
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ArticleCleanup
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 31
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Article retention cleanup.
+  example: []
+  syntax:
+    content: ArticleCleanup = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskType.BackupCreation
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskType.BackupCreation
+  id: BackupCreation
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  langs:
+  - csharp
+  - vb
+  name: BackupCreation
+  nameWithType: SyncTaskType.BackupCreation
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskType.BackupCreation
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: BackupCreation
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 33
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Database and settings backup creation.
+  example: []
+  syntax:
+    content: BackupCreation = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskType.StatisticsUpdate
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskType.StatisticsUpdate
+  id: StatisticsUpdate
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  langs:
+  - csharp
+  - vb
+  name: StatisticsUpdate
+  nameWithType: SyncTaskType.StatisticsUpdate
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskType.StatisticsUpdate
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: StatisticsUpdate
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 35
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Statistics recalculation.
+  example: []
+  syntax:
+    content: StatisticsUpdate = 4
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskType.RuleProcessing
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskType.RuleProcessing
+  id: RuleProcessing
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  langs:
+  - csharp
+  - vb
+  name: RuleProcessing
+  nameWithType: SyncTaskType.RuleProcessing
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskType.RuleProcessing
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RuleProcessing
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 37
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Rule engine processing.
+  example: []
+  syntax:
+    content: RuleProcessing = 5
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskType.CacheMaintenance
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskType.CacheMaintenance
+  id: CacheMaintenance
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  langs:
+  - csharp
+  - vb
+  name: CacheMaintenance
+  nameWithType: SyncTaskType.CacheMaintenance
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskType.CacheMaintenance
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CacheMaintenance
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 39
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Cache maintenance (image cache, etc.).
+  example: []
+  syntax:
+    content: CacheMaintenance = 6
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskType.FullSync
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskType.FullSync
+  id: FullSync
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  langs:
+  - csharp
+  - vb
+  name: FullSync
+  nameWithType: SyncTaskType.FullSync
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskType.FullSync
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FullSync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 41
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Full synchronization cycle.
+  example: []
+  syntax:
+    content: FullSync = 7
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+references:
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  commentId: T:NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.SyncTaskType.html
+  name: SyncTaskType
+  nameWithType: SyncTaskType
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskType

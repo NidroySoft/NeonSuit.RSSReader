@@ -1,0 +1,1012 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  id: ImageCacheCleanupResult
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  children:
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.#ctor
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.AnyDeleted
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterBytes
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterFormatted
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeBytes
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeFormatted
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.HasWarnings
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesBeforeCleanup
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesDeleted
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesRemaining
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedBytes
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedFormatted
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ToString
+  - NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.Warnings
+  langs:
+  - csharp
+  - vb
+  name: ImageCacheCleanupResult
+  nameWithType: ImageCacheCleanupResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ImageCacheCleanupResult
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 6
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: >-
+    Result of image cache cleanup operation.
+
+    Contains statistics about images deleted and space reclaimed.
+  example: []
+  syntax:
+    content: public class ImageCacheCleanupResult
+    content.vb: Public Class ImageCacheCleanupResult
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.#ctor
+  commentId: M:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.#ctor
+  id: '#ctor'
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: ImageCacheCleanupResult()
+  nameWithType: ImageCacheCleanupResult.ImageCacheCleanupResult()
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImageCacheCleanupResult()
+  type: Constructor
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: .ctor
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 11
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Initializes a new instance of the <xref href="NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ImageCacheCleanupResult()
+    content.vb: Public Sub New()
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.#ctor*
+  nameWithType.vb: ImageCacheCleanupResult.New()
+  fullName.vb: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.New()
+  name.vb: New()
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesDeleted
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesDeleted
+  id: ImagesDeleted
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: ImagesDeleted
+  nameWithType: ImageCacheCleanupResult.ImagesDeleted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesDeleted
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ImagesDeleted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 19
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets the number of images deleted.
+  example: []
+  syntax:
+    content: public int ImagesDeleted { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ImagesDeleted As Integer
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesDeleted*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesRemaining
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesRemaining
+  id: ImagesRemaining
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: ImagesRemaining
+  nameWithType: ImageCacheCleanupResult.ImagesRemaining
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesRemaining
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ImagesRemaining
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 24
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets the number of images remaining after cleanup.
+  example: []
+  syntax:
+    content: public int ImagesRemaining { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ImagesRemaining As Integer
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesRemaining*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesBeforeCleanup
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesBeforeCleanup
+  id: ImagesBeforeCleanup
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: ImagesBeforeCleanup
+  nameWithType: ImageCacheCleanupResult.ImagesBeforeCleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesBeforeCleanup
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ImagesBeforeCleanup
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 29
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets the number of images before cleanup.
+  example: []
+  syntax:
+    content: public int ImagesBeforeCleanup { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ImagesBeforeCleanup As Integer
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesBeforeCleanup*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeBytes
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeBytes
+  id: CacheSizeBeforeBytes
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: CacheSizeBeforeBytes
+  nameWithType: ImageCacheCleanupResult.CacheSizeBeforeBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeBytes
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CacheSizeBeforeBytes
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 34
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets the cache size in bytes before cleanup.
+  example: []
+  syntax:
+    content: public long CacheSizeBeforeBytes { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property CacheSizeBeforeBytes As Long
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeBytes*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterBytes
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterBytes
+  id: CacheSizeAfterBytes
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: CacheSizeAfterBytes
+  nameWithType: ImageCacheCleanupResult.CacheSizeAfterBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterBytes
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CacheSizeAfterBytes
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 39
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets the cache size in bytes after cleanup.
+  example: []
+  syntax:
+    content: public long CacheSizeAfterBytes { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property CacheSizeAfterBytes As Long
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterBytes*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedBytes
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedBytes
+  id: SpaceFreedBytes
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: SpaceFreedBytes
+  nameWithType: ImageCacheCleanupResult.SpaceFreedBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedBytes
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SpaceFreedBytes
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 44
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets the space freed in bytes.
+  example: []
+  syntax:
+    content: public long SpaceFreedBytes { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property SpaceFreedBytes As Long
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedBytes*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.Warnings
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.Warnings
+  id: Warnings
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: Warnings
+  nameWithType: ImageCacheCleanupResult.Warnings
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.Warnings
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Warnings
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 49
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets or sets the warning messages for files that couldn't be deleted.
+  example: []
+  syntax:
+    content: public List<string> Warnings { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property Warnings As List(Of String)
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.Warnings*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeFormatted
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeFormatted
+  id: CacheSizeBeforeFormatted
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: CacheSizeBeforeFormatted
+  nameWithType: ImageCacheCleanupResult.CacheSizeBeforeFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeFormatted
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CacheSizeBeforeFormatted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 54
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets the cache size before cleanup in a human-readable format.
+  example: []
+  syntax:
+    content: public string CacheSizeBeforeFormatted { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property CacheSizeBeforeFormatted As String
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeFormatted*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterFormatted
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterFormatted
+  id: CacheSizeAfterFormatted
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: CacheSizeAfterFormatted
+  nameWithType: ImageCacheCleanupResult.CacheSizeAfterFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterFormatted
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CacheSizeAfterFormatted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 59
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets the cache size after cleanup in a human-readable format.
+  example: []
+  syntax:
+    content: public string CacheSizeAfterFormatted { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property CacheSizeAfterFormatted As String
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterFormatted*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedFormatted
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedFormatted
+  id: SpaceFreedFormatted
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: SpaceFreedFormatted
+  nameWithType: ImageCacheCleanupResult.SpaceFreedFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedFormatted
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SpaceFreedFormatted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 64
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets the space freed in a human-readable format.
+  example: []
+  syntax:
+    content: public string SpaceFreedFormatted { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property SpaceFreedFormatted As String
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedFormatted*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.AnyDeleted
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.AnyDeleted
+  id: AnyDeleted
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: AnyDeleted
+  nameWithType: ImageCacheCleanupResult.AnyDeleted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.AnyDeleted
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AnyDeleted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 69
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets a value indicating whether any images were deleted.
+  example: []
+  syntax:
+    content: public bool AnyDeleted { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property AnyDeleted As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.AnyDeleted*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.HasWarnings
+  commentId: P:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.HasWarnings
+  id: HasWarnings
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: HasWarnings
+  nameWithType: ImageCacheCleanupResult.HasWarnings
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.HasWarnings
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: HasWarnings
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 74
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets a value indicating whether any warnings occurred.
+  example: []
+  syntax:
+    content: public bool HasWarnings { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasWarnings As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.HasWarnings*
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ToString
+  commentId: M:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ToString
+  id: ToString
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ImageCacheCleanupResult.ToString()
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ToString
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/ImageCacheCleanupResult.cs
+    startLine: 79
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Gets a brief summary of the image cache cleanup.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ToString*
+references:
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup
+  commentId: N:NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models.Cleanup
+  nameWithType: NeonSuit.RSSReader.Core.Models.Cleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup
+    name: Cleanup
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup
+    name: Cleanup
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html
+  name: ImageCacheCleanupResult
+  nameWithType: ImageCacheCleanupResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.#ctor*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.#ctor
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult__ctor
+  name: ImageCacheCleanupResult
+  nameWithType: ImageCacheCleanupResult.ImageCacheCleanupResult
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImageCacheCleanupResult
+  nameWithType.vb: ImageCacheCleanupResult.New
+  fullName.vb: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.New
+  name.vb: New
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesDeleted*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesDeleted
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult_ImagesDeleted
+  name: ImagesDeleted
+  nameWithType: ImageCacheCleanupResult.ImagesDeleted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesDeleted
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesRemaining*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesRemaining
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult_ImagesRemaining
+  name: ImagesRemaining
+  nameWithType: ImageCacheCleanupResult.ImagesRemaining
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesRemaining
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesBeforeCleanup*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesBeforeCleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult_ImagesBeforeCleanup
+  name: ImagesBeforeCleanup
+  nameWithType: ImageCacheCleanupResult.ImagesBeforeCleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ImagesBeforeCleanup
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeBytes*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeBytes
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult_CacheSizeBeforeBytes
+  name: CacheSizeBeforeBytes
+  nameWithType: ImageCacheCleanupResult.CacheSizeBeforeBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeBytes
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterBytes*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterBytes
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult_CacheSizeAfterBytes
+  name: CacheSizeAfterBytes
+  nameWithType: ImageCacheCleanupResult.CacheSizeAfterBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterBytes
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedBytes*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedBytes
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult_SpaceFreedBytes
+  name: SpaceFreedBytes
+  nameWithType: ImageCacheCleanupResult.SpaceFreedBytes
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedBytes
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.Warnings*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.Warnings
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult_Warnings
+  name: Warnings
+  nameWithType: ImageCacheCleanupResult.Warnings
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.Warnings
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeFormatted*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeFormatted
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult_CacheSizeBeforeFormatted
+  name: CacheSizeBeforeFormatted
+  nameWithType: ImageCacheCleanupResult.CacheSizeBeforeFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeBeforeFormatted
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterFormatted*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterFormatted
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult_CacheSizeAfterFormatted
+  name: CacheSizeAfterFormatted
+  nameWithType: ImageCacheCleanupResult.CacheSizeAfterFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.CacheSizeAfterFormatted
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedFormatted*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedFormatted
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult_SpaceFreedFormatted
+  name: SpaceFreedFormatted
+  nameWithType: ImageCacheCleanupResult.SpaceFreedFormatted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.SpaceFreedFormatted
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.AnyDeleted*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.AnyDeleted
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult_AnyDeleted
+  name: AnyDeleted
+  nameWithType: ImageCacheCleanupResult.AnyDeleted
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.AnyDeleted
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.HasWarnings*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.HasWarnings
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult_HasWarnings
+  name: HasWarnings
+  nameWithType: ImageCacheCleanupResult.HasWarnings
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.HasWarnings
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ToString*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ToString
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html#NeonSuit_RSSReader_Core_Models_Cleanup_ImageCacheCleanupResult_ToString
+  name: ToString
+  nameWithType: ImageCacheCleanupResult.ToString
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.ToString

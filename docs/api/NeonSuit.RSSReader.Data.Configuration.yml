@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Data.Configuration
+  commentId: N:NeonSuit.RSSReader.Data.Configuration
+  id: NeonSuit.RSSReader.Data.Configuration
+  children:
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Data.Configuration
+  nameWithType: NeonSuit.RSSReader.Data.Configuration
+  fullName: NeonSuit.RSSReader.Data.Configuration
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Data
+references:
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  commentId: T:NeonSuit.RSSReader.Data.Configuration.LogSettings
+  parent: NeonSuit.RSSReader.Data.Configuration
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html
+  name: LogSettings
+  nameWithType: LogSettings
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings
+- uid: NeonSuit.RSSReader.Data.Configuration
+  commentId: N:NeonSuit.RSSReader.Data.Configuration
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Data.Configuration
+  nameWithType: NeonSuit.RSSReader.Data.Configuration
+  fullName: NeonSuit.RSSReader.Data.Configuration
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data
+    name: Data
+    href: NeonSuit.RSSReader.Data.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Configuration
+    name: Configuration
+    href: NeonSuit.RSSReader.Data.Configuration.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data
+    name: Data
+    href: NeonSuit.RSSReader.Data.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Configuration
+    name: Configuration
+    href: NeonSuit.RSSReader.Data.Configuration.html

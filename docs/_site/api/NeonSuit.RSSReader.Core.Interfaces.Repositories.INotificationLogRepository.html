@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface INotificationLogRepository | NeonSuit RSS Reader API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface INotificationLogRepository | NeonSuit RSS Reader API ">
+      
+      <meta name="description" content="Repository interface for managing notification audit logs. Provides methods for tracking, querying, and analyzing notification delivery and interactions.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/NidroySoft/NeonSuit.RSSReader/new/master/apiSpec/new?filename=NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository.md&amp;value=---%0Auid%3A%20NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository">
+
+
+
+  <h1 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository" class="text-break">
+Interface INotificationLogRepository  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/INotificationLogRepository.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NeonSuit.html">NeonSuit</a>.<a class="xref" href="NeonSuit.RSSReader.html">RSSReader</a>.<a class="xref" href="NeonSuit.RSSReader.Core.html">Core</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.html">Interfaces</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.html">Repositories</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NeonSuit.RSSReader.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Repository interface for managing notification audit logs.
+Provides methods for tracking, querying, and analyzing notification delivery and interactions.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface INotificationLogRepository : IRepository&lt;NotificationLog&gt;</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetAllAsync_System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.GetAllAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetByIdAsync_System_Int32_System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.GetByIdAsync(int, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.GetWhereAsync(Expression&lt;Func&lt;NotificationLog, bool&gt;&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_FirstOrDefaultAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.FirstOrDefaultAsync(Expression&lt;Func&lt;NotificationLog, bool&gt;&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.AnyAsync(Expression&lt;Func&lt;NotificationLog, bool&gt;&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountAsync_System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.CountAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.CountWhereAsync(Expression&lt;Func&lt;NotificationLog, bool&gt;&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAsync__0_System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.InsertAsync(NotificationLog, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAsync__0_System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.UpdateAsync(NotificationLog, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAsync__0_System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.DeleteAsync(NotificationLog, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteByIdAsync_System_Int32_System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.DeleteByIdAsync(int, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertOrUpdateAsync__0_System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.InsertOrUpdateAsync(NotificationLog, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.InsertAllAsync(IEnumerable&lt;NotificationLog&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.UpdateAllAsync(IEnumerable&lt;NotificationLog&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAllAsync_System_Threading_CancellationToken_">IRepository&lt;NotificationLog&gt;.DeleteAllAsync(CancellationToken)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This interface defines the contract for data access operations related to <a class="xref" href="NeonSuit.RSSReader.Core.Models.NotificationLog.html">NotificationLog</a> entities.
+It emphasizes efficient data retrieval and modification, suitable for low-resource environments
+by promoting server-side filtering and explicit control over data loading.</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_CleanupOldLogsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.CleanupOldLogsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_CleanupOldLogsAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.CleanupOldLogsAsync(System.Int32,System.Threading.CancellationToken)">
+  CleanupOldLogsAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/INotificationLogRepository.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Cleans up old notification logs that are beyond the specified retention period.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; CleanupOldLogsAsync(int retentionDays = 30, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>retentionDays</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of days to retain logs. Default is 30 days.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The number of logs deleted during the cleanup operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown if retentionDays is negative.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetByArticleIdAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetByArticleIdAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetByArticleIdAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetByArticleIdAsync(System.Int32,System.Threading.CancellationToken)">
+  GetByArticleIdAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/INotificationLogRepository.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves notification logs for a specific article.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;NotificationLog&gt;&gt; GetByArticleIdAsync(int articleId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>articleId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The unique identifier of the article.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.NotificationLog.html">NotificationLog</a>&gt;&gt;</dt>
+    <dd><p>List of notification logs associated with the specified article.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown if articleId is less than or equal to 0.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetByDateRangeAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetByDateRangeAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetByDateRangeAsync_System_DateTime_System_DateTime_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetByDateRangeAsync(System.DateTime,System.DateTime,System.Threading.CancellationToken)">
+  GetByDateRangeAsync(DateTime, DateTime, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/INotificationLogRepository.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves notification logs within a specific date range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;NotificationLog&gt;&gt; GetByDateRangeAsync(DateTime startDate, DateTime endDate, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>startDate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>The start date (inclusive) of the desired range.</p>
+</dd>
+    <dt><code>endDate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd><p>The end date (inclusive) of the desired range.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.NotificationLog.html">NotificationLog</a>&gt;&gt;</dt>
+    <dd><p>List of notification logs that fall within the specified date range.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if startDate is greater than endDate.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetByRuleIdAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetByRuleIdAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetByRuleIdAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetByRuleIdAsync(System.Int32,System.Threading.CancellationToken)">
+  GetByRuleIdAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/INotificationLogRepository.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves notification logs triggered by a specific rule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;NotificationLog&gt;&gt; GetByRuleIdAsync(int ruleId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ruleId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The unique identifier of the rule.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.NotificationLog.html">NotificationLog</a>&gt;&gt;</dt>
+    <dd><p>List of notification logs triggered by the specified rule.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown if ruleId is less than or equal to 0.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetClickThroughRateAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetClickThroughRateAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetClickThroughRateAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetClickThroughRateAsync(System.Threading.CancellationToken)">
+  GetClickThroughRateAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/INotificationLogRepository.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the click-through rate (CTR) for notifications.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;double&gt; GetClickThroughRateAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd><p>The click-through rate as a percentage (double), or 0.0 if no notifications exist.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetPendingNotificationsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetPendingNotificationsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetPendingNotificationsAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetPendingNotificationsAsync(System.Threading.CancellationToken)">
+  GetPendingNotificationsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/INotificationLogRepository.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves notification logs that have not yet been acted upon by the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;NotificationLog&gt;&gt; GetPendingNotificationsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.NotificationLog.html">NotificationLog</a>&gt;&gt;</dt>
+    <dd><p>List of pending notification logs.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetRecentAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetRecentAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetRecentAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetRecentAsync(System.Int32,System.Threading.CancellationToken)">
+  GetRecentAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/INotificationLogRepository.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a limited number of the most recent notification logs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;NotificationLog&gt;&gt; GetRecentAsync(int limit = 50, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>limit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number of recent logs to return. Default is 50.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.NotificationLog.html">NotificationLog</a>&gt;&gt;</dt>
+    <dd><p>List of recent notification logs, ordered by creation date descending.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown if limit is less than or equal to 0.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetStatisticsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetStatisticsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_GetStatisticsAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.GetStatisticsAsync(System.Threading.CancellationToken)">
+  GetStatisticsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/INotificationLogRepository.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets comprehensive statistics about notification delivery and user interactions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;NotificationStatistics&gt; GetStatisticsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.NotificationStatistics.html">NotificationStatistics</a>&gt;</dt>
+    <dd><p>A <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.NotificationStatistics.html">NotificationStatistics</a> object containing various metrics.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_RecordActionAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.RecordActionAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_INotificationLogRepository_RecordActionAsync_System_Int32_NeonSuit_RSSReader_Core_Enums_NotificationAction_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.RecordActionAsync(System.Int32,NeonSuit.RSSReader.Core.Enums.NotificationAction,System.Threading.CancellationToken)">
+  RecordActionAsync(int, NotificationAction, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/INotificationLogRepository.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Records a user action on a notification (click, dismiss, etc.).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; RecordActionAsync(int notificationId, NotificationAction action, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>notificationId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The unique identifier of the notification log to update.</p>
+</dd>
+    <dt><code>action</code> <a class="xref" href="NeonSuit.RSSReader.Core.Enums.NotificationAction.html">NotificationAction</a></dt>
+    <dd><p>The <a class="xref" href="NeonSuit.RSSReader.Core.Enums.NotificationAction.html">NotificationAction</a> performed by the user.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The number of rows affected, typically 1 if successful.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Thrown if notificationId is less than or equal to 0.</p>
+</dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/INotificationLogRepository.cs/#L15" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2026 NeonSuit - Professional RSS Engine
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

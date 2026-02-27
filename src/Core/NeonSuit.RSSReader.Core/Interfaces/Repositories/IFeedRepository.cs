@@ -1,214 +1,289 @@
-﻿using NeonSuit.RSSReader.Core.Enums;
-using NeonSuit.RSSReader.Core.Models;
+﻿using NeonSuit.RSSReader.Core.Models;
+using System.Linq.Expressions;
+
 namespace NeonSuit.RSSReader.Core.Interfaces.Repositories
 {
     /// <summary>
-    /// Professional repository interface for RSS feed data access.
-    /// Provides comprehensive feed operations with support for active/inactive filtering.
+    /// Repository interface for managing <see cref="Feed"/> entities.
+    /// Provides comprehensive feed operations with support for active/inactive filtering, health tracking, and optimized data retrieval.
     /// </summary>
-    public interface IFeedRepository
+    /// <remarks>
+    /// <para>
+    /// This repository handles all feed-related data access including:
+    /// <list type="bullet">
+    /// <item><description>CRUD operations with active/inactive filtering</description></item>
+    /// <item><description>Health monitoring (failure counts, error tracking)</description></item>
+    /// <item><description>Synchronization state (last update, next schedule)</description></item>
+    /// <item><description>Category-based organization and grouping</description></item>
+    /// <item><description>Bulk operations for performance optimization</description></item>
+    /// </list>
+    /// </para>
+    /// <para>
+    /// Performance optimizations:
+    /// <list type="bullet">
+    /// <item><description>All read methods use <c>AsNoTracking()</c> for memory efficiency</description></item>
+    /// <item><description>Bulk operations use <c>ExecuteUpdateAsync</c>/<c>ExecuteDeleteAsync</c></description></item>
+    /// <item><description>Server-side filtering with <c>Expression</c> predicates</description></item>
+    /// <item><description>Proper cancellation token support for long operations</description></item>
+    /// </list>
+    /// </para>
+    /// </remarks>
+    public interface IFeedRepository : IRepository<Feed>
     {
         #region CRUD Operations
+
         /// <summary>
-        /// Retrieves a feed by its unique identifier.
+        /// Retrieves a feed by its unique identifier with optional inactive inclusion.
         /// </summary>
-        /// <param name="id">The feed identifier.</param>
-        /// <param name="includeInactive">If true, allows retrieval of inactive feeds. Default: false.</param>
+        /// <param name="id">The unique identifier of the feed.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>The feed if found and meets filter criteria; otherwise, null.</returns>
-        Task<Feed?> GetByIdAsync(int id, bool includeInactive = false);
+        /// <exception cref="ArgumentOutOfRangeException">Thrown if id is less than or equal to 0.</exception>
+        new Task<Feed?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+
         /// <summary>
-        /// Detaches a feed entity from the change tracker to prevent tracking conflicts.
+        /// Retrieves a feed by ID without change tracking (read-only).
         /// </summary>
-        /// <param name="id">The ID of the feed to detach (use 0 to detach all feeds).</param>
-        Task DetachEntityAsync(int id);
+        /// <param name="id">The unique identifier of the feed.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>The feed entity or null if not found.</returns>
+        Task<Feed?> GetByIdNoTrackingAsync(int id, CancellationToken cancellationToken = default);
+
         /// <summary>
-        /// Retrieves all feeds from the database.
+        /// Retrieves all feeds, optionally including inactive ones.
         /// </summary>
-        /// <param name="includeInactive">If true, includes inactive feeds in the result. Default: false.</param>
-        /// <returns>A list of all feeds matching the filter criteria.</returns>
-        Task<List<Feed>> GetAllAsync(bool includeInactive = false);
+        /// <param name="includeInactive">If true, includes inactive feeds. Default is false.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>List of all feeds matching the filter criteria.</returns>
+        Task<List<Feed>> GetAllAsync(bool includeInactive = false, CancellationToken cancellationToken = default);
+
         /// <summary>
-        /// Retrieves feeds that match the specified predicate (client-side evaluation).
+        /// Retrieves feeds matching the specified predicate with server-side evaluation.
         /// </summary>
-        /// <param name="predicate">The filter predicate.</param>
-        /// <returns>A list of matching feeds.</returns>
-        Task<List<Feed>> GetWhereAsync(Func<Feed, bool> predicate);
+        /// <param name="predicate">Filter expression for server-side evaluation.</param>
+        /// <param name="includeInactive">If true, includes inactive feeds. Default is false.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>List of matching feeds.</returns>
+        Task<List<Feed>> GetWhereAsync(Expression<Func<Feed, bool>> predicate, bool includeInactive = false, CancellationToken cancellationToken = default);
+
         /// <summary>
-        /// Inserts a new feed into the database.
+        /// Counts feeds matching the specified predicate with server-side evaluation.
         /// </summary>
-        /// <param name="entity">The feed to insert.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> InsertAsync(Feed entity);
+        /// <param name="predicate">Filter expression for server-side evaluation.</param>
+        /// <param name="includeInactive">If true, includes inactive feeds in count. Default is false.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Count of matching feeds.</returns>
+        Task<int> CountWhereAsync(Expression<Func<Feed, bool>> predicate, bool includeInactive = false, CancellationToken cancellationToken = default);
+
         /// <summary>
-        /// Updates an existing feed in the database.
+        /// Detaches a feed entity from the change tracker.
         /// </summary>
-        /// <param name="entity">The feed with updated values.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> UpdateAsync(Feed entity);
-        /// <summary>
-        /// Deletes a feed from the database.
-        /// </summary>
-        /// <param name="entity">The feed to delete.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> DeleteAsync(Feed entity);
-        /// <summary>
-        /// Counts feeds that match the specified predicate (client-side evaluation).
-        /// </summary>
-        /// <param name="predicate">The filter predicate.</param>
-        /// <returns>The count of matching feeds.</returns>
-        Task<int> CountWhereAsync(Func<Feed, bool> predicate);
+        /// <param name="id">The ID of the feed to detach. Use 0 to detach all tracked feeds.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        Task DetachEntityAsync(int id, CancellationToken cancellationToken = default);
+
         #endregion
-        #region Feed-specific Operations
+
+        #region Read Single Entity Operations
+
+        /// <summary>
+        /// Finds a feed by its URL.
+        /// </summary>
+        /// <param name="url">The URL of the feed.</param>
+        /// <param name="includeInactive">If true, allows retrieval of inactive feeds. Default is false.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>The feed if found; otherwise, null.</returns>
+        Task<Feed?> GetByUrlAsync(string url, bool includeInactive = false, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Checks if a feed with the specified URL already exists.
+        /// </summary>
+        /// <param name="url">The URL to check.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>True if the feed exists; otherwise, false.</returns>
+        Task<bool> ExistsByUrlAsync(string url, CancellationToken cancellationToken = default);
+
+        #endregion
+
+        #region Read Collection Operations
+
         /// <summary>
         /// Retrieves feeds belonging to a specific category.
         /// </summary>
         /// <param name="categoryId">The category identifier.</param>
-        /// <param name="includeInactive">If true, includes inactive feeds in the result. Default: false.</param>
-        /// <returns>A list of feeds in the category.</returns>
-        Task<List<Feed>> GetByCategoryAsync(int categoryId, bool includeInactive = false);
+        /// <param name="includeInactive">If true, includes inactive feeds. Default is false.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>List of feeds in the category.</returns>
+        Task<List<Feed>> GetByCategoryAsync(int categoryId, bool includeInactive = false, CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Retrieves feeds that are not assigned to any category.
         /// </summary>
-        /// <param name="includeInactive">If true, includes inactive feeds in the result. Default: false.</param>
-        /// <returns>A list of uncategorized feeds.</returns>
-        Task<List<Feed>> GetUncategorizedAsync(bool includeInactive = false);
+        /// <param name="includeInactive">If true, includes inactive feeds. Default is false.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>List of uncategorized feeds.</returns>
+        Task<List<Feed>> GetUncategorizedAsync(bool includeInactive = false, CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Retrieves all active feeds.
         /// </summary>
-        /// <returns>A list of active feeds.</returns>
-        Task<List<Feed>> GetActiveAsync();
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>List of active feeds.</returns>
+        Task<List<Feed>> GetActiveAsync(CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Retrieves all inactive feeds.
         /// </summary>
-        /// <returns>A list of inactive feeds.</returns>
-        Task<List<Feed>> GetInactiveAsync();
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>List of inactive feeds.</returns>
+        Task<List<Feed>> GetInactiveAsync(CancellationToken cancellationToken = default);
+
         /// <summary>
-        /// Finds a feed by its URL.
+        /// Retrieves feeds that are due for an update based on their schedule.
         /// </summary>
-        /// <param name="url">The feed URL.</param>
-        /// <param name="includeInactive">If true, allows retrieval of inactive feeds. Default: false.</param>
-        /// <returns>The feed if found and meets filter criteria; otherwise, null.</returns>
-        Task<Feed?> GetByUrlAsync(string url, bool includeInactive = false);
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>List of feeds ready for update.</returns>
+        Task<List<Feed>> GetFeedsToUpdateAsync(CancellationToken cancellationToken = default);
+
         /// <summary>
-        /// Retrieves a feed by ID without change tracking (read-only).
+        /// Gets feed counts grouped by category.
         /// </summary>
-        /// <param name="id">The feed identifier.</param>
-        /// <returns>The feed or null if not found.</returns>
-        Task<Feed?> GetByIdNoTrackingAsync(int id);
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Dictionary mapping category IDs to feed counts.</returns>
+        Task<Dictionary<int, int>> GetCountByCategoryAsync(CancellationToken cancellationToken = default);
+
         /// <summary>
-        /// Deletes a feed directly using SQL (bypasses change tracker).
+        /// Retrieves all feeds grouped by their CategoryId.
         /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> DeleteFeedDirectAsync(int feedId);
+        /// <param name="includeInactive">If true, includes inactive feeds. Default is false.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Dictionary mapping CategoryId to lists of feeds.</returns>
+        Task<Dictionary<int, List<Feed>>> GetFeedsGroupedByCategoryAsync(bool includeInactive = false, CancellationToken cancellationToken = default);
+
         /// <summary>
-        /// Checks if a feed with the specified URL already exists.
+        /// Retrieves feeds belonging to a specific category, ordered by title.
         /// </summary>
-        /// <param name="url">The feed URL.</param>
-        /// <returns>True if the feed exists; otherwise, false.</returns>
-        Task<bool> ExistsByUrlAsync(string url);
-        /// <summary>
-        /// Retrieves feeds that are due for an update based on their frequency.
-        /// </summary>
-        /// <returns>A list of feeds ready for update.</returns>
-        Task<List<Feed>> GetFeedsToUpdateAsync();
-        /// <summary>
-        /// Updates the LastUpdated timestamp for a specific feed.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> UpdateLastUpdatedAsync(int feedId);
-        /// <summary>
-        /// Updates the NextUpdateSchedule for a specific feed.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <param name="nextUpdate">The next update schedule time.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> UpdateNextUpdateScheduleAsync(int feedId, DateTime nextUpdate);
-        /// <summary>
-        /// Gets the count of feeds grouped by category.
-        /// </summary>
-        /// <returns>A dictionary mapping category IDs to feed counts.</returns>
-        Task<Dictionary<int, int>> GetCountByCategoryAsync();
-        #endregion
-        #region Health and Status Methods
-        /// <summary>
-        /// Retrieves feeds with failure count above threshold.
-        /// </summary>
-        /// <param name="maxFailureCount">The maximum allowed failure count. Default: 3.</param>
-        /// <returns>A list of failed feeds.</returns>
-        Task<List<Feed>> GetFailedFeedsAsync(int maxFailureCount = 3);
-        /// <summary>
-        /// Retrieves feeds with zero failures.
-        /// </summary>
-        /// <returns>A list of healthy feeds.</returns>
-        Task<List<Feed>> GetHealthyFeedsAsync();
-        /// <summary>
-        /// Increments failure count and records error message for a feed.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <param name="errorMessage">Optional error message to record.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> IncrementFailureCountAsync(int feedId, string? errorMessage = null);
-        /// <summary>
-        /// Resets failure count to zero for a feed.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> ResetFailureCountAsync(int feedId);
-        /// <summary>
-        /// Updates health status fields in one operation.
-        /// </summary>
-        /// <param name="feedId">The feed identifier.</param>
-        /// <param name="lastUpdated">The last updated timestamp.</param>
-        /// <param name="failureCount">The failure count.</param>
-        /// <param name="lastError">The last error message.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> UpdateHealthStatusAsync(int feedId, DateTime? lastUpdated, int failureCount, string? lastError);
-        #endregion
-        #region Retention and Cleanup
+        /// <param name="categoryId">The category ID.</param>
+        /// <param name="includeInactive">If true, includes inactive feeds. Default is false.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Ordered list of feeds in the category.</returns>
+        Task<List<Feed>> GetFeedsByCategoryAsync(int categoryId, bool includeInactive = false, CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Retrieves feeds with specific retention days configured.
         /// </summary>
-        /// <returns>A list of feeds with retention settings.</returns>
-        Task<List<Feed>> GetFeedsWithRetentionAsync();
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>List of feeds with custom retention settings.</returns>
+        Task<List<Feed>> GetFeedsWithRetentionAsync(CancellationToken cancellationToken = default);
+
+        #endregion
+
+        #region Bulk / Direct Update Operations
+
+        /// <summary>
+        /// Deletes a feed directly using efficient bulk delete.
+        /// </summary>
+        /// <param name="feedId">The feed identifier.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Number of rows affected.</returns>
+        Task<int> DeleteFeedDirectAsync(int feedId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Updates the LastUpdated timestamp for a feed.
+        /// </summary>
+        /// <param name="feedId">The feed identifier.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Number of rows affected.</returns>
+        Task<int> UpdateLastUpdatedAsync(int feedId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Updates the NextUpdateSchedule for a feed.
+        /// </summary>
+        /// <param name="feedId">The feed identifier.</param>
+        /// <param name="nextUpdate">The new next update schedule.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Number of rows affected.</returns>
+        Task<int> UpdateNextUpdateScheduleAsync(int feedId, DateTime nextUpdate, CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Updates article counts for a feed.
         /// </summary>
         /// <param name="feedId">The feed identifier.</param>
-        /// <param name="totalCount">The total article count.</param>
-        /// <param name="unreadCount">The unread article count.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> UpdateArticleCountsAsync(int feedId, int totalCount, int unreadCount);
+        /// <param name="totalCount">New total article count.</param>
+        /// <param name="unreadCount">New unread article count.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Number of rows affected.</returns>
+        Task<int> UpdateArticleCountsAsync(int feedId, int totalCount, int unreadCount, CancellationToken cancellationToken = default);
+
         /// <summary>
         /// Sets the active status of a feed.
         /// </summary>
         /// <param name="feedId">The feed identifier.</param>
-        /// <param name="isActive">The new active status.</param>
-        /// <returns>The number of rows affected.</returns>
-        Task<int> SetActiveStatusAsync(int feedId, bool isActive);
+        /// <param name="isActive">New active status.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Number of rows affected.</returns>
+        Task<int> SetActiveStatusAsync(int feedId, bool isActive, CancellationToken cancellationToken = default);
+
         #endregion
-        #region Search and Filtering
+
+        #region Health and Status Operations
+
+        /// <summary>
+        /// Retrieves feeds with failure count above threshold.
+        /// </summary>
+        /// <param name="maxFailureCount">Maximum allowed failures (default: 3).</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>List of failed feeds.</returns>
+        Task<List<Feed>> GetFailedFeedsAsync(int maxFailureCount = 3, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Retrieves feeds with zero failures.
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>List of healthy feeds.</returns>
+        Task<List<Feed>> GetHealthyFeedsAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Increments the failure count for a feed and records error message.
+        /// </summary>
+        /// <param name="feedId">Feed ID.</param>
+        /// <param name="errorMessage">Optional error message.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Number of rows affected.</returns>
+        Task<int> IncrementFailureCountAsync(int feedId, string? errorMessage = null, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Resets the failure count to zero for a feed.
+        /// </summary>
+        /// <param name="feedId">Feed ID.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Number of rows affected.</returns>
+        Task<int> ResetFailureCountAsync(int feedId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Updates multiple health status fields in a single operation.
+        /// </summary>
+        /// <param name="feedId">Feed ID.</param>
+        /// <param name="lastUpdated">Last updated timestamp.</param>
+        /// <param name="failureCount">New failure count.</param>
+        /// <param name="lastError">New error message.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Number of rows affected.</returns>
+        Task<int> UpdateHealthStatusAsync(int feedId, DateTime? lastUpdated, int failureCount, string? lastError, CancellationToken cancellationToken = default);
+
+        #endregion
+
+        #region Search Operations
+
         /// <summary>
         /// Searches for feeds by title, description, or URL.
         /// </summary>
-        /// <param name="searchText">The search text.</param>
-        /// <param name="includeInactive">If true, includes inactive feeds in search results. Default: false.</param>
-        /// <returns>A list of matching feeds.</returns>
-        Task<List<Feed>> SearchAsync(string searchText, bool includeInactive = false);
-        /// <summary>
-        /// Retrieves all feeds grouped by their CategoryId.
-        /// </summary>
-        /// <param name="includeInactive">If true, includes inactive feeds in the result. Default: false.</param>
-        /// <returns>Dictionary mapping CategoryId to list of feeds in that category.</returns>
-        Task<Dictionary<int, List<Feed>>> GetFeedsGroupedByCategoryAsync(bool includeInactive = false);
-        /// <summary>
-        /// Retrieves all feeds belonging to a specific category, ordered by title.
-        /// </summary>
-        /// <param name="categoryId">The ID of the category.</param>
-        /// <param name="includeInactive">If true, includes inactive feeds in the result. Default: false.</param>
-        /// <returns>List of feeds in the specified category.</returns>
-        Task<List<Feed>> GetFeedsByCategoryAsync(int categoryId, bool includeInactive = false);
+        /// <param name="searchText">Text to search for.</param>
+        /// <param name="includeInactive">Whether to include inactive feeds.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>List of matching feeds.</returns>
+        Task<List<Feed>> SearchAsync(string searchText, bool includeInactive = false, CancellationToken cancellationToken = default);
+
         #endregion
     }
 }

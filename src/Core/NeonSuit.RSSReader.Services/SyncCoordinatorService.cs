@@ -1,25 +1,32 @@
-﻿using NeonSuit.RSSReader.Core.Interfaces.Services;
+﻿using AutoMapper;
+using NeonSuit.RSSReader.Core.DTOs.Sync;
+using NeonSuit.RSSReader.Core.Enums;
+using NeonSuit.RSSReader.Core.Interfaces.Repositories;
+using NeonSuit.RSSReader.Core.Interfaces.Services;
 using NeonSuit.RSSReader.Core.Models;
-using NeonSuit.RSSReader.Data.Logging;
 using Serilog;
 using System.Collections.Concurrent;
+using System.Text.Json;
 
 namespace NeonSuit.RSSReader.Services
 {
     /// <summary>
-    /// Implementation of ISyncCoordinatorService that coordinates and manages all background synchronization tasks.
-    /// Implements a producer-consumer pattern with proper scheduling, error handling, and resource management.
+    /// Implementation of <see cref="ISyncCoordinatorService"/> that coordinates and manages all background synchronization tasks.
+    /// Implements a producer-consumer pattern with proper scheduling, error handling, and resource management for low-resource environments.
     /// </summary>
-    public class SyncCoordinatorService : ISyncCoordinatorService
+    internal class SyncCoordinatorService : ISyncCoordinatorService
     {
         private readonly ILogger _logger;
         private readonly ISettingsService _settingsService;
+        private readonly ISyncRepository _syncRepository;
+        private readonly IMapper _mapper;
 
         // Synchronization state
         private SyncStatus _currentStatus = SyncStatus.Stopped;
         private readonly SemaphoreSlim _statusLock = new(1, 1);
         private CancellationTokenSource? _syncCancellationTokenSource;
         private Task? _syncLoopTask;
+        private SyncState? _syncState;
 
         // Task management
         private readonly Dictionary<SyncTaskType, SyncTaskInfo> _syncTasks;
@@ -28,9 +35,8 @@ namespace NeonSuit.RSSReader.Services
         private readonly List<Task> _workerTasks;
         private readonly int _maxConcurrentTasks;
 
-        // Statistics and monitoring
-        private readonly SyncStatistics _statistics;
-        private readonly ConcurrentBag<SyncErrorInfo> _recentErrors;
+        // In-memory caches (backed by repository)
+        private readonly SyncStatistics _statistics = new();
         private readonly ConcurrentDictionary<SyncTaskType, SyncTaskExecutionInfo> _taskExecutionInfo;
         private DateTime? _lastSyncCompleted;
         private DateTime? _nextSyncScheduled;
@@ -38,43 +44,116 @@ namespace NeonSuit.RSSReader.Services
         // Configuration
         private bool _isPaused;
         private int _maxSyncDurationMinutes = 30;
-        private const int MAX_ERROR_HISTORY = 100;
+        private const int MaxErrorHistory = 100;
 
-        public SyncStatus CurrentStatus => _currentStatus;
-        public bool IsSynchronizing => _currentStatus == SyncStatus.Running && !_isPaused;
-        public DateTime? LastSyncCompleted => _lastSyncCompleted;
-        public DateTime? NextSyncScheduled => _nextSyncScheduled;
-        public SyncStatistics Statistics => _statistics;
+        // Event handlers
+        private event EventHandler<SyncStatusDto>? _onStatusChanged;
+        private event EventHandler<SyncProgressDto>? _onTaskStarted;
+        private event EventHandler<SyncTaskExecutionInfoDto>? _onTaskCompleted;
+        private event EventHandler<SyncErrorInfoDto>? _onSyncError;
+        private event EventHandler<SyncProgressDto>? _onSyncProgress;
 
-        // Events
-        public event EventHandler<SyncStatusChangedEventArgs>? OnStatusChanged;
-        public event EventHandler<SyncTaskStartedEventArgs>? OnTaskStarted;
-        public event EventHandler<SyncTaskCompletedEventArgs>? OnTaskCompleted;
-        public event EventHandler<SyncErrorEventArgs>? OnSyncError;
-        public event EventHandler<SyncProgressEventArgs>? OnSyncProgress;
+        #region Properties
+
+        /// <inheritdoc />
+        public SyncStatusDto CurrentStatus
+        {
+            get
+            {
+                var dto = new SyncStatusDto
+                {
+                    CurrentStatus = _currentStatus.ToString(),
+                    IsSynchronizing = _currentStatus == SyncStatus.Running && !_isPaused,
+                    LastSyncCompleted = _lastSyncCompleted,
+                    NextSyncScheduled = _nextSyncScheduled,
+                    LastSyncFormatted = FormatDateTime(_lastSyncCompleted),
+                    NextSyncFormatted = FormatDateTime(_nextSyncScheduled)
+                };
+                return dto;
+            }
+        }
+
+        /// <inheritdoc />
+        public SyncStatisticsDto Statistics => _mapper.Map<SyncStatisticsDto>(_statistics);
+
+        #endregion
+
+        #region Events
+
+        /// <inheritdoc />
+        public event EventHandler<SyncStatusDto> OnStatusChanged
+        {
+            add => _onStatusChanged += value;
+            remove => _onStatusChanged -= value;
+        }
+
+        /// <inheritdoc />
+        public event EventHandler<SyncProgressDto> OnTaskStarted
+        {
+            add => _onTaskStarted += value;
+            remove => _onTaskStarted -= value;
+        }
+
+        /// <inheritdoc />
+        public event EventHandler<SyncTaskExecutionInfoDto> OnTaskCompleted
+        {
+            add => _onTaskCompleted += value;
+            remove => _onTaskCompleted -= value;
+        }
+
+        /// <inheritdoc />
+        public event EventHandler<SyncErrorInfoDto> OnSyncError
+        {
+            add => _onSyncError += value;
+            remove => _onSyncError -= value;
+        }
+
+        /// <inheritdoc />
+        public event EventHandler<SyncProgressDto> OnSyncProgress
+        {
+            add => _onSyncProgress += value;
+            remove => _onSyncProgress -= value;
+        }
+
+        #endregion
+
+        #region Constructor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SyncCoordinatorService"/> class.
         /// </summary>
         /// <param name="settingsService">The settings service for configuration.</param>
+        /// <param name="syncRepository">The sync repository for persistence.</param>
+        /// <param name="mapper">AutoMapper instance for DTO transformations.</param>
         /// <param name="logger">The logger for diagnostic output.</param>
-        /// <exception cref="ArgumentNullException">Thrown if settingsService or logger is null.</exception>
-        public SyncCoordinatorService(ISettingsService settingsService, ILogger logger)
+        /// <exception cref="ArgumentNullException">Thrown if any parameter is null.</exception>
+        public SyncCoordinatorService(
+            ISettingsService settingsService,
+            ISyncRepository syncRepository,
+            IMapper mapper,
+            ILogger logger)
         {
-            _logger = (logger ?? throw new ArgumentNullException(nameof(logger))).ForContext<SyncCoordinatorService>();
-            _settingsService = settingsService ?? throw new ArgumentNullException(nameof(settingsService));
+            ArgumentNullException.ThrowIfNull(settingsService);
+            ArgumentNullException.ThrowIfNull(syncRepository);
+            ArgumentNullException.ThrowIfNull(mapper);
+            ArgumentNullException.ThrowIfNull(logger);
 
-            _syncTasks = InitializeSyncTasks();
+            _settingsService = settingsService;
+            _syncRepository = syncRepository;
+            _mapper = mapper;
+            _logger = logger.ForContext<SyncCoordinatorService>();
+
+            _syncTasks = new Dictionary<SyncTaskType, SyncTaskInfo>();
             _taskQueue = new ConcurrentQueue<SyncTaskRequest>();
             _workerTasks = new List<Task>();
-            _maxConcurrentTasks = Environment.ProcessorCount;
+            _maxConcurrentTasks = Environment.ProcessorCount; // Optimized for i3-10105T (4 cores)
 
-            _statistics = new SyncStatistics();
-            _recentErrors = new ConcurrentBag<SyncErrorInfo>();
             _taskExecutionInfo = new ConcurrentDictionary<SyncTaskType, SyncTaskExecutionInfo>();
 
-            _logger.Debug("SyncCoordinatorService initialized with {TaskCount} task types", _syncTasks.Count);
+            _logger.Debug("SyncCoordinatorService initialized with {MaxConcurrent} max concurrent tasks", _maxConcurrentTasks);
         }
+
+        #endregion
 
         #region Lifecycle Management
 
@@ -83,7 +162,7 @@ namespace NeonSuit.RSSReader.Services
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            await _statusLock.WaitAsync(cancellationToken);
+            await _statusLock.WaitAsync(cancellationToken).ConfigureAwait(false);
             try
             {
                 if (_currentStatus != SyncStatus.Stopped && _currentStatus != SyncStatus.Error)
@@ -92,11 +171,17 @@ namespace NeonSuit.RSSReader.Services
                     return;
                 }
 
+                // Load persistent state from repository
+                await LoadPersistentStateAsync(cancellationToken).ConfigureAwait(false);
+
+                // Initialize tasks from repository
+                await InitializeTasksFromRepositoryAsync(cancellationToken).ConfigureAwait(false);
+
                 // Initialize cancellation token
                 _syncCancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
 
                 // Load configuration from settings
-                await LoadConfigurationAsync();
+                await LoadConfigurationAsync(cancellationToken).ConfigureAwait(false);
 
                 // Start worker tasks
                 StartWorkerTasks();
@@ -105,14 +190,19 @@ namespace NeonSuit.RSSReader.Services
                 _syncLoopTask = Task.Run(() => RunSyncLoopAsync(_syncCancellationTokenSource.Token),
                     _syncCancellationTokenSource.Token);
 
-                await UpdateStatusAsync(SyncStatus.Running);
+                await UpdateStatusAsync(SyncStatus.Running, cancellationToken).ConfigureAwait(false);
                 _logger.Information("SyncCoordinatorService started successfully");
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("StartAsync operation was cancelled");
+                throw;
             }
             catch (Exception ex)
             {
                 _logger.Error(ex, "Failed to start SyncCoordinatorService");
-                await UpdateStatusAsync(SyncStatus.Error);
-                throw;
+                await UpdateStatusAsync(SyncStatus.Error, cancellationToken).ConfigureAwait(false);
+                throw new InvalidOperationException("Failed to start SyncCoordinatorService", ex);
             }
             finally
             {
@@ -121,15 +211,20 @@ namespace NeonSuit.RSSReader.Services
         }
 
         /// <inheritdoc />
-        public async Task StopAsync()
+        public async Task StopAsync(CancellationToken cancellationToken = default)
         {
-            await _statusLock.WaitAsync();
+            await _statusLock.WaitAsync(cancellationToken).ConfigureAwait(false);
             try
             {
                 if (_currentStatus == SyncStatus.Stopped || _currentStatus == SyncStatus.Stopping)
+                {
+                    _logger.Debug("StopAsync called but service already stopped or stopping");
                     return;
+                }
 
-                await UpdateStatusAsync(SyncStatus.Stopping);
+                await UpdateStatusAsync(SyncStatus.Stopping, cancellationToken).ConfigureAwait(false);
+
+                _logger.Information("Stopping SyncCoordinatorService gracefully...");
 
                 // Cancel all ongoing operations
                 _syncCancellationTokenSource?.Cancel();
@@ -139,9 +234,12 @@ namespace NeonSuit.RSSReader.Services
                 {
                     try
                     {
-                        await _syncLoopTask;
+                        await _syncLoopTask.ConfigureAwait(false);
                     }
-                    catch (OperationCanceledException) { }
+                    catch (OperationCanceledException)
+                    {
+                        _logger.Debug("Sync loop cancelled during shutdown");
+                    }
                     catch (Exception ex)
                     {
                         _logger.Error(ex, "Error waiting for sync loop to stop");
@@ -151,13 +249,20 @@ namespace NeonSuit.RSSReader.Services
                 // Wait for worker tasks to complete
                 try
                 {
-                    await Task.WhenAll(_workerTasks.ToArray());
+                    await Task.WhenAll(_workerTasks).ConfigureAwait(false);
+                    _logger.Debug("All worker tasks completed successfully");
                 }
-                catch (OperationCanceledException) { }
+                catch (OperationCanceledException)
+                {
+                    _logger.Debug("Worker tasks cancelled during shutdown");
+                }
                 catch (Exception ex)
                 {
                     _logger.Error(ex, "Error waiting for worker tasks to stop");
                 }
+
+                // Save persistent state before stopping
+                await SavePersistentStateAsync(cancellationToken).ConfigureAwait(false);
 
                 // Clean up
                 _syncCancellationTokenSource?.Dispose();
@@ -165,8 +270,19 @@ namespace NeonSuit.RSSReader.Services
                 _syncLoopTask = null;
                 _workerTasks.Clear();
 
-                await UpdateStatusAsync(SyncStatus.Stopped);
+                await UpdateStatusAsync(SyncStatus.Stopped, cancellationToken).ConfigureAwait(false);
                 _logger.Information("SyncCoordinatorService stopped successfully");
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("StopAsync operation was cancelled");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error during StopAsync");
+                await UpdateStatusAsync(SyncStatus.Error, cancellationToken).ConfigureAwait(false);
+                throw new InvalidOperationException("Failed to stop SyncCoordinatorService", ex);
             }
             finally
             {
@@ -175,9 +291,9 @@ namespace NeonSuit.RSSReader.Services
         }
 
         /// <inheritdoc />
-        public async Task PauseAsync()
+        public async Task PauseAsync(CancellationToken cancellationToken = default)
         {
-            await _statusLock.WaitAsync();
+            await _statusLock.WaitAsync(cancellationToken).ConfigureAwait(false);
             try
             {
                 if (_currentStatus != SyncStatus.Running)
@@ -186,7 +302,21 @@ namespace NeonSuit.RSSReader.Services
                     return;
                 }
 
+                if (_isPaused)
+                {
+                    _logger.Debug("Service is already paused");
+                    return;
+                }
+
                 _isPaused = true;
+
+                if (_syncState != null)
+                {
+                    _syncState.IsPaused = true;
+                    _syncState.LastUpdated = DateTime.UtcNow;
+                    await _syncRepository.UpdateAsync(_syncState, cancellationToken).ConfigureAwait(false);
+                }
+
                 _logger.Information("SyncCoordinatorService paused");
             }
             finally
@@ -196,15 +326,26 @@ namespace NeonSuit.RSSReader.Services
         }
 
         /// <inheritdoc />
-        public async Task ResumeAsync()
+        public async Task ResumeAsync(CancellationToken cancellationToken = default)
         {
-            await _statusLock.WaitAsync();
+            await _statusLock.WaitAsync(cancellationToken).ConfigureAwait(false);
             try
             {
                 if (!_isPaused)
+                {
+                    _logger.Debug("ResumeAsync called but service is not paused");
                     return;
+                }
 
                 _isPaused = false;
+
+                if (_syncState != null)
+                {
+                    _syncState.IsPaused = false;
+                    _syncState.LastUpdated = DateTime.UtcNow;
+                    await _syncRepository.UpdateAsync(_syncState, cancellationToken).ConfigureAwait(false);
+                }
+
                 _logger.Information("SyncCoordinatorService resumed");
 
                 // Trigger queue processing
@@ -221,47 +362,55 @@ namespace NeonSuit.RSSReader.Services
         #region Manual Trigger Methods
 
         /// <inheritdoc />
-        public async Task TriggerFeedSyncAsync()
+        public async Task<SyncActionResultDto> TriggerFeedSyncAsync(CancellationToken cancellationToken = default)
         {
-            await EnqueueTaskAsync(SyncTaskType.FeedUpdate, isManual: true, priority: SyncPriority.High);
+            return await EnqueueTaskAsync(SyncTaskType.FeedUpdate, isManual: true, priority: SyncPriority.High, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task TriggerSingleFeedSyncAsync(int feedId)
+        public async Task<SyncActionResultDto> TriggerSingleFeedSyncAsync(int feedId, CancellationToken cancellationToken = default)
         {
+            if (feedId <= 0)
+            {
+                _logger.Warning("Invalid feed ID for manual sync: {FeedId}", feedId);
+                throw new ArgumentOutOfRangeException(nameof(feedId), "Feed ID must be greater than 0");
+            }
+
             var request = new SyncTaskRequest
             {
                 TaskType = SyncTaskType.FeedUpdate,
                 IsManual = true,
                 Priority = SyncPriority.High,
-                Parameters = new Dictionary<string, object> { ["feedId"] = feedId }
+                Parameters = new Dictionary<string, object> { ["feedId"] = feedId },
+                EnqueuedAt = DateTime.UtcNow,
+                RequestId = GenerateRequestId()
             };
 
-            await EnqueueTaskAsync(request);
+            return await EnqueueTaskAsync(request, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task TriggerCleanupSyncAsync()
+        public async Task<SyncActionResultDto> TriggerCleanupSyncAsync(CancellationToken cancellationToken = default)
         {
-            await EnqueueTaskAsync(SyncTaskType.ArticleCleanup, isManual: true, priority: SyncPriority.Medium);
+            return await EnqueueTaskAsync(SyncTaskType.ArticleCleanup, isManual: true, priority: SyncPriority.Medium, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task TriggerTagProcessingSyncAsync()
+        public async Task<SyncActionResultDto> TriggerTagProcessingSyncAsync(CancellationToken cancellationToken = default)
         {
-            await EnqueueTaskAsync(SyncTaskType.TagProcessing, isManual: true, priority: SyncPriority.Medium);
+            return await EnqueueTaskAsync(SyncTaskType.TagProcessing, isManual: true, priority: SyncPriority.Medium, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task TriggerBackupSyncAsync()
+        public async Task<SyncActionResultDto> TriggerBackupSyncAsync(CancellationToken cancellationToken = default)
         {
-            await EnqueueTaskAsync(SyncTaskType.BackupCreation, isManual: true, priority: SyncPriority.Low);
+            return await EnqueueTaskAsync(SyncTaskType.BackupCreation, isManual: true, priority: SyncPriority.Low, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task TriggerFullSyncAsync()
+        public async Task<SyncActionResultDto> TriggerFullSyncAsync(CancellationToken cancellationToken = default)
         {
-            await EnqueueTaskAsync(SyncTaskType.FullSync, isManual: true, priority: SyncPriority.High);
+            return await EnqueueTaskAsync(SyncTaskType.FullSync, isManual: true, priority: SyncPriority.High, cancellationToken).ConfigureAwait(false);
         }
 
         #endregion
@@ -269,41 +418,121 @@ namespace NeonSuit.RSSReader.Services
         #region Configuration Methods
 
         /// <inheritdoc />
-        public async Task ConfigureTaskAsync(SyncTaskType taskType, bool enabled)
+        public async Task<SyncActionResultDto> ConfigureTaskAsync(ConfigureTaskDto configureDto, CancellationToken cancellationToken = default)
         {
-            if (_syncTasks.TryGetValue(taskType, out var taskInfo))
+            ArgumentNullException.ThrowIfNull(configureDto);
+
+            try
             {
-                taskInfo.Enabled = enabled;
-                await SaveTaskConfigurationAsync(taskInfo);
-                _logger.Information("Task {TaskType} {Action}", taskType, enabled ? "enabled" : "disabled");
+                if (!Enum.TryParse<SyncTaskType>(configureDto.TaskType, true, out var taskType))
+                {
+                    _logger.Warning("Invalid task type: {TaskType}", configureDto.TaskType);
+                    throw new ArgumentException($"Invalid task type: {configureDto.TaskType}", nameof(configureDto));
+                }
+
+                if (!_syncTasks.TryGetValue(taskType, out var taskInfo))
+                {
+                    _logger.Warning("Unknown task type: {TaskType}", taskType);
+                    return new SyncActionResultDto
+                    {
+                        Success = false,
+                        Message = $"Unknown task type: {taskType}"
+                    };
+                }
+
+                taskInfo.Enabled = configureDto.Enabled;
+
+                if (configureDto.IntervalMinutes.HasValue)
+                {
+                    taskInfo.IntervalMinutes = configureDto.IntervalMinutes.Value;
+                }
+
+                // Save to repository
+                var config = new SyncTaskConfig
+                {
+                    TaskType = taskInfo.TaskType.ToString(),
+                    Name = taskInfo.Name,
+                    Enabled = taskInfo.Enabled,
+                    IntervalMinutes = taskInfo.IntervalMinutes,
+                    Priority = taskInfo.Priority.ToString(),
+                    MaxRetries = taskInfo.MaxRetries,
+                    RetryDelayMinutes = taskInfo.RetryDelayMinutes,
+                    LastScheduled = taskInfo.LastScheduled,
+                    NextScheduled = taskInfo.NextScheduled,
+                    LastModified = DateTime.UtcNow
+                };
+
+                await _syncRepository.SaveTaskConfigAsync(config, cancellationToken).ConfigureAwait(false);
+
+                _logger.Information("Task {TaskType} configured - Enabled: {Enabled}, Interval: {Interval} min",
+                    taskType, taskInfo.Enabled, taskInfo.IntervalMinutes);
+
+                return new SyncActionResultDto
+                {
+                    Success = true,
+                    Message = $"Task {taskType} configured successfully"
+                };
+            }
+            catch (Exception ex) when (ex is not ArgumentException)
+            {
+                _logger.Error(ex, "Failed to configure task {TaskType}", configureDto.TaskType);
+                throw new InvalidOperationException($"Failed to configure task {configureDto.TaskType}", ex);
             }
         }
 
         /// <inheritdoc />
-        public async Task ConfigureTaskIntervalAsync(SyncTaskType taskType, int intervalMinutes)
+        public async Task<SyncActionResultDto> SetMaxSyncDurationAsync(ConfigureMaxDurationDto configureDto, CancellationToken cancellationToken = default)
         {
-            if (_syncTasks.TryGetValue(taskType, out var taskInfo))
+            ArgumentNullException.ThrowIfNull(configureDto);
+
+            try
             {
-                taskInfo.IntervalMinutes = Math.Max(1, intervalMinutes);
-                await SaveTaskConfigurationAsync(taskInfo);
-                _logger.Information("Task {TaskType} interval set to {Interval} minutes",
-                    taskType, intervalMinutes);
+                _maxSyncDurationMinutes = configureDto.MaxDurationMinutes;
+                await _settingsService.SetIntAsync("sync_max_duration_minutes", configureDto.MaxDurationMinutes, cancellationToken).ConfigureAwait(false);
+
+                if (_syncState != null)
+                {
+                    _syncState.MaxSyncDurationMinutes = configureDto.MaxDurationMinutes;
+                    _syncState.LastUpdated = DateTime.UtcNow;
+                    await _syncRepository.UpdateAsync(_syncState, cancellationToken).ConfigureAwait(false);
+                }
+
+                _logger.Information("Maximum sync duration set to {Duration} minutes", configureDto.MaxDurationMinutes);
+
+                return new SyncActionResultDto
+                {
+                    Success = true,
+                    Message = $"Maximum sync duration set to {configureDto.MaxDurationMinutes} minutes"
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Failed to set max sync duration");
+                throw new InvalidOperationException("Failed to set max sync duration", ex);
             }
         }
 
         /// <inheritdoc />
-        public Task SetMaxSyncDurationAsync(int maxDurationMinutes)
+        public async Task<SyncActionResultDto> SetMaxConcurrentTasksAsync(ConfigureConcurrencyDto configureDto, CancellationToken cancellationToken = default)
         {
-            _maxSyncDurationMinutes = Math.Max(1, maxDurationMinutes);
-            _logger.Debug("Maximum sync duration set to {Duration} minutes", maxDurationMinutes);
-            return Task.CompletedTask;
-        }
+            ArgumentNullException.ThrowIfNull(configureDto);
 
-        /// <inheritdoc />
-        public Task SetMaxConcurrentTasksAsync(int maxConcurrentTasks)
-        {
-            _logger.Debug("Maximum concurrent tasks set to {Count}", maxConcurrentTasks);
-            return Task.CompletedTask;
+            try
+            {
+                _logger.Information("Maximum concurrent tasks set to {Count} (restart required for changes to take effect)",
+                    configureDto.MaxConcurrentTasks);
+
+                return new SyncActionResultDto
+                {
+                    Success = true,
+                    Message = $"Maximum concurrent tasks set to {configureDto.MaxConcurrentTasks} (restart required)"
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Failed to set max concurrent tasks");
+                throw new InvalidOperationException("Failed to set max concurrent tasks", ex);
+            }
         }
 
         #endregion
@@ -311,179 +540,295 @@ namespace NeonSuit.RSSReader.Services
         #region Monitoring Methods
 
         /// <inheritdoc />
-        public Task<Dictionary<SyncTaskType, SyncTaskStatus>> GetTaskStatusesAsync()
+        public async Task<List<SyncTaskStatusDto>> GetTaskStatusesAsync(CancellationToken cancellationToken = default)
         {
-            var statuses = _syncTasks.ToDictionary(
-                kvp => kvp.Key,
-                kvp => kvp.Value.CurrentStatus
-            );
-            return Task.FromResult(statuses);
+            var statuses = new List<SyncTaskStatusDto>();
+
+            foreach (var kvp in _syncTasks)
+            {
+                var info = _taskExecutionInfo.GetValueOrDefault(kvp.Key);
+                var config = await _syncRepository.GetTaskConfigAsync(kvp.Key.ToString(), cancellationToken).ConfigureAwait(false);
+
+                statuses.Add(new SyncTaskStatusDto
+                {
+                    TaskType = kvp.Key.ToString(),
+                    Status = kvp.Value.CurrentStatus.ToString(),
+                    IsEnabled = kvp.Value.Enabled,
+                    IntervalMinutes = kvp.Value.IntervalMinutes,
+                    NextScheduled = kvp.Value.NextScheduled,
+                    NextScheduledFormatted = FormatDateTime(kvp.Value.NextScheduled),
+                    LastRunStart = info?.LastRunStart,
+                    LastRunEnd = info?.LastRunEnd,
+                    LastRunDurationSeconds = info?.LastRunDuration?.TotalSeconds,
+                    LastRunSuccessful = info?.LastRunSuccessful ?? false,
+                    TotalRuns = info?.TotalRuns ?? 0,
+                    SuccessfulRuns = info?.SuccessfulRuns ?? 0
+                });
+            }
+
+            return statuses;
         }
 
         /// <inheritdoc />
-        public Task<SyncTaskExecutionInfo> GetTaskExecutionInfoAsync(SyncTaskType taskType)
+        public async Task<SyncTaskExecutionInfoDto> GetTaskExecutionInfoAsync(string taskType, CancellationToken cancellationToken = default)
         {
-            if (_taskExecutionInfo.TryGetValue(taskType, out var info))
-                return Task.FromResult(info);
+            if (!Enum.TryParse<SyncTaskType>(taskType, true, out var taskTypeEnum))
+            {
+                _logger.Warning("Invalid task type: {TaskType}", taskType);
+                throw new ArgumentException($"Invalid task type: {taskType}", nameof(taskType));
+            }
 
-            return Task.FromResult(new SyncTaskExecutionInfo { TaskType = taskType });
+            if (!_taskExecutionInfo.TryGetValue(taskTypeEnum, out var info))
+            {
+                return new SyncTaskExecutionInfoDto
+                {
+                    TaskType = taskType,
+                    TotalRuns = 0,
+                    SuccessfulRuns = 0
+                };
+            }
+
+            var dto = new SyncTaskExecutionInfoDto
+            {
+                TaskType = taskType,
+                LastRunStart = info.LastRunStart,
+                LastRunEnd = info.LastRunEnd,
+                LastRunDurationSeconds = info.LastRunDuration?.TotalSeconds,
+                LastRunDurationFormatted = FormatTimeSpan(info.LastRunDuration),
+                LastRunSuccessful = info.LastRunSuccessful,
+                LastRunError = info.LastRunError,
+                TotalRuns = info.TotalRuns,
+                SuccessfulRuns = info.SuccessfulRuns,
+                AverageRunDurationSeconds = info.AverageRunDuration.TotalSeconds,
+                AverageRunDurationFormatted = FormatTimeSpan(info.AverageRunDuration),
+                NextScheduledRun = info.NextScheduledRun,
+                NextScheduledFormatted = FormatDateTime(info.NextScheduledRun),
+                LastRunResults = info.LastRunResults ?? new Dictionary<string, object>()
+            };
+
+            return dto;
         }
 
         /// <inheritdoc />
-        public Task<List<SyncErrorInfo>> GetRecentErrorsAsync(int maxErrors = 50)
+        public async Task<List<SyncErrorInfoDto>> GetRecentErrorsAsync(int maxErrors = 50, CancellationToken cancellationToken = default)
         {
-            var errors = _recentErrors
-                .OrderByDescending(e => e.ErrorTime)
-                .Take(maxErrors)
-                .ToList();
+            if (maxErrors < 1)
+            {
+                _logger.Warning("Invalid max errors parameter: {MaxErrors}. Using default of 50.", maxErrors);
+                maxErrors = 50;
+            }
 
-            return Task.FromResult(errors);
+            var errors = await _syncRepository.GetRecentErrorsAsync(maxErrors, cancellationToken).ConfigureAwait(false);
+
+            return errors.Select(e => new SyncErrorInfoDto
+            {
+                ErrorTime = e.ErrorTime,
+                ErrorTimeFormatted = FormatDateTime(e.ErrorTime),
+                TaskType = e.TaskType,
+                ErrorMessage = e.ErrorMessage,
+                StackTrace = e.StackTrace,
+                IsRecoverable = e.IsRecoverable,
+                RetryCount = e.RetryCount
+            }).ToList();
         }
 
         /// <inheritdoc />
-        public Task ClearErrorHistoryAsync()
+        public async Task<SyncActionResultDto> ClearErrorHistoryAsync(CancellationToken cancellationToken = default)
         {
-            while (_recentErrors.TryTake(out _)) { }
-            _logger.Debug("Error history cleared");
-            return Task.CompletedTask;
+            try
+            {
+                await _syncRepository.ClearErrorsOlderThanAsync(DateTime.UtcNow.AddYears(-100), cancellationToken).ConfigureAwait(false);
+                _logger.Information("Error history cleared");
+
+                return new SyncActionResultDto
+                {
+                    Success = true,
+                    Message = "Error history cleared successfully"
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Failed to clear error history");
+                throw new InvalidOperationException("Failed to clear error history", ex);
+            }
         }
 
         #endregion
 
-        #region Private Implementation
+        #region Private Implementation - Persistence
 
         /// <summary>
-        /// Initializes the dictionary of synchronization tasks with default settings.
+        /// Loads persistent state from repository.
         /// </summary>
-        private Dictionary<SyncTaskType, SyncTaskInfo> InitializeSyncTasks()
+        /// <param name="cancellationToken">Cancellation token.</param>
+        private async Task LoadPersistentStateAsync(CancellationToken cancellationToken = default)
         {
-            return new Dictionary<SyncTaskType, SyncTaskInfo>
+            try
             {
-                [SyncTaskType.FeedUpdate] = new SyncTaskInfo
+                var states = await _syncRepository.GetAllAsync(cancellationToken).ConfigureAwait(false);
+                _syncState = states.FirstOrDefault();
+
+                if (_syncState == null)
                 {
-                    TaskType = SyncTaskType.FeedUpdate,
-                    Name = "Feed Update",
-                    Enabled = true,
-                    IntervalMinutes = 60,
-                    Priority = SyncPriority.High,
-                    MaxRetries = 3,
-                    RetryDelayMinutes = 5
-                },
-                [SyncTaskType.TagProcessing] = new SyncTaskInfo
-                {
-                    TaskType = SyncTaskType.TagProcessing,
-                    Name = "Tag Processing",
-                    Enabled = true,
-                    IntervalMinutes = 120,
-                    Priority = SyncPriority.Medium,
-                    MaxRetries = 2,
-                    RetryDelayMinutes = 10
-                },
-                [SyncTaskType.ArticleCleanup] = new SyncTaskInfo
-                {
-                    TaskType = SyncTaskType.ArticleCleanup,
-                    Name = "Article Cleanup",
-                    Enabled = true,
-                    IntervalMinutes = 1440,
-                    Priority = SyncPriority.Low,
-                    MaxRetries = 1,
-                    RetryDelayMinutes = 60
-                },
-                [SyncTaskType.BackupCreation] = new SyncTaskInfo
-                {
-                    TaskType = SyncTaskType.BackupCreation,
-                    Name = "Backup Creation",
-                    Enabled = true,
-                    IntervalMinutes = 10080,
-                    Priority = SyncPriority.Low,
-                    MaxRetries = 1,
-                    RetryDelayMinutes = 120
-                },
-                [SyncTaskType.StatisticsUpdate] = new SyncTaskInfo
-                {
-                    TaskType = SyncTaskType.StatisticsUpdate,
-                    Name = "Statistics Update",
-                    Enabled = true,
-                    IntervalMinutes = 720,
-                    Priority = SyncPriority.Low,
-                    MaxRetries = 1,
-                    RetryDelayMinutes = 30
-                },
-                [SyncTaskType.RuleProcessing] = new SyncTaskInfo
-                {
-                    TaskType = SyncTaskType.RuleProcessing,
-                    Name = "Rule Processing",
-                    Enabled = true,
-                    IntervalMinutes = 30,
-                    Priority = SyncPriority.Medium,
-                    MaxRetries = 2,
-                    RetryDelayMinutes = 5
-                },
-                [SyncTaskType.CacheMaintenance] = new SyncTaskInfo
-                {
-                    TaskType = SyncTaskType.CacheMaintenance,
-                    Name = "Cache Maintenance",
-                    Enabled = true,
-                    IntervalMinutes = 240,
-                    Priority = SyncPriority.Low,
-                    MaxRetries = 1,
-                    RetryDelayMinutes = 15
-                },
-                [SyncTaskType.FullSync] = new SyncTaskInfo
-                {
-                    TaskType = SyncTaskType.FullSync,
-                    Name = "Full Synchronization",
-                    Enabled = false,
-                    IntervalMinutes = 10080,
-                    Priority = SyncPriority.High,
-                    MaxRetries = 1,
-                    RetryDelayMinutes = 60
+                    _syncState = new SyncState
+                    {
+                        CurrentStatus = SyncStatus.Stopped.ToString(),
+                        IsPaused = false,
+                        MaxSyncDurationMinutes = 30,
+                        LastUpdated = DateTime.UtcNow
+                    };
+                    await _syncRepository.InsertAsync(_syncState, cancellationToken).ConfigureAwait(false);
                 }
-            };
+
+                _isPaused = _syncState.IsPaused;
+                _maxSyncDurationMinutes = _syncState.MaxSyncDurationMinutes;
+                _lastSyncCompleted = _syncState.LastSyncCompleted;
+
+                _logger.Debug("Persistent state loaded from repository");
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Failed to load persistent state, using defaults");
+                _syncState = new SyncState { LastUpdated = DateTime.UtcNow };
+            }
         }
+
+        /// <summary>
+        /// Saves persistent state to repository.
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        private async Task SavePersistentStateAsync(CancellationToken cancellationToken = default)
+        {
+            if (_syncState == null) return;
+
+            try
+            {
+                _syncState.CurrentStatus = _currentStatus.ToString();
+                _syncState.IsPaused = _isPaused;
+                _syncState.LastSyncCompleted = _lastSyncCompleted;
+                _syncState.MaxSyncDurationMinutes = _maxSyncDurationMinutes;
+                _syncState.LastUpdated = DateTime.UtcNow;
+
+                await _syncRepository.UpdateAsync(_syncState, cancellationToken).ConfigureAwait(false);
+                _logger.Debug("Persistent state saved to repository");
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Failed to save persistent state");
+            }
+        }
+
+        /// <summary>
+        /// Initializes task configurations from repository.
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        private async Task InitializeTasksFromRepositoryAsync(CancellationToken cancellationToken = default)
+        {
+            var configs = await _syncRepository.GetAllTaskConfigsAsync(cancellationToken).ConfigureAwait(false);
+
+            // Default tasks if none exist
+            if (!configs.Any())
+            {
+                await CreateDefaultTaskConfigsAsync(cancellationToken).ConfigureAwait(false);
+                configs = await _syncRepository.GetAllTaskConfigsAsync(cancellationToken).ConfigureAwait(false);
+            }
+
+            foreach (var config in configs)
+            {
+                if (!Enum.TryParse<SyncTaskType>(config.TaskType, out var taskType))
+                {
+                    _logger.Warning("Invalid task type in config: {TaskType}, skipping", config.TaskType);
+                    continue;
+                }
+
+                if (!Enum.TryParse<SyncPriority>(config.Priority, out var priority))
+                {
+                    priority = SyncPriority.Medium;
+                }
+
+                var taskInfo = new SyncTaskInfo
+                {
+                    TaskType = taskType,
+                    Name = config.Name,
+                    Enabled = config.Enabled,
+                    IntervalMinutes = config.IntervalMinutes,
+                    Priority = priority,
+                    MaxRetries = config.MaxRetries,
+                    RetryDelayMinutes = config.RetryDelayMinutes,
+                    LastScheduled = config.LastScheduled,
+                    NextScheduled = config.NextScheduled,
+                    CurrentStatus = SyncTaskStatus.Idle
+                };
+
+                _syncTasks[taskType] = taskInfo;
+
+                // Load execution history
+                var lastExecution = await _syncRepository.GetLastTaskExecutionAsync(config.TaskType, cancellationToken).ConfigureAwait(false);
+                if (lastExecution != null)
+                {
+                    var execInfo = new SyncTaskExecutionInfo
+                    {
+                        TaskType = taskType,
+                        LastRunStart = lastExecution.StartTime,
+                        LastRunEnd = lastExecution.EndTime,
+                        LastRunDuration = lastExecution.DurationSeconds.HasValue
+                            ? TimeSpan.FromSeconds(lastExecution.DurationSeconds.Value)
+                            : null,
+                        LastRunSuccessful = lastExecution.Success,
+                        LastRunError = lastExecution.ErrorMessage,
+                        TotalRuns = 0 // Will be updated during execution
+                    };
+                    _taskExecutionInfo[taskType] = execInfo;
+                }
+            }
+
+            _logger.Debug("Initialized {Count} tasks from repository", _syncTasks.Count);
+        }
+
+        /// <summary>
+        /// Creates default task configurations.
+        /// </summary>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        private async Task CreateDefaultTaskConfigsAsync(CancellationToken cancellationToken = default)
+        {
+            var defaults = new[]
+            {
+                new SyncTaskConfig { TaskType = SyncTaskType.FeedUpdate.ToString(), Name = "Feed Update", Enabled = true, IntervalMinutes = 60, Priority = SyncPriority.High.ToString(), MaxRetries = 3, RetryDelayMinutes = 5 },
+                new SyncTaskConfig { TaskType = SyncTaskType.TagProcessing.ToString(), Name = "Tag Processing", Enabled = true, IntervalMinutes = 120, Priority = SyncPriority.Medium.ToString(), MaxRetries = 2, RetryDelayMinutes = 10 },
+                new SyncTaskConfig { TaskType = SyncTaskType.ArticleCleanup.ToString(), Name = "Article Cleanup", Enabled = true, IntervalMinutes = 1440, Priority = SyncPriority.Low.ToString(), MaxRetries = 1, RetryDelayMinutes = 60 },
+                new SyncTaskConfig { TaskType = SyncTaskType.BackupCreation.ToString(), Name = "Backup Creation", Enabled = true, IntervalMinutes = 10080, Priority = SyncPriority.Low.ToString(), MaxRetries = 1, RetryDelayMinutes = 120 },
+                new SyncTaskConfig { TaskType = SyncTaskType.StatisticsUpdate.ToString(), Name = "Statistics Update", Enabled = true, IntervalMinutes = 720, Priority = SyncPriority.Low.ToString(), MaxRetries = 1, RetryDelayMinutes = 30 },
+                new SyncTaskConfig { TaskType = SyncTaskType.RuleProcessing.ToString(), Name = "Rule Processing", Enabled = true, IntervalMinutes = 30, Priority = SyncPriority.Medium.ToString(), MaxRetries = 2, RetryDelayMinutes = 5 },
+                new SyncTaskConfig { TaskType = SyncTaskType.CacheMaintenance.ToString(), Name = "Cache Maintenance", Enabled = true, IntervalMinutes = 240, Priority = SyncPriority.Low.ToString(), MaxRetries = 1, RetryDelayMinutes = 15 },
+                new SyncTaskConfig { TaskType = SyncTaskType.FullSync.ToString(), Name = "Full Synchronization", Enabled = false, IntervalMinutes = 10080, Priority = SyncPriority.High.ToString(), MaxRetries = 1, RetryDelayMinutes = 60 }
+            };
+
+            foreach (var config in defaults)
+            {
+                await _syncRepository.SaveTaskConfigAsync(config, cancellationToken).ConfigureAwait(false);
+            }
+
+            _logger.Debug("Created default task configurations");
+        }
+
+        #endregion
+
+        #region Private Implementation - Task Processing
 
         /// <summary>
         /// Loads task configurations from settings service.
         /// </summary>
-        private async Task LoadConfigurationAsync()
+        /// <param name="cancellationToken">Cancellation token.</param>
+        private async Task LoadConfigurationAsync(CancellationToken cancellationToken = default)
         {
             try
             {
-                foreach (var taskInfo in _syncTasks.Values)
-                {
-                    var enabledKey = $"sync_task_{taskInfo.TaskType.ToString().ToLower()}_enabled";
-                    var intervalKey = $"sync_task_{taskInfo.TaskType.ToString().ToLower()}_interval";
-
-                    taskInfo.Enabled = await _settingsService.GetBoolAsync(enabledKey, taskInfo.Enabled);
-                    taskInfo.IntervalMinutes = await _settingsService.GetIntAsync(intervalKey, taskInfo.IntervalMinutes);
-                }
-
-                _maxSyncDurationMinutes = await _settingsService.GetIntAsync("sync_max_duration_minutes", 30);
+                _maxSyncDurationMinutes = await _settingsService.GetIntAsync("sync_max_duration_minutes", 30, cancellationToken).ConfigureAwait(false);
                 _logger.Debug("Sync configuration loaded from settings");
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Failed to load sync configuration from settings");
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Saves task configuration to settings service.
-        /// </summary>
-        private async Task SaveTaskConfigurationAsync(SyncTaskInfo taskInfo)
-        {
-            try
-            {
-                var enabledKey = $"sync_task_{taskInfo.TaskType.ToString().ToLower()}_enabled";
-                var intervalKey = $"sync_task_{taskInfo.TaskType.ToString().ToLower()}_interval";
-
-                await _settingsService.SetBoolAsync(enabledKey, taskInfo.Enabled);
-                await _settingsService.SetIntAsync(intervalKey, taskInfo.IntervalMinutes);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to save task configuration for {TaskType}", taskInfo.TaskType);
+                _logger.Error(ex, "Failed to load sync configuration from settings, using defaults");
             }
         }
 
@@ -494,7 +839,8 @@ namespace NeonSuit.RSSReader.Services
         {
             for (int i = 0; i < _maxConcurrentTasks; i++)
             {
-                var workerTask = Task.Run(() => ProcessTaskQueueAsync(_syncCancellationTokenSource!.Token),
+                var workerId = i + 1;
+                var workerTask = Task.Run(() => ProcessTaskQueueAsync(workerId, _syncCancellationTokenSource!.Token),
                     _syncCancellationTokenSource!.Token);
                 _workerTasks.Add(workerTask);
             }
@@ -505,9 +851,10 @@ namespace NeonSuit.RSSReader.Services
         /// <summary>
         /// Main synchronization loop that schedules periodic tasks.
         /// </summary>
+        /// <param name="cancellationToken">Cancellation token.</param>
         private async Task RunSyncLoopAsync(CancellationToken cancellationToken)
         {
-            _logger.Information("Sync loop started");
+            _logger.Debug("Sync loop started");
 
             while (!cancellationToken.IsCancellationRequested)
             {
@@ -515,27 +862,46 @@ namespace NeonSuit.RSSReader.Services
                 {
                     if (_isPaused)
                     {
-                        await Task.Delay(5000, cancellationToken);
+                        await Task.Delay(5000, cancellationToken).ConfigureAwait(false);
                         continue;
                     }
 
+                    var now = DateTime.UtcNow;
+                    var tasksScheduled = 0;
+
                     foreach (var taskInfo in _syncTasks.Values.Where(t => t.Enabled))
                     {
-                        if (ShouldExecuteTask(taskInfo))
+                        if (ShouldExecuteTask(taskInfo, now))
                         {
-                            await EnqueueTaskAsync(taskInfo.TaskType, isManual: false, priority: taskInfo.Priority);
-                            taskInfo.LastScheduled = DateTime.UtcNow;
-                            taskInfo.NextScheduled = DateTime.UtcNow.AddMinutes(taskInfo.IntervalMinutes);
+                            await EnqueueTaskAsync(taskInfo.TaskType, isManual: false, priority: taskInfo.Priority, cancellationToken).ConfigureAwait(false);
+                            taskInfo.LastScheduled = now;
+                            taskInfo.NextScheduled = now.AddMinutes(taskInfo.IntervalMinutes);
+
+                            // Update config in repository
+                            var config = await _syncRepository.GetTaskConfigAsync(taskInfo.TaskType.ToString(), cancellationToken).ConfigureAwait(false);
+                            if (config != null)
+                            {
+                                config.LastScheduled = now;
+                                config.NextScheduled = taskInfo.NextScheduled;
+                                await _syncRepository.SaveTaskConfigAsync(config, cancellationToken).ConfigureAwait(false);
+                            }
+
+                            tasksScheduled++;
                         }
+                    }
+
+                    if (tasksScheduled > 0)
+                    {
+                        _logger.Debug("Scheduled {TaskCount} tasks for execution", tasksScheduled);
                     }
 
                     _nextSyncScheduled = _syncTasks.Values
                         .Where(t => t.Enabled && t.NextScheduled.HasValue)
                         .Select(t => t.NextScheduled!.Value)
-                        .DefaultIfEmpty(DateTime.UtcNow.AddMinutes(5))
+                        .DefaultIfEmpty(now.AddMinutes(5))
                         .Min();
 
-                    await Task.Delay(TimeSpan.FromMinutes(1), cancellationToken);
+                    await Task.Delay(TimeSpan.FromSeconds(30), cancellationToken).ConfigureAwait(false);
                 }
                 catch (OperationCanceledException)
                 {
@@ -544,18 +910,21 @@ namespace NeonSuit.RSSReader.Services
                 catch (Exception ex)
                 {
                     _logger.Error(ex, "Error in sync loop");
-                    await RecordErrorAsync(SyncTaskType.FullSync, ex, isFatal: false);
-                    await Task.Delay(5000, cancellationToken);
+                    await RecordErrorAsync(SyncTaskType.FullSync, ex, isFatal: false, cancellationToken).ConfigureAwait(false);
+                    await Task.Delay(5000, cancellationToken).ConfigureAwait(false);
                 }
             }
 
-            _logger.Information("Sync loop stopped");
+            _logger.Debug("Sync loop stopped");
         }
 
         /// <summary>
         /// Determines whether a task should be executed based on its schedule.
         /// </summary>
-        private bool ShouldExecuteTask(SyncTaskInfo taskInfo)
+        /// <param name="taskInfo">Task information.</param>
+        /// <param name="now">Current time.</param>
+        /// <returns>True if the task should be executed; otherwise false.</returns>
+        private static bool ShouldExecuteTask(SyncTaskInfo taskInfo, DateTime now)
         {
             if (!taskInfo.Enabled || taskInfo.CurrentStatus == SyncTaskStatus.Running)
                 return false;
@@ -564,55 +933,83 @@ namespace NeonSuit.RSSReader.Services
                 return true;
 
             var nextScheduled = taskInfo.LastScheduled.Value.AddMinutes(taskInfo.IntervalMinutes);
-            return DateTime.UtcNow >= nextScheduled;
+            return now >= nextScheduled;
         }
 
         /// <summary>
         /// Enqueues a task for execution.
         /// </summary>
-        private async Task EnqueueTaskAsync(SyncTaskType taskType, bool isManual, SyncPriority priority)
+        /// <param name="taskType">Type of task.</param>
+        /// <param name="isManual">Whether this is a manual trigger.</param>
+        /// <param name="priority">Task priority.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Action result DTO.</returns>
+        private async Task<SyncActionResultDto> EnqueueTaskAsync(SyncTaskType taskType, bool isManual, SyncPriority priority, CancellationToken cancellationToken)
         {
             var request = new SyncTaskRequest
             {
                 TaskType = taskType,
                 IsManual = isManual,
                 Priority = priority,
-                EnqueuedAt = DateTime.UtcNow
+                EnqueuedAt = DateTime.UtcNow,
+                RequestId = GenerateRequestId()
             };
 
-            await EnqueueTaskAsync(request);
+            return await EnqueueTaskAsync(request, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Enqueues a task request for execution.
         /// </summary>
-        private async Task EnqueueTaskAsync(SyncTaskRequest request)
+        /// <param name="request">Task request.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Action result DTO.</returns>
+        private async Task<SyncActionResultDto> EnqueueTaskAsync(SyncTaskRequest request, CancellationToken cancellationToken = default)
         {
             _taskQueue.Enqueue(request);
             _queueSemaphore.Release();
 
-            _logger.Debug("Task enqueued: {TaskType} (Priority: {Priority})",
-                request.TaskType, request.Priority);
+            _logger.Debug("Task enqueued: {TaskType} (ID: {RequestId}, Priority: {Priority}, Manual: {IsManual})",
+                request.TaskType, request.RequestId, request.Priority, request.IsManual);
 
-            await Task.CompletedTask;
+            return new SyncActionResultDto
+            {
+                Success = true,
+                Message = $"Task {request.TaskType} enqueued successfully",
+                RequestId = request.RequestId
+            };
+        }
+
+        /// <summary>
+        /// Generates a unique request ID.
+        /// </summary>
+        /// <returns>Unique request ID.</returns>
+        private static string GenerateRequestId()
+        {
+            return Guid.NewGuid().ToString("N")[..8];
         }
 
         /// <summary>
         /// Processes the task queue, executing tasks as they become available.
         /// </summary>
-        private async Task ProcessTaskQueueAsync(CancellationToken cancellationToken)
+        /// <param name="workerId">Worker identifier for logging.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        private async Task ProcessTaskQueueAsync(int workerId, CancellationToken cancellationToken)
         {
-            _logger.Debug("Task queue processor started");
+            _logger.Debug("Worker {WorkerId} started", workerId);
 
             while (!cancellationToken.IsCancellationRequested)
             {
                 try
                 {
-                    await _queueSemaphore.WaitAsync(cancellationToken);
+                    await _queueSemaphore.WaitAsync(cancellationToken).ConfigureAwait(false);
 
                     if (_taskQueue.TryDequeue(out var request))
                     {
-                        await ExecuteSyncTaskAsync(request, cancellationToken);
+                        _logger.Debug("Worker {WorkerId} processing task: {TaskType} (ID: {RequestId})",
+                            workerId, request.TaskType, request.RequestId);
+
+                        await ExecuteSyncTaskAsync(request, cancellationToken).ConfigureAwait(false);
                     }
                 }
                 catch (OperationCanceledException)
@@ -621,20 +1018,26 @@ namespace NeonSuit.RSSReader.Services
                 }
                 catch (Exception ex)
                 {
-                    _logger.Error(ex, "Error in task queue processor");
-                    await Task.Delay(1000, cancellationToken);
+                    _logger.Error(ex, "Worker {WorkerId} encountered error in task queue processor", workerId);
+                    await Task.Delay(1000, cancellationToken).ConfigureAwait(false);
                 }
             }
 
-            _logger.Debug("Task queue processor stopped");
+            _logger.Debug("Worker {WorkerId} stopped", workerId);
         }
 
         /// <summary>
         /// Executes a specific sync task with proper error handling and retry logic.
         /// </summary>
+        /// <param name="request">Task request.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
         private async Task ExecuteSyncTaskAsync(SyncTaskRequest request, CancellationToken cancellationToken)
         {
-            var taskInfo = _syncTasks[request.TaskType];
+            if (!_syncTasks.TryGetValue(request.TaskType, out var taskInfo))
+            {
+                _logger.Error("Unknown task type: {TaskType}", request.TaskType);
+                return;
+            }
 
             // Update task status
             taskInfo.CurrentStatus = SyncTaskStatus.Running;
@@ -645,51 +1048,65 @@ namespace NeonSuit.RSSReader.Services
                 _ => new SyncTaskExecutionInfo { TaskType = request.TaskType });
 
             executionInfo.LastRunStart = DateTime.UtcNow;
+            executionInfo.LastRunResults = new Dictionary<string, object>();
 
             // Raise start event
-            OnTaskStarted?.Invoke(this, new SyncTaskStartedEventArgs(request.TaskType, DateTime.UtcNow));
+            _onTaskStarted?.Invoke(this, new SyncProgressDto
+            {
+                TaskType = request.TaskType.ToString(),
+                Operation = "Starting",
+                Current = 0,
+                Total = 100,
+                Percentage = 0
+            });
 
-            _logger.Information("Starting sync task: {TaskType} (Manual: {IsManual})",
-                request.TaskType, request.IsManual);
+            _logger.Information("Starting sync task: {TaskType} (ID: {RequestId}, Manual: {IsManual})",
+                request.TaskType, request.RequestId, request.IsManual);
 
             bool success = false;
             string? errorMessage = null;
             Dictionary<string, object> results = new();
             DateTime startTime = DateTime.UtcNow;
+            var executionRecord = new SyncTaskExecution
+            {
+                TaskType = request.TaskType.ToString(),
+                IsManual = request.IsManual,
+                RequestId = request.RequestId,
+                StartTime = startTime
+            };
 
             try
             {
                 using var timeoutCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
                 timeoutCts.CancelAfter(TimeSpan.FromMinutes(_maxSyncDurationMinutes));
 
-                results = await ExecuteTaskInternalAsync(request, timeoutCts.Token);
+                results = await ExecuteTaskInternalAsync(request, timeoutCts.Token).ConfigureAwait(false);
                 success = true;
 
-                await UpdateStatisticsAsync(request.TaskType, results, DateTime.UtcNow - startTime);
+                await UpdateStatisticsAsync(request.TaskType, results, DateTime.UtcNow - startTime, cancellationToken).ConfigureAwait(false);
 
-                _logger.Information("Completed sync task: {TaskType} (Duration: {Duration})",
-                    request.TaskType, DateTime.UtcNow - startTime);
+                _logger.Information("Completed sync task: {TaskType} (Duration: {Duration:F1}s)",
+                    request.TaskType, (DateTime.UtcNow - startTime).TotalSeconds);
             }
             catch (OperationCanceledException ex)
             {
                 errorMessage = "Task was cancelled due to timeout or manual cancellation";
-                _logger.Warning("Sync task cancelled: {TaskType} - {Reason}",
-                    request.TaskType, ex.Message);
+                _logger.Warning("Sync task cancelled: {TaskType} - {Reason}", request.TaskType, ex.Message);
             }
             catch (Exception ex)
             {
                 errorMessage = ex.Message;
-                await RecordErrorAsync(request.TaskType, ex, isFatal: false);
+                await RecordErrorAsync(request.TaskType, ex, isFatal: false, cancellationToken).ConfigureAwait(false);
                 _logger.Error(ex, "Sync task failed: {TaskType}", request.TaskType);
 
                 if (request.RetryCount < taskInfo.MaxRetries)
                 {
                     request.RetryCount++;
-                    request.RetryAt = DateTime.UtcNow.AddMinutes(taskInfo.RetryDelayMinutes);
+                    request.RetryAt = DateTime.UtcNow.AddMinutes(taskInfo.RetryDelayMinutes * request.RetryCount);
                     _taskQueue.Enqueue(request);
                     _queueSemaphore.Release();
-                    _logger.Information("Task {TaskType} scheduled for retry {RetryCount}",
-                        request.TaskType, request.RetryCount);
+                    _logger.Information("Task {TaskType} scheduled for retry {RetryCount} at {RetryAt}",
+                        request.TaskType, request.RetryCount, request.RetryAt);
                 }
             }
             finally
@@ -703,15 +1120,16 @@ namespace NeonSuit.RSSReader.Services
                 executionInfo.LastRunDuration = executionInfo.LastRunEnd - executionInfo.LastRunStart;
                 executionInfo.LastRunSuccessful = success;
                 executionInfo.LastRunError = errorMessage;
+                executionInfo.LastRunResults = results;
                 executionInfo.TotalRuns++;
                 if (success) executionInfo.SuccessfulRuns++;
 
                 // Calculate average duration
                 if (executionInfo.TotalRuns > 0 && executionInfo.LastRunDuration.HasValue)
                 {
-                    var totalDuration = executionInfo.AverageRunDuration.Ticks * (executionInfo.TotalRuns - 1)
-                                      + executionInfo.LastRunDuration.Value.Ticks;
-                    executionInfo.AverageRunDuration = TimeSpan.FromTicks(totalDuration / executionInfo.TotalRuns);
+                    var totalTicks = executionInfo.AverageRunDuration.Ticks * (executionInfo.TotalRuns - 1)
+                                   + executionInfo.LastRunDuration.Value.Ticks;
+                    executionInfo.AverageRunDuration = TimeSpan.FromTicks(totalTicks / executionInfo.TotalRuns);
                 }
 
                 // Update next scheduled run for automatic tasks
@@ -720,30 +1138,67 @@ namespace NeonSuit.RSSReader.Services
                     taskInfo.LastScheduled = DateTime.UtcNow;
                     taskInfo.NextScheduled = DateTime.UtcNow.AddMinutes(taskInfo.IntervalMinutes);
                     executionInfo.NextScheduledRun = taskInfo.NextScheduled;
+
+                    // Update config in repository
+                    var config = await _syncRepository.GetTaskConfigAsync(request.TaskType.ToString(), cancellationToken).ConfigureAwait(false);
+                    if (config != null)
+                    {
+                        config.LastScheduled = taskInfo.LastScheduled;
+                        config.NextScheduled = taskInfo.NextScheduled;
+                        await _syncRepository.SaveTaskConfigAsync(config, cancellationToken).ConfigureAwait(false);
+                    }
                 }
 
                 // Update last sync completed time for any successful task
                 if (success)
                 {
                     _lastSyncCompleted = DateTime.UtcNow;
+                    if (_syncState != null)
+                    {
+                        _syncState.LastSyncCompleted = _lastSyncCompleted;
+                        _syncState.LastUpdated = DateTime.UtcNow;
+                        await _syncRepository.UpdateAsync(_syncState, cancellationToken).ConfigureAwait(false);
+                    }
                 }
 
+                // Save execution record
+                executionRecord.EndTime = DateTime.UtcNow;
+                executionRecord.Success = success;
+                executionRecord.ErrorMessage = errorMessage;
+                executionRecord.DurationSeconds = (executionRecord.EndTime.Value - executionRecord.StartTime).TotalSeconds;
+                executionRecord.ResultsJson = results.Any() ? JsonSerializer.Serialize(results) : null;
+
+                await _syncRepository.RecordTaskExecutionAsync(executionRecord, cancellationToken).ConfigureAwait(false);
+
                 // Raise completion event
-                OnTaskCompleted?.Invoke(this, new SyncTaskCompletedEventArgs(
-                    request.TaskType, startTime, DateTime.UtcNow, success, errorMessage, results));
+                _onTaskCompleted?.Invoke(this, new SyncTaskExecutionInfoDto
+                {
+                    TaskType = request.TaskType.ToString(),
+                    LastRunStart = startTime,
+                    LastRunEnd = DateTime.UtcNow,
+                    LastRunDurationSeconds = (DateTime.UtcNow - startTime).TotalSeconds,
+                    LastRunDurationFormatted = FormatTimeSpan(DateTime.UtcNow - startTime),
+                    LastRunSuccessful = success,
+                    LastRunError = errorMessage,
+                    LastRunResults = results
+                });
             }
         }
 
         /// <summary>
         /// Executes the internal logic for a specific task type.
         /// </summary>
+        /// <param name="request">Task request.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Task results.</returns>
         private async Task<Dictionary<string, object>> ExecuteTaskInternalAsync(SyncTaskRequest request, CancellationToken cancellationToken)
         {
             var results = new Dictionary<string, object>();
 
-            _logger.Debug("Executing sync task: {TaskType}", request.TaskType);
+            _logger.Debug("Executing internal logic for task: {TaskType} (ID: {RequestId})",
+                request.TaskType, request.RequestId);
 
-            // Determine steps based on task type for realistic simulation
+            // Simulate work with progress reporting
             int totalSteps = request.TaskType switch
             {
                 SyncTaskType.FeedUpdate => 15,
@@ -751,6 +1206,9 @@ namespace NeonSuit.RSSReader.Services
                 SyncTaskType.TagProcessing => 12,
                 SyncTaskType.ArticleCleanup => 8,
                 SyncTaskType.RuleProcessing => 10,
+                SyncTaskType.BackupCreation => 20,
+                SyncTaskType.StatisticsUpdate => 5,
+                SyncTaskType.CacheMaintenance => 6,
                 _ => 10
             };
 
@@ -758,14 +1216,26 @@ namespace NeonSuit.RSSReader.Services
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
-                OnSyncProgress?.Invoke(this, new SyncProgressEventArgs(
-                    request.TaskType, "Processing", i + 1, totalSteps));
+                // Throttle progress events to prevent UI flooding
+                if (i % 3 == 0 || i == totalSteps - 1)
+                {
+                    _onSyncProgress?.Invoke(this, new SyncProgressDto
+                    {
+                        TaskType = request.TaskType.ToString(),
+                        Operation = $"Processing step {i + 1}",
+                        Current = i + 1,
+                        Total = totalSteps,
+                        Percentage = (i + 1) * 100.0 / totalSteps
+                    });
+                }
 
-                await Task.Delay(50, cancellationToken);
+                // Simulate actual work
+                await Task.Delay(50, cancellationToken).ConfigureAwait(false);
             }
 
             results["success"] = true;
             results["timestamp"] = DateTime.UtcNow;
+            results["request_id"] = request.RequestId;
 
             // Add task-specific results
             switch (request.TaskType)
@@ -778,46 +1248,49 @@ namespace NeonSuit.RSSReader.Services
                     }
                     else
                     {
-                        results["feeds_updated"] = 3;
+                        results["feeds_updated"] = new Random().Next(3, 8);
                     }
-                    results["articles_fetched"] = 12;
+                    results["articles_fetched"] = new Random().Next(5, 25);
                     break;
 
                 case SyncTaskType.TagProcessing:
-                    results["tags_applied"] = 5;
-                    results["articles_processed"] = 8;
+                    results["tags_applied"] = new Random().Next(3, 10);
+                    results["articles_processed"] = new Random().Next(10, 50);
                     break;
 
                 case SyncTaskType.ArticleCleanup:
-                    results["articles_cleaned"] = 8;
-                    results["space_freed_mb"] = 2.4;
+                    results["articles_cleaned"] = new Random().Next(5, 20);
+                    results["space_freed_mb"] = Math.Round(new Random().NextDouble() * 5, 2);
                     break;
 
                 case SyncTaskType.BackupCreation:
-                    results["backup_size_mb"] = 42;
-                    results["backup_path"] = "backups/latest.db";
+                    results["backup_size_mb"] = new Random().Next(10, 100);
+                    results["backup_path"] = $"backups/backup_{DateTime.UtcNow:yyyyMMdd_HHmmss}.db";
+                    results["duration_seconds"] = new Random().Next(5, 30);
                     break;
 
                 case SyncTaskType.StatisticsUpdate:
-                    results["feeds_count"] = 15;
-                    results["articles_count"] = 1243;
-                    results["tags_count"] = 27;
+                    results["feeds_count"] = new Random().Next(5, 30);
+                    results["articles_count"] = new Random().Next(500, 5000);
+                    results["tags_count"] = new Random().Next(10, 50);
                     break;
 
                 case SyncTaskType.RuleProcessing:
-                    results["rules_evaluated"] = 8;
-                    results["articles_matched"] = 3;
+                    results["rules_evaluated"] = new Random().Next(5, 15);
+                    results["articles_matched"] = new Random().Next(2, 8);
                     break;
 
                 case SyncTaskType.CacheMaintenance:
-                    results["cache_entries_cleared"] = 25;
+                    results["cache_entries_cleared"] = new Random().Next(10, 50);
+                    results["cache_size_freed_mb"] = Math.Round(new Random().NextDouble() * 10, 2);
                     break;
 
                 case SyncTaskType.FullSync:
-                    results["feeds_updated"] = 3;
-                    results["articles_fetched"] = 12;
-                    results["tags_applied"] = 5;
-                    results["articles_cleaned"] = 8;
+                    results["feeds_updated"] = new Random().Next(3, 8);
+                    results["articles_fetched"] = new Random().Next(10, 40);
+                    results["tags_applied"] = new Random().Next(2, 8);
+                    results["articles_cleaned"] = new Random().Next(3, 15);
+                    results["backup_created"] = true;
                     break;
             }
 
@@ -827,7 +1300,11 @@ namespace NeonSuit.RSSReader.Services
         /// <summary>
         /// Updates statistics after a task execution.
         /// </summary>
-        private async Task UpdateStatisticsAsync(SyncTaskType taskType, Dictionary<string, object> results, TimeSpan duration)
+        /// <param name="taskType">Type of task executed.</param>
+        /// <param name="results">Task results.</param>
+        /// <param name="duration">Execution duration.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        private async Task UpdateStatisticsAsync(SyncTaskType taskType, Dictionary<string, object> results, TimeSpan duration, CancellationToken cancellationToken = default)
         {
             _statistics.TotalSyncCycles++;
 
@@ -840,11 +1317,13 @@ namespace NeonSuit.RSSReader.Services
                 _statistics.FailedSyncs++;
             }
 
-            _statistics.TotalSyncTime += duration;
+            _statistics.TotalSyncTimeSeconds += duration.TotalSeconds;
             _statistics.AverageSyncDurationSeconds =
-                _statistics.TotalSyncTime.TotalSeconds / _statistics.TotalSyncCycles;
+                _statistics.TotalSyncCycles > 0
+                    ? _statistics.TotalSyncTimeSeconds / _statistics.TotalSyncCycles
+                    : 0;
 
-            _statistics.LastStatisticsUpdate = DateTime.UtcNow;
+            _statistics.LastUpdated = DateTime.UtcNow;
 
             // Update specific statistics based on task type
             switch (taskType)
@@ -877,32 +1356,42 @@ namespace NeonSuit.RSSReader.Services
                         _statistics.TagsApplied += fullTagsApplied;
                     break;
             }
+
+            // Save statistics to repository
+            await _syncRepository.UpdateStatisticsAsync(_statistics, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Records an error that occurred during task execution.
         /// </summary>
-        private async Task RecordErrorAsync(SyncTaskType taskType, Exception exception, bool isFatal)
+        /// <param name="taskType">Type of task where error occurred.</param>
+        /// <param name="exception">The exception.</param>
+        /// <param name="isFatal">Whether the error is fatal.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        private async Task RecordErrorAsync(SyncTaskType taskType, Exception exception, bool isFatal, CancellationToken cancellationToken = default)
         {
-            var errorInfo = new SyncErrorInfo
+            var error = new SyncError
             {
                 ErrorTime = DateTime.UtcNow,
-                TaskType = taskType,
+                TaskType = taskType.ToString(),
                 ErrorMessage = exception.Message,
                 StackTrace = exception.StackTrace,
                 IsRecoverable = !isFatal
             };
 
-            _recentErrors.Add(errorInfo);
-
-            // Limit error history
-            while (_recentErrors.Count > MAX_ERROR_HISTORY)
-            {
-                _recentErrors.TryTake(out _);
-            }
+            await _syncRepository.AddErrorAsync(error, cancellationToken).ConfigureAwait(false);
 
             // Raise error event
-            OnSyncError?.Invoke(this, new SyncErrorEventArgs(taskType, exception, isFatal));
+            _onSyncError?.Invoke(this, new SyncErrorInfoDto
+            {
+                ErrorTime = error.ErrorTime,
+                ErrorTimeFormatted = FormatDateTime(error.ErrorTime),
+                TaskType = taskType.ToString(),
+                ErrorMessage = error.ErrorMessage,
+                StackTrace = error.StackTrace,
+                IsRecoverable = error.IsRecoverable,
+                RetryCount = 0
+            });
 
             // Log the error
             if (isFatal)
@@ -913,24 +1402,84 @@ namespace NeonSuit.RSSReader.Services
             {
                 _logger.Error(exception, "Sync error in task: {TaskType}", taskType);
             }
-
-            await Task.CompletedTask;
         }
 
         /// <summary>
         /// Updates the current status and raises the status changed event.
         /// </summary>
-        private async Task UpdateStatusAsync(SyncStatus newStatus)
+        /// <param name="newStatus">New status.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        private async Task UpdateStatusAsync(SyncStatus newStatus, CancellationToken cancellationToken = default)
         {
             var previousStatus = _currentStatus;
             _currentStatus = newStatus;
 
-            _logger.Debug("Sync status changed: {PreviousStatus} -> {NewStatus}",
-                previousStatus, newStatus);
+            _logger.Debug("Sync status changed: {PreviousStatus} -> {NewStatus}", previousStatus, newStatus);
 
-            OnStatusChanged?.Invoke(this, new SyncStatusChangedEventArgs(previousStatus, newStatus));
+            _onStatusChanged?.Invoke(this, new SyncStatusDto
+            {
+                CurrentStatus = newStatus.ToString(),
+                IsSynchronizing = newStatus == SyncStatus.Running && !_isPaused,
+                LastSyncCompleted = _lastSyncCompleted,
+                NextSyncScheduled = _nextSyncScheduled,
+                LastSyncFormatted = FormatDateTime(_lastSyncCompleted),
+                NextSyncFormatted = FormatDateTime(_nextSyncScheduled)
+            });
 
-            await Task.CompletedTask;
+            // Save state if status changed to Stopped or Error
+            if (newStatus == SyncStatus.Stopped || newStatus == SyncStatus.Error)
+            {
+                await SavePersistentStateAsync(cancellationToken).ConfigureAwait(false);
+            }
+        }
+
+        #endregion
+
+        #region Helper Methods
+
+        /// <summary>
+        /// Formats a DateTime for display.
+        /// </summary>
+        /// <param name="dateTime">DateTime to format.</param>
+        /// <returns>Formatted string.</returns>
+        private static string FormatDateTime(DateTime? dateTime)
+        {
+            if (!dateTime.HasValue)
+                return "Never";
+
+            var now = DateTime.UtcNow;
+            var diff = now - dateTime.Value;
+
+            if (diff.TotalMinutes < 1)
+                return "Just now";
+            if (diff.TotalHours < 1)
+                return $"{(int)diff.TotalMinutes} minutes ago";
+            if (diff.TotalDays < 1)
+                return $"{(int)diff.TotalHours} hours ago";
+            if (diff.TotalDays < 7)
+                return $"{(int)diff.TotalDays} days ago";
+
+            return dateTime.Value.ToString("yyyy-MM-dd HH:mm");
+        }
+
+        /// <summary>
+        /// Formats a TimeSpan for display.
+        /// </summary>
+        /// <param name="timeSpan">TimeSpan to format.</param>
+        /// <returns>Formatted string.</returns>
+        private static string FormatTimeSpan(TimeSpan? timeSpan)
+        {
+            if (!timeSpan.HasValue)
+                return "N/A";
+
+            if (timeSpan.Value.TotalSeconds < 1)
+                return $"{timeSpan.Value.TotalMilliseconds:F0}ms";
+            if (timeSpan.Value.TotalMinutes < 1)
+                return $"{timeSpan.Value.TotalSeconds:F1}s";
+            if (timeSpan.Value.TotalHours < 1)
+                return $"{timeSpan.Value.TotalMinutes:F1}m";
+
+            return $"{timeSpan.Value.TotalHours:F1}h";
         }
 
         #endregion
@@ -940,7 +1489,7 @@ namespace NeonSuit.RSSReader.Services
         /// <summary>
         /// Internal class to store information about a sync task.
         /// </summary>
-        private class SyncTaskInfo
+        private sealed class SyncTaskInfo
         {
             public SyncTaskType TaskType { get; set; }
             public string Name { get; set; } = string.Empty;
@@ -958,7 +1507,7 @@ namespace NeonSuit.RSSReader.Services
         /// <summary>
         /// Internal class to represent a task request in the queue.
         /// </summary>
-        private class SyncTaskRequest
+        private sealed class SyncTaskRequest
         {
             public SyncTaskType TaskType { get; set; }
             public bool IsManual { get; set; }
@@ -967,17 +1516,25 @@ namespace NeonSuit.RSSReader.Services
             public DateTime EnqueuedAt { get; set; }
             public DateTime? RetryAt { get; set; }
             public int RetryCount { get; set; }
+            public string RequestId { get; set; } = string.Empty;
         }
 
         /// <summary>
-        /// Priority levels for task scheduling.
+        /// Internal class for task execution information.
         /// </summary>
-        private enum SyncPriority
+        private sealed class SyncTaskExecutionInfo
         {
-            Low,
-            Medium,
-            High,
-            Critical
+            public SyncTaskType TaskType { get; set; }
+            public DateTime? LastRunStart { get; set; }
+            public DateTime? LastRunEnd { get; set; }
+            public TimeSpan? LastRunDuration { get; set; }
+            public bool LastRunSuccessful { get; set; }
+            public string? LastRunError { get; set; }
+            public int TotalRuns { get; set; }
+            public int SuccessfulRuns { get; set; }
+            public TimeSpan AverageRunDuration { get; set; }
+            public DateTime? NextScheduledRun { get; set; }
+            public Dictionary<string, object>? LastRunResults { get; set; }
         }
 
         #endregion

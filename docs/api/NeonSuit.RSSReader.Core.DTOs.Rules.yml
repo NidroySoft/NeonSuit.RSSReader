@@ -1,0 +1,143 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Rules
+  id: NeonSuit.RSSReader.Core.DTOs.Rules
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto
+  - NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleValidationResultDto
+  - NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto
+  - NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.DTOs.Rules
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Rules
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto.html
+  name: CreateRuleConditionDto
+  nameWithType: CreateRuleConditionDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto.html
+  name: CreateRuleDto
+  nameWithType: CreateRuleDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto.html
+  name: RuleConditionDto
+  nameWithType: RuleConditionDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto.html
+  name: RuleConditionGroupDto
+  nameWithType: RuleConditionGroupDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html
+  name: RuleDto
+  nameWithType: RuleDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto.html
+  name: RuleHealthDto
+  nameWithType: RuleHealthDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto.html
+  name: RuleSummaryDto
+  nameWithType: RuleSummaryDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto.html
+  name: RuleTestResultDto
+  nameWithType: RuleTestResultDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleValidationResultDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.RuleValidationResultDto
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleValidationResultDto.html
+  name: RuleValidationResultDto
+  nameWithType: RuleValidationResultDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleValidationResultDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto.html
+  name: UpdateRuleConditionDto
+  nameWithType: UpdateRuleConditionDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto.html
+  name: UpdateRuleDto
+  nameWithType: UpdateRuleDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Rules
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Rules
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Rules
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules
+    name: Rules
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules
+    name: Rules
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.html

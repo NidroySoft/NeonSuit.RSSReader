@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IRuleRepository | NeonSuit RSS Reader API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IRuleRepository | NeonSuit RSS Reader API ">
+      
+      <meta name="description" content="Repository interface for managing automated business rules ( entities). Defines the contract for rule persistence, querying, scoping, statistics, and condition retrieval.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/NidroySoft/NeonSuit.RSSReader/new/master/apiSpec/new?filename=NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository.md&amp;value=---%0Auid%3A%20NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository">
+
+
+
+  <h1 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository" class="text-break">
+Interface IRuleRepository  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IRuleRepository.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NeonSuit.html">NeonSuit</a>.<a class="xref" href="NeonSuit.RSSReader.html">RSSReader</a>.<a class="xref" href="NeonSuit.RSSReader.Core.html">Core</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.html">Interfaces</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.html">Repositories</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NeonSuit.RSSReader.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Repository interface for managing automated business rules (<a class="xref" href="NeonSuit.RSSReader.Core.Models.Rule.html">Rule</a> entities).
+Defines the contract for rule persistence, querying, scoping, statistics, and condition retrieval.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRuleRepository : IRepository&lt;Rule&gt;</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetAllAsync_System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.GetAllAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetByIdAsync_System_Int32_System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.GetByIdAsync(int, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.GetWhereAsync(Expression&lt;Func&lt;Rule, bool&gt;&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_FirstOrDefaultAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.FirstOrDefaultAsync(Expression&lt;Func&lt;Rule, bool&gt;&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.AnyAsync(Expression&lt;Func&lt;Rule, bool&gt;&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountAsync_System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.CountAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.CountWhereAsync(Expression&lt;Func&lt;Rule, bool&gt;&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAsync__0_System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.InsertAsync(Rule, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAsync__0_System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.UpdateAsync(Rule, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAsync__0_System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.DeleteAsync(Rule, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteByIdAsync_System_Int32_System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.DeleteByIdAsync(int, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertOrUpdateAsync__0_System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.InsertOrUpdateAsync(Rule, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.InsertAllAsync(IEnumerable&lt;Rule&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.UpdateAllAsync(IEnumerable&lt;Rule&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAllAsync_System_Threading_CancellationToken_">IRepository&lt;Rule&gt;.DeleteAllAsync(CancellationToken)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This interface abstracts all data access operations related to user-defined rules in the RSS reader application.
+It supports rule lifecycle management (CRUD), activation filtering, scoping by feed/category, priority-based execution,
+match statistics, and retrieval of associated conditions for the rule engine.
+</p>
+<p>
+Implementations must ensure:
+- Efficient indexed queries on frequently filtered columns (e.g., IsEnabled, Priority).
+- Atomicity in write operations where business rules require it.
+- Avoidance of full table scans in production (prefer server-side filtering).
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_ExistsByNameAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.ExistsByNameAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_ExistsByNameAsync_System_String_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.ExistsByNameAsync(System.String,System.Threading.CancellationToken)">
+  ExistsByNameAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IRuleRepository.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks whether a rule with the specified name already exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;bool&gt; ExistsByNameAsync(string name, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the rule to check.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>True if a rule with this name exists; otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetActiveRulesAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetActiveRulesAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetActiveRulesAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetActiveRulesAsync(System.Threading.CancellationToken)">
+  GetActiveRulesAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IRuleRepository.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves all rules currently enabled in the system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;Rule&gt;&gt; GetActiveRulesAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.Rule.html">Rule</a>&gt;&gt;</dt>
+    <dd><p>List of active <a class="xref" href="NeonSuit.RSSReader.Core.Models.Rule.html">Rule</a> entities.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetMatchStatisticsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetMatchStatisticsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetMatchStatisticsAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetMatchStatisticsAsync(System.Threading.CancellationToken)">
+  GetMatchStatisticsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IRuleRepository.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a summary of match counts for all enabled rules.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;Dictionary&lt;string, int&gt;&gt; GetMatchStatisticsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;&gt;</dt>
+    <dd><p>Dictionary where key is the rule name and value is its match count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetRuleConditionsAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetRuleConditionsAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetRuleConditionsAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetRuleConditionsAsync(System.Int32,System.Threading.CancellationToken)">
+  GetRuleConditionsAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IRuleRepository.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves all conditions associated with a specific rule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;RuleCondition&gt;&gt; GetRuleConditionsAsync(int ruleId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ruleId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The unique identifier of the rule.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.RuleCondition.html">RuleCondition</a>&gt;&gt;</dt>
+    <dd><p>List of <a class="xref" href="NeonSuit.RSSReader.Core.Models.RuleCondition.html">RuleCondition</a> entities for the rule.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetRulesByCategoryIdAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetRulesByCategoryIdAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetRulesByCategoryIdAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetRulesByCategoryIdAsync(System.Int32,System.Threading.CancellationToken)">
+  GetRulesByCategoryIdAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IRuleRepository.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves rules targeting all feeds within a specific category.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;Rule&gt;&gt; GetRulesByCategoryIdAsync(int categoryId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>categoryId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The ID of the category.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.Rule.html">Rule</a>&gt;&gt;</dt>
+    <dd><p>List of rules applicable to the category.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetRulesByFeedIdAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetRulesByFeedIdAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetRulesByFeedIdAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetRulesByFeedIdAsync(System.Int32,System.Threading.CancellationToken)">
+  GetRulesByFeedIdAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IRuleRepository.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves rules specifically targeting a given feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;Rule&gt;&gt; GetRulesByFeedIdAsync(int feedId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>feedId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The ID of the feed.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.Rule.html">Rule</a>&gt;&gt;</dt>
+    <dd><p>List of rules applicable to the feed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetRulesByPriorityAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetRulesByPriorityAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetRulesByPriorityAsync_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetRulesByPriorityAsync(System.Threading.CancellationToken)">
+  GetRulesByPriorityAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IRuleRepository.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves all rules that are ordered by their priority (lowest first).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;Rule&gt;&gt; GetRulesByPriorityAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.Rule.html">Rule</a>&gt;&gt;</dt>
+    <dd><p>List of <a class="xref" href="NeonSuit.RSSReader.Core.Models.Rule.html">Rule</a> entities ordered by <a class="xref" href="NeonSuit.RSSReader.Core.Models.Rule.html#NeonSuit_RSSReader_Core_Models_Rule_Priority">Priority</a> ASC.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetTopRulesByMatchCountAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetTopRulesByMatchCountAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_GetTopRulesByMatchCountAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.GetTopRulesByMatchCountAsync(System.Int32,System.Threading.CancellationToken)">
+  GetTopRulesByMatchCountAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IRuleRepository.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the most frequently triggered rules, ordered by match count descending.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;Rule&gt;&gt; GetTopRulesByMatchCountAsync(int limit = 10, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>limit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Maximum number of rules to return (default: 10).</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.Rule.html">Rule</a>&gt;&gt;</dt>
+    <dd><p>List of top <a class="xref" href="NeonSuit.RSSReader.Core.Models.Rule.html">Rule</a> entities by match count.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_IncrementMatchCountAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.IncrementMatchCountAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_IncrementMatchCountAsync_System_Int32_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.IncrementMatchCountAsync(System.Int32,System.Threading.CancellationToken)">
+  IncrementMatchCountAsync(int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IRuleRepository.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Increments the count of times a specific rule has been successfully matched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; IncrementMatchCountAsync(int ruleId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>ruleId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The unique identifier of the rule.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
+    <dd><p>The number of rows affected.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_SearchRulesByNameAsync_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.SearchRulesByNameAsync*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Interfaces_Repositories_IRuleRepository_SearchRulesByNameAsync_System_String_System_Threading_CancellationToken_" data-uid="NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.SearchRulesByNameAsync(System.String,System.Threading.CancellationToken)">
+  SearchRulesByNameAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IRuleRepository.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a case-insensitive search for rules by name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;List&lt;Rule&gt;&gt; SearchRulesByNameAsync(string searchTerm, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>searchTerm</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The string to search for in rule names.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>Cancellation token.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="NeonSuit.RSSReader.Core.Models.Rule.html">Rule</a>&gt;&gt;</dt>
+    <dd><p>List of matching <a class="xref" href="NeonSuit.RSSReader.Core.Models.Rule.html">Rule</a> entities.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IRuleRepository.cs/#L23" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2026 NeonSuit - Professional RSS Engine
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

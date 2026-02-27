@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Modules
+  id: NeonSuit.RSSReader.Core.Interfaces.Modules
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.Interfaces.Modules
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Modules
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  parent: NeonSuit.RSSReader.Core.Interfaces.Modules
+  href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html
+  name: IModule
+  nameWithType: IModule
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Modules
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Modules
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Modules
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.Interfaces.Modules.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.Interfaces.Modules.html

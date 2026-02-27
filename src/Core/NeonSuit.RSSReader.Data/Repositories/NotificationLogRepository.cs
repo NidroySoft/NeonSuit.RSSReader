@@ -4,6 +4,7 @@ using NeonSuit.RSSReader.Core.Interfaces.Repositories;
 using NeonSuit.RSSReader.Core.Models;
 using NeonSuit.RSSReader.Data.Database;
 using Serilog;
+using System.Linq.Expressions;
 
 namespace NeonSuit.RSSReader.Data.Repositories
 {
@@ -11,402 +12,472 @@ namespace NeonSuit.RSSReader.Data.Repositories
     /// Repository implementation for managing notification audit logs.
     /// Tracks delivery, user interactions, and provides analytics for notification effectiveness.
     /// </summary>
-    public class NotificationLogRepository : BaseRepository<NotificationLog>, INotificationLogRepository
+    internal class NotificationLogRepository : BaseRepository<NotificationLog>, INotificationLogRepository
     {
-        private readonly ILogger _logger;
-        private readonly RssReaderDbContext _dbContext;
-
-        public NotificationLogRepository(RssReaderDbContext context, ILogger logger) : base(context)
-        {
-            _logger = (logger ?? throw new ArgumentNullException(nameof(logger))).ForContext<NotificationLogRepository>();
-            _dbContext = context;
-        }
+        #region Constructor
 
         /// <summary>
-        /// Retrieves notification logs for a specific article.
+        /// Initializes a new instance of the <see cref="NotificationLogRepository"/> class.
         /// </summary>
-        public async Task<List<NotificationLog>> GetByArticleIdAsync(int articleId)
+        /// <param name="context">The database context.</param>
+        /// <param name="logger">The logger instance.</param>
+        /// <exception cref="ArgumentNullException">Thrown if context or logger is null.</exception>
+        public NotificationLogRepository(RSSReaderDbContext context, ILogger logger) : base(context, logger)
+        {
+            ArgumentNullException.ThrowIfNull(context);
+            ArgumentNullException.ThrowIfNull(logger);
+
+#if DEBUG
+            _logger.Debug("NotificationLogRepository initialized");
+#endif
+        }
+
+        #endregion
+
+        #region CRUD Operations
+
+        /// <inheritdoc />
+        public override async Task<NotificationLog?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+        {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(id);
+
+            try
+            {
+                return await _dbSet
+                    .AsNoTracking()
+                    .Include(n => n.Article)
+                    .Include(n => n.Rule)
+                    .FirstOrDefaultAsync(n => n.Id == id, cancellationToken)
+                    .ConfigureAwait(false);
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("GetByIdAsync cancelled for notification ID {NotificationId}", id);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error retrieving notification log by ID {NotificationId}", id);
+                throw;
+            }
+        }
+
+        /// <inheritdoc />
+        public override async Task<List<NotificationLog>> GetAllAsync(CancellationToken cancellationToken = default)
         {
             try
             {
-                // CHANGED: Use EF Core DbSet
-                var logs = await _dbSet
+                return await _dbSet
+                    .AsNoTracking()
+                    .Include(n => n.Article)
+                    .Include(n => n.Rule)
+                    .OrderByDescending(n => n.SentAt)
+                    .ToListAsync(cancellationToken)
+                    .ConfigureAwait(false);
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("GetAllAsync cancelled");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error retrieving all notification logs");
+                throw;
+            }
+        }
+
+        /// <inheritdoc />
+        public override async Task<List<NotificationLog>> GetWhereAsync(Expression<Func<NotificationLog, bool>> predicate, CancellationToken cancellationToken = default)
+        {
+            ArgumentNullException.ThrowIfNull(predicate);
+
+            try
+            {
+                return await _dbSet
+                    .AsNoTracking()
+                    .Include(n => n.Article)
+                    .Include(n => n.Rule)
+                    .Where(predicate)
+                    .OrderByDescending(n => n.SentAt)
+                    .ToListAsync(cancellationToken)
+                    .ConfigureAwait(false);
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("GetWhereAsync cancelled");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error in GetWhereAsync");
+                throw;
+            }
+        }
+
+        /// <inheritdoc />
+        public override async Task<int> InsertAsync(NotificationLog notificationLog, CancellationToken cancellationToken = default)
+        {
+            ArgumentNullException.ThrowIfNull(notificationLog);
+
+            try
+            {
+                var result = await base.InsertAsync(notificationLog, cancellationToken).ConfigureAwait(false);
+                _logger.Information("Inserted notification log for article ID {ArticleId}", notificationLog.ArticleId);
+                return result;
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("InsertAsync cancelled for notification");
+                throw;
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.Error(ex, "Database error inserting notification log");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error inserting notification log");
+                throw;
+            }
+        }
+
+        /// <inheritdoc />
+        public override async Task<int> UpdateAsync(NotificationLog notificationLog, CancellationToken cancellationToken = default)
+        {
+            ArgumentNullException.ThrowIfNull(notificationLog);
+
+            try
+            {
+                var result = await base.UpdateAsync(notificationLog, cancellationToken).ConfigureAwait(false);
+                _logger.Debug("Updated notification log ID {NotificationId}", notificationLog.Id);
+                return result;
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("UpdateAsync cancelled for notification ID {NotificationId}", notificationLog.Id);
+                throw;
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                _logger.Error(ex, "Concurrency conflict updating notification ID {NotificationId}", notificationLog.Id);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error updating notification ID {NotificationId}", notificationLog.Id);
+                throw;
+            }
+        }
+
+        /// <inheritdoc />
+        public async Task<int> DeleteAsync(int id, CancellationToken cancellationToken = default)
+        {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(id);
+
+            try
+            {
+                var result = await _dbSet
+                    .Where(n => n.Id == id)
+                    .ExecuteDeleteAsync(cancellationToken)
+                    .ConfigureAwait(false);
+
+                if (result > 0)
+                    _logger.Debug("Deleted notification log ID {NotificationId}", id);
+
+                return result;
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("DeleteAsync cancelled for notification ID {NotificationId}", id);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error deleting notification ID {NotificationId}", id);
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Read Collection Operations
+
+        /// <inheritdoc />
+        public async Task<List<NotificationLog>> GetByArticleIdAsync(int articleId, CancellationToken cancellationToken = default)
+        {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(articleId);
+
+            try
+            {
+                return await _dbSet
+                    .AsNoTracking()
+                    .Include(n => n.Rule)
                     .Where(n => n.ArticleId == articleId)
                     .OrderByDescending(n => n.SentAt)
-                    .AsNoTracking()
-                    .ToListAsync();
-
-                _logger.Debug("Retrieved {Count} notification logs for article ID: {ArticleId}",
-                    logs.Count, articleId);
-                return logs;
+                    .ToListAsync(cancellationToken)
+                    .ConfigureAwait(false);
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("GetByArticleIdAsync cancelled for article {ArticleId}", articleId);
+                throw;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Failed to retrieve notification logs for article ID: {ArticleId}", articleId);
+                _logger.Error(ex, "Error retrieving notifications for article {ArticleId}", articleId);
                 throw;
             }
         }
 
-        /// <summary>
-        /// Retrieves notification logs triggered by a specific rule.
-        /// </summary>
-        public async Task<List<NotificationLog>> GetByRuleIdAsync(int ruleId)
+        /// <inheritdoc />
+        public async Task<List<NotificationLog>> GetByRuleIdAsync(int ruleId, CancellationToken cancellationToken = default)
         {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(ruleId);
+
             try
             {
-                // CHANGED: Use EF Core DbSet
-                var logs = await _dbSet
+                return await _dbSet
+                    .AsNoTracking()
+                    .Include(n => n.Article)
                     .Where(n => n.RuleId == ruleId)
                     .OrderByDescending(n => n.SentAt)
-                    .AsNoTracking()
-                    .ToListAsync();
-
-                _logger.Debug("Retrieved {Count} notification logs for rule ID: {RuleId}",
-                    logs.Count, ruleId);
-                return logs;
+                    .ToListAsync(cancellationToken)
+                    .ConfigureAwait(false);
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("GetByRuleIdAsync cancelled for rule {RuleId}", ruleId);
+                throw;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Failed to retrieve notification logs for rule ID: {RuleId}", ruleId);
+                _logger.Error(ex, "Error retrieving notifications for rule {RuleId}", ruleId);
                 throw;
             }
         }
 
-        /// <summary>
-        /// Retrieves notification logs within a specific date range.
-        /// </summary>
-        public async Task<List<NotificationLog>> GetByDateRangeAsync(DateTime startDate, DateTime endDate)
+        /// <inheritdoc />
+        public async Task<List<NotificationLog>> GetByDateRangeAsync(DateTime startDate, DateTime endDate, CancellationToken cancellationToken = default)
         {
+            if (startDate > endDate)
+                throw new ArgumentException("Start date cannot be after end date", nameof(startDate));
+
             try
             {
-                // CHANGED: Use EF Core DbSet
-                var logs = await _dbSet
+                return await _dbSet
+                    .AsNoTracking()
+                    .Include(n => n.Article)
+                    .Include(n => n.Rule)
                     .Where(n => n.SentAt >= startDate && n.SentAt <= endDate)
                     .OrderByDescending(n => n.SentAt)
-                    .AsNoTracking()
-                    .ToListAsync();
-
-                _logger.Debug("Retrieved {Count} notification logs between {StartDate} and {EndDate}",
-                    logs.Count, startDate, endDate);
-                return logs;
+                    .ToListAsync(cancellationToken)
+                    .ConfigureAwait(false);
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("GetByDateRangeAsync cancelled");
+                throw;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Failed to retrieve notification logs for date range");
+                _logger.Error(ex, "Error retrieving notifications by date range");
                 throw;
             }
         }
 
-        /// <summary>
-        /// Retrieves recent notification logs with a specified limit.
-        /// </summary>
-        public async Task<List<NotificationLog>> GetRecentAsync(int limit = 50)
+        /// <inheritdoc />
+        public async Task<List<NotificationLog>> GetRecentAsync(int limit = 50, CancellationToken cancellationToken = default)
         {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(limit);
+
             try
             {
-                // CHANGED: Use EF Core DbSet
-                var logs = await _dbSet
+                return await _dbSet
+                    .AsNoTracking()
+                    .Include(n => n.Article)
+                    .Include(n => n.Rule)
                     .OrderByDescending(n => n.SentAt)
                     .Take(limit)
+                    .ToListAsync(cancellationToken)
+                    .ConfigureAwait(false);
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("GetRecentAsync cancelled");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error retrieving recent notifications");
+                throw;
+            }
+        }
+
+        /// <inheritdoc />
+        public async Task<List<NotificationLog>> GetPendingNotificationsAsync(CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await _dbSet
                     .AsNoTracking()
-                    .ToListAsync();
-
-                _logger.Debug("Retrieved {Count} recent notification logs", logs.Count);
-                return logs;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to retrieve recent notification logs");
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Inserts a new notification log entry.
-        /// </summary>
-        public override async Task<int> InsertAsync(NotificationLog notificationLog)
-        {
-            try
-            {
-                if (notificationLog == null)
-                {
-                    throw new ArgumentNullException(nameof(notificationLog));
-                }
-
-                notificationLog.SentAt = DateTime.UtcNow;
-                var result = await base.InsertAsync(notificationLog);
-
-                _logger.Information("Logged notification for article ID: {ArticleId} (Log ID: {NotificationId})",
-                    notificationLog.ArticleId, notificationLog.Id);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to insert notification log for article ID: {ArticleId}",
-                    notificationLog?.ArticleId);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Updates an existing notification log entry.
-        /// </summary>
-        public override async Task<int> UpdateAsync(NotificationLog notificationLog)
-        {
-            try
-            {
-                var result = await base.UpdateAsync(notificationLog);
-                _logger.Debug("Updated notification log ID: {NotificationId}", notificationLog.Id);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to update notification log ID: {NotificationId}", notificationLog.Id);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Deletes a notification log by its ID.
-        /// </summary>
-        public async Task<int> DeleteAsync(int id)
-        {
-            try
-            {
-                var log = await GetByIdAsync(id);
-                if (log == null)
-                {
-                    _logger.Warning("Attempted to delete non-existent notification log: ID {NotificationId}", id);
-                    return 0;
-                }
-
-                var result = await base.DeleteAsync(log);
-                _logger.Information("Deleted notification log ID: {NotificationId}", id);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to delete notification log ID: {NotificationId}", id);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Records a user action on a notification (click, dismiss, etc.).
-        /// </summary>
-        public async Task<int> RecordActionAsync(int notificationId, NotificationAction action)
-        {
-            try
-            {
-                var log = await GetByIdAsync(notificationId);
-                if (log == null)
-                {
-                    _logger.Warning("Attempted to record action on non-existent notification: ID {NotificationId}",
-                        notificationId);
-                    return 0;
-                }
-
-                log.Action = action;
-                log.ActionAt = DateTime.UtcNow;
-
-                var result = await UpdateAsync(log);
-                _logger.Information("Recorded action '{Action}' for notification ID: {NotificationId}",
-                    action, notificationId);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to record action for notification ID: {NotificationId}", notificationId);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Gets statistics about notification delivery and interactions.
-        /// </summary>
-        public async Task<NotificationStatistics> GetStatisticsAsync()
-        {
-            try
-            {
-                // CHANGED: Use EF Core with server-side aggregation
-                var allLogs = await _dbSet.AsNoTracking().ToListAsync();
-
-                if (!allLogs.Any())
-                {
-                    return new NotificationStatistics();
-                }
-
-                var statistics = new NotificationStatistics
-                {
-                    TotalNotifications = allLogs.Count,
-                    ClickedNotifications = allLogs.Count(n => n.Action == NotificationAction.Clicked),
-                    DismissedNotifications = allLogs.Count(n => n.Action == NotificationAction.Dismissed),
-                    FailedDeliveries = allLogs.Count(n => !n.Delivered),
-                    FirstNotificationDate = allLogs.Min(n => n.SentAt),
-                    LastNotificationDate = allLogs.Max(n => n.SentAt)
-                };
-
-                statistics.ClickThroughRate = statistics.TotalNotifications > 0 ?
-                    (double)statistics.ClickedNotifications / statistics.TotalNotifications * 100 : 0;
-
-                _logger.Debug("Generated notification statistics: {Total} total, {Clicked} clicked, {Rate:F2}% CTR",
-                    statistics.TotalNotifications, statistics.ClickedNotifications, statistics.ClickThroughRate);
-
-                return statistics;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to generate notification statistics");
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Gets notification logs that have not been acted upon by the user.
-        /// </summary>
-        public async Task<List<NotificationLog>> GetPendingNotificationsAsync()
-        {
-            try
-            {
-                // CHANGED: Use EF Core DbSet
-                var pendingLogs = await _dbSet
+                    .Include(n => n.Article)
+                    .Include(n => n.Rule)
                     .Where(n => n.Action == NotificationAction.None && n.Delivered)
                     .OrderByDescending(n => n.SentAt)
-                    .AsNoTracking()
-                    .ToListAsync();
-
-                _logger.Debug("Retrieved {Count} pending notifications", pendingLogs.Count);
-                return pendingLogs;
+                    .ToListAsync(cancellationToken)
+                    .ConfigureAwait(false);
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("GetPendingNotificationsAsync cancelled");
+                throw;
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Failed to retrieve pending notifications");
+                _logger.Error(ex, "Error retrieving pending notifications");
                 throw;
             }
         }
 
-        /// <summary>
-        /// Cleans up old notification logs beyond the retention period.
-        /// </summary>
-        public async Task<int> CleanupOldLogsAsync(int retentionDays = 30)
+        #endregion
+
+        #region Action and Status Updates
+
+        /// <inheritdoc />
+        public async Task<int> RecordActionAsync(int notificationId, NotificationAction action, CancellationToken cancellationToken = default)
         {
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(notificationId);
+
+            try
+            {
+                var result = await _dbSet
+                    .Where(n => n.Id == notificationId)
+                    .ExecuteUpdateAsync(setters => setters
+                        .SetProperty(n => n.Action, action)
+                        .SetProperty(n => n.ActionAt, DateTime.UtcNow),
+                        cancellationToken)
+                    .ConfigureAwait(false);
+
+                if (result > 0)
+                    _logger.Debug("Recorded action {Action} for notification ID {NotificationId}", action, notificationId);
+
+                return result;
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("RecordActionAsync cancelled for notification ID {NotificationId}", notificationId);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error recording action for notification ID {NotificationId}", notificationId);
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Statistics and Analytics
+
+        /// <inheritdoc />
+        public async Task<NotificationStatistics> GetStatisticsAsync(CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                var total = await _dbSet.CountAsync(cancellationToken).ConfigureAwait(false);
+
+                if (total == 0)
+                    return new NotificationStatistics();
+
+                var clicked = await _dbSet.CountAsync(n => n.Action == NotificationAction.Clicked, cancellationToken).ConfigureAwait(false);
+                var dismissed = await _dbSet.CountAsync(n => n.Action == NotificationAction.Dismissed, cancellationToken).ConfigureAwait(false);
+                var failed = await _dbSet.CountAsync(n => !n.Delivered, cancellationToken).ConfigureAwait(false);
+
+                var firstDate = await _dbSet.MinAsync(n => (DateTime?)n.SentAt, cancellationToken).ConfigureAwait(false);
+                var lastDate = await _dbSet.MaxAsync(n => (DateTime?)n.SentAt, cancellationToken).ConfigureAwait(false);
+
+                var stats = new NotificationStatistics
+                {
+                    TotalNotifications = total,
+                    ClickedNotifications = clicked,
+                    DismissedNotifications = dismissed,
+                    FailedDeliveries = failed,
+                    FirstNotificationDate = firstDate,
+                    LastNotificationDate = lastDate
+                };
+
+                stats.ClickThroughRate = total > 0 ? (double)clicked / total * 100 : 0;
+
+                _logger.Debug("Generated notification statistics: Total={Total}, CTR={CTR:F2}%", total, stats.ClickThroughRate);
+                return stats;
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("GetStatisticsAsync cancelled");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error generating notification statistics");
+                throw;
+            }
+        }
+
+        /// <inheritdoc />
+        public async Task<double> GetClickThroughRateAsync(CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                var stats = await GetStatisticsAsync(cancellationToken).ConfigureAwait(false);
+                return stats.ClickThroughRate;
+            }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("GetClickThroughRateAsync cancelled");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Error calculating click-through rate");
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Maintenance Operations
+
+        /// <inheritdoc />
+        public async Task<int> CleanupOldLogsAsync(int retentionDays = 30, CancellationToken cancellationToken = default)
+        {
+            ArgumentOutOfRangeException.ThrowIfNegative(retentionDays);
+
             try
             {
                 var cutoffDate = DateTime.UtcNow.AddDays(-retentionDays);
-                await _dbContext.Database.ExecuteSqlRawAsync("PRAGMA foreign_keys = OFF;");
-                // CHANGED: Use EF Core ExecuteDelete for better performance
+
                 var deletedCount = await _dbSet
                     .Where(n => n.SentAt < cutoffDate)
-                    .ExecuteDeleteAsync();
+                    .ExecuteDeleteAsync(cancellationToken)
+                    .ConfigureAwait(false);
 
-                _logger.Information("Cleaned up {Count} notification logs older than {CutoffDate}",
-                    deletedCount, cutoffDate);
+                _logger.Information("Cleaned up {Count} notification logs older than {CutoffDate}", deletedCount, cutoffDate);
                 return deletedCount;
             }
+            catch (OperationCanceledException)
+            {
+                _logger.Debug("CleanupOldLogsAsync cancelled");
+                throw;
+            }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Failed to cleanup old notification logs");
+                _logger.Error(ex, "Error cleaning up old notification logs");
                 throw;
             }
         }
 
-        /// <summary>
-        /// Gets the click-through rate for notifications.
-        /// </summary>
-        public async Task<double> GetClickThroughRateAsync()
-        {
-            try
-            {
-                var statistics = await GetStatisticsAsync();
-                return statistics.ClickThroughRate;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to calculate click-through rate");
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Logs a failed notification delivery.
-        /// </summary>
-        public async Task<int> LogFailedDeliveryAsync(int articleId, int? ruleId, string errorMessage)
-        {
-            try
-            {
-                var failedLog = new NotificationLog
-                {
-                    ArticleId = articleId,
-                    RuleId = ruleId,
-                    Title = "Delivery Failed",
-                    Message = errorMessage,
-                    Delivered = false,
-                    Error = errorMessage,
-                    SentAt = DateTime.UtcNow
-                };
-
-                var result = await InsertAsync(failedLog);
-                _logger.Warning("Logged failed notification delivery for article ID: {ArticleId}, Error: {Error}",
-                    articleId, errorMessage);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to log failed notification delivery");
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Gets the count of notifications sent today.
-        /// </summary>
-        public async Task<int> GetTodayCountAsync()
-        {
-            try
-            {
-                var today = DateTime.UtcNow.Date;
-                var tomorrow = today.AddDays(1);
-
-                // CHANGED: Use EF Core CountAsync
-                var count = await _dbSet
-                    .Where(n => n.SentAt >= today && n.SentAt < tomorrow)
-                    .AsNoTracking()
-                    .CountAsync();
-
-                _logger.Debug("Today's notification count: {Count}", count);
-                return count;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to get today's notification count");
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Gets the most frequent notification types.
-        /// </summary>
-        public async Task<Dictionary<NotificationType, int>> GetNotificationTypeDistributionAsync()
-        {
-            try
-            {
-                // CHANGED: Use EF Core with server-side grouping
-                var distribution = await _dbSet
-                    .GroupBy(n => n.NotificationType)
-                    .Select(g => new { Type = g.Key, Count = g.Count() })
-                    .AsNoTracking()
-                    .ToListAsync();
-
-                var result = distribution.ToDictionary(g => g.Type, g => g.Count);
-
-                _logger.Debug("Generated notification type distribution with {Count} categories", result.Count);
-                return result;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to generate notification type distribution");
-                throw;
-            }
-        }
+        #endregion
     }
 }

@@ -1,0 +1,1287 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  commentId: T:NeonSuit.RSSReader.Data.Configuration.LogSettings
+  id: LogSettings
+  parent: NeonSuit.RSSReader.Data.Configuration
+  children:
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.AvailableLogLevels
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.CompressOldLogs
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFilePath
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFileSize
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableConsoleLogging
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableDebugWindow
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableFileLogging
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableLogging
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.FullLogDirectory
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.LogDirectory
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.LogLevel
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.MaxFileSizeMB
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.OnPropertyChanged(System.String)
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.PropertyChanged
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.ResetToDefaults
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.RetentionDays
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.SerilogLevel
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.SetField``1(``0@,``0,System.String)
+  - NeonSuit.RSSReader.Data.Configuration.LogSettings.TotalLogSpaceUsed
+  langs:
+  - csharp
+  - vb
+  name: LogSettings
+  nameWithType: LogSettings
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LogSettings
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 30
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: >-
+    Configuration settings for the application's logging system.
+
+    Implements INotifyPropertyChanged to support real-time UI updates.
+  remarks: >-
+    <p>
+
+    This class manages all logging-related settings including:
+
+    <ul><li>Log levels and verbosity</li><li>File retention policies</li><li>Output targets (console, file, debug window)</li><li>Log directory and file management</li></ul>
+
+    </p>
+
+    <p>
+
+    Settings can be modified at runtime and applied via <xref href="NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings" data-throw-if-not-resolved="false"></xref>,
+
+    which updates the global logging configuration.
+
+    </p>
+  example: []
+  syntax:
+    content: 'public class LogSettings : INotifyPropertyChanged'
+    content.vb: Public Class LogSettings Implements INotifyPropertyChanged
+  inheritance:
+  - System.Object
+  implements:
+  - System.ComponentModel.INotifyPropertyChanged
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableLogging
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableLogging
+  id: EnableLogging
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: EnableLogging
+  nameWithType: LogSettings.EnableLogging
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableLogging
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EnableLogging
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 47
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Master switch to enable or disable logging entirely.
+  example: []
+  syntax:
+    content: public bool EnableLogging { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property EnableLogging As Boolean
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableLogging*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.LogLevel
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.LogLevel
+  id: LogLevel
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: LogLevel
+  nameWithType: LogSettings.LogLevel
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.LogLevel
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LogLevel
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 57
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Minimum log level to capture.
+  example: []
+  syntax:
+    content: public string LogLevel { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: 'One of: Verbose, Debug, Information, Warning, Error, Fatal'
+    content.vb: Public Property LogLevel As String
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.LogLevel*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.RetentionDays
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.RetentionDays
+  id: RetentionDays
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: RetentionDays
+  nameWithType: LogSettings.RetentionDays
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.RetentionDays
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RetentionDays
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 67
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Number of days to retain log files before automatic cleanup.
+  example: []
+  syntax:
+    content: public int RetentionDays { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: 'Range: 1-365 days. Default: 7 days.'
+    content.vb: Public Property RetentionDays As Integer
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.RetentionDays*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.MaxFileSizeMB
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.MaxFileSizeMB
+  id: MaxFileSizeMB
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: MaxFileSizeMB
+  nameWithType: LogSettings.MaxFileSizeMB
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.MaxFileSizeMB
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MaxFileSizeMB
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 77
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Maximum size per log file in megabytes before rotation.
+  example: []
+  syntax:
+    content: public int MaxFileSizeMB { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: 'Range: 1-100 MB. Default: 10 MB.'
+    content.vb: Public Property MaxFileSizeMB As Integer
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.MaxFileSizeMB*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableConsoleLogging
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableConsoleLogging
+  id: EnableConsoleLogging
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: EnableConsoleLogging
+  nameWithType: LogSettings.EnableConsoleLogging
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableConsoleLogging
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EnableConsoleLogging
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 90
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Enables logging to console output (useful for debugging).
+  example: []
+  syntax:
+    content: public bool EnableConsoleLogging { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property EnableConsoleLogging As Boolean
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableConsoleLogging*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableFileLogging
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableFileLogging
+  id: EnableFileLogging
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: EnableFileLogging
+  nameWithType: LogSettings.EnableFileLogging
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableFileLogging
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EnableFileLogging
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 99
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Enables logging to rotating files on disk.
+  example: []
+  syntax:
+    content: public bool EnableFileLogging { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property EnableFileLogging As Boolean
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableFileLogging*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableDebugWindow
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableDebugWindow
+  id: EnableDebugWindow
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: EnableDebugWindow
+  nameWithType: LogSettings.EnableDebugWindow
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableDebugWindow
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EnableDebugWindow
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 108
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Enables a real-time debug window for log monitoring.
+  example: []
+  syntax:
+    content: public bool EnableDebugWindow { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property EnableDebugWindow As Boolean
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableDebugWindow*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.CompressOldLogs
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.CompressOldLogs
+  id: CompressOldLogs
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: CompressOldLogs
+  nameWithType: LogSettings.CompressOldLogs
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.CompressOldLogs
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CompressOldLogs
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 117
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Compresses older log files to save disk space.
+  example: []
+  syntax:
+    content: public bool CompressOldLogs { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property CompressOldLogs As Boolean
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.CompressOldLogs*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.LogDirectory
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.LogDirectory
+  id: LogDirectory
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: LogDirectory
+  nameWithType: LogSettings.LogDirectory
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.LogDirectory
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LogDirectory
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 126
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Custom directory for log files. If empty, default location is used.
+  example: []
+  syntax:
+    content: public string LogDirectory { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LogDirectory As String
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.LogDirectory*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.AvailableLogLevels
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.AvailableLogLevels
+  id: AvailableLogLevels
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: AvailableLogLevels
+  nameWithType: LogSettings.AvailableLogLevels
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.AvailableLogLevels
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AvailableLogLevels
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 139
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Available log levels for UI dropdown binding.
+  example: []
+  syntax:
+    content: public static string[] AvailableLogLevels { get; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public Shared ReadOnly Property AvailableLogLevels As String()
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.AvailableLogLevels*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.SerilogLevel
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.SerilogLevel
+  id: SerilogLevel
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: SerilogLevel
+  nameWithType: LogSettings.SerilogLevel
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.SerilogLevel
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SerilogLevel
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 156
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Converts the string LogLevel to Serilog's LogEventLevel enum.
+  example: []
+  syntax:
+    content: public LogEventLevel SerilogLevel { get; }
+    parameters: []
+    return:
+      type: Serilog.Events.LogEventLevel
+    content.vb: Public ReadOnly Property SerilogLevel As LogEventLevel
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.SerilogLevel*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.FullLogDirectory
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.FullLogDirectory
+  id: FullLogDirectory
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: FullLogDirectory
+  nameWithType: LogSettings.FullLogDirectory
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.FullLogDirectory
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FullLogDirectory
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 173
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Gets the fully resolved log directory path.
+  remarks: >-
+    Uses custom directory if specified and valid, otherwise falls back to
+
+    LocalApplicationData\NeonSuit\RSSReader\Logs.
+  example: []
+  syntax:
+    content: public string FullLogDirectory { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property FullLogDirectory As String
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.FullLogDirectory*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFilePath
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFilePath
+  id: CurrentLogFilePath
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: CurrentLogFilePath
+  nameWithType: LogSettings.CurrentLogFilePath
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFilePath
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CurrentLogFilePath
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 189
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Gets the full path to today's log file.
+  example: []
+  syntax:
+    content: public string CurrentLogFilePath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property CurrentLogFilePath As String
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFilePath*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFileSize
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFileSize
+  id: CurrentLogFileSize
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: CurrentLogFileSize
+  nameWithType: LogSettings.CurrentLogFileSize
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFileSize
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CurrentLogFileSize
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 194
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Gets the current size of today's log file in bytes.
+  example: []
+  syntax:
+    content: public long CurrentLogFileSize { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property CurrentLogFileSize As Long
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFileSize*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.TotalLogSpaceUsed
+  commentId: P:NeonSuit.RSSReader.Data.Configuration.LogSettings.TotalLogSpaceUsed
+  id: TotalLogSpaceUsed
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: TotalLogSpaceUsed
+  nameWithType: LogSettings.TotalLogSpaceUsed
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.TotalLogSpaceUsed
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TotalLogSpaceUsed
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 206
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Gets a human-readable string of total disk space used by all log files.
+  example: []
+  syntax:
+    content: public string TotalLogSpaceUsed { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property TotalLogSpaceUsed As String
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.TotalLogSpaceUsed*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings
+  commentId: M:NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings
+  id: ApplySettings
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: ApplySettings()
+  nameWithType: LogSettings.ApplySettings()
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ApplySettings
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 227
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Applies the current settings to the global logging configuration in real-time.
+  example: []
+  syntax:
+    content: public void ApplySettings()
+    content.vb: Public Sub ApplySettings()
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.ResetToDefaults
+  commentId: M:NeonSuit.RSSReader.Data.Configuration.LogSettings.ResetToDefaults
+  id: ResetToDefaults
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: ResetToDefaults()
+  nameWithType: LogSettings.ResetToDefaults()
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.ResetToDefaults()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ResetToDefaults
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 235
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Restores all settings to their default values.
+  example: []
+  syntax:
+    content: public void ResetToDefaults()
+    content.vb: Public Sub ResetToDefaults()
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.ResetToDefaults*
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.PropertyChanged
+  commentId: E:NeonSuit.RSSReader.Data.Configuration.LogSettings.PropertyChanged
+  id: PropertyChanged
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: LogSettings.PropertyChanged
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.PropertyChanged
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: PropertyChanged
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 272
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Occurs when a property value changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler? PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+  implements:
+  - System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.OnPropertyChanged(System.String)
+  commentId: M:NeonSuit.RSSReader.Data.Configuration.LogSettings.OnPropertyChanged(System.String)
+  id: OnPropertyChanged(System.String)
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: OnPropertyChanged(string?)
+  nameWithType: LogSettings.OnPropertyChanged(string?)
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.OnPropertyChanged(string?)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnPropertyChanged
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 278
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Raises the PropertyChanged event.
+  example: []
+  syntax:
+    content: protected virtual void OnPropertyChanged(string? propertyName = null)
+    parameters:
+    - id: propertyName
+      type: System.String
+      description: Name of the property that changed.
+    content.vb: Protected Overridable Sub OnPropertyChanged(propertyName As String = Nothing)
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.OnPropertyChanged*
+  nameWithType.vb: LogSettings.OnPropertyChanged(String)
+  fullName.vb: NeonSuit.RSSReader.Data.Configuration.LogSettings.OnPropertyChanged(String)
+  name.vb: OnPropertyChanged(String)
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.SetField``1(``0@,``0,System.String)
+  commentId: M:NeonSuit.RSSReader.Data.Configuration.LogSettings.SetField``1(``0@,``0,System.String)
+  id: SetField``1(``0@,``0,System.String)
+  parent: NeonSuit.RSSReader.Data.Configuration.LogSettings
+  langs:
+  - csharp
+  - vb
+  name: SetField<T>(ref T, T, string?)
+  nameWithType: LogSettings.SetField<T>(ref T, T, string?)
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.SetField<T>(ref T, T, string?)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SetField
+    path: ../src/Core/NeonSuit.RSSReader.Data/Configuration/LogSettings.cs
+    startLine: 291
+  assemblies:
+  - NeonSuit.RSSReader.Data
+  namespace: NeonSuit.RSSReader.Data.Configuration
+  summary: Sets a field value and raises PropertyChanged if the value changed.
+  example: []
+  syntax:
+    content: protected bool SetField<T>(ref T field, T value, string? propertyName = null)
+    parameters:
+    - id: field
+      type: '{T}'
+      description: Reference to the backing field.
+    - id: value
+      type: '{T}'
+      description: New value to set.
+    - id: propertyName
+      type: System.String
+      description: Name of the property (auto-filled by compiler).
+    typeParameters:
+    - id: T
+      description: Type of the field.
+    return:
+      type: System.Boolean
+      description: True if the value was changed; otherwise false.
+    content.vb: Protected Function SetField(Of T)(field As T, value As T, propertyName As String = Nothing) As Boolean
+  overload: NeonSuit.RSSReader.Data.Configuration.LogSettings.SetField*
+  nameWithType.vb: LogSettings.SetField(Of T)(T, T, String)
+  fullName.vb: NeonSuit.RSSReader.Data.Configuration.LogSettings.SetField(Of T)(T, T, String)
+  name.vb: SetField(Of T)(T, T, String)
+references:
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings
+  commentId: M:NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_ApplySettings
+  name: ApplySettings()
+  nameWithType: LogSettings.ApplySettings()
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings()
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings
+    name: ApplySettings
+    href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_ApplySettings
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings
+    name: ApplySettings
+    href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_ApplySettings
+  - name: (
+  - name: )
+- uid: NeonSuit.RSSReader.Data.Configuration
+  commentId: N:NeonSuit.RSSReader.Data.Configuration
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Data.Configuration
+  nameWithType: NeonSuit.RSSReader.Data.Configuration
+  fullName: NeonSuit.RSSReader.Data.Configuration
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data
+    name: Data
+    href: NeonSuit.RSSReader.Data.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Configuration
+    name: Configuration
+    href: NeonSuit.RSSReader.Data.Configuration.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data
+    name: Data
+    href: NeonSuit.RSSReader.Data.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Configuration
+    name: Configuration
+    href: NeonSuit.RSSReader.Data.Configuration.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.ComponentModel.INotifyPropertyChanged
+  commentId: T:System.ComponentModel.INotifyPropertyChanged
+  parent: System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged
+  name: INotifyPropertyChanged
+  nameWithType: INotifyPropertyChanged
+  fullName: System.ComponentModel.INotifyPropertyChanged
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ComponentModel
+  commentId: N:System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.ComponentModel
+  nameWithType: System.ComponentModel
+  fullName: System.ComponentModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.ComponentModel
+    name: ComponentModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.componentmodel
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableLogging*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableLogging
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_EnableLogging
+  name: EnableLogging
+  nameWithType: LogSettings.EnableLogging
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableLogging
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.LogLevel*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.LogLevel
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_LogLevel
+  name: LogLevel
+  nameWithType: LogSettings.LogLevel
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.LogLevel
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.RetentionDays*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.RetentionDays
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_RetentionDays
+  name: RetentionDays
+  nameWithType: LogSettings.RetentionDays
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.RetentionDays
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.MaxFileSizeMB*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.MaxFileSizeMB
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_MaxFileSizeMB
+  name: MaxFileSizeMB
+  nameWithType: LogSettings.MaxFileSizeMB
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.MaxFileSizeMB
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableConsoleLogging*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableConsoleLogging
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_EnableConsoleLogging
+  name: EnableConsoleLogging
+  nameWithType: LogSettings.EnableConsoleLogging
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableConsoleLogging
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableFileLogging*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableFileLogging
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_EnableFileLogging
+  name: EnableFileLogging
+  nameWithType: LogSettings.EnableFileLogging
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableFileLogging
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableDebugWindow*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableDebugWindow
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_EnableDebugWindow
+  name: EnableDebugWindow
+  nameWithType: LogSettings.EnableDebugWindow
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.EnableDebugWindow
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.CompressOldLogs*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.CompressOldLogs
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_CompressOldLogs
+  name: CompressOldLogs
+  nameWithType: LogSettings.CompressOldLogs
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.CompressOldLogs
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.LogDirectory*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.LogDirectory
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_LogDirectory
+  name: LogDirectory
+  nameWithType: LogSettings.LogDirectory
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.LogDirectory
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.AvailableLogLevels*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.AvailableLogLevels
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_AvailableLogLevels
+  name: AvailableLogLevels
+  nameWithType: LogSettings.AvailableLogLevels
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.AvailableLogLevels
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.SerilogLevel*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.SerilogLevel
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_SerilogLevel
+  name: SerilogLevel
+  nameWithType: LogSettings.SerilogLevel
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.SerilogLevel
+- uid: Serilog.Events.LogEventLevel
+  commentId: T:Serilog.Events.LogEventLevel
+  parent: Serilog.Events
+  isExternal: true
+  name: LogEventLevel
+  nameWithType: LogEventLevel
+  fullName: Serilog.Events.LogEventLevel
+- uid: Serilog.Events
+  commentId: N:Serilog.Events
+  isExternal: true
+  name: Serilog.Events
+  nameWithType: Serilog.Events
+  fullName: Serilog.Events
+  spec.csharp:
+  - uid: Serilog
+    name: Serilog
+    isExternal: true
+  - name: .
+  - uid: Serilog.Events
+    name: Events
+    isExternal: true
+  spec.vb:
+  - uid: Serilog
+    name: Serilog
+    isExternal: true
+  - name: .
+  - uid: Serilog.Events
+    name: Events
+    isExternal: true
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.FullLogDirectory*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.FullLogDirectory
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_FullLogDirectory
+  name: FullLogDirectory
+  nameWithType: LogSettings.FullLogDirectory
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.FullLogDirectory
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFilePath*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFilePath
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_CurrentLogFilePath
+  name: CurrentLogFilePath
+  nameWithType: LogSettings.CurrentLogFilePath
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFilePath
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFileSize*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFileSize
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_CurrentLogFileSize
+  name: CurrentLogFileSize
+  nameWithType: LogSettings.CurrentLogFileSize
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.CurrentLogFileSize
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.TotalLogSpaceUsed*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.TotalLogSpaceUsed
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_TotalLogSpaceUsed
+  name: TotalLogSpaceUsed
+  nameWithType: LogSettings.TotalLogSpaceUsed
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.TotalLogSpaceUsed
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_ApplySettings
+  name: ApplySettings
+  nameWithType: LogSettings.ApplySettings
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.ApplySettings
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.ResetToDefaults*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.ResetToDefaults
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_ResetToDefaults
+  name: ResetToDefaults
+  nameWithType: LogSettings.ResetToDefaults
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.ResetToDefaults
+- uid: System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+  commentId: E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+  parent: System.ComponentModel.INotifyPropertyChanged
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged.propertychanged
+  name: PropertyChanged
+  nameWithType: INotifyPropertyChanged.PropertyChanged
+  fullName: System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+- uid: System.ComponentModel.PropertyChangedEventHandler
+  commentId: T:System.ComponentModel.PropertyChangedEventHandler
+  parent: System.ComponentModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.componentmodel.propertychangedeventhandler
+  name: PropertyChangedEventHandler
+  nameWithType: PropertyChangedEventHandler
+  fullName: System.ComponentModel.PropertyChangedEventHandler
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.OnPropertyChanged*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.OnPropertyChanged
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_OnPropertyChanged_System_String_
+  name: OnPropertyChanged
+  nameWithType: LogSettings.OnPropertyChanged
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.OnPropertyChanged
+- uid: NeonSuit.RSSReader.Data.Configuration.LogSettings.SetField*
+  commentId: Overload:NeonSuit.RSSReader.Data.Configuration.LogSettings.SetField
+  href: NeonSuit.RSSReader.Data.Configuration.LogSettings.html#NeonSuit_RSSReader_Data_Configuration_LogSettings_SetField__1___0____0_System_String_
+  name: SetField
+  nameWithType: LogSettings.SetField
+  fullName: NeonSuit.RSSReader.Data.Configuration.LogSettings.SetField
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T

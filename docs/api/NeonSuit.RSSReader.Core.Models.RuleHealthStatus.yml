@@ -1,0 +1,250 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  commentId: T:NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  id: RuleHealthStatus
+  parent: NeonSuit.RSSReader.Core.Models
+  children:
+  - NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Active
+  - NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Disabled
+  - NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Infrequent
+  - NeonSuit.RSSReader.Core.Models.RuleHealthStatus.NeverMatched
+  - NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Normal
+  - NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Stale
+  langs:
+  - csharp
+  - vb
+  name: RuleHealthStatus
+  nameWithType: RuleHealthStatus
+  fullName: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RuleHealthStatus
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+    startLine: 436
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Health status for rules based on recent activity.
+  example: []
+  syntax:
+    content: public enum RuleHealthStatus
+    content.vb: Public Enum RuleHealthStatus
+- uid: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Disabled
+  commentId: F:NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Disabled
+  id: Disabled
+  parent: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  langs:
+  - csharp
+  - vb
+  name: Disabled
+  nameWithType: RuleHealthStatus.Disabled
+  fullName: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Disabled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Disabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+    startLine: 439
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Rule is disabled
+  example: []
+  syntax:
+    content: Disabled = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+- uid: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.NeverMatched
+  commentId: F:NeonSuit.RSSReader.Core.Models.RuleHealthStatus.NeverMatched
+  id: NeverMatched
+  parent: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  langs:
+  - csharp
+  - vb
+  name: NeverMatched
+  nameWithType: RuleHealthStatus.NeverMatched
+  fullName: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.NeverMatched
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NeverMatched
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+    startLine: 441
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Rule has never matched any article
+  example: []
+  syntax:
+    content: NeverMatched = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+- uid: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Active
+  commentId: F:NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Active
+  id: Active
+  parent: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  langs:
+  - csharp
+  - vb
+  name: Active
+  nameWithType: RuleHealthStatus.Active
+  fullName: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Active
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Active
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+    startLine: 443
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Rule matched recently (last 24h)
+  example: []
+  syntax:
+    content: Active = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+- uid: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Normal
+  commentId: F:NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Normal
+  id: Normal
+  parent: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: RuleHealthStatus.Normal
+  fullName: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Normal
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Normal
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+    startLine: 445
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Rule matches regularly (last 7 days)
+  example: []
+  syntax:
+    content: Normal = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+- uid: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Infrequent
+  commentId: F:NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Infrequent
+  id: Infrequent
+  parent: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  langs:
+  - csharp
+  - vb
+  name: Infrequent
+  nameWithType: RuleHealthStatus.Infrequent
+  fullName: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Infrequent
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Infrequent
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+    startLine: 447
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Rule matches infrequently (last 30 days)
+  example: []
+  syntax:
+    content: Infrequent = 4
+    return:
+      type: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+- uid: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Stale
+  commentId: F:NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Stale
+  id: Stale
+  parent: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  langs:
+  - csharp
+  - vb
+  name: Stale
+  nameWithType: RuleHealthStatus.Stale
+  fullName: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.Stale
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Stale
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Rule.cs
+    startLine: 449
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Rule hasn't matched in over 30 days
+  example: []
+  syntax:
+    content: Stale = 5
+    return:
+      type: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+references:
+- uid: NeonSuit.RSSReader.Core.Models
+  commentId: N:NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models
+  nameWithType: NeonSuit.RSSReader.Core.Models
+  fullName: NeonSuit.RSSReader.Core.Models
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+- uid: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  commentId: T:NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.html
+  name: RuleHealthStatus
+  nameWithType: RuleHealthStatus
+  fullName: NeonSuit.RSSReader.Core.Models.RuleHealthStatus

@@ -1,0 +1,665 @@
+### YamlMime:TableOfContent
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Article
+  name: NeonSuit.RSSReader.Core.DTOs.Article
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+    name: ArticleDetailDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleListItemDto
+    name: ArticleListItemDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleStateDto
+    name: ArticleStateDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleSummaryDto
+    name: ArticleSummaryDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article.CreateArticleDto
+    name: CreateArticleDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article.UpdateArticleDto
+    name: UpdateArticleDto
+    type: Class
+- uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags
+  name: NeonSuit.RSSReader.Core.DTOs.ArticleTags
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags.ArticleTagInfoDto
+    name: ArticleTagInfoDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationDto
+    name: BulkTagOperationDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType
+    name: BulkTagOperationType
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags.CreateArticleTagDto
+    name: CreateArticleTagDto
+    type: Class
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories
+  name: NeonSuit.RSSReader.Core.DTOs.Categories
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+    name: CategoryDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto
+    name: CategoryTreeDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto
+    name: CreateCategoryDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto
+    name: ReorderCategoriesDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto
+    name: UpdateCategoryDto
+    type: Class
+- uid: NeonSuit.RSSReader.Core.DTOs.Cleanup
+  name: NeonSuit.RSSReader.Core.DTOs.Cleanup
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupAnalysisDto
+    name: CleanupAnalysisDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupConfigurationDto
+    name: CleanupConfigurationDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Cleanup.CleanupResultDto
+    name: CleanupResultDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Cleanup.ImageCacheCleanupResultDto
+    name: ImageCacheCleanupResultDto
+    type: Class
+- uid: NeonSuit.RSSReader.Core.DTOs.Feeds
+  name: NeonSuit.RSSReader.Core.DTOs.Feeds
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto
+    name: CreateFeedDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto
+    name: FeedDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto
+    name: FeedHealthDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto
+    name: FeedSummaryDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto
+    name: UpdateFeedDto
+    type: Class
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules
+  name: NeonSuit.RSSReader.Core.DTOs.Modules
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto
+    name: ModuleActionResultDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+    name: ModuleConfigPropertyDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto
+    name: ModuleConfigSchemaDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto
+    name: ModuleInfoDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto
+    name: UpdateModuleConfigDto
+    type: Class
+- uid: NeonSuit.RSSReader.Core.DTOs.Notifications
+  name: NeonSuit.RSSReader.Core.DTOs.Notifications
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.CreateNotificationDto
+    name: CreateNotificationDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationDto
+    name: NotificationDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationStatsDto
+    name: NotificationStatsDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.NotificationSummaryDto
+    name: NotificationSummaryDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Notifications.UpdateNotificationActionDto
+    name: UpdateNotificationActionDto
+    type: Class
+- uid: NeonSuit.RSSReader.Core.DTOs.Opml
+  name: NeonSuit.RSSReader.Core.DTOs.Opml
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.DTOs.Opml.ImportedFeedInfoDto
+    name: ImportedFeedInfoDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto
+    name: OpmlImportResultDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Opml.OpmlStatisticsDto
+    name: OpmlStatisticsDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Opml.OpmlValidationResultDto
+    name: OpmlValidationResultDto
+    type: Class
+- uid: NeonSuit.RSSReader.Core.DTOs.Preferences
+  name: NeonSuit.RSSReader.Core.DTOs.Preferences
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.ExportImportDto
+    name: ExportImportDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto
+    name: PreferenceCategoryDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto
+    name: PreferenceDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto
+    name: PreferenceSummaryDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto
+    name: ResetPreferencesDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto
+    name: UpdatePreferenceDto
+    type: Class
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules
+  name: NeonSuit.RSSReader.Core.DTOs.Rules
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleConditionDto
+    name: CreateRuleConditionDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.CreateRuleDto
+    name: CreateRuleDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionDto
+    name: RuleConditionDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleConditionGroupDto
+    name: RuleConditionGroupDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+    name: RuleDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleHealthDto
+    name: RuleHealthDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleSummaryDto
+    name: RuleSummaryDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleTestResultDto
+    name: RuleTestResultDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleValidationResultDto
+    name: RuleValidationResultDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleConditionDto
+    name: UpdateRuleConditionDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules.UpdateRuleDto
+    name: UpdateRuleDto
+    type: Class
+- uid: NeonSuit.RSSReader.Core.DTOs.Sync
+  name: NeonSuit.RSSReader.Core.DTOs.Sync
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureConcurrencyDto
+    name: ConfigureConcurrencyDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureMaxDurationDto
+    name: ConfigureMaxDurationDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.ConfigureTaskDto
+    name: ConfigureTaskDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncActionResultDto
+    name: SyncActionResultDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncErrorInfoDto
+    name: SyncErrorInfoDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncProgressDto
+    name: SyncProgressDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatisticsDto
+    name: SyncStatisticsDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncStatusDto
+    name: SyncStatusDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskExecutionInfoDto
+    name: SyncTaskExecutionInfoDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Sync.SyncTaskStatusDto
+    name: SyncTaskStatusDto
+    type: Class
+- uid: NeonSuit.RSSReader.Core.DTOs.System
+  name: NeonSuit.RSSReader.Core.DTOs.System
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatisticsDto
+    name: DatabaseStatisticsDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+    name: DatabaseStatsDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.System.IntegrityCheckResultDto
+    name: IntegrityCheckResultDto
+    type: Class
+- uid: NeonSuit.RSSReader.Core.DTOs.Tags
+  name: NeonSuit.RSSReader.Core.DTOs.Tags
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.DTOs.Tags.CreateTagDto
+    name: CreateTagDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Tags.MergeTagsDto
+    name: MergeTagsDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Tags.TagCloudDto
+    name: TagCloudDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Tags.TagDto
+    name: TagDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Tags.TagSummaryDto
+    name: TagSummaryDto
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.DTOs.Tags.UpdateTagDto
+    name: UpdateTagDto
+    type: Class
+- uid: NeonSuit.RSSReader.Core.Enums
+  name: NeonSuit.RSSReader.Core.Enums
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+    name: ArticleStatus
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.FeedHealthStatus
+    name: FeedHealthStatus
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+    name: FeedUpdateFrequency
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.LogicalOperator
+    name: LogicalOperator
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+    name: ModuleStatus
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.NotificationAction
+    name: NotificationAction
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+    name: NotificationPriority
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.NotificationType
+    name: NotificationType
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.RuleActionType
+    name: RuleActionType
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+    name: RuleFieldTarget
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.RuleOperator
+    name: RuleOperator
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.RuleScope
+    name: RuleScope
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.SyncPriority
+    name: SyncPriority
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.SyncStatus
+    name: SyncStatus
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+    name: SyncTaskStatus
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+    name: SyncTaskType
+    type: Enum
+- uid: NeonSuit.RSSReader.Core.Extensions
+  name: NeonSuit.RSSReader.Core.Extensions
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.Extensions.StringExtensions
+    name: StringExtensions
+    type: Class
+- uid: NeonSuit.RSSReader.Core.Helpers
+  name: NeonSuit.RSSReader.Core.Helpers
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.Helpers.JsonValidationHelper
+    name: JsonValidationHelper
+    type: Class
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database
+  name: NeonSuit.RSSReader.Core.Interfaces.Database
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+    name: IRSSReaderDbContext
+    type: Interface
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules
+  name: NeonSuit.RSSReader.Core.Interfaces.Modules
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+    name: IModule
+    type: Interface
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  name: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository
+    name: IArticleRepository
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleTagRepository
+    name: IArticleTagRepository
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.ICategoryRepository
+    name: ICategoryRepository
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+    name: IDatabaseCleanupRepository
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IFeedRepository
+    name: IFeedRepository
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository
+    name: INotificationLogRepository
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1
+    name: IRepository<T>
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleConditionRepository
+    name: IRuleConditionRepository
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository
+    name: IRuleRepository
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.ISyncRepository
+    name: ISyncRepository
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.ITagRepository
+    name: ITagRepository
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+    name: IUserPreferencesRepository
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.NotificationStatistics
+    name: NotificationStatistics
+    type: Class
+- uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  name: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser
+    name: IRssFeedParser
+    type: Interface
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services
+  name: NeonSuit.RSSReader.Core.Interfaces.Services
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService
+    name: IArticleService
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService
+    name: IArticleTagService
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+    name: ICategoryService
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.IDatabaseCleanupService
+    name: IDatabaseCleanupService
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+    name: IFeedService
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+    name: IModuleService
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService
+    name: INotificationService
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService
+    name: IOpmlService
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleEngine
+    name: IRuleEngine
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService
+    name: IRuleService
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+    name: ISettingsService
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService
+    name: ISyncCoordinatorService
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services.ITagService
+    name: ITagService
+    type: Interface
+- uid: NeonSuit.RSSReader.Core.Models
+  name: NeonSuit.RSSReader.Core.Models
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.Models.Article
+    name: Article
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.ArticleTag
+    name: ArticleTag
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Category
+    name: Category
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Feed
+    name: Feed
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.NotificationLog
+    name: NotificationLog
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.PreferenceDefaults
+    name: PreferenceDefaults
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.PreferenceHelper
+    name: PreferenceHelper
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+    name: PreferenceKeys
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.PreferenceType
+    name: PreferenceType
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Models.Rule
+    name: Rule
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.RuleCondition
+    name: RuleCondition
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+    name: RuleHealthStatus
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Models.SyncError
+    name: SyncError
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.SyncState
+    name: SyncState
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.SyncStatistics
+    name: SyncStatistics
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.SyncTaskConfig
+    name: SyncTaskConfig
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.SyncTaskExecution
+    name: SyncTaskExecution
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Tag
+    name: Tag
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    type: Class
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup
+  name: NeonSuit.RSSReader.Core.Models.Cleanup
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult
+    name: ArticleDeletionResult
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupAnalysis
+    name: CleanupAnalysis
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration
+    name: CleanupConfiguration
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupConfiguration.PreferenceKeys
+    name: CleanupConfiguration.PreferenceKeys
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult
+    name: CleanupResult
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+    name: CleanupRiskLevel
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics
+    name: DatabaseStatistics
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult
+    name: ImageCacheCleanupResult
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.IntegrityCheckResult
+    name: IntegrityCheckResult
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult
+    name: OrphanRemovalResult
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult
+    name: VacuumResult
+    type: Class
+- uid: NeonSuit.RSSReader.Core.Models.Events
+  name: NeonSuit.RSSReader.Core.Models.Events
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+    name: ArticleTaggedEventArgs
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs
+    name: ArticleUntaggedEventArgs
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Events.CleanupCompletedEventArgs
+    name: CleanupCompletedEventArgs
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Events.CleanupProgressEventArgs
+    name: CleanupProgressEventArgs
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Events.CleanupStartingEventArgs
+    name: CleanupStartingEventArgs
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs
+    name: PreferenceChangedEventArgs
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+    name: TagChangeType
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Models.Events.TagChangedEventArgs
+    name: TagChangedEventArgs
+    type: Class
+- uid: NeonSuit.RSSReader.Core.Modules
+  name: NeonSuit.RSSReader.Core.Modules
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.Modules.IConfigurableModule
+    name: IConfigurableModule
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies
+    name: IModuleWithDependencies
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Modules.IModuleWithLifecycle
+    name: IModuleWithLifecycle
+    type: Interface
+  - uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigProperty
+    name: ModuleConfigProperty
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+    name: ModuleConfigPropertyType
+    type: Enum
+  - uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigSchema
+    name: ModuleConfigSchema
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigValidationResult
+    name: ModuleConfigValidationResult
+    type: Class
+- uid: NeonSuit.RSSReader.Core.Profiles
+  name: NeonSuit.RSSReader.Core.Profiles
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Core.Profiles.ArticleProfile
+    name: ArticleProfile
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Profiles.ArticleTagProfile
+    name: ArticleTagProfile
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Profiles.CategoryProfile
+    name: CategoryProfile
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Profiles.FeedProfile
+    name: FeedProfile
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Profiles.ModuleProfile
+    name: ModuleProfile
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Profiles.NotificationProfile
+    name: NotificationProfile
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Profiles.OpmlProfile
+    name: OpmlProfile
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Profiles.RuleConditionProfile
+    name: RuleConditionProfile
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Profiles.RuleProfile
+    name: RuleProfile
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Profiles.SyncProfile
+    name: SyncProfile
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Profiles.TagProfile
+    name: TagProfile
+    type: Class
+  - uid: NeonSuit.RSSReader.Core.Profiles.UserPreferenceProfile
+    name: UserPreferenceProfile
+    type: Class
+- uid: NeonSuit.RSSReader.Data.Configuration
+  name: NeonSuit.RSSReader.Data.Configuration
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Data.Configuration.LogSettings
+    name: LogSettings
+    type: Class
+- uid: NeonSuit.RSSReader.Data.Logging
+  name: NeonSuit.RSSReader.Data.Logging
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+    name: AppLoggerConfig
+    type: Class
+  - uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats
+    name: AppLoggerConfig.LogStats
+    type: Class
+- uid: NeonSuit.RSSReader.Setup
+  name: NeonSuit.RSSReader.Setup
+  type: Namespace
+  items:
+  - uid: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions
+    name: NeonSuitServiceExtensions
+    type: Class
+memberLayout: SamePage

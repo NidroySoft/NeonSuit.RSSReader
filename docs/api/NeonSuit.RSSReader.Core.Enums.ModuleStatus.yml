@@ -1,0 +1,308 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  commentId: T:NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  id: ModuleStatus
+  parent: NeonSuit.RSSReader.Core.Enums
+  children:
+  - NeonSuit.RSSReader.Core.Enums.ModuleStatus.Error
+  - NeonSuit.RSSReader.Core.Enums.ModuleStatus.Initialized
+  - NeonSuit.RSSReader.Core.Enums.ModuleStatus.Initializing
+  - NeonSuit.RSSReader.Core.Enums.ModuleStatus.NotInitialized
+  - NeonSuit.RSSReader.Core.Enums.ModuleStatus.Running
+  - NeonSuit.RSSReader.Core.Enums.ModuleStatus.Starting
+  - NeonSuit.RSSReader.Core.Enums.ModuleStatus.Stopped
+  - NeonSuit.RSSReader.Core.Enums.ModuleStatus.Stopping
+  langs:
+  - csharp
+  - vb
+  name: ModuleStatus
+  nameWithType: ModuleStatus
+  fullName: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ModuleStatus
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+    startLine: 5
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Module status enumeration.
+  example: []
+  syntax:
+    content: public enum ModuleStatus
+    content.vb: Public Enum ModuleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.ModuleStatus.NotInitialized
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ModuleStatus.NotInitialized
+  id: NotInitialized
+  parent: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  langs:
+  - csharp
+  - vb
+  name: NotInitialized
+  nameWithType: ModuleStatus.NotInitialized
+  fullName: NeonSuit.RSSReader.Core.Enums.ModuleStatus.NotInitialized
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotInitialized
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+    startLine: 8
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Module is not initialized.
+  example: []
+  syntax:
+    content: NotInitialized = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Initializing
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ModuleStatus.Initializing
+  id: Initializing
+  parent: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  langs:
+  - csharp
+  - vb
+  name: Initializing
+  nameWithType: ModuleStatus.Initializing
+  fullName: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Initializing
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Initializing
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+    startLine: 10
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Module is initializing.
+  example: []
+  syntax:
+    content: Initializing = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Initialized
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ModuleStatus.Initialized
+  id: Initialized
+  parent: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  langs:
+  - csharp
+  - vb
+  name: Initialized
+  nameWithType: ModuleStatus.Initialized
+  fullName: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Initialized
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Initialized
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+    startLine: 12
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Module is initialized but not started.
+  example: []
+  syntax:
+    content: Initialized = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Starting
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ModuleStatus.Starting
+  id: Starting
+  parent: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  langs:
+  - csharp
+  - vb
+  name: Starting
+  nameWithType: ModuleStatus.Starting
+  fullName: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Starting
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Starting
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+    startLine: 14
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Module is starting.
+  example: []
+  syntax:
+    content: Starting = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Running
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ModuleStatus.Running
+  id: Running
+  parent: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  langs:
+  - csharp
+  - vb
+  name: Running
+  nameWithType: ModuleStatus.Running
+  fullName: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Running
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Running
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+    startLine: 16
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Module is running.
+  example: []
+  syntax:
+    content: Running = 4
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Stopping
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ModuleStatus.Stopping
+  id: Stopping
+  parent: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  langs:
+  - csharp
+  - vb
+  name: Stopping
+  nameWithType: ModuleStatus.Stopping
+  fullName: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Stopping
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Stopping
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+    startLine: 18
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Module is stopping.
+  example: []
+  syntax:
+    content: Stopping = 5
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Stopped
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ModuleStatus.Stopped
+  id: Stopped
+  parent: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  langs:
+  - csharp
+  - vb
+  name: Stopped
+  nameWithType: ModuleStatus.Stopped
+  fullName: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Stopped
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Stopped
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+    startLine: 20
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Module is stopped.
+  example: []
+  syntax:
+    content: Stopped = 6
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Error
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ModuleStatus.Error
+  id: Error
+  parent: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: ModuleStatus.Error
+  fullName: NeonSuit.RSSReader.Core.Enums.ModuleStatus.Error
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Error
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ModuleStatus.cs
+    startLine: 22
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Module is in error state.
+  example: []
+  syntax:
+    content: Error = 7
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+references:
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  commentId: T:NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.ModuleStatus.html
+  name: ModuleStatus
+  nameWithType: ModuleStatus
+  fullName: NeonSuit.RSSReader.Core.Enums.ModuleStatus

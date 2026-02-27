@@ -5,450 +5,367 @@ using NeonSuit.RSSReader.Data.Database;
 using Serilog;
 using System.Text.RegularExpressions;
 
-namespace NeonSuit.RSSReader.Data.Repositories
+namespace NeonSuit.RSSReader.Data.Repositories;
+
+/// <summary>
+/// Repository implementation for <see cref="Tag"/> entity.
+/// Provides efficient data access operations with Entity Framework Core and SQLite.
+/// </summary>
+internal class TagRepository : BaseRepository<Tag>, ITagRepository
 {
+    private static readonly Regex _hexColorRegex =
+        new Regex("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$", RegexOptions.Compiled);
+
+    private const string DefaultColor = "#3498db";
+
+    #region Constructor
+
     /// <summary>
-    /// Repository implementation for Tag entity.
-    /// Provides data access operations with Entity Framework Core.
+    /// Initializes a new instance of the <see cref="TagRepository"/> class.
     /// </summary>
-    public class TagRepository : BaseRepository<Tag>, ITagRepository
+    /// <param name="context">The database context.</param>
+    /// <param name="logger">The logger instance.</param>
+    /// <exception cref="ArgumentNullException">Thrown if context or logger is null.</exception>
+    public TagRepository(RSSReaderDbContext context, ILogger logger)
+        : base(context, logger)
     {
-        private readonly ILogger _logger;
-        private static readonly Regex _hexColorRegex =
-            new Regex("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$", RegexOptions.Compiled);
-        private const string DefaultColor = "#3498db";
+        ArgumentNullException.ThrowIfNull(context);
+        ArgumentNullException.ThrowIfNull(logger);
 
-        public TagRepository(RssReaderDbContext context, ILogger logger) : base(context)
+#if DEBUG
+        _logger.Debug("TagRepository initialized");
+#endif
+    }
+
+    #endregion
+
+    #region Read Single Operations
+
+    /// <inheritdoc />
+    public async Task<Tag?> GetByNameAsync(string name, CancellationToken cancellationToken = default)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(name);
+
+        try
         {
-            _logger = (logger ?? throw new ArgumentNullException(nameof(logger))).ForContext<TagRepository>();
+            return await _dbSet
+                .AsNoTracking()
+                .FirstOrDefaultAsync(t => t.Name == name, cancellationToken)
+                .ConfigureAwait(false);
         }
-
-        public async Task<Tag?> GetByNameAsync(string name)
+        catch (OperationCanceledException)
         {
-            try
-            {
-                return await _dbSet
-                    .AsNoTracking()
-                    .FirstOrDefaultAsync(t =>
-                        EF.Functions.Collate(t.Name, "NOCASE") == name);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to retrieve tag by name: {Name}", name);
-                throw;
-            }
+            _logger.Debug("GetByNameAsync cancelled for '{Name}'", name);
+            throw;
         }
-
-        public async Task<List<Tag>> GetPopularTagsAsync(int limit = 50)
+        catch (Exception ex)
         {
-            try
-            {
-                return await _dbSet
-                    .AsNoTracking()
-                    .Where(t => t.IsVisible)
-                    .OrderByDescending(t => t.UsageCount)
-                    .ThenByDescending(t => t.LastUsedAt)
-                    .Take(limit)
-                    .ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to retrieve popular tags with limit: {Limit}", limit);
-                throw;
-            }
-        }
-
-        public async Task<List<Tag>> GetPinnedTagsAsync()
-        {
-            try
-            {
-                return await _dbSet
-                    .AsNoTracking()
-                    .Where(t => t.IsPinned && t.IsVisible)
-                    .OrderBy(t => t.Name)
-                    .ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to retrieve pinned tags");
-                throw;
-            }
-        }
-
-        public async Task<List<Tag>> GetVisibleTagsAsync()
-        {
-            try
-            {
-                return await _dbSet
-                    .AsNoTracking()
-                    .Where(t => t.IsVisible)
-                    .OrderBy(t => t.Name)
-                    .ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to retrieve visible tags");
-                throw;
-            }
-        }
-
-        public async Task<List<Tag>> SearchByNameAsync(string searchTerm)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(searchTerm))
-                    return await GetAllAsync();
-
-                return await _dbSet
-                    .AsNoTracking()
-                    .Where(t => EF.Functions.Like(t.Name, $"%{searchTerm}%"))
-                    .OrderBy(t => t.Name)
-                    .ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to search tags by name: {SearchTerm}", searchTerm);
-                throw;
-            }
-        }
-
-        public async Task UpdateLastUsedAsync(int tagId)
-        {
-            try
-            {
-                var result = await _dbSet
-                    .Where(t => t.Id == tagId)
-                    .ExecuteUpdateAsync(setters =>
-                        setters.SetProperty(t => t.LastUsedAt, DateTime.UtcNow));
-
-                if (result == 0)
-                {
-                    _logger.Warning("Tag not found when updating LastUsedAt for ID: {TagId}", tagId);
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to update LastUsedAt for tag ID: {TagId}", tagId);
-                throw;
-            }
-        }
-
-        public async Task IncrementUsageCountAsync(int tagId, int increment = 1)
-        {
-            try
-            {
-                var result = await _dbSet
-                    .Where(t => t.Id == tagId)
-                    .ExecuteUpdateAsync(setters =>
-                        setters.SetProperty(t => t.UsageCount, t => t.UsageCount + increment));
-
-                if (result == 0)
-                {
-                    _logger.Warning("Tag not found when incrementing usage count for ID: {TagId}", tagId);
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to increment usage count for tag ID: {TagId}", tagId);
-                throw;
-            }
-        }
-
-        public async Task<List<Tag>> GetTagsByArticleIdAsync(int articleId)
-        {
-            try
-            {
-                return await _dbSet
-                    .AsNoTracking()
-                    .Join(_context.Set<ArticleTag>(),
-                        tag => tag.Id,
-                        articleTag => articleTag.TagId,
-                        (tag, articleTag) => new { Tag = tag, ArticleTag = articleTag })
-                    .Where(x => x.ArticleTag.ArticleId == articleId)
-                    .Select(x => x.Tag)
-                    .OrderBy(t => t.Name)
-                    .ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to retrieve tags for article ID: {ArticleId}", articleId);
-                throw;
-            }
-        }
-
-        public async Task<List<Tag>> GetTagsByColorAsync(string color)
-        {
-            try
-            {
-                return await _dbSet
-                    .AsNoTracking()
-                    .Where(t => t.Color == color)
-                    .OrderBy(t => t.Name)
-                    .ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to retrieve tags by color: {Color}", color);
-                throw;
-            }
-        }
-
-        public async Task<bool> ExistsByNameAsync(string name)
-        {
-            try
-            {
-                return await _dbSet
-                    .AsNoTracking()
-                    .AnyAsync(t =>
-                        EF.Functions.Collate(t.Name, "NOCASE") == name);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to check tag existence by name: {Name}", name);
-                throw;
-            }
-        }
-
-        // En TagRepository.cs - InsertAsync
-        public override async Task<int> InsertAsync(Tag entity)
-        {
-            try
-            {
-                // ✅ 1. Validaciones específicas de Tag
-                if (entity.Name?.Length > 50)
-                    throw new ArgumentException($"Tag name cannot exceed 50 characters. Provided: {entity.Name.Length}", nameof(entity.Name));
-
-                // ✅ 2. Validar nombre duplicado (case insensitive)
-                var exists = await _dbSet
-                    .AnyAsync(t => EF.Functions.Collate(t.Name, "NOCASE") == entity.Name);
-
-                if (exists)
-                    throw new InvalidOperationException($"Tag with name '{entity.Name}' already exists.");
-
-                // ✅ 3. Validar y establecer color por defecto si es necesario
-                ValidateAndSetColor(entity);
-
-                // ✅ 4. DELEGAR al BaseRepository que ya tiene toda la lógica compleja del ID
-                //    El base ya hace: AddAsync, SaveChangesAsync, recarga si ID=0, y retorna el ID correcto
-                var id = await base.InsertAsync(entity);
-
-                // ✅ 5. Log de éxito (opcional, el base ya debe tener su propio log)
-                _logger.Debug("Tag inserted successfully with ID: {TagId}", id);
-
-                return id;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to insert tag: {TagName}", entity.Name);
-                throw;
-            }
-        }
-
-        public override async Task<int> UpdateAsync(Tag entity)
-        {
-            try
-            {
-                if (entity.Name?.Length > 50)
-                    throw new ArgumentException($"Tag name cannot exceed 50 characters. Provided: {entity.Name.Length}");
-
-                ValidateAndSetColor(entity);
-                _context.Entry(entity).State = EntityState.Modified;
-                return await _context.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to update tag ID: {TagId}", entity.Id);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Batch update multiple tags' usage count efficiently.
-        /// </summary>
-        public async Task<int> BatchUpdateUsageCountAsync(Dictionary<int, int> tagUsageIncrements)
-        {
-            if (!tagUsageIncrements.Any()) return 0;
-
-            try
-            {
-                var totalUpdated = 0;
-
-                // Process in batches for performance
-                foreach (var batch in tagUsageIncrements.Chunk(100))
-                {
-                    foreach (var (tagId, increment) in batch)
-                    {
-                        var result = await _dbSet
-                            .Where(t => t.Id == tagId)
-                            .ExecuteUpdateAsync(setters =>
-                                setters.SetProperty(t => t.UsageCount, t => t.UsageCount + increment));
-
-                        totalUpdated += result;
-                    }
-                }
-
-                _logger.Debug("Batch updated usage count for {Count} tags", totalUpdated);
-                return totalUpdated;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to batch update usage counts");
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Get tags with usage count above a threshold.
-        /// </summary>
-        public async Task<List<Tag>> GetTagsWithMinUsageAsync(int minUsageCount)
-        {
-            try
-            {
-                return await _dbSet
-                    .AsNoTracking()
-                    .Where(t => t.UsageCount >= minUsageCount)
-                    .OrderByDescending(t => t.UsageCount)
-                    .ThenBy(t => t.Name)
-                    .ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to retrieve tags with min usage: {MinUsage}", minUsageCount);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Get tags created within a date range.
-        /// </summary>
-        public async Task<List<Tag>> GetTagsByDateRangeAsync(DateTime startDate, DateTime endDate)
-        {
-            try
-            {
-                return await _dbSet
-                    .AsNoTracking()
-                    .Where(t => t.CreatedAt >= startDate && t.CreatedAt <= endDate)
-                    .OrderByDescending(t => t.CreatedAt)
-                    .ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to retrieve tags by date range: {StartDate} to {EndDate}",
-                    startDate, endDate);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Get recently used tags (within last X days).
-        /// </summary>
-        public async Task<List<Tag>> GetRecentlyUsedTagsAsync(int days = 30)
-        {
-            try
-            {
-                var cutoffDate = DateTime.UtcNow.AddDays(-days);
-
-                return await _dbSet
-                    .AsNoTracking()
-                    .Where(t => t.LastUsedAt.HasValue && t.LastUsedAt >= cutoffDate)
-                    .OrderByDescending(t => t.LastUsedAt)
-                    .ThenBy(t => t.Name)
-                    .ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to retrieve recently used tags within {Days} days", days);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Toggle pin status for a tag.
-        /// </summary>
-        public async Task<bool> TogglePinStatusAsync(int tagId)
-        {
-            try
-            {
-                var result = await _dbSet
-                    .Where(t => t.Id == tagId)
-                    .ExecuteUpdateAsync(setters =>
-                        setters.SetProperty(t => t.IsPinned, t => !t.IsPinned));
-
-                if (result > 0)
-                {
-                    var tagName = await _dbSet
-                        .Where(t => t.Id == tagId)
-                        .Select(t => t.Name)
-                        .FirstOrDefaultAsync();
-
-                    var isPinned = await _dbSet
-                        .Where(t => t.Id == tagId)
-                        .Select(t => t.IsPinned)
-                        .FirstOrDefaultAsync();
-
-                    _logger.Information("Tag '{TagName}' (ID: {TagId}) is now {Status}",
-                        tagName, tagId, isPinned ? "pinned" : "unpinned");
-                }
-
-                return result > 0;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to toggle pin status for tag ID: {TagId}", tagId);
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// Toggle visibility status for a tag.
-        /// </summary>
-        public async Task<bool> ToggleVisibilityAsync(int tagId)
-        {
-            try
-            {
-                var result = await _dbSet
-                    .Where(t => t.Id == tagId)
-                    .ExecuteUpdateAsync(setters =>
-                        setters.SetProperty(t => t.IsVisible, t => !t.IsVisible));
-
-                if (result > 0)
-                {
-                    var tagName = await _dbSet
-                        .Where(t => t.Id == tagId)
-                        .Select(t => t.Name)
-                        .FirstOrDefaultAsync();
-
-                    var isVisible = await _dbSet
-                        .Where(t => t.Id == tagId)
-                        .Select(t => t.IsVisible)
-                        .FirstOrDefaultAsync();
-
-                    _logger.Information("Tag '{TagName}' (ID: {TagId}) is now {Status}",
-                        tagName, tagId, isVisible ? "visible" : "hidden");
-                }
-
-                return result > 0;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to toggle visibility for tag ID: {TagId}", tagId);
-                throw;
-            }
-        }
-
-        private void ValidateAndSetColor(Tag tag)
-        {
-            if (!IsValidHexColor(tag.Color))
-            {
-                _logger.Warning("Invalid color format for tag: {Color}. Using default.", tag.Color);
-                tag.Color = DefaultColor;
-            }
-        }
-
-        private static bool IsValidHexColor(string color)
-        {
-            return !string.IsNullOrEmpty(color) &&
-                   _hexColorRegex.IsMatch(color);
+            _logger.Error(ex, "Error retrieving tag by name '{Name}'", name);
+            throw;
         }
     }
+
+    #endregion
+
+    #region Read Collection Operations
+
+    /// <inheritdoc />
+    public async Task<List<Tag>> GetPopularTagsAsync(int limit = 50, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Where(t => t.IsVisible)
+                .OrderByDescending(t => t.UsageCount)
+                .ThenByDescending(t => t.LastUsedAt)
+                .Take(limit)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetPopularTagsAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error retrieving popular tags");
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Tag>> GetPinnedTagsAsync(CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Where(t => t.IsPinned && t.IsVisible)
+                .OrderBy(t => t.Name)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetPinnedTagsAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error retrieving pinned tags");
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Tag>> GetVisibleTagsAsync(CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Where(t => t.IsVisible)
+                .OrderBy(t => t.Name)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetVisibleTagsAsync cancelled");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error retrieving visible tags");
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Tag>> SearchByNameAsync(string searchTerm, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+                return await GetVisibleTagsAsync(cancellationToken).ConfigureAwait(false);
+
+            return await _dbSet
+                .AsNoTracking()
+                .Where(t => EF.Functions.Like(t.Name, $"%{searchTerm}%"))
+                .OrderBy(t => t.Name)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("SearchByNameAsync cancelled for '{SearchTerm}'", searchTerm);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error searching tags by '{SearchTerm}'", searchTerm);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Tag>> GetTagsByArticleIdAsync(int articleId, CancellationToken cancellationToken = default)
+    {
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(articleId);
+
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Where(t => t.ArticleTags.Any(at => at.ArticleId == articleId))
+                .OrderBy(t => t.Name)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetTagsByArticleIdAsync cancelled for article {ArticleId}", articleId);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error retrieving tags for article {ArticleId}", articleId);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Tag>> GetTagsByColorAsync(string color, CancellationToken cancellationToken = default)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(color);
+
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .Where(t => t.Color == color)
+                .OrderBy(t => t.Name)
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("GetTagsByColorAsync cancelled for color '{Color}'", color);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error retrieving tags by color '{Color}'", color);
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Existence Checks
+
+    /// <inheritdoc />
+    public async Task<bool> ExistsByNameAsync(string name, CancellationToken cancellationToken = default)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(name);
+
+        try
+        {
+            return await _dbSet
+                .AsNoTracking()
+                .AnyAsync(t => t.Name == name, cancellationToken)
+                .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("ExistsByNameAsync cancelled for '{Name}'", name);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error checking tag existence for '{Name}'", name);
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Insert / Update Overrides
+
+    /// <inheritdoc />
+    public override async Task<int> InsertAsync(Tag entity, CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(entity);
+
+        try
+        {
+            ValidateTag(entity);
+
+            if (await ExistsByNameAsync(entity.Name, cancellationToken).ConfigureAwait(false))
+                throw new InvalidOperationException($"Tag with name '{entity.Name}' already exists.");
+
+            var result = await base.InsertAsync(entity, cancellationToken).ConfigureAwait(false);
+            _logger.Information("Inserted tag '{TagName}' (ID: {TagId})", entity.Name, entity.Id);
+            return result;
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("InsertAsync cancelled for tag '{TagName}'", entity.Name);
+            throw;
+        }
+        catch (DbUpdateException ex)
+        {
+            _logger.Error(ex, "Database error inserting tag '{TagName}'", entity.Name);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error inserting tag '{TagName}'", entity.Name);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public override async Task<int> UpdateAsync(Tag entity, CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(entity);
+
+        try
+        {
+            ValidateTag(entity);
+
+            var result = await base.UpdateAsync(entity, cancellationToken).ConfigureAwait(false);
+            _logger.Information("Updated tag '{TagName}' (ID: {TagId})", entity.Name, entity.Id);
+            return result;
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("UpdateAsync cancelled for tag ID {TagId}", entity.Id);
+            throw;
+        }
+        catch (DbUpdateConcurrencyException ex)
+        {
+            _logger.Error(ex, "Concurrency conflict updating tag ID {TagId}", entity.Id);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error updating tag ID {TagId}", entity.Id);
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Metadata Updates
+
+    /// <inheritdoc />
+    public async Task<int> UpdateUsageMetadataAsync(int tagId, int newUsageCount, DateTime lastUsedAt, CancellationToken cancellationToken = default)
+    {
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(tagId);
+        ArgumentOutOfRangeException.ThrowIfNegative(newUsageCount);
+
+        try
+        {
+            var result = await _dbSet
+                .Where(t => t.Id == tagId)
+                .ExecuteUpdateAsync(setters => setters
+                    .SetProperty(t => t.UsageCount, newUsageCount)
+                    .SetProperty(t => t.LastUsedAt, lastUsedAt == default ? DateTime.UtcNow : lastUsedAt),
+                    cancellationToken)
+                .ConfigureAwait(false);
+
+            if (result > 0)
+                _logger.Debug("Updated usage metadata for tag ID {TagId}", tagId);
+
+            return result;
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("UpdateUsageMetadataAsync cancelled for tag ID {TagId}", tagId);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Error updating usage metadata for tag ID {TagId}", tagId);
+            throw;
+        }
+    }
+
+    #endregion
+
+    #region Private Helpers
+
+    private static void ValidateTag(Tag tag)
+    {
+        if (tag.Name?.Length > 50)
+            throw new ArgumentException($"Tag name cannot exceed 50 characters. Provided: {tag.Name.Length}", nameof(tag.Name));
+
+        if (!string.IsNullOrEmpty(tag.Color) && !_hexColorRegex.IsMatch(tag.Color))
+            tag.Color = DefaultColor;
+    }
+
+    #endregion
 }

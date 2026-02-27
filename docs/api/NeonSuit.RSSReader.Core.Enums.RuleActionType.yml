@@ -1,0 +1,545 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleActionType
+  id: RuleActionType
+  parent: NeonSuit.RSSReader.Core.Enums
+  children:
+  - NeonSuit.RSSReader.Core.Enums.RuleActionType.ApplyTags
+  - NeonSuit.RSSReader.Core.Enums.RuleActionType.ArchiveArticle
+  - NeonSuit.RSSReader.Core.Enums.RuleActionType.DeleteArticle
+  - NeonSuit.RSSReader.Core.Enums.RuleActionType.HighlightArticle
+  - NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsFavorite
+  - NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsRead
+  - NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsStarred
+  - NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsUnread
+  - NeonSuit.RSSReader.Core.Enums.RuleActionType.MoveToCategory
+  - NeonSuit.RSSReader.Core.Enums.RuleActionType.PlaySound
+  - NeonSuit.RSSReader.Core.Enums.RuleActionType.SendNotification
+  langs:
+  - csharp
+  - vb
+  name: RuleActionType
+  nameWithType: RuleActionType
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RuleActionType
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+    startLine: 41
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: >-
+    Defines the possible automated actions that can be executed when an article matches 
+
+    the conditions of a user-defined rule or filter in the RSS reader application.
+  remarks: >-
+    <p>
+
+    This enumeration represents the actions available in the rule engine / smart filter system.
+
+    Rules allow users to automate article processing based on criteria such as keywords, authors,
+
+    publication date, feed source, content patterns, or other metadata.
+
+    </p>
+
+
+    <p>
+
+    Each rule can trigger zero or more actions when an article matches. Actions are applied 
+
+    immediately after ingestion/sync (or on first evaluation for existing articles).
+
+    </p>
+
+
+    <p>
+
+    Key behavioral impacts and system considerations:
+
+    </p>
+
+    <ul><li>Actions modify article state (status, tags, category) or trigger side effects (notifications, sounds, deletion).</li><li>Multiple actions can be combined in one rule (e.g., MarkAsStarred + ApplyTags + SendNotification).</li><li>Order of execution is typically the order defined in the rule configuration.</li><li>Some actions are mutually exclusive or have precedence (e.g., DeleteArticle usually overrides others).</li><li>Actions are executed server-side (if cloud sync) or client-side, depending on architecture.</li><li>User rules should be evaluated efficiently to avoid performance impact during bulk syncs.</li></ul>
+
+
+    <p>
+
+    Business rules and recommendations:
+
+    </p>
+
+    <ul><li>Irreversible actions (<xref href="NeonSuit.RSSReader.Core.Enums.RuleActionType.DeleteArticle" data-throw-if-not-resolved="false"></xref>, <xref href="NeonSuit.RSSReader.Core.Enums.RuleActionType.ArchiveArticle" data-throw-if-not-resolved="false"></xref>) should require explicit user confirmation when creating/editing rules.</li><li><xref href="NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsFavorite" data-throw-if-not-resolved="false"></xref> is included for backward compatibility or alternative naming; prefer <xref href="NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsStarred" data-throw-if-not-resolved="false"></xref> in new implementations if they represent the same concept.</li><li><xref href="NeonSuit.RSSReader.Core.Enums.RuleActionType.HighlightArticle" data-throw-if-not-resolved="false"></xref> requires an associated color or style parameter (not stored in the enum value itself).</li><li>Actions like <xref href="NeonSuit.RSSReader.Core.Enums.RuleActionType.PlaySound" data-throw-if-not-resolved="false"></xref> and <xref href="NeonSuit.RSSReader.Core.Enums.RuleActionType.SendNotification" data-throw-if-not-resolved="false"></xref> should respect global notification settings and device state.</li><li>Default behavior: new articles start as Unread unless a rule changes their status.</li></ul>
+  example: []
+  syntax:
+    content: public enum RuleActionType
+    content.vb: Public Enum RuleActionType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsRead
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsRead
+  id: MarkAsRead
+  parent: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  langs:
+  - csharp
+  - vb
+  name: MarkAsRead
+  nameWithType: RuleActionType.MarkAsRead
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsRead
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MarkAsRead
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+    startLine: 54
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Automatically marks the matching article as read.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Sets article status to <xref href="NeonSuit.RSSReader.Core.Enums.ArticleStatus.Read" data-throw-if-not-resolved="false"></xref>.</li><li>Removes from unread counters and default "unread" views.</li><li>Common for low-priority or already-seen content (e.g., newsletters user skims).</li></ul>
+  example: []
+  syntax:
+    content: MarkAsRead = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleActionType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsUnread
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsUnread
+  id: MarkAsUnread
+  parent: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  langs:
+  - csharp
+  - vb
+  name: MarkAsUnread
+  nameWithType: RuleActionType.MarkAsUnread
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsUnread
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MarkAsUnread
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+    startLine: 66
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Forces the article to remain (or become) unread, even if previously viewed.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Sets or resets article status to <xref href="NeonSuit.RSSReader.Core.Enums.ArticleStatus.Unread" data-throw-if-not-resolved="false"></xref>.</li><li>Useful for high-priority matches that should always demand attention.</li></ul>
+  example: []
+  syntax:
+    content: MarkAsUnread = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleActionType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsStarred
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsStarred
+  id: MarkAsStarred
+  parent: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  langs:
+  - csharp
+  - vb
+  name: MarkAsStarred
+  nameWithType: RuleActionType.MarkAsStarred
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsStarred
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MarkAsStarred
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+    startLine: 79
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Marks the article as starred/favorited for later reference.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Sets article status to <xref href="NeonSuit.RSSReader.Core.Enums.ArticleStatus.Starred" data-throw-if-not-resolved="false"></xref> (or adds starred flag if compound states are supported).</li><li>Makes article appear in "Starred" / "Favorites" views.</li><li>Often exempt from auto-archive/cleanup policies.</li></ul>
+  example: []
+  syntax:
+    content: MarkAsStarred = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleActionType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsFavorite
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsFavorite
+  id: MarkAsFavorite
+  parent: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  langs:
+  - csharp
+  - vb
+  name: MarkAsFavorite
+  nameWithType: RuleActionType.MarkAsFavorite
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsFavorite
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MarkAsFavorite
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+    startLine: 92
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Marks the article as a favorite (alternative naming for starred).
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Functionally identical to <xref href="NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsStarred" data-throw-if-not-resolved="false"></xref> in most implementations.</li><li>Retained for compatibility or user preference in naming.</li><li>Avoid using both in the same rule to prevent confusion.</li></ul>
+  example: []
+  syntax:
+    content: MarkAsFavorite = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleActionType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.ApplyTags
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.ApplyTags
+  id: ApplyTags
+  parent: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  langs:
+  - csharp
+  - vb
+  name: ApplyTags
+  nameWithType: RuleActionType.ApplyTags
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.ApplyTags
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ApplyTags
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+    startLine: 105
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Applies one or more user-defined tags/labels to the article.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Adds specified tags to the article's tag collection.</li><li>Enables filtering, searching, and organization by tag.</li><li>Requires associated tag IDs/names as rule parameters.</li></ul>
+  example: []
+  syntax:
+    content: ApplyTags = 4
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleActionType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.MoveToCategory
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.MoveToCategory
+  id: MoveToCategory
+  parent: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  langs:
+  - csharp
+  - vb
+  name: MoveToCategory
+  nameWithType: RuleActionType.MoveToCategory
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.MoveToCategory
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MoveToCategory
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+    startLine: 118
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Moves the article (or assigns it) to a specific user-defined category/folder.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Changes the article's category assignment.</li><li>Feeds may support per-article categories independent of feed-level folders.</li><li>Requires category ID as parameter.</li></ul>
+  example: []
+  syntax:
+    content: MoveToCategory = 5
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleActionType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.SendNotification
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.SendNotification
+  id: SendNotification
+  parent: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  langs:
+  - csharp
+  - vb
+  name: SendNotification
+  nameWithType: RuleActionType.SendNotification
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.SendNotification
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SendNotification
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+    startLine: 131
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Triggers a user notification for the matching article.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Generates a notification (toast, banner, push) even if global article notifications are off.</li><li>Priority and type configurable per rule or globally.</li><li>Common for keyword alerts (e.g., "job opening", "breaking news").</li></ul>
+  example: []
+  syntax:
+    content: SendNotification = 6
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleActionType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.PlaySound
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.PlaySound
+  id: PlaySound
+  parent: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  langs:
+  - csharp
+  - vb
+  name: PlaySound
+  nameWithType: RuleActionType.PlaySound
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.PlaySound
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: PlaySound
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+    startLine: 144
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Plays a custom or predefined sound alert when the article matches.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Plays an audible alert (device-dependent).</li><li>Should respect mute/vibration settings.</li><li>Use sparingly to avoid annoyance.</li></ul>
+  example: []
+  syntax:
+    content: PlaySound = 7
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleActionType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.DeleteArticle
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.DeleteArticle
+  id: DeleteArticle
+  parent: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  langs:
+  - csharp
+  - vb
+  name: DeleteArticle
+  nameWithType: RuleActionType.DeleteArticle
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.DeleteArticle
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DeleteArticle
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+    startLine: 157
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Permanently deletes the matching article from the user's library.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Removes article completely (usually irreversible without backup).</li><li>Should include user confirmation on rule creation.</li><li>Useful for spam, duplicates, or outdated content filters.</li></ul>
+  example: []
+  syntax:
+    content: DeleteArticle = 8
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleActionType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.ArchiveArticle
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.ArchiveArticle
+  id: ArchiveArticle
+  parent: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  langs:
+  - csharp
+  - vb
+  name: ArchiveArticle
+  nameWithType: RuleActionType.ArchiveArticle
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.ArchiveArticle
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ArchiveArticle
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+    startLine: 170
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Archives the matching article (moves to archive, hides from main views).
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Sets article status to <xref href="NeonSuit.RSSReader.Core.Enums.ArticleStatus.Archived" data-throw-if-not-resolved="false"></xref>.</li><li>Hides from active lists but keeps for search/restore.</li><li>Common for "processed" or low-value articles.</li></ul>
+  example: []
+  syntax:
+    content: ArchiveArticle = 9
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleActionType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.HighlightArticle
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.HighlightArticle
+  id: HighlightArticle
+  parent: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  langs:
+  - csharp
+  - vb
+  name: HighlightArticle
+  nameWithType: RuleActionType.HighlightArticle
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.HighlightArticle
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: HighlightArticle
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleActionType.cs
+    startLine: 183
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Applies a visual highlight (e.g., background color) to the article in lists/views.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Associates a specific color/style with the article.</li><li>Requires color parameter (e.g., hex code or predefined theme color ID).</li><li>Helps visually prioritize important matches (e.g., red for urgent, green for approved).</li></ul>
+  example: []
+  syntax:
+    content: HighlightArticle = 10
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleActionType
+references:
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.DeleteArticle
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.DeleteArticle
+  href: NeonSuit.RSSReader.Core.Enums.RuleActionType.html#NeonSuit_RSSReader_Core_Enums_RuleActionType_DeleteArticle
+  name: DeleteArticle
+  nameWithType: RuleActionType.DeleteArticle
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.DeleteArticle
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.ArchiveArticle
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.ArchiveArticle
+  href: NeonSuit.RSSReader.Core.Enums.RuleActionType.html#NeonSuit_RSSReader_Core_Enums_RuleActionType_ArchiveArticle
+  name: ArchiveArticle
+  nameWithType: RuleActionType.ArchiveArticle
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.ArchiveArticle
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsFavorite
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsFavorite
+  href: NeonSuit.RSSReader.Core.Enums.RuleActionType.html#NeonSuit_RSSReader_Core_Enums_RuleActionType_MarkAsFavorite
+  name: MarkAsFavorite
+  nameWithType: RuleActionType.MarkAsFavorite
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsFavorite
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsStarred
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsStarred
+  href: NeonSuit.RSSReader.Core.Enums.RuleActionType.html#NeonSuit_RSSReader_Core_Enums_RuleActionType_MarkAsStarred
+  name: MarkAsStarred
+  nameWithType: RuleActionType.MarkAsStarred
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.MarkAsStarred
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.HighlightArticle
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.HighlightArticle
+  href: NeonSuit.RSSReader.Core.Enums.RuleActionType.html#NeonSuit_RSSReader_Core_Enums_RuleActionType_HighlightArticle
+  name: HighlightArticle
+  nameWithType: RuleActionType.HighlightArticle
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.HighlightArticle
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.PlaySound
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.PlaySound
+  href: NeonSuit.RSSReader.Core.Enums.RuleActionType.html#NeonSuit_RSSReader_Core_Enums_RuleActionType_PlaySound
+  name: PlaySound
+  nameWithType: RuleActionType.PlaySound
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.PlaySound
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType.SendNotification
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleActionType.SendNotification
+  href: NeonSuit.RSSReader.Core.Enums.RuleActionType.html#NeonSuit_RSSReader_Core_Enums_RuleActionType_SendNotification
+  name: SendNotification
+  nameWithType: RuleActionType.SendNotification
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType.SendNotification
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Read
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ArticleStatus.Read
+  href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html#NeonSuit_RSSReader_Core_Enums_ArticleStatus_Read
+  name: Read
+  nameWithType: ArticleStatus.Read
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Read
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleActionType
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.RuleActionType.html
+  name: RuleActionType
+  nameWithType: RuleActionType
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Unread
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ArticleStatus.Unread
+  href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html#NeonSuit_RSSReader_Core_Enums_ArticleStatus_Unread
+  name: Unread
+  nameWithType: ArticleStatus.Unread
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Unread
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Starred
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ArticleStatus.Starred
+  href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html#NeonSuit_RSSReader_Core_Enums_ArticleStatus_Starred
+  name: Starred
+  nameWithType: ArticleStatus.Starred
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Starred
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Archived
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ArticleStatus.Archived
+  href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html#NeonSuit_RSSReader_Core_Enums_ArticleStatus_Archived
+  name: Archived
+  nameWithType: ArticleStatus.Archived
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Archived

@@ -1,0 +1,1886 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  id: RuleDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ActionType
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryId
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryIds
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ConditionGroup
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CreatedAt
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Description
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.FeedIds
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HealthStatus
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HighlightColor
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HumanReadableCondition
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Id
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsCaseSensitive
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsEnabled
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastMatchDate
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastModified
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.MatchCount
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Name
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NextConditionOperator
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationPriority
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationTemplate
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.OnlyNewArticles
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Operator
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Priority
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.RegexPattern
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Scope
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.SoundPath
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.StopOnMatch
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.TagIds
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Target
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.UsesAdvancedConditions
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value
+  - NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value2
+  langs:
+  - csharp
+  - vb
+  name: RuleDto
+  nameWithType: RuleDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RuleDto
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 13
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: >-
+    Data Transfer Object for complete rule information.
+
+    Used in rule details view and editing.
+  example: []
+  syntax:
+    content: public class RuleDto
+    content.vb: Public Class RuleDto
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Id
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Id
+  id: Id
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: RuleDto.Id
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Id
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Id
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 18
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Unique identifier of the rule.
+  example: []
+  syntax:
+    content: public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Id As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Id*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Name
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Name
+  id: Name
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: RuleDto.Name
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Name
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Name
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 23
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Descriptive name for the rule.
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Name*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Description
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Description
+  id: Description
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: RuleDto.Description
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Description
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Description
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 28
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Optional description explaining the rule's purpose.
+  example: []
+  syntax:
+    content: public string? Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Description*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Target
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Target
+  id: Target
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: RuleDto.Target
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Target
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Target
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 33
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Field where the search will be performed.
+  example: []
+  syntax:
+    content: public RuleFieldTarget Target { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+    content.vb: Public Property Target As RuleFieldTarget
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Target*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Operator
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Operator
+  id: Operator
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: Operator
+  nameWithType: RuleDto.Operator
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Operator
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Operator
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 38
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Search operator for the main condition.
+  example: []
+  syntax:
+    content: public RuleOperator Operator { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+    content.vb: Public Property [Operator] As RuleOperator
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Operator*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value
+  id: Value
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: RuleDto.Value
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Value
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 43
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Value to compare against.
+  example: []
+  syntax:
+    content: public string Value { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Value As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value2
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value2
+  id: Value2
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: Value2
+  nameWithType: RuleDto.Value2
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value2
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Value2
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 48
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Second value (for range operations like Between).
+  example: []
+  syntax:
+    content: public string Value2 { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Value2 As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value2*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsCaseSensitive
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsCaseSensitive
+  id: IsCaseSensitive
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: IsCaseSensitive
+  nameWithType: RuleDto.IsCaseSensitive
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsCaseSensitive
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IsCaseSensitive
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 53
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Whether the search is case-sensitive.
+  example: []
+  syntax:
+    content: public bool IsCaseSensitive { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsCaseSensitive As Boolean
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsCaseSensitive*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.RegexPattern
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.RegexPattern
+  id: RegexPattern
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: RegexPattern
+  nameWithType: RuleDto.RegexPattern
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.RegexPattern
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RegexPattern
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 58
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: 'For regex operations: the regex pattern.'
+  example: []
+  syntax:
+    content: public string RegexPattern { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RegexPattern As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.RegexPattern*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ConditionGroup
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ConditionGroup
+  id: ConditionGroup
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: ConditionGroup
+  nameWithType: RuleDto.ConditionGroup
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ConditionGroup
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ConditionGroup
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 63
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Group identifier for complex conditions.
+  example: []
+  syntax:
+    content: public int ConditionGroup { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ConditionGroup As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ConditionGroup*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NextConditionOperator
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NextConditionOperator
+  id: NextConditionOperator
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: NextConditionOperator
+  nameWithType: RuleDto.NextConditionOperator
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NextConditionOperator
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NextConditionOperator
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 68
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Logical operator to combine with next condition.
+  example: []
+  syntax:
+    content: public LogicalOperator NextConditionOperator { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.LogicalOperator
+    content.vb: Public Property NextConditionOperator As LogicalOperator
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NextConditionOperator*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.UsesAdvancedConditions
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.UsesAdvancedConditions
+  id: UsesAdvancedConditions
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: UsesAdvancedConditions
+  nameWithType: RuleDto.UsesAdvancedConditions
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.UsesAdvancedConditions
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UsesAdvancedConditions
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 73
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Indicates whether this rule uses advanced conditions.
+  example: []
+  syntax:
+    content: public bool UsesAdvancedConditions { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property UsesAdvancedConditions As Boolean
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.UsesAdvancedConditions*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Scope
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Scope
+  id: Scope
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: Scope
+  nameWithType: RuleDto.Scope
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Scope
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Scope
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 78
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Where the rule applies.
+  example: []
+  syntax:
+    content: public RuleScope Scope { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleScope
+    content.vb: Public Property Scope As RuleScope
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Scope*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.FeedIds
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.FeedIds
+  id: FeedIds
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: FeedIds
+  nameWithType: RuleDto.FeedIds
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.FeedIds
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FeedIds
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 83
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: List of feed IDs (if Scope = SpecificFeeds).
+  example: []
+  syntax:
+    content: public List<int> FeedIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public Property FeedIds As List(Of Integer)
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.FeedIds*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryIds
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryIds
+  id: CategoryIds
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: CategoryIds
+  nameWithType: RuleDto.CategoryIds
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryIds
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CategoryIds
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 88
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: List of category IDs (if Scope = SpecificCategories).
+  example: []
+  syntax:
+    content: public List<int> CategoryIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public Property CategoryIds As List(Of Integer)
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryIds*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ActionType
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ActionType
+  id: ActionType
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: ActionType
+  nameWithType: RuleDto.ActionType
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ActionType
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ActionType
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 93
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Primary action type.
+  example: []
+  syntax:
+    content: public RuleActionType ActionType { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleActionType
+    content.vb: Public Property ActionType As RuleActionType
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ActionType*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.TagIds
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.TagIds
+  id: TagIds
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: TagIds
+  nameWithType: RuleDto.TagIds
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.TagIds
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TagIds
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 98
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: List of tag IDs to apply (for ApplyTags action).
+  example: []
+  syntax:
+    content: public List<int> TagIds { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public Property TagIds As List(Of Integer)
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.TagIds*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryId
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryId
+  id: CategoryId
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: CategoryId
+  nameWithType: RuleDto.CategoryId
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryId
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CategoryId
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 103
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Category ID to move article to (for MoveToCategory action).
+  example: []
+  syntax:
+    content: public int? CategoryId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property CategoryId As Integer?
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryId*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.SoundPath
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.SoundPath
+  id: SoundPath
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: SoundPath
+  nameWithType: RuleDto.SoundPath
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.SoundPath
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SoundPath
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 108
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Path to sound file for PlaySound action.
+  example: []
+  syntax:
+    content: public string? SoundPath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SoundPath As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.SoundPath*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationTemplate
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationTemplate
+  id: NotificationTemplate
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: NotificationTemplate
+  nameWithType: RuleDto.NotificationTemplate
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationTemplate
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotificationTemplate
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 113
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Template for notification.
+  example: []
+  syntax:
+    content: public string NotificationTemplate { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NotificationTemplate As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationTemplate*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationPriority
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationPriority
+  id: NotificationPriority
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: NotificationPriority
+  nameWithType: RuleDto.NotificationPriority
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationPriority
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotificationPriority
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 118
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Notification priority level.
+  example: []
+  syntax:
+    content: public NotificationPriority NotificationPriority { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+    content.vb: Public Property NotificationPriority As NotificationPriority
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationPriority*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HighlightColor
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HighlightColor
+  id: HighlightColor
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: HighlightColor
+  nameWithType: RuleDto.HighlightColor
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HighlightColor
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: HighlightColor
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 123
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Color for highlighting articles.
+  example: []
+  syntax:
+    content: public string? HighlightColor { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property HighlightColor As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HighlightColor*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Priority
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Priority
+  id: Priority
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: Priority
+  nameWithType: RuleDto.Priority
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Priority
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Priority
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 128
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Execution order (lower numbers execute first).
+  example: []
+  syntax:
+    content: public int Priority { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Priority As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Priority*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsEnabled
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsEnabled
+  id: IsEnabled
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled
+  nameWithType: RuleDto.IsEnabled
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsEnabled
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IsEnabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 133
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Whether the rule is currently active.
+  example: []
+  syntax:
+    content: public bool IsEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsEnabled As Boolean
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsEnabled*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.StopOnMatch
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.StopOnMatch
+  id: StopOnMatch
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: StopOnMatch
+  nameWithType: RuleDto.StopOnMatch
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.StopOnMatch
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: StopOnMatch
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 138
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Stop processing other rules if this one matches.
+  example: []
+  syntax:
+    content: public bool StopOnMatch { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property StopOnMatch As Boolean
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.StopOnMatch*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.OnlyNewArticles
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.OnlyNewArticles
+  id: OnlyNewArticles
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: OnlyNewArticles
+  nameWithType: RuleDto.OnlyNewArticles
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.OnlyNewArticles
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnlyNewArticles
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 143
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Only apply to new articles.
+  example: []
+  syntax:
+    content: public bool OnlyNewArticles { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property OnlyNewArticles As Boolean
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.OnlyNewArticles*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CreatedAt
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CreatedAt
+  id: CreatedAt
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: RuleDto.CreatedAt
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CreatedAt
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 148
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Date when the rule was created.
+  example: []
+  syntax:
+    content: public DateTime CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property CreatedAt As Date
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CreatedAt*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastModified
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastModified
+  id: LastModified
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: LastModified
+  nameWithType: RuleDto.LastModified
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastModified
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LastModified
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 153
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Last time the rule was modified.
+  example: []
+  syntax:
+    content: public DateTime LastModified { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property LastModified As Date
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastModified*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.MatchCount
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.MatchCount
+  id: MatchCount
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: MatchCount
+  nameWithType: RuleDto.MatchCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.MatchCount
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MatchCount
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 158
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Number of times this rule has been triggered.
+  example: []
+  syntax:
+    content: public int MatchCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MatchCount As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.MatchCount*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastMatchDate
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastMatchDate
+  id: LastMatchDate
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: LastMatchDate
+  nameWithType: RuleDto.LastMatchDate
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastMatchDate
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LastMatchDate
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 163
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Last time this rule matched an article.
+  example: []
+  syntax:
+    content: public DateTime? LastMatchDate { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Property LastMatchDate As Date?
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastMatchDate*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HumanReadableCondition
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HumanReadableCondition
+  id: HumanReadableCondition
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: HumanReadableCondition
+  nameWithType: RuleDto.HumanReadableCondition
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HumanReadableCondition
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: HumanReadableCondition
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 168
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Human-readable condition for UI display.
+  example: []
+  syntax:
+    content: public string HumanReadableCondition { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property HumanReadableCondition As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HumanReadableCondition*
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HealthStatus
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HealthStatus
+  id: HealthStatus
+  parent: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto
+  langs:
+  - csharp
+  - vb
+  name: HealthStatus
+  nameWithType: RuleDto.HealthStatus
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HealthStatus
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: HealthStatus
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Rules/RuleDto.cs
+    startLine: 173
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Rules
+  summary: Health status of the rule.
+  example: []
+  syntax:
+    content: public RuleHealthStatus HealthStatus { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+    content.vb: Public Property HealthStatus As RuleHealthStatus
+  overload: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HealthStatus*
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Rules
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Rules
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Rules
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules
+    name: Rules
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Rules
+    name: Rules
+    href: NeonSuit.RSSReader.Core.DTOs.Rules.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Id*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Id
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_Id
+  name: Id
+  nameWithType: RuleDto.Id
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Name*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Name
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_Name
+  name: Name
+  nameWithType: RuleDto.Name
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Description*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Description
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_Description
+  name: Description
+  nameWithType: RuleDto.Description
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Description
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Target*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Target
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_Target
+  name: Target
+  nameWithType: RuleDto.Target
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Target
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.html
+  name: RuleFieldTarget
+  nameWithType: RuleFieldTarget
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Operator*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Operator
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_Operator
+  name: Operator
+  nameWithType: RuleDto.Operator
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Operator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleOperator
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html
+  name: RuleOperator
+  nameWithType: RuleOperator
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_Value
+  name: Value
+  nameWithType: RuleDto.Value
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value2*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value2
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_Value2
+  name: Value2
+  nameWithType: RuleDto.Value2
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Value2
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsCaseSensitive*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsCaseSensitive
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_IsCaseSensitive
+  name: IsCaseSensitive
+  nameWithType: RuleDto.IsCaseSensitive
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsCaseSensitive
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.RegexPattern*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.RegexPattern
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_RegexPattern
+  name: RegexPattern
+  nameWithType: RuleDto.RegexPattern
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.RegexPattern
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ConditionGroup*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ConditionGroup
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_ConditionGroup
+  name: ConditionGroup
+  nameWithType: RuleDto.ConditionGroup
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ConditionGroup
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NextConditionOperator*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NextConditionOperator
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_NextConditionOperator
+  name: NextConditionOperator
+  nameWithType: RuleDto.NextConditionOperator
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NextConditionOperator
+- uid: NeonSuit.RSSReader.Core.Enums.LogicalOperator
+  commentId: T:NeonSuit.RSSReader.Core.Enums.LogicalOperator
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.LogicalOperator.html
+  name: LogicalOperator
+  nameWithType: LogicalOperator
+  fullName: NeonSuit.RSSReader.Core.Enums.LogicalOperator
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.UsesAdvancedConditions*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.UsesAdvancedConditions
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_UsesAdvancedConditions
+  name: UsesAdvancedConditions
+  nameWithType: RuleDto.UsesAdvancedConditions
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.UsesAdvancedConditions
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Scope*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Scope
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_Scope
+  name: Scope
+  nameWithType: RuleDto.Scope
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Scope
+- uid: NeonSuit.RSSReader.Core.Enums.RuleScope
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleScope
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.RuleScope.html
+  name: RuleScope
+  nameWithType: RuleScope
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleScope
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.FeedIds*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.FeedIds
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_FeedIds
+  name: FeedIds
+  nameWithType: RuleDto.FeedIds
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.FeedIds
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<int>
+  nameWithType: List<int>
+  fullName: System.Collections.Generic.List<int>
+  nameWithType.vb: List(Of Integer)
+  fullName.vb: System.Collections.Generic.List(Of Integer)
+  name.vb: List(Of Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryIds*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryIds
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_CategoryIds
+  name: CategoryIds
+  nameWithType: RuleDto.CategoryIds
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryIds
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ActionType*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ActionType
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_ActionType
+  name: ActionType
+  nameWithType: RuleDto.ActionType
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.ActionType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleActionType
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.RuleActionType.html
+  name: RuleActionType
+  nameWithType: RuleActionType
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.TagIds*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.TagIds
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_TagIds
+  name: TagIds
+  nameWithType: RuleDto.TagIds
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.TagIds
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryId*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryId
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_CategoryId
+  name: CategoryId
+  nameWithType: RuleDto.CategoryId
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CategoryId
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.SoundPath*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.SoundPath
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_SoundPath
+  name: SoundPath
+  nameWithType: RuleDto.SoundPath
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.SoundPath
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationTemplate*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationTemplate
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_NotificationTemplate
+  name: NotificationTemplate
+  nameWithType: RuleDto.NotificationTemplate
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationTemplate
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationPriority*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationPriority
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_NotificationPriority
+  name: NotificationPriority
+  nameWithType: RuleDto.NotificationPriority
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.NotificationPriority
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  commentId: T:NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.NotificationPriority.html
+  name: NotificationPriority
+  nameWithType: NotificationPriority
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HighlightColor*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HighlightColor
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_HighlightColor
+  name: HighlightColor
+  nameWithType: RuleDto.HighlightColor
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HighlightColor
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Priority*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Priority
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_Priority
+  name: Priority
+  nameWithType: RuleDto.Priority
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.Priority
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsEnabled*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsEnabled
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_IsEnabled
+  name: IsEnabled
+  nameWithType: RuleDto.IsEnabled
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.IsEnabled
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.StopOnMatch*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.StopOnMatch
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_StopOnMatch
+  name: StopOnMatch
+  nameWithType: RuleDto.StopOnMatch
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.StopOnMatch
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.OnlyNewArticles*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.OnlyNewArticles
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_OnlyNewArticles
+  name: OnlyNewArticles
+  nameWithType: RuleDto.OnlyNewArticles
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.OnlyNewArticles
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CreatedAt*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CreatedAt
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_CreatedAt
+  name: CreatedAt
+  nameWithType: RuleDto.CreatedAt
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.CreatedAt
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastModified*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastModified
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_LastModified
+  name: LastModified
+  nameWithType: RuleDto.LastModified
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastModified
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.MatchCount*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.MatchCount
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_MatchCount
+  name: MatchCount
+  nameWithType: RuleDto.MatchCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.MatchCount
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastMatchDate*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastMatchDate
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_LastMatchDate
+  name: LastMatchDate
+  nameWithType: RuleDto.LastMatchDate
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.LastMatchDate
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HumanReadableCondition*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HumanReadableCondition
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_HumanReadableCondition
+  name: HumanReadableCondition
+  nameWithType: RuleDto.HumanReadableCondition
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HumanReadableCondition
+- uid: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HealthStatus*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HealthStatus
+  href: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.html#NeonSuit_RSSReader_Core_DTOs_Rules_RuleDto_HealthStatus
+  name: HealthStatus
+  nameWithType: RuleDto.HealthStatus
+  fullName: NeonSuit.RSSReader.Core.DTOs.Rules.RuleDto.HealthStatus
+- uid: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  commentId: T:NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.RuleHealthStatus.html
+  name: RuleHealthStatus
+  nameWithType: RuleHealthStatus
+  fullName: NeonSuit.RSSReader.Core.Models.RuleHealthStatus
+- uid: NeonSuit.RSSReader.Core.Models
+  commentId: N:NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models
+  nameWithType: NeonSuit.RSSReader.Core.Models
+  fullName: NeonSuit.RSSReader.Core.Models
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html

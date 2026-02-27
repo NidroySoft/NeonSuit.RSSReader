@@ -1,0 +1,99 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Feeds
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Feeds
+  id: NeonSuit.RSSReader.Core.DTOs.Feeds
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto
+  - NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto
+  - NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto
+  - NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto
+  - NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.DTOs.Feeds
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Feeds
+  fullName: NeonSuit.RSSReader.Core.DTOs.Feeds
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Feeds
+  href: NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto.html
+  name: CreateFeedDto
+  nameWithType: CreateFeedDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto
+  href: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.html
+  name: FeedDto
+  nameWithType: FeedDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto
+  href: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto.html
+  name: FeedHealthDto
+  nameWithType: FeedHealthDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto
+  href: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto.html
+  name: FeedSummaryDto
+  nameWithType: FeedSummaryDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Feeds
+  href: NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto.html
+  name: UpdateFeedDto
+  nameWithType: UpdateFeedDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Feeds
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Feeds
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Feeds
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Feeds
+  fullName: NeonSuit.RSSReader.Core.DTOs.Feeds
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds
+    name: Feeds
+    href: NeonSuit.RSSReader.Core.DTOs.Feeds.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds
+    name: Feeds
+    href: NeonSuit.RSSReader.Core.DTOs.Feeds.html

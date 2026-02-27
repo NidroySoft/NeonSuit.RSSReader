@@ -1,0 +1,693 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser
+  id: IRssFeedParser
+  parent: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.GenerateReaderViewHtmlAsync(NeonSuit.RSSReader.Core.Models.Article,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseArticlesAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseFeedAsync(System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IRssFeedParser
+  nameWithType: IRssFeedParser
+  fullName: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/RssFeedParser/IRssFeedParser.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IRssFeedParser
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/RssFeedParser/IRssFeedParser.cs
+    startLine: 26
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  summary: >-
+    Defines the operations required to download, clean, and parse RSS/Atom feeds.
+
+    Provides methods for initial feed discovery and incremental article retrieval.
+  remarks: >-
+    <p>
+
+    This interface abstracts the RSS/Atom parsing logic from the rest of the application,
+
+    allowing for pluggable implementations (e.g., different feed parsers, syndication libraries,
+
+    or future enhancements like OPML support or full-text extraction).
+
+    </p>
+
+    <p>
+
+    Implementations must ensure:
+
+    - Robust HTTP handling (timeouts, redirects, compression, user-agent).
+
+    - Proper feed detection (RSS 1.0/2.0, Atom, RDF, JSON Feed fallback if possible).
+
+    - Sanitization of HTML content (XSS prevention, relative URLs to absolute).
+
+    - Duplicate detection (GUID, content hash, link).
+
+    - Efficient memory usage (streaming parsing, avoid loading entire feed in RAM).
+
+    - Cancellation support for long-running operations.
+
+    - Proper exception handling and logging of feed-specific errors.
+
+    </p>
+  example: []
+  syntax:
+    content: public interface IRssFeedParser
+    content.vb: Public Interface IRssFeedParser
+- uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseFeedAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseFeedAsync(System.String,System.Threading.CancellationToken)
+  id: ParseFeedAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser
+  langs:
+  - csharp
+  - vb
+  name: ParseFeedAsync(string, CancellationToken)
+  nameWithType: IRssFeedParser.ParseFeedAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseFeedAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/RssFeedParser/IRssFeedParser.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ParseFeedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/RssFeedParser/IRssFeedParser.cs
+    startLine: 41
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  summary: Parses a complete RSS/Atom feed from the given URL, extracting both feed metadata and initial articles.
+  example: []
+  syntax:
+    content: Task<(Feed feed, List<Article> articles)> ParseFeedAsync(string url, CancellationToken cancellationToken = default)
+    parameters:
+    - id: url
+      type: System.String
+      description: The absolute URL of the RSS/Atom feed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to cancel the operation.
+    return:
+      type: System.Threading.Tasks.Task{System.ValueTuple{NeonSuit.RSSReader.Core.Models.Feed,System.Collections.Generic.List{NeonSuit.RSSReader.Core.Models.Article}}}
+      description: A tuple containing the parsed <xref href="NeonSuit.RSSReader.Core.Models.Feed" data-throw-if-not-resolved="false"></xref> metadata and the list of initial <xref href="NeonSuit.RSSReader.Core.Models.Article" data-throw-if-not-resolved="false"></xref> items.
+    content.vb: Function ParseFeedAsync(url As String, cancellationToken As CancellationToken = Nothing) As Task(Of (feed As Feed, articles As List(Of Article)))
+  overload: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseFeedAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if url is null or empty.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if url is not a valid absolute URI.
+  - type: System.Net.Http.HttpRequestException
+    commentId: T:System.Net.Http.HttpRequestException
+    description: Thrown on network or HTTP errors.
+  - type: System.Xml.XmlException
+    commentId: T:System.Xml.XmlException
+    description: Thrown on XML parsing failures.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled.
+  nameWithType.vb: IRssFeedParser.ParseFeedAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseFeedAsync(String, System.Threading.CancellationToken)
+  name.vb: ParseFeedAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseArticlesAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseArticlesAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  id: ParseArticlesAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser
+  langs:
+  - csharp
+  - vb
+  name: ParseArticlesAsync(string, int, CancellationToken)
+  nameWithType: IRssFeedParser.ParseArticlesAsync(string, int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseArticlesAsync(string, int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/RssFeedParser/IRssFeedParser.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ParseArticlesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/RssFeedParser/IRssFeedParser.cs
+    startLine: 59
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  summary: Parses only new or updated articles from an existing feed URL.
+  example: []
+  syntax:
+    content: Task<List<Article>> ParseArticlesAsync(string url, int feedId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: url
+      type: System.String
+      description: The absolute URL of the RSS/Atom feed.
+    - id: feedId
+      type: System.Int32
+      description: The database ID of the existing feed.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to cancel the operation.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.Models.Article}}
+      description: A list of new or updated <xref href="NeonSuit.RSSReader.Core.Models.Article" data-throw-if-not-resolved="false"></xref> items ready for insertion/update.
+    content.vb: Function ParseArticlesAsync(url As String, feedId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of Article))
+  overload: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseArticlesAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if url is null or empty.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if feedId is less than or equal to 0.
+  - type: System.Net.Http.HttpRequestException
+    commentId: T:System.Net.Http.HttpRequestException
+    description: Thrown on network or HTTP errors.
+  - type: System.Xml.XmlException
+    commentId: T:System.Xml.XmlException
+    description: Thrown on parsing failures.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled.
+  nameWithType.vb: IRssFeedParser.ParseArticlesAsync(String, Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseArticlesAsync(String, Integer, System.Threading.CancellationToken)
+  name.vb: ParseArticlesAsync(String, Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.GenerateReaderViewHtmlAsync(NeonSuit.RSSReader.Core.Models.Article,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.GenerateReaderViewHtmlAsync(NeonSuit.RSSReader.Core.Models.Article,System.Threading.CancellationToken)
+  id: GenerateReaderViewHtmlAsync(NeonSuit.RSSReader.Core.Models.Article,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser
+  langs:
+  - csharp
+  - vb
+  name: GenerateReaderViewHtmlAsync(Article, CancellationToken)
+  nameWithType: IRssFeedParser.GenerateReaderViewHtmlAsync(Article, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.GenerateReaderViewHtmlAsync(NeonSuit.RSSReader.Core.Models.Article, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/RssFeedParser/IRssFeedParser.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GenerateReaderViewHtmlAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/RssFeedParser/IRssFeedParser.cs
+    startLine: 78
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  summary: Generates a clean, ad-free HTML "Reader View" from an article's content or summary.
+  remarks: >-
+    <p>
+
+    This method produces a standalone HTML document that:
+
+    - Removes scripts, styles, ads, trackers, and unnecessary markup
+
+    - Preserves readable structure (headings, paragraphs, images, links)
+
+    - Uses simple, responsive CSS for clean presentation
+
+    - Is fully offline-capable (no external resources)
+
+    </p>
+  example: []
+  syntax:
+    content: Task<string> GenerateReaderViewHtmlAsync(Article article, CancellationToken cancellationToken = default)
+    parameters:
+    - id: article
+      type: NeonSuit.RSSReader.Core.Models.Article
+      description: The article to generate reader view for.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Token to cancel the operation.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: A standalone HTML document suitable for loading in WebView2.
+    content.vb: Function GenerateReaderViewHtmlAsync(article As Article, cancellationToken As CancellationToken = Nothing) As Task(Of String)
+  overload: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.GenerateReaderViewHtmlAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if article is null.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled.
+references:
+- uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  fullName: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+    name: RssFeedParser
+    href: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser
+    name: RssFeedParser
+    href: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.html
+- uid: NeonSuit.RSSReader.Core.Models.Feed
+  commentId: T:NeonSuit.RSSReader.Core.Models.Feed
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.Feed.html
+  name: Feed
+  nameWithType: Feed
+  fullName: NeonSuit.RSSReader.Core.Models.Feed
+- uid: NeonSuit.RSSReader.Core.Models.Article
+  commentId: T:NeonSuit.RSSReader.Core.Models.Article
+  parent: NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.RSSReader.Core.Models.Article.html
+  name: Article
+  nameWithType: Article
+  fullName: NeonSuit.RSSReader.Core.Models.Article
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: System.Net.Http.HttpRequestException
+  commentId: T:System.Net.Http.HttpRequestException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httprequestexception
+  name: HttpRequestException
+  nameWithType: HttpRequestException
+  fullName: System.Net.Http.HttpRequestException
+- uid: System.Xml.XmlException
+  commentId: T:System.Xml.XmlException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.xml.xmlexception
+  name: XmlException
+  nameWithType: XmlException
+  fullName: System.Xml.XmlException
+- uid: System.OperationCanceledException
+  commentId: T:System.OperationCanceledException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.operationcanceledexception
+  name: OperationCanceledException
+  nameWithType: OperationCanceledException
+  fullName: System.OperationCanceledException
+- uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseFeedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseFeedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.html#NeonSuit_RSSReader_Core_Interfaces_RssFeedParser_IRssFeedParser_ParseFeedAsync_System_String_System_Threading_CancellationToken_
+  name: ParseFeedAsync
+  nameWithType: IRssFeedParser.ParseFeedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseFeedAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{System.ValueTuple{NeonSuit.RSSReader.Core.Models.Feed,System.Collections.Generic.List{NeonSuit.RSSReader.Core.Models.Article}}}
+  commentId: T:System.Threading.Tasks.Task{System.ValueTuple{NeonSuit.RSSReader.Core.Models.Feed,System.Collections.Generic.List{NeonSuit.RSSReader.Core.Models.Article}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<(Feed feed, List<Article> articles)>
+  nameWithType: Task<(Feed feed, List<Article> articles)>
+  fullName: System.Threading.Tasks.Task<(NeonSuit.RSSReader.Core.Models.Feed feed, System.Collections.Generic.List<NeonSuit.RSSReader.Core.Models.Article> articles)>
+  nameWithType.vb: Task(Of (feed As Feed, articles As List(Of Article)))
+  fullName.vb: System.Threading.Tasks.Task(Of (feed As NeonSuit.RSSReader.Core.Models.Feed, articles As System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.Models.Article)))
+  name.vb: Task(Of (feed As Feed, articles As List(Of Article)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: (
+  - uid: NeonSuit.RSSReader.Core.Models.Feed
+    name: Feed
+    href: NeonSuit.RSSReader.Core.Models.Feed.html
+  - name: " "
+  - uid: System.ValueTuple{NeonSuit.RSSReader.Core.Models.Feed,System.Collections.Generic.List{NeonSuit.RSSReader.Core.Models.Article}}.feed
+    name: feed
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-neonsuit.rssreader.core.models.feed,system.collections.generic.list-neonsuit.rssreader.core.models.article--.feed
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.Article
+    name: Article
+    href: NeonSuit.RSSReader.Core.Models.Article.html
+  - name: '>'
+  - name: " "
+  - uid: System.ValueTuple{NeonSuit.RSSReader.Core.Models.Feed,System.Collections.Generic.List{NeonSuit.RSSReader.Core.Models.Article}}.articles
+    name: articles
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-neonsuit.rssreader.core.models.feed,system.collections.generic.list-neonsuit.rssreader.core.models.article--.articles
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{NeonSuit.RSSReader.Core.Models.Feed,System.Collections.Generic.List{NeonSuit.RSSReader.Core.Models.Article}}.feed
+    name: feed
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-neonsuit.rssreader.core.models.feed,system.collections.generic.list-neonsuit.rssreader.core.models.article--.feed
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.Feed
+    name: Feed
+    href: NeonSuit.RSSReader.Core.Models.Feed.html
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{NeonSuit.RSSReader.Core.Models.Feed,System.Collections.Generic.List{NeonSuit.RSSReader.Core.Models.Article}}.articles
+    name: articles
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-neonsuit.rssreader.core.models.feed,system.collections.generic.list-neonsuit.rssreader.core.models.article--.articles
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.Article
+    name: Article
+    href: NeonSuit.RSSReader.Core.Models.Article.html
+  - name: )
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Models
+  commentId: N:NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models
+  nameWithType: NeonSuit.RSSReader.Core.Models
+  fullName: NeonSuit.RSSReader.Core.Models
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseArticlesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseArticlesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.html#NeonSuit_RSSReader_Core_Interfaces_RssFeedParser_IRssFeedParser_ParseArticlesAsync_System_String_System_Int32_System_Threading_CancellationToken_
+  name: ParseArticlesAsync
+  nameWithType: IRssFeedParser.ParseArticlesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.ParseArticlesAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.Models.Article}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.Models.Article}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<Article>>
+  nameWithType: Task<List<Article>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.Models.Article>>
+  nameWithType.vb: Task(Of List(Of Article))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.Models.Article))
+  name.vb: Task(Of List(Of Article))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.Article
+    name: Article
+    href: NeonSuit.RSSReader.Core.Models.Article.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.Article
+    name: Article
+    href: NeonSuit.RSSReader.Core.Models.Article.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.GenerateReaderViewHtmlAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.GenerateReaderViewHtmlAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.html#NeonSuit_RSSReader_Core_Interfaces_RssFeedParser_IRssFeedParser_GenerateReaderViewHtmlAsync_NeonSuit_RSSReader_Core_Models_Article_System_Threading_CancellationToken_
+  name: GenerateReaderViewHtmlAsync
+  nameWithType: IRssFeedParser.GenerateReaderViewHtmlAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.RssFeedParser.IRssFeedParser.GenerateReaderViewHtmlAsync
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )

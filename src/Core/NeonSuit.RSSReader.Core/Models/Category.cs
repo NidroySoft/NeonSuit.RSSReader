@@ -1,137 +1,209 @@
-using SQLite;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NeonSuit.RSSReader.Core.Models
 {
     /// <summary>
-    /// Represents a category/folder for organizing feeds.
-    /// Supports nesting via ParentCategoryId.
+    /// Represents a category (folder/group) for organizing subscribed feeds.
+    /// Supports hierarchical nesting via parent-child relationships and custom sorting.
+    /// Optimized for fast tree traversal, sorting and filtering in UI components.
     /// </summary>
+    [Table("Categories")]
     public class Category
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Category"/> class.
+        /// Sets default values for timestamps and UI state.
+        /// </summary>
         public Category()
         {
-            SortOrder = 0;
             CreatedAt = DateTime.UtcNow;
+            SortOrder = 0;
             IsExpanded = true;
+            Feeds = new HashSet<Feed>();
+            Subcategories = new HashSet<Category>();
         }
 
-        public virtual Category? ParentCategory { get; set; }
-        public virtual ICollection<Category> Subcategories { get; set; } = new List<Category>();
+        #region Primary Key
 
-        [PrimaryKey, AutoIncrement]
+        /// <summary>
+        /// Internal auto-increment primary key.
+        /// </summary>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        /// <summary>
-        /// Name of the category.
-        /// </summary>
-        [Unique(Name = "IX_Category_Name_Parent"), NotNull]
-        public string Name { get; set; } = string.Empty;
+        #endregion
+
+        #region Hierarchy & Identity
 
         /// <summary>
-        /// Optional description.
+        /// Foreign key to the parent category (null for root categories).
         /// </summary>
-        public string? Description { get; set; }
-
-        /// <summary>
-        /// Parent category ID for nesting (null = root category).
-        /// </summary>
-        [Indexed(Name = "IX_Category_Name_Parent")]
         public int? ParentCategoryId { get; set; }
 
         /// <summary>
-        /// Color in hexadecimal format (#RRGGBB) for visual identification.
+        /// Navigation property to the parent category (null for root-level categories).
         /// </summary>
-        [NotNull]
-        public string Color { get; set; } = "#3498db";
+        [ForeignKey(nameof(ParentCategoryId))]
+        public virtual Category? ParentCategory { get; set; }
 
         /// <summary>
-        /// Display order within parent category.
+        /// Collection of child categories (subfolders).
+        /// </summary>
+        [InverseProperty(nameof(ParentCategory))]
+        public virtual ICollection<Category> Subcategories { get; set; }
+
+        /// <summary>
+        /// Display name of the category.
+        /// Unique within the same parent to prevent naming conflicts.
+        /// </summary>
+        [Required]
+        [MaxLength(200)]
+        public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Optional description or notes about the category purpose.
+        /// </summary>
+        [MaxLength(1000)]
+        public string? Description { get; set; }
+
+        #endregion
+
+        #region Ordering & UI State
+
+        /// <summary>
+        /// Custom sort order within the parent category (ascending).
+        /// Lower values appear first in lists and trees.
         /// </summary>
         public int SortOrder { get; set; }
 
         /// <summary>
-        /// Creation date.
+        /// Indicates whether this category is expanded in the UI tree view.
+        /// Transient state — not persisted in database.
+        /// </summary>
+        [NotMapped]
+        public bool IsExpanded { get; set; }
+
+        /// <summary>
+        /// Optional accent color for visual differentiation in UI (hex format, e.g., "#FF5733").
+        /// </summary>
+        [MaxLength(7)] // Hex color format: #RRGGBB (7 characters including #)
+        public string? Color { get; set; }
+
+        #endregion
+
+        #region Audit & Timestamps
+
+        /// <summary>
+        /// Timestamp when the category was created.
         /// </summary>
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
-        /// Whether this category is expanded in the UI tree view.
+        /// Timestamp of the last modification (name, description, sort order, etc.).
         /// </summary>
-        [Ignore]
-        public bool IsExpanded { get; set; }
+        public DateTime? LastModified { get; set; }
+
+        #endregion
+
+        #region Relationships
 
         /// <summary>
-        /// Number of feeds in this category (calculated).
+        /// Collection of feeds directly assigned to this category.
         /// </summary>
-        [Ignore]
-        public int FeedCount { get; set; }
+        public virtual ICollection<Feed> Feeds { get; set; }
+
+        #endregion
+
+        #region Computed / Transient Properties
 
         /// <summary>
-        /// Number of unread articles in this category (calculated).
+        /// Full hierarchical path from root to this category (e.g., "News/Sports/Local").
+        /// Computed on demand — useful for display and breadcrumbs.
         /// </summary>
-        [Ignore]
-        public int UnreadCount { get; set; }
-
-        /// <summary>
-        /// Child categories (for tree navigation).
-        /// </summary>
-        [Ignore]
-        public List<Category> Children { get; set; } = new List<Category>();
-
-        /// <summary>
-        /// Parent category navigation property.
-        /// </summary>
-        [Ignore]
-        public Category? Parent { get; set; }
-
-        /// <summary>
-        /// Feeds belonging to this category.
-        /// </summary>
-        [Ignore]
-        public List<Feed> Feeds { get; set; } = new List<Feed>();
-
-        /// <summary>
-        /// Full path including parent categories (e.g., "News/Tech/AI").
-        /// </summary>
-        [Ignore]
+        [NotMapped]
         public string FullPath
         {
             get
             {
-                var path = Name;
-                var current = Parent;
+                var pathParts = new List<string> { Name };
+                var current = ParentCategory;
                 while (current != null)
                 {
-                    path = current.Name + "/" + path;
-                    current = current.Parent;
+                    pathParts.Add(current.Name);
+                    current = current.ParentCategory;
                 }
-                return path;
+                pathParts.Reverse();
+                return string.Join(" / ", pathParts);
             }
         }
 
         /// <summary>
-        /// Depth in the category tree (0 = root).
+        /// Depth level in the category tree (0 = root, 1 = first child, etc.).
+        /// Computed on demand — useful for indentation in tree views.
         /// </summary>
-        [Ignore]
+        [NotMapped]
         public int Depth
         {
             get
             {
                 int depth = 0;
-                var current = Parent;
+                var current = ParentCategory;
                 while (current != null)
                 {
                     depth++;
-                    current = current.Parent;
+                    current = current.ParentCategory;
                 }
                 return depth;
             }
         }
 
         /// <summary>
-        /// Indicates if this is a root category (no parent).
+        /// Indicates whether this is a root-level category (no parent).
         /// </summary>
-        [Ignore]
+        [NotMapped]
         public bool IsRoot => ParentCategoryId == null;
+
+        #endregion
     }
 }
+
+// ──────────────────────────────────────────────────────────────
+//                         FUTURE IMPROVEMENTS
+// ──────────────────────────────────────────────────────────────
+
+// TODO (High - v1.x): Add composite unique index on (ParentCategoryId, Name) in DbContext
+// What to do: In OnModelCreating, add: entity.HasIndex(c => new { c.ParentCategoryId, c.Name }).IsUnique();
+// Why: Enforce unique names within the same parent (prevents duplicates in UI tree)
+// Estimated effort: 30 min
+// Risk level: Low
+// Potential impact: Prevents user confusion and data inconsistency
+
+// TODO (High - v1.x): Add composite index on (ParentCategoryId, SortOrder) in DbContext
+// What to do: In OnModelCreating, add: entity.HasIndex(c => new { c.ParentCategoryId, c.SortOrder });
+// Why: Faster sorting of subcategories within each parent
+// Estimated effort: 20–30 min
+// Risk level: Low
+// Potential impact: Smoother tree view rendering and drag-drop reordering
+
+// TODO (Medium - v1.x): Add soft-delete/archive support
+// What to do: Add bool IsArchived; DateTime? ArchivedAt;
+// Why: Hide unused categories without permanent deletion
+// Estimated effort: 4–6 hours
+// Risk level: Low
+// Potential impact: Better organization UX
+
+// TODO (Medium - v2.0): Add category-level custom icon or color
+// What to do: Add string? CustomIconUrl; string? AccentColor;
+// Why: Visual distinction in sidebar/tree views
+// Estimated effort: 6–8 hours (model + UI)
+// Risk level: Low
+// Potential impact: Improved visual hierarchy
+
+// TODO (Low - v1.x): Consider rowversion concurrency token
+// What to do: Add public byte[] RowVersion { get; set; } + .IsRowVersion() in OnModelCreating
+// Why: Prevent lost updates if category edited concurrently
+// Estimated effort: 1 day
+// Risk level: Medium
+// Potential impact: Higher consistency in multi-threaded scenarios

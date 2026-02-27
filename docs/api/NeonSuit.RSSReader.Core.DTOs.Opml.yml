@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Opml
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Opml
+  id: NeonSuit.RSSReader.Core.DTOs.Opml
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Opml.ImportedFeedInfoDto
+  - NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto
+  - NeonSuit.RSSReader.Core.DTOs.Opml.OpmlStatisticsDto
+  - NeonSuit.RSSReader.Core.DTOs.Opml.OpmlValidationResultDto
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.DTOs.Opml
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Opml
+  fullName: NeonSuit.RSSReader.Core.DTOs.Opml
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Opml.ImportedFeedInfoDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Opml.ImportedFeedInfoDto
+  href: NeonSuit.RSSReader.Core.DTOs.Opml.ImportedFeedInfoDto.html
+  name: ImportedFeedInfoDto
+  nameWithType: ImportedFeedInfoDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Opml.ImportedFeedInfoDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto
+  href: NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto.html
+  name: OpmlImportResultDto
+  nameWithType: OpmlImportResultDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Opml.OpmlImportResultDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Opml.OpmlStatisticsDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Opml.OpmlStatisticsDto
+  href: NeonSuit.RSSReader.Core.DTOs.Opml.OpmlStatisticsDto.html
+  name: OpmlStatisticsDto
+  nameWithType: OpmlStatisticsDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Opml.OpmlStatisticsDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Opml.OpmlValidationResultDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Opml.OpmlValidationResultDto
+  href: NeonSuit.RSSReader.Core.DTOs.Opml.OpmlValidationResultDto.html
+  name: OpmlValidationResultDto
+  nameWithType: OpmlValidationResultDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Opml.OpmlValidationResultDto

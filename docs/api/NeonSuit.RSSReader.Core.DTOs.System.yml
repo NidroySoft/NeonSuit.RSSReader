@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.System
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.System
+  id: NeonSuit.RSSReader.Core.DTOs.System
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatisticsDto
+  - NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  - NeonSuit.RSSReader.Core.DTOs.System.IntegrityCheckResultDto
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.DTOs.System
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.System
+  fullName: NeonSuit.RSSReader.Core.DTOs.System
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatisticsDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatisticsDto
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatisticsDto.html
+  name: DatabaseStatisticsDto
+  nameWithType: DatabaseStatisticsDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatisticsDto
+- uid: NeonSuit.RSSReader.Core.DTOs.System.IntegrityCheckResultDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.System.IntegrityCheckResultDto
+  href: NeonSuit.RSSReader.Core.DTOs.System.IntegrityCheckResultDto.html
+  name: IntegrityCheckResultDto
+  nameWithType: IntegrityCheckResultDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.IntegrityCheckResultDto
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html
+  name: DatabaseStatsDto
+  nameWithType: DatabaseStatsDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto

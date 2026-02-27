@@ -1,0 +1,182 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  id: NeonSuit.RSSReader.Core.Enums
+  children:
+  - NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  - NeonSuit.RSSReader.Core.Enums.FeedHealthStatus
+  - NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  - NeonSuit.RSSReader.Core.Enums.LogicalOperator
+  - NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  - NeonSuit.RSSReader.Core.Enums.NotificationAction
+  - NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  - NeonSuit.RSSReader.Core.Enums.NotificationType
+  - NeonSuit.RSSReader.Core.Enums.RuleActionType
+  - NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator
+  - NeonSuit.RSSReader.Core.Enums.RuleScope
+  - NeonSuit.RSSReader.Core.Enums.SyncPriority
+  - NeonSuit.RSSReader.Core.Enums.SyncStatus
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  commentId: T:NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html
+  name: ArticleStatus
+  nameWithType: ArticleStatus
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.FeedHealthStatus
+  commentId: T:NeonSuit.RSSReader.Core.Enums.FeedHealthStatus
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.FeedHealthStatus.html
+  name: FeedHealthStatus
+  nameWithType: FeedHealthStatus
+  fullName: NeonSuit.RSSReader.Core.Enums.FeedHealthStatus
+- uid: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  commentId: T:NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.html
+  name: FeedUpdateFrequency
+  nameWithType: FeedUpdateFrequency
+  fullName: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+- uid: NeonSuit.RSSReader.Core.Enums.LogicalOperator
+  commentId: T:NeonSuit.RSSReader.Core.Enums.LogicalOperator
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.LogicalOperator.html
+  name: LogicalOperator
+  nameWithType: LogicalOperator
+  fullName: NeonSuit.RSSReader.Core.Enums.LogicalOperator
+- uid: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  commentId: T:NeonSuit.RSSReader.Core.Enums.ModuleStatus
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.ModuleStatus.html
+  name: ModuleStatus
+  nameWithType: ModuleStatus
+  fullName: NeonSuit.RSSReader.Core.Enums.ModuleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationAction
+  commentId: T:NeonSuit.RSSReader.Core.Enums.NotificationAction
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.NotificationAction.html
+  name: NotificationAction
+  nameWithType: NotificationAction
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationAction
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  commentId: T:NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.NotificationPriority.html
+  name: NotificationPriority
+  nameWithType: NotificationPriority
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationType
+  commentId: T:NeonSuit.RSSReader.Core.Enums.NotificationType
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.NotificationType.html
+  name: NotificationType
+  nameWithType: NotificationType
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleActionType
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleActionType
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.RuleActionType.html
+  name: RuleActionType
+  nameWithType: RuleActionType
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleActionType
+- uid: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget.html
+  name: RuleFieldTarget
+  nameWithType: RuleFieldTarget
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleFieldTarget
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleOperator
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html
+  name: RuleOperator
+  nameWithType: RuleOperator
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleScope
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleScope
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.RuleScope.html
+  name: RuleScope
+  nameWithType: RuleScope
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleScope
+- uid: NeonSuit.RSSReader.Core.Enums.SyncStatus
+  commentId: T:NeonSuit.RSSReader.Core.Enums.SyncStatus
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.SyncStatus.html
+  name: SyncStatus
+  nameWithType: SyncStatus
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncStatus
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  commentId: T:NeonSuit.RSSReader.Core.Enums.SyncTaskType
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.SyncTaskType.html
+  name: SyncTaskType
+  nameWithType: SyncTaskType
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskType
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  commentId: T:NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.html
+  name: SyncTaskStatus
+  nameWithType: SyncTaskStatus
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+- uid: NeonSuit.RSSReader.Core.Enums.SyncPriority
+  commentId: T:NeonSuit.RSSReader.Core.Enums.SyncPriority
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.SyncPriority.html
+  name: SyncPriority
+  nameWithType: SyncPriority
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncPriority
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html

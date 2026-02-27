@@ -1,0 +1,360 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  commentId: T:NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  id: FeedUpdateFrequency
+  parent: NeonSuit.RSSReader.Core.Enums
+  children:
+  - NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Daily
+  - NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every12Hours
+  - NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every15Minutes
+  - NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every30Minutes
+  - NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every3Hours
+  - NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every6Hours
+  - NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.EveryHour
+  - NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Manual
+  langs:
+  - csharp
+  - vb
+  name: FeedUpdateFrequency
+  nameWithType: FeedUpdateFrequency
+  fullName: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FeedUpdateFrequency
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+    startLine: 34
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Defines the refresh interval options for automatic background polling of RSS/Atom feeds.
+  remarks: >-
+    <p>
+
+    This enumeration controls how frequently the system attempts to fetch new content from each subscribed feed
+
+    when automatic updates are enabled (i.e., the feed is not in Paused, Error, or Invalid state).
+
+    </p>
+
+
+    <p>
+
+    Key behaviors and system impacts:
+
+    </p>
+
+    <ul><li>Determines the minimum time (in minutes) between two consecutive refresh attempts for a feed.</li><li>Directly affects battery usage, data consumption, server load, and perceived freshness of content.</li><li>Used by the background scheduler/refresh queue to calculate next poll time.</li><li>Can be overridden per-feed or globally via user settings.</li><li>More frequent intervals (15–60 min) are suitable for news-heavy or real-time feeds; longer intervals reduce resource usage.</li></ul>
+
+
+    <p>
+
+    Business rules and recommendations:
+
+    </p>
+
+    <ul><li><xref href="NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Manual" data-throw-if-not-resolved="false"></xref> disables all automatic polling — refreshes occur only when the user explicitly triggers them.</li><li>Values represent minutes between refreshes (except <xref href="NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Manual" data-throw-if-not-resolved="false"></xref> which is a special case).</li><li>The actual polling time may be slightly delayed due to device sleep, network conditions, or queue prioritization.</li><li>Very frequent polling (Every15Minutes) should be discouraged or limited to a small number of feeds to avoid rate-limiting by feed hosts and excessive battery drain.</li><li>Default recommendation for most users: EveryHour or Every3Hours balances freshness and efficiency.</li><li>Feeds in Warning or Error states may have their effective frequency temporarily reduced regardless of this setting.</li></ul>
+  example: []
+  syntax:
+    content: public enum FeedUpdateFrequency
+    content.vb: Public Enum FeedUpdateFrequency
+- uid: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Manual
+  commentId: F:NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Manual
+  id: Manual
+  parent: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  langs:
+  - csharp
+  - vb
+  name: Manual
+  nameWithType: FeedUpdateFrequency.Manual
+  fullName: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Manual
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Manual
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+    startLine: 47
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: No automatic polling is performed. Updates occur only when manually triggered by the user.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Feed is excluded from all background refresh schedules.</li><li>Conserves maximum resources (battery, data, network).</li><li>Useful for rarely updated feeds, metered connections, or power-saving mode.</li></ul>
+  example: []
+  syntax:
+    content: Manual = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+- uid: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every15Minutes
+  commentId: F:NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every15Minutes
+  id: Every15Minutes
+  parent: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  langs:
+  - csharp
+  - vb
+  name: Every15Minutes
+  nameWithType: FeedUpdateFrequency.Every15Minutes
+  fullName: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every15Minutes
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Every15Minutes
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+    startLine: 56
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Attempt refresh approximately every 15 minutes.
+  remarks: >-
+    High-frequency option. Suitable only for critical real-time feeds.
+
+    May trigger rate limits or increased battery/data usage.
+  example: []
+  syntax:
+    content: Every15Minutes = 15
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+- uid: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every30Minutes
+  commentId: F:NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every30Minutes
+  id: Every30Minutes
+  parent: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  langs:
+  - csharp
+  - vb
+  name: Every30Minutes
+  nameWithType: FeedUpdateFrequency.Every30Minutes
+  fullName: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every30Minutes
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Every30Minutes
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+    startLine: 64
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Attempt refresh approximately every 30 minutes.
+  remarks: Balanced option for feeds that update several times per day (news, blogs with frequent posts).
+  example: []
+  syntax:
+    content: Every30Minutes = 30
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+- uid: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.EveryHour
+  commentId: F:NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.EveryHour
+  id: EveryHour
+  parent: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  langs:
+  - csharp
+  - vb
+  name: EveryHour
+  nameWithType: FeedUpdateFrequency.EveryHour
+  fullName: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.EveryHour
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EveryHour
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+    startLine: 73
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Attempt refresh approximately every 60 minutes (hourly).
+  remarks: >-
+    Common default for general news and blog feeds.
+
+    Good balance between freshness and resource consumption.
+  example: []
+  syntax:
+    content: EveryHour = 60
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+- uid: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every3Hours
+  commentId: F:NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every3Hours
+  id: Every3Hours
+  parent: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  langs:
+  - csharp
+  - vb
+  name: Every3Hours
+  nameWithType: FeedUpdateFrequency.Every3Hours
+  fullName: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every3Hours
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Every3Hours
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+    startLine: 82
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Attempt refresh approximately every 3 hours.
+  remarks: >-
+    Recommended for most users and moderately active feeds.
+
+    Significantly reduces background activity.
+  example: []
+  syntax:
+    content: Every3Hours = 180
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+- uid: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every6Hours
+  commentId: F:NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every6Hours
+  id: Every6Hours
+  parent: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  langs:
+  - csharp
+  - vb
+  name: Every6Hours
+  nameWithType: FeedUpdateFrequency.Every6Hours
+  fullName: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every6Hours
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Every6Hours
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+    startLine: 90
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Attempt refresh approximately every 6 hours.
+  remarks: Suitable for feeds that update infrequently (daily digests, weekly publications).
+  example: []
+  syntax:
+    content: Every6Hours = 360
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+- uid: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every12Hours
+  commentId: F:NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every12Hours
+  id: Every12Hours
+  parent: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  langs:
+  - csharp
+  - vb
+  name: Every12Hours
+  nameWithType: FeedUpdateFrequency.Every12Hours
+  fullName: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Every12Hours
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Every12Hours
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+    startLine: 98
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Attempt refresh approximately every 12 hours.
+  remarks: Very conservative polling. Ideal for low-update-frequency sources or strict power-saving scenarios.
+  example: []
+  syntax:
+    content: Every12Hours = 720
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+- uid: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Daily
+  commentId: F:NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Daily
+  id: Daily
+  parent: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  langs:
+  - csharp
+  - vb
+  name: Daily
+  nameWithType: FeedUpdateFrequency.Daily
+  fullName: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Daily
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Daily
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/FeedUpdateFrequency.cs
+    startLine: 106
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Attempt refresh approximately once per day (every 1440 minutes).
+  remarks: Minimal polling frequency. Best for archival feeds, podcasts, or extremely low-activity sources.
+  example: []
+  syntax:
+    content: Daily = 1440
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+references:
+- uid: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Manual
+  commentId: F:NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Manual
+  href: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.html#NeonSuit_RSSReader_Core_Enums_FeedUpdateFrequency_Manual
+  name: Manual
+  nameWithType: FeedUpdateFrequency.Manual
+  fullName: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.Manual
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  commentId: T:NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency.html
+  name: FeedUpdateFrequency
+  nameWithType: FeedUpdateFrequency
+  fullName: NeonSuit.RSSReader.Core.Enums.FeedUpdateFrequency

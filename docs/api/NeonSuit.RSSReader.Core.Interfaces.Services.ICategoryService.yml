@@ -1,0 +1,1256 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  id: ICategoryService
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CategoryExistsByNameAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CreateCategoryAsync(NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.DeleteCategoryAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesWithFeedsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryByIdAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryTreeAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryWithFeedsAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetFeedCountsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetOrCreateCategoryAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetUnreadCountsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.ReorderCategoriesAsync(NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.UpdateCategoryAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ICategoryService
+  nameWithType: ICategoryService
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ICategoryService
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 29
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Service interface for managing category-related business logic and operations.
+
+    Acts as an abstraction layer between UI/presentation and data repositories,
+
+    coordinating hierarchical category management, feed organization, and optimized statistics.
+  remarks: >-
+    <p>
+
+    This service centralizes all category-related use cases in the RSS reader application,
+
+    ensuring consistent business rules, validation, and transaction boundaries.
+
+    All methods return DTOs instead of entities to maintain separation of concerns.
+
+    </p>
+
+    <p>
+
+    Implementations must ensure:
+
+    <ul><li>All read operations are efficient and memory-safe (pagination, server-side filtering).</li><li>Category operations maintain hierarchical integrity and referential integrity with feeds.</li><li>Statistics are cached or computed efficiently to avoid N+1 queries.</li><li>All operations support cancellation via <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: public interface ICategoryService
+    content.vb: Public Interface ICategoryService
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesAsync(System.Threading.CancellationToken)
+  id: GetAllCategoriesAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  langs:
+  - csharp
+  - vb
+  name: GetAllCategoriesAsync(CancellationToken)
+  nameWithType: ICategoryService.GetAllCategoriesAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetAllCategoriesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 39
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all categories with their feed and unread counts populated.
+  example: []
+  syntax:
+    content: Task<List<CategoryDto>> GetAllCategoriesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto}}
+      description: A list of all categories with calculated statistics.
+    content.vb: Function GetAllCategoriesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of CategoryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryByIdAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryByIdAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetCategoryByIdAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  langs:
+  - csharp
+  - vb
+  name: GetCategoryByIdAsync(int, CancellationToken)
+  nameWithType: ICategoryService.GetCategoryByIdAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryByIdAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetCategoryByIdAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 49
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves a specific category by ID with populated feed and unread counts.
+  example: []
+  syntax:
+    content: Task<CategoryDto?> GetCategoryByIdAsync(int categoryId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: categoryId
+      type: System.Int32
+      description: The unique identifier of the category.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto}
+      description: The category DTO with statistics or null if not found.
+    content.vb: Function GetCategoryByIdAsync(categoryId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of CategoryDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryByIdAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">categoryId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ICategoryService.GetCategoryByIdAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryByIdAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetCategoryByIdAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryTreeAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryTreeAsync(System.Threading.CancellationToken)
+  id: GetCategoryTreeAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  langs:
+  - csharp
+  - vb
+  name: GetCategoryTreeAsync(CancellationToken)
+  nameWithType: ICategoryService.GetCategoryTreeAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryTreeAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetCategoryTreeAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 61
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Builds a complete category tree with hierarchical structure.
+  remarks: >-
+    This method recursively builds the category hierarchy. Implementations should optimize
+
+    to avoid multiple database round-trips and minimize memory allocation for deep hierarchies.
+  example: []
+  syntax:
+    content: Task<List<CategoryTreeDto>> GetCategoryTreeAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto}}
+      description: Hierarchical tree of categories with populated children collections.
+    content.vb: Function GetCategoryTreeAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of CategoryTreeDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryTreeAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesWithFeedsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesWithFeedsAsync(System.Threading.CancellationToken)
+  id: GetAllCategoriesWithFeedsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  langs:
+  - csharp
+  - vb
+  name: GetAllCategoriesWithFeedsAsync(CancellationToken)
+  nameWithType: ICategoryService.GetAllCategoriesWithFeedsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesWithFeedsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetAllCategoriesWithFeedsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 74
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Retrieves all categories with their associated feeds fully populated.
+
+    Optimized for scenarios requiring complete category-feed relationships.
+  remarks: >-
+    Use with caution as this loads all categories and their feeds into memory.
+
+    Consider pagination or lazy loading for large datasets on low-resource machines.
+  example: []
+  syntax:
+    content: Task<List<CategoryDto>> GetAllCategoriesWithFeedsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto}}
+      description: A list of categories with populated feed collections.
+    content.vb: Function GetAllCategoriesWithFeedsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of CategoryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesWithFeedsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryWithFeedsAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryWithFeedsAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetCategoryWithFeedsAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  langs:
+  - csharp
+  - vb
+  name: GetCategoryWithFeedsAsync(int, CancellationToken)
+  nameWithType: ICategoryService.GetCategoryWithFeedsAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryWithFeedsAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetCategoryWithFeedsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 84
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves a specific category with its associated feeds fully populated.
+  example: []
+  syntax:
+    content: Task<CategoryDto?> GetCategoryWithFeedsAsync(int categoryId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: categoryId
+      type: System.Int32
+      description: The ID of the category to retrieve.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto}
+      description: The category with populated feed collection or null if not found.
+    content.vb: Function GetCategoryWithFeedsAsync(categoryId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of CategoryDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryWithFeedsAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">categoryId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ICategoryService.GetCategoryWithFeedsAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryWithFeedsAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetCategoryWithFeedsAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CreateCategoryAsync(NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CreateCategoryAsync(NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto,System.Threading.CancellationToken)
+  id: CreateCategoryAsync(NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  langs:
+  - csharp
+  - vb
+  name: CreateCategoryAsync(CreateCategoryDto, CancellationToken)
+  nameWithType: ICategoryService.CreateCategoryAsync(CreateCategoryDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CreateCategoryAsync(NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CreateCategoryAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 100
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Creates a new category with automatic sort order assignment.
+  example: []
+  syntax:
+    content: Task<CategoryDto> CreateCategoryAsync(CreateCategoryDto createDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: createDto
+      type: NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto
+      description: The DTO containing category creation data.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto}
+      description: The newly created category DTO with generated ID and sort order.
+    content.vb: Function CreateCategoryAsync(createDto As CreateCategoryDto, cancellationToken As CancellationToken = Nothing) As Task(Of CategoryDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CreateCategoryAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">createDto</code> is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">createDto</code> has invalid data.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if a category with the same name already exists.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.UpdateCategoryAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.UpdateCategoryAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto,System.Threading.CancellationToken)
+  id: UpdateCategoryAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  langs:
+  - csharp
+  - vb
+  name: UpdateCategoryAsync(int, UpdateCategoryDto, CancellationToken)
+  nameWithType: ICategoryService.UpdateCategoryAsync(int, UpdateCategoryDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.UpdateCategoryAsync(int, NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateCategoryAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 113
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Updates an existing category.
+  example: []
+  syntax:
+    content: Task<CategoryDto?> UpdateCategoryAsync(int categoryId, UpdateCategoryDto updateDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: categoryId
+      type: System.Int32
+      description: The ID of the category to update.
+    - id: updateDto
+      type: NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto
+      description: The DTO containing updated category data.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto}
+      description: The updated category DTO or null if category not found.
+    content.vb: Function UpdateCategoryAsync(categoryId As Integer, updateDto As UpdateCategoryDto, cancellationToken As CancellationToken = Nothing) As Task(Of CategoryDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.UpdateCategoryAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">updateDto</code> is null.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">categoryId</code> is less than or equal to 0.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if another category with the same name already exists.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ICategoryService.UpdateCategoryAsync(Integer, UpdateCategoryDto, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.UpdateCategoryAsync(Integer, NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto, System.Threading.CancellationToken)
+  name.vb: UpdateCategoryAsync(Integer, UpdateCategoryDto, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.DeleteCategoryAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.DeleteCategoryAsync(System.Int32,System.Threading.CancellationToken)
+  id: DeleteCategoryAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  langs:
+  - csharp
+  - vb
+  name: DeleteCategoryAsync(int, CancellationToken)
+  nameWithType: ICategoryService.DeleteCategoryAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.DeleteCategoryAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DeleteCategoryAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 124
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Deletes a category by its ID.
+  example: []
+  syntax:
+    content: Task<bool> DeleteCategoryAsync(int categoryId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: categoryId
+      type: System.Int32
+      description: The ID of the category to delete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if deletion was successful; otherwise false (e.g., category not found).
+    content.vb: Function DeleteCategoryAsync(categoryId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.DeleteCategoryAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">categoryId</code> is less than or equal to 0.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the category contains feeds and deletion is not allowed.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ICategoryService.DeleteCategoryAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.DeleteCategoryAsync(Integer, System.Threading.CancellationToken)
+  name.vb: DeleteCategoryAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.ReorderCategoriesAsync(NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.ReorderCategoriesAsync(NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto,System.Threading.CancellationToken)
+  id: ReorderCategoriesAsync(NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  langs:
+  - csharp
+  - vb
+  name: ReorderCategoriesAsync(ReorderCategoriesDto, CancellationToken)
+  nameWithType: ICategoryService.ReorderCategoriesAsync(ReorderCategoriesDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.ReorderCategoriesAsync(NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ReorderCategoriesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 136
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Reorders categories based on the provided list of IDs.
+  example: []
+  syntax:
+    content: Task<bool> ReorderCategoriesAsync(ReorderCategoriesDto reorderDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: reorderDto
+      type: NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto
+      description: The DTO containing reordering information.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if reordering was successful; otherwise false.
+    content.vb: Function ReorderCategoriesAsync(reorderDto As ReorderCategoriesDto, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.ReorderCategoriesAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">reorderDto</code> is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if the category ID list is empty or contains duplicates.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if any category ID in the list does not exist.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetOrCreateCategoryAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetOrCreateCategoryAsync(System.String,System.Threading.CancellationToken)
+  id: GetOrCreateCategoryAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  langs:
+  - csharp
+  - vb
+  name: GetOrCreateCategoryAsync(string, CancellationToken)
+  nameWithType: ICategoryService.GetOrCreateCategoryAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetOrCreateCategoryAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetOrCreateCategoryAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 147
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Gets or creates a category by name. If the category doesn't exist, 
+
+    it will be created with default values.
+  example: []
+  syntax:
+    content: Task<CategoryDto> GetOrCreateCategoryAsync(string name, CancellationToken cancellationToken = default)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the category to find or create.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto}
+      description: The existing or newly created category DTO.
+    content.vb: Function GetOrCreateCategoryAsync(name As String, cancellationToken As CancellationToken = Nothing) As Task(Of CategoryDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetOrCreateCategoryAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">name</code> is null, empty, or whitespace.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ICategoryService.GetOrCreateCategoryAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetOrCreateCategoryAsync(String, System.Threading.CancellationToken)
+  name.vb: GetOrCreateCategoryAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetFeedCountsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetFeedCountsAsync(System.Threading.CancellationToken)
+  id: GetFeedCountsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  langs:
+  - csharp
+  - vb
+  name: GetFeedCountsAsync(CancellationToken)
+  nameWithType: ICategoryService.GetFeedCountsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetFeedCountsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetFeedCountsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 159
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets feed counts grouped by category ID.
+  example: []
+  syntax:
+    content: Task<Dictionary<int, int>> GetFeedCountsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+      description: A dictionary mapping CategoryId to feed count.
+    content.vb: Function GetFeedCountsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Dictionary(Of Integer, Integer))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetFeedCountsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetUnreadCountsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetUnreadCountsAsync(System.Threading.CancellationToken)
+  id: GetUnreadCountsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  langs:
+  - csharp
+  - vb
+  name: GetUnreadCountsAsync(CancellationToken)
+  nameWithType: ICategoryService.GetUnreadCountsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetUnreadCountsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetUnreadCountsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 167
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets unread article counts grouped by category ID.
+  example: []
+  syntax:
+    content: Task<Dictionary<int, int>> GetUnreadCountsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+      description: A dictionary mapping CategoryId to unread article count.
+    content.vb: Function GetUnreadCountsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Dictionary(Of Integer, Integer))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetUnreadCountsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CategoryExistsByNameAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CategoryExistsByNameAsync(System.String,System.Threading.CancellationToken)
+  id: CategoryExistsByNameAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService
+  langs:
+  - csharp
+  - vb
+  name: CategoryExistsByNameAsync(string, CancellationToken)
+  nameWithType: ICategoryService.CategoryExistsByNameAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CategoryExistsByNameAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CategoryExistsByNameAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ICategoryService.cs
+    startLine: 181
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Checks if a category with the specified name already exists.
+  example: []
+  syntax:
+    content: Task<bool> CategoryExistsByNameAsync(string name, CancellationToken cancellationToken = default)
+    parameters:
+    - id: name
+      type: System.String
+      description: The category name to check.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if a category with this name exists; otherwise false.
+    content.vb: Function CategoryExistsByNameAsync(name As String, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CategoryExistsByNameAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">name</code> is null, empty, or whitespace.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ICategoryService.CategoryExistsByNameAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CategoryExistsByNameAsync(String, System.Threading.CancellationToken)
+  name.vb: CategoryExistsByNameAsync(String, CancellationToken)
+references:
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Services
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Services
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Services
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.OperationCanceledException
+  commentId: T:System.OperationCanceledException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.operationcanceledexception
+  name: OperationCanceledException
+  nameWithType: OperationCanceledException
+  fullName: System.OperationCanceledException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetAllCategoriesAsync_System_Threading_CancellationToken_
+  name: GetAllCategoriesAsync
+  nameWithType: ICategoryService.GetAllCategoriesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<CategoryDto>>
+  nameWithType: Task<List<CategoryDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto>>
+  nameWithType.vb: Task(Of List(Of CategoryDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto))
+  name.vb: Task(Of List(Of CategoryDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+    name: CategoryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+    name: CategoryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryByIdAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryByIdAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetCategoryByIdAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetCategoryByIdAsync
+  nameWithType: ICategoryService.GetCategoryByIdAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryByIdAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<CategoryDto>
+  nameWithType: Task<CategoryDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto>
+  nameWithType.vb: Task(Of CategoryDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto)
+  name.vb: Task(Of CategoryDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+    name: CategoryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+    name: CategoryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryTreeAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryTreeAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetCategoryTreeAsync_System_Threading_CancellationToken_
+  name: GetCategoryTreeAsync
+  nameWithType: ICategoryService.GetCategoryTreeAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryTreeAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<CategoryTreeDto>>
+  nameWithType: Task<List<CategoryTreeDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto>>
+  nameWithType.vb: Task(Of List(Of CategoryTreeDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto))
+  name.vb: Task(Of List(Of CategoryTreeDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto
+    name: CategoryTreeDto
+    href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto
+    name: CategoryTreeDto
+    href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesWithFeedsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesWithFeedsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetAllCategoriesWithFeedsAsync_System_Threading_CancellationToken_
+  name: GetAllCategoriesWithFeedsAsync
+  nameWithType: ICategoryService.GetAllCategoriesWithFeedsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetAllCategoriesWithFeedsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryWithFeedsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryWithFeedsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetCategoryWithFeedsAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetCategoryWithFeedsAsync
+  nameWithType: ICategoryService.GetCategoryWithFeedsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetCategoryWithFeedsAsync
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CreateCategoryAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CreateCategoryAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_CreateCategoryAsync_NeonSuit_RSSReader_Core_DTOs_Categories_CreateCategoryDto_System_Threading_CancellationToken_
+  name: CreateCategoryAsync
+  nameWithType: ICategoryService.CreateCategoryAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CreateCategoryAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto.html
+  name: CreateCategoryDto
+  nameWithType: CreateCategoryDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Categories
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Categories
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Categories
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories
+    name: Categories
+    href: NeonSuit.RSSReader.Core.DTOs.Categories.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories
+    name: Categories
+    href: NeonSuit.RSSReader.Core.DTOs.Categories.html
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.UpdateCategoryAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.UpdateCategoryAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_UpdateCategoryAsync_System_Int32_NeonSuit_RSSReader_Core_DTOs_Categories_UpdateCategoryDto_System_Threading_CancellationToken_
+  name: UpdateCategoryAsync
+  nameWithType: ICategoryService.UpdateCategoryAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.UpdateCategoryAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto.html
+  name: UpdateCategoryDto
+  nameWithType: UpdateCategoryDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.DeleteCategoryAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.DeleteCategoryAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_DeleteCategoryAsync_System_Int32_System_Threading_CancellationToken_
+  name: DeleteCategoryAsync
+  nameWithType: ICategoryService.DeleteCategoryAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.DeleteCategoryAsync
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.ReorderCategoriesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.ReorderCategoriesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_ReorderCategoriesAsync_NeonSuit_RSSReader_Core_DTOs_Categories_ReorderCategoriesDto_System_Threading_CancellationToken_
+  name: ReorderCategoriesAsync
+  nameWithType: ICategoryService.ReorderCategoriesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.ReorderCategoriesAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto.html
+  name: ReorderCategoriesDto
+  nameWithType: ReorderCategoriesDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetOrCreateCategoryAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetOrCreateCategoryAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetOrCreateCategoryAsync_System_String_System_Threading_CancellationToken_
+  name: GetOrCreateCategoryAsync
+  nameWithType: ICategoryService.GetOrCreateCategoryAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetOrCreateCategoryAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetFeedCountsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetFeedCountsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetFeedCountsAsync_System_Threading_CancellationToken_
+  name: GetFeedCountsAsync
+  nameWithType: ICategoryService.GetFeedCountsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetFeedCountsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Dictionary<int, int>>
+  nameWithType: Task<Dictionary<int, int>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, int>>
+  nameWithType.vb: Task(Of Dictionary(Of Integer, Integer))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.Dictionary(Of Integer, Integer))
+  name.vb: Task(Of Dictionary(Of Integer, Integer))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetUnreadCountsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetUnreadCountsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_GetUnreadCountsAsync_System_Threading_CancellationToken_
+  name: GetUnreadCountsAsync
+  nameWithType: ICategoryService.GetUnreadCountsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.GetUnreadCountsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CategoryExistsByNameAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CategoryExistsByNameAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ICategoryService_CategoryExistsByNameAsync_System_String_System_Threading_CancellationToken_
+  name: CategoryExistsByNameAsync
+  nameWithType: ICategoryService.CategoryExistsByNameAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.CategoryExistsByNameAsync

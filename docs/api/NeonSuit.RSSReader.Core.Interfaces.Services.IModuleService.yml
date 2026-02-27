@@ -1,0 +1,1340 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  id: IModuleService
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.AreDependenciesResolvedAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetAllModulesAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigSchemaAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModulesByStatusAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetUnresolvedDependenciesAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModuleAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModulesFromDirectoryAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.OnModuleLoaded
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.OnModuleStatusChanged
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.OnModuleUnloaded
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.RestartModuleAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StartModuleAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StopModuleAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UnloadModuleAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UpdateModuleConfigAsync(NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IModuleService
+  nameWithType: IModuleService
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IModuleService
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 11
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Service interface for managing plugable modules.
+  example: []
+  syntax:
+    content: public interface IModuleService
+    content.vb: Public Interface IModuleService
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.OnModuleLoaded
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.OnModuleLoaded
+  id: OnModuleLoaded
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: OnModuleLoaded
+  nameWithType: IModuleService.OnModuleLoaded
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.OnModuleLoaded
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnModuleLoaded
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 18
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Raised when a module is loaded.
+  example: []
+  syntax:
+    content: event EventHandler<ModuleInfoDto> OnModuleLoaded
+    return:
+      type: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto}
+    content.vb: Event OnModuleLoaded As EventHandler(Of ModuleInfoDto)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.OnModuleUnloaded
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.OnModuleUnloaded
+  id: OnModuleUnloaded
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: OnModuleUnloaded
+  nameWithType: IModuleService.OnModuleUnloaded
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.OnModuleUnloaded
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnModuleUnloaded
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 23
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Raised when a module is unloaded.
+  example: []
+  syntax:
+    content: event EventHandler<ModuleInfoDto> OnModuleUnloaded
+    return:
+      type: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto}
+    content.vb: Event OnModuleUnloaded As EventHandler(Of ModuleInfoDto)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.OnModuleStatusChanged
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.OnModuleStatusChanged
+  id: OnModuleStatusChanged
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: OnModuleStatusChanged
+  nameWithType: IModuleService.OnModuleStatusChanged
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.OnModuleStatusChanged
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnModuleStatusChanged
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 28
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Raised when a module status changes.
+  example: []
+  syntax:
+    content: event EventHandler<ModuleInfoDto> OnModuleStatusChanged
+    return:
+      type: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto}
+    content.vb: Event OnModuleStatusChanged As EventHandler(Of ModuleInfoDto)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModulesFromDirectoryAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModulesFromDirectoryAsync(System.String,System.Threading.CancellationToken)
+  id: LoadModulesFromDirectoryAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: LoadModulesFromDirectoryAsync(string, CancellationToken)
+  nameWithType: IModuleService.LoadModulesFromDirectoryAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModulesFromDirectoryAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LoadModulesFromDirectoryAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 39
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Scans a directory for modules and loads them.
+  example: []
+  syntax:
+    content: Task LoadModulesFromDirectoryAsync(string directory, CancellationToken cancellationToken = default)
+    parameters:
+    - id: directory
+      type: System.String
+      description: Directory to scan.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function LoadModulesFromDirectoryAsync(directory As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModulesFromDirectoryAsync*
+  nameWithType.vb: IModuleService.LoadModulesFromDirectoryAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModulesFromDirectoryAsync(String, System.Threading.CancellationToken)
+  name.vb: LoadModulesFromDirectoryAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModuleAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModuleAsync(System.String,System.Threading.CancellationToken)
+  id: LoadModuleAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: LoadModuleAsync(string, CancellationToken)
+  nameWithType: IModuleService.LoadModuleAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModuleAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LoadModuleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 46
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Loads a module from an assembly file.
+  example: []
+  syntax:
+    content: Task<ModuleInfoDto> LoadModuleAsync(string assemblyPath, CancellationToken cancellationToken = default)
+    parameters:
+    - id: assemblyPath
+      type: System.String
+      description: Path to the assembly.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto}
+    content.vb: Function LoadModuleAsync(assemblyPath As String, cancellationToken As CancellationToken = Nothing) As Task(Of ModuleInfoDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModuleAsync*
+  nameWithType.vb: IModuleService.LoadModuleAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModuleAsync(String, System.Threading.CancellationToken)
+  name.vb: LoadModuleAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UnloadModuleAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UnloadModuleAsync(System.String,System.Threading.CancellationToken)
+  id: UnloadModuleAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: UnloadModuleAsync(string, CancellationToken)
+  nameWithType: IModuleService.UnloadModuleAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UnloadModuleAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UnloadModuleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 53
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Unloads a module.
+  example: []
+  syntax:
+    content: Task<ModuleActionResultDto> UnloadModuleAsync(string moduleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: moduleId
+      type: System.String
+      description: Module ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto}
+    content.vb: Function UnloadModuleAsync(moduleId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ModuleActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UnloadModuleAsync*
+  nameWithType.vb: IModuleService.UnloadModuleAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UnloadModuleAsync(String, System.Threading.CancellationToken)
+  name.vb: UnloadModuleAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetAllModulesAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetAllModulesAsync(System.Threading.CancellationToken)
+  id: GetAllModulesAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: GetAllModulesAsync(CancellationToken)
+  nameWithType: IModuleService.GetAllModulesAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetAllModulesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetAllModulesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 62
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets all loaded modules.
+  example: []
+  syntax:
+    content: Task<List<ModuleInfoDto>> GetAllModulesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto}}
+    content.vb: Function GetAllModulesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ModuleInfoDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetAllModulesAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleAsync(System.String,System.Threading.CancellationToken)
+  id: GetModuleAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: GetModuleAsync(string, CancellationToken)
+  nameWithType: IModuleService.GetModuleAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetModuleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 67
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets a specific module by ID.
+  example: []
+  syntax:
+    content: Task<ModuleInfoDto?> GetModuleAsync(string moduleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: moduleId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto}
+    content.vb: Function GetModuleAsync(moduleId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ModuleInfoDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleAsync*
+  nameWithType.vb: IModuleService.GetModuleAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleAsync(String, System.Threading.CancellationToken)
+  name.vb: GetModuleAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StartModuleAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StartModuleAsync(System.String,System.Threading.CancellationToken)
+  id: StartModuleAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: StartModuleAsync(string, CancellationToken)
+  nameWithType: IModuleService.StartModuleAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StartModuleAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: StartModuleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 74
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Starts a module.
+  example: []
+  syntax:
+    content: Task<ModuleActionResultDto> StartModuleAsync(string moduleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: moduleId
+      type: System.String
+      description: Module ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto}
+    content.vb: Function StartModuleAsync(moduleId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ModuleActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StartModuleAsync*
+  nameWithType.vb: IModuleService.StartModuleAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StartModuleAsync(String, System.Threading.CancellationToken)
+  name.vb: StartModuleAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StopModuleAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StopModuleAsync(System.String,System.Threading.CancellationToken)
+  id: StopModuleAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: StopModuleAsync(string, CancellationToken)
+  nameWithType: IModuleService.StopModuleAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StopModuleAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: StopModuleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 81
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Stops a module.
+  example: []
+  syntax:
+    content: Task<ModuleActionResultDto> StopModuleAsync(string moduleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: moduleId
+      type: System.String
+      description: Module ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto}
+    content.vb: Function StopModuleAsync(moduleId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ModuleActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StopModuleAsync*
+  nameWithType.vb: IModuleService.StopModuleAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StopModuleAsync(String, System.Threading.CancellationToken)
+  name.vb: StopModuleAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.RestartModuleAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.RestartModuleAsync(System.String,System.Threading.CancellationToken)
+  id: RestartModuleAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: RestartModuleAsync(string, CancellationToken)
+  nameWithType: IModuleService.RestartModuleAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.RestartModuleAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RestartModuleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 88
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Restarts a module.
+  example: []
+  syntax:
+    content: Task<ModuleActionResultDto> RestartModuleAsync(string moduleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: moduleId
+      type: System.String
+      description: Module ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto}
+    content.vb: Function RestartModuleAsync(moduleId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ModuleActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.RestartModuleAsync*
+  nameWithType.vb: IModuleService.RestartModuleAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.RestartModuleAsync(String, System.Threading.CancellationToken)
+  name.vb: RestartModuleAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModulesByStatusAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModulesByStatusAsync(System.String,System.Threading.CancellationToken)
+  id: GetModulesByStatusAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: GetModulesByStatusAsync(string, CancellationToken)
+  nameWithType: IModuleService.GetModulesByStatusAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModulesByStatusAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetModulesByStatusAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 93
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets modules by status.
+  example: []
+  syntax:
+    content: Task<List<ModuleInfoDto>> GetModulesByStatusAsync(string status, CancellationToken cancellationToken = default)
+    parameters:
+    - id: status
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto}}
+    content.vb: Function GetModulesByStatusAsync(status As String, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of ModuleInfoDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModulesByStatusAsync*
+  nameWithType.vb: IModuleService.GetModulesByStatusAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModulesByStatusAsync(String, System.Threading.CancellationToken)
+  name.vb: GetModulesByStatusAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigSchemaAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigSchemaAsync(System.String,System.Threading.CancellationToken)
+  id: GetModuleConfigSchemaAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: GetModuleConfigSchemaAsync(string, CancellationToken)
+  nameWithType: IModuleService.GetModuleConfigSchemaAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigSchemaAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetModuleConfigSchemaAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 104
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets module configuration schema.
+  example: []
+  syntax:
+    content: Task<ModuleConfigSchemaDto?> GetModuleConfigSchemaAsync(string moduleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: moduleId
+      type: System.String
+      description: Module ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto}
+    content.vb: Function GetModuleConfigSchemaAsync(moduleId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ModuleConfigSchemaDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigSchemaAsync*
+  nameWithType.vb: IModuleService.GetModuleConfigSchemaAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigSchemaAsync(String, System.Threading.CancellationToken)
+  name.vb: GetModuleConfigSchemaAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigAsync(System.String,System.Threading.CancellationToken)
+  id: GetModuleConfigAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: GetModuleConfigAsync(string, CancellationToken)
+  nameWithType: IModuleService.GetModuleConfigAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetModuleConfigAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 111
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets module configuration.
+  example: []
+  syntax:
+    content: Task<Dictionary<string, object>?> GetModuleConfigAsync(string moduleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: moduleId
+      type: System.String
+      description: Module ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.String,System.Object}}
+    content.vb: Function GetModuleConfigAsync(moduleId As String, cancellationToken As CancellationToken = Nothing) As Task(Of Dictionary(Of String, Object))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigAsync*
+  nameWithType.vb: IModuleService.GetModuleConfigAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigAsync(String, System.Threading.CancellationToken)
+  name.vb: GetModuleConfigAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UpdateModuleConfigAsync(NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UpdateModuleConfigAsync(NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto,System.Threading.CancellationToken)
+  id: UpdateModuleConfigAsync(NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: UpdateModuleConfigAsync(UpdateModuleConfigDto, CancellationToken)
+  nameWithType: IModuleService.UpdateModuleConfigAsync(UpdateModuleConfigDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UpdateModuleConfigAsync(NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateModuleConfigAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 118
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Updates module configuration.
+  example: []
+  syntax:
+    content: Task<ModuleActionResultDto> UpdateModuleConfigAsync(UpdateModuleConfigDto updateDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: updateDto
+      type: NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto
+      description: Update DTO.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto}
+    content.vb: Function UpdateModuleConfigAsync(updateDto As UpdateModuleConfigDto, cancellationToken As CancellationToken = Nothing) As Task(Of ModuleActionResultDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UpdateModuleConfigAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetUnresolvedDependenciesAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetUnresolvedDependenciesAsync(System.String,System.Threading.CancellationToken)
+  id: GetUnresolvedDependenciesAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: GetUnresolvedDependenciesAsync(string, CancellationToken)
+  nameWithType: IModuleService.GetUnresolvedDependenciesAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetUnresolvedDependenciesAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetUnresolvedDependenciesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 129
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Resolves module dependencies.
+  example: []
+  syntax:
+    content: Task<List<string>> GetUnresolvedDependenciesAsync(string moduleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: moduleId
+      type: System.String
+      description: Module ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{System.String}}
+    content.vb: Function GetUnresolvedDependenciesAsync(moduleId As String, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of String))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetUnresolvedDependenciesAsync*
+  nameWithType.vb: IModuleService.GetUnresolvedDependenciesAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetUnresolvedDependenciesAsync(String, System.Threading.CancellationToken)
+  name.vb: GetUnresolvedDependenciesAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.AreDependenciesResolvedAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.AreDependenciesResolvedAsync(System.String,System.Threading.CancellationToken)
+  id: AreDependenciesResolvedAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService
+  langs:
+  - csharp
+  - vb
+  name: AreDependenciesResolvedAsync(string, CancellationToken)
+  nameWithType: IModuleService.AreDependenciesResolvedAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.AreDependenciesResolvedAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AreDependenciesResolvedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IModuleService.cs
+    startLine: 134
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Checks if all dependencies are resolved.
+  example: []
+  syntax:
+    content: Task<bool> AreDependenciesResolvedAsync(string moduleId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: moduleId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Function AreDependenciesResolvedAsync(moduleId As String, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.AreDependenciesResolvedAsync*
+  nameWithType.vb: IModuleService.AreDependenciesResolvedAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.AreDependenciesResolvedAsync(String, System.Threading.CancellationToken)
+  name.vb: AreDependenciesResolvedAsync(String, CancellationToken)
+references:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Services
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Services
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Services
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+- uid: System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto}
+  commentId: T:System.EventHandler{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<ModuleInfoDto>
+  nameWithType: EventHandler<ModuleInfoDto>
+  fullName: System.EventHandler<NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto>
+  nameWithType.vb: EventHandler(Of ModuleInfoDto)
+  fullName.vb: System.EventHandler(Of NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto)
+  name.vb: EventHandler(Of ModuleInfoDto)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto
+    name: ModuleInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto
+    name: ModuleInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModulesFromDirectoryAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModulesFromDirectoryAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_LoadModulesFromDirectoryAsync_System_String_System_Threading_CancellationToken_
+  name: LoadModulesFromDirectoryAsync
+  nameWithType: IModuleService.LoadModulesFromDirectoryAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModulesFromDirectoryAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModuleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModuleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_LoadModuleAsync_System_String_System_Threading_CancellationToken_
+  name: LoadModuleAsync
+  nameWithType: IModuleService.LoadModuleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.LoadModuleAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ModuleInfoDto>
+  nameWithType: Task<ModuleInfoDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto>
+  nameWithType.vb: Task(Of ModuleInfoDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto)
+  name.vb: Task(Of ModuleInfoDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto
+    name: ModuleInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto
+    name: ModuleInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UnloadModuleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UnloadModuleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_UnloadModuleAsync_System_String_System_Threading_CancellationToken_
+  name: UnloadModuleAsync
+  nameWithType: IModuleService.UnloadModuleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UnloadModuleAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ModuleActionResultDto>
+  nameWithType: Task<ModuleActionResultDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto>
+  nameWithType.vb: Task(Of ModuleActionResultDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto)
+  name.vb: Task(Of ModuleActionResultDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto
+    name: ModuleActionResultDto
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto
+    name: ModuleActionResultDto
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetAllModulesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetAllModulesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_GetAllModulesAsync_System_Threading_CancellationToken_
+  name: GetAllModulesAsync
+  nameWithType: IModuleService.GetAllModulesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetAllModulesAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<ModuleInfoDto>>
+  nameWithType: Task<List<ModuleInfoDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto>>
+  nameWithType.vb: Task(Of List(Of ModuleInfoDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto))
+  name.vb: Task(Of List(Of ModuleInfoDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto
+    name: ModuleInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto
+    name: ModuleInfoDto
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_GetModuleAsync_System_String_System_Threading_CancellationToken_
+  name: GetModuleAsync
+  nameWithType: IModuleService.GetModuleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StartModuleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StartModuleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_StartModuleAsync_System_String_System_Threading_CancellationToken_
+  name: StartModuleAsync
+  nameWithType: IModuleService.StartModuleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StartModuleAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StopModuleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StopModuleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_StopModuleAsync_System_String_System_Threading_CancellationToken_
+  name: StopModuleAsync
+  nameWithType: IModuleService.StopModuleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.StopModuleAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.RestartModuleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.RestartModuleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_RestartModuleAsync_System_String_System_Threading_CancellationToken_
+  name: RestartModuleAsync
+  nameWithType: IModuleService.RestartModuleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.RestartModuleAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModulesByStatusAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModulesByStatusAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_GetModulesByStatusAsync_System_String_System_Threading_CancellationToken_
+  name: GetModulesByStatusAsync
+  nameWithType: IModuleService.GetModulesByStatusAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModulesByStatusAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigSchemaAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigSchemaAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_GetModuleConfigSchemaAsync_System_String_System_Threading_CancellationToken_
+  name: GetModuleConfigSchemaAsync
+  nameWithType: IModuleService.GetModuleConfigSchemaAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigSchemaAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<ModuleConfigSchemaDto>
+  nameWithType: Task<ModuleConfigSchemaDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto>
+  nameWithType.vb: Task(Of ModuleConfigSchemaDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto)
+  name.vb: Task(Of ModuleConfigSchemaDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto
+    name: ModuleConfigSchemaDto
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto
+    name: ModuleConfigSchemaDto
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_GetModuleConfigAsync_System_String_System_Threading_CancellationToken_
+  name: GetModuleConfigAsync
+  nameWithType: IModuleService.GetModuleConfigAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetModuleConfigAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.String,System.Object}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.String,System.Object}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Dictionary<string, object>>
+  nameWithType: Task<Dictionary<string, object>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, object>>
+  nameWithType.vb: Task(Of Dictionary(Of String, Object))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.Dictionary(Of String, Object))
+  name.vb: Task(Of Dictionary(Of String, Object))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UpdateModuleConfigAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UpdateModuleConfigAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_UpdateModuleConfigAsync_NeonSuit_RSSReader_Core_DTOs_Modules_UpdateModuleConfigDto_System_Threading_CancellationToken_
+  name: UpdateModuleConfigAsync
+  nameWithType: IModuleService.UpdateModuleConfigAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.UpdateModuleConfigAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Modules
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto.html
+  name: UpdateModuleConfigDto
+  nameWithType: UpdateModuleConfigDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Modules
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Modules
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Modules
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.html
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetUnresolvedDependenciesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetUnresolvedDependenciesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_GetUnresolvedDependenciesAsync_System_String_System_Threading_CancellationToken_
+  name: GetUnresolvedDependenciesAsync
+  nameWithType: IModuleService.GetUnresolvedDependenciesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.GetUnresolvedDependenciesAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{System.String}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{System.String}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<string>>
+  nameWithType: Task<List<string>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<string>>
+  nameWithType.vb: Task(Of List(Of String))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of String))
+  name.vb: Task(Of List(Of String))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.AreDependenciesResolvedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.AreDependenciesResolvedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IModuleService_AreDependenciesResolvedAsync_System_String_System_Threading_CancellationToken_
+  name: AreDependenciesResolvedAsync
+  nameWithType: IModuleService.AreDependenciesResolvedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.AreDependenciesResolvedAsync
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )

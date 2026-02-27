@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Preferences
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Preferences
+  id: NeonSuit.RSSReader.Core.DTOs.Preferences
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Preferences.ExportImportDto
+  - NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto
+  - NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto
+  - NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto
+  - NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto
+  - NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.DTOs.Preferences
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Preferences
+  fullName: NeonSuit.RSSReader.Core.DTOs.Preferences
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Preferences.ExportImportDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Preferences.ExportImportDto
+  href: NeonSuit.RSSReader.Core.DTOs.Preferences.ExportImportDto.html
+  name: ExportImportDto
+  nameWithType: ExportImportDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Preferences.ExportImportDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto
+  href: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto.html
+  name: PreferenceCategoryDto
+  nameWithType: PreferenceCategoryDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto
+  href: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto.html
+  name: PreferenceDto
+  nameWithType: PreferenceDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto
+  href: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto.html
+  name: PreferenceSummaryDto
+  nameWithType: PreferenceSummaryDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Preferences
+  href: NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto.html
+  name: ResetPreferencesDto
+  nameWithType: ResetPreferencesDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Preferences
+  href: NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto.html
+  name: UpdatePreferenceDto
+  nameWithType: UpdatePreferenceDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Preferences
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Preferences
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Preferences
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Preferences
+  fullName: NeonSuit.RSSReader.Core.DTOs.Preferences
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences
+    name: Preferences
+    href: NeonSuit.RSSReader.Core.DTOs.Preferences.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences
+    name: Preferences
+    href: NeonSuit.RSSReader.Core.DTOs.Preferences.html

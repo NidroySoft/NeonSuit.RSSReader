@@ -1,13 +1,33 @@
-﻿using NeonSuit.RSSReader.Data.Logging;
-using SQLite;
+﻿// =======================================================
+// Data/Configuration/LogSettings.cs
+// =======================================================
+
+using NeonSuit.RSSReader.Data.Logging;
+using Serilog.Events;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace NeonSuit.RSSReader.Data.Configuration
 {
     /// <summary>
-    /// Configuración del sistema de logging.
+    /// Configuration settings for the application's logging system.
+    /// Implements INotifyPropertyChanged to support real-time UI updates.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This class manages all logging-related settings including:
+    /// <list type="bullet">
+    /// <item><description>Log levels and verbosity</description></item>
+    /// <item><description>File retention policies</description></item>
+    /// <item><description>Output targets (console, file, debug window)</description></item>
+    /// <item><description>Log directory and file management</description></item>
+    /// </list>
+    /// </para>
+    /// <para>
+    /// Settings can be modified at runtime and applied via <see cref="ApplySettings"/>,
+    /// which updates the global logging configuration.
+    /// </para>
+    /// </remarks>
     public class LogSettings : INotifyPropertyChanged
     {
         private bool _enableLogging = true;
@@ -20,8 +40,10 @@ namespace NeonSuit.RSSReader.Data.Configuration
         private bool _compressOldLogs = false;
         private string _logDirectory = string.Empty;
 
+        #region Core Settings
+
         /// <summary>
-        /// Habilita o deshabilita el logging completamente.
+        /// Master switch to enable or disable logging entirely.
         /// </summary>
         public bool EnableLogging
         {
@@ -30,8 +52,9 @@ namespace NeonSuit.RSSReader.Data.Configuration
         }
 
         /// <summary>
-        /// Nivel mínimo de logging (Verbose, Debug, Information, Warning, Error, Fatal).
+        /// Minimum log level to capture.
         /// </summary>
+        /// <value>One of: Verbose, Debug, Information, Warning, Error, Fatal</value>
         public string LogLevel
         {
             get => _logLevel;
@@ -39,8 +62,9 @@ namespace NeonSuit.RSSReader.Data.Configuration
         }
 
         /// <summary>
-        /// Días de retención de archivos de log (1-365).
+        /// Number of days to retain log files before automatic cleanup.
         /// </summary>
+        /// <value>Range: 1-365 days. Default: 7 days.</value>
         public int RetentionDays
         {
             get => _retentionDays;
@@ -48,16 +72,21 @@ namespace NeonSuit.RSSReader.Data.Configuration
         }
 
         /// <summary>
-        /// Tamaño máximo por archivo en MB (1-100).
+        /// Maximum size per log file in megabytes before rotation.
         /// </summary>
+        /// <value>Range: 1-100 MB. Default: 10 MB.</value>
         public int MaxFileSizeMB
         {
             get => _maxFileSizeMB;
             set => SetField(ref _maxFileSizeMB, Math.Clamp(value, 1, 100));
         }
 
+        #endregion
+
+        #region Output Targets
+
         /// <summary>
-        /// Habilita logging en consola (útil para debugging).
+        /// Enables logging to console output (useful for debugging).
         /// </summary>
         public bool EnableConsoleLogging
         {
@@ -66,7 +95,7 @@ namespace NeonSuit.RSSReader.Data.Configuration
         }
 
         /// <summary>
-        /// Habilita logging en archivos.
+        /// Enables logging to rotating files on disk.
         /// </summary>
         public bool EnableFileLogging
         {
@@ -75,7 +104,7 @@ namespace NeonSuit.RSSReader.Data.Configuration
         }
 
         /// <summary>
-        /// Muestra ventana de debugging en tiempo real.
+        /// Enables a real-time debug window for log monitoring.
         /// </summary>
         public bool EnableDebugWindow
         {
@@ -84,7 +113,7 @@ namespace NeonSuit.RSSReader.Data.Configuration
         }
 
         /// <summary>
-        /// Comprime logs antiguos para ahorrar espacio.
+        /// Compresses older log files to save disk space.
         /// </summary>
         public bool CompressOldLogs
         {
@@ -93,7 +122,7 @@ namespace NeonSuit.RSSReader.Data.Configuration
         }
 
         /// <summary>
-        /// Directorio personalizado para logs (vacío = por defecto).
+        /// Custom directory for log files. If empty, default location is used.
         /// </summary>
         public string LogDirectory
         {
@@ -101,11 +130,14 @@ namespace NeonSuit.RSSReader.Data.Configuration
             set => SetField(ref _logDirectory, value);
         }
 
+        #endregion
+
+        #region Static Lists
+
         /// <summary>
-        /// Niveles de log disponibles para UI.
+        /// Available log levels for UI dropdown binding.
         /// </summary>
-        [Ignore]
-        public static string[] AvailableLogLevels => new[]
+        public static string[] AvailableLogLevels { get; } = new[]
         {
             "Verbose",
             "Debug",
@@ -115,24 +147,30 @@ namespace NeonSuit.RSSReader.Data.Configuration
             "Fatal"
         };
 
+        #endregion
+
+        #region Computed Properties
+
         /// <summary>
-        /// Convierte el string LogLevel a Serilog LogEventLevel.
+        /// Converts the string LogLevel to Serilog's LogEventLevel enum.
         /// </summary>
-        [Ignore]
-        public Serilog.Events.LogEventLevel SerilogLevel => _logLevel switch
+        public LogEventLevel SerilogLevel => _logLevel switch
         {
-            "Verbose" => Serilog.Events.LogEventLevel.Verbose,
-            "Debug" => Serilog.Events.LogEventLevel.Debug,
-            "Warning" => Serilog.Events.LogEventLevel.Warning,
-            "Error" => Serilog.Events.LogEventLevel.Error,
-            "Fatal" => Serilog.Events.LogEventLevel.Fatal,
-            _ => Serilog.Events.LogEventLevel.Information
+            "Verbose" => LogEventLevel.Verbose,
+            "Debug" => LogEventLevel.Debug,
+            "Warning" => LogEventLevel.Warning,
+            "Error" => LogEventLevel.Error,
+            "Fatal" => LogEventLevel.Fatal,
+            _ => LogEventLevel.Information
         };
 
         /// <summary>
-        /// Ruta completa del directorio de logs.
+        /// Gets the fully resolved log directory path.
         /// </summary>
-        [Ignore]
+        /// <remarks>
+        /// Uses custom directory if specified and valid, otherwise falls back to
+        /// LocalApplicationData\NeonSuit\RSSReader\Logs.
+        /// </remarks>
         public string FullLogDirectory
         {
             get
@@ -147,15 +185,13 @@ namespace NeonSuit.RSSReader.Data.Configuration
         }
 
         /// <summary>
-        /// Ruta completa del archivo de log actual.
+        /// Gets the full path to today's log file.
         /// </summary>
-        [Ignore]
         public string CurrentLogFilePath => Path.Combine(FullLogDirectory, $"neonsuit_{DateTime.Now:yyyy-MM-dd}.log");
 
         /// <summary>
-        /// Tamaño actual del archivo de log.
+        /// Gets the current size of today's log file in bytes.
         /// </summary>
-        [Ignore]
         public long CurrentLogFileSize
         {
             get
@@ -166,9 +202,8 @@ namespace NeonSuit.RSSReader.Data.Configuration
         }
 
         /// <summary>
-        /// Espacio total utilizado por logs.
+        /// Gets a human-readable string of total disk space used by all log files.
         /// </summary>
-        [Ignore]
         public string TotalLogSpaceUsed
         {
             get
@@ -179,17 +214,16 @@ namespace NeonSuit.RSSReader.Data.Configuration
                 var files = Directory.GetFiles(FullLogDirectory, "*.log");
                 var totalBytes = files.Sum(f => new FileInfo(f).Length);
 
-                if (totalBytes < 1024)
-                    return $"{totalBytes} B";
-                if (totalBytes < 1024 * 1024)
-                    return $"{(totalBytes / 1024.0):F1} KB";
-
-                return $"{(totalBytes / (1024.0 * 1024.0)):F1} MB";
+                return FormatBytes(totalBytes);
             }
         }
 
+        #endregion
+
+        #region Public Methods
+
         /// <summary>
-        /// Actualiza la configuración de logging en tiempo real.
+        /// Applies the current settings to the global logging configuration in real-time.
         /// </summary>
         public void ApplySettings()
         {
@@ -197,7 +231,7 @@ namespace NeonSuit.RSSReader.Data.Configuration
         }
 
         /// <summary>
-        /// Restaura valores por defecto.
+        /// Restores all settings to their default values.
         /// </summary>
         public void ResetToDefaults()
         {
@@ -212,20 +246,59 @@ namespace NeonSuit.RSSReader.Data.Configuration
             LogDirectory = string.Empty;
         }
 
-        // INotifyPropertyChanged implementation
+        #endregion
+
+        #region Private Helpers
+
+        /// <summary>
+        /// Formats a byte count into a human-readable string.
+        /// </summary>
+        private static string FormatBytes(long bytes)
+        {
+            if (bytes < 1024)
+                return $"{bytes} B";
+            if (bytes < 1024 * 1024)
+                return $"{(bytes / 1024.0):F1} KB";
+            if (bytes < 1024 * 1024 * 1024)
+                return $"{(bytes / (1024.0 * 1024.0)):F1} MB";
+
+            return $"{(bytes / (1024.0 * 1024.0 * 1024.0)):F2} GB";
+        }
+
+        #endregion
+
+        #region INotifyPropertyChanged Implementation
+
+        /// <inheritdoc/>
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        /// <summary>
+        /// Raises the PropertyChanged event.
+        /// </summary>
+        /// <param name="propertyName">Name of the property that changed.</param>
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        /// <summary>
+        /// Sets a field value and raises PropertyChanged if the value changed.
+        /// </summary>
+        /// <typeparam name="T">Type of the field.</typeparam>
+        /// <param name="field">Reference to the backing field.</param>
+        /// <param name="value">New value to set.</param>
+        /// <param name="propertyName">Name of the property (auto-filled by compiler).</param>
+        /// <returns>True if the value was changed; otherwise false.</returns>
         protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
         {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+            if (EqualityComparer<T>.Default.Equals(field, value))
+                return false;
+
             field = value;
             OnPropertyChanged(propertyName);
             return true;
         }
+
+        #endregion
     }
 }

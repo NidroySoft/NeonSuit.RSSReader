@@ -1,0 +1,395 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  commentId: T:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  id: ModuleConfigPropertyType
+  parent: NeonSuit.RSSReader.Core.Modules
+  children:
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Boolean
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Color
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Decimal
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.DirectoryPath
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Email
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Enum
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.FilePath
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Integer
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Password
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.String
+  - NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Url
+  langs:
+  - csharp
+  - vb
+  name: ModuleConfigPropertyType
+  nameWithType: ModuleConfigPropertyType
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ModuleConfigPropertyType
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+    startLine: 102
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: Module configuration property types.
+  example: []
+  syntax:
+    content: public enum ModuleConfigPropertyType
+    content.vb: Public Enum ModuleConfigPropertyType
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.String
+  commentId: F:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.String
+  id: String
+  parent: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  langs:
+  - csharp
+  - vb
+  name: String
+  nameWithType: ModuleConfigPropertyType.String
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.String
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: String
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+    startLine: 105
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: String property.
+  example: []
+  syntax:
+    content: String = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Boolean
+  commentId: F:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Boolean
+  id: Boolean
+  parent: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  langs:
+  - csharp
+  - vb
+  name: Boolean
+  nameWithType: ModuleConfigPropertyType.Boolean
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Boolean
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Boolean
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+    startLine: 107
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: Boolean property.
+  example: []
+  syntax:
+    content: Boolean = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Integer
+  commentId: F:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Integer
+  id: Integer
+  parent: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  langs:
+  - csharp
+  - vb
+  name: Integer
+  nameWithType: ModuleConfigPropertyType.Integer
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Integer
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Integer
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+    startLine: 109
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: Integer property.
+  example: []
+  syntax:
+    content: Integer = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Decimal
+  commentId: F:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Decimal
+  id: Decimal
+  parent: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  langs:
+  - csharp
+  - vb
+  name: Decimal
+  nameWithType: ModuleConfigPropertyType.Decimal
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Decimal
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Decimal
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+    startLine: 111
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: Decimal property.
+  example: []
+  syntax:
+    content: Decimal = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Enum
+  commentId: F:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Enum
+  id: Enum
+  parent: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  langs:
+  - csharp
+  - vb
+  name: Enum
+  nameWithType: ModuleConfigPropertyType.Enum
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Enum
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Enum
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+    startLine: 113
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: Enumeration/Select property.
+  example: []
+  syntax:
+    content: Enum = 4
+    return:
+      type: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Password
+  commentId: F:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Password
+  id: Password
+  parent: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  langs:
+  - csharp
+  - vb
+  name: Password
+  nameWithType: ModuleConfigPropertyType.Password
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Password
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Password
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+    startLine: 115
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: Password property (masked input).
+  example: []
+  syntax:
+    content: Password = 5
+    return:
+      type: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.FilePath
+  commentId: F:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.FilePath
+  id: FilePath
+  parent: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  langs:
+  - csharp
+  - vb
+  name: FilePath
+  nameWithType: ModuleConfigPropertyType.FilePath
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.FilePath
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FilePath
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+    startLine: 117
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: File path property.
+  example: []
+  syntax:
+    content: FilePath = 6
+    return:
+      type: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.DirectoryPath
+  commentId: F:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.DirectoryPath
+  id: DirectoryPath
+  parent: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  langs:
+  - csharp
+  - vb
+  name: DirectoryPath
+  nameWithType: ModuleConfigPropertyType.DirectoryPath
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.DirectoryPath
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DirectoryPath
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+    startLine: 119
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: Directory path property.
+  example: []
+  syntax:
+    content: DirectoryPath = 7
+    return:
+      type: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Url
+  commentId: F:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Url
+  id: Url
+  parent: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  langs:
+  - csharp
+  - vb
+  name: Url
+  nameWithType: ModuleConfigPropertyType.Url
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Url
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Url
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+    startLine: 121
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: URL property.
+  example: []
+  syntax:
+    content: Url = 8
+    return:
+      type: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Email
+  commentId: F:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Email
+  id: Email
+  parent: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  langs:
+  - csharp
+  - vb
+  name: Email
+  nameWithType: ModuleConfigPropertyType.Email
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Email
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Email
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+    startLine: 123
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: Email property.
+  example: []
+  syntax:
+    content: Email = 9
+    return:
+      type: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Color
+  commentId: F:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Color
+  id: Color
+  parent: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: ModuleConfigPropertyType.Color
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.Color
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Color
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IConfigurableModule.cs
+    startLine: 125
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: Color property (hex).
+  example: []
+  syntax:
+    content: Color = 10
+    return:
+      type: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+references:
+- uid: NeonSuit.RSSReader.Core.Modules
+  commentId: N:NeonSuit.RSSReader.Core.Modules
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Modules
+  nameWithType: NeonSuit.RSSReader.Core.Modules
+  fullName: NeonSuit.RSSReader.Core.Modules
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.Modules.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.Modules.html
+- uid: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  commentId: T:NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType
+  parent: NeonSuit.RSSReader.Core.Modules
+  href: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType.html
+  name: ModuleConfigPropertyType
+  nameWithType: ModuleConfigPropertyType
+  fullName: NeonSuit.RSSReader.Core.Modules.ModuleConfigPropertyType

@@ -1,0 +1,858 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  id: DatabaseStatsDto
+  parent: NeonSuit.RSSReader.Core.DTOs.System
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ArticleCount
+  - NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.AverageArticlesPerFeed
+  - NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.FeedCount
+  - NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackup
+  - NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackupTimeAgo
+  - NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.NotificationCount
+  - NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.RuleCount
+  - NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TagCount
+  - NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ToString
+  - NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSize
+  - NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSizeFormatted
+  langs:
+  - csharp
+  - vb
+  name: DatabaseStatsDto
+  nameWithType: DatabaseStatsDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DatabaseStatsDto
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+    startLine: 25
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.System
+  summary: >-
+    Data Transfer Object containing key database metrics for monitoring, 
+
+    diagnostics, and user-facing statistics dashboards.
+  remarks: >-
+    <p>
+
+    This DTO aggregates statistics from multiple repositories to provide
+
+    a comprehensive view of the application's data footprint and health.
+
+    </p>
+
+    <p>
+
+    Used in:
+
+    <ul><li>Main dashboard (summary cards)</li><li>Health monitoring endpoints</li><li>Backup status displays</li><li>System diagnostics</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: public class DatabaseStatsDto
+    content.vb: Public Class DatabaseStatsDto
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSize
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSize
+  id: TotalSize
+  parent: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  langs:
+  - csharp
+  - vb
+  name: TotalSize
+  nameWithType: DatabaseStatsDto.TotalSize
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSize
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TotalSize
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+    startLine: 30
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.System
+  summary: Total size of the SQLite database file in bytes.
+  example: []
+  syntax:
+    content: public long TotalSize { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property TotalSize As Long
+  overload: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSize*
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSizeFormatted
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSizeFormatted
+  id: TotalSizeFormatted
+  parent: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  langs:
+  - csharp
+  - vb
+  name: TotalSizeFormatted
+  nameWithType: DatabaseStatsDto.TotalSizeFormatted
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSizeFormatted
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TotalSizeFormatted
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+    startLine: 35
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.System
+  summary: Total size in a human-readable format (e.g., "2.5 MB").
+  example: []
+  syntax:
+    content: public string TotalSizeFormatted { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property TotalSizeFormatted As String
+  overload: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSizeFormatted*
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ArticleCount
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ArticleCount
+  id: ArticleCount
+  parent: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  langs:
+  - csharp
+  - vb
+  name: ArticleCount
+  nameWithType: DatabaseStatsDto.ArticleCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ArticleCount
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ArticleCount
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+    startLine: 40
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.System
+  summary: Current number of stored articles.
+  example: []
+  syntax:
+    content: public int ArticleCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ArticleCount As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ArticleCount*
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.FeedCount
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.FeedCount
+  id: FeedCount
+  parent: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  langs:
+  - csharp
+  - vb
+  name: FeedCount
+  nameWithType: DatabaseStatsDto.FeedCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.FeedCount
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FeedCount
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+    startLine: 45
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.System
+  summary: Current number of subscribed feeds.
+  example: []
+  syntax:
+    content: public int FeedCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property FeedCount As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.FeedCount*
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.RuleCount
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.RuleCount
+  id: RuleCount
+  parent: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  langs:
+  - csharp
+  - vb
+  name: RuleCount
+  nameWithType: DatabaseStatsDto.RuleCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.RuleCount
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RuleCount
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+    startLine: 50
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.System
+  summary: Number of active user-defined rules/filters.
+  example: []
+  syntax:
+    content: public int RuleCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property RuleCount As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.RuleCount*
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.NotificationCount
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.NotificationCount
+  id: NotificationCount
+  parent: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  langs:
+  - csharp
+  - vb
+  name: NotificationCount
+  nameWithType: DatabaseStatsDto.NotificationCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.NotificationCount
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotificationCount
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+    startLine: 55
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.System
+  summary: Number of stored notification history/log entries.
+  example: []
+  syntax:
+    content: public int NotificationCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property NotificationCount As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.NotificationCount*
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TagCount
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TagCount
+  id: TagCount
+  parent: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  langs:
+  - csharp
+  - vb
+  name: TagCount
+  nameWithType: DatabaseStatsDto.TagCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TagCount
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TagCount
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+    startLine: 60
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.System
+  summary: Number of tags in the system.
+  example: []
+  syntax:
+    content: public int TagCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TagCount As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TagCount*
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackup
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackup
+  id: LastBackup
+  parent: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  langs:
+  - csharp
+  - vb
+  name: LastBackup
+  nameWithType: DatabaseStatsDto.LastBackup
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackup
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LastBackup
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+    startLine: 66
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.System
+  summary: >-
+    Date/time of the most recent successful backup (UTC).
+
+    Null if never backed up.
+  example: []
+  syntax:
+    content: public DateTime? LastBackup { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Property LastBackup As Date?
+  overload: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackup*
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackupTimeAgo
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackupTimeAgo
+  id: LastBackupTimeAgo
+  parent: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  langs:
+  - csharp
+  - vb
+  name: LastBackupTimeAgo
+  nameWithType: DatabaseStatsDto.LastBackupTimeAgo
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackupTimeAgo
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LastBackupTimeAgo
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+    startLine: 71
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.System
+  summary: Human-readable time since last backup.
+  example: []
+  syntax:
+    content: public string LastBackupTimeAgo { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property LastBackupTimeAgo As String
+  overload: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackupTimeAgo*
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.AverageArticlesPerFeed
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.AverageArticlesPerFeed
+  id: AverageArticlesPerFeed
+  parent: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  langs:
+  - csharp
+  - vb
+  name: AverageArticlesPerFeed
+  nameWithType: DatabaseStatsDto.AverageArticlesPerFeed
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.AverageArticlesPerFeed
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AverageArticlesPerFeed
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+    startLine: 76
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.System
+  summary: Average articles per feed.
+  example: []
+  syntax:
+    content: public double AverageArticlesPerFeed { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property AverageArticlesPerFeed As Double
+  overload: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.AverageArticlesPerFeed*
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ToString
+  commentId: M:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ToString
+  id: ToString
+  parent: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: DatabaseStatsDto.ToString()
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ToString
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/System/DatabaseStatsDto.cs
+    startLine: 83
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.System
+  summary: Returns a human-readable summary of the statistics.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ToString*
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.System
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.System
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.System
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.System
+  fullName: NeonSuit.RSSReader.Core.DTOs.System
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.System
+    name: System
+    href: NeonSuit.RSSReader.Core.DTOs.System.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.System
+    name: System
+    href: NeonSuit.RSSReader.Core.DTOs.System.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSize*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSize
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html#NeonSuit_RSSReader_Core_DTOs_System_DatabaseStatsDto_TotalSize
+  name: TotalSize
+  nameWithType: DatabaseStatsDto.TotalSize
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSize
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSizeFormatted*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSizeFormatted
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html#NeonSuit_RSSReader_Core_DTOs_System_DatabaseStatsDto_TotalSizeFormatted
+  name: TotalSizeFormatted
+  nameWithType: DatabaseStatsDto.TotalSizeFormatted
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TotalSizeFormatted
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ArticleCount*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ArticleCount
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html#NeonSuit_RSSReader_Core_DTOs_System_DatabaseStatsDto_ArticleCount
+  name: ArticleCount
+  nameWithType: DatabaseStatsDto.ArticleCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ArticleCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.FeedCount*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.FeedCount
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html#NeonSuit_RSSReader_Core_DTOs_System_DatabaseStatsDto_FeedCount
+  name: FeedCount
+  nameWithType: DatabaseStatsDto.FeedCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.FeedCount
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.RuleCount*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.RuleCount
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html#NeonSuit_RSSReader_Core_DTOs_System_DatabaseStatsDto_RuleCount
+  name: RuleCount
+  nameWithType: DatabaseStatsDto.RuleCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.RuleCount
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.NotificationCount*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.NotificationCount
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html#NeonSuit_RSSReader_Core_DTOs_System_DatabaseStatsDto_NotificationCount
+  name: NotificationCount
+  nameWithType: DatabaseStatsDto.NotificationCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.NotificationCount
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TagCount*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TagCount
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html#NeonSuit_RSSReader_Core_DTOs_System_DatabaseStatsDto_TagCount
+  name: TagCount
+  nameWithType: DatabaseStatsDto.TagCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.TagCount
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackup*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackup
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html#NeonSuit_RSSReader_Core_DTOs_System_DatabaseStatsDto_LastBackup
+  name: LastBackup
+  nameWithType: DatabaseStatsDto.LastBackup
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackup
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackupTimeAgo*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackupTimeAgo
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html#NeonSuit_RSSReader_Core_DTOs_System_DatabaseStatsDto_LastBackupTimeAgo
+  name: LastBackupTimeAgo
+  nameWithType: DatabaseStatsDto.LastBackupTimeAgo
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.LastBackupTimeAgo
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.AverageArticlesPerFeed*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.AverageArticlesPerFeed
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html#NeonSuit_RSSReader_Core_DTOs_System_DatabaseStatsDto_AverageArticlesPerFeed
+  name: AverageArticlesPerFeed
+  nameWithType: DatabaseStatsDto.AverageArticlesPerFeed
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.AverageArticlesPerFeed
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ToString*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ToString
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html#NeonSuit_RSSReader_Core_DTOs_System_DatabaseStatsDto_ToString
+  name: ToString
+  nameWithType: DatabaseStatsDto.ToString
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.ToString

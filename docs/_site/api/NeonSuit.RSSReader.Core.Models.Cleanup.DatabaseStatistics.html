@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DatabaseStatistics | NeonSuit RSS Reader API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DatabaseStatistics | NeonSuit RSS Reader API ">
+      
+      <meta name="description" content="Represents comprehensive database statistics for monitoring and diagnostics. Provides metrics on articles, feeds, tags, and database file size.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/NidroySoft/NeonSuit.RSSReader/new/master/apiSpec/new?filename=NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics.md&amp;value=---%0Auid%3A%20NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics">
+
+
+
+  <h1 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics" class="text-break">
+Class DatabaseStatistics  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NeonSuit.html">NeonSuit</a>.<a class="xref" href="NeonSuit.RSSReader.html">RSSReader</a>.<a class="xref" href="NeonSuit.RSSReader.Core.html">Core</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Models.html">Models</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Models.Cleanup.html">Cleanup</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NeonSuit.RSSReader.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents comprehensive database statistics for monitoring and diagnostics.
+Provides metrics on articles, feeds, tags, and database file size.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DatabaseStatistics</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DatabaseStatistics</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ActiveFeeds_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ActiveFeeds*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ActiveFeeds" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ActiveFeeds">
+  ActiveFeeds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the number of active feeds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ActiveFeeds { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_Age_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.Age*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_Age" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.Age">
+  Age
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the age of these statistics (time elapsed since generation).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan Age { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ArticleTimeSpan_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ArticleTimeSpan*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ArticleTimeSpan" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ArticleTimeSpan">
+  ArticleTimeSpan
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the time span covered by articles (newest - oldest).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan ArticleTimeSpan { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ArticlesOlderThan30Days_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ArticlesOlderThan30Days*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ArticlesOlderThan30Days" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ArticlesOlderThan30Days">
+  ArticlesOlderThan30Days
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the number of articles older than 30 days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ArticlesOlderThan30Days { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ArticlesOlderThan60Days_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ArticlesOlderThan60Days*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ArticlesOlderThan60Days" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ArticlesOlderThan60Days">
+  ArticlesOlderThan60Days
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the number of articles older than 60 days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ArticlesOlderThan60Days { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ArticlesOlderThan90Days_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ArticlesOlderThan90Days*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ArticlesOlderThan90Days" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ArticlesOlderThan90Days">
+  ArticlesOlderThan90Days
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the number of articles older than 90 days.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ArticlesOlderThan90Days { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_AverageArticleSizeBytes_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.AverageArticleSizeBytes*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_AverageArticleSizeBytes" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.AverageArticleSizeBytes">
+  AverageArticleSizeBytes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the average size per article in bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AverageArticleSizeBytes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_AverageArticlesPerFeed_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.AverageArticlesPerFeed*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_AverageArticlesPerFeed" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.AverageArticlesPerFeed">
+  AverageArticlesPerFeed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the average number of articles per feed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AverageArticlesPerFeed { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_AverageArticlesPerTag_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.AverageArticlesPerTag*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_AverageArticlesPerTag" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.AverageArticlesPerTag">
+  AverageArticlesPerTag
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the average number of articles per tag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double AverageArticlesPerTag { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_DatabaseSizeBytes_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.DatabaseSizeBytes*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_DatabaseSizeBytes" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.DatabaseSizeBytes">
+  DatabaseSizeBytes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the physical size of the database file in bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long DatabaseSizeBytes { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_DatabaseSizeFormatted_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.DatabaseSizeFormatted*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_DatabaseSizeFormatted" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.DatabaseSizeFormatted">
+  DatabaseSizeFormatted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the database size in a human-readable format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DatabaseSizeFormatted { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_DatabaseSizeGB_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.DatabaseSizeGB*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_DatabaseSizeGB" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.DatabaseSizeGB">
+  DatabaseSizeGB
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the database size in gigabytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DatabaseSizeGB { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_DatabaseSizeKB_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.DatabaseSizeKB*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_DatabaseSizeKB" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.DatabaseSizeKB">
+  DatabaseSizeKB
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the database size in kilobytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DatabaseSizeKB { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_DatabaseSizeMB_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.DatabaseSizeMB*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_DatabaseSizeMB" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.DatabaseSizeMB">
+  DatabaseSizeMB
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the database size in megabytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DatabaseSizeMB { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_FavoriteArticles_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.FavoriteArticles*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_FavoriteArticles" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.FavoriteArticles">
+  FavoriteArticles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the number of articles marked as favorite.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FavoriteArticles { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_FavoriteRatio_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.FavoriteRatio*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_FavoriteRatio" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.FavoriteRatio">
+  FavoriteRatio
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the favorite ratio (percentage of articles that are favorites).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double FavoriteRatio { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_FeedActivityRatio_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.FeedActivityRatio*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_FeedActivityRatio" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.FeedActivityRatio">
+  FeedActivityRatio
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the activity ratio (percentage of feeds that are active).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double FeedActivityRatio { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_GeneratedAt_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.GeneratedAt*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_GeneratedAt" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.GeneratedAt">
+  GeneratedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the UTC timestamp when these statistics were generated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime GeneratedAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_InactiveFeeds_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.InactiveFeeds*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_InactiveFeeds" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.InactiveFeeds">
+  InactiveFeeds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of inactive feeds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int InactiveFeeds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_IsStale_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.IsStale*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_IsStale" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.IsStale">
+  IsStale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether these statistics are stale (older than 1 hour).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsStale { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_NewestArticleDate_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.NewestArticleDate*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_NewestArticleDate" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.NewestArticleDate">
+  NewestArticleDate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the publication date of the newest article in the database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime NewestArticleDate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_OldestArticleDate_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.OldestArticleDate*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_OldestArticleDate" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.OldestArticleDate">
+  OldestArticleDate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the publication date of the oldest article in the database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime OldestArticleDate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ReadArticles_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ReadArticles*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ReadArticles" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ReadArticles">
+  ReadArticles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the number of articles marked as read.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ReadArticles { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ReadRatio_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ReadRatio*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ReadRatio" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ReadRatio">
+  ReadRatio
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the read ratio (percentage of articles that have been read).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ReadRatio { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_TotalArticles_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.TotalArticles*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_TotalArticles" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.TotalArticles">
+  TotalArticles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the total number of articles in the database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TotalArticles { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_TotalFeeds_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.TotalFeeds*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_TotalFeeds" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.TotalFeeds">
+  TotalFeeds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the total number of feeds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TotalFeeds { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_TotalTags_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.TotalTags*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_TotalTags" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.TotalTags">
+  TotalTags
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the total number of tags.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TotalTags { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_UnreadArticles_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.UnreadArticles*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_UnreadArticles" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.UnreadArticles">
+  UnreadArticles
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the number of articles marked as unread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int UnreadArticles { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_UnreadRatio_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.UnreadRatio*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_UnreadRatio" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.UnreadRatio">
+  UnreadRatio
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the unread ratio (percentage of articles that are unread).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double UnreadRatio { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_GenerateReport_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.GenerateReport*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_GenerateReport" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.GenerateReport">
+  GenerateReport()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a comprehensive report of database statistics.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GenerateReport()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ToString_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ToString*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_DatabaseStatistics_ToString" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.DatabaseStatistics.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a brief summary of database statistics.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/DatabaseStatistics.cs/#L7" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2026 NeonSuit - Professional RSS Engine
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

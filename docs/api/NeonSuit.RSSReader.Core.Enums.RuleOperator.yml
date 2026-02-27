@@ -1,0 +1,626 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleOperator
+  id: RuleOperator
+  parent: NeonSuit.RSSReader.Core.Enums
+  children:
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator.Between
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator.Contains
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator.EndsWith
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator.Equals
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator.GreaterThan
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator.IsEmpty
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator.IsNotEmpty
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator.LessThan
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator.NotBetween
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator.NotContains
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator.NotEquals
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator.Regex
+  - NeonSuit.RSSReader.Core.Enums.RuleOperator.StartsWith
+  langs:
+  - csharp
+  - vb
+  name: RuleOperator
+  nameWithType: RuleOperator
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RuleOperator
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 45
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Defines the comparison operators available for evaluating conditions in the RSS reader's rule/filter engine.
+  remarks: >-
+    <p>
+
+    This enumeration specifies how a rule condition compares the value of a target field 
+
+    (title, content, author, etc.) against the user-provided value or pattern.
+
+    The operator determines the matching logic applied during article evaluation.
+
+    </p>
+
+
+    <p>
+
+    Key considerations for operator selection and behavior:
+
+    </p>
+
+    <ul><li>String-based operators (<xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.Contains" data-throw-if-not-resolved="false"></xref>, <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.Equals" data-throw-if-not-resolved="false"></xref>, etc.) are typically case-insensitive 
+              by default (configurable per rule or globally).</li><li>Numeric/date operators (<xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.GreaterThan" data-throw-if-not-resolved="false"></xref>, <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.LessThan" data-throw-if-not-resolved="false"></xref>) are only valid when the target 
+              field is a date, numeric value, or can be parsed as such (e.g., publication date).</li><li><xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.Regex" data-throw-if-not-resolved="false"></xref> supports full regular expression patterns (PCRE or .NET flavor, depending on implementation).</li><li><xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.IsEmpty" data-throw-if-not-resolved="false"></xref> and <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.IsNotEmpty" data-throw-if-not-resolved="false"></xref> ignore the comparison value and check field presence/content length.</li><li>Operators are evaluated per condition; multiple conditions in a rule use logical AND/OR grouping.</li></ul>
+
+    <p>
+
+    Business rules and usage recommendations:
+
+    </p>
+
+    <ul><li>Most common operators for keyword rules: <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.Contains" data-throw-if-not-resolved="false"></xref> (broad) and <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.Regex" data-throw-if-not-resolved="false"></xref> (precise).</li><li>Use <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.Equals" data-throw-if-not-resolved="false"></xref> for exact matches (e.g., author name, specific category/tag).</li><li><xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.StartsWith" data-throw-if-not-resolved="false"></xref> and <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.EndsWith" data-throw-if-not-resolved="false"></xref> are useful for domain-specific patterns 
+              (e.g., titles starting with "[Sponsored]", URLs ending in ".pdf").</li><li>Date-based operators (<xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.GreaterThan" data-throw-if-not-resolved="false"></xref>, <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.LessThan" data-throw-if-not-resolved="false"></xref>) require the field to be parsed 
+              as DateTimeOffset or similar; invalid parsing should fail the condition gracefully.</li><li><xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.NotContains" data-throw-if-not-resolved="false"></xref> and <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.NotEquals" data-throw-if-not-resolved="false"></xref> are useful for exclusion rules 
+              (e.g., "do not star articles containing 'ad' or 'promo'").</li><li><xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.Between" data-throw-if-not-resolved="false"></xref> and <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.NotBetween" data-throw-if-not-resolved="false"></xref> are ideal for range-based filtering
+              (e.g., word count ranges, date ranges).</li><li>UI validation: Disable invalid operators for certain field types 
+              (e.g., hide date operators when target is Title/Content).</li><li>Performance note: <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.Regex" data-throw-if-not-resolved="false"></xref> and full-text searches can be expensive on large datasets; 
+              use judiciously and prefer simpler operators when possible.</li></ul>
+  example: []
+  syntax:
+    content: public enum RuleOperator
+    content.vb: Public Enum RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.Contains
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.Contains
+  id: Contains
+  parent: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  langs:
+  - csharp
+  - vb
+  name: Contains
+  nameWithType: RuleOperator.Contains
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.Contains
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Contains
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 58
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The target field contains the specified substring (case-insensitive by default).
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Partial text match anywhere in the field.</li><li>Most frequently used operator for keyword-based rules.</li><li>Example: Title Contains "breaking" matches "Breaking News Today".</li></ul>
+  example: []
+  syntax:
+    content: Contains = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.Equals
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.Equals
+  id: Equals
+  parent: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  langs:
+  - csharp
+  - vb
+  name: Equals
+  nameWithType: RuleOperator.Equals
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.Equals
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Equals
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 70
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The target field exactly matches the specified value (case-insensitive by default).
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Full exact match required (no wildcards).</li><li>Ideal for precise filters (author name, exact tag, specific title).</li></ul>
+  example: []
+  syntax:
+    content: Equals = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.StartsWith
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.StartsWith
+  id: StartsWith
+  parent: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  langs:
+  - csharp
+  - vb
+  name: StartsWith
+  nameWithType: RuleOperator.StartsWith
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.StartsWith
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: StartsWith
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 82
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The target field begins with the specified prefix.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Checks only the start of the string.</li><li>Useful for patterns like titles starting with "[Update]", "[Video]", etc.</li></ul>
+  example: []
+  syntax:
+    content: StartsWith = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.EndsWith
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.EndsWith
+  id: EndsWith
+  parent: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  langs:
+  - csharp
+  - vb
+  name: EndsWith
+  nameWithType: RuleOperator.EndsWith
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.EndsWith
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EndsWith
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 94
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The target field ends with the specified suffix.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Checks only the end of the string.</li><li>Common for file extensions, URL patterns, or title endings.</li></ul>
+  example: []
+  syntax:
+    content: EndsWith = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.NotContains
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.NotContains
+  id: NotContains
+  parent: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  langs:
+  - csharp
+  - vb
+  name: NotContains
+  nameWithType: RuleOperator.NotContains
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.NotContains
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotContains
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 106
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The target field does NOT contain the specified substring.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Negation of <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.Contains" data-throw-if-not-resolved="false"></xref>.</li><li>Useful for exclusion rules (e.g., ignore promotional content).</li></ul>
+  example: []
+  syntax:
+    content: NotContains = 4
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.NotEquals
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.NotEquals
+  id: NotEquals
+  parent: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  langs:
+  - csharp
+  - vb
+  name: NotEquals
+  nameWithType: RuleOperator.NotEquals
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.NotEquals
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotEquals
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 118
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The target field is NOT exactly equal to the specified value.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Negation of <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.Equals" data-throw-if-not-resolved="false"></xref>.</li><li>Helps exclude specific known values.</li></ul>
+  example: []
+  syntax:
+    content: NotEquals = 5
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.Regex
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.Regex
+  id: Regex
+  parent: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  langs:
+  - csharp
+  - vb
+  name: Regex
+  nameWithType: RuleOperator.Regex
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.Regex
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Regex
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 132
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The target field matches the provided regular expression pattern.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Full regex matching (case sensitivity depends on implementation/flags).</li><li>Most powerful but slowest and most error-prone operator.</li><li>Requires validation of regex syntax in UI.</li><li>Example: \b[A-Z]{3}-\d{4}\b for codes like ABC-1234.</li></ul>
+  example: []
+  syntax:
+    content: Regex = 6
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.GreaterThan
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.GreaterThan
+  id: GreaterThan
+  parent: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  langs:
+  - csharp
+  - vb
+  name: GreaterThan
+  nameWithType: RuleOperator.GreaterThan
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.GreaterThan
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GreaterThan
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 145
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The target field (parsed as date or number) is greater than the specified value.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Used primarily for publication dates (e.g., newer than X days ago).</li><li>Requires field to be convertible to DateTime or numeric type.</li><li>Example: Published &gt; "2025-01-01"</li></ul>
+  example: []
+  syntax:
+    content: GreaterThan = 7
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.LessThan
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.LessThan
+  id: LessThan
+  parent: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  langs:
+  - csharp
+  - vb
+  name: LessThan
+  nameWithType: RuleOperator.LessThan
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.LessThan
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LessThan
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 157
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The target field (parsed as date or number) is less than the specified value.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Used for older content (e.g., older than 7 days).</li><li>Same parsing requirements as <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.GreaterThan" data-throw-if-not-resolved="false"></xref>.</li></ul>
+  example: []
+  syntax:
+    content: LessThan = 8
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.IsEmpty
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.IsEmpty
+  id: IsEmpty
+  parent: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty
+  nameWithType: RuleOperator.IsEmpty
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.IsEmpty
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IsEmpty
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 169
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The target field is empty, null, or contains only whitespace.
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Does not use comparison value.</li><li>Useful for detecting missing metadata (e.g., no author, empty content).</li></ul>
+  example: []
+  syntax:
+    content: IsEmpty = 9
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.IsNotEmpty
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.IsNotEmpty
+  id: IsNotEmpty
+  parent: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  langs:
+  - csharp
+  - vb
+  name: IsNotEmpty
+  nameWithType: RuleOperator.IsNotEmpty
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.IsNotEmpty
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IsNotEmpty
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 181
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The target field is NOT empty (has content beyond whitespace).
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Negation of <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.IsEmpty" data-throw-if-not-resolved="false"></xref>.</li><li>Common for ensuring field presence before other conditions.</li></ul>
+  example: []
+  syntax:
+    content: IsNotEmpty = 10
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.Between
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.Between
+  id: Between
+  parent: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  langs:
+  - csharp
+  - vb
+  name: Between
+  nameWithType: RuleOperator.Between
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.Between
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Between
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 204
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The target field value falls within the specified inclusive range (minimum to maximum).
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Requires two values: minimum and maximum (inclusive).</li><li>Works with numeric values (article length, word count, etc.).</li><li>Works with date/time values (publication date, last updated, etc.).</li><li>For strings, uses lexical/alphabetical comparison (rarely used).</li><li>Example: WordCount Between 500 and 1000 matches articles with 500-1000 words.</li><li>Example: Published Between "2025-01-01" and "2025-01-31" matches January 2025 articles.</li></ul>
+
+    <p>Implementation notes:</p>
+
+    <ul><li>Both values are required; UI should enforce min ≤ max.</li><li>Parsing failures should fail the condition gracefully (returns false).</li><li>For dates, consider timezone handling (typically UTC).</li><li>Inclusive boundaries: value ≥ min AND value ≤ max.</li></ul>
+  example: []
+  syntax:
+    content: Between = 11
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.NotBetween
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.NotBetween
+  id: NotBetween
+  parent: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  langs:
+  - csharp
+  - vb
+  name: NotBetween
+  nameWithType: RuleOperator.NotBetween
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.NotBetween
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotBetween
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/RuleOperator.cs
+    startLine: 225
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The target field value falls outside the specified inclusive range (less than minimum OR greater than maximum).
+  remarks: >-
+    <p>Behavior:</p>
+
+    <ul><li>Negation of <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.Between" data-throw-if-not-resolved="false"></xref>.</li><li>Requires two values: minimum and maximum (inclusive).</li><li>Matches if value is less than minimum OR greater than maximum.</li><li>Useful for outliers, old articles, or extremely long content.</li><li>Example: WordCount NotBetween 100 and 1000 matches very short or very long articles.</li></ul>
+
+    <p>Implementation notes:</p>
+
+    <ul><li>Both values are required; UI should enforce min ≤ max.</li><li>Same parsing requirements as <xref href="NeonSuit.RSSReader.Core.Enums.RuleOperator.Between" data-throw-if-not-resolved="false"></xref>.</li><li>Edge case: If min == max, this matches everything except that exact value.</li></ul>
+  example: []
+  syntax:
+    content: NotBetween = 12
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.RuleOperator
+references:
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.Contains
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.Contains
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html#NeonSuit_RSSReader_Core_Enums_RuleOperator_Contains
+  name: Contains
+  nameWithType: RuleOperator.Contains
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.Contains
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.Equals
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.Equals
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html#NeonSuit_RSSReader_Core_Enums_RuleOperator_Equals
+  name: Equals
+  nameWithType: RuleOperator.Equals
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.Equals
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.GreaterThan
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.GreaterThan
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html#NeonSuit_RSSReader_Core_Enums_RuleOperator_GreaterThan
+  name: GreaterThan
+  nameWithType: RuleOperator.GreaterThan
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.GreaterThan
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.LessThan
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.LessThan
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html#NeonSuit_RSSReader_Core_Enums_RuleOperator_LessThan
+  name: LessThan
+  nameWithType: RuleOperator.LessThan
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.LessThan
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.Regex
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.Regex
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html#NeonSuit_RSSReader_Core_Enums_RuleOperator_Regex
+  name: Regex
+  nameWithType: RuleOperator.Regex
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.Regex
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.IsEmpty
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.IsEmpty
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html#NeonSuit_RSSReader_Core_Enums_RuleOperator_IsEmpty
+  name: IsEmpty
+  nameWithType: RuleOperator.IsEmpty
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.IsEmpty
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.IsNotEmpty
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.IsNotEmpty
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html#NeonSuit_RSSReader_Core_Enums_RuleOperator_IsNotEmpty
+  name: IsNotEmpty
+  nameWithType: RuleOperator.IsNotEmpty
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.IsNotEmpty
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.StartsWith
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.StartsWith
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html#NeonSuit_RSSReader_Core_Enums_RuleOperator_StartsWith
+  name: StartsWith
+  nameWithType: RuleOperator.StartsWith
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.StartsWith
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.EndsWith
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.EndsWith
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html#NeonSuit_RSSReader_Core_Enums_RuleOperator_EndsWith
+  name: EndsWith
+  nameWithType: RuleOperator.EndsWith
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.EndsWith
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.NotContains
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.NotContains
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html#NeonSuit_RSSReader_Core_Enums_RuleOperator_NotContains
+  name: NotContains
+  nameWithType: RuleOperator.NotContains
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.NotContains
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.NotEquals
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.NotEquals
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html#NeonSuit_RSSReader_Core_Enums_RuleOperator_NotEquals
+  name: NotEquals
+  nameWithType: RuleOperator.NotEquals
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.NotEquals
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.Between
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.Between
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html#NeonSuit_RSSReader_Core_Enums_RuleOperator_Between
+  name: Between
+  nameWithType: RuleOperator.Between
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.Between
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator.NotBetween
+  commentId: F:NeonSuit.RSSReader.Core.Enums.RuleOperator.NotBetween
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html#NeonSuit_RSSReader_Core_Enums_RuleOperator_NotBetween
+  name: NotBetween
+  nameWithType: RuleOperator.NotBetween
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator.NotBetween
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.Enums.RuleOperator
+  commentId: T:NeonSuit.RSSReader.Core.Enums.RuleOperator
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.RuleOperator.html
+  name: RuleOperator
+  nameWithType: RuleOperator
+  fullName: NeonSuit.RSSReader.Core.Enums.RuleOperator

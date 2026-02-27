@@ -1,0 +1,53 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "src/Core/NeonSuit.RSSReader.Core/*.csproj",
+            "src/Core/NeonSuit.RSSReader.Data/*.csproj",
+            "src/Core/NeonSuit.RSSReader.Services/*.csproj",
+            "src/Core/NeonSuit.RSSReader.Setup/*.csproj"
+          ],
+          "src": ".."
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**/*.yml"
+        ]
+      },
+      {
+        "files": [
+          "docs/**/*.md",
+          "index.md",
+          "toc.yml"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "docs/images/**/*"
+        ]
+      }
+    ],
+    "dest": "_site",
+    "globalMetadata": {
+      "_appTitle": "NeonSuit RSS Reader API",
+      "_appFooter": "© 2026 NeonSuit - Professional RSS Engine",
+      "_enableSearch": true
+    },
+    "template": [
+      "default",
+      "modern"
+    ],
+    "markdownEngineName": "markdig"
+  }
+}

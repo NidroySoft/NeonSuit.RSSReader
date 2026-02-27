@@ -1,0 +1,2538 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  id: IUserPreferencesRepository
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetAllCategorizedAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetBoolAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetByKeyAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetIntAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.ResetToDefaultAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValuesBulkAsync(System.Collections.Generic.Dictionary{System.String,System.String},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IUserPreferencesRepository
+  nameWithType: IUserPreferencesRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IUserPreferencesRepository
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+    startLine: 24
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: >-
+    Repository interface for managing user preferences (<xref href="NeonSuit.RSSReader.Core.Models.UserPreferences" data-throw-if-not-resolved="false"></xref> entities).
+
+    Provides strongly-typed and key-based access to user-specific settings with default value fallback.
+  remarks: >-
+    <p>
+
+    This repository abstracts storage and retrieval of user preferences, supporting:
+
+    - Key-based lookup and update
+
+    - Strongly-typed getters (string, bool, int) with safe defaults
+
+    - Reset to default values
+
+    - Categorized/grouped retrieval for UI or bulk operations
+
+    </p>
+
+    <p>
+
+    Implementations must ensure:
+
+    - Case-insensitive or normalized key comparison
+
+    - Efficient single-key lookups (indexed on Key column)
+
+    - Safe handling of missing keys (return defaults instead of null/exceptions)
+
+    - Atomic updates to avoid partial writes
+
+    </p>
+  example: []
+  syntax:
+    content: 'public interface IUserPreferencesRepository : IRepository<UserPreferences>'
+    content.vb: Public Interface IUserPreferencesRepository Inherits IRepository(Of UserPreferences)
+  inheritedMembers:
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetAllAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetByIdAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetWhereAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.AnyAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.CountAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.CountWhereAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.UpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteByIdAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertOrUpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertAllAsync(System.Collections.Generic.IEnumerable{NeonSuit.RSSReader.Core.Models.UserPreferences},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.UpdateAllAsync(System.Collections.Generic.IEnumerable{NeonSuit.RSSReader.Core.Models.UserPreferences},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteAllAsync(System.Threading.CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetByKeyAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetByKeyAsync(System.String,System.Threading.CancellationToken)
+  id: GetByKeyAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  langs:
+  - csharp
+  - vb
+  name: GetByKeyAsync(string, CancellationToken)
+  nameWithType: IUserPreferencesRepository.GetByKeyAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetByKeyAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetByKeyAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+    startLine: 34
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Retrieves a preference by its unique key.
+  example: []
+  syntax:
+    content: Task<UserPreferences?> GetByKeyAsync(string key, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The preference key to look up.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.UserPreferences}
+      description: The <xref href="NeonSuit.RSSReader.Core.Models.UserPreferences" data-throw-if-not-resolved="false"></xref> entity if found; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+    content.vb: Function GetByKeyAsync(key As String, cancellationToken As CancellationToken = Nothing) As Task(Of UserPreferences)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetByKeyAsync*
+  nameWithType.vb: IUserPreferencesRepository.GetByKeyAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetByKeyAsync(String, System.Threading.CancellationToken)
+  name.vb: GetByKeyAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  langs:
+  - csharp
+  - vb
+  name: GetValueAsync(string, string, CancellationToken)
+  nameWithType: IUserPreferencesRepository.GetValueAsync(string, string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetValueAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetValueAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+    startLine: 43
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Retrieves the string value of a preference with a fallback.
+  example: []
+  syntax:
+    content: Task<string> GetValueAsync(string key, string defaultValue = "", CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The preference key.
+    - id: defaultValue
+      type: System.String
+      description: The value to return if the key is not found.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The stored value or <code class="paramref">defaultValue</code>.
+    content.vb: Function GetValueAsync(key As String, defaultValue As String = "", cancellationToken As CancellationToken = Nothing) As Task(Of String)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetValueAsync*
+  nameWithType.vb: IUserPreferencesRepository.GetValueAsync(String, String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetValueAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GetValueAsync(String, String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetBoolAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetBoolAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  id: GetBoolAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  langs:
+  - csharp
+  - vb
+  name: GetBoolAsync(string, bool, CancellationToken)
+  nameWithType: IUserPreferencesRepository.GetBoolAsync(string, bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetBoolAsync(string, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetBoolAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+    startLine: 52
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Retrieves the boolean value of a preference with a fallback.
+  example: []
+  syntax:
+    content: Task<bool> GetBoolAsync(string key, bool defaultValue = false, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The preference key.
+    - id: defaultValue
+      type: System.Boolean
+      description: The value to return if the key is not found or not a valid bool.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: The boolean value or <code class="paramref">defaultValue</code>.
+    content.vb: Function GetBoolAsync(key As String, defaultValue As Boolean = False, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetBoolAsync*
+  nameWithType.vb: IUserPreferencesRepository.GetBoolAsync(String, Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetBoolAsync(String, Boolean, System.Threading.CancellationToken)
+  name.vb: GetBoolAsync(String, Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetIntAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetIntAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  id: GetIntAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  langs:
+  - csharp
+  - vb
+  name: GetIntAsync(string, int, CancellationToken)
+  nameWithType: IUserPreferencesRepository.GetIntAsync(string, int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetIntAsync(string, int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetIntAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+    startLine: 61
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Retrieves the integer value of a preference with a fallback.
+  example: []
+  syntax:
+    content: Task<int> GetIntAsync(string key, int defaultValue = 0, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The preference key.
+    - id: defaultValue
+      type: System.Int32
+      description: The value to return if the key is not found or not a valid integer.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The integer value or <code class="paramref">defaultValue</code>.
+    content.vb: Function GetIntAsync(key As String, defaultValue As Integer = 0, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetIntAsync*
+  nameWithType.vb: IUserPreferencesRepository.GetIntAsync(String, Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetIntAsync(String, Integer, System.Threading.CancellationToken)
+  name.vb: GetIntAsync(String, Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: SetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  langs:
+  - csharp
+  - vb
+  name: SetValueAsync(string, string, CancellationToken)
+  nameWithType: IUserPreferencesRepository.SetValueAsync(string, string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValueAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SetValueAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+    startLine: 74
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Sets or updates a preference value.
+  example: []
+  syntax:
+    content: Task SetValueAsync(string key, string value, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The unique preference key.
+    - id: value
+      type: System.String
+      description: The new string value to store.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous set operation.
+    content.vb: Function SetValueAsync(key As String, value As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValueAsync*
+  nameWithType.vb: IUserPreferencesRepository.SetValueAsync(String, String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValueAsync(String, String, System.Threading.CancellationToken)
+  name.vb: SetValueAsync(String, String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.ResetToDefaultAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.ResetToDefaultAsync(System.String,System.Threading.CancellationToken)
+  id: ResetToDefaultAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  langs:
+  - csharp
+  - vb
+  name: ResetToDefaultAsync(string, CancellationToken)
+  nameWithType: IUserPreferencesRepository.ResetToDefaultAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.ResetToDefaultAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ResetToDefaultAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+    startLine: 82
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Resets a preference to its default value.
+  example: []
+  syntax:
+    content: Task ResetToDefaultAsync(string key, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The preference key to reset.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous reset operation.
+    content.vb: Function ResetToDefaultAsync(key As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.ResetToDefaultAsync*
+  nameWithType.vb: IUserPreferencesRepository.ResetToDefaultAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.ResetToDefaultAsync(String, System.Threading.CancellationToken)
+  name.vb: ResetToDefaultAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetAllCategorizedAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetAllCategorizedAsync(System.Threading.CancellationToken)
+  id: GetAllCategorizedAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  langs:
+  - csharp
+  - vb
+  name: GetAllCategorizedAsync(CancellationToken)
+  nameWithType: IUserPreferencesRepository.GetAllCategorizedAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetAllCategorizedAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetAllCategorizedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+    startLine: 93
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Retrieves all preferences grouped by category.
+  example: []
+  syntax:
+    content: Task<Dictionary<string, List<UserPreferences>>> GetAllCategorizedAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{NeonSuit.RSSReader.Core.Models.UserPreferences}}}
+      description: Dictionary where key is category name and value is list of preferences in that category.
+    content.vb: Function GetAllCategorizedAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Dictionary(Of String, List(Of UserPreferences)))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetAllCategorizedAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValuesBulkAsync(System.Collections.Generic.Dictionary{System.String,System.String},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValuesBulkAsync(System.Collections.Generic.Dictionary{System.String,System.String},System.Threading.CancellationToken)
+  id: SetValuesBulkAsync(System.Collections.Generic.Dictionary{System.String,System.String},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  langs:
+  - csharp
+  - vb
+  name: SetValuesBulkAsync(Dictionary<string, string>, CancellationToken)
+  nameWithType: IUserPreferencesRepository.SetValuesBulkAsync(Dictionary<string, string>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValuesBulkAsync(System.Collections.Generic.Dictionary<string, string>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SetValuesBulkAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Repositories/IUserPreferencesRepository.cs
+    startLine: 101
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  summary: Updates multiple preference values in a single operation.
+  example: []
+  syntax:
+    content: Task<int> SetValuesBulkAsync(Dictionary<string, string> values, CancellationToken cancellationToken = default)
+    parameters:
+    - id: values
+      type: System.Collections.Generic.Dictionary{System.String,System.String}
+      description: A dictionary of key-value pairs to update.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of preferences updated.
+    content.vb: Function SetValuesBulkAsync(values As Dictionary(Of String, String), cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValuesBulkAsync*
+  nameWithType.vb: IUserPreferencesRepository.SetValuesBulkAsync(Dictionary(Of String, String), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValuesBulkAsync(System.Collections.Generic.Dictionary(Of String, String), System.Threading.CancellationToken)
+  name.vb: SetValuesBulkAsync(Dictionary(Of String, String), CancellationToken)
+references:
+- uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+  commentId: T:NeonSuit.RSSReader.Core.Models.UserPreferences
+  href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  name: UserPreferences
+  nameWithType: UserPreferences
+  fullName: NeonSuit.RSSReader.Core.Models.UserPreferences
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Repositories
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories
+    name: Repositories
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories
+    name: Repositories
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.html
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetAllAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetAllAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetAllAsync(System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetAllAsync_System_Threading_CancellationToken_
+  name: GetAllAsync(CancellationToken)
+  nameWithType: IRepository<UserPreferences>.GetAllAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.GetAllAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).GetAllAsync(CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).GetAllAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetAllAsync(System.Threading.CancellationToken)
+    name: GetAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetAllAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetAllAsync(System.Threading.CancellationToken)
+    name: GetAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetAllAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetByIdAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetByIdAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetByIdAsync(System.Int32,System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetByIdAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetByIdAsync(int, CancellationToken)
+  nameWithType: IRepository<UserPreferences>.GetByIdAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.GetByIdAsync(int, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).GetByIdAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).GetByIdAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetByIdAsync(Integer, CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetByIdAsync(System.Int32,System.Threading.CancellationToken)
+    name: GetByIdAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetByIdAsync_System_Int32_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetByIdAsync(System.Int32,System.Threading.CancellationToken)
+    name: GetByIdAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetByIdAsync_System_Int32_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetWhereAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetWhereAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetWhereAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  name: GetWhereAsync(Expression<Func<UserPreferences, bool>>, CancellationToken)
+  nameWithType: IRepository<UserPreferences>.GetWhereAsync(Expression<Func<UserPreferences, bool>>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.GetWhereAsync(System.Linq.Expressions.Expression<System.Func<NeonSuit.RSSReader.Core.Models.UserPreferences, bool>>, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).GetWhereAsync(Expression(Of Func(Of UserPreferences, Boolean)), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).GetWhereAsync(System.Linq.Expressions.Expression(Of System.Func(Of NeonSuit.RSSReader.Core.Models.UserPreferences, Boolean)), System.Threading.CancellationToken)
+  name.vb: GetWhereAsync(Expression(Of Func(Of UserPreferences, Boolean)), CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetWhereAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+    name: GetWhereAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.GetWhereAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+    name: GetWhereAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_FirstOrDefaultAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  name: FirstOrDefaultAsync(Expression<Func<UserPreferences, bool>>, CancellationToken)
+  nameWithType: IRepository<UserPreferences>.FirstOrDefaultAsync(Expression<Func<UserPreferences, bool>>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.FirstOrDefaultAsync(System.Linq.Expressions.Expression<System.Func<NeonSuit.RSSReader.Core.Models.UserPreferences, bool>>, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).FirstOrDefaultAsync(Expression(Of Func(Of UserPreferences, Boolean)), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).FirstOrDefaultAsync(System.Linq.Expressions.Expression(Of System.Func(Of NeonSuit.RSSReader.Core.Models.UserPreferences, Boolean)), System.Threading.CancellationToken)
+  name.vb: FirstOrDefaultAsync(Expression(Of Func(Of UserPreferences, Boolean)), CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+    name: FirstOrDefaultAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_FirstOrDefaultAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+    name: FirstOrDefaultAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_FirstOrDefaultAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.AnyAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.AnyAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.AnyAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  name: AnyAsync(Expression<Func<UserPreferences, bool>>, CancellationToken)
+  nameWithType: IRepository<UserPreferences>.AnyAsync(Expression<Func<UserPreferences, bool>>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.AnyAsync(System.Linq.Expressions.Expression<System.Func<NeonSuit.RSSReader.Core.Models.UserPreferences, bool>>, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).AnyAsync(Expression(Of Func(Of UserPreferences, Boolean)), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).AnyAsync(System.Linq.Expressions.Expression(Of System.Func(Of NeonSuit.RSSReader.Core.Models.UserPreferences, Boolean)), System.Threading.CancellationToken)
+  name.vb: AnyAsync(Expression(Of Func(Of UserPreferences, Boolean)), CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.AnyAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+    name: AnyAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.AnyAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+    name: AnyAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.CountAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.CountAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.CountAsync(System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountAsync_System_Threading_CancellationToken_
+  name: CountAsync(CancellationToken)
+  nameWithType: IRepository<UserPreferences>.CountAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.CountAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).CountAsync(CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).CountAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.CountAsync(System.Threading.CancellationToken)
+    name: CountAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.CountAsync(System.Threading.CancellationToken)
+    name: CountAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.CountWhereAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.CountWhereAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.CountWhereAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  name: CountWhereAsync(Expression<Func<UserPreferences, bool>>, CancellationToken)
+  nameWithType: IRepository<UserPreferences>.CountWhereAsync(Expression<Func<UserPreferences, bool>>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.CountWhereAsync(System.Linq.Expressions.Expression<System.Func<NeonSuit.RSSReader.Core.Models.UserPreferences, bool>>, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).CountWhereAsync(Expression(Of Func(Of UserPreferences, Boolean)), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).CountWhereAsync(System.Linq.Expressions.Expression(Of System.Func(Of NeonSuit.RSSReader.Core.Models.UserPreferences, Boolean)), System.Threading.CancellationToken)
+  name.vb: CountWhereAsync(Expression(Of Func(Of UserPreferences, Boolean)), CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.CountWhereAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+    name: CountWhereAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.CountWhereAsync(System.Linq.Expressions.Expression{System.Func{NeonSuit.RSSReader.Core.Models.UserPreferences,System.Boolean}},System.Threading.CancellationToken)
+    name: CountWhereAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertAsync(`0,System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAsync__0_System_Threading_CancellationToken_
+  name: InsertAsync(UserPreferences, CancellationToken)
+  nameWithType: IRepository<UserPreferences>.InsertAsync(UserPreferences, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.InsertAsync(NeonSuit.RSSReader.Core.Models.UserPreferences, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).InsertAsync(UserPreferences, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).InsertAsync(NeonSuit.RSSReader.Core.Models.UserPreferences, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+    name: InsertAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+    name: InsertAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.UpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.UpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.UpdateAsync(`0,System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAsync__0_System_Threading_CancellationToken_
+  name: UpdateAsync(UserPreferences, CancellationToken)
+  nameWithType: IRepository<UserPreferences>.UpdateAsync(UserPreferences, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.UpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).UpdateAsync(UserPreferences, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).UpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.UpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+    name: UpdateAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.UpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+    name: UpdateAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteAsync(`0,System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAsync__0_System_Threading_CancellationToken_
+  name: DeleteAsync(UserPreferences, CancellationToken)
+  nameWithType: IRepository<UserPreferences>.DeleteAsync(UserPreferences, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.DeleteAsync(NeonSuit.RSSReader.Core.Models.UserPreferences, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).DeleteAsync(UserPreferences, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).DeleteAsync(NeonSuit.RSSReader.Core.Models.UserPreferences, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+    name: DeleteAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+    name: DeleteAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteByIdAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteByIdAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteByIdAsync(System.Int32,System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteByIdAsync_System_Int32_System_Threading_CancellationToken_
+  name: DeleteByIdAsync(int, CancellationToken)
+  nameWithType: IRepository<UserPreferences>.DeleteByIdAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.DeleteByIdAsync(int, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).DeleteByIdAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).DeleteByIdAsync(Integer, System.Threading.CancellationToken)
+  name.vb: DeleteByIdAsync(Integer, CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteByIdAsync(System.Int32,System.Threading.CancellationToken)
+    name: DeleteByIdAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteByIdAsync_System_Int32_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteByIdAsync(System.Int32,System.Threading.CancellationToken)
+    name: DeleteByIdAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteByIdAsync_System_Int32_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertOrUpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertOrUpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertOrUpdateAsync(`0,System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertOrUpdateAsync__0_System_Threading_CancellationToken_
+  name: InsertOrUpdateAsync(UserPreferences, CancellationToken)
+  nameWithType: IRepository<UserPreferences>.InsertOrUpdateAsync(UserPreferences, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.InsertOrUpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).InsertOrUpdateAsync(UserPreferences, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).InsertOrUpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertOrUpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+    name: InsertOrUpdateAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertOrUpdateAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertOrUpdateAsync(NeonSuit.RSSReader.Core.Models.UserPreferences,System.Threading.CancellationToken)
+    name: InsertOrUpdateAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertOrUpdateAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertAllAsync(System.Collections.Generic.IEnumerable{NeonSuit.RSSReader.Core.Models.UserPreferences},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertAllAsync(System.Collections.Generic.IEnumerable{NeonSuit.RSSReader.Core.Models.UserPreferences},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertAllAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_
+  name: InsertAllAsync(IEnumerable<UserPreferences>, CancellationToken)
+  nameWithType: IRepository<UserPreferences>.InsertAllAsync(IEnumerable<UserPreferences>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.InsertAllAsync(System.Collections.Generic.IEnumerable<NeonSuit.RSSReader.Core.Models.UserPreferences>, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).InsertAllAsync(IEnumerable(Of UserPreferences), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).InsertAllAsync(System.Collections.Generic.IEnumerable(Of NeonSuit.RSSReader.Core.Models.UserPreferences), System.Threading.CancellationToken)
+  name.vb: InsertAllAsync(IEnumerable(Of UserPreferences), CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertAllAsync(System.Collections.Generic.IEnumerable{NeonSuit.RSSReader.Core.Models.UserPreferences},System.Threading.CancellationToken)
+    name: InsertAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.InsertAllAsync(System.Collections.Generic.IEnumerable{NeonSuit.RSSReader.Core.Models.UserPreferences},System.Threading.CancellationToken)
+    name: InsertAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.UpdateAllAsync(System.Collections.Generic.IEnumerable{NeonSuit.RSSReader.Core.Models.UserPreferences},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.UpdateAllAsync(System.Collections.Generic.IEnumerable{NeonSuit.RSSReader.Core.Models.UserPreferences},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.UpdateAllAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_
+  name: UpdateAllAsync(IEnumerable<UserPreferences>, CancellationToken)
+  nameWithType: IRepository<UserPreferences>.UpdateAllAsync(IEnumerable<UserPreferences>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.UpdateAllAsync(System.Collections.Generic.IEnumerable<NeonSuit.RSSReader.Core.Models.UserPreferences>, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).UpdateAllAsync(IEnumerable(Of UserPreferences), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).UpdateAllAsync(System.Collections.Generic.IEnumerable(Of NeonSuit.RSSReader.Core.Models.UserPreferences), System.Threading.CancellationToken)
+  name.vb: UpdateAllAsync(IEnumerable(Of UserPreferences), CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.UpdateAllAsync(System.Collections.Generic.IEnumerable{NeonSuit.RSSReader.Core.Models.UserPreferences},System.Threading.CancellationToken)
+    name: UpdateAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.UpdateAllAsync(System.Collections.Generic.IEnumerable{NeonSuit.RSSReader.Core.Models.UserPreferences},System.Threading.CancellationToken)
+    name: UpdateAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteAllAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteAllAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteAllAsync(System.Threading.CancellationToken)
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAllAsync_System_Threading_CancellationToken_
+  name: DeleteAllAsync(CancellationToken)
+  nameWithType: IRepository<UserPreferences>.DeleteAllAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>.DeleteAllAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of UserPreferences).DeleteAllAsync(CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences).DeleteAllAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteAllAsync(System.Threading.CancellationToken)
+    name: DeleteAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAllAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}.DeleteAllAsync(System.Threading.CancellationToken)
+    name: DeleteAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAllAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetAllAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetAllAsync(System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetAllAsync_System_Threading_CancellationToken_
+  name: GetAllAsync(CancellationToken)
+  nameWithType: IRepository<T>.GetAllAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.GetAllAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).GetAllAsync(CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).GetAllAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetAllAsync(System.Threading.CancellationToken)
+    name: GetAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetAllAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetAllAsync(System.Threading.CancellationToken)
+    name: GetAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetAllAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  parent: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  definition: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html
+  name: IRepository<UserPreferences>
+  nameWithType: IRepository<UserPreferences>
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<NeonSuit.RSSReader.Core.Models.UserPreferences>
+  nameWithType.vb: IRepository(Of UserPreferences)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of NeonSuit.RSSReader.Core.Models.UserPreferences)
+  name.vb: IRepository(Of UserPreferences)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1
+    name: IRepository
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: '>'
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1
+    name: IRepository
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetByIdAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetByIdAsync(System.Int32,System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetByIdAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetByIdAsync(int, CancellationToken)
+  nameWithType: IRepository<T>.GetByIdAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.GetByIdAsync(int, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).GetByIdAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).GetByIdAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetByIdAsync(Integer, CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetByIdAsync(System.Int32,System.Threading.CancellationToken)
+    name: GetByIdAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetByIdAsync_System_Int32_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetByIdAsync(System.Int32,System.Threading.CancellationToken)
+    name: GetByIdAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetByIdAsync_System_Int32_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetWhereAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetWhereAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  name: GetWhereAsync(Expression<Func<T, bool>>, CancellationToken)
+  nameWithType: IRepository<T>.GetWhereAsync(Expression<Func<T, bool>>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.GetWhereAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).GetWhereAsync(Expression(Of Func(Of T, Boolean)), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).GetWhereAsync(System.Linq.Expressions.Expression(Of System.Func(Of T, Boolean)), System.Threading.CancellationToken)
+  name.vb: GetWhereAsync(Expression(Of Func(Of T, Boolean)), CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetWhereAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+    name: GetWhereAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.GetWhereAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+    name: GetWhereAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_GetWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_FirstOrDefaultAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  name: FirstOrDefaultAsync(Expression<Func<T, bool>>, CancellationToken)
+  nameWithType: IRepository<T>.FirstOrDefaultAsync(Expression<Func<T, bool>>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.FirstOrDefaultAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).FirstOrDefaultAsync(Expression(Of Func(Of T, Boolean)), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).FirstOrDefaultAsync(System.Linq.Expressions.Expression(Of System.Func(Of T, Boolean)), System.Threading.CancellationToken)
+  name.vb: FirstOrDefaultAsync(Expression(Of Func(Of T, Boolean)), CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+    name: FirstOrDefaultAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_FirstOrDefaultAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.FirstOrDefaultAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+    name: FirstOrDefaultAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_FirstOrDefaultAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.AnyAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.AnyAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  name: AnyAsync(Expression<Func<T, bool>>, CancellationToken)
+  nameWithType: IRepository<T>.AnyAsync(Expression<Func<T, bool>>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.AnyAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).AnyAsync(Expression(Of Func(Of T, Boolean)), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).AnyAsync(System.Linq.Expressions.Expression(Of System.Func(Of T, Boolean)), System.Threading.CancellationToken)
+  name.vb: AnyAsync(Expression(Of Func(Of T, Boolean)), CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.AnyAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+    name: AnyAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.AnyAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+    name: AnyAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_AnyAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.CountAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.CountAsync(System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountAsync_System_Threading_CancellationToken_
+  name: CountAsync(CancellationToken)
+  nameWithType: IRepository<T>.CountAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.CountAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).CountAsync(CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).CountAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.CountAsync(System.Threading.CancellationToken)
+    name: CountAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.CountAsync(System.Threading.CancellationToken)
+    name: CountAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.CountWhereAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.CountWhereAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  name: CountWhereAsync(Expression<Func<T, bool>>, CancellationToken)
+  nameWithType: IRepository<T>.CountWhereAsync(Expression<Func<T, bool>>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.CountWhereAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).CountWhereAsync(Expression(Of Func(Of T, Boolean)), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).CountWhereAsync(System.Linq.Expressions.Expression(Of System.Func(Of T, Boolean)), System.Threading.CancellationToken)
+  name.vb: CountWhereAsync(Expression(Of Func(Of T, Boolean)), CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.CountWhereAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+    name: CountWhereAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.CountWhereAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)
+    name: CountWhereAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_CountWhereAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertAsync(`0,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertAsync(`0,System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAsync__0_System_Threading_CancellationToken_
+  name: InsertAsync(T, CancellationToken)
+  nameWithType: IRepository<T>.InsertAsync(T, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.InsertAsync(T, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).InsertAsync(T, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).InsertAsync(T, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertAsync(`0,System.Threading.CancellationToken)
+    name: InsertAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertAsync(`0,System.Threading.CancellationToken)
+    name: InsertAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.UpdateAsync(`0,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.UpdateAsync(`0,System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAsync__0_System_Threading_CancellationToken_
+  name: UpdateAsync(T, CancellationToken)
+  nameWithType: IRepository<T>.UpdateAsync(T, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.UpdateAsync(T, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).UpdateAsync(T, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).UpdateAsync(T, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.UpdateAsync(`0,System.Threading.CancellationToken)
+    name: UpdateAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.UpdateAsync(`0,System.Threading.CancellationToken)
+    name: UpdateAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteAsync(`0,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteAsync(`0,System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAsync__0_System_Threading_CancellationToken_
+  name: DeleteAsync(T, CancellationToken)
+  nameWithType: IRepository<T>.DeleteAsync(T, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.DeleteAsync(T, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).DeleteAsync(T, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).DeleteAsync(T, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteAsync(`0,System.Threading.CancellationToken)
+    name: DeleteAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteAsync(`0,System.Threading.CancellationToken)
+    name: DeleteAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteByIdAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteByIdAsync(System.Int32,System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteByIdAsync_System_Int32_System_Threading_CancellationToken_
+  name: DeleteByIdAsync(int, CancellationToken)
+  nameWithType: IRepository<T>.DeleteByIdAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.DeleteByIdAsync(int, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).DeleteByIdAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).DeleteByIdAsync(Integer, System.Threading.CancellationToken)
+  name.vb: DeleteByIdAsync(Integer, CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteByIdAsync(System.Int32,System.Threading.CancellationToken)
+    name: DeleteByIdAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteByIdAsync_System_Int32_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteByIdAsync(System.Int32,System.Threading.CancellationToken)
+    name: DeleteByIdAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteByIdAsync_System_Int32_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertOrUpdateAsync(`0,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertOrUpdateAsync(`0,System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertOrUpdateAsync__0_System_Threading_CancellationToken_
+  name: InsertOrUpdateAsync(T, CancellationToken)
+  nameWithType: IRepository<T>.InsertOrUpdateAsync(T, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.InsertOrUpdateAsync(T, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).InsertOrUpdateAsync(T, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).InsertOrUpdateAsync(T, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertOrUpdateAsync(`0,System.Threading.CancellationToken)
+    name: InsertOrUpdateAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertOrUpdateAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertOrUpdateAsync(`0,System.Threading.CancellationToken)
+    name: InsertOrUpdateAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertOrUpdateAsync__0_System_Threading_CancellationToken_
+  - name: (
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertAllAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertAllAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_
+  name: InsertAllAsync(IEnumerable<T>, CancellationToken)
+  nameWithType: IRepository<T>.InsertAllAsync(IEnumerable<T>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.InsertAllAsync(System.Collections.Generic.IEnumerable<T>, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).InsertAllAsync(IEnumerable(Of T), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).InsertAllAsync(System.Collections.Generic.IEnumerable(Of T), System.Threading.CancellationToken)
+  name.vb: InsertAllAsync(IEnumerable(Of T), CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertAllAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)
+    name: InsertAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.InsertAllAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)
+    name: InsertAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_InsertAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.UpdateAllAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.UpdateAllAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_
+  name: UpdateAllAsync(IEnumerable<T>, CancellationToken)
+  nameWithType: IRepository<T>.UpdateAllAsync(IEnumerable<T>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.UpdateAllAsync(System.Collections.Generic.IEnumerable<T>, System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).UpdateAllAsync(IEnumerable(Of T), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).UpdateAllAsync(System.Collections.Generic.IEnumerable(Of T), System.Threading.CancellationToken)
+  name.vb: UpdateAllAsync(IEnumerable(Of T), CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.UpdateAllAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)
+    name: UpdateAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.UpdateAllAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)
+    name: UpdateAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_UpdateAllAsync_System_Collections_Generic_IEnumerable__0__System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteAllAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteAllAsync(System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAllAsync_System_Threading_CancellationToken_
+  name: DeleteAllAsync(CancellationToken)
+  nameWithType: IRepository<T>.DeleteAllAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>.DeleteAllAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IRepository(Of T).DeleteAllAsync(CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T).DeleteAllAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteAllAsync(System.Threading.CancellationToken)
+    name: DeleteAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAllAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1.DeleteAllAsync(System.Threading.CancellationToken)
+    name: DeleteAllAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IRepository_1_DeleteAllAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html
+  name: IRepository<T>
+  nameWithType: IRepository<T>
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>
+  nameWithType.vb: IRepository(Of T)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T)
+  name.vb: IRepository(Of T)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1
+    name: IRepository
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1
+    name: IRepository
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetByKeyAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetByKeyAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IUserPreferencesRepository_GetByKeyAsync_System_String_System_Threading_CancellationToken_
+  name: GetByKeyAsync
+  nameWithType: IUserPreferencesRepository.GetByKeyAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetByKeyAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.Models.UserPreferences}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<UserPreferences>
+  nameWithType: Task<UserPreferences>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.Models.UserPreferences>
+  nameWithType.vb: Task(Of UserPreferences)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.Models.UserPreferences)
+  name.vb: Task(Of UserPreferences)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetValueAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetValueAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IUserPreferencesRepository_GetValueAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GetValueAsync
+  nameWithType: IUserPreferencesRepository.GetValueAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetValueAsync
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetBoolAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetBoolAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IUserPreferencesRepository_GetBoolAsync_System_String_System_Boolean_System_Threading_CancellationToken_
+  name: GetBoolAsync
+  nameWithType: IUserPreferencesRepository.GetBoolAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetBoolAsync
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetIntAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetIntAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IUserPreferencesRepository_GetIntAsync_System_String_System_Int32_System_Threading_CancellationToken_
+  name: GetIntAsync
+  nameWithType: IUserPreferencesRepository.GetIntAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetIntAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValueAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValueAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IUserPreferencesRepository_SetValueAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: SetValueAsync
+  nameWithType: IUserPreferencesRepository.SetValueAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValueAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.ResetToDefaultAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.ResetToDefaultAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IUserPreferencesRepository_ResetToDefaultAsync_System_String_System_Threading_CancellationToken_
+  name: ResetToDefaultAsync
+  nameWithType: IUserPreferencesRepository.ResetToDefaultAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.ResetToDefaultAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetAllCategorizedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetAllCategorizedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IUserPreferencesRepository_GetAllCategorizedAsync_System_Threading_CancellationToken_
+  name: GetAllCategorizedAsync
+  nameWithType: IUserPreferencesRepository.GetAllCategorizedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.GetAllCategorizedAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{NeonSuit.RSSReader.Core.Models.UserPreferences}}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{NeonSuit.RSSReader.Core.Models.UserPreferences}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Dictionary<string, List<UserPreferences>>>
+  nameWithType: Task<Dictionary<string, List<UserPreferences>>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<NeonSuit.RSSReader.Core.Models.UserPreferences>>>
+  nameWithType.vb: Task(Of Dictionary(Of String, List(Of UserPreferences)))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.Dictionary(Of String, System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.Models.UserPreferences)))
+  name.vb: Task(Of Dictionary(Of String, List(Of UserPreferences)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.UserPreferences
+    name: UserPreferences
+    href: NeonSuit.RSSReader.Core.Models.UserPreferences.html
+  - name: )
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValuesBulkAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValuesBulkAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.html#NeonSuit_RSSReader_Core_Interfaces_Repositories_IUserPreferencesRepository_SetValuesBulkAsync_System_Collections_Generic_Dictionary_System_String_System_String__System_Threading_CancellationToken_
+  name: SetValuesBulkAsync
+  nameWithType: IUserPreferencesRepository.SetValuesBulkAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.SetValuesBulkAsync
+- uid: System.Collections.Generic.Dictionary{System.String,System.String}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, string>
+  nameWithType: Dictionary<string, string>
+  fullName: System.Collections.Generic.Dictionary<string, string>
+  nameWithType.vb: Dictionary(Of String, String)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, String)
+  name.vb: Dictionary(Of String, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

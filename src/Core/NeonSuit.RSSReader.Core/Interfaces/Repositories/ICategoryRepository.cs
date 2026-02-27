@@ -1,6 +1,4 @@
 ﻿using NeonSuit.RSSReader.Core.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace NeonSuit.RSSReader.Core.Interfaces.Repositories
 {
@@ -56,62 +54,33 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Repositories
     ///     <item>Bulk feed import → auto-create categories if needed</item>
     /// </list>
     /// </remarks>
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IRepository<Category>
     {
         #region Basic Retrieval & Existence Checks
-
-        /// <summary>
-        /// Retrieves a single category by its primary key.
-        /// </summary>
-        /// <param name="id">The unique category identifier.</param>
-        /// <returns>The <see cref="Category"/> if found; otherwise <c>null</c>.</returns>
-        /// <remarks>
-        /// Primary method for loading category details for editing or display.
-        /// Returns tracked entity (EF Core default).
-        /// </remarks>
-        Task<Category?> GetByIdAsync(int id);
-
-        /// <summary>
-        /// Retrieves all categories without any ordering guarantee.
-        /// </summary>
-        /// <returns>List of all categories in the database.</returns>
-        /// <remarks>
-        /// Use for administrative purposes or when order is irrelevant.
-        /// Prefer <see cref="GetAllOrderedAsync"/> for UI display.
-        /// </remarks>
-        Task<List<Category>> GetAllAsync();
 
         /// <summary>
         /// Retrieves all categories sorted by <see cref="Category.SortOrder"/> ascending,
         /// then by <see cref="Category.Name"/> ascending as tie-breaker.
         /// </summary>
-        /// <returns>Ordered list of categories ready for UI rendering (sidebar, dropdowns).</returns>
-        /// <remarks>
-        /// Default method for feed list/category tree views.
-        /// Ensures consistent user-defined ordering.
-        /// </remarks>
-        Task<List<Category>> GetAllOrderedAsync();
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>Ordered list of categories ready for UI rendering.</returns>
+        Task<List<Category>> GetAllOrderedAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Finds a category by its exact name (case-insensitive in most implementations).
+        /// Finds a category by its exact name (case-insensitive).
         /// </summary>
         /// <param name="name">The category name to search for.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>The matching <see cref="Category"/> or <c>null</c>.</returns>
-        /// <remarks>
-        /// Used during creation to prevent duplicates or during import to match existing categories.
-        /// </remarks>
-        Task<Category?> GetByNameAsync(string name);
+        Task<Category?> GetByNameAsync(string name, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Checks whether a category with the given name already exists.
         /// </summary>
-        /// <param name="name">The category name to check (case-insensitive).</param>
+        /// <param name="name">The category name to check.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns><c>true</c> if a category with this name exists; otherwise <c>false</c>.</returns>
-        /// <remarks>
-        /// Optimized scalar query — prevents full entity load.
-        /// Used in validation before insert.
-        /// </remarks>
-        Task<bool> ExistsByNameAsync(string name);
+        Task<bool> ExistsByNameAsync(string name, CancellationToken cancellationToken = default);
 
         #endregion
 
@@ -121,13 +90,7 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Repositories
         /// Clears the entire Entity Framework change tracker.
         /// </summary>
         /// <remarks>
-        /// <para>Extreme caution advised:</para>
-        /// <list type="bullet">
-        ///     <item>Only use in bulk import/sync scenarios where many entities are loaded/read-only.</item>
-        ///     <item>Causes loss of all pending changes — ensure SaveChanges was called if needed.</item>
-        ///     <item>Not thread-safe in concurrent contexts.</item>
-        /// </list>
-        /// Intended to reduce memory pressure during large operations.
+        /// Extreme caution advised: only use in bulk import/sync scenarios.
         /// </remarks>
         void ClearChangeTracker();
 
@@ -135,50 +98,23 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Repositories
         /// Detaches a specific category entity from change tracking by ID.
         /// </summary>
         /// <param name="id">The ID of the category to detach.</param>
-        /// <remarks>
-        /// Prevents unintended persistence of modified read-only entities.
-        /// Safe to call even if entity was not tracked.
-        /// </remarks>
-        Task DetachEntityAsync(int id);
+        /// <param name="cancellationToken">Cancellation token.</param>
+        Task DetachEntityAsync(int id, CancellationToken cancellationToken = default);
 
         #endregion
 
         #region CRUD Operations
 
         /// <summary>
-        /// Inserts a new category into the database.
-        /// </summary>
-        /// <param name="category">The <see cref="Category"/> entity to insert (Name required).</param>
-        /// <returns>Number of rows affected (1 on success).</returns>
-        /// <remarks>
-        /// Validates uniqueness of name.
-        /// Sets creation timestamp and default SortOrder if not provided.
-        /// Throws on duplicate name or invalid data.
-        /// </remarks>
-        Task<int> InsertAsync(Category category);
-
-        /// <summary>
-        /// Updates an existing category with new values.
-        /// </summary>
-        /// <param name="category">The modified <see cref="Category"/> (must have valid ID).</param>
-        /// <returns>Number of rows affected (1 on success).</returns>
-        /// <remarks>
-        /// Only updates changed properties (optimistic concurrency).
-        /// Name changes are validated for uniqueness.
-        /// </remarks>
-        Task<int> UpdateAsync(Category category);
-
-        /// <summary>
         /// Deletes a category by ID.
         /// </summary>
         /// <param name="id">The ID of the category to delete.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>Number of rows affected (1 on success).</returns>
         /// <remarks>
         /// Does **not** delete associated feeds — sets Feed.CategoryId = null.
-        /// Cascades to any dependent data if configured.
-        /// Updates any cached counts or UI state via events.
         /// </remarks>
-        Task<int> DeleteAsync(int id);
+        Task<int> DeleteAsync(int id, CancellationToken cancellationToken = default);
 
         #endregion
 
@@ -187,13 +123,9 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Repositories
         /// <summary>
         /// Computes unread article counts grouped by category.
         /// </summary>
+        /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>Dictionary of CategoryId → unread article count.</returns>
-        /// <remarks>
-        /// Uses efficient JOIN + GROUP BY query (no full entity loading).
-        /// Only includes categories with unread > 0 (or all — implementation-dependent).
-        /// Used to display badges in category list/sidebar.
-        /// </remarks>
-        Task<Dictionary<int, int>> GetUnreadCountsByCategoryAsync();
+        Task<Dictionary<int, int>> GetUnreadCountsByCategoryAsync(CancellationToken cancellationToken = default);
 
         #endregion
 
@@ -203,22 +135,16 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Repositories
         /// Reorders categories according to the provided sequence of IDs.
         /// </summary>
         /// <param name="categoryIds">Ordered list of category IDs (new sort order = index in list).</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>Number of categories whose SortOrder was updated.</returns>
-        /// <remarks>
-        /// Atomic operation — should be wrapped in transaction.
-        /// Updates SortOrder for all provided IDs; others remain unchanged.
-        /// Used after drag-and-drop reordering in UI.
-        /// </remarks>
-        Task<int> ReorderAsync(List<int> categoryIds);
+        Task<int> ReorderAsync(List<int> categoryIds, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Determines the next available SortOrder value for a new category.
         /// </summary>
+        /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>The next integer SortOrder (usually max + 1).</returns>
-        /// <remarks>
-        /// Safe for concurrent inserts (uses MAX + 1 pattern).
-        /// </remarks>
-        Task<int> GetNextSortOrderAsync();
+        Task<int> GetNextSortOrderAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Creates a new category with automatically assigned next SortOrder.
@@ -226,23 +152,16 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Repositories
         /// <param name="name">Required category name (must be unique).</param>
         /// <param name="color">Optional hex color code (e.g., "#FF5733").</param>
         /// <param name="description">Optional description or notes.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>The newly created and persisted <see cref="Category"/> entity.</returns>
-        /// <remarks>
-        /// Convenience method combining creation + sort order assignment.
-        /// Validates name uniqueness before insert.
-        /// Sets default values for optional fields.
-        /// </remarks>
-        Task<Category> CreateWithOrderAsync(string name, string? color = null, string? description = null);
+        Task<Category> CreateWithOrderAsync(string name, string? color = null, string? description = null, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Retrieves the highest SortOrder value currently in use.
         /// </summary>
+        /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>The maximum SortOrder value (or 0 if no categories exist).</returns>
-        /// <remarks>
-        /// Used internally by <see cref="GetNextSortOrderAsync"/> and ordering logic.
-        /// Fast scalar query.
-        /// </remarks>
-        Task<int> GetMaxSortOrderAsync();
+        Task<int> GetMaxSortOrderAsync(CancellationToken cancellationToken = default);
 
         #endregion
     }

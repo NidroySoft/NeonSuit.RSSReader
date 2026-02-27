@@ -1,0 +1,98 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Modules
+  id: NeonSuit.RSSReader.Core.DTOs.Modules
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto
+  - NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  - NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto
+  - NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto
+  - NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.DTOs.Modules
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Modules
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto.html
+  name: ModuleActionResultDto
+  nameWithType: ModuleActionResultDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleActionResultDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto.html
+  name: ModuleConfigSchemaDto
+  nameWithType: ModuleConfigSchemaDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigSchemaDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto.html
+  name: ModuleConfigPropertyDto
+  nameWithType: ModuleConfigPropertyDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleConfigPropertyDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto.html
+  name: ModuleInfoDto
+  nameWithType: ModuleInfoDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.ModuleInfoDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Modules
+  href: NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto.html
+  name: UpdateModuleConfigDto
+  nameWithType: UpdateModuleConfigDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules.UpdateModuleConfigDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Modules
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Modules
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Modules
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Modules
+  fullName: NeonSuit.RSSReader.Core.DTOs.Modules
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.DTOs.Modules.html

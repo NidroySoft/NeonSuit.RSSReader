@@ -1,0 +1,312 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  commentId: T:NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  id: ArticleStatus
+  parent: NeonSuit.RSSReader.Core.Enums
+  children:
+  - NeonSuit.RSSReader.Core.Enums.ArticleStatus.Archived
+  - NeonSuit.RSSReader.Core.Enums.ArticleStatus.Read
+  - NeonSuit.RSSReader.Core.Enums.ArticleStatus.Starred
+  - NeonSuit.RSSReader.Core.Enums.ArticleStatus.Unread
+  langs:
+  - csharp
+  - vb
+  name: ArticleStatus
+  nameWithType: ArticleStatus
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ArticleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ArticleStatus
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ArticleStatus.cs
+    startLine: 43
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Represents the user-facing status of an individual article within the RSS/Atom reader application.
+  remarks: >-
+    <p>
+
+    This enumeration tracks the primary lifecycle and user interaction states for each article.
+
+    It is used across the application to control visibility, filtering, sorting, notification behavior,
+
+    and UI presentation of articles in lists, reading views, and dashboards.
+
+    </p>
+
+
+    <p>
+
+    ArticleStatus directly influences:
+
+    </p>
+
+    <ul><li>Which articles appear in the main "unread" or "all" feeds/timelines</li><li>Badge counters (e.g., number of unread articles per feed or globally)</li><li>Filtering options (e.g., "show only unread", "show starred", "show archived")</li><li>Sync priorities and cleanup policies (e.g., archived articles may be eligible for deletion after a retention period)</li><li>User actions like marking all as read, starring for later, or archiving to declutter</li></ul>
+
+
+    <p>
+
+    Status changes are almost always triggered by explicit user actions (via UI or API) rather than
+
+    automatically by the system, except in rare cases such as bulk "mark all as read" operations.
+
+    The status is persisted per-user per-article (typically in a database table linking user ID,
+
+    article GUID, and status value).
+
+    </p>
+
+
+    <p>
+
+    Important business rules and design notes:
+
+    </p>
+
+    <ul><li>Statuses are mutually exclusive — an article has exactly one status at any time.</li><li><xref href="NeonSuit.RSSReader.Core.Enums.ArticleStatus.Starred" data-throw-if-not-resolved="false"></xref> is an orthogonal flag in many readers, but here it is modeled as a distinct primary status
+              (meaning a starred article is no longer considered Unread/Read in the default view unless explicitly shown).</li><li>Archiving is a user-initiated "cleanup" action; archived articles are hidden from main views by default
+              but remain searchable and restorable.</li><li>No automatic transitions occur (e.g., articles do not become Read just because time passed).</li><li>When a new article is first ingested from a feed, it always starts as <xref href="NeonSuit.RSSReader.Core.Enums.ArticleStatus.Unread" data-throw-if-not-resolved="false"></xref>.</li></ul>
+  example: []
+  syntax:
+    content: public enum ArticleStatus
+    content.vb: Public Enum ArticleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Unread
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ArticleStatus.Unread
+  id: Unread
+  parent: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  langs:
+  - csharp
+  - vb
+  name: Unread
+  nameWithType: ArticleStatus.Unread
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Unread
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ArticleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Unread
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ArticleStatus.cs
+    startLine: 65
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The article is new and has not yet been opened or marked as read by the user.
+  remarks: >-
+    <p>Behavior impact:</p>
+
+    <ul><li>Appears prominently in "unread" views, timelines, and feed lists.</li><li>Contributes to unread counters/badges.</li><li>May trigger notifications (push/email) depending on user settings.</li><li>Default sorting often places Unread articles first (chronological descending within unread).</li></ul>
+
+
+    <p>When assigned:</p>
+
+    <ul><li>Immediately upon successful ingestion/sync of a new article from the feed.</li><li>Never assigned automatically after initial creation.</li></ul>
+
+
+    <p>Typical transition: User opens/scrolls past the article → changes to <xref href="NeonSuit.RSSReader.Core.Enums.ArticleStatus.Read" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: Unread = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Read
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ArticleStatus.Read
+  id: Read
+  parent: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  langs:
+  - csharp
+  - vb
+  name: Read
+  nameWithType: ArticleStatus.Read
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Read
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ArticleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Read
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ArticleStatus.cs
+    startLine: 88
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The user has opened, viewed, or explicitly marked the article as having been read.
+  remarks: >-
+    <p>Behavior impact:</p>
+
+    <ul><li>Removed from default "unread" views and counters (unless user filters to show read items).</li><li>Still visible in "all articles" or chronological views.</li><li>No longer triggers new notifications.</li><li>Often grayed out or styled differently in lists to indicate completion.</li></ul>
+
+
+    <p>When assigned:</p>
+
+    <ul><li>User opens the article in detail view.</li><li>User uses bulk "mark as read" (up to current, all in feed, etc.).</li><li>Some clients auto-mark as read when article is visible on screen for X seconds (configurable).</li></ul>
+
+
+    <p>Typical transitions: Back to <xref href="NeonSuit.RSSReader.Core.Enums.ArticleStatus.Unread" data-throw-if-not-resolved="false"></xref> if user manually marks unread; to <xref href="NeonSuit.RSSReader.Core.Enums.ArticleStatus.Starred" data-throw-if-not-resolved="false"></xref> or <xref href="NeonSuit.RSSReader.Core.Enums.ArticleStatus.Archived" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: Read = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Starred
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ArticleStatus.Starred
+  id: Starred
+  parent: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  langs:
+  - csharp
+  - vb
+  name: Starred
+  nameWithType: ArticleStatus.Starred
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Starred
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ArticleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Starred
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ArticleStatus.cs
+    startLine: 110
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The user has explicitly marked the article as important, favorite, or "starred" for later reference.
+  remarks: >-
+    <p>Behavior impact:</p>
+
+    <ul><li>Appears in a dedicated "Starred"/"Favorites"/"Saved" section or filter.</li><li>Often exempt from auto-archiving or cleanup policies.</li><li>Highlighted visually (star icon, different background/color).</li><li>May persist longer in local storage or sync even if original feed removes it.</li></ul>
+
+
+    <p>When assigned:</p>
+
+    <ul><li>User clicks star/favorite button on an article (from any prior status: Unread, Read, or even Archived in some flows).</li></ul>
+
+
+    <p>Business note: In this model, Starred replaces the previous status (e.g., a Read article becomes Starred, not Read+Starred).
+        If compound states are needed (e.g., read AND starred), consider a separate flags table instead of a single enum.</p>
+  example: []
+  syntax:
+    content: Starred = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Archived
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ArticleStatus.Archived
+  id: Archived
+  parent: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  langs:
+  - csharp
+  - vb
+  name: Archived
+  nameWithType: ArticleStatus.Archived
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Archived
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/ArticleStatus.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Archived
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/ArticleStatus.cs
+    startLine: 135
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: The user has intentionally removed the article from active/inbox views by archiving it.
+  remarks: >-
+    <p>Behavior impact:</p>
+
+    <ul><li>Hidden from main timelines, unread views, and per-feed lists by default.</li><li>Accessible only via "Archived" filter, search, or dedicated archive view.</li><li>Eligible for eventual deletion after a configurable retention period (to save storage).</li><li>Does not contribute to unread counters or clutter active feeds.</li></ul>
+
+
+    <p>When assigned:</p>
+
+    <ul><li>User clicks "Archive", "Done", or equivalent action.</li><li>Bulk archive operations (e.g., archive all read in a feed).</li></ul>
+
+
+    <p>Typical transition: User can "unarchive"/"restore" back to Read or Unread.</p>
+
+
+    <p>Recommendation: Treat Archived as a soft-delete — keep metadata and content for search/restore,
+        but exclude from most queries by default for performance and UX.</p>
+  example: []
+  syntax:
+    content: Archived = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+references:
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Starred
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ArticleStatus.Starred
+  href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html#NeonSuit_RSSReader_Core_Enums_ArticleStatus_Starred
+  name: Starred
+  nameWithType: ArticleStatus.Starred
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Starred
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Unread
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ArticleStatus.Unread
+  href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html#NeonSuit_RSSReader_Core_Enums_ArticleStatus_Unread
+  name: Unread
+  nameWithType: ArticleStatus.Unread
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Unread
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Read
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ArticleStatus.Read
+  href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html#NeonSuit_RSSReader_Core_Enums_ArticleStatus_Read
+  name: Read
+  nameWithType: ArticleStatus.Read
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Read
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  commentId: T:NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html
+  name: ArticleStatus
+  nameWithType: ArticleStatus
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Archived
+  commentId: F:NeonSuit.RSSReader.Core.Enums.ArticleStatus.Archived
+  href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html#NeonSuit_RSSReader_Core_Enums_ArticleStatus_Archived
+  name: Archived
+  nameWithType: ArticleStatus.Archived
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus.Archived

@@ -1,0 +1,2161 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  id: IFeedService
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.AddFeedAsync(NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.CleanupOldArticlesAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.DeleteFeedAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.FeedExistsAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetAllFeedsAsync(System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetArticleCountsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFailedFeedsAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByIdAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByUrlAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedHealthStatsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedsByCategoryAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetHealthyFeedsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetTotalArticleCountAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUncategorizedFeedsAsync(System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshAllFeedsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedsByCategoryAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.ResetFeedFailuresAsync(System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SearchFeedsAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SetFeedActiveStatusAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateAllFeedCountsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedCategoryAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedPropertiesAsync(System.Int32,System.String,System.String,System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedRetentionAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IFeedService
+  nameWithType: IFeedService
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IFeedService
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 36
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Service interface for RSS feed management operations.
+
+    Provides comprehensive feed management with support for active/inactive filtering,
+
+    health monitoring, and synchronization capabilities.
+  remarks: >-
+    <p>
+
+    This service centralizes all feed-related business logic including:
+
+    <ul><li>Feed CRUD operations with active/inactive filtering</li><li>Feed refresh and synchronization with configurable intervals</li><li>Health monitoring with failure tracking and auto-disable</li><li>Category assignment and management</li><li>Article count tracking and retention policy enforcement</li></ul>
+
+    </p>
+
+    <p>
+
+    All methods return DTOs instead of entities to maintain separation of concerns.
+
+    Implementations must ensure:
+
+    <ul><li>All read operations are memory-efficient using server-side filtering</li><li>Refresh operations respect feed-specific intervals to avoid overloading sources</li><li>Feed health monitoring automatically disables failing feeds after threshold</li><li>All operations support cancellation via <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref></li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: public interface IFeedService
+    content.vb: Public Interface IFeedService
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetAllFeedsAsync(System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetAllFeedsAsync(System.Boolean,System.Threading.CancellationToken)
+  id: GetAllFeedsAsync(System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: GetAllFeedsAsync(bool, CancellationToken)
+  nameWithType: IFeedService.GetAllFeedsAsync(bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetAllFeedsAsync(bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetAllFeedsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 47
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all feeds from the system.
+  example: []
+  syntax:
+    content: Task<List<FeedSummaryDto>> GetAllFeedsAsync(bool includeInactive = false, CancellationToken cancellationToken = default)
+    parameters:
+    - id: includeInactive
+      type: System.Boolean
+      description: 'If true, includes inactive feeds in the result. Default: false.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto}}
+      description: A list of all feeds matching the filter criteria.
+    content.vb: Function GetAllFeedsAsync(includeInactive As Boolean = False, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of FeedSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetAllFeedsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.GetAllFeedsAsync(Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetAllFeedsAsync(Boolean, System.Threading.CancellationToken)
+  name.vb: GetAllFeedsAsync(Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByIdAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByIdAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  id: GetFeedByIdAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: GetFeedByIdAsync(int, bool, CancellationToken)
+  nameWithType: IFeedService.GetFeedByIdAsync(int, bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByIdAsync(int, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetFeedByIdAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 58
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves a specific feed by its unique identifier.
+  example: []
+  syntax:
+    content: Task<FeedDto?> GetFeedByIdAsync(int id, bool includeInactive = false, CancellationToken cancellationToken = default)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: The feed identifier.
+    - id: includeInactive
+      type: System.Boolean
+      description: 'If true, allows retrieval of inactive feeds. Default: false.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto}
+      description: The feed DTO if found and meets filter criteria; otherwise, null.
+    content.vb: Function GetFeedByIdAsync(id As Integer, includeInactive As Boolean = False, cancellationToken As CancellationToken = Nothing) As Task(Of FeedDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByIdAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">id</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.GetFeedByIdAsync(Integer, Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByIdAsync(Integer, Boolean, System.Threading.CancellationToken)
+  name.vb: GetFeedByIdAsync(Integer, Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.AddFeedAsync(NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.AddFeedAsync(NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto,System.Threading.CancellationToken)
+  id: AddFeedAsync(NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: AddFeedAsync(CreateFeedDto, CancellationToken)
+  nameWithType: IFeedService.AddFeedAsync(CreateFeedDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.AddFeedAsync(NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AddFeedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 70
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Adds a new feed to the system by parsing it from the provided URL.
+  example: []
+  syntax:
+    content: Task<FeedDto> AddFeedAsync(CreateFeedDto createDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: createDto
+      type: NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto
+      description: The DTO containing feed creation data.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto}
+      description: The newly created feed DTO with generated ID and metadata.
+    content.vb: Function AddFeedAsync(createDto As CreateFeedDto, cancellationToken As CancellationToken = Nothing) As Task(Of FeedDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.AddFeedAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">createDto</code> is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if URL is invalid.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown when feed already exists or cannot be parsed.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto,System.Threading.CancellationToken)
+  id: UpdateFeedAsync(System.Int32,NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: UpdateFeedAsync(int, UpdateFeedDto, CancellationToken)
+  nameWithType: IFeedService.UpdateFeedAsync(int, UpdateFeedDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedAsync(int, NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateFeedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 82
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Updates an existing feed with modified properties.
+  example: []
+  syntax:
+    content: Task<FeedDto?> UpdateFeedAsync(int feedId, UpdateFeedDto updateDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The ID of the feed to update.
+    - id: updateDto
+      type: NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto
+      description: The DTO containing updated feed data.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto}
+      description: The updated feed DTO if successful; otherwise, null.
+    content.vb: Function UpdateFeedAsync(feedId As Integer, updateDto As UpdateFeedDto, cancellationToken As CancellationToken = Nothing) As Task(Of FeedDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">updateDto</code> is null.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">feedId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.UpdateFeedAsync(Integer, UpdateFeedDto, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedAsync(Integer, NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto, System.Threading.CancellationToken)
+  name.vb: UpdateFeedAsync(Integer, UpdateFeedDto, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.DeleteFeedAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.DeleteFeedAsync(System.Int32,System.Threading.CancellationToken)
+  id: DeleteFeedAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: DeleteFeedAsync(int, CancellationToken)
+  nameWithType: IFeedService.DeleteFeedAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.DeleteFeedAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DeleteFeedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 92
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Deletes a feed and all its associated articles from the system.
+  example: []
+  syntax:
+    content: Task<bool> DeleteFeedAsync(int feedId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The identifier of the feed to delete.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if deletion succeeded; otherwise, false.
+    content.vb: Function DeleteFeedAsync(feedId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.DeleteFeedAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">feedId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.DeleteFeedAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.DeleteFeedAsync(Integer, System.Threading.CancellationToken)
+  name.vb: DeleteFeedAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.FeedExistsAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.FeedExistsAsync(System.String,System.Threading.CancellationToken)
+  id: FeedExistsAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: FeedExistsAsync(string, CancellationToken)
+  nameWithType: IFeedService.FeedExistsAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.FeedExistsAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FeedExistsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 102
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Checks if a feed with the specified URL already exists in the system.
+  example: []
+  syntax:
+    content: Task<bool> FeedExistsAsync(string url, CancellationToken cancellationToken = default)
+    parameters:
+    - id: url
+      type: System.String
+      description: The URL to check.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if a feed with this URL exists; otherwise, false.
+    content.vb: Function FeedExistsAsync(url As String, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.FeedExistsAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">url</code> is null or whitespace.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.FeedExistsAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.FeedExistsAsync(String, System.Threading.CancellationToken)
+  name.vb: FeedExistsAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByUrlAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByUrlAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  id: GetFeedByUrlAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: GetFeedByUrlAsync(string, bool, CancellationToken)
+  nameWithType: IFeedService.GetFeedByUrlAsync(string, bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByUrlAsync(string, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetFeedByUrlAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 113
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves a feed by its URL.
+  example: []
+  syntax:
+    content: Task<FeedDto?> GetFeedByUrlAsync(string url, bool includeInactive = false, CancellationToken cancellationToken = default)
+    parameters:
+    - id: url
+      type: System.String
+      description: The feed URL to search for.
+    - id: includeInactive
+      type: System.Boolean
+      description: 'If true, allows retrieval of inactive feeds. Default: false.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto}
+      description: The feed DTO if found and meets filter criteria; otherwise, null.
+    content.vb: Function GetFeedByUrlAsync(url As String, includeInactive As Boolean = False, cancellationToken As CancellationToken = Nothing) As Task(Of FeedDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByUrlAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">url</code> is null or whitespace.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.GetFeedByUrlAsync(String, Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByUrlAsync(String, Boolean, System.Threading.CancellationToken)
+  name.vb: GetFeedByUrlAsync(String, Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedAsync(System.Int32,System.Threading.CancellationToken)
+  id: RefreshFeedAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: RefreshFeedAsync(int, CancellationToken)
+  nameWithType: IFeedService.RefreshFeedAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RefreshFeedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 127
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Refreshes a specific feed by downloading and parsing new articles.
+  example: []
+  syntax:
+    content: Task<bool> RefreshFeedAsync(int feedId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The feed identifier.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if refresh succeeded; otherwise, false.
+    content.vb: Function RefreshFeedAsync(feedId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">feedId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.RefreshFeedAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedAsync(Integer, System.Threading.CancellationToken)
+  name.vb: RefreshFeedAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshAllFeedsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshAllFeedsAsync(System.Threading.CancellationToken)
+  id: RefreshAllFeedsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: RefreshAllFeedsAsync(CancellationToken)
+  nameWithType: IFeedService.RefreshAllFeedsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshAllFeedsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RefreshAllFeedsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 135
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Refreshes all active feeds that are due for update based on their frequency.
+  example: []
+  syntax:
+    content: Task<int> RefreshAllFeedsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of feeds successfully refreshed.
+    content.vb: Function RefreshAllFeedsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshAllFeedsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedsByCategoryAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedsByCategoryAsync(System.Int32,System.Threading.CancellationToken)
+  id: RefreshFeedsByCategoryAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: RefreshFeedsByCategoryAsync(int, CancellationToken)
+  nameWithType: IFeedService.RefreshFeedsByCategoryAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedsByCategoryAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RefreshFeedsByCategoryAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 145
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Refreshes all active feeds belonging to a specific category.
+  example: []
+  syntax:
+    content: Task<int> RefreshFeedsByCategoryAsync(int categoryId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: categoryId
+      type: System.Int32
+      description: The category identifier.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of feeds successfully refreshed.
+    content.vb: Function RefreshFeedsByCategoryAsync(categoryId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedsByCategoryAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">categoryId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.RefreshFeedsByCategoryAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedsByCategoryAsync(Integer, System.Threading.CancellationToken)
+  name.vb: RefreshFeedsByCategoryAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SetFeedActiveStatusAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SetFeedActiveStatusAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  id: SetFeedActiveStatusAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: SetFeedActiveStatusAsync(int, bool, CancellationToken)
+  nameWithType: IFeedService.SetFeedActiveStatusAsync(int, bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SetFeedActiveStatusAsync(int, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SetFeedActiveStatusAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 160
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Sets the active status of a feed.
+  example: []
+  syntax:
+    content: Task<bool> SetFeedActiveStatusAsync(int feedId, bool isActive, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The feed identifier.
+    - id: isActive
+      type: System.Boolean
+      description: The new active status.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the update succeeded; otherwise, false.
+    content.vb: Function SetFeedActiveStatusAsync(feedId As Integer, isActive As Boolean, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SetFeedActiveStatusAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">feedId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.SetFeedActiveStatusAsync(Integer, Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SetFeedActiveStatusAsync(Integer, Boolean, System.Threading.CancellationToken)
+  name.vb: SetFeedActiveStatusAsync(Integer, Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedCategoryAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedCategoryAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  id: UpdateFeedCategoryAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: UpdateFeedCategoryAsync(int, int?, CancellationToken)
+  nameWithType: IFeedService.UpdateFeedCategoryAsync(int, int?, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedCategoryAsync(int, int?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateFeedCategoryAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 171
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Updates the category assignment of a feed.
+  example: []
+  syntax:
+    content: Task<bool> UpdateFeedCategoryAsync(int feedId, int? categoryId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The feed identifier.
+    - id: categoryId
+      type: System.Nullable{System.Int32}
+      description: The new category identifier (null for uncategorized).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the update succeeded; otherwise, false.
+    content.vb: Function UpdateFeedCategoryAsync(feedId As Integer, categoryId As Integer?, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedCategoryAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">feedId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.UpdateFeedCategoryAsync(Integer, Integer?, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedCategoryAsync(Integer, Integer?, System.Threading.CancellationToken)
+  name.vb: UpdateFeedCategoryAsync(Integer, Integer?, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedRetentionAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedRetentionAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  id: UpdateFeedRetentionAsync(System.Int32,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: UpdateFeedRetentionAsync(int, int?, CancellationToken)
+  nameWithType: IFeedService.UpdateFeedRetentionAsync(int, int?, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedRetentionAsync(int, int?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateFeedRetentionAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 183
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Updates the article retention days for a feed.
+  example: []
+  syntax:
+    content: Task<bool> UpdateFeedRetentionAsync(int feedId, int? retentionDays, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The feed identifier.
+    - id: retentionDays
+      type: System.Nullable{System.Int32}
+      description: The new retention days (null for default).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the update succeeded; otherwise, false.
+    content.vb: Function UpdateFeedRetentionAsync(feedId As Integer, retentionDays As Integer?, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedRetentionAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">feedId</code> is less than or equal to 0.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">retentionDays</code> is less than 1.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.UpdateFeedRetentionAsync(Integer, Integer?, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedRetentionAsync(Integer, Integer?, System.Threading.CancellationToken)
+  name.vb: UpdateFeedRetentionAsync(Integer, Integer?, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountsAsync(System.Threading.CancellationToken)
+  id: GetUnreadCountsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: GetUnreadCountsAsync(CancellationToken)
+  nameWithType: IFeedService.GetUnreadCountsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetUnreadCountsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 195
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets unread article counts grouped by feed.
+  example: []
+  syntax:
+    content: Task<Dictionary<int, int>> GetUnreadCountsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+      description: A dictionary mapping feed IDs to unread counts.
+    content.vb: Function GetUnreadCountsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Dictionary(Of Integer, Integer))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetArticleCountsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetArticleCountsAsync(System.Threading.CancellationToken)
+  id: GetArticleCountsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: GetArticleCountsAsync(CancellationToken)
+  nameWithType: IFeedService.GetArticleCountsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetArticleCountsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetArticleCountsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 203
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets total article counts grouped by feed.
+  example: []
+  syntax:
+    content: Task<Dictionary<int, int>> GetArticleCountsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+      description: A dictionary mapping feed IDs to total article counts.
+    content.vb: Function GetArticleCountsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Dictionary(Of Integer, Integer))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetArticleCountsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFailedFeedsAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFailedFeedsAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetFailedFeedsAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: GetFailedFeedsAsync(int, CancellationToken)
+  nameWithType: IFeedService.GetFailedFeedsAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFailedFeedsAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetFailedFeedsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 213
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves feeds with failure count above threshold.
+  example: []
+  syntax:
+    content: Task<List<FeedHealthDto>> GetFailedFeedsAsync(int maxFailureCount = 3, CancellationToken cancellationToken = default)
+    parameters:
+    - id: maxFailureCount
+      type: System.Int32
+      description: 'The maximum allowed failure count. Default: 3.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto}}
+      description: A list of failed feed health DTOs.
+    content.vb: Function GetFailedFeedsAsync(maxFailureCount As Integer = 3, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of FeedHealthDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFailedFeedsAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">maxFailureCount</code> is less than 1.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.GetFailedFeedsAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFailedFeedsAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetFailedFeedsAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetHealthyFeedsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetHealthyFeedsAsync(System.Threading.CancellationToken)
+  id: GetHealthyFeedsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: GetHealthyFeedsAsync(CancellationToken)
+  nameWithType: IFeedService.GetHealthyFeedsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetHealthyFeedsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetHealthyFeedsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 221
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves feeds with zero failures.
+  example: []
+  syntax:
+    content: Task<List<FeedSummaryDto>> GetHealthyFeedsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto}}
+      description: A list of healthy feed DTOs.
+    content.vb: Function GetHealthyFeedsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of FeedSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetHealthyFeedsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.ResetFeedFailuresAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.ResetFeedFailuresAsync(System.Int32,System.Threading.CancellationToken)
+  id: ResetFeedFailuresAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: ResetFeedFailuresAsync(int, CancellationToken)
+  nameWithType: IFeedService.ResetFeedFailuresAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.ResetFeedFailuresAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ResetFeedFailuresAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 231
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Resets failure count for a specific feed.
+  example: []
+  syntax:
+    content: Task<bool> ResetFeedFailuresAsync(int feedId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The feed identifier.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the operation succeeded; otherwise, false.
+    content.vb: Function ResetFeedFailuresAsync(feedId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.ResetFeedFailuresAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">feedId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.ResetFeedFailuresAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.ResetFeedFailuresAsync(Integer, System.Threading.CancellationToken)
+  name.vb: ResetFeedFailuresAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedHealthStatsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedHealthStatsAsync(System.Threading.CancellationToken)
+  id: GetFeedHealthStatsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: GetFeedHealthStatsAsync(CancellationToken)
+  nameWithType: IFeedService.GetFeedHealthStatsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedHealthStatsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetFeedHealthStatsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 239
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets feed health statistics grouped by status.
+  example: []
+  syntax:
+    content: Task<Dictionary<FeedHealthStatus, int>> GetFeedHealthStatsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{NeonSuit.RSSReader.Core.Enums.FeedHealthStatus,System.Int32}}
+      description: A dictionary mapping health status to count of feeds.
+    content.vb: Function GetFeedHealthStatsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Dictionary(Of FeedHealthStatus, Integer))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedHealthStatsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SearchFeedsAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SearchFeedsAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  id: SearchFeedsAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: SearchFeedsAsync(string, bool, CancellationToken)
+  nameWithType: IFeedService.SearchFeedsAsync(string, bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SearchFeedsAsync(string, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SearchFeedsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 254
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Searches for feeds by title, description, or URL.
+  example: []
+  syntax:
+    content: Task<List<FeedSummaryDto>> SearchFeedsAsync(string searchText, bool includeInactive = false, CancellationToken cancellationToken = default)
+    parameters:
+    - id: searchText
+      type: System.String
+      description: The search text.
+    - id: includeInactive
+      type: System.Boolean
+      description: 'If true, includes inactive feeds in search results. Default: false.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto}}
+      description: A list of matching feed summary DTOs.
+    content.vb: Function SearchFeedsAsync(searchText As String, includeInactive As Boolean = False, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of FeedSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SearchFeedsAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">searchText</code> is null or whitespace.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.SearchFeedsAsync(String, Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SearchFeedsAsync(String, Boolean, System.Threading.CancellationToken)
+  name.vb: SearchFeedsAsync(String, Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedsByCategoryAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedsByCategoryAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  id: GetFeedsByCategoryAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: GetFeedsByCategoryAsync(int, bool, CancellationToken)
+  nameWithType: IFeedService.GetFeedsByCategoryAsync(int, bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedsByCategoryAsync(int, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetFeedsByCategoryAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 265
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves feeds belonging to a specific category.
+  example: []
+  syntax:
+    content: Task<List<FeedSummaryDto>> GetFeedsByCategoryAsync(int categoryId, bool includeInactive = false, CancellationToken cancellationToken = default)
+    parameters:
+    - id: categoryId
+      type: System.Int32
+      description: The category identifier.
+    - id: includeInactive
+      type: System.Boolean
+      description: 'If true, includes inactive feeds in the result. Default: false.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto}}
+      description: A list of feed summary DTOs in the category.
+    content.vb: Function GetFeedsByCategoryAsync(categoryId As Integer, includeInactive As Boolean = False, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of FeedSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedsByCategoryAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">categoryId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.GetFeedsByCategoryAsync(Integer, Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedsByCategoryAsync(Integer, Boolean, System.Threading.CancellationToken)
+  name.vb: GetFeedsByCategoryAsync(Integer, Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUncategorizedFeedsAsync(System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUncategorizedFeedsAsync(System.Boolean,System.Threading.CancellationToken)
+  id: GetUncategorizedFeedsAsync(System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: GetUncategorizedFeedsAsync(bool, CancellationToken)
+  nameWithType: IFeedService.GetUncategorizedFeedsAsync(bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUncategorizedFeedsAsync(bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetUncategorizedFeedsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 274
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves feeds that are not assigned to any category.
+  example: []
+  syntax:
+    content: Task<List<FeedSummaryDto>> GetUncategorizedFeedsAsync(bool includeInactive = false, CancellationToken cancellationToken = default)
+    parameters:
+    - id: includeInactive
+      type: System.Boolean
+      description: 'If true, includes inactive feeds in the result. Default: false.'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto}}
+      description: A list of uncategorized feed summary DTOs.
+    content.vb: Function GetUncategorizedFeedsAsync(includeInactive As Boolean = False, cancellationToken As CancellationToken = Nothing) As Task(Of List(Of FeedSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUncategorizedFeedsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.GetUncategorizedFeedsAsync(Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUncategorizedFeedsAsync(Boolean, System.Threading.CancellationToken)
+  name.vb: GetUncategorizedFeedsAsync(Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetTotalArticleCountAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetTotalArticleCountAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetTotalArticleCountAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: GetTotalArticleCountAsync(int, CancellationToken)
+  nameWithType: IFeedService.GetTotalArticleCountAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetTotalArticleCountAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetTotalArticleCountAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 288
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets the total article count for a specific feed.
+  example: []
+  syntax:
+    content: Task<int> GetTotalArticleCountAsync(int feedId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The feed identifier.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The total article count.
+    content.vb: Function GetTotalArticleCountAsync(feedId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetTotalArticleCountAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">feedId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.GetTotalArticleCountAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetTotalArticleCountAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetTotalArticleCountAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  id: GetUnreadCountByFeedAsync(System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: GetUnreadCountByFeedAsync(int, CancellationToken)
+  nameWithType: IFeedService.GetUnreadCountByFeedAsync(int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountByFeedAsync(int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetUnreadCountByFeedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 298
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Gets the unread article count for a specific feed.
+  example: []
+  syntax:
+    content: Task<int> GetUnreadCountByFeedAsync(int feedId, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The feed identifier.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The unread article count.
+    content.vb: Function GetUnreadCountByFeedAsync(feedId As Integer, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountByFeedAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">feedId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.GetUnreadCountByFeedAsync(Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountByFeedAsync(Integer, System.Threading.CancellationToken)
+  name.vb: GetUnreadCountByFeedAsync(Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedPropertiesAsync(System.Int32,System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedPropertiesAsync(System.Int32,System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: UpdateFeedPropertiesAsync(System.Int32,System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: UpdateFeedPropertiesAsync(int, string?, string?, string?, CancellationToken)
+  nameWithType: IFeedService.UpdateFeedPropertiesAsync(int, string?, string?, string?, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedPropertiesAsync(int, string?, string?, string?, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateFeedPropertiesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 311
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Updates specific properties of a feed.
+  example: []
+  syntax:
+    content: Task<bool> UpdateFeedPropertiesAsync(int feedId, string? title = null, string? description = null, string? websiteUrl = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: feedId
+      type: System.Int32
+      description: The feed identifier.
+    - id: title
+      type: System.String
+      description: Optional new title.
+    - id: description
+      type: System.String
+      description: Optional new description.
+    - id: websiteUrl
+      type: System.String
+      description: Optional new website URL.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if the update succeeded; otherwise, false.
+    content.vb: Function UpdateFeedPropertiesAsync(feedId As Integer, title As String = Nothing, description As String = Nothing, websiteUrl As String = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedPropertiesAsync*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown if <code class="paramref">feedId</code> is less than or equal to 0.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: IFeedService.UpdateFeedPropertiesAsync(Integer, String, String, String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedPropertiesAsync(Integer, String, String, String, System.Threading.CancellationToken)
+  name.vb: UpdateFeedPropertiesAsync(Integer, String, String, String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.CleanupOldArticlesAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.CleanupOldArticlesAsync(System.Threading.CancellationToken)
+  id: CleanupOldArticlesAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: CleanupOldArticlesAsync(CancellationToken)
+  nameWithType: IFeedService.CleanupOldArticlesAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.CleanupOldArticlesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CleanupOldArticlesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 323
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Cleans up old articles based on feed retention settings.
+  example: []
+  syntax:
+    content: Task<int> CleanupOldArticlesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The total number of articles deleted.
+    content.vb: Function CleanupOldArticlesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.CleanupOldArticlesAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateAllFeedCountsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateAllFeedCountsAsync(System.Threading.CancellationToken)
+  id: UpdateAllFeedCountsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService
+  langs:
+  - csharp
+  - vb
+  name: UpdateAllFeedCountsAsync(CancellationToken)
+  nameWithType: IFeedService.UpdateAllFeedCountsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateAllFeedCountsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateAllFeedCountsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/IFeedService.cs
+    startLine: 331
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Updates article counts for all feeds.
+  example: []
+  syntax:
+    content: Task<int> UpdateAllFeedCountsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of feeds updated.
+    content.vb: Function UpdateAllFeedCountsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateAllFeedCountsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+references:
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Services
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Services
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Services
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.OperationCanceledException
+  commentId: T:System.OperationCanceledException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.operationcanceledexception
+  name: OperationCanceledException
+  nameWithType: OperationCanceledException
+  fullName: System.OperationCanceledException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetAllFeedsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetAllFeedsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_GetAllFeedsAsync_System_Boolean_System_Threading_CancellationToken_
+  name: GetAllFeedsAsync
+  nameWithType: IFeedService.GetAllFeedsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetAllFeedsAsync
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<FeedSummaryDto>>
+  nameWithType: Task<List<FeedSummaryDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto>>
+  nameWithType.vb: Task(Of List(Of FeedSummaryDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto))
+  name.vb: Task(Of List(Of FeedSummaryDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto
+    name: FeedSummaryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto
+    name: FeedSummaryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedSummaryDto.html
+  - name: )
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByIdAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByIdAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_GetFeedByIdAsync_System_Int32_System_Boolean_System_Threading_CancellationToken_
+  name: GetFeedByIdAsync
+  nameWithType: IFeedService.GetFeedByIdAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByIdAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<FeedDto>
+  nameWithType: Task<FeedDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto>
+  nameWithType.vb: Task(Of FeedDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto)
+  name.vb: Task(Of FeedDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto
+    name: FeedDto
+    href: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto
+    name: FeedDto
+    href: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedDto.html
+  - name: )
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.AddFeedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.AddFeedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_AddFeedAsync_NeonSuit_RSSReader_Core_DTOs_Feeds_CreateFeedDto_System_Threading_CancellationToken_
+  name: AddFeedAsync
+  nameWithType: IFeedService.AddFeedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.AddFeedAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Feeds
+  href: NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto.html
+  name: CreateFeedDto
+  nameWithType: CreateFeedDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Feeds.CreateFeedDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Feeds
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Feeds
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Feeds
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Feeds
+  fullName: NeonSuit.RSSReader.Core.DTOs.Feeds
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds
+    name: Feeds
+    href: NeonSuit.RSSReader.Core.DTOs.Feeds.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds
+    name: Feeds
+    href: NeonSuit.RSSReader.Core.DTOs.Feeds.html
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_UpdateFeedAsync_System_Int32_NeonSuit_RSSReader_Core_DTOs_Feeds_UpdateFeedDto_System_Threading_CancellationToken_
+  name: UpdateFeedAsync
+  nameWithType: IFeedService.UpdateFeedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Feeds
+  href: NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto.html
+  name: UpdateFeedDto
+  nameWithType: UpdateFeedDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Feeds.UpdateFeedDto
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.DeleteFeedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.DeleteFeedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_DeleteFeedAsync_System_Int32_System_Threading_CancellationToken_
+  name: DeleteFeedAsync
+  nameWithType: IFeedService.DeleteFeedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.DeleteFeedAsync
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.FeedExistsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.FeedExistsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_FeedExistsAsync_System_String_System_Threading_CancellationToken_
+  name: FeedExistsAsync
+  nameWithType: IFeedService.FeedExistsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.FeedExistsAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByUrlAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByUrlAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_GetFeedByUrlAsync_System_String_System_Boolean_System_Threading_CancellationToken_
+  name: GetFeedByUrlAsync
+  nameWithType: IFeedService.GetFeedByUrlAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedByUrlAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_RefreshFeedAsync_System_Int32_System_Threading_CancellationToken_
+  name: RefreshFeedAsync
+  nameWithType: IFeedService.RefreshFeedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshAllFeedsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshAllFeedsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_RefreshAllFeedsAsync_System_Threading_CancellationToken_
+  name: RefreshAllFeedsAsync
+  nameWithType: IFeedService.RefreshAllFeedsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshAllFeedsAsync
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedsByCategoryAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedsByCategoryAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_RefreshFeedsByCategoryAsync_System_Int32_System_Threading_CancellationToken_
+  name: RefreshFeedsByCategoryAsync
+  nameWithType: IFeedService.RefreshFeedsByCategoryAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.RefreshFeedsByCategoryAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SetFeedActiveStatusAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SetFeedActiveStatusAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_SetFeedActiveStatusAsync_System_Int32_System_Boolean_System_Threading_CancellationToken_
+  name: SetFeedActiveStatusAsync
+  nameWithType: IFeedService.SetFeedActiveStatusAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SetFeedActiveStatusAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedCategoryAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedCategoryAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_UpdateFeedCategoryAsync_System_Int32_System_Nullable_System_Int32__System_Threading_CancellationToken_
+  name: UpdateFeedCategoryAsync
+  nameWithType: IFeedService.UpdateFeedCategoryAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedCategoryAsync
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedRetentionAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedRetentionAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_UpdateFeedRetentionAsync_System_Int32_System_Nullable_System_Int32__System_Threading_CancellationToken_
+  name: UpdateFeedRetentionAsync
+  nameWithType: IFeedService.UpdateFeedRetentionAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedRetentionAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_GetUnreadCountsAsync_System_Threading_CancellationToken_
+  name: GetUnreadCountsAsync
+  nameWithType: IFeedService.GetUnreadCountsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{System.Int32,System.Int32}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Dictionary<int, int>>
+  nameWithType: Task<Dictionary<int, int>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, int>>
+  nameWithType.vb: Task(Of Dictionary(Of Integer, Integer))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.Dictionary(Of Integer, Integer))
+  name.vb: Task(Of Dictionary(Of Integer, Integer))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetArticleCountsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetArticleCountsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_GetArticleCountsAsync_System_Threading_CancellationToken_
+  name: GetArticleCountsAsync
+  nameWithType: IFeedService.GetArticleCountsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetArticleCountsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFailedFeedsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFailedFeedsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_GetFailedFeedsAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetFailedFeedsAsync
+  nameWithType: IFeedService.GetFailedFeedsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFailedFeedsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<FeedHealthDto>>
+  nameWithType: Task<List<FeedHealthDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto>>
+  nameWithType.vb: Task(Of List(Of FeedHealthDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto))
+  name.vb: Task(Of List(Of FeedHealthDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto
+    name: FeedHealthDto
+    href: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto
+    name: FeedHealthDto
+    href: NeonSuit.RSSReader.Core.DTOs.Feeds.FeedHealthDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetHealthyFeedsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetHealthyFeedsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_GetHealthyFeedsAsync_System_Threading_CancellationToken_
+  name: GetHealthyFeedsAsync
+  nameWithType: IFeedService.GetHealthyFeedsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetHealthyFeedsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.ResetFeedFailuresAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.ResetFeedFailuresAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_ResetFeedFailuresAsync_System_Int32_System_Threading_CancellationToken_
+  name: ResetFeedFailuresAsync
+  nameWithType: IFeedService.ResetFeedFailuresAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.ResetFeedFailuresAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedHealthStatsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedHealthStatsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_GetFeedHealthStatsAsync_System_Threading_CancellationToken_
+  name: GetFeedHealthStatsAsync
+  nameWithType: IFeedService.GetFeedHealthStatsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedHealthStatsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{NeonSuit.RSSReader.Core.Enums.FeedHealthStatus,System.Int32}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.Dictionary{NeonSuit.RSSReader.Core.Enums.FeedHealthStatus,System.Int32}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Dictionary<FeedHealthStatus, int>>
+  nameWithType: Task<Dictionary<FeedHealthStatus, int>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<NeonSuit.RSSReader.Core.Enums.FeedHealthStatus, int>>
+  nameWithType.vb: Task(Of Dictionary(Of FeedHealthStatus, Integer))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.Dictionary(Of NeonSuit.RSSReader.Core.Enums.FeedHealthStatus, Integer))
+  name.vb: Task(Of Dictionary(Of FeedHealthStatus, Integer))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Enums.FeedHealthStatus
+    name: FeedHealthStatus
+    href: NeonSuit.RSSReader.Core.Enums.FeedHealthStatus.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Enums.FeedHealthStatus
+    name: FeedHealthStatus
+    href: NeonSuit.RSSReader.Core.Enums.FeedHealthStatus.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SearchFeedsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SearchFeedsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_SearchFeedsAsync_System_String_System_Boolean_System_Threading_CancellationToken_
+  name: SearchFeedsAsync
+  nameWithType: IFeedService.SearchFeedsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.SearchFeedsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedsByCategoryAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedsByCategoryAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_GetFeedsByCategoryAsync_System_Int32_System_Boolean_System_Threading_CancellationToken_
+  name: GetFeedsByCategoryAsync
+  nameWithType: IFeedService.GetFeedsByCategoryAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetFeedsByCategoryAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUncategorizedFeedsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUncategorizedFeedsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_GetUncategorizedFeedsAsync_System_Boolean_System_Threading_CancellationToken_
+  name: GetUncategorizedFeedsAsync
+  nameWithType: IFeedService.GetUncategorizedFeedsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUncategorizedFeedsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetTotalArticleCountAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetTotalArticleCountAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_GetTotalArticleCountAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetTotalArticleCountAsync
+  nameWithType: IFeedService.GetTotalArticleCountAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetTotalArticleCountAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountByFeedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountByFeedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_GetUnreadCountByFeedAsync_System_Int32_System_Threading_CancellationToken_
+  name: GetUnreadCountByFeedAsync
+  nameWithType: IFeedService.GetUnreadCountByFeedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.GetUnreadCountByFeedAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedPropertiesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedPropertiesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_UpdateFeedPropertiesAsync_System_Int32_System_String_System_String_System_String_System_Threading_CancellationToken_
+  name: UpdateFeedPropertiesAsync
+  nameWithType: IFeedService.UpdateFeedPropertiesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateFeedPropertiesAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.CleanupOldArticlesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.CleanupOldArticlesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_CleanupOldArticlesAsync_System_Threading_CancellationToken_
+  name: CleanupOldArticlesAsync
+  nameWithType: IFeedService.CleanupOldArticlesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.CleanupOldArticlesAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateAllFeedCountsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateAllFeedCountsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html#NeonSuit_RSSReader_Core_Interfaces_Services_IFeedService_UpdateAllFeedCountsAsync_System_Threading_CancellationToken_
+  name: UpdateAllFeedCountsAsync
+  nameWithType: IFeedService.UpdateAllFeedCountsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.UpdateAllFeedCountsAsync

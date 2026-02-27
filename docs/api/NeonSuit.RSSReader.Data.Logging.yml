@@ -1,0 +1,85 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Data.Logging
+  commentId: N:NeonSuit.RSSReader.Data.Logging
+  id: NeonSuit.RSSReader.Data.Logging
+  children:
+  - NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  - NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Data.Logging
+  nameWithType: NeonSuit.RSSReader.Data.Logging
+  fullName: NeonSuit.RSSReader.Data.Logging
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Data
+references:
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  commentId: T:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+  href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html
+  name: AppLoggerConfig
+  nameWithType: AppLoggerConfig
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+- uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats
+  commentId: T:NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats
+  parent: NeonSuit.RSSReader.Data.Logging
+  href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html
+  name: AppLoggerConfig.LogStats
+  nameWithType: AppLoggerConfig.LogStats
+  fullName: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+    name: AppLoggerConfig
+    href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats
+    name: LogStats
+    href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats.html
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig
+    name: AppLoggerConfig
+    href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats
+    name: LogStats
+    href: NeonSuit.RSSReader.Data.Logging.AppLoggerConfig.LogStats.html
+- uid: NeonSuit.RSSReader.Data.Logging
+  commentId: N:NeonSuit.RSSReader.Data.Logging
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Data.Logging
+  nameWithType: NeonSuit.RSSReader.Data.Logging
+  fullName: NeonSuit.RSSReader.Data.Logging
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data
+    name: Data
+    href: NeonSuit.RSSReader.Data.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Logging
+    name: Logging
+    href: NeonSuit.RSSReader.Data.Logging.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data
+    name: Data
+    href: NeonSuit.RSSReader.Data.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Data.Logging
+    name: Logging
+    href: NeonSuit.RSSReader.Data.Logging.html

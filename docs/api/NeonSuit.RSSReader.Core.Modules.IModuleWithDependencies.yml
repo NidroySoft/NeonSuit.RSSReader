@@ -1,0 +1,422 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies
+  commentId: T:NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies
+  id: IModuleWithDependencies
+  parent: NeonSuit.RSSReader.Core.Modules
+  children:
+  - NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies.ProvidedServices
+  langs:
+  - csharp
+  - vb
+  name: IModuleWithDependencies
+  nameWithType: IModuleWithDependencies
+  fullName: NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IModuleWithDependencies.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IModuleWithDependencies
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IModuleWithDependencies.cs
+    startLine: 9
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: Interface for modules that expose services to other modules.
+  example: []
+  syntax:
+    content: 'public interface IModuleWithDependencies : IModule'
+    content.vb: Public Interface IModuleWithDependencies Inherits IModule
+  inheritedMembers:
+  - NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Id
+  - NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Name
+  - NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Version
+  - NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Description
+  - NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Author
+  - NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Dependencies
+  - NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.InitializeAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.StartAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.StopAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Status
+- uid: NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies.ProvidedServices
+  commentId: P:NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies.ProvidedServices
+  id: ProvidedServices
+  parent: NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies
+  langs:
+  - csharp
+  - vb
+  name: ProvidedServices
+  nameWithType: IModuleWithDependencies.ProvidedServices
+  fullName: NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies.ProvidedServices
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IModuleWithDependencies.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ProvidedServices
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Modules/IModuleWithDependencies.cs
+    startLine: 14
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Modules
+  summary: Gets the services provided by this module.
+  example: []
+  syntax:
+    content: IReadOnlyDictionary<Type, object> ProvidedServices { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyDictionary{System.Type,System.Object}
+    content.vb: ReadOnly Property ProvidedServices As IReadOnlyDictionary(Of Type, Object)
+  overload: NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies.ProvidedServices*
+references:
+- uid: NeonSuit.RSSReader.Core.Modules
+  commentId: N:NeonSuit.RSSReader.Core.Modules
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Modules
+  nameWithType: NeonSuit.RSSReader.Core.Modules
+  fullName: NeonSuit.RSSReader.Core.Modules
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.Modules.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.Modules.html
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Id
+  commentId: P:NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Id
+  parent: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_Id
+  name: Id
+  nameWithType: IModule.Id
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Id
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Name
+  commentId: P:NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Name
+  parent: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_Name
+  name: Name
+  nameWithType: IModule.Name
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Name
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Version
+  commentId: P:NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Version
+  parent: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_Version
+  name: Version
+  nameWithType: IModule.Version
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Version
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Description
+  commentId: P:NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Description
+  parent: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_Description
+  name: Description
+  nameWithType: IModule.Description
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Description
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Author
+  commentId: P:NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Author
+  parent: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_Author
+  name: Author
+  nameWithType: IModule.Author
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Author
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Dependencies
+  commentId: P:NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Dependencies
+  parent: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_Dependencies
+  name: Dependencies
+  nameWithType: IModule.Dependencies
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Dependencies
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.InitializeAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.InitializeAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_InitializeAsync_System_Threading_CancellationToken_
+  name: InitializeAsync(CancellationToken)
+  nameWithType: IModule.InitializeAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.InitializeAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.InitializeAsync(System.Threading.CancellationToken)
+    name: InitializeAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_InitializeAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.InitializeAsync(System.Threading.CancellationToken)
+    name: InitializeAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_InitializeAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.StartAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.StartAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_StartAsync_System_Threading_CancellationToken_
+  name: StartAsync(CancellationToken)
+  nameWithType: IModule.StartAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.StartAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.StartAsync(System.Threading.CancellationToken)
+    name: StartAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_StartAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.StartAsync(System.Threading.CancellationToken)
+    name: StartAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_StartAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.StopAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.StopAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_StopAsync_System_Threading_CancellationToken_
+  name: StopAsync(CancellationToken)
+  nameWithType: IModule.StopAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.StopAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.StopAsync(System.Threading.CancellationToken)
+    name: StopAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_StopAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.StopAsync(System.Threading.CancellationToken)
+    name: StopAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_StopAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Status
+  commentId: P:NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Status
+  parent: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html#NeonSuit_RSSReader_Core_Interfaces_Modules_IModule_Status
+  name: Status
+  nameWithType: IModule.Status
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.Status
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+  parent: NeonSuit.RSSReader.Core.Interfaces.Modules
+  href: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule.html
+  name: IModule
+  nameWithType: IModule
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules.IModule
+- uid: NeonSuit.RSSReader.Core.Interfaces.Modules
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Modules
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Modules
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Modules
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Modules
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.Interfaces.Modules.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Modules
+    name: Modules
+    href: NeonSuit.RSSReader.Core.Interfaces.Modules.html
+- uid: NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies.ProvidedServices*
+  commentId: Overload:NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies.ProvidedServices
+  href: NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies.html#NeonSuit_RSSReader_Core_Modules_IModuleWithDependencies_ProvidedServices
+  name: ProvidedServices
+  nameWithType: IModuleWithDependencies.ProvidedServices
+  fullName: NeonSuit.RSSReader.Core.Modules.IModuleWithDependencies.ProvidedServices
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.Type,System.Object}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.Type,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<Type, object>
+  nameWithType: IReadOnlyDictionary<Type, object>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<System.Type, object>
+  nameWithType.vb: IReadOnlyDictionary(Of Type, Object)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of System.Type, Object)
+  name.vb: IReadOnlyDictionary(Of Type, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

@@ -1,0 +1,670 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.SyncState
+  commentId: T:NeonSuit.RSSReader.Core.Models.SyncState
+  id: SyncState
+  parent: NeonSuit.RSSReader.Core.Models
+  children:
+  - NeonSuit.RSSReader.Core.Models.SyncState.CurrentStatus
+  - NeonSuit.RSSReader.Core.Models.SyncState.Id
+  - NeonSuit.RSSReader.Core.Models.SyncState.IsPaused
+  - NeonSuit.RSSReader.Core.Models.SyncState.LastSyncCompleted
+  - NeonSuit.RSSReader.Core.Models.SyncState.LastUpdated
+  - NeonSuit.RSSReader.Core.Models.SyncState.MaxSyncDurationMinutes
+  langs:
+  - csharp
+  - vb
+  name: SyncState
+  nameWithType: SyncState
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SyncState
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+    startLine: 8
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Represents the overall synchronization state.
+  example: []
+  syntax:
+    content: >-
+      [Table("SyncStates")]
+
+      public class SyncState
+    content.vb: >-
+      <Table("SyncStates")>
+
+      Public Class SyncState
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.TableAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.TableAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: SyncStates
+- uid: NeonSuit.RSSReader.Core.Models.SyncState.Id
+  commentId: P:NeonSuit.RSSReader.Core.Models.SyncState.Id
+  id: Id
+  parent: NeonSuit.RSSReader.Core.Models.SyncState
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: SyncState.Id
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState.Id
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Id
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+    startLine: 14
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Unique identifier.
+  example: []
+  syntax:
+    content: >-
+      [Key]
+
+      [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
+      public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Key>
+
+      <DatabaseGenerated(DatabaseGeneratedOption.Identity)>
+
+      Public Property Id As Integer
+  overload: NeonSuit.RSSReader.Core.Models.SyncState.Id*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.KeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.KeyAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedAttribute.#ctor(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption)
+    arguments:
+    - type: System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption
+      value: 1
+- uid: NeonSuit.RSSReader.Core.Models.SyncState.CurrentStatus
+  commentId: P:NeonSuit.RSSReader.Core.Models.SyncState.CurrentStatus
+  id: CurrentStatus
+  parent: NeonSuit.RSSReader.Core.Models.SyncState
+  langs:
+  - csharp
+  - vb
+  name: CurrentStatus
+  nameWithType: SyncState.CurrentStatus
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState.CurrentStatus
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CurrentStatus
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+    startLine: 21
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Current service status.
+  example: []
+  syntax:
+    content: public string CurrentStatus { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CurrentStatus As String
+  overload: NeonSuit.RSSReader.Core.Models.SyncState.CurrentStatus*
+- uid: NeonSuit.RSSReader.Core.Models.SyncState.IsPaused
+  commentId: P:NeonSuit.RSSReader.Core.Models.SyncState.IsPaused
+  id: IsPaused
+  parent: NeonSuit.RSSReader.Core.Models.SyncState
+  langs:
+  - csharp
+  - vb
+  name: IsPaused
+  nameWithType: SyncState.IsPaused
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState.IsPaused
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IsPaused
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+    startLine: 26
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether the service is paused.
+  example: []
+  syntax:
+    content: public bool IsPaused { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsPaused As Boolean
+  overload: NeonSuit.RSSReader.Core.Models.SyncState.IsPaused*
+- uid: NeonSuit.RSSReader.Core.Models.SyncState.LastSyncCompleted
+  commentId: P:NeonSuit.RSSReader.Core.Models.SyncState.LastSyncCompleted
+  id: LastSyncCompleted
+  parent: NeonSuit.RSSReader.Core.Models.SyncState
+  langs:
+  - csharp
+  - vb
+  name: LastSyncCompleted
+  nameWithType: SyncState.LastSyncCompleted
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState.LastSyncCompleted
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LastSyncCompleted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+    startLine: 31
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Last time a sync completed.
+  example: []
+  syntax:
+    content: public DateTime? LastSyncCompleted { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Property LastSyncCompleted As Date?
+  overload: NeonSuit.RSSReader.Core.Models.SyncState.LastSyncCompleted*
+- uid: NeonSuit.RSSReader.Core.Models.SyncState.MaxSyncDurationMinutes
+  commentId: P:NeonSuit.RSSReader.Core.Models.SyncState.MaxSyncDurationMinutes
+  id: MaxSyncDurationMinutes
+  parent: NeonSuit.RSSReader.Core.Models.SyncState
+  langs:
+  - csharp
+  - vb
+  name: MaxSyncDurationMinutes
+  nameWithType: SyncState.MaxSyncDurationMinutes
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState.MaxSyncDurationMinutes
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MaxSyncDurationMinutes
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+    startLine: 36
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Maximum sync duration in minutes.
+  example: []
+  syntax:
+    content: public int MaxSyncDurationMinutes { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MaxSyncDurationMinutes As Integer
+  overload: NeonSuit.RSSReader.Core.Models.SyncState.MaxSyncDurationMinutes*
+- uid: NeonSuit.RSSReader.Core.Models.SyncState.LastUpdated
+  commentId: P:NeonSuit.RSSReader.Core.Models.SyncState.LastUpdated
+  id: LastUpdated
+  parent: NeonSuit.RSSReader.Core.Models.SyncState
+  langs:
+  - csharp
+  - vb
+  name: LastUpdated
+  nameWithType: SyncState.LastUpdated
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState.LastUpdated
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LastUpdated
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/SyncState.cs
+    startLine: 41
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Timestamp of last state update.
+  example: []
+  syntax:
+    content: public DateTime LastUpdated { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property LastUpdated As Date
+  overload: NeonSuit.RSSReader.Core.Models.SyncState.LastUpdated*
+references:
+- uid: NeonSuit.RSSReader.Core.Models
+  commentId: N:NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models
+  nameWithType: NeonSuit.RSSReader.Core.Models
+  fullName: NeonSuit.RSSReader.Core.Models
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.Models.SyncState.Id*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.SyncState.Id
+  href: NeonSuit.RSSReader.Core.Models.SyncState.html#NeonSuit_RSSReader_Core_Models_SyncState_Id
+  name: Id
+  nameWithType: SyncState.Id
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: NeonSuit.RSSReader.Core.Models.SyncState.CurrentStatus*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.SyncState.CurrentStatus
+  href: NeonSuit.RSSReader.Core.Models.SyncState.html#NeonSuit_RSSReader_Core_Models_SyncState_CurrentStatus
+  name: CurrentStatus
+  nameWithType: SyncState.CurrentStatus
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState.CurrentStatus
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.Models.SyncState.IsPaused*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.SyncState.IsPaused
+  href: NeonSuit.RSSReader.Core.Models.SyncState.html#NeonSuit_RSSReader_Core_Models_SyncState_IsPaused
+  name: IsPaused
+  nameWithType: SyncState.IsPaused
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState.IsPaused
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: NeonSuit.RSSReader.Core.Models.SyncState.LastSyncCompleted*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.SyncState.LastSyncCompleted
+  href: NeonSuit.RSSReader.Core.Models.SyncState.html#NeonSuit_RSSReader_Core_Models_SyncState_LastSyncCompleted
+  name: LastSyncCompleted
+  nameWithType: SyncState.LastSyncCompleted
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState.LastSyncCompleted
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Models.SyncState.MaxSyncDurationMinutes*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.SyncState.MaxSyncDurationMinutes
+  href: NeonSuit.RSSReader.Core.Models.SyncState.html#NeonSuit_RSSReader_Core_Models_SyncState_MaxSyncDurationMinutes
+  name: MaxSyncDurationMinutes
+  nameWithType: SyncState.MaxSyncDurationMinutes
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState.MaxSyncDurationMinutes
+- uid: NeonSuit.RSSReader.Core.Models.SyncState.LastUpdated*
+  commentId: Overload:NeonSuit.RSSReader.Core.Models.SyncState.LastUpdated
+  href: NeonSuit.RSSReader.Core.Models.SyncState.html#NeonSuit_RSSReader_Core_Models_SyncState_LastUpdated
+  name: LastUpdated
+  nameWithType: SyncState.LastUpdated
+  fullName: NeonSuit.RSSReader.Core.Models.SyncState.LastUpdated
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date

@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Tags
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Tags
+  id: NeonSuit.RSSReader.Core.DTOs.Tags
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Tags.CreateTagDto
+  - NeonSuit.RSSReader.Core.DTOs.Tags.MergeTagsDto
+  - NeonSuit.RSSReader.Core.DTOs.Tags.TagCloudDto
+  - NeonSuit.RSSReader.Core.DTOs.Tags.TagDto
+  - NeonSuit.RSSReader.Core.DTOs.Tags.TagSummaryDto
+  - NeonSuit.RSSReader.Core.DTOs.Tags.UpdateTagDto
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.DTOs.Tags
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Tags
+  fullName: NeonSuit.RSSReader.Core.DTOs.Tags
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Tags.CreateTagDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Tags.CreateTagDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Tags
+  href: NeonSuit.RSSReader.Core.DTOs.Tags.CreateTagDto.html
+  name: CreateTagDto
+  nameWithType: CreateTagDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Tags.CreateTagDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Tags.MergeTagsDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Tags.MergeTagsDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Tags
+  href: NeonSuit.RSSReader.Core.DTOs.Tags.MergeTagsDto.html
+  name: MergeTagsDto
+  nameWithType: MergeTagsDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Tags.MergeTagsDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Tags.TagCloudDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Tags.TagCloudDto
+  href: NeonSuit.RSSReader.Core.DTOs.Tags.TagCloudDto.html
+  name: TagCloudDto
+  nameWithType: TagCloudDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Tags.TagCloudDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Tags.TagDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Tags.TagDto
+  href: NeonSuit.RSSReader.Core.DTOs.Tags.TagDto.html
+  name: TagDto
+  nameWithType: TagDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Tags.TagDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Tags.TagSummaryDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Tags.TagSummaryDto
+  href: NeonSuit.RSSReader.Core.DTOs.Tags.TagSummaryDto.html
+  name: TagSummaryDto
+  nameWithType: TagSummaryDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Tags.TagSummaryDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Tags.UpdateTagDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Tags.UpdateTagDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Tags
+  href: NeonSuit.RSSReader.Core.DTOs.Tags.UpdateTagDto.html
+  name: UpdateTagDto
+  nameWithType: UpdateTagDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Tags.UpdateTagDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Tags
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Tags
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Tags
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Tags
+  fullName: NeonSuit.RSSReader.Core.DTOs.Tags
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Tags
+    name: Tags
+    href: NeonSuit.RSSReader.Core.DTOs.Tags.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Tags
+    name: Tags
+    href: NeonSuit.RSSReader.Core.DTOs.Tags.html

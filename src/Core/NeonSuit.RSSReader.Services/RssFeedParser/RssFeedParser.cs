@@ -1,433 +1,499 @@
+using AngleSharp;
 using CodeHollow.FeedReader;
-using NeonSuit.RSSReader.Core.Interfaces.FeedParser;
+using NeonSuit.RSSReader.Core.Extensions;
+using NeonSuit.RSSReader.Core.Interfaces.RssFeedParser;
 using NeonSuit.RSSReader.Core.Models;
 using Serilog;
 using System.IO.Compression;
 using System.Net;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using Feed = NeonSuit.RSSReader.Core.Models.Feed;
 
-namespace NeonSuit.RSSReader.Services.RssFeedParser
+namespace NeonSuit.RSSReader.Services.RssFeedParser;
+
+/// <summary>
+/// Implementation of <see cref="IRssFeedParser"/> using CodeHollow.FeedReader for RSS/Atom parsing.
+/// Handles downloading, decompression, cleaning, sanitization, and structured extraction of feed metadata and articles.
+/// </summary>
+internal class RssFeedParser : IRssFeedParser
 {
-    public class RssFeedParser : IRssFeedParser
+    private readonly HttpClient _httpClient;
+    private readonly ILogger _logger;
+
+    private static readonly Regex _hexColorRegex = new Regex(
+        @"^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$",
+        RegexOptions.Compiled | RegexOptions.CultureInvariant);
+
+    private const string DefaultColor = "#3498db";
+    private const int MaxContentLength = 1_000_000; // 1MB max per article content
+    private const int MaxSummaryLength = 5_000;     // 5KB max summary
+
+    #region Constructor
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="RssFeedParser"/> class.
+    /// </summary>
+    /// <param name="logger">The logger instance.</param>
+    /// <exception cref="ArgumentNullException">Thrown if logger is null.</exception>
+    public RssFeedParser(ILogger logger)
     {
-        private readonly HttpClient _httpClient;
-        private readonly ILogger _logger;
+        ArgumentNullException.ThrowIfNull(logger);
+        _logger = logger.ForContext<RssFeedParser>();
 
-        public RssFeedParser(ILogger logger)
+        var handler = new SocketsHttpHandler
         {
-            _logger = logger.ForContext<RssFeedParser>();
+            AutomaticDecompression = DecompressionMethods.All,
+            AllowAutoRedirect = true,
+            MaxAutomaticRedirections = 10,
+            EnableMultipleHttp2Connections = true,
+            PooledConnectionIdleTimeout = TimeSpan.FromMinutes(2),
+            PooledConnectionLifetime = Timeout.InfiniteTimeSpan
+        };
+        _httpClient = new HttpClient(handler)
+        {
+            Timeout = TimeSpan.FromSeconds(30)
+        };
 
-            // ✅ SOCKETSHTTPHANDLER - Mejor soporte para Brotli y HTTP/2
-            var handler = new SocketsHttpHandler
+        _httpClient.DefaultRequestHeaders.Clear();
+        _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+            "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+        _httpClient.DefaultRequestHeaders.Accept.ParseAdd(
+            "text/html,application/xhtml+xml,application/xml;q=0.9," +
+            "application/rss+xml,application/atom+xml;q=0.8,*/*;q=0.8");
+        _httpClient.DefaultRequestHeaders.AcceptLanguage.ParseAdd("es-ES,es;q=0.9,en;q=0.8");
+        _httpClient.DefaultRequestHeaders.Add("Pragma", "no-cache");
+        _httpClient.DefaultRequestHeaders.CacheControl = new CacheControlHeaderValue
+        {
+            NoCache = true,
+            NoStore = true
+        };
+
+#if DEBUG
+        _logger.Debug("RssFeedParser initialized with optimized HttpClient");
+#endif
+    }
+
+    #endregion
+
+    #region Public Methods
+
+    /// <inheritdoc />
+    public async Task<(Feed feed, List<Article> articles)> ParseFeedAsync(string url, CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+
+        if (!Uri.TryCreate(url, UriKind.Absolute, out _))
+            throw new ArgumentException("URL must be absolute and valid.", nameof(url));
+
+        try
+        {
+            _logger.Debug("Starting full feed parse from URL: {Url}", url);
+
+            var feedContent = await ReadAndCleanFeedAsync(url, cancellationToken);
+            var feed = MapToFeed(feedContent, url);
+            var articles = feedContent.Items
+                .Select(item => ParseArticle(item, feed.Id))
+                .ToList();
+
+            _logger.Information("Successfully parsed feed {Url}: {ArticleCount} articles, Title: {Title}",
+                url, articles.Count, feed.Title);
+
+            return (feed, articles);
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("ParseFeedAsync cancelled for {Url}", url);
+            throw;
+        }
+        catch (HttpRequestException ex)
+        {
+            _logger.Error(ex, "Network error parsing feed {Url}", url);
+            throw;
+        }       
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Unexpected error parsing feed {Url}", url);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<List<Article>> ParseArticlesAsync(string url, int feedId, CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+
+        if (feedId <= 0)
+            throw new ArgumentOutOfRangeException(nameof(feedId), "Feed ID must be positive.");
+
+        try
+        {
+            _logger.Debug("Starting incremental article parse for feed {FeedId}, URL: {Url}", feedId, url);
+
+            var feedContent = await ReadAndCleanFeedAsync(url, cancellationToken);
+            var articles = feedContent.Items
+                .Select(item => ParseArticle(item, feedId))
+                .ToList();
+
+            _logger.Information("Parsed {Count} articles from feed {FeedId}", articles.Count, feedId);
+            return articles;
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.Debug("ParseArticlesAsync cancelled for feed {FeedId}", feedId);
+            throw;
+        }
+        catch (HttpRequestException ex)
+        {
+            _logger.Error(ex, "Network error parsing articles from {Url}", url);
+            throw;
+        }       
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Unexpected error parsing articles from {Url}", url);
+            throw;
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<string> GenerateReaderViewHtmlAsync(Article article, CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(article);
+
+        try
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            var content = article.Content ?? article.Summary ?? string.Empty;
+            if (string.IsNullOrWhiteSpace(content))
+                return "<p>Sin contenido disponible.</p>";
+
+            // Config AngleSharp (safe parsing, no scripts)
+            var config = Configuration.Default.WithDefaultLoader();
+            var context = BrowsingContext.New(config);
+            var document = await context.OpenAsync(req => req.Content(content), cancellationToken);
+
+            // Remove unwanted elements (ads, scripts, styles, navbars, footers, etc.)
+            var unwantedSelectors = new[]
             {
-                AutomaticDecompression = DecompressionMethods.All, // GZip + Deflate + Brotli
-                AllowAutoRedirect = true,
-                MaxAutomaticRedirections = 10,
-                EnableMultipleHttp2Connections = true,
-                PooledConnectionIdleTimeout = TimeSpan.FromMinutes(2),
-                PooledConnectionLifetime = Timeout.InfiniteTimeSpan
+                "script", "style", "noscript", "iframe", "object", "embed",
+                "[class*='ad-']", "[class*='ads-']", "[id*='ad-']", "[id*='ads-']",
+                ".advert", ".banner", ".sponsored", ".tracking", "header", "footer", "nav",
+                ".social-share", ".related-articles", ".comments"
             };
 
-            _httpClient = new HttpClient(handler);
+            foreach (var selector in unwantedSelectors)
+            {
+                document.QuerySelectorAll(selector).ToList().ForEach(el => el.Remove());
+            }
 
-            // Headers realistas de Chrome
-            _httpClient.DefaultRequestHeaders.Clear();
-            _httpClient.DefaultRequestHeaders.Add("User-Agent",
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
-                "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+            // Extract main content (try article, main, or body)
+            var mainContent = document.QuerySelector("article")
+                           ?? document.QuerySelector("main")
+                           ?? document.Body;
 
-            // ✅ NO agregar Accept-Encoding manualmente - SocketsHttpHandler lo maneja automáticamente
-            // Si lo agregas manualmente, interfiere con la descompresión automática
+            var cleanedHtml = mainContent?.InnerHtml ?? document.Body?.InnerHtml ?? content;
 
-            _httpClient.DefaultRequestHeaders.Add("Accept",
-                "text/html,application/xhtml+xml,application/xml;q=0.9," +
-                "application/rss+xml,application/atom+xml;q=0.8," +
-                "image/avif,image/webp,*/*;q=0.8");
-
-            _httpClient.DefaultRequestHeaders.Add("Accept-Language", "es-ES,es;q=0.9,en;q=0.8");
-            _httpClient.DefaultRequestHeaders.Add("Cache-Control", "no-cache");
-            _httpClient.DefaultRequestHeaders.Add("Pragma", "no-cache");
-            _httpClient.DefaultRequestHeaders.Add("Sec-Ch-Ua",
-                "\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"120\", \"Google Chrome\";v=\"120\"");
-            _httpClient.DefaultRequestHeaders.Add("Sec-Ch-Ua-Mobile", "?0");
-            _httpClient.DefaultRequestHeaders.Add("Sec-Ch-Ua-Platform", "\"Windows\"");
-            _httpClient.DefaultRequestHeaders.Add("Sec-Fetch-Dest", "document");
-            _httpClient.DefaultRequestHeaders.Add("Sec-Fetch-Mode", "navigate");
-            _httpClient.DefaultRequestHeaders.Add("Sec-Fetch-Site", "none");
-            _httpClient.DefaultRequestHeaders.Add("Sec-Fetch-User", "?1");
-            _httpClient.DefaultRequestHeaders.Add("Upgrade-Insecure-Requests", "1");
-
-            _httpClient.Timeout = TimeSpan.FromSeconds(30);
-
-            _logger.Debug("RssFeedParser initialized with SocketsHttpHandler and full decompression support");
+            // Build clean HTML wrapper
+            var html = $@"
+                    <!DOCTYPE html>
+                    <html lang=""{(article.Language ?? "es")}"">
+                    <head>
+                        <meta charset=""UTF-8"">
+                        <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+                        <title>{WebUtility.HtmlEncode(article.Title ?? "Artículo")}</title>
+                        <style>
+                            :root {{
+                                --bg: #ffffff;
+                                --text: #1a1a1a;
+                                --meta: #555;
+                                --link: #0066cc;
+                            }}
+                            @media (prefers-color-scheme: dark) {{
+                                :root {{
+                                    --bg: #121212;
+                                    --text: #e0e0e0;
+                                    --meta: #aaa;
+                                    --link: #66b3ff;
+                                }}
+                            }}
+                            body {{
+                                font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+                                background: var(--bg);
+                                color: var(--text);
+                                line-height: 1.7;
+                                margin: 0;
+                                padding: 20px;
+                                max-width: 900px;
+                                margin-left: auto;
+                                margin-right: auto;
+                            }}
+                            h1, h2, h3 {{ margin: 1.2em 0 0.6em; }}
+                            img {{ max-width: 100%; height: auto; border-radius: 8px; margin: 1rem 0; }}
+                            a {{ color: var(--link); text-decoration: none; }}
+                            a:hover {{ text-decoration: underline; }}
+                            .meta {{ color: var(--meta); font-size: 0.95rem; margin-bottom: 1.8rem; }}
+                        </style>
+                    </head>
+                    <body>
+                        <h1>{WebUtility.HtmlEncode(article.Title ?? "Sin título")}</h1>
+                        <div class=""meta"">
+                            {WebUtility.HtmlEncode(article.Author ?? "Autor desconocido")} • 
+                            {article.PublishedDate:dd 'de' MMMM 'de' yyyy}
+                        </div>
+                        <div>{cleanedHtml}</div>
+                    </body>
+                    </html>";
+            return html;
         }
-
-        public async Task<(Core.Models.Feed feed, List<Article> articles)> ParseFeedAsync(string url)
+        catch (OperationCanceledException)
         {
+            _logger.Debug("GenerateReaderViewHtmlAsync cancelled for article ID {ArticleId}", article.Id);
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, "Failed to generate reader view HTML for article ID {ArticleId}", article.Id);
+            return "<p>Error al generar vista limpia: " + WebUtility.HtmlEncode(ex.Message) + "</p>";
+        }
+    }
+
+    #endregion
+
+    #region Private Methods
+
+    private async Task<CodeHollow.FeedReader.Feed> ReadAndCleanFeedAsync(string url, CancellationToken cancellationToken)
+    {
+        try
+        {
+            _logger.Debug("Downloading feed content: {Url}", url);
+
+            using var response = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, cancellationToken);
+            response.EnsureSuccessStatusCode();
+
+            var rawContent = await response.Content.ReadAsStringAsync(cancellationToken);
+
+            // Fallback manual decompression if auto failed (rare)
+            if (LooksLikeBinaryData(rawContent))
+            {
+                _logger.Warning("Auto-decompression failed - attempting manual decompression");
+                rawContent = await TryManualDecompressionAsync(response, cancellationToken);
+            }
+
+            _logger.Debug("Downloaded {Size} bytes from {Url}", rawContent.Length, url);
+
+            var cleanXml = CleanFeedContent(rawContent);
+
             try
             {
-                _logger.Debug("Parsing feed from URL: {Url}", url);
-
-                var feedContent = await ReadAndCleanFeedAsync(url);
-
-                var feed = new Core.Models.Feed
-                {
-                    Url = url,
-                    Title = feedContent.Title ?? "Sin título",
-                    Description = feedContent.Description ?? string.Empty,
-                    WebsiteUrl = feedContent.Link ?? url,
-                    IconUrl = feedContent.ImageUrl,
-                    LastUpdated = DateTime.UtcNow,
-                    Language = feedContent.Language
-                };
-
-                var articles = feedContent.Items.Select(item =>
-                {
-                    var article = ParseArticle(item);
-                    article.FeedId = 0;
-                    return article;
-                }).ToList();
-
-                _logger.Information("Successfully parsed feed {Url}: {ArticleCount} articles, Title: {Title}",
-                    url, articles.Count, feed.Title);
-
-                return (feed, articles);
+                return FeedReader.ReadFromString(cleanXml);
             }
-            catch (HttpRequestException ex)
+            catch (Exception parseEx)
             {
-                _logger.Error(ex, "Network error parsing feed {Url}", url);
-                throw new InvalidOperationException($"Network error: Could not reach feed server. {ex.Message}", ex);
-            }
-            catch (TaskCanceledException ex)
-            {
-                _logger.Error(ex, "Timeout parsing feed {Url}", url);
-                throw new InvalidOperationException("Timeout: Feed server took too long to respond.", ex);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to parse feed {Url}", url);
-                throw new InvalidOperationException($"Parse error: {ex.Message}", ex);
-            }
-        }
-
-        public async Task<List<Article>> ParseArticlesAsync(string url, int feedId)
-        {
-            try
-            {
-                _logger.Debug("Parsing articles from feed {FeedId}, URL: {Url}", feedId, url);
-
-                var feedContent = await ReadAndCleanFeedAsync(url);
-                var articles = feedContent.Items.Select(item =>
-                {
-                    var article = ParseArticle(item);
-                    article.FeedId = feedId;
-                    return article;
-                }).ToList();
-
-                _logger.Information("Parsed {Count} articles from feed {FeedId}", articles.Count, feedId);
-
-                return articles;
-            }
-            catch (HttpRequestException ex)
-            {
-                _logger.Error(ex, "Network error parsing articles from {Url}", url);
-                throw new InvalidOperationException($"Network error: {ex.Message}", ex);
-            }
-            catch (TaskCanceledException ex)
-            {
-                _logger.Error(ex, "Timeout parsing articles from {Url}", url);
-                throw new InvalidOperationException("Timeout: Server took too long to respond.", ex);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to parse articles from {Url}", url);
-                throw new InvalidOperationException($"Parse error: {ex.Message}", ex);
-            }
-        }
-
-        private async Task<CodeHollow.FeedReader.Feed> ReadAndCleanFeedAsync(string url)
-        {
-            try
-            {
-                _logger.Debug("Downloading feed content: {Url}", url);
-
-                using var response = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
-                response.EnsureSuccessStatusCode();
-
-                // ✅ LECTURA SEGURA: Verificar Content-Encoding por si acaso
-                var contentEncoding = response.Content.Headers.ContentEncoding;
-                _logger.Debug("Response encoding: {Encoding}, Content-Type: {ContentType}",
-                    string.Join(", ", contentEncoding),
-                    response.Content.Headers.ContentType?.MediaType);
-
-                // ✅ LEER COMO STRING - SocketsHttpHandler ya descomprimió automáticamente
-                var rawXml = await response.Content.ReadAsStringAsync();
-
-                // Si llega basura binaria, intentar descompresión manual de Brotli como fallback
-                if (LooksLikeBinaryData(rawXml))
-                {
-                    _logger.Warning("Content appears compressed, attempting manual decompression");
-                    rawXml = await TryManualDecompression(response);
-                }
-
-                _logger.Debug("Downloaded {Size} bytes from {Url}", rawXml.Length, url);
-
-                // ✅ LIMPIEZA DE ENTIDADES HTML - ORDEN CORRECTO
-                var cleanXml = CleanXmlEntities(rawXml);
-
-                // ✅ CORREGIR ESPACIOS EN ATRIBUTOS (problema común en feeds mal formados)
-                cleanXml = FixAttributeSpaces(cleanXml);
-
-                // ✅ LIMPIAR ESPACIOS ILEGALES EN ETIQUETAS
-                cleanXml = Regex.Replace(cleanXml, @"<\s+", "<");
-                cleanXml = Regex.Replace(cleanXml, @"\s+>", ">");
-
-                // ✅ ELIMINAR CARACTERES DE CONTROL NO VÁLIDOS EN XML 1.0
-                cleanXml = Regex.Replace(cleanXml, @"[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]", "");
-
-                // ✅ REMOVER BOM SI PERSISTE
-                if (cleanXml.Length > 0 && cleanXml[0] == '\uFEFF')
-                    cleanXml = cleanXml.Substring(1);
-
-                _logger.Debug("Feed content cleaned, final size: {Size} bytes", cleanXml.Length);
-
-                // Intentar parsear con debug si falla
-                try
-                {
-                    return FeedReader.ReadFromString(cleanXml);
-                }
-                catch (Exception parseEx)
-                {
-                    _logger.Error(parseEx, "XML Parse failed. First 1000 chars:\n{Preview}",
-                        cleanXml.Substring(0, Math.Min(1000, cleanXml.Length)));
-                    throw;
-                }
-            }
-            catch (HttpRequestException)
-            {
+                _logger.Error(parseEx, "Feed parse failed. First 1000 chars preview:\n{Preview}",
+                    cleanXml.Length > 1000 ? cleanXml.Substring(0, 1000) : cleanXml);
                 throw;
             }
-            catch (TaskCanceledException)
-            {
-                throw;
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Failed to read/clean feed {Url}", url);
-                throw new InvalidOperationException($"Feed format error: {ex.Message}", ex);
-            }
         }
-
-        private static bool LooksLikeBinaryData(string content)
+        catch (OperationCanceledException)
         {
-            if (string.IsNullOrEmpty(content) || content.Length < 100) return false;
-
-            // Contar caracteres de control/binarios en los primeros 200 caracteres
-            var sample = content.Substring(0, Math.Min(200, content.Length));
-            var binaryCount = sample.Count(c => char.IsControl(c) && c != '\r' && c != '\n' && c != '\t');
-
-            return binaryCount > 10; // Si hay más de 10 caracteres de control, probablemente es binario
+            _logger.Debug("ReadAndCleanFeedAsync cancelled for {Url}", url);
+            throw;
         }
-
-        private async Task<string> TryManualDecompression(HttpResponseMessage response)
+        catch (Exception ex)
         {
+            _logger.Error(ex, "Failed to read or clean feed {Url}", url);
+            throw;
+        }
+    }
+
+    private static string CleanFeedContent(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+            return input;
+
+        var result = input;
+
+        // Remove BOM if present
+        if (result.Length > 0 && result[0] == '\uFEFF')
+            result = result.Substring(1);
+
+        // Remove invalid XML 1.0 control chars
+        result = Regex.Replace(result, @"[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]", "");
+
+        // Fix common malformed attribute spacing
+        result = Regex.Replace(result, @"(\w+\s*=\s*""[^""]*?)\s+""", "$1\"");
+        result = Regex.Replace(result, @"(\w+\s*=\s*'[^']*?)\s+'", "$1'");
+
+        // Normalize tag spacing
+        result = Regex.Replace(result, @"<\s+", "<");
+        result = Regex.Replace(result, @"\s+>", ">");
+
+        // Replace common HTML entities with numeric equivalents
+        result = result
+            .Replace("&nbsp;", "&#160;")
+            .Replace("&bull;", "&#8226;")
+            .Replace("&ndash;", "&#8211;")
+            .Replace("&mdash;", "&#8212;")
+            .Replace("&rsquo;", "&#8217;")
+            .Replace("&lsquo;", "&#8216;")
+            .Replace("&rdquo;", "&#8221;")
+            .Replace("&ldquo;", "&#8220;")
+            .Replace("&hellip;", "&#8230;")
+            .Replace("&trade;", "&#8482;")
+            .Replace("&copy;", "&#169;")
+            .Replace("&reg;", "&#174;")
+            .Replace("&euro;", "&#8364;")
+            .Replace("&pound;", "&#163;")
+            .Replace("&yen;", "&#165;")
+            .Replace("&cent;", "&#162;");
+
+        // Escape remaining & that are not valid entities
+        result = Regex.Replace(result, @"&(?![a-zA-Z]+;|#[0-9]+;|#x[0-9a-fA-F]+;)", "&amp;");
+
+        return result;
+    }
+
+    private static bool LooksLikeBinaryData(string content)
+    {
+        if (string.IsNullOrEmpty(content) || content.Length < 100) return false;
+
+        var sample = content.Substring(0, Math.Min(200, content.Length));
+        var controlCount = sample.Count(c => char.IsControl(c) && c != '\r' && c != '\n' && c != '\t');
+
+        return controlCount > 10; // Heuristic threshold
+    }
+
+    private async Task<string> TryManualDecompressionAsync(HttpResponseMessage response, CancellationToken cancellationToken)
+    {
+        try
+        {
+            var bytes = await response.Content.ReadAsByteArrayAsync(cancellationToken);
+
+            // Try Brotli
             try
             {
-                var bytes = await response.Content.ReadAsByteArrayAsync();
-
-                // Intentar Brotli
-                try
-                {
-                    using var brotliStream = new BrotliStream(new MemoryStream(bytes), CompressionMode.Decompress);
-                    using var reader = new StreamReader(brotliStream, Encoding.UTF8);
-                    return await reader.ReadToEndAsync();
-                }
-                catch { /* Ignorar y probar siguiente */ }
-
-                // Intentar GZip
-                try
-                {
-                    using var gzipStream = new GZipStream(new MemoryStream(bytes), CompressionMode.Decompress);
-                    using var reader = new StreamReader(gzipStream, Encoding.UTF8);
-                    return await reader.ReadToEndAsync();
-                }
-                catch { /* Ignorar y probar siguiente */ }
-
-                // Intentar Deflate
-                try
-                {
-                    using var deflateStream = new DeflateStream(new MemoryStream(bytes), CompressionMode.Decompress);
-                    using var reader = new StreamReader(deflateStream, Encoding.UTF8);
-                    return await reader.ReadToEndAsync();
-                }
-                catch { /* Ignorar */ }
-
-                // Si nada funciona, devolver como UTF-8 crudo
-                return Encoding.UTF8.GetString(bytes);
+                await using var ms = new MemoryStream(bytes);
+                await using var brotli = new BrotliStream(ms, CompressionMode.Decompress);
+                using var reader = new StreamReader(brotli, Encoding.UTF8);
+                return await reader.ReadToEndAsync(cancellationToken);
             }
-            catch (Exception ex)
+            catch { }
+
+            // Try GZip
+            try
             {
-                throw new InvalidOperationException($"Failed to decompress response: {ex.Message}", ex);
+                await using var ms = new MemoryStream(bytes);
+                await using var gzip = new GZipStream(ms, CompressionMode.Decompress);
+                using var reader = new StreamReader(gzip, Encoding.UTF8);
+                return await reader.ReadToEndAsync(cancellationToken);
             }
-        }
+            catch { }
 
-        private static string CleanXmlEntities(string input)
-        {
-            // ✅ ORDEN CORRECTO: Específicos primero, & al final
-
-            // 1. Preservar entidades XML válidas temporalmente
-            var temp = input
-                .Replace("&amp;", "\u0000AMP\u0000")  // Marcador temporal
-                .Replace("&lt;", "\u0000LT\u0000")
-                .Replace("&gt;", "\u0000GT\u0000")
-                .Replace("&quot;", "\u0000QUOT\u0000")
-                .Replace("&apos;", "\u0000APOS\u0000");
-
-            // 2. Convertir entidades HTML comunes a numéricas
-            temp = temp
-                .Replace("&nbsp;", "&#160;")
-                .Replace("&bull;", "&#8226;")
-                .Replace("&ndash;", "&#8211;")
-                .Replace("&mdash;", "&#8212;")
-                .Replace("&rsquo;", "&#8217;")
-                .Replace("&lsquo;", "&#8216;")
-                .Replace("&rdquo;", "&#8221;")
-                .Replace("&ldquo;", "&#8220;")
-                .Replace("&hellip;", "&#8230;")
-                .Replace("&trade;", "&#8482;")
-                .Replace("&copy;", "&#169;")
-                .Replace("&reg;", "&#174;")
-                .Replace("&euro;", "&#8364;")
-                .Replace("&pound;", "&#163;")
-                .Replace("&yen;", "&#165;")
-                .Replace("&cent;", "&#162;");
-
-            // 3. Escapar & restantes que no son entidades válidas
-            temp = Regex.Replace(temp, @"&(?![a-zA-Z]+;|#[0-9]+;|#x[0-9a-fA-F]+;)", "&amp;");
-
-            // 4. Restaurar entidades XML válidas
-            return temp
-                .Replace("\u0000AMP\u0000", "&amp;")
-                .Replace("\u0000LT\u0000", "&lt;")
-                .Replace("\u0000GT\u0000", "&gt;")
-                .Replace("\u0000QUOT\u0000", "&quot;")
-                .Replace("\u0000APOS\u0000", "&apos;");
-        }
-
-        private static string FixAttributeSpaces(string input)
-        {
-            // ✅ CORREGIDO: Múltiples pasadas para casos complejos y espacios Unicode
-
-            var result = input;
-
-            // Pasada 1: Espacios regulares antes de comillas de cierre
-            // Patrón: atributo="valor " → atributo="valor"
-            result = Regex.Replace(result, @"(\s+\w+\s*=)\s*(""[^""]*?)\s+""", "$1$2\"");
-            result = Regex.Replace(result, @"(\s+\w+\s*=)\s*('[^']*?)\s+'", "$1$2'");
-
-            // Pasada 2: Espacios específicamente al final de URLs (caso CiberCuba)
-            // Captura el patrón exacto: url="... " (espacio antes de comilla)
-            result = Regex.Replace(result, @"(url\s*=\s*""[^""]*?)\s+""", "$1\"");
-            result = Regex.Replace(result, @"(href\s*=\s*""[^""]*?)\s+""", "$1\"");
-            result = Regex.Replace(result, @"(xml:base\s*=\s*""[^""]*?)\s+""", "$1\"");
-
-            // Pasada 3: Cualquier atributo con espacio antes de comilla (catch-all)
-            result = Regex.Replace(result, @"(\w+:\w+\s*=\s*""[^""]*?)\s+""", "$1\"");
-            result = Regex.Replace(result, @"(\w+:\w+\s*=\s*'[^']*?)\s+'", "$1'");
-
-            return result;
-        }
-
-        private Article ParseArticle(FeedItem item)
-        {
-            var article = new Article
+            // Try Deflate
+            try
             {
-                Guid = item.Id ?? item.Link ?? Guid.NewGuid().ToString(),
-                Title = WebUtility.HtmlDecode(item.Title?.Trim() ?? "Sin título"),
-                Link = item.Link ?? string.Empty,
-                Content = WebUtility.HtmlDecode(item.Content ?? item.Description ?? string.Empty),
-                Summary = WebUtility.HtmlDecode(item.Description?.StripHtml()?.Trim() ?? string.Empty),
-                Author = WebUtility.HtmlDecode(item.Author ?? string.Empty),
-                PublishedDate = item.PublishingDate ?? DateTime.UtcNow,
-                AddedDate = DateTime.UtcNow,
-                ImageUrl = ExtractImageUrl(item) ?? string.Empty,
-                Categories = string.Join(", ", item.Categories?.Distinct() ?? new List<string>())
-            };
-
-            // Limitar longitudes
-            if (article.Content?.Length > 1000000)
-                article.Content = article.Content.Substring(0, 1000000) + "...";
-
-            if (article.Summary?.Length > 5000)
-                article.Summary = article.Summary.Substring(0, 5000) + "...";
-
-            return article;
-        }
-
-        private static string? ExtractImageUrl(FeedItem item)
-        {
-            var specificElement = item.SpecificItem?.Element;
-
-            // Media RSS
-            var mediaContent = specificElement?
-                .Element(XName.Get("content", "http://search.yahoo.com/mrss/")) ??
-                specificElement?
-                .Element(XName.Get("group", "http://search.yahoo.com/mrss/"))?
-                .Element(XName.Get("content", "http://search.yahoo.com/mrss/"));
-
-            var url = mediaContent?.Attribute("url")?.Value;
-
-            // Thumbnail
-            if (string.IsNullOrEmpty(url))
-            {
-                var thumbnail = specificElement?
-                    .Element(XName.Get("thumbnail", "http://search.yahoo.com/mrss/"));
-                url = thumbnail?.Attribute("url")?.Value;
+                await using var ms = new MemoryStream(bytes);
+                await using var deflate = new DeflateStream(ms, CompressionMode.Decompress);
+                using var reader = new StreamReader(deflate, Encoding.UTF8);
+                return await reader.ReadToEndAsync(cancellationToken);
             }
+            catch { }
 
-            // Enclosure
-            if (string.IsNullOrEmpty(url))
-            {
-                var enclosure = specificElement?.Element("enclosure");
-                var type = enclosure?.Attribute("type")?.Value;
-                if (type?.Contains("image") == true || type?.Contains("jpeg") == true || type?.Contains("png") == true)
-                    url = enclosure?.Attribute("url")?.Value;
-            }
-
-            // Imagen en contenido HTML
-            if (string.IsNullOrEmpty(url))
-            {
-                var html = item.Content ?? item.Description;
-                url = ExtractFirstImageFromHtml(html);
-            }
-
-            return url;
+            // Fallback: treat as UTF-8
+            return Encoding.UTF8.GetString(bytes);
         }
-
-        private static string? ExtractFirstImageFromHtml(string? html)
+        catch (Exception ex)
         {
-            if (string.IsNullOrEmpty(html)) return null;
+            _logger.Error(ex, "Manual decompression failed for response");
+            throw;
+        }
+    }
 
+    private static Feed MapToFeed(CodeHollow.FeedReader.Feed feedContent, string url)
+    {
+        return new Feed
+        {
+            Url = url,
+            Title = WebUtility.HtmlDecode(feedContent.Title?.Trim() ?? "Untitled Feed"),
+            Description = WebUtility.HtmlDecode(feedContent.Description?.Trim() ?? string.Empty),
+            WebsiteUrl = feedContent.Link ?? url,
+            IconUrl = feedContent.ImageUrl,
+            Language = feedContent.Language ?? "en",
+            LastUpdated = DateTime.UtcNow,
+        };
+    }
+
+    private Article ParseArticle(FeedItem item, int feedId)
+    {
+        var content = WebUtility.HtmlDecode(item.Content ?? item.Description ?? string.Empty);
+        var summary = WebUtility.HtmlDecode(item.Description?.StripHtml()?.Trim() ?? string.Empty);
+
+        // Truncate large content to prevent DB/memory issues
+        if (content.Length > MaxContentLength)
+            content = content.Substring(0, MaxContentLength) + "...";
+
+        if (summary.Length > MaxSummaryLength)
+            summary = summary.Substring(0, MaxSummaryLength) + "...";
+
+        var article = new Article
+        {
+            Guid = item.Id ?? item.Link ?? Guid.NewGuid().ToString(),
+            Title = WebUtility.HtmlDecode(item.Title?.Trim() ?? "Untitled"),
+            Link = item.Link ?? string.Empty,
+            Content = content,
+            Summary = summary,
+            Author = WebUtility.HtmlDecode(item.Author ?? string.Empty),
+            PublishedDate = item.PublishingDate ?? DateTime.UtcNow,
+            AddedDate = DateTime.UtcNow,
+            ImageUrl = ExtractImageUrl(item) ?? string.Empty,
+            Categories = string.Join(", ", item.Categories?.Distinct() ?? Enumerable.Empty<string>()),
+            FeedId = feedId
+        };
+
+        return article;
+    }
+
+    private static string? ExtractImageUrl(FeedItem item)
+    {
+        var element = item.SpecificItem?.Element;
+
+        // 1. Media RSS content
+        var mediaUrl = element?
+            .Element(XName.Get("content", "http://search.yahoo.com/mrss/"))?
+            .Attribute("url")?.Value;
+
+        if (!string.IsNullOrEmpty(mediaUrl)) return mediaUrl;
+
+        // 2. Media RSS thumbnail
+        mediaUrl = element?
+            .Element(XName.Get("thumbnail", "http://search.yahoo.com/mrss/"))?
+            .Attribute("url")?.Value;
+
+        if (!string.IsNullOrEmpty(mediaUrl)) return mediaUrl;
+
+        // 3. Enclosure (image type)
+        var enclosure = element?.Element("enclosure");
+        var type = enclosure?.Attribute("type")?.Value;
+        if (type?.Contains("image", StringComparison.OrdinalIgnoreCase) == true)
+            return enclosure?.Attribute("url")?.Value;
+
+        // 4. First <img> in HTML content/description
+        var html = item.Content ?? item.Description;
+        if (!string.IsNullOrEmpty(html))
+        {
             var match = Regex.Match(html, @"<img[^>]+src=""([^""]+)""", RegexOptions.IgnoreCase);
             if (match.Success) return match.Groups[1].Value;
 
             match = Regex.Match(html, @"<img[^>]+src='([^']+)'", RegexOptions.IgnoreCase);
-            return match.Success ? match.Groups[1].Value : null;
+            if (match.Success) return match.Groups[1].Value;
         }
+
+        return null;
     }
 
-    public static class StringExtensions
-    {
-        public static string StripHtml(this string input)
-        {
-            if (string.IsNullOrWhiteSpace(input))
-                return string.Empty;
-
-            return Regex.Replace(input, "<.*?>", string.Empty)
-                       .Replace("&nbsp;", " ")
-                       .Trim();
-        }
-    }
+    #endregion
 }

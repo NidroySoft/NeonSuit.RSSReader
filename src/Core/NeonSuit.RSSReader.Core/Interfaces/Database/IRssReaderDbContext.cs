@@ -1,5 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
-using NeonSuit.RSSReader.Core.Models;
+﻿// =======================================================
+// Core/Interfaces/Database/IRssReaderDbContext.cs
+// =======================================================
+
+using Microsoft.EntityFrameworkCore.Storage;
+using NeonSuit.RSSReader.Core.DTOs.System;
 using System.Data;
 
 namespace NeonSuit.RSSReader.Core.Interfaces.Database
@@ -39,9 +43,10 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Database
     ///     <item>Cancellation support is mandatory on all async methods</item>
     /// </list>
     /// </remarks>
-    public interface IRssReaderDbContext : IAsyncDisposable
+    public interface IRSSReaderDbContext : IAsyncDisposable
     {
         #region Database File & Connection Info
+
         /// <summary>
         /// Gets the full file-system path to the SQLite database file.
         /// </summary>
@@ -50,9 +55,11 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Database
         /// Returns null if using in-memory database (testing scenarios).
         /// </remarks>
         string? DatabasePath { get; }
+
         #endregion
 
         #region Database Lifecycle & Maintenance
+
         /// <summary>
         /// Ensures the database file exists and all pending migrations are applied.
         /// Safe to call on application startup.
@@ -71,6 +78,7 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Database
         /// Creates a full backup copy of the SQLite database file.
         /// </summary>
         /// <param name="backupPath">Target path where the backup file will be saved (must include .db extension).</param>
+        /// <param name="cancellationToken"></param>
         /// <remarks>
         /// Uses SQLite backup API for consistency and minimal locking.
         /// Throws if target path exists or is inaccessible.
@@ -99,19 +107,22 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Database
         /// <summary>
         /// Retrieves lightweight database statistics (size, counts, last backup).
         /// </summary>
-        /// <returns>A <see cref="DatabaseStats"/> object with current metrics.</returns>
+        /// <returns>A <see cref="DatabaseStatsDto"/> object with current metrics.</returns>
         /// <remarks>
         /// Should be fast enough for periodic UI refresh or health monitoring.
         /// Counts are approximate when called concurrently with writes.
         /// </remarks>
-        Task<DatabaseStats> GetStatisticsAsync(CancellationToken cancellationToken = default);
+        Task<DatabaseStatsDto> GetStatisticsAsync(CancellationToken cancellationToken = default);
+
         #endregion
 
         #region Transaction Management
+
         /// <summary>
         /// Begins a new database transaction with the specified isolation level.
         /// </summary>
         /// <param name="isolationLevel">Defaults to ReadCommitted — safest for most operations.</param>
+        /// <param name="cancellationToken"> Cancellation token.</param>
         /// <returns>An <see cref="IDbContextTransaction"/> that must be committed or rolled back.</returns>
         /// <remarks>
         /// Prefer <see cref="ExecuteInTransactionAsync{T}"/> for most use cases.
@@ -128,6 +139,7 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Database
         /// <typeparam name="T">Return type of the operation (use Unit/Task for void operations).</typeparam>
         /// <param name="action">The async lambda or method to execute transactionally.</param>
         /// <param name="isolationLevel">Transaction isolation level (default: ReadCommitted).</param>
+        /// <param name="cancellationToken"> Cancellation token.</param>
         /// <returns>The result returned by the action.</returns>
         /// <remarks>
         /// Recommended pattern for all write operations that should be atomic.
@@ -137,16 +149,19 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Database
             Func<Task<T>> action,
             IsolationLevel isolationLevel = IsolationLevel.ReadCommitted,
             CancellationToken cancellationToken = default);
+
         #endregion
 
         #region Raw SQL Execution
+
         /// <summary>
         /// Executes a raw SQL SELECT query and maps results to a list of entities of type T.
         /// </summary>
-        /// <typeparam name="T">Entity or DTO type with properties matching column names.</typeparam>
+        /// <typeparam name="T">Entity type with properties matching column names.</typeparam>
         /// <param name="sql">Parameterized SQL query (use {0}, {1} placeholders or named parameters).</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
         /// <param name="parameters">Values to bind to the query parameters.</param>
-        /// <returns>List of materialized entities/DTOs.</returns>
+        /// <returns>List of materialized entities.</returns>
         /// <remarks>
         /// Use for complex queries or performance-critical reads that cannot be expressed via LINQ.
         /// Does not track entities by default.
@@ -160,6 +175,7 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Database
         /// Executes a non-query SQL command (INSERT, UPDATE, DELETE, PRAGMA, etc.).
         /// </summary>
         /// <param name="sql">Parameterized SQL command.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
         /// <param name="parameters">Values to bind.</param>
         /// <returns>Number of rows affected.</returns>
         /// <remarks>
@@ -169,6 +185,7 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Database
             string sql,
             CancellationToken cancellationToken = default,
             params object[] parameters);
+
         #endregion
     }
 }

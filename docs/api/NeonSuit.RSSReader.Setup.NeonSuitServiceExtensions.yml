@@ -1,0 +1,685 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions
+  commentId: T:NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions
+  id: NeonSuitServiceExtensions
+  parent: NeonSuit.RSSReader.Setup
+  children:
+  - NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.Action{Microsoft.EntityFrameworkCore.DbContextOptionsBuilder})
+  - NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Action{Microsoft.EntityFrameworkCore.DbContextOptionsBuilder})
+  - NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.UseNeonSuitDatabase(System.IServiceProvider)
+  langs:
+  - csharp
+  - vb
+  name: NeonSuitServiceExtensions
+  nameWithType: NeonSuitServiceExtensions
+  fullName: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Setup/NeonSuitRSSReaderExtensions.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NeonSuitServiceExtensions
+    path: ../src/Core/NeonSuit.RSSReader.Setup/NeonSuitRSSReaderExtensions.cs
+    startLine: 50
+  assemblies:
+  - NeonSuit.RSSReader.Setup
+  namespace: NeonSuit.RSSReader.Setup
+  summary: >-
+    Provides extension methods for registering NeonSuit RSS Reader core services,
+
+    repositories, infrastructure components, and AutoMapper profiles into an 
+
+    <xref href="Microsoft.Extensions.DependencyInjection.IServiceCollection" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>
+
+    This class centralizes all dependency injection configuration for the backend services.
+
+    It follows Clean Architecture principles with clear separation of:
+
+    <ul><li>Database context and EF Core configuration</li><li>Repository layer (data access)</li><li>Service layer (business logic)</li><li>Engines and coordinators (background processes)</li><li>Utilities and parsers</li><li>AutoMapper profiles (entity-DTO mappings)</li></ul>
+
+    </p>
+
+    <p>
+
+    Usage in Program.cs or Startup.cs:
+
+    <pre><code class="lang-csharp">services.AddNeonSuitBackend("Data Source=rssreader.db");
+
+    // or with configuration
+
+    services.AddNeonSuitBackend(configuration);
+
+
+    // Ensure database is created/migrated
+
+    app.Services.UseNeonSuitDatabase();</code></pre>
+
+    </p>
+  example: []
+  syntax:
+    content: public static class NeonSuitServiceExtensions
+    content.vb: Public Module NeonSuitServiceExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Action{Microsoft.EntityFrameworkCore.DbContextOptionsBuilder})
+  commentId: M:NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Action{Microsoft.EntityFrameworkCore.DbContextOptionsBuilder})
+  id: AddNeonSuitBackend(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Action{Microsoft.EntityFrameworkCore.DbContextOptionsBuilder})
+  isExtensionMethod: true
+  parent: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddNeonSuitBackend(IServiceCollection, string, Action<DbContextOptionsBuilder>?)
+  nameWithType: NeonSuitServiceExtensions.AddNeonSuitBackend(IServiceCollection, string, Action<DbContextOptionsBuilder>?)
+  fullName: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend(Microsoft.Extensions.DependencyInjection.IServiceCollection, string, System.Action<Microsoft.EntityFrameworkCore.DbContextOptionsBuilder>?)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Setup/NeonSuitRSSReaderExtensions.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AddNeonSuitBackend
+    path: ../src/Core/NeonSuit.RSSReader.Setup/NeonSuitRSSReaderExtensions.cs
+    startLine: 61
+  assemblies:
+  - NeonSuit.RSSReader.Setup
+  namespace: NeonSuit.RSSReader.Setup
+  summary: Registers all NeonSuit RSS Reader backend services with explicit database path.
+  example: []
+  syntax:
+    content: public static IServiceCollection AddNeonSuitBackend(this IServiceCollection services, string dbPath, Action<DbContextOptionsBuilder>? configureOptions = null)
+    parameters:
+    - id: services
+      type: Microsoft.Extensions.DependencyInjection.IServiceCollection
+      description: The <xref href="Microsoft.Extensions.DependencyInjection.IServiceCollection" data-throw-if-not-resolved="false"></xref> to add services to.
+    - id: dbPath
+      type: System.String
+      description: File path to the SQLite database.
+    - id: configureOptions
+      type: System.Action{Microsoft.EntityFrameworkCore.DbContextOptionsBuilder}
+      description: Optional additional configuration for DbContext options.
+    return:
+      type: Microsoft.Extensions.DependencyInjection.IServiceCollection
+      description: The same service collection for chaining.
+    content.vb: Public Shared Function AddNeonSuitBackend(services As IServiceCollection, dbPath As String, configureOptions As Action(Of DbContextOptionsBuilder) = Nothing) As IServiceCollection
+  overload: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if services is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if dbPath is null or whitespace.
+  nameWithType.vb: NeonSuitServiceExtensions.AddNeonSuitBackend(IServiceCollection, String, Action(Of DbContextOptionsBuilder))
+  fullName.vb: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend(Microsoft.Extensions.DependencyInjection.IServiceCollection, String, System.Action(Of Microsoft.EntityFrameworkCore.DbContextOptionsBuilder))
+  name.vb: AddNeonSuitBackend(IServiceCollection, String, Action(Of DbContextOptionsBuilder))
+- uid: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.Action{Microsoft.EntityFrameworkCore.DbContextOptionsBuilder})
+  commentId: M:NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.Action{Microsoft.EntityFrameworkCore.DbContextOptionsBuilder})
+  id: AddNeonSuitBackend(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.Action{Microsoft.EntityFrameworkCore.DbContextOptionsBuilder})
+  isExtensionMethod: true
+  parent: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddNeonSuitBackend(IServiceCollection, IConfiguration, Action<DbContextOptionsBuilder>?)
+  nameWithType: NeonSuitServiceExtensions.AddNeonSuitBackend(IServiceCollection, IConfiguration, Action<DbContextOptionsBuilder>?)
+  fullName: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, System.Action<Microsoft.EntityFrameworkCore.DbContextOptionsBuilder>?)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Setup/NeonSuitRSSReaderExtensions.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AddNeonSuitBackend
+    path: ../src/Core/NeonSuit.RSSReader.Setup/NeonSuitRSSReaderExtensions.cs
+    startLine: 180
+  assemblies:
+  - NeonSuit.RSSReader.Setup
+  namespace: NeonSuit.RSSReader.Setup
+  summary: Registers all NeonSuit RSS Reader backend services using IConfiguration for database settings.
+  remarks: >-
+    Looks for connection string in this order:
+
+    <ol><li>Configuration.GetConnectionString("RssReaderDatabase")</li><li>Configuration["Database:Path"]</li><li>Defaults to "rssreader.db" in current directory</li></ol>
+  example: []
+  syntax:
+    content: public static IServiceCollection AddNeonSuitBackend(this IServiceCollection services, IConfiguration configuration, Action<DbContextOptionsBuilder>? configureOptions = null)
+    parameters:
+    - id: services
+      type: Microsoft.Extensions.DependencyInjection.IServiceCollection
+      description: The <xref href="Microsoft.Extensions.DependencyInjection.IServiceCollection" data-throw-if-not-resolved="false"></xref> to add services to.
+    - id: configuration
+      type: Microsoft.Extensions.Configuration.IConfiguration
+      description: Configuration instance containing connection string or database path.
+    - id: configureOptions
+      type: System.Action{Microsoft.EntityFrameworkCore.DbContextOptionsBuilder}
+      description: Optional additional configuration for DbContext options.
+    return:
+      type: Microsoft.Extensions.DependencyInjection.IServiceCollection
+      description: The same service collection for chaining.
+    content.vb: Public Shared Function AddNeonSuitBackend(services As IServiceCollection, configuration As IConfiguration, configureOptions As Action(Of DbContextOptionsBuilder) = Nothing) As IServiceCollection
+  overload: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend*
+  nameWithType.vb: NeonSuitServiceExtensions.AddNeonSuitBackend(IServiceCollection, IConfiguration, Action(Of DbContextOptionsBuilder))
+  fullName.vb: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration, System.Action(Of Microsoft.EntityFrameworkCore.DbContextOptionsBuilder))
+  name.vb: AddNeonSuitBackend(IServiceCollection, IConfiguration, Action(Of DbContextOptionsBuilder))
+- uid: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.UseNeonSuitDatabase(System.IServiceProvider)
+  commentId: M:NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.UseNeonSuitDatabase(System.IServiceProvider)
+  id: UseNeonSuitDatabase(System.IServiceProvider)
+  isExtensionMethod: true
+  parent: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions
+  langs:
+  - csharp
+  - vb
+  name: UseNeonSuitDatabase(IServiceProvider)
+  nameWithType: NeonSuitServiceExtensions.UseNeonSuitDatabase(IServiceProvider)
+  fullName: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.UseNeonSuitDatabase(System.IServiceProvider)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Setup/NeonSuitRSSReaderExtensions.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UseNeonSuitDatabase
+    path: ../src/Core/NeonSuit.RSSReader.Setup/NeonSuitRSSReaderExtensions.cs
+    startLine: 206
+  assemblies:
+  - NeonSuit.RSSReader.Setup
+  namespace: NeonSuit.RSSReader.Setup
+  summary: >-
+    Ensures the database is created and all migrations are applied.
+
+    Should be called once at application startup.
+  remarks: >-
+    This method creates a new scope to resolve the DbContext and applies any pending migrations.
+
+    It's safe to call multiple times (migrations are only applied once).
+  example: []
+  syntax:
+    content: public static IServiceProvider UseNeonSuitDatabase(this IServiceProvider serviceProvider)
+    parameters:
+    - id: serviceProvider
+      type: System.IServiceProvider
+      description: The application's service provider.
+    return:
+      type: System.IServiceProvider
+      description: The same service provider for chaining.
+    content.vb: Public Shared Function UseNeonSuitDatabase(serviceProvider As IServiceProvider) As IServiceProvider
+  overload: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.UseNeonSuitDatabase*
+references:
+- uid: Microsoft.Extensions.DependencyInjection.IServiceCollection
+  commentId: T:Microsoft.Extensions.DependencyInjection.IServiceCollection
+  parent: Microsoft.Extensions.DependencyInjection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection
+  name: IServiceCollection
+  nameWithType: IServiceCollection
+  fullName: Microsoft.Extensions.DependencyInjection.IServiceCollection
+- uid: NeonSuit.RSSReader.Setup
+  commentId: N:NeonSuit.RSSReader.Setup
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Setup
+  nameWithType: NeonSuit.RSSReader.Setup
+  fullName: NeonSuit.RSSReader.Setup
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Setup
+    name: Setup
+    href: NeonSuit.RSSReader.Setup.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Setup
+    name: Setup
+    href: NeonSuit.RSSReader.Setup.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Microsoft.Extensions.DependencyInjection
+  commentId: N:Microsoft.Extensions.DependencyInjection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.DependencyInjection
+  nameWithType: Microsoft.Extensions.DependencyInjection
+  fullName: Microsoft.Extensions.DependencyInjection
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.DependencyInjection
+    name: DependencyInjection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.DependencyInjection
+    name: DependencyInjection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend*
+  commentId: Overload:NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend
+  href: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.html#NeonSuit_RSSReader_Setup_NeonSuitServiceExtensions_AddNeonSuitBackend_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_String_System_Action_Microsoft_EntityFrameworkCore_DbContextOptionsBuilder__
+  name: AddNeonSuitBackend
+  nameWithType: NeonSuitServiceExtensions.AddNeonSuitBackend
+  fullName: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.AddNeonSuitBackend
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Action{Microsoft.EntityFrameworkCore.DbContextOptionsBuilder}
+  commentId: T:System.Action{Microsoft.EntityFrameworkCore.DbContextOptionsBuilder}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<DbContextOptionsBuilder>
+  nameWithType: Action<DbContextOptionsBuilder>
+  fullName: System.Action<Microsoft.EntityFrameworkCore.DbContextOptionsBuilder>
+  nameWithType.vb: Action(Of DbContextOptionsBuilder)
+  fullName.vb: System.Action(Of Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)
+  name.vb: Action(Of DbContextOptionsBuilder)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Microsoft.EntityFrameworkCore.DbContextOptionsBuilder
+    name: DbContextOptionsBuilder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontextoptionsbuilder
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.EntityFrameworkCore.DbContextOptionsBuilder
+    name: DbContextOptionsBuilder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontextoptionsbuilder
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Microsoft.Extensions.Configuration.IConfiguration
+  commentId: T:Microsoft.Extensions.Configuration.IConfiguration
+  parent: Microsoft.Extensions.Configuration
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration
+  name: IConfiguration
+  nameWithType: IConfiguration
+  fullName: Microsoft.Extensions.Configuration.IConfiguration
+- uid: Microsoft.Extensions.Configuration
+  commentId: N:Microsoft.Extensions.Configuration
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Configuration
+  nameWithType: Microsoft.Extensions.Configuration
+  fullName: Microsoft.Extensions.Configuration
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Configuration
+    name: Configuration
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Configuration
+    name: Configuration
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration
+- uid: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.UseNeonSuitDatabase*
+  commentId: Overload:NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.UseNeonSuitDatabase
+  href: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.html#NeonSuit_RSSReader_Setup_NeonSuitServiceExtensions_UseNeonSuitDatabase_System_IServiceProvider_
+  name: UseNeonSuitDatabase
+  nameWithType: NeonSuitServiceExtensions.UseNeonSuitDatabase
+  fullName: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.UseNeonSuitDatabase
+- uid: System.IServiceProvider
+  commentId: T:System.IServiceProvider
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iserviceprovider
+  name: IServiceProvider
+  nameWithType: IServiceProvider
+  fullName: System.IServiceProvider

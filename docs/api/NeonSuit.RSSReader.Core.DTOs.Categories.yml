@@ -1,0 +1,100 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Categories
+  id: NeonSuit.RSSReader.Core.DTOs.Categories
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  - NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto
+  - NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto
+  - NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto
+  - NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.DTOs.Categories
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Categories
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html
+  name: CategoryDto
+  nameWithType: CategoryDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto.html
+  name: CategoryTreeDto
+  nameWithType: CategoryTreeDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryTreeDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto.html
+  name: CreateCategoryDto
+  nameWithType: CreateCategoryDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CreateCategoryDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto.html
+  name: ReorderCategoriesDto
+  nameWithType: ReorderCategoriesDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.ReorderCategoriesDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto.html
+  name: UpdateCategoryDto
+  nameWithType: UpdateCategoryDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.UpdateCategoryDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Categories
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Categories
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Categories
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories
+    name: Categories
+    href: NeonSuit.RSSReader.Core.DTOs.Categories.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories
+    name: Categories
+    href: NeonSuit.RSSReader.Core.DTOs.Categories.html

@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Database
+  id: NeonSuit.RSSReader.Core.Interfaces.Database
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.Interfaces.Database
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Database
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html
+  name: IRSSReaderDbContext
+  nameWithType: IRSSReaderDbContext
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext

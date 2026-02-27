@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Repositories
+  id: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleTagRepository
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.ICategoryRepository
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IFeedRepository
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleConditionRepository
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.ISyncRepository
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.ITagRepository
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  - NeonSuit.RSSReader.Core.Interfaces.Repositories.NotificationStatistics
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository.html
+  name: IArticleRepository
+  nameWithType: IArticleRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleRepository
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleTagRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleTagRepository
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleTagRepository.html
+  name: IArticleTagRepository
+  nameWithType: IArticleTagRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IArticleTagRepository
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.ICategoryRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.ICategoryRepository
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.ICategoryRepository.html
+  name: ICategoryRepository
+  nameWithType: ICategoryRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.ICategoryRepository
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository.html
+  name: IDatabaseCleanupRepository
+  nameWithType: IDatabaseCleanupRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IDatabaseCleanupRepository
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IFeedRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.IFeedRepository
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IFeedRepository.html
+  name: IFeedRepository
+  nameWithType: IFeedRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IFeedRepository
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository.html
+  name: INotificationLogRepository
+  nameWithType: INotificationLogRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.INotificationLogRepository
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.NotificationStatistics
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.NotificationStatistics
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.NotificationStatistics.html
+  name: NotificationStatistics
+  nameWithType: NotificationStatistics
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.NotificationStatistics
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html
+  name: IRepository<T>
+  nameWithType: IRepository<T>
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository<T>
+  nameWithType.vb: IRepository(Of T)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository(Of T)
+  name.vb: IRepository(Of T)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1
+    name: IRepository
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository`1
+    name: IRepository
+    href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleConditionRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleConditionRepository
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleConditionRepository.html
+  name: IRuleConditionRepository
+  nameWithType: IRuleConditionRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleConditionRepository
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository.html
+  name: IRuleRepository
+  nameWithType: IRuleRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IRuleRepository
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.ISyncRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.ISyncRepository
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.ISyncRepository.html
+  name: ISyncRepository
+  nameWithType: ISyncRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.ISyncRepository
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.ITagRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.ITagRepository
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.ITagRepository.html
+  name: ITagRepository
+  nameWithType: ITagRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.ITagRepository
+- uid: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository
+  href: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository.html
+  name: IUserPreferencesRepository
+  nameWithType: IUserPreferencesRepository
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Repositories.IUserPreferencesRepository

@@ -1,6 +1,10 @@
 <Solution>
+  <Folder Name="/Elementos de la solución/">
+    <File Path="AI Prompt.txt" />
+  </Folder>
   <Folder Name="/src/" />
   <Folder Name="/src/Core/">
+    <File Path="src/Core/TODO.txt" />
     <Project Path="src/Core/NeonSuit.RSSReader.Core/NeonSuit.RSSReader.Core.csproj" />
     <Project Path="src/Core/NeonSuit.RSSReader.Data/NeonSuit.RSSReader.Data.csproj" />
     <Project Path="src/Core/NeonSuit.RSSReader.Services/NeonSuit.RSSReader.Services.csproj" />
@@ -10,6 +14,7 @@
     <Project Path="src/NeonSuit.RSSReader.Modules/NeonSuit.RSSReader.Module.AI/NeonSuit.RSSReader.Module.AI.csproj" />
   </Folder>
   <Folder Name="/src/UI/">
+    <File Path="TODO.txt" />
     <Project Path="src/UI/NeonSuit.RSSReader.Desktop/NeonSuit.RSSReader.Desktop.csproj" />
   </Folder>
   <Folder Name="/test/" />

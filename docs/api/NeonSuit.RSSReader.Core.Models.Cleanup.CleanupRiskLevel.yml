@@ -1,0 +1,232 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+  id: CleanupRiskLevel
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  children:
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Critical
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.High
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Low
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Medium
+  - NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Minimal
+  langs:
+  - csharp
+  - vb
+  name: CleanupRiskLevel
+  nameWithType: CleanupRiskLevel
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CleanupRiskLevel
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupEnums.cs
+    startLine: 6
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: >-
+    Risk levels for cleanup operations, indicating the potential impact
+
+    based on the percentage of articles that would be deleted.
+  example: []
+  syntax:
+    content: public enum CleanupRiskLevel
+    content.vb: Public Enum CleanupRiskLevel
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Minimal
+  commentId: F:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Minimal
+  id: Minimal
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+  langs:
+  - csharp
+  - vb
+  name: Minimal
+  nameWithType: CleanupRiskLevel.Minimal
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Minimal
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Minimal
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupEnums.cs
+    startLine: 11
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Minimal risk - less than 10% of articles would be deleted.
+  example: []
+  syntax:
+    content: Minimal = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Low
+  commentId: F:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Low
+  id: Low
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+  langs:
+  - csharp
+  - vb
+  name: Low
+  nameWithType: CleanupRiskLevel.Low
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Low
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Low
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupEnums.cs
+    startLine: 16
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Low risk - between 10% and 25% of articles would be deleted.
+  example: []
+  syntax:
+    content: Low = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Medium
+  commentId: F:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Medium
+  id: Medium
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+  langs:
+  - csharp
+  - vb
+  name: Medium
+  nameWithType: CleanupRiskLevel.Medium
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Medium
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Medium
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupEnums.cs
+    startLine: 21
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Medium risk - between 25% and 50% of articles would be deleted.
+  example: []
+  syntax:
+    content: Medium = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.High
+  commentId: F:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.High
+  id: High
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+  langs:
+  - csharp
+  - vb
+  name: High
+  nameWithType: CleanupRiskLevel.High
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.High
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: High
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupEnums.cs
+    startLine: 26
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: High risk - between 50% and 75% of articles would be deleted.
+  example: []
+  syntax:
+    content: High = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Critical
+  commentId: F:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Critical
+  id: Critical
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+  langs:
+  - csharp
+  - vb
+  name: Critical
+  nameWithType: CleanupRiskLevel.Critical
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.Critical
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Critical
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupEnums.cs
+    startLine: 31
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Cleanup
+  summary: Critical risk - more than 75% of articles would be deleted.
+  example: []
+  syntax:
+    content: Critical = 4
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+references:
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup
+  commentId: N:NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models.Cleanup
+  nameWithType: NeonSuit.RSSReader.Core.Models.Cleanup
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup
+    name: Cleanup
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Cleanup
+    name: Cleanup
+    href: NeonSuit.RSSReader.Core.Models.Cleanup.html
+- uid: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+  commentId: T:NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel
+  parent: NeonSuit.RSSReader.Core.Models.Cleanup
+  href: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel.html
+  name: CleanupRiskLevel
+  nameWithType: CleanupRiskLevel
+  fullName: NeonSuit.RSSReader.Core.Models.Cleanup.CleanupRiskLevel

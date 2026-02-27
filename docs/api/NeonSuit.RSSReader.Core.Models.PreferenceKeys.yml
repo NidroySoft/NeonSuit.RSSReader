@@ -1,0 +1,3180 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  commentId: T:NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  id: PreferenceKeys
+  parent: NeonSuit.RSSReader.Core.Models
+  children:
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.AccentColor
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.AnimationEnabled
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ApiPort
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ArticleFont
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ArticleFontSize
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ArticleRetentionDays
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoBackupEnabled
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoCleanupEnabled
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoMarkAsRead
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoMarkAsReadDelay
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoTaggingEnabled
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.BackupFrequency
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.BackupLocation
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.BlockTrackers
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.CacheEnabled
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.CacheSizeLimit
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.CleanupDayOfWeek
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.CleanupHourOfDay
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ClearHistoryOnExit
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.CriticalNotificationsOnly
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.DateFormat
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.DefaultUpdateFrequency
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.DefaultView
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.DeveloperMode
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.DoNotDisturbHours
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.DoNotDisturbMode
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnableApi
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnableImageCache
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnablePlugins
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnableVerboseLogging
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ExternalBrowserPath
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.FirstDayOfWeek
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.GroupNotifications
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.HttpsOnly
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ImageCacheSize
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepBackupCopies
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepFavoriteArticles
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepReadArticles
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepUnreadArticles
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeyboardShortcutsEnabled
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.Language
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.LastSyncDate
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.LazyLoadImages
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.LineHeight
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.LogLevel
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.LogRetentionDays
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.MarkAsReadOnScroll
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.MarkAsReadShortcut
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxArticlesInMemory
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxConcurrentDownloads
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxImageCacheSizeMB
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxRetryAttempts
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.MiddleClickOpensBackground
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.NextArticleShortcut
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.NightMode
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.NightModeSchedule
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationDuration
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationPosition
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationSound
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationsEnabled
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.OpenLinksBackground
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.OpenLinksInApp
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.PluginDirectory
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.PreloadArticles
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.PrevArticleShortcut
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProcessOldArticles
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProxyAddress
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProxyEnabled
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProxyPort
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ReaderViewMode
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.RebuildIndexesAfterCleanup
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.RetryFailedFeeds
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.RuleNotificationSound
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.RulesEnabled
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.RulesProcessingOrder
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.SendUsageStatistics
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowImages
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowNotificationPreview
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowSidebar
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowTagColors
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.SidebarWidth
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.StopOnFirstMatch
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.SyncEnabled
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.SyncFrequency
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.TagCloudEnabled
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.TagCloudMaxTags
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.TextJustification
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.Theme
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.TimeFormat
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.UiDensity
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.UpdateInBackground
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.UpdateOnStartup
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.UseExternalBrowser
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.VacuumAfterCleanup
+  - NeonSuit.RSSReader.Core.Models.PreferenceKeys.WebhookUrl
+  langs:
+  - csharp
+  - vb
+  name: PreferenceKeys
+  nameWithType: PreferenceKeys
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: PreferenceKeys
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 6
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: >-
+    Complete preference keys for all application features.
+
+    Provides centralized key management to prevent typos and ensure consistency.
+  example: []
+  syntax:
+    content: public static class PreferenceKeys
+    content.vb: Public Module PreferenceKeys
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.Theme
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.Theme
+  id: Theme
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: Theme
+  nameWithType: PreferenceKeys.Theme
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.Theme
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Theme
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 11
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'UI theme: "light", "dark", "system", "custom"'
+  example: []
+  syntax:
+    content: public const string Theme = "theme"
+    return:
+      type: System.String
+    content.vb: Public Const Theme As String = "theme"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AccentColor
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.AccentColor
+  id: AccentColor
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: AccentColor
+  nameWithType: PreferenceKeys.AccentColor
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AccentColor
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AccentColor
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 14
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'Accent color in hex format: "#FF4CAF50"'
+  example: []
+  syntax:
+    content: public const string AccentColor = "accent_color"
+    return:
+      type: System.String
+    content.vb: Public Const AccentColor As String = "accent_color"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.DefaultView
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.DefaultView
+  id: DefaultView
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: DefaultView
+  nameWithType: PreferenceKeys.DefaultView
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.DefaultView
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DefaultView
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 17
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'Default view mode: "list", "grid", "magazine", "compact"'
+  example: []
+  syntax:
+    content: public const string DefaultView = "default_view"
+    return:
+      type: System.String
+    content.vb: Public Const DefaultView As String = "default_view"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ArticleFont
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ArticleFont
+  id: ArticleFont
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ArticleFont
+  nameWithType: PreferenceKeys.ArticleFont
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ArticleFont
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ArticleFont
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 20
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Font family for article display
+  example: []
+  syntax:
+    content: public const string ArticleFont = "article_font"
+    return:
+      type: System.String
+    content.vb: Public Const ArticleFont As String = "article_font"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ArticleFontSize
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ArticleFontSize
+  id: ArticleFontSize
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ArticleFontSize
+  nameWithType: PreferenceKeys.ArticleFontSize
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ArticleFontSize
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ArticleFontSize
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 23
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'Font size: "small", "normal", "large", "xlarge"'
+  example: []
+  syntax:
+    content: public const string ArticleFontSize = "article_font_size"
+    return:
+      type: System.String
+    content.vb: Public Const ArticleFontSize As String = "article_font_size"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.UiDensity
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.UiDensity
+  id: UiDensity
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: UiDensity
+  nameWithType: PreferenceKeys.UiDensity
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.UiDensity
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UiDensity
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 26
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'UI density: "compact", "normal", "comfortable"'
+  example: []
+  syntax:
+    content: public const string UiDensity = "ui_density"
+    return:
+      type: System.String
+    content.vb: Public Const UiDensity As String = "ui_density"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowSidebar
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowSidebar
+  id: ShowSidebar
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ShowSidebar
+  nameWithType: PreferenceKeys.ShowSidebar
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowSidebar
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ShowSidebar
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 29
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to show the sidebar
+  example: []
+  syntax:
+    content: public const string ShowSidebar = "show_sidebar"
+    return:
+      type: System.String
+    content.vb: Public Const ShowSidebar As String = "show_sidebar"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.SidebarWidth
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.SidebarWidth
+  id: SidebarWidth
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: SidebarWidth
+  nameWithType: PreferenceKeys.SidebarWidth
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.SidebarWidth
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SidebarWidth
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 32
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Sidebar width in pixels
+  example: []
+  syntax:
+    content: public const string SidebarWidth = "sidebar_width"
+    return:
+      type: System.String
+    content.vb: Public Const SidebarWidth As String = "sidebar_width"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AnimationEnabled
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.AnimationEnabled
+  id: AnimationEnabled
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: AnimationEnabled
+  nameWithType: PreferenceKeys.AnimationEnabled
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AnimationEnabled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AnimationEnabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 35
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether UI animations are enabled
+  example: []
+  syntax:
+    content: public const string AnimationEnabled = "animation_enabled"
+    return:
+      type: System.String
+    content.vb: Public Const AnimationEnabled As String = "animation_enabled"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoMarkAsRead
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoMarkAsRead
+  id: AutoMarkAsRead
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: AutoMarkAsRead
+  nameWithType: PreferenceKeys.AutoMarkAsRead
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoMarkAsRead
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AutoMarkAsRead
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 42
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to automatically mark articles as read when viewed
+  example: []
+  syntax:
+    content: public const string AutoMarkAsRead = "auto_mark_as_read"
+    return:
+      type: System.String
+    content.vb: Public Const AutoMarkAsRead As String = "auto_mark_as_read"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoMarkAsReadDelay
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoMarkAsReadDelay
+  id: AutoMarkAsReadDelay
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: AutoMarkAsReadDelay
+  nameWithType: PreferenceKeys.AutoMarkAsReadDelay
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoMarkAsReadDelay
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AutoMarkAsReadDelay
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 45
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Delay in seconds before auto-marking as read
+  example: []
+  syntax:
+    content: public const string AutoMarkAsReadDelay = "auto_mark_as_read_delay"
+    return:
+      type: System.String
+    content.vb: Public Const AutoMarkAsReadDelay As String = "auto_mark_as_read_delay"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowImages
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowImages
+  id: ShowImages
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ShowImages
+  nameWithType: PreferenceKeys.ShowImages
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowImages
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ShowImages
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 48
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to show images in articles
+  example: []
+  syntax:
+    content: public const string ShowImages = "show_images"
+    return:
+      type: System.String
+    content.vb: Public Const ShowImages As String = "show_images"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.LazyLoadImages
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.LazyLoadImages
+  id: LazyLoadImages
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: LazyLoadImages
+  nameWithType: PreferenceKeys.LazyLoadImages
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.LazyLoadImages
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LazyLoadImages
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 51
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to lazy load images for performance
+  example: []
+  syntax:
+    content: public const string LazyLoadImages = "lazy_load_images"
+    return:
+      type: System.String
+    content.vb: Public Const LazyLoadImages As String = "lazy_load_images"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ReaderViewMode
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ReaderViewMode
+  id: ReaderViewMode
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ReaderViewMode
+  nameWithType: PreferenceKeys.ReaderViewMode
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ReaderViewMode
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ReaderViewMode
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 54
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'Reader view mode: "full", "clean", "original"'
+  example: []
+  syntax:
+    content: public const string ReaderViewMode = "reader_view_mode"
+    return:
+      type: System.String
+    content.vb: Public Const ReaderViewMode As String = "reader_view_mode"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.TextJustification
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.TextJustification
+  id: TextJustification
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: TextJustification
+  nameWithType: PreferenceKeys.TextJustification
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.TextJustification
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TextJustification
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 57
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'Text justification: "left", "justify"'
+  example: []
+  syntax:
+    content: public const string TextJustification = "text_justification"
+    return:
+      type: System.String
+    content.vb: Public Const TextJustification As String = "text_justification"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.LineHeight
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.LineHeight
+  id: LineHeight
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: LineHeight
+  nameWithType: PreferenceKeys.LineHeight
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.LineHeight
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LineHeight
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 60
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Line height multiplier (1.0 - 2.0)
+  example: []
+  syntax:
+    content: public const string LineHeight = "line_height"
+    return:
+      type: System.String
+    content.vb: Public Const LineHeight As String = "line_height"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NightMode
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.NightMode
+  id: NightMode
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: NightMode
+  nameWithType: PreferenceKeys.NightMode
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NightMode
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NightMode
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 63
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether night mode is enabled
+  example: []
+  syntax:
+    content: public const string NightMode = "night_mode"
+    return:
+      type: System.String
+    content.vb: Public Const NightMode As String = "night_mode"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NightModeSchedule
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.NightModeSchedule
+  id: NightModeSchedule
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: NightModeSchedule
+  nameWithType: PreferenceKeys.NightModeSchedule
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NightModeSchedule
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NightModeSchedule
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 66
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'Night mode schedule: "sunset", "21:00", "manual"'
+  example: []
+  syntax:
+    content: public const string NightModeSchedule = "night_mode_schedule"
+    return:
+      type: System.String
+    content.vb: Public Const NightModeSchedule As String = "night_mode_schedule"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.OpenLinksInApp
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.OpenLinksInApp
+  id: OpenLinksInApp
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: OpenLinksInApp
+  nameWithType: PreferenceKeys.OpenLinksInApp
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.OpenLinksInApp
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OpenLinksInApp
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 73
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to open links inside the app
+  example: []
+  syntax:
+    content: public const string OpenLinksInApp = "open_links_in_app"
+    return:
+      type: System.String
+    content.vb: Public Const OpenLinksInApp As String = "open_links_in_app"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.OpenLinksBackground
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.OpenLinksBackground
+  id: OpenLinksBackground
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: OpenLinksBackground
+  nameWithType: PreferenceKeys.OpenLinksBackground
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.OpenLinksBackground
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OpenLinksBackground
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 76
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to open links in background tabs
+  example: []
+  syntax:
+    content: public const string OpenLinksBackground = "open_links_background"
+    return:
+      type: System.String
+    content.vb: Public Const OpenLinksBackground As String = "open_links_background"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.UseExternalBrowser
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.UseExternalBrowser
+  id: UseExternalBrowser
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: UseExternalBrowser
+  nameWithType: PreferenceKeys.UseExternalBrowser
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.UseExternalBrowser
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UseExternalBrowser
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 79
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to use an external browser
+  example: []
+  syntax:
+    content: public const string UseExternalBrowser = "use_external_browser"
+    return:
+      type: System.String
+    content.vb: Public Const UseExternalBrowser As String = "use_external_browser"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ExternalBrowserPath
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ExternalBrowserPath
+  id: ExternalBrowserPath
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ExternalBrowserPath
+  nameWithType: PreferenceKeys.ExternalBrowserPath
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ExternalBrowserPath
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ExternalBrowserPath
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 82
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Path to external browser executable
+  example: []
+  syntax:
+    content: public const string ExternalBrowserPath = "external_browser_path"
+    return:
+      type: System.String
+    content.vb: Public Const ExternalBrowserPath As String = "external_browser_path"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MiddleClickOpensBackground
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.MiddleClickOpensBackground
+  id: MiddleClickOpensBackground
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: MiddleClickOpensBackground
+  nameWithType: PreferenceKeys.MiddleClickOpensBackground
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MiddleClickOpensBackground
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MiddleClickOpensBackground
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 85
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether middle-click opens links in background
+  example: []
+  syntax:
+    content: public const string MiddleClickOpensBackground = "middle_click_opens_background"
+    return:
+      type: System.String
+    content.vb: Public Const MiddleClickOpensBackground As String = "middle_click_opens_background"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MarkAsReadOnScroll
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.MarkAsReadOnScroll
+  id: MarkAsReadOnScroll
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: MarkAsReadOnScroll
+  nameWithType: PreferenceKeys.MarkAsReadOnScroll
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MarkAsReadOnScroll
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MarkAsReadOnScroll
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 88
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to mark articles as read when scrolling past them
+  example: []
+  syntax:
+    content: public const string MarkAsReadOnScroll = "mark_as_read_on_scroll"
+    return:
+      type: System.String
+    content.vb: Public Const MarkAsReadOnScroll As String = "mark_as_read_on_scroll"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.DefaultUpdateFrequency
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.DefaultUpdateFrequency
+  id: DefaultUpdateFrequency
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: DefaultUpdateFrequency
+  nameWithType: PreferenceKeys.DefaultUpdateFrequency
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.DefaultUpdateFrequency
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DefaultUpdateFrequency
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 95
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Default update frequency in minutes
+  example: []
+  syntax:
+    content: public const string DefaultUpdateFrequency = "default_update_frequency"
+    return:
+      type: System.String
+    content.vb: Public Const DefaultUpdateFrequency As String = "default_update_frequency"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.UpdateOnStartup
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.UpdateOnStartup
+  id: UpdateOnStartup
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: UpdateOnStartup
+  nameWithType: PreferenceKeys.UpdateOnStartup
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.UpdateOnStartup
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateOnStartup
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 98
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to update feeds on application startup
+  example: []
+  syntax:
+    content: public const string UpdateOnStartup = "update_on_startup"
+    return:
+      type: System.String
+    content.vb: Public Const UpdateOnStartup As String = "update_on_startup"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.UpdateInBackground
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.UpdateInBackground
+  id: UpdateInBackground
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: UpdateInBackground
+  nameWithType: PreferenceKeys.UpdateInBackground
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.UpdateInBackground
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdateInBackground
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 101
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to update feeds in background
+  example: []
+  syntax:
+    content: public const string UpdateInBackground = "update_in_background"
+    return:
+      type: System.String
+    content.vb: Public Const UpdateInBackground As String = "update_in_background"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxConcurrentDownloads
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxConcurrentDownloads
+  id: MaxConcurrentDownloads
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: MaxConcurrentDownloads
+  nameWithType: PreferenceKeys.MaxConcurrentDownloads
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxConcurrentDownloads
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MaxConcurrentDownloads
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 104
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Maximum concurrent feed downloads (1-10)
+  example: []
+  syntax:
+    content: public const string MaxConcurrentDownloads = "max_concurrent_downloads"
+    return:
+      type: System.String
+    content.vb: Public Const MaxConcurrentDownloads As String = "max_concurrent_downloads"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.RetryFailedFeeds
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.RetryFailedFeeds
+  id: RetryFailedFeeds
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: RetryFailedFeeds
+  nameWithType: PreferenceKeys.RetryFailedFeeds
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.RetryFailedFeeds
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RetryFailedFeeds
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 107
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to retry failed feeds
+  example: []
+  syntax:
+    content: public const string RetryFailedFeeds = "retry_failed_feeds"
+    return:
+      type: System.String
+    content.vb: Public Const RetryFailedFeeds As String = "retry_failed_feeds"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxRetryAttempts
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxRetryAttempts
+  id: MaxRetryAttempts
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: MaxRetryAttempts
+  nameWithType: PreferenceKeys.MaxRetryAttempts
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxRetryAttempts
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MaxRetryAttempts
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 110
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Maximum retry attempts for failed feeds
+  example: []
+  syntax:
+    content: public const string MaxRetryAttempts = "max_retry_attempts"
+    return:
+      type: System.String
+    content.vb: Public Const MaxRetryAttempts As String = "max_retry_attempts"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ArticleRetentionDays
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ArticleRetentionDays
+  id: ArticleRetentionDays
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ArticleRetentionDays
+  nameWithType: PreferenceKeys.ArticleRetentionDays
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ArticleRetentionDays
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ArticleRetentionDays
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 113
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Article retention days (0 = infinite)
+  example: []
+  syntax:
+    content: public const string ArticleRetentionDays = "article_retention_days"
+    return:
+      type: System.String
+    content.vb: Public Const ArticleRetentionDays As String = "article_retention_days"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepReadArticles
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepReadArticles
+  id: KeepReadArticles
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: KeepReadArticles
+  nameWithType: PreferenceKeys.KeepReadArticles
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepReadArticles
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: KeepReadArticles
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 116
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Days to keep read articles
+  example: []
+  syntax:
+    content: public const string KeepReadArticles = "keep_read_articles"
+    return:
+      type: System.String
+    content.vb: Public Const KeepReadArticles As String = "keep_read_articles"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoCleanupEnabled
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoCleanupEnabled
+  id: AutoCleanupEnabled
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: AutoCleanupEnabled
+  nameWithType: PreferenceKeys.AutoCleanupEnabled
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoCleanupEnabled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AutoCleanupEnabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 119
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether auto-cleanup is enabled
+  example: []
+  syntax:
+    content: public const string AutoCleanupEnabled = "auto_cleanup_enabled"
+    return:
+      type: System.String
+    content.vb: Public Const AutoCleanupEnabled As String = "auto_cleanup_enabled"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepFavoriteArticles
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepFavoriteArticles
+  id: KeepFavoriteArticles
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: KeepFavoriteArticles
+  nameWithType: PreferenceKeys.KeepFavoriteArticles
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepFavoriteArticles
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: KeepFavoriteArticles
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 122
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to keep favorite articles during cleanup
+  example: []
+  syntax:
+    content: public const string KeepFavoriteArticles = "keep_favorite_articles"
+    return:
+      type: System.String
+    content.vb: Public Const KeepFavoriteArticles As String = "keep_favorite_articles"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepUnreadArticles
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepUnreadArticles
+  id: KeepUnreadArticles
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: KeepUnreadArticles
+  nameWithType: PreferenceKeys.KeepUnreadArticles
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepUnreadArticles
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: KeepUnreadArticles
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 125
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to keep unread articles during cleanup
+  example: []
+  syntax:
+    content: public const string KeepUnreadArticles = "keep_unread_articles"
+    return:
+      type: System.String
+    content.vb: Public Const KeepUnreadArticles As String = "keep_unread_articles"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.RulesEnabled
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.RulesEnabled
+  id: RulesEnabled
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: RulesEnabled
+  nameWithType: PreferenceKeys.RulesEnabled
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.RulesEnabled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RulesEnabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 132
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether rules engine is enabled
+  example: []
+  syntax:
+    content: public const string RulesEnabled = "rules_enabled"
+    return:
+      type: System.String
+    content.vb: Public Const RulesEnabled As String = "rules_enabled"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.RulesProcessingOrder
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.RulesProcessingOrder
+  id: RulesProcessingOrder
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: RulesProcessingOrder
+  nameWithType: PreferenceKeys.RulesProcessingOrder
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.RulesProcessingOrder
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RulesProcessingOrder
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 135
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'Rules processing order: "priority", "sequential"'
+  example: []
+  syntax:
+    content: public const string RulesProcessingOrder = "rules_processing_order"
+    return:
+      type: System.String
+    content.vb: Public Const RulesProcessingOrder As String = "rules_processing_order"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.StopOnFirstMatch
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.StopOnFirstMatch
+  id: StopOnFirstMatch
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: StopOnFirstMatch
+  nameWithType: PreferenceKeys.StopOnFirstMatch
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.StopOnFirstMatch
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: StopOnFirstMatch
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 138
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to stop processing after first matching rule
+  example: []
+  syntax:
+    content: public const string StopOnFirstMatch = "stop_on_first_match"
+    return:
+      type: System.String
+    content.vb: Public Const StopOnFirstMatch As String = "stop_on_first_match"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProcessOldArticles
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProcessOldArticles
+  id: ProcessOldArticles
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ProcessOldArticles
+  nameWithType: PreferenceKeys.ProcessOldArticles
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProcessOldArticles
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ProcessOldArticles
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 141
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to process old articles through rules
+  example: []
+  syntax:
+    content: public const string ProcessOldArticles = "process_old_articles"
+    return:
+      type: System.String
+    content.vb: Public Const ProcessOldArticles As String = "process_old_articles"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.RuleNotificationSound
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.RuleNotificationSound
+  id: RuleNotificationSound
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: RuleNotificationSound
+  nameWithType: PreferenceKeys.RuleNotificationSound
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.RuleNotificationSound
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RuleNotificationSound
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 144
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Notification sound path for rule notifications
+  example: []
+  syntax:
+    content: public const string RuleNotificationSound = "rule_notification_sound"
+    return:
+      type: System.String
+    content.vb: Public Const RuleNotificationSound As String = "rule_notification_sound"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationsEnabled
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationsEnabled
+  id: NotificationsEnabled
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: NotificationsEnabled
+  nameWithType: PreferenceKeys.NotificationsEnabled
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationsEnabled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotificationsEnabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 151
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether notifications are enabled
+  example: []
+  syntax:
+    content: public const string NotificationsEnabled = "notifications_enabled"
+    return:
+      type: System.String
+    content.vb: Public Const NotificationsEnabled As String = "notifications_enabled"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationDuration
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationDuration
+  id: NotificationDuration
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: NotificationDuration
+  nameWithType: PreferenceKeys.NotificationDuration
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationDuration
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotificationDuration
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 154
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Notification duration in seconds
+  example: []
+  syntax:
+    content: public const string NotificationDuration = "notification_duration"
+    return:
+      type: System.String
+    content.vb: Public Const NotificationDuration As String = "notification_duration"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationSound
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationSound
+  id: NotificationSound
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: NotificationSound
+  nameWithType: PreferenceKeys.NotificationSound
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationSound
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotificationSound
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 157
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Notification sound
+  example: []
+  syntax:
+    content: public const string NotificationSound = "notification_sound"
+    return:
+      type: System.String
+    content.vb: Public Const NotificationSound As String = "notification_sound"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationPosition
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationPosition
+  id: NotificationPosition
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: NotificationPosition
+  nameWithType: PreferenceKeys.NotificationPosition
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NotificationPosition
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotificationPosition
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 160
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Notification position on screen
+  example: []
+  syntax:
+    content: public const string NotificationPosition = "notification_position"
+    return:
+      type: System.String
+    content.vb: Public Const NotificationPosition As String = "notification_position"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowNotificationPreview
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowNotificationPreview
+  id: ShowNotificationPreview
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ShowNotificationPreview
+  nameWithType: PreferenceKeys.ShowNotificationPreview
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowNotificationPreview
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ShowNotificationPreview
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 163
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to show notification preview text
+  example: []
+  syntax:
+    content: public const string ShowNotificationPreview = "show_notification_preview"
+    return:
+      type: System.String
+    content.vb: Public Const ShowNotificationPreview As String = "show_notification_preview"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.GroupNotifications
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.GroupNotifications
+  id: GroupNotifications
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: GroupNotifications
+  nameWithType: PreferenceKeys.GroupNotifications
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.GroupNotifications
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GroupNotifications
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 166
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to group notifications
+  example: []
+  syntax:
+    content: public const string GroupNotifications = "group_notifications"
+    return:
+      type: System.String
+    content.vb: Public Const GroupNotifications As String = "group_notifications"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.CriticalNotificationsOnly
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.CriticalNotificationsOnly
+  id: CriticalNotificationsOnly
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: CriticalNotificationsOnly
+  nameWithType: PreferenceKeys.CriticalNotificationsOnly
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.CriticalNotificationsOnly
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CriticalNotificationsOnly
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 169
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to show only critical notifications
+  example: []
+  syntax:
+    content: public const string CriticalNotificationsOnly = "critical_notifications_only"
+    return:
+      type: System.String
+    content.vb: Public Const CriticalNotificationsOnly As String = "critical_notifications_only"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.DoNotDisturbMode
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.DoNotDisturbMode
+  id: DoNotDisturbMode
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: DoNotDisturbMode
+  nameWithType: PreferenceKeys.DoNotDisturbMode
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.DoNotDisturbMode
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DoNotDisturbMode
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 172
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether do not disturb mode is enabled
+  example: []
+  syntax:
+    content: public const string DoNotDisturbMode = "do_not_disturb_mode"
+    return:
+      type: System.String
+    content.vb: Public Const DoNotDisturbMode As String = "do_not_disturb_mode"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.DoNotDisturbHours
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.DoNotDisturbHours
+  id: DoNotDisturbHours
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: DoNotDisturbHours
+  nameWithType: PreferenceKeys.DoNotDisturbHours
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.DoNotDisturbHours
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DoNotDisturbHours
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 175
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'Do not disturb hours range: "22:00-08:00"'
+  example: []
+  syntax:
+    content: public const string DoNotDisturbHours = "do_not_disturb_hours"
+    return:
+      type: System.String
+    content.vb: Public Const DoNotDisturbHours As String = "do_not_disturb_hours"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.TagCloudEnabled
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.TagCloudEnabled
+  id: TagCloudEnabled
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: TagCloudEnabled
+  nameWithType: PreferenceKeys.TagCloudEnabled
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.TagCloudEnabled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TagCloudEnabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 182
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether tag cloud is enabled
+  example: []
+  syntax:
+    content: public const string TagCloudEnabled = "tag_cloud_enabled"
+    return:
+      type: System.String
+    content.vb: Public Const TagCloudEnabled As String = "tag_cloud_enabled"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.TagCloudMaxTags
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.TagCloudMaxTags
+  id: TagCloudMaxTags
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: TagCloudMaxTags
+  nameWithType: PreferenceKeys.TagCloudMaxTags
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.TagCloudMaxTags
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TagCloudMaxTags
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 185
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Maximum number of tags in cloud
+  example: []
+  syntax:
+    content: public const string TagCloudMaxTags = "tag_cloud_max_tags"
+    return:
+      type: System.String
+    content.vb: Public Const TagCloudMaxTags As String = "tag_cloud_max_tags"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoTaggingEnabled
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoTaggingEnabled
+  id: AutoTaggingEnabled
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: AutoTaggingEnabled
+  nameWithType: PreferenceKeys.AutoTaggingEnabled
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoTaggingEnabled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AutoTaggingEnabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 188
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether auto-tagging is enabled
+  example: []
+  syntax:
+    content: public const string AutoTaggingEnabled = "auto_tagging_enabled"
+    return:
+      type: System.String
+    content.vb: Public Const AutoTaggingEnabled As String = "auto_tagging_enabled"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowTagColors
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowTagColors
+  id: ShowTagColors
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ShowTagColors
+  nameWithType: PreferenceKeys.ShowTagColors
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ShowTagColors
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ShowTagColors
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 191
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to show tag colors
+  example: []
+  syntax:
+    content: public const string ShowTagColors = "show_tag_colors"
+    return:
+      type: System.String
+    content.vb: Public Const ShowTagColors As String = "show_tag_colors"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.CacheEnabled
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.CacheEnabled
+  id: CacheEnabled
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: CacheEnabled
+  nameWithType: PreferenceKeys.CacheEnabled
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.CacheEnabled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CacheEnabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 198
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether caching is enabled
+  example: []
+  syntax:
+    content: public const string CacheEnabled = "cache_enabled"
+    return:
+      type: System.String
+    content.vb: Public Const CacheEnabled As String = "cache_enabled"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.CacheSizeLimit
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.CacheSizeLimit
+  id: CacheSizeLimit
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: CacheSizeLimit
+  nameWithType: PreferenceKeys.CacheSizeLimit
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.CacheSizeLimit
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CacheSizeLimit
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 201
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Cache size limit in MB
+  example: []
+  syntax:
+    content: public const string CacheSizeLimit = "cache_size_limit"
+    return:
+      type: System.String
+    content.vb: Public Const CacheSizeLimit As String = "cache_size_limit"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.PreloadArticles
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.PreloadArticles
+  id: PreloadArticles
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: PreloadArticles
+  nameWithType: PreferenceKeys.PreloadArticles
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.PreloadArticles
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: PreloadArticles
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 204
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to preload articles
+  example: []
+  syntax:
+    content: public const string PreloadArticles = "preload_articles"
+    return:
+      type: System.String
+    content.vb: Public Const PreloadArticles As String = "preload_articles"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxArticlesInMemory
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxArticlesInMemory
+  id: MaxArticlesInMemory
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: MaxArticlesInMemory
+  nameWithType: PreferenceKeys.MaxArticlesInMemory
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxArticlesInMemory
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MaxArticlesInMemory
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 207
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Maximum articles to keep in memory
+  example: []
+  syntax:
+    content: public const string MaxArticlesInMemory = "max_articles_in_memory"
+    return:
+      type: System.String
+    content.vb: Public Const MaxArticlesInMemory As String = "max_articles_in_memory"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnableImageCache
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnableImageCache
+  id: EnableImageCache
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: EnableImageCache
+  nameWithType: PreferenceKeys.EnableImageCache
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnableImageCache
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EnableImageCache
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 210
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether image cache is enabled
+  example: []
+  syntax:
+    content: public const string EnableImageCache = "enable_image_cache"
+    return:
+      type: System.String
+    content.vb: Public Const EnableImageCache As String = "enable_image_cache"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ImageCacheSize
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ImageCacheSize
+  id: ImageCacheSize
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ImageCacheSize
+  nameWithType: PreferenceKeys.ImageCacheSize
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ImageCacheSize
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ImageCacheSize
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 213
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Image cache size in MB
+  example: []
+  syntax:
+    content: public const string ImageCacheSize = "image_cache_size"
+    return:
+      type: System.String
+    content.vb: Public Const ImageCacheSize As String = "image_cache_size"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ClearHistoryOnExit
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ClearHistoryOnExit
+  id: ClearHistoryOnExit
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ClearHistoryOnExit
+  nameWithType: PreferenceKeys.ClearHistoryOnExit
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ClearHistoryOnExit
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ClearHistoryOnExit
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 220
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to clear history on application exit
+  example: []
+  syntax:
+    content: public const string ClearHistoryOnExit = "clear_history_on_exit"
+    return:
+      type: System.String
+    content.vb: Public Const ClearHistoryOnExit As String = "clear_history_on_exit"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.SendUsageStatistics
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.SendUsageStatistics
+  id: SendUsageStatistics
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: SendUsageStatistics
+  nameWithType: PreferenceKeys.SendUsageStatistics
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.SendUsageStatistics
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SendUsageStatistics
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 223
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to send anonymous usage statistics
+  example: []
+  syntax:
+    content: public const string SendUsageStatistics = "send_usage_statistics"
+    return:
+      type: System.String
+    content.vb: Public Const SendUsageStatistics As String = "send_usage_statistics"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.BlockTrackers
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.BlockTrackers
+  id: BlockTrackers
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: BlockTrackers
+  nameWithType: PreferenceKeys.BlockTrackers
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.BlockTrackers
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: BlockTrackers
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 226
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to block known trackers
+  example: []
+  syntax:
+    content: public const string BlockTrackers = "block_trackers"
+    return:
+      type: System.String
+    content.vb: Public Const BlockTrackers As String = "block_trackers"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.HttpsOnly
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.HttpsOnly
+  id: HttpsOnly
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: HttpsOnly
+  nameWithType: PreferenceKeys.HttpsOnly
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.HttpsOnly
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: HttpsOnly
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 229
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to enforce HTTPS only
+  example: []
+  syntax:
+    content: public const string HttpsOnly = "https_only"
+    return:
+      type: System.String
+    content.vb: Public Const HttpsOnly As String = "https_only"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProxyEnabled
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProxyEnabled
+  id: ProxyEnabled
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ProxyEnabled
+  nameWithType: PreferenceKeys.ProxyEnabled
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProxyEnabled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ProxyEnabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 232
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether proxy is enabled
+  example: []
+  syntax:
+    content: public const string ProxyEnabled = "proxy_enabled"
+    return:
+      type: System.String
+    content.vb: Public Const ProxyEnabled As String = "proxy_enabled"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProxyAddress
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProxyAddress
+  id: ProxyAddress
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ProxyAddress
+  nameWithType: PreferenceKeys.ProxyAddress
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProxyAddress
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ProxyAddress
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 235
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Proxy server address
+  example: []
+  syntax:
+    content: public const string ProxyAddress = "proxy_address"
+    return:
+      type: System.String
+    content.vb: Public Const ProxyAddress As String = "proxy_address"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProxyPort
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProxyPort
+  id: ProxyPort
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ProxyPort
+  nameWithType: PreferenceKeys.ProxyPort
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ProxyPort
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ProxyPort
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 238
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Proxy server port
+  example: []
+  syntax:
+    content: public const string ProxyPort = "proxy_port"
+    return:
+      type: System.String
+    content.vb: Public Const ProxyPort As String = "proxy_port"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoBackupEnabled
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoBackupEnabled
+  id: AutoBackupEnabled
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: AutoBackupEnabled
+  nameWithType: PreferenceKeys.AutoBackupEnabled
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.AutoBackupEnabled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AutoBackupEnabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 245
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether auto-backup is enabled
+  example: []
+  syntax:
+    content: public const string AutoBackupEnabled = "auto_backup_enabled"
+    return:
+      type: System.String
+    content.vb: Public Const AutoBackupEnabled As String = "auto_backup_enabled"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.BackupFrequency
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.BackupFrequency
+  id: BackupFrequency
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: BackupFrequency
+  nameWithType: PreferenceKeys.BackupFrequency
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.BackupFrequency
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: BackupFrequency
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 248
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'Backup frequency: "daily", "weekly", "monthly"'
+  example: []
+  syntax:
+    content: public const string BackupFrequency = "backup_frequency"
+    return:
+      type: System.String
+    content.vb: Public Const BackupFrequency As String = "backup_frequency"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.BackupLocation
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.BackupLocation
+  id: BackupLocation
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: BackupLocation
+  nameWithType: PreferenceKeys.BackupLocation
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.BackupLocation
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: BackupLocation
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 251
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Backup location path
+  example: []
+  syntax:
+    content: public const string BackupLocation = "backup_location"
+    return:
+      type: System.String
+    content.vb: Public Const BackupLocation As String = "backup_location"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepBackupCopies
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepBackupCopies
+  id: KeepBackupCopies
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: KeepBackupCopies
+  nameWithType: PreferenceKeys.KeepBackupCopies
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeepBackupCopies
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: KeepBackupCopies
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 254
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Number of backup copies to keep
+  example: []
+  syntax:
+    content: public const string KeepBackupCopies = "keep_backup_copies"
+    return:
+      type: System.String
+    content.vb: Public Const KeepBackupCopies As String = "keep_backup_copies"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.SyncEnabled
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.SyncEnabled
+  id: SyncEnabled
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: SyncEnabled
+  nameWithType: PreferenceKeys.SyncEnabled
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.SyncEnabled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SyncEnabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 257
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether synchronization is enabled
+  example: []
+  syntax:
+    content: public const string SyncEnabled = "sync_enabled"
+    return:
+      type: System.String
+    content.vb: Public Const SyncEnabled As String = "sync_enabled"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.SyncFrequency
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.SyncFrequency
+  id: SyncFrequency
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: SyncFrequency
+  nameWithType: PreferenceKeys.SyncFrequency
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.SyncFrequency
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SyncFrequency
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 260
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Synchronization frequency in minutes
+  example: []
+  syntax:
+    content: public const string SyncFrequency = "sync_frequency"
+    return:
+      type: System.String
+    content.vb: Public Const SyncFrequency As String = "sync_frequency"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.LastSyncDate
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.LastSyncDate
+  id: LastSyncDate
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: LastSyncDate
+  nameWithType: PreferenceKeys.LastSyncDate
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.LastSyncDate
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LastSyncDate
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 263
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Last synchronization timestamp
+  example: []
+  syntax:
+    content: public const string LastSyncDate = "last_sync_date"
+    return:
+      type: System.String
+    content.vb: Public Const LastSyncDate As String = "last_sync_date"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeyboardShortcutsEnabled
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeyboardShortcutsEnabled
+  id: KeyboardShortcutsEnabled
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: KeyboardShortcutsEnabled
+  nameWithType: PreferenceKeys.KeyboardShortcutsEnabled
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.KeyboardShortcutsEnabled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: KeyboardShortcutsEnabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 270
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether keyboard shortcuts are enabled
+  example: []
+  syntax:
+    content: public const string KeyboardShortcutsEnabled = "keyboard_shortcuts_enabled"
+    return:
+      type: System.String
+    content.vb: Public Const KeyboardShortcutsEnabled As String = "keyboard_shortcuts_enabled"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MarkAsReadShortcut
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.MarkAsReadShortcut
+  id: MarkAsReadShortcut
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: MarkAsReadShortcut
+  nameWithType: PreferenceKeys.MarkAsReadShortcut
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MarkAsReadShortcut
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MarkAsReadShortcut
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 273
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Mark as read shortcut key
+  example: []
+  syntax:
+    content: public const string MarkAsReadShortcut = "mark_as_read_shortcut"
+    return:
+      type: System.String
+    content.vb: Public Const MarkAsReadShortcut As String = "mark_as_read_shortcut"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NextArticleShortcut
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.NextArticleShortcut
+  id: NextArticleShortcut
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: NextArticleShortcut
+  nameWithType: PreferenceKeys.NextArticleShortcut
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.NextArticleShortcut
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NextArticleShortcut
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 276
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Next article shortcut key
+  example: []
+  syntax:
+    content: public const string NextArticleShortcut = "next_article_shortcut"
+    return:
+      type: System.String
+    content.vb: Public Const NextArticleShortcut As String = "next_article_shortcut"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.PrevArticleShortcut
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.PrevArticleShortcut
+  id: PrevArticleShortcut
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: PrevArticleShortcut
+  nameWithType: PreferenceKeys.PrevArticleShortcut
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.PrevArticleShortcut
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: PrevArticleShortcut
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 279
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Previous article shortcut key
+  example: []
+  syntax:
+    content: public const string PrevArticleShortcut = "prev_article_shortcut"
+    return:
+      type: System.String
+    content.vb: Public Const PrevArticleShortcut As String = "prev_article_shortcut"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.Language
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.Language
+  id: Language
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: Language
+  nameWithType: PreferenceKeys.Language
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.Language
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Language
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 286
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Application language code
+  example: []
+  syntax:
+    content: public const string Language = "language"
+    return:
+      type: System.String
+    content.vb: Public Const Language As String = "language"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.DateFormat
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.DateFormat
+  id: DateFormat
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: DateFormat
+  nameWithType: PreferenceKeys.DateFormat
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.DateFormat
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DateFormat
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 289
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'Date format: "relative", "absolute"'
+  example: []
+  syntax:
+    content: public const string DateFormat = "date_format"
+    return:
+      type: System.String
+    content.vb: Public Const DateFormat As String = "date_format"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.TimeFormat
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.TimeFormat
+  id: TimeFormat
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: TimeFormat
+  nameWithType: PreferenceKeys.TimeFormat
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.TimeFormat
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TimeFormat
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 292
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'Time format: "12h", "24h"'
+  example: []
+  syntax:
+    content: public const string TimeFormat = "time_format"
+    return:
+      type: System.String
+    content.vb: Public Const TimeFormat As String = "time_format"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.FirstDayOfWeek
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.FirstDayOfWeek
+  id: FirstDayOfWeek
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: FirstDayOfWeek
+  nameWithType: PreferenceKeys.FirstDayOfWeek
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.FirstDayOfWeek
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FirstDayOfWeek
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 295
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: 'First day of week: "monday", "sunday"'
+  example: []
+  syntax:
+    content: public const string FirstDayOfWeek = "first_day_of_week"
+    return:
+      type: System.String
+    content.vb: Public Const FirstDayOfWeek As String = "first_day_of_week"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.DeveloperMode
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.DeveloperMode
+  id: DeveloperMode
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: DeveloperMode
+  nameWithType: PreferenceKeys.DeveloperMode
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.DeveloperMode
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DeveloperMode
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 302
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether developer mode is enabled
+  example: []
+  syntax:
+    content: public const string DeveloperMode = "developer_mode"
+    return:
+      type: System.String
+    content.vb: Public Const DeveloperMode As String = "developer_mode"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnableApi
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnableApi
+  id: EnableApi
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: EnableApi
+  nameWithType: PreferenceKeys.EnableApi
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnableApi
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EnableApi
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 305
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether API is enabled
+  example: []
+  syntax:
+    content: public const string EnableApi = "enable_api"
+    return:
+      type: System.String
+    content.vb: Public Const EnableApi As String = "enable_api"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ApiPort
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.ApiPort
+  id: ApiPort
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: ApiPort
+  nameWithType: PreferenceKeys.ApiPort
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.ApiPort
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ApiPort
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 308
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: API port number
+  example: []
+  syntax:
+    content: public const string ApiPort = "api_port"
+    return:
+      type: System.String
+    content.vb: Public Const ApiPort As String = "api_port"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.WebhookUrl
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.WebhookUrl
+  id: WebhookUrl
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: WebhookUrl
+  nameWithType: PreferenceKeys.WebhookUrl
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.WebhookUrl
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: WebhookUrl
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 311
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Webhook URL for external integrations
+  example: []
+  syntax:
+    content: public const string WebhookUrl = "webhook_url"
+    return:
+      type: System.String
+    content.vb: Public Const WebhookUrl As String = "webhook_url"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnablePlugins
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnablePlugins
+  id: EnablePlugins
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: EnablePlugins
+  nameWithType: PreferenceKeys.EnablePlugins
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnablePlugins
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EnablePlugins
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 314
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether plugins are enabled
+  example: []
+  syntax:
+    content: public const string EnablePlugins = "enable_plugins"
+    return:
+      type: System.String
+    content.vb: Public Const EnablePlugins As String = "enable_plugins"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.PluginDirectory
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.PluginDirectory
+  id: PluginDirectory
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: PluginDirectory
+  nameWithType: PreferenceKeys.PluginDirectory
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.PluginDirectory
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: PluginDirectory
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 317
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Plugin directory path
+  example: []
+  syntax:
+    content: public const string PluginDirectory = "plugin_directory"
+    return:
+      type: System.String
+    content.vb: Public Const PluginDirectory As String = "plugin_directory"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.LogLevel
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.LogLevel
+  id: LogLevel
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: LogLevel
+  nameWithType: PreferenceKeys.LogLevel
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.LogLevel
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LogLevel
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 324
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Log level
+  example: []
+  syntax:
+    content: public const string LogLevel = "log_level"
+    return:
+      type: System.String
+    content.vb: Public Const LogLevel As String = "log_level"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.LogRetentionDays
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.LogRetentionDays
+  id: LogRetentionDays
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: LogRetentionDays
+  nameWithType: PreferenceKeys.LogRetentionDays
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.LogRetentionDays
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LogRetentionDays
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 327
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Log retention days
+  example: []
+  syntax:
+    content: public const string LogRetentionDays = "log_retention_days"
+    return:
+      type: System.String
+    content.vb: Public Const LogRetentionDays As String = "log_retention_days"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnableVerboseLogging
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnableVerboseLogging
+  id: EnableVerboseLogging
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: EnableVerboseLogging
+  nameWithType: PreferenceKeys.EnableVerboseLogging
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.EnableVerboseLogging
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EnableVerboseLogging
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 330
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether verbose logging is enabled
+  example: []
+  syntax:
+    content: public const string EnableVerboseLogging = "enable_verbose_logging"
+    return:
+      type: System.String
+    content.vb: Public Const EnableVerboseLogging As String = "enable_verbose_logging"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxImageCacheSizeMB
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxImageCacheSizeMB
+  id: MaxImageCacheSizeMB
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: MaxImageCacheSizeMB
+  nameWithType: PreferenceKeys.MaxImageCacheSizeMB
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.MaxImageCacheSizeMB
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: MaxImageCacheSizeMB
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 337
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Maximum image cache size in megabytes
+  example: []
+  syntax:
+    content: public const string MaxImageCacheSizeMB = "image_cache_max_size_mb"
+    return:
+      type: System.String
+    content.vb: Public Const MaxImageCacheSizeMB As String = "image_cache_max_size_mb"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.CleanupHourOfDay
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.CleanupHourOfDay
+  id: CleanupHourOfDay
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: CleanupHourOfDay
+  nameWithType: PreferenceKeys.CleanupHourOfDay
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.CleanupHourOfDay
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CleanupHourOfDay
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 342
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Maximum image cache size in megabytes
+  example: []
+  syntax:
+    content: public const string CleanupHourOfDay = "cleanup_hour_of_day"
+    return:
+      type: System.String
+    content.vb: Public Const CleanupHourOfDay As String = "cleanup_hour_of_day"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.CleanupDayOfWeek
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.CleanupDayOfWeek
+  id: CleanupDayOfWeek
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: CleanupDayOfWeek
+  nameWithType: PreferenceKeys.CleanupDayOfWeek
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.CleanupDayOfWeek
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CleanupDayOfWeek
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 347
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Maximum image cache size in megabytes
+  example: []
+  syntax:
+    content: public const string CleanupDayOfWeek = "cleanup_day_of_week"
+    return:
+      type: System.String
+    content.vb: Public Const CleanupDayOfWeek As String = "cleanup_day_of_week"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.VacuumAfterCleanup
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.VacuumAfterCleanup
+  id: VacuumAfterCleanup
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: VacuumAfterCleanup
+  nameWithType: PreferenceKeys.VacuumAfterCleanup
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.VacuumAfterCleanup
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: VacuumAfterCleanup
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 352
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to vacuum the database after cleanup
+  example: []
+  syntax:
+    content: public const string VacuumAfterCleanup = "vacuum_after_cleanup"
+    return:
+      type: System.String
+    content.vb: Public Const VacuumAfterCleanup As String = "vacuum_after_cleanup"
+- uid: NeonSuit.RSSReader.Core.Models.PreferenceKeys.RebuildIndexesAfterCleanup
+  commentId: F:NeonSuit.RSSReader.Core.Models.PreferenceKeys.RebuildIndexesAfterCleanup
+  id: RebuildIndexesAfterCleanup
+  parent: NeonSuit.RSSReader.Core.Models.PreferenceKeys
+  langs:
+  - csharp
+  - vb
+  name: RebuildIndexesAfterCleanup
+  nameWithType: PreferenceKeys.RebuildIndexesAfterCleanup
+  fullName: NeonSuit.RSSReader.Core.Models.PreferenceKeys.RebuildIndexesAfterCleanup
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: RebuildIndexesAfterCleanup
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/PreferenceKeys.cs
+    startLine: 357
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models
+  summary: Whether to rebuild indexes after cleanup
+  example: []
+  syntax:
+    content: public const string RebuildIndexesAfterCleanup = "rebuild_indexes_after_cleanup"
+    return:
+      type: System.String
+    content.vb: Public Const RebuildIndexesAfterCleanup As String = "rebuild_indexes_after_cleanup"
+references:
+- uid: NeonSuit.RSSReader.Core.Models
+  commentId: N:NeonSuit.RSSReader.Core.Models
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models
+  nameWithType: NeonSuit.RSSReader.Core.Models
+  fullName: NeonSuit.RSSReader.Core.Models
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

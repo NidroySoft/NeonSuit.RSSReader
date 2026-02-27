@@ -1,0 +1,742 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  id: CategoryDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Depth
+  - NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Description
+  - NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FeedCount
+  - NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FullPath
+  - NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Id
+  - NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Name
+  - NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.ParentCategoryId
+  - NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.SortOrder
+  - NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.UnreadCount
+  langs:
+  - csharp
+  - vb
+  name: CategoryDto
+  nameWithType: CategoryDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: CategoryDto
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+    startLine: 12
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Categories
+  summary: >-
+    Data Transfer Object for category information.
+
+    Used for displaying categories in lists and selection controls.
+  example: []
+  syntax:
+    content: public class CategoryDto
+    content.vb: Public Class CategoryDto
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Id
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Id
+  id: Id
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: CategoryDto.Id
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Id
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Id
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+    startLine: 17
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Categories
+  summary: Unique identifier of the category.
+  example: []
+  syntax:
+    content: public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Id As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Id*
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Name
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Name
+  id: Name
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: CategoryDto.Name
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Name
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Name
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+    startLine: 22
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Categories
+  summary: Display name of the category.
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Name*
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Description
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Description
+  id: Description
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: CategoryDto.Description
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Description
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Description
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+    startLine: 27
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Categories
+  summary: Optional description of the category's purpose.
+  example: []
+  syntax:
+    content: public string? Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Description*
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.ParentCategoryId
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.ParentCategoryId
+  id: ParentCategoryId
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  langs:
+  - csharp
+  - vb
+  name: ParentCategoryId
+  nameWithType: CategoryDto.ParentCategoryId
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.ParentCategoryId
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ParentCategoryId
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+    startLine: 32
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Categories
+  summary: ID of the parent category (null for root categories).
+  example: []
+  syntax:
+    content: public int? ParentCategoryId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property ParentCategoryId As Integer?
+  overload: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.ParentCategoryId*
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.SortOrder
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.SortOrder
+  id: SortOrder
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  langs:
+  - csharp
+  - vb
+  name: SortOrder
+  nameWithType: CategoryDto.SortOrder
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.SortOrder
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SortOrder
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+    startLine: 37
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Categories
+  summary: Sort order within the parent category.
+  example: []
+  syntax:
+    content: public int SortOrder { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SortOrder As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.SortOrder*
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FeedCount
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FeedCount
+  id: FeedCount
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  langs:
+  - csharp
+  - vb
+  name: FeedCount
+  nameWithType: CategoryDto.FeedCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FeedCount
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FeedCount
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+    startLine: 42
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Categories
+  summary: Number of feeds directly in this category.
+  example: []
+  syntax:
+    content: public int FeedCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property FeedCount As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FeedCount*
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.UnreadCount
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.UnreadCount
+  id: UnreadCount
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  langs:
+  - csharp
+  - vb
+  name: UnreadCount
+  nameWithType: CategoryDto.UnreadCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.UnreadCount
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UnreadCount
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+    startLine: 47
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Categories
+  summary: Total number of unread articles across all feeds in this category.
+  example: []
+  syntax:
+    content: public int UnreadCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property UnreadCount As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.UnreadCount*
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Depth
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Depth
+  id: Depth
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  langs:
+  - csharp
+  - vb
+  name: Depth
+  nameWithType: CategoryDto.Depth
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Depth
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Depth
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+    startLine: 52
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Categories
+  summary: Depth level in the category tree (0 = root).
+  example: []
+  syntax:
+    content: public int Depth { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Depth As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Depth*
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FullPath
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FullPath
+  id: FullPath
+  parent: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto
+  langs:
+  - csharp
+  - vb
+  name: FullPath
+  nameWithType: CategoryDto.FullPath
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FullPath
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FullPath
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Categories/CategoryDto.cs
+    startLine: 57
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Categories
+  summary: Full hierarchical path (e.g., "News / Technology / AI").
+  example: []
+  syntax:
+    content: public string FullPath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FullPath As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FullPath*
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Categories
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Categories
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Categories
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories
+    name: Categories
+    href: NeonSuit.RSSReader.Core.DTOs.Categories.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Categories
+    name: Categories
+    href: NeonSuit.RSSReader.Core.DTOs.Categories.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Id*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Id
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html#NeonSuit_RSSReader_Core_DTOs_Categories_CategoryDto_Id
+  name: Id
+  nameWithType: CategoryDto.Id
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Name*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Name
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html#NeonSuit_RSSReader_Core_DTOs_Categories_CategoryDto_Name
+  name: Name
+  nameWithType: CategoryDto.Name
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Description*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Description
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html#NeonSuit_RSSReader_Core_DTOs_Categories_CategoryDto_Description
+  name: Description
+  nameWithType: CategoryDto.Description
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Description
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.ParentCategoryId*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.ParentCategoryId
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html#NeonSuit_RSSReader_Core_DTOs_Categories_CategoryDto_ParentCategoryId
+  name: ParentCategoryId
+  nameWithType: CategoryDto.ParentCategoryId
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.ParentCategoryId
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.SortOrder*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.SortOrder
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html#NeonSuit_RSSReader_Core_DTOs_Categories_CategoryDto_SortOrder
+  name: SortOrder
+  nameWithType: CategoryDto.SortOrder
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.SortOrder
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FeedCount*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FeedCount
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html#NeonSuit_RSSReader_Core_DTOs_Categories_CategoryDto_FeedCount
+  name: FeedCount
+  nameWithType: CategoryDto.FeedCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FeedCount
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.UnreadCount*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.UnreadCount
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html#NeonSuit_RSSReader_Core_DTOs_Categories_CategoryDto_UnreadCount
+  name: UnreadCount
+  nameWithType: CategoryDto.UnreadCount
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.UnreadCount
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Depth*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Depth
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html#NeonSuit_RSSReader_Core_DTOs_Categories_CategoryDto_Depth
+  name: Depth
+  nameWithType: CategoryDto.Depth
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.Depth
+- uid: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FullPath*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FullPath
+  href: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.html#NeonSuit_RSSReader_Core_DTOs_Categories_CategoryDto_FullPath
+  name: FullPath
+  nameWithType: CategoryDto.FullPath
+  fullName: NeonSuit.RSSReader.Core.DTOs.Categories.CategoryDto.FullPath

@@ -1,0 +1,279 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  commentId: T:NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  id: SyncTaskStatus
+  parent: NeonSuit.RSSReader.Core.Enums
+  children:
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Cancelled
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Completed
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Disabled
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Failed
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Idle
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Running
+  - NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Scheduled
+  langs:
+  - csharp
+  - vb
+  name: SyncTaskStatus
+  nameWithType: SyncTaskStatus
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SyncTaskStatus
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 47
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Status of an individual synchronization task.
+  example: []
+  syntax:
+    content: public enum SyncTaskStatus
+    content.vb: Public Enum SyncTaskStatus
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Idle
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Idle
+  id: Idle
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  langs:
+  - csharp
+  - vb
+  name: Idle
+  nameWithType: SyncTaskStatus.Idle
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Idle
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Idle
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 50
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Task is idle, waiting for schedule.
+  example: []
+  syntax:
+    content: Idle = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Scheduled
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Scheduled
+  id: Scheduled
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  langs:
+  - csharp
+  - vb
+  name: Scheduled
+  nameWithType: SyncTaskStatus.Scheduled
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Scheduled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Scheduled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 52
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Task is scheduled to run soon.
+  example: []
+  syntax:
+    content: Scheduled = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Running
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Running
+  id: Running
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  langs:
+  - csharp
+  - vb
+  name: Running
+  nameWithType: SyncTaskStatus.Running
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Running
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Running
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 54
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Task is currently running.
+  example: []
+  syntax:
+    content: Running = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Completed
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Completed
+  id: Completed
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  langs:
+  - csharp
+  - vb
+  name: Completed
+  nameWithType: SyncTaskStatus.Completed
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Completed
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Completed
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 56
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Task completed successfully.
+  example: []
+  syntax:
+    content: Completed = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Failed
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Failed
+  id: Failed
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  langs:
+  - csharp
+  - vb
+  name: Failed
+  nameWithType: SyncTaskStatus.Failed
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Failed
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Failed
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 58
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Task failed with error.
+  example: []
+  syntax:
+    content: Failed = 4
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Cancelled
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Cancelled
+  id: Cancelled
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  langs:
+  - csharp
+  - vb
+  name: Cancelled
+  nameWithType: SyncTaskStatus.Cancelled
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Cancelled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Cancelled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 60
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Task was cancelled.
+  example: []
+  syntax:
+    content: Cancelled = 5
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Disabled
+  commentId: F:NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Disabled
+  id: Disabled
+  parent: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  langs:
+  - csharp
+  - vb
+  name: Disabled
+  nameWithType: SyncTaskStatus.Disabled
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.Disabled
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Disabled
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/SyncEnums.cs
+    startLine: 62
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Task is disabled in configuration.
+  example: []
+  syntax:
+    content: Disabled = 6
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+references:
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  commentId: T:NeonSuit.RSSReader.Core.Enums.SyncTaskStatus
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus.html
+  name: SyncTaskStatus
+  nameWithType: SyncTaskStatus
+  fullName: NeonSuit.RSSReader.Core.Enums.SyncTaskStatus

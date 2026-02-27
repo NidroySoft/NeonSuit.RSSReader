@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace NeonSuit.RSSReader.Core.Interfaces.Services | NeonSuit RSS Reader API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace NeonSuit.RSSReader.Core.Interfaces.Services | NeonSuit RSS Reader API ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NeonSuit.RSSReader.Core.Interfaces.Services">
+
+  <h1 id="NeonSuit_RSSReader_Core_Interfaces_Services" data-uid="NeonSuit.RSSReader.Core.Interfaces.Services" class="text-break">Namespace NeonSuit.RSSReader.Core.Interfaces.Services</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.IArticleService.html">IArticleService</a></dt>
+      <dd><p>Service interface for managing article-related business logic and operations.
+Acts as an abstraction layer between UI/presentation and data repositories,
+coordinating article retrieval, state changes (read/star/favorite), search,
+cleanup, and statistics.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.IArticleTagService.html">IArticleTagService</a></dt>
+      <dd><p>Service interface for managing article-tag relationships.
+Provides business logic for tagging operations, batch processing, retrieval,
+statistics, rule-based tagging, maintenance, and event notifications.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.ICategoryService.html">ICategoryService</a></dt>
+      <dd><p>Service interface for managing category-related business logic and operations.
+Acts as an abstraction layer between UI/presentation and data repositories,
+coordinating hierarchical category management, feed organization, and optimized statistics.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.IDatabaseCleanupService.html">IDatabaseCleanupService</a></dt>
+      <dd><p>Service interface for database maintenance and cleanup operations.
+Orchestrates cleanup workflows, manages configuration, and coordinates
+between business rules and data access layers.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.IFeedService.html">IFeedService</a></dt>
+      <dd><p>Service interface for RSS feed management operations.
+Provides comprehensive feed management with support for active/inactive filtering,
+health monitoring, and synchronization capabilities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.IModuleService.html">IModuleService</a></dt>
+      <dd><p>Service interface for managing plugable modules.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.INotificationService.html">INotificationService</a></dt>
+      <dd><p>Service interface for notification management and delivery.
+Provides comprehensive notification handling with support for different notification types,
+priority levels, and user action tracking.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.IOpmlService.html">IOpmlService</a></dt>
+      <dd><p>Service interface for importing and exporting RSS feeds in OPML format.
+OPML (Outline Processor Markup Language) is the standard format for RSS feed lists exchange between applications.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.IRuleEngine.html">IRuleEngine</a></dt>
+      <dd><p>Service interface for rule evaluation engine that processes articles against defined rules and conditions.
+Provides comprehensive rule evaluation with support for complex condition groups and validation.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.IRuleService.html">IRuleService</a></dt>
+      <dd><p>Service interface for automated rules engine management.
+Provides comprehensive rule lifecycle management, article evaluation, and action execution capabilities.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html">ISettingsService</a></dt>
+      <dd><p>Defines the contract for a centralized settings management service.
+Provides thread-safe access to application preferences with notification events.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.ISyncCoordinatorService.html">ISyncCoordinatorService</a></dt>
+      <dd><p>Service interface for synchronization coordinator that manages and coordinates background tasks.
+Handles feed updates, tag processing, cleanup operations, and backups with proper prioritization,
+error handling, and resource management for low-resource environments.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="NeonSuit.RSSReader.Core.Interfaces.Services.ITagService.html">ITagService</a></dt>
+      <dd><p>Service interface for tag management operations.
+Provides business logic, validation, and event notifications for tag operations.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2026 NeonSuit - Professional RSS Engine
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

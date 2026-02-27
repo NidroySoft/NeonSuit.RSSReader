@@ -1,0 +1,283 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  commentId: T:NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  id: NotificationPriority
+  parent: NeonSuit.RSSReader.Core.Enums
+  children:
+  - NeonSuit.RSSReader.Core.Enums.NotificationPriority.Critical
+  - NeonSuit.RSSReader.Core.Enums.NotificationPriority.High
+  - NeonSuit.RSSReader.Core.Enums.NotificationPriority.Low
+  - NeonSuit.RSSReader.Core.Enums.NotificationPriority.Normal
+  langs:
+  - csharp
+  - vb
+  name: NotificationPriority
+  nameWithType: NotificationPriority
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/NotificationPriority.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: NotificationPriority
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/NotificationPriority.cs
+    startLine: 37
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: Defines the urgency level and presentation behavior of notifications in the RSS reader application.
+  remarks: >-
+    <p>
+
+    This enumeration determines how a notification is delivered to the user, including sound, 
+
+    vibration, persistence, screen wake behavior, and whether user interaction is mandatory.
+
+    The priority level is assigned when the notification is created, based on the nature 
+
+    and importance of the triggering event.
+
+    </p>
+
+
+    <p>
+
+    Priority influences the following aspects:
+
+    </p>
+
+    <ul><li>Sound and vibration patterns (silent, single alert, repeating, or escalating)</li><li>Notification display style (transient toast vs persistent banner/heads-up)</li><li>Ability to bypass Do Not Disturb / Focus modes (platform-dependent)</li><li>Positioning in the notification shade/center (higher priorities appear first)</li><li>Requirement for explicit user acknowledgment or action</li></ul>
+
+
+    <p>
+
+    Important business rules and guidelines:
+
+    </p>
+
+    <ul><li>Use <xref href="NeonSuit.RSSReader.Core.Enums.NotificationPriority.Low" data-throw-if-not-resolved="false"></xref> and <xref href="NeonSuit.RSSReader.Core.Enums.NotificationPriority.Normal" data-throw-if-not-resolved="false"></xref> for the vast majority of events to prevent notification fatigue.</li><li><xref href="NeonSuit.RSSReader.Core.Enums.NotificationPriority.High" data-throw-if-not-resolved="false"></xref> and especially <xref href="NeonSuit.RSSReader.Core.Enums.NotificationPriority.Critical" data-throw-if-not-resolved="false"></xref> should be reserved for genuinely urgent situations 
+              that demand immediate user attention.</li><li>User preferences may override or cap notification priority per category or globally.</li><li>On Android, each priority typically maps to a distinct notification channel with its own sound/vibration settings.</li><li>On iOS/macOS, priority affects interruption level and banner style (temporary vs persistent).</li><li>Default priority for new article notifications: <xref href="NeonSuit.RSSReader.Core.Enums.NotificationPriority.Normal" data-throw-if-not-resolved="false"></xref></li></ul>
+  example: []
+  syntax:
+    content: public enum NotificationPriority
+    content.vb: Public Enum NotificationPriority
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority.Low
+  commentId: F:NeonSuit.RSSReader.Core.Enums.NotificationPriority.Low
+  id: Low
+  parent: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  langs:
+  - csharp
+  - vb
+  name: Low
+  nameWithType: NotificationPriority.Low
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority.Low
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/NotificationPriority.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Low
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/NotificationPriority.cs
+    startLine: 58
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: 'Lowest urgency: completely silent and non-intrusive.'
+  remarks: >-
+    <p>Typical scenarios:</p>
+
+    <ul><li>Background sync completed without issues</li><li>Minor status updates or batch summaries</li><li>Low-priority informational messages</li></ul>
+
+
+    <p>Behavior:</p>
+
+    <ul><li>No sound, no vibration, no screen wake</li><li>Appears as a short-lived toast or collapsed notification</li><li>Stays in notification history but does not demand attention</li><li>Fully respects quiet hours and focus modes</li></ul>
+  example: []
+  syntax:
+    content: Low = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority.Normal
+  commentId: F:NeonSuit.RSSReader.Core.Enums.NotificationPriority.Normal
+  id: Normal
+  parent: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: NotificationPriority.Normal
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority.Normal
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/NotificationPriority.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Normal
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/NotificationPriority.cs
+    startLine: 79
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: 'Standard urgency: uses a single, non-disruptive alert.'
+  remarks: >-
+    <p>Typical scenarios:</p>
+
+    <ul><li>New articles from regular feeds (when notifications enabled)</li><li>Feed successfully recovered from warning/error state</li><li>Daily/weekly unread digest summaries</li></ul>
+
+
+    <p>Behavior:</p>
+
+    <ul><li>Plays default notification sound once</li><li>Shows as a standard toast/banner; persists in notification center</li><li>May briefly wake the screen (platform-dependent)</li><li>Most common priority for routine application events</li></ul>
+  example: []
+  syntax:
+    content: Normal = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority.High
+  commentId: F:NeonSuit.RSSReader.Core.Enums.NotificationPriority.High
+  id: High
+  parent: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  langs:
+  - csharp
+  - vb
+  name: High
+  nameWithType: NotificationPriority.High
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority.High
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/NotificationPriority.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: High
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/NotificationPriority.cs
+    startLine: 100
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: 'Elevated urgency: uses persistent or repeating alerts to gain attention.'
+  remarks: >-
+    <p>Typical scenarios:</p>
+
+    <ul><li>New articles from high-priority/starred feeds or matching critical filters</li><li>Prolonged feed outage on important sources</li><li>Significant application events (e.g., major update available)</li></ul>
+
+
+    <p>Behavior:</p>
+
+    <ul><li>Plays persistent/repeating sound or vibration pattern</li><li>Shows as a prominent, longer-lasting banner or heads-up notification</li><li>Higher likelihood of bypassing quiet hours (with user permission)</li><li>Appears near the top of notification lists</li></ul>
+  example: []
+  syntax:
+    content: High = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority.Critical
+  commentId: F:NeonSuit.RSSReader.Core.Enums.NotificationPriority.Critical
+  id: Critical
+  parent: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  langs:
+  - csharp
+  - vb
+  name: Critical
+  nameWithType: NotificationPriority.Critical
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority.Critical
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Enums/NotificationPriority.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Critical
+    path: ../src/Core/NeonSuit.RSSReader.Core/Enums/NotificationPriority.cs
+    startLine: 123
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Enums
+  summary: 'Highest urgency: demands immediate user attention and action.'
+  remarks: >-
+    <p>Typical scenarios:</p>
+
+    <ul><li>Authentication expired — login required to continue syncing</li><li>Critical storage or database capacity warning (risk of data loss)</li><li>Security/privacy alert (e.g., potential malicious feed content detected)</li><li>Complete sync failure preventing any updates for extended period</li></ul>
+
+
+    <p>Behavior:</p>
+
+    <ul><li>Strong, repeating alert sound/vibration</li><li>Persistent full-screen or heads-up display requiring interaction</li><li>Usually bypasses Do Not Disturb / Focus modes (subject to OS rules)</li><li>Often includes mandatory action buttons (e.g., "Fix Now", "Retry", "Login")</li><li>Use extremely sparingly to preserve user trust in notifications</li></ul>
+  example: []
+  syntax:
+    content: Critical = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+references:
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority.Low
+  commentId: F:NeonSuit.RSSReader.Core.Enums.NotificationPriority.Low
+  href: NeonSuit.RSSReader.Core.Enums.NotificationPriority.html#NeonSuit_RSSReader_Core_Enums_NotificationPriority_Low
+  name: Low
+  nameWithType: NotificationPriority.Low
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority.Low
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority.Normal
+  commentId: F:NeonSuit.RSSReader.Core.Enums.NotificationPriority.Normal
+  href: NeonSuit.RSSReader.Core.Enums.NotificationPriority.html#NeonSuit_RSSReader_Core_Enums_NotificationPriority_Normal
+  name: Normal
+  nameWithType: NotificationPriority.Normal
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority.Normal
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority.High
+  commentId: F:NeonSuit.RSSReader.Core.Enums.NotificationPriority.High
+  href: NeonSuit.RSSReader.Core.Enums.NotificationPriority.html#NeonSuit_RSSReader_Core_Enums_NotificationPriority_High
+  name: High
+  nameWithType: NotificationPriority.High
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority.High
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority.Critical
+  commentId: F:NeonSuit.RSSReader.Core.Enums.NotificationPriority.Critical
+  href: NeonSuit.RSSReader.Core.Enums.NotificationPriority.html#NeonSuit_RSSReader_Core_Enums_NotificationPriority_Critical
+  name: Critical
+  nameWithType: NotificationPriority.Critical
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority.Critical
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  commentId: T:NeonSuit.RSSReader.Core.Enums.NotificationPriority
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.NotificationPriority.html
+  name: NotificationPriority
+  nameWithType: NotificationPriority
+  fullName: NeonSuit.RSSReader.Core.Enums.NotificationPriority

@@ -1,0 +1,1200 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  id: IRSSReaderDbContext
+  parent: NeonSuit.RSSReader.Core.Interfaces.Database
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ApplyMigrationsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BackupAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BeginTransactionAsync(System.Data.IsolationLevel,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.DatabasePath
+  - NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.EnsureDatabaseCreatedAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Data.IsolationLevel,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteRawQueryAsync``1(System.String,System.Threading.CancellationToken,System.Object[])
+  - NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteSqlCommandAsync(System.String,System.Threading.CancellationToken,System.Object[])
+  - NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.GetStatisticsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ResetDatabaseAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.VacuumAsync(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IRSSReaderDbContext
+  nameWithType: IRSSReaderDbContext
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IRSSReaderDbContext
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+    startLine: 45
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Database
+  summary: >-
+    Core interface for the RSS Reader's Entity Framework Core database context.
+
+    Defines standardized access to database operations, transaction management,
+
+    raw SQL execution, maintenance tasks, and basic statistics — with full async support.
+  remarks: >-
+    <p>
+
+    This interface abstracts the underlying DbContext implementation and is intended to be:
+
+    </p>
+
+    <ul><li>Implemented by the actual DbContext class (e.g., RssReaderDbContext : DbContext, IRssReaderDbContext)</li><li>Injected via dependency injection into services, repositories, and background workers</li><li>Used consistently across the application to ensure proper async/await usage and transaction safety</li></ul>
+
+
+    <p>
+
+    Key design principles:
+
+    </p>
+
+    <ul><li>All mutating operations should prefer transactional execution (via ExecuteInTransactionAsync)</li><li>Raw SQL methods are provided for performance-critical or SQLite-specific operations (VACUUM, PRAGMA, etc.)</li><li>Maintenance methods (Backup, Vacuum, Reset) are exposed for admin/debug flows and automated cleanup</li><li>Statistics are lightweight and suitable for periodic health checks or UI dashboard display</li></ul>
+
+
+    <p>
+
+    Important notes for implementers and consumers:
+
+    </p>
+
+    <ul><li>The context is expected to use SQLite (based on DatabasePath and Vacuum/Backup methods)</li><li>Implementations should handle connection pooling, retry logic, and concurrency appropriately</li><li>Do not call SaveChanges/SaveChangesAsync directly on the underlying DbContext from consumers — use transactional wrappers</li><li>Cancellation support is mandatory on all async methods</li></ul>
+  example: []
+  syntax:
+    content: 'public interface IRSSReaderDbContext : IAsyncDisposable'
+    content.vb: Public Interface IRSSReaderDbContext Inherits IAsyncDisposable
+  inheritedMembers:
+  - System.IAsyncDisposable.DisposeAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.DatabasePath
+  commentId: P:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.DatabasePath
+  id: DatabasePath
+  parent: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  langs:
+  - csharp
+  - vb
+  name: DatabasePath
+  nameWithType: IRSSReaderDbContext.DatabasePath
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.DatabasePath
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: DatabasePath
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+    startLine: 56
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Database
+  summary: Gets the full file-system path to the SQLite database file.
+  remarks: >-
+    Used for backup operations, file existence checks, and diagnostics.
+
+    Returns null if using in-memory database (testing scenarios).
+  example: []
+  syntax:
+    content: string? DatabasePath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property DatabasePath As String
+  overload: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.DatabasePath*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.EnsureDatabaseCreatedAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.EnsureDatabaseCreatedAsync(System.Threading.CancellationToken)
+  id: EnsureDatabaseCreatedAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  langs:
+  - csharp
+  - vb
+  name: EnsureDatabaseCreatedAsync(CancellationToken)
+  nameWithType: IRSSReaderDbContext.EnsureDatabaseCreatedAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.EnsureDatabaseCreatedAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EnsureDatabaseCreatedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+    startLine: 66
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Database
+  summary: >-
+    Ensures the database file exists and all pending migrations are applied.
+
+    Safe to call on application startup.
+  example: []
+  syntax:
+    content: Task EnsureDatabaseCreatedAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function EnsureDatabaseCreatedAsync(cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.EnsureDatabaseCreatedAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ApplyMigrationsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ApplyMigrationsAsync(System.Threading.CancellationToken)
+  id: ApplyMigrationsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  langs:
+  - csharp
+  - vb
+  name: ApplyMigrationsAsync(CancellationToken)
+  nameWithType: IRSSReaderDbContext.ApplyMigrationsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ApplyMigrationsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ApplyMigrationsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+    startLine: 74
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Database
+  summary: Explicitly applies any pending EF Core migrations to the database.
+  remarks: Usually called internally by EnsureDatabaseCreatedAsync, but exposed for manual migration scenarios.
+  example: []
+  syntax:
+    content: Task ApplyMigrationsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function ApplyMigrationsAsync(cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ApplyMigrationsAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BackupAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BackupAsync(System.String,System.Threading.CancellationToken)
+  id: BackupAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  langs:
+  - csharp
+  - vb
+  name: BackupAsync(string, CancellationToken)
+  nameWithType: IRSSReaderDbContext.BackupAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BackupAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: BackupAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+    startLine: 85
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Database
+  summary: Creates a full backup copy of the SQLite database file.
+  remarks: >-
+    Uses SQLite backup API for consistency and minimal locking.
+
+    Throws if target path exists or is inaccessible.
+  example: []
+  syntax:
+    content: Task BackupAsync(string backupPath, CancellationToken cancellationToken = default)
+    parameters:
+    - id: backupPath
+      type: System.String
+      description: Target path where the backup file will be saved (must include .db extension).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function BackupAsync(backupPath As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BackupAsync*
+  nameWithType.vb: IRSSReaderDbContext.BackupAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BackupAsync(String, System.Threading.CancellationToken)
+  name.vb: BackupAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ResetDatabaseAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ResetDatabaseAsync(System.Threading.CancellationToken)
+  id: ResetDatabaseAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  langs:
+  - csharp
+  - vb
+  name: ResetDatabaseAsync(CancellationToken)
+  nameWithType: IRSSReaderDbContext.ResetDatabaseAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ResetDatabaseAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ResetDatabaseAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+    startLine: 95
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Database
+  summary: >-
+    Deletes all data from all tables (truncate-like behavior) while preserving schema.
+
+    Intended for development, testing, or user-initiated "clear all data" actions.
+  remarks: >-
+    Should be wrapped in a transaction and confirmed by user.
+
+    Does not drop/recreate the database file.
+  example: []
+  syntax:
+    content: Task ResetDatabaseAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function ResetDatabaseAsync(cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ResetDatabaseAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.VacuumAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.VacuumAsync(System.Threading.CancellationToken)
+  id: VacuumAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  langs:
+  - csharp
+  - vb
+  name: VacuumAsync(CancellationToken)
+  nameWithType: IRSSReaderDbContext.VacuumAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.VacuumAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: VacuumAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+    startLine: 104
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Database
+  summary: Executes SQLite VACUUM command to reclaim unused space and defragment the database file.
+  remarks: >-
+    Useful after bulk deletes (e.g., article cleanup, archiving).
+
+    May take significant time on large databases — run in background.
+  example: []
+  syntax:
+    content: Task VacuumAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function VacuumAsync(cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.VacuumAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.GetStatisticsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.GetStatisticsAsync(System.Threading.CancellationToken)
+  id: GetStatisticsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  langs:
+  - csharp
+  - vb
+  name: GetStatisticsAsync(CancellationToken)
+  nameWithType: IRSSReaderDbContext.GetStatisticsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.GetStatisticsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetStatisticsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+    startLine: 114
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Database
+  summary: Retrieves lightweight database statistics (size, counts, last backup).
+  remarks: >-
+    Should be fast enough for periodic UI refresh or health monitoring.
+
+    Counts are approximate when called concurrently with writes.
+  example: []
+  syntax:
+    content: Task<DatabaseStatsDto> GetStatisticsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto}
+      description: A <xref href="NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto" data-throw-if-not-resolved="false"></xref> object with current metrics.
+    content.vb: Function GetStatisticsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of DatabaseStatsDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.GetStatisticsAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BeginTransactionAsync(System.Data.IsolationLevel,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BeginTransactionAsync(System.Data.IsolationLevel,System.Threading.CancellationToken)
+  id: BeginTransactionAsync(System.Data.IsolationLevel,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  langs:
+  - csharp
+  - vb
+  name: BeginTransactionAsync(IsolationLevel, CancellationToken)
+  nameWithType: IRSSReaderDbContext.BeginTransactionAsync(IsolationLevel, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BeginTransactionAsync(System.Data.IsolationLevel, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: BeginTransactionAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+    startLine: 130
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Database
+  summary: Begins a new database transaction with the specified isolation level.
+  remarks: >-
+    Prefer <xref href="NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync%60%601(System.Func%7bSystem.Threading.Tasks.Task%7b%60%600%7d%7d%2cSystem.Data.IsolationLevel%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> for most use cases.
+
+    Manual transaction usage requires proper disposal.
+  example: []
+  syntax:
+    content: Task<IDbContextTransaction> BeginTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted, CancellationToken cancellationToken = default)
+    parameters:
+    - id: isolationLevel
+      type: System.Data.IsolationLevel
+      description: Defaults to ReadCommitted — safest for most operations.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction}
+      description: An <xref href="Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction" data-throw-if-not-resolved="false"></xref> that must be committed or rolled back.
+    content.vb: Function BeginTransactionAsync(isolationLevel As IsolationLevel = IsolationLevel.ReadCommitted, cancellationToken As CancellationToken = Nothing) As Task(Of IDbContextTransaction)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BeginTransactionAsync*
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Data.IsolationLevel,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Data.IsolationLevel,System.Threading.CancellationToken)
+  id: ExecuteInTransactionAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Data.IsolationLevel,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  langs:
+  - csharp
+  - vb
+  name: ExecuteInTransactionAsync<T>(Func<Task<T>>, IsolationLevel, CancellationToken)
+  nameWithType: IRSSReaderDbContext.ExecuteInTransactionAsync<T>(Func<Task<T>>, IsolationLevel, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync<T>(System.Func<System.Threading.Tasks.Task<T>>, System.Data.IsolationLevel, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ExecuteInTransactionAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+    startLine: 147
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Database
+  summary: >-
+    Executes the provided async action inside a new transaction.
+
+    Automatically commits on success or rolls back on exception.
+  remarks: >-
+    Recommended pattern for all write operations that should be atomic.
+
+    Example: await db.ExecuteInTransactionAsync(async () =&gt; { await db.Articles.AddAsync(...); await db.SaveChangesAsync(); });
+  example: []
+  syntax:
+    content: Task<T> ExecuteInTransactionAsync<T>(Func<Task<T>> action, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted, CancellationToken cancellationToken = default)
+    parameters:
+    - id: action
+      type: System.Func{System.Threading.Tasks.Task{{T}}}
+      description: The async lambda or method to execute transactionally.
+    - id: isolationLevel
+      type: System.Data.IsolationLevel
+      description: 'Transaction isolation level (default: ReadCommitted).'
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    typeParameters:
+    - id: T
+      description: Return type of the operation (use Unit/Task for void operations).
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+      description: The result returned by the action.
+    content.vb: Function ExecuteInTransactionAsync(Of T)(action As Func(Of Task(Of T)), isolationLevel As IsolationLevel = IsolationLevel.ReadCommitted, cancellationToken As CancellationToken = Nothing) As Task(Of T)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync*
+  nameWithType.vb: IRSSReaderDbContext.ExecuteInTransactionAsync(Of T)(Func(Of Task(Of T)), IsolationLevel, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync(Of T)(System.Func(Of System.Threading.Tasks.Task(Of T)), System.Data.IsolationLevel, System.Threading.CancellationToken)
+  name.vb: ExecuteInTransactionAsync(Of T)(Func(Of Task(Of T)), IsolationLevel, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteRawQueryAsync``1(System.String,System.Threading.CancellationToken,System.Object[])
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteRawQueryAsync``1(System.String,System.Threading.CancellationToken,System.Object[])
+  id: ExecuteRawQueryAsync``1(System.String,System.Threading.CancellationToken,System.Object[])
+  parent: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  langs:
+  - csharp
+  - vb
+  name: ExecuteRawQueryAsync<T>(string, CancellationToken, params object[])
+  nameWithType: IRSSReaderDbContext.ExecuteRawQueryAsync<T>(string, CancellationToken, params object[])
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteRawQueryAsync<T>(string, System.Threading.CancellationToken, params object[])
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ExecuteRawQueryAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+    startLine: 168
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Database
+  summary: Executes a raw SQL SELECT query and maps results to a list of entities of type T.
+  remarks: >-
+    Use for complex queries or performance-critical reads that cannot be expressed via LINQ.
+
+    Does not track entities by default.
+  example: []
+  syntax:
+    content: 'Task<List<T>> ExecuteRawQueryAsync<T>(string sql, CancellationToken cancellationToken = default, params object[] parameters) where T : class'
+    parameters:
+    - id: sql
+      type: System.String
+      description: Parameterized SQL query (use {0}, {1} placeholders or named parameters).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    - id: parameters
+      type: System.Object[]
+      description: Values to bind to the query parameters.
+    typeParameters:
+    - id: T
+      description: Entity type with properties matching column names.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{{T}}}
+      description: List of materialized entities.
+    content.vb: Function ExecuteRawQueryAsync(Of T As Class)(sql As String, cancellationToken As CancellationToken = Nothing, ParamArray parameters As Object()) As Task(Of List(Of T))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteRawQueryAsync*
+  nameWithType.vb: IRSSReaderDbContext.ExecuteRawQueryAsync(Of T)(String, CancellationToken, ParamArray Object())
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteRawQueryAsync(Of T)(String, System.Threading.CancellationToken, ParamArray Object())
+  name.vb: ExecuteRawQueryAsync(Of T)(String, CancellationToken, ParamArray Object())
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteSqlCommandAsync(System.String,System.Threading.CancellationToken,System.Object[])
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteSqlCommandAsync(System.String,System.Threading.CancellationToken,System.Object[])
+  id: ExecuteSqlCommandAsync(System.String,System.Threading.CancellationToken,System.Object[])
+  parent: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext
+  langs:
+  - csharp
+  - vb
+  name: ExecuteSqlCommandAsync(string, CancellationToken, params object[])
+  nameWithType: IRSSReaderDbContext.ExecuteSqlCommandAsync(string, CancellationToken, params object[])
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteSqlCommandAsync(string, System.Threading.CancellationToken, params object[])
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ExecuteSqlCommandAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Database/IRSSReaderDbContext.cs
+    startLine: 183
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Database
+  summary: Executes a non-query SQL command (INSERT, UPDATE, DELETE, PRAGMA, etc.).
+  remarks: Ideal for bulk operations, schema changes, or SQLite-specific commands.
+  example: []
+  syntax:
+    content: Task<int> ExecuteSqlCommandAsync(string sql, CancellationToken cancellationToken = default, params object[] parameters)
+    parameters:
+    - id: sql
+      type: System.String
+      description: Parameterized SQL command.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token.
+    - id: parameters
+      type: System.Object[]
+      description: Values to bind.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: Number of rows affected.
+    content.vb: Function ExecuteSqlCommandAsync(sql As String, cancellationToken As CancellationToken = Nothing, ParamArray parameters As Object()) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteSqlCommandAsync*
+  nameWithType.vb: IRSSReaderDbContext.ExecuteSqlCommandAsync(String, CancellationToken, ParamArray Object())
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteSqlCommandAsync(String, System.Threading.CancellationToken, ParamArray Object())
+  name.vb: ExecuteSqlCommandAsync(String, CancellationToken, ParamArray Object())
+references:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Database
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Database
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Database
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Database
+    name: Database
+    href: NeonSuit.RSSReader.Core.Interfaces.Database.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Database
+    name: Database
+    href: NeonSuit.RSSReader.Core.Interfaces.Database.html
+- uid: System.IAsyncDisposable.DisposeAsync
+  commentId: M:System.IAsyncDisposable.DisposeAsync
+  parent: System.IAsyncDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  name: DisposeAsync()
+  nameWithType: IAsyncDisposable.DisposeAsync()
+  fullName: System.IAsyncDisposable.DisposeAsync()
+  spec.csharp:
+  - uid: System.IAsyncDisposable.DisposeAsync
+    name: DisposeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IAsyncDisposable.DisposeAsync
+    name: DisposeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  - name: (
+  - name: )
+- uid: System.IAsyncDisposable
+  commentId: T:System.IAsyncDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable
+  name: IAsyncDisposable
+  nameWithType: IAsyncDisposable
+  fullName: System.IAsyncDisposable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.DatabasePath*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.DatabasePath
+  href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_DatabasePath
+  name: DatabasePath
+  nameWithType: IRSSReaderDbContext.DatabasePath
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.DatabasePath
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.EnsureDatabaseCreatedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.EnsureDatabaseCreatedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_EnsureDatabaseCreatedAsync_System_Threading_CancellationToken_
+  name: EnsureDatabaseCreatedAsync
+  nameWithType: IRSSReaderDbContext.EnsureDatabaseCreatedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.EnsureDatabaseCreatedAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ApplyMigrationsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ApplyMigrationsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ApplyMigrationsAsync_System_Threading_CancellationToken_
+  name: ApplyMigrationsAsync
+  nameWithType: IRSSReaderDbContext.ApplyMigrationsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ApplyMigrationsAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BackupAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BackupAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_BackupAsync_System_String_System_Threading_CancellationToken_
+  name: BackupAsync
+  nameWithType: IRSSReaderDbContext.BackupAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BackupAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ResetDatabaseAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ResetDatabaseAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ResetDatabaseAsync_System_Threading_CancellationToken_
+  name: ResetDatabaseAsync
+  nameWithType: IRSSReaderDbContext.ResetDatabaseAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ResetDatabaseAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.VacuumAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.VacuumAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_VacuumAsync_System_Threading_CancellationToken_
+  name: VacuumAsync
+  nameWithType: IRSSReaderDbContext.VacuumAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.VacuumAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+  href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html
+  name: DatabaseStatsDto
+  nameWithType: DatabaseStatsDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.GetStatisticsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.GetStatisticsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_GetStatisticsAsync_System_Threading_CancellationToken_
+  name: GetStatisticsAsync
+  nameWithType: IRSSReaderDbContext.GetStatisticsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.GetStatisticsAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<DatabaseStatsDto>
+  nameWithType: Task<DatabaseStatsDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto>
+  nameWithType.vb: Task(Of DatabaseStatsDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto)
+  name.vb: Task(Of DatabaseStatsDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+    name: DatabaseStatsDto
+    href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto
+    name: DatabaseStatsDto
+    href: NeonSuit.RSSReader.Core.DTOs.System.DatabaseStatsDto.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction
+  commentId: T:Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.storage.idbcontexttransaction
+  name: IDbContextTransaction
+  nameWithType: IDbContextTransaction
+  fullName: Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Data.IsolationLevel,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Data.IsolationLevel,System.Threading.CancellationToken)
+  isExternal: true
+  href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteInTransactionAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Data_IsolationLevel_System_Threading_CancellationToken_
+  name: ExecuteInTransactionAsync<T>(Func<Task<T>>, IsolationLevel, CancellationToken)
+  nameWithType: IRSSReaderDbContext.ExecuteInTransactionAsync<T>(Func<Task<T>>, IsolationLevel, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync<T>(System.Func<System.Threading.Tasks.Task<T>>, System.Data.IsolationLevel, System.Threading.CancellationToken)
+  nameWithType.vb: IRSSReaderDbContext.ExecuteInTransactionAsync(Of T)(Func(Of Task(Of T)), IsolationLevel, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync(Of T)(System.Func(Of System.Threading.Tasks.Task(Of T)), System.Data.IsolationLevel, System.Threading.CancellationToken)
+  name.vb: ExecuteInTransactionAsync(Of T)(Func(Of Task(Of T)), IsolationLevel, CancellationToken)
+  spec.csharp:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Data.IsolationLevel,System.Threading.CancellationToken)
+    name: ExecuteInTransactionAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteInTransactionAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Data_IsolationLevel_System_Threading_CancellationToken_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Data.IsolationLevel
+    name: IsolationLevel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.isolationlevel
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Data.IsolationLevel,System.Threading.CancellationToken)
+    name: ExecuteInTransactionAsync
+    href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteInTransactionAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Data_IsolationLevel_System_Threading_CancellationToken_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Data.IsolationLevel
+    name: IsolationLevel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data.isolationlevel
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BeginTransactionAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BeginTransactionAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_BeginTransactionAsync_System_Data_IsolationLevel_System_Threading_CancellationToken_
+  name: BeginTransactionAsync
+  nameWithType: IRSSReaderDbContext.BeginTransactionAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.BeginTransactionAsync
+- uid: System.Data.IsolationLevel
+  commentId: T:System.Data.IsolationLevel
+  parent: System.Data
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.isolationlevel
+  name: IsolationLevel
+  nameWithType: IsolationLevel
+  fullName: System.Data.IsolationLevel
+- uid: System.Threading.Tasks.Task{Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction}
+  commentId: T:System.Threading.Tasks.Task{Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IDbContextTransaction>
+  nameWithType: Task<IDbContextTransaction>
+  fullName: System.Threading.Tasks.Task<Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction>
+  nameWithType.vb: Task(Of IDbContextTransaction)
+  fullName.vb: System.Threading.Tasks.Task(Of Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction)
+  name.vb: Task(Of IDbContextTransaction)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction
+    name: IDbContextTransaction
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.storage.idbcontexttransaction
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction
+    name: IDbContextTransaction
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.storage.idbcontexttransaction
+  - name: )
+- uid: System.Data
+  commentId: N:System.Data
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Data
+  nameWithType: System.Data
+  fullName: System.Data
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Data
+    name: Data
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Data
+    name: Data
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteInTransactionAsync__1_System_Func_System_Threading_Tasks_Task___0___System_Data_IsolationLevel_System_Threading_CancellationToken_
+  name: ExecuteInTransactionAsync
+  nameWithType: IRSSReaderDbContext.ExecuteInTransactionAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteInTransactionAsync
+- uid: System.Func{System.Threading.Tasks.Task{{T}}}
+  commentId: T:System.Func{System.Threading.Tasks.Task{``0}}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<Task<T>>
+  nameWithType: Func<Task<T>>
+  fullName: System.Func<System.Threading.Tasks.Task<T>>
+  nameWithType.vb: Func(Of Task(Of T))
+  fullName.vb: System.Func(Of System.Threading.Tasks.Task(Of T))
+  name.vb: Func(Of Task(Of T))
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task{{T}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<T>
+  nameWithType: Task<T>
+  fullName: System.Threading.Tasks.Task<T>
+  nameWithType.vb: Task(Of T)
+  fullName.vb: System.Threading.Tasks.Task(Of T)
+  name.vb: Task(Of T)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteRawQueryAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteRawQueryAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteRawQueryAsync__1_System_String_System_Threading_CancellationToken_System_Object___
+  name: ExecuteRawQueryAsync
+  nameWithType: IRSSReaderDbContext.ExecuteRawQueryAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteRawQueryAsync
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{{T}}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{``0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<T>>
+  nameWithType: Task<List<T>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<T>>
+  nameWithType.vb: Task(Of List(Of T))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of T))
+  name.vb: Task(Of List(Of T))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteSqlCommandAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteSqlCommandAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.html#NeonSuit_RSSReader_Core_Interfaces_Database_IRSSReaderDbContext_ExecuteSqlCommandAsync_System_String_System_Threading_CancellationToken_System_Object___
+  name: ExecuteSqlCommandAsync
+  nameWithType: IRSSReaderDbContext.ExecuteSqlCommandAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Database.IRSSReaderDbContext.ExecuteSqlCommandAsync
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )

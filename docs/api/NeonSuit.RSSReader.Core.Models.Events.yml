@@ -1,0 +1,119 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.Events
+  commentId: N:NeonSuit.RSSReader.Core.Models.Events
+  id: NeonSuit.RSSReader.Core.Models.Events
+  children:
+  - NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  - NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs
+  - NeonSuit.RSSReader.Core.Models.Events.CleanupCompletedEventArgs
+  - NeonSuit.RSSReader.Core.Models.Events.CleanupProgressEventArgs
+  - NeonSuit.RSSReader.Core.Models.Events.CleanupStartingEventArgs
+  - NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs
+  - NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  - NeonSuit.RSSReader.Core.Models.Events.TagChangedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.Models.Events
+  nameWithType: NeonSuit.RSSReader.Core.Models.Events
+  fullName: NeonSuit.RSSReader.Core.Models.Events
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  commentId: T:NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+  href: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs.html
+  name: ArticleTaggedEventArgs
+  nameWithType: ArticleTaggedEventArgs
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleTaggedEventArgs
+- uid: NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs
+  commentId: T:NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs
+  href: NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs.html
+  name: ArticleUntaggedEventArgs
+  nameWithType: ArticleUntaggedEventArgs
+  fullName: NeonSuit.RSSReader.Core.Models.Events.ArticleUntaggedEventArgs
+- uid: NeonSuit.RSSReader.Core.Models.Events.CleanupCompletedEventArgs
+  commentId: T:NeonSuit.RSSReader.Core.Models.Events.CleanupCompletedEventArgs
+  href: NeonSuit.RSSReader.Core.Models.Events.CleanupCompletedEventArgs.html
+  name: CleanupCompletedEventArgs
+  nameWithType: CleanupCompletedEventArgs
+  fullName: NeonSuit.RSSReader.Core.Models.Events.CleanupCompletedEventArgs
+- uid: NeonSuit.RSSReader.Core.Models.Events.CleanupProgressEventArgs
+  commentId: T:NeonSuit.RSSReader.Core.Models.Events.CleanupProgressEventArgs
+  href: NeonSuit.RSSReader.Core.Models.Events.CleanupProgressEventArgs.html
+  name: CleanupProgressEventArgs
+  nameWithType: CleanupProgressEventArgs
+  fullName: NeonSuit.RSSReader.Core.Models.Events.CleanupProgressEventArgs
+- uid: NeonSuit.RSSReader.Core.Models.Events.CleanupStartingEventArgs
+  commentId: T:NeonSuit.RSSReader.Core.Models.Events.CleanupStartingEventArgs
+  href: NeonSuit.RSSReader.Core.Models.Events.CleanupStartingEventArgs.html
+  name: CleanupStartingEventArgs
+  nameWithType: CleanupStartingEventArgs
+  fullName: NeonSuit.RSSReader.Core.Models.Events.CleanupStartingEventArgs
+- uid: NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs
+  commentId: T:NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs
+  href: NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs.html
+  name: PreferenceChangedEventArgs
+  nameWithType: PreferenceChangedEventArgs
+  fullName: NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs
+- uid: NeonSuit.RSSReader.Core.Models.Events.TagChangedEventArgs
+  commentId: T:NeonSuit.RSSReader.Core.Models.Events.TagChangedEventArgs
+  href: NeonSuit.RSSReader.Core.Models.Events.TagChangedEventArgs.html
+  name: TagChangedEventArgs
+  nameWithType: TagChangedEventArgs
+  fullName: NeonSuit.RSSReader.Core.Models.Events.TagChangedEventArgs
+- uid: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  commentId: T:NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  parent: NeonSuit.RSSReader.Core.Models.Events
+  href: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.html
+  name: TagChangeType
+  nameWithType: TagChangeType
+  fullName: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+- uid: NeonSuit.RSSReader.Core.Models.Events
+  commentId: N:NeonSuit.RSSReader.Core.Models.Events
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models.Events
+  nameWithType: NeonSuit.RSSReader.Core.Models.Events
+  fullName: NeonSuit.RSSReader.Core.Models.Events
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Events
+    name: Events
+    href: NeonSuit.RSSReader.Core.Models.Events.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Events
+    name: Events
+    href: NeonSuit.RSSReader.Core.Models.Events.html

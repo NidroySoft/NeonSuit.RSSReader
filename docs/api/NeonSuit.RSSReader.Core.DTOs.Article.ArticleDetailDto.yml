@@ -1,0 +1,1707 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  id: ArticleDetailDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Article
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.AddedDate
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Author
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Categories
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Content
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureLength
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureType
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureUrl
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedIconUrl
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedId
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedTitle
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedWebsiteUrl
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Guid
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.HasEnclosure
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Id
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ImageUrl
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsAudio
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsFavorite
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsStarred
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsVideo
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Language
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.LastReadAt
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Link
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.PublishedDate
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ReadPercentage
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Status
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Summary
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Tags
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Title
+  - NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ToString
+  langs:
+  - csharp
+  - vb
+  name: ArticleDetailDto
+  nameWithType: ArticleDetailDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  type: Class
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ArticleDetailDto
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 22
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: >-
+    Comprehensive Data Transfer Object for article detail views.
+
+    Contains all metadata, content, and user interaction state for full article display.
+  remarks: >-
+    <p>
+
+    This DTO is used when displaying a single article in detail view, including:
+
+    full content, author information, media attachments, and all user interaction states.
+
+    </p>
+
+    <p>
+
+    Performance note: Content field can be large; consider lazy loading or streaming
+
+    for very long articles on memory-constrained devices.
+
+    </p>
+  example: []
+  syntax:
+    content: public class ArticleDetailDto
+    content.vb: Public Class ArticleDetailDto
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Id
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Id
+  id: Id
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: ArticleDetailDto.Id
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Id
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Id
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 27
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Unique identifier of the article.
+  example: []
+  syntax:
+    content: public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Id As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Id*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Guid
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Guid
+  id: Guid
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: Guid
+  nameWithType: ArticleDetailDto.Guid
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Guid
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Guid
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 32
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Feed-provided globally unique identifier.
+  example: []
+  syntax:
+    content: public string Guid { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Guid As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Guid*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Title
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Title
+  id: Title
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: ArticleDetailDto.Title
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Title
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Title
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 37
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Article title or headline.
+  example: []
+  syntax:
+    content: public string Title { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Title As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Title*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Link
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Link
+  id: Link
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: Link
+  nameWithType: ArticleDetailDto.Link
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Link
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Link
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 42
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Canonical URL to the original article.
+  example: []
+  syntax:
+    content: public string Link { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Link As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Link*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Content
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Content
+  id: Content
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: Content
+  nameWithType: ArticleDetailDto.Content
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Content
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Content
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 47
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Full article content (HTML or plain text).
+  example: []
+  syntax:
+    content: public string? Content { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Content As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Content*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Summary
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Summary
+  id: Summary
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: Summary
+  nameWithType: ArticleDetailDto.Summary
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Summary
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Summary
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 52
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Short summary or description.
+  example: []
+  syntax:
+    content: public string? Summary { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Summary As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Summary*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Author
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Author
+  id: Author
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: Author
+  nameWithType: ArticleDetailDto.Author
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Author
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Author
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 57
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Author name(s).
+  example: []
+  syntax:
+    content: public string? Author { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Author As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Author*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.PublishedDate
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.PublishedDate
+  id: PublishedDate
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: PublishedDate
+  nameWithType: ArticleDetailDto.PublishedDate
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.PublishedDate
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: PublishedDate
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 62
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Publication date in UTC.
+  example: []
+  syntax:
+    content: public DateTime? PublishedDate { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Property PublishedDate As Date?
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.PublishedDate*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.AddedDate
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.AddedDate
+  id: AddedDate
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: AddedDate
+  nameWithType: ArticleDetailDto.AddedDate
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.AddedDate
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: AddedDate
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 67
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Date when the article was added to the database.
+  example: []
+  syntax:
+    content: public DateTime AddedDate { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property AddedDate As Date
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.AddedDate*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedId
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedId
+  id: FeedId
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: FeedId
+  nameWithType: ArticleDetailDto.FeedId
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedId
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FeedId
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 72
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: ID of the source feed.
+  example: []
+  syntax:
+    content: public int FeedId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property FeedId As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedId*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedTitle
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedTitle
+  id: FeedTitle
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: FeedTitle
+  nameWithType: ArticleDetailDto.FeedTitle
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedTitle
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FeedTitle
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 77
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Name of the source feed.
+  example: []
+  syntax:
+    content: public string FeedTitle { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FeedTitle As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedTitle*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedWebsiteUrl
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedWebsiteUrl
+  id: FeedWebsiteUrl
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: FeedWebsiteUrl
+  nameWithType: ArticleDetailDto.FeedWebsiteUrl
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedWebsiteUrl
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FeedWebsiteUrl
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 82
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: URL of the feed's website.
+  example: []
+  syntax:
+    content: public string FeedWebsiteUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FeedWebsiteUrl As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedWebsiteUrl*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedIconUrl
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedIconUrl
+  id: FeedIconUrl
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: FeedIconUrl
+  nameWithType: ArticleDetailDto.FeedIconUrl
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedIconUrl
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: FeedIconUrl
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 87
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: URL of the feed's favicon or logo.
+  example: []
+  syntax:
+    content: public string? FeedIconUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FeedIconUrl As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedIconUrl*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Status
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Status
+  id: Status
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: ArticleDetailDto.Status
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Status
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Status
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 92
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Current read status.
+  example: []
+  syntax:
+    content: public ArticleStatus Status { get; set; }
+    parameters: []
+    return:
+      type: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+    content.vb: Public Property Status As ArticleStatus
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Status*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsStarred
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsStarred
+  id: IsStarred
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: IsStarred
+  nameWithType: ArticleDetailDto.IsStarred
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsStarred
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IsStarred
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 97
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Whether the article is starred.
+  example: []
+  syntax:
+    content: public bool IsStarred { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsStarred As Boolean
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsStarred*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsFavorite
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsFavorite
+  id: IsFavorite
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: IsFavorite
+  nameWithType: ArticleDetailDto.IsFavorite
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsFavorite
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IsFavorite
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 102
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Whether the article is marked as favorite.
+  example: []
+  syntax:
+    content: public bool IsFavorite { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsFavorite As Boolean
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsFavorite*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ReadPercentage
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ReadPercentage
+  id: ReadPercentage
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: ReadPercentage
+  nameWithType: ArticleDetailDto.ReadPercentage
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ReadPercentage
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ReadPercentage
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 107
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Reading progress percentage (0-100).
+  example: []
+  syntax:
+    content: public int ReadPercentage { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ReadPercentage As Integer
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ReadPercentage*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.LastReadAt
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.LastReadAt
+  id: LastReadAt
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: LastReadAt
+  nameWithType: ArticleDetailDto.LastReadAt
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.LastReadAt
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: LastReadAt
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 112
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Last time the user interacted with this article.
+  example: []
+  syntax:
+    content: public DateTime? LastReadAt { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Property LastReadAt As Date?
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.LastReadAt*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Tags
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Tags
+  id: Tags
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: Tags
+  nameWithType: ArticleDetailDto.Tags
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Tags
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Tags
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 117
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: List of tag names associated with this article.
+  example: []
+  syntax:
+    content: public List<string> Tags { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property Tags As List(Of String)
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Tags*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ImageUrl
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ImageUrl
+  id: ImageUrl
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: ImageUrl
+  nameWithType: ArticleDetailDto.ImageUrl
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ImageUrl
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ImageUrl
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 122
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: URL of the featured image.
+  example: []
+  syntax:
+    content: public string? ImageUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ImageUrl As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ImageUrl*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Categories
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Categories
+  id: Categories
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: Categories
+  nameWithType: ArticleDetailDto.Categories
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Categories
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Categories
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 127
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Comma-separated categories from the feed.
+  example: []
+  syntax:
+    content: public string? Categories { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Categories As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Categories*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Language
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Language
+  id: Language
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: Language
+  nameWithType: ArticleDetailDto.Language
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Language
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Language
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 132
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Language code of the article content.
+  example: []
+  syntax:
+    content: public string? Language { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Language As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Language*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureUrl
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureUrl
+  id: EnclosureUrl
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: EnclosureUrl
+  nameWithType: ArticleDetailDto.EnclosureUrl
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureUrl
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EnclosureUrl
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 139
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: URL of the media enclosure.
+  example: []
+  syntax:
+    content: public string? EnclosureUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property EnclosureUrl As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureUrl*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureType
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureType
+  id: EnclosureType
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: EnclosureType
+  nameWithType: ArticleDetailDto.EnclosureType
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureType
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EnclosureType
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 144
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: MIME type of the enclosure.
+  example: []
+  syntax:
+    content: public string? EnclosureType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property EnclosureType As String
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureType*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureLength
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureLength
+  id: EnclosureLength
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: EnclosureLength
+  nameWithType: ArticleDetailDto.EnclosureLength
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureLength
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: EnclosureLength
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 149
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Size of the enclosure in bytes.
+  example: []
+  syntax:
+    content: public long? EnclosureLength { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int64}
+    content.vb: Public Property EnclosureLength As Long?
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureLength*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.HasEnclosure
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.HasEnclosure
+  id: HasEnclosure
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: HasEnclosure
+  nameWithType: ArticleDetailDto.HasEnclosure
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.HasEnclosure
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: HasEnclosure
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 154
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Indicates whether this article has a media enclosure.
+  example: []
+  syntax:
+    content: public bool HasEnclosure { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasEnclosure As Boolean
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.HasEnclosure*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsAudio
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsAudio
+  id: IsAudio
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: IsAudio
+  nameWithType: ArticleDetailDto.IsAudio
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsAudio
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IsAudio
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 159
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Indicates whether this enclosure is an audio file (podcast).
+  example: []
+  syntax:
+    content: public bool IsAudio { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsAudio As Boolean
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsAudio*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsVideo
+  commentId: P:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsVideo
+  id: IsVideo
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: IsVideo
+  nameWithType: ArticleDetailDto.IsVideo
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsVideo
+  type: Property
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: IsVideo
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 164
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Indicates whether this enclosure is a video file.
+  example: []
+  syntax:
+    content: public bool IsVideo { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsVideo As Boolean
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsVideo*
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ToString
+  commentId: M:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ToString
+  id: ToString
+  parent: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ArticleDetailDto.ToString()
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ToString
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/Article/ArticleDetailDto.cs
+    startLine: 171
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.Article
+  summary: Returns a string representation for debugging.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ToString*
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.Article
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Article
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Article
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Article
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article
+    name: Article
+    href: NeonSuit.RSSReader.Core.DTOs.Article.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Article
+    name: Article
+    href: NeonSuit.RSSReader.Core.DTOs.Article.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Id*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Id
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_Id
+  name: Id
+  nameWithType: ArticleDetailDto.Id
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Guid*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Guid
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_Guid
+  name: Guid
+  nameWithType: ArticleDetailDto.Guid
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Guid
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Title*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Title
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_Title
+  name: Title
+  nameWithType: ArticleDetailDto.Title
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Title
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Link*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Link
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_Link
+  name: Link
+  nameWithType: ArticleDetailDto.Link
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Link
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Content*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Content
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_Content
+  name: Content
+  nameWithType: ArticleDetailDto.Content
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Content
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Summary*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Summary
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_Summary
+  name: Summary
+  nameWithType: ArticleDetailDto.Summary
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Summary
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Author*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Author
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_Author
+  name: Author
+  nameWithType: ArticleDetailDto.Author
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Author
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.PublishedDate*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.PublishedDate
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_PublishedDate
+  name: PublishedDate
+  nameWithType: ArticleDetailDto.PublishedDate
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.PublishedDate
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.AddedDate*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.AddedDate
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_AddedDate
+  name: AddedDate
+  nameWithType: ArticleDetailDto.AddedDate
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.AddedDate
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedId*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedId
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_FeedId
+  name: FeedId
+  nameWithType: ArticleDetailDto.FeedId
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedId
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedTitle*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedTitle
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_FeedTitle
+  name: FeedTitle
+  nameWithType: ArticleDetailDto.FeedTitle
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedTitle
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedWebsiteUrl*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedWebsiteUrl
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_FeedWebsiteUrl
+  name: FeedWebsiteUrl
+  nameWithType: ArticleDetailDto.FeedWebsiteUrl
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedWebsiteUrl
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedIconUrl*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedIconUrl
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_FeedIconUrl
+  name: FeedIconUrl
+  nameWithType: ArticleDetailDto.FeedIconUrl
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.FeedIconUrl
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Status*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Status
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_Status
+  name: Status
+  nameWithType: ArticleDetailDto.Status
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Status
+- uid: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  commentId: T:NeonSuit.RSSReader.Core.Enums.ArticleStatus
+  parent: NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.RSSReader.Core.Enums.ArticleStatus.html
+  name: ArticleStatus
+  nameWithType: ArticleStatus
+  fullName: NeonSuit.RSSReader.Core.Enums.ArticleStatus
+- uid: NeonSuit.RSSReader.Core.Enums
+  commentId: N:NeonSuit.RSSReader.Core.Enums
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Enums
+  nameWithType: NeonSuit.RSSReader.Core.Enums
+  fullName: NeonSuit.RSSReader.Core.Enums
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Enums
+    name: Enums
+    href: NeonSuit.RSSReader.Core.Enums.html
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsStarred*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsStarred
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_IsStarred
+  name: IsStarred
+  nameWithType: ArticleDetailDto.IsStarred
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsStarred
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsFavorite*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsFavorite
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_IsFavorite
+  name: IsFavorite
+  nameWithType: ArticleDetailDto.IsFavorite
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsFavorite
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ReadPercentage*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ReadPercentage
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_ReadPercentage
+  name: ReadPercentage
+  nameWithType: ArticleDetailDto.ReadPercentage
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ReadPercentage
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.LastReadAt*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.LastReadAt
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_LastReadAt
+  name: LastReadAt
+  nameWithType: ArticleDetailDto.LastReadAt
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.LastReadAt
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Tags*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Tags
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_Tags
+  name: Tags
+  nameWithType: ArticleDetailDto.Tags
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Tags
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ImageUrl*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ImageUrl
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_ImageUrl
+  name: ImageUrl
+  nameWithType: ArticleDetailDto.ImageUrl
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ImageUrl
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Categories*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Categories
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_Categories
+  name: Categories
+  nameWithType: ArticleDetailDto.Categories
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Categories
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Language*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Language
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_Language
+  name: Language
+  nameWithType: ArticleDetailDto.Language
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.Language
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureUrl*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureUrl
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_EnclosureUrl
+  name: EnclosureUrl
+  nameWithType: ArticleDetailDto.EnclosureUrl
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureUrl
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureType*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureType
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_EnclosureType
+  name: EnclosureType
+  nameWithType: ArticleDetailDto.EnclosureType
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureType
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureLength*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureLength
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_EnclosureLength
+  name: EnclosureLength
+  nameWithType: ArticleDetailDto.EnclosureLength
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.EnclosureLength
+- uid: System.Nullable{System.Int64}
+  commentId: T:System.Nullable{System.Int64}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long?
+  nameWithType: long?
+  fullName: long?
+  nameWithType.vb: Long?
+  fullName.vb: Long?
+  name.vb: Long?
+  spec.csharp:
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+  spec.vb:
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: '?'
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.HasEnclosure*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.HasEnclosure
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_HasEnclosure
+  name: HasEnclosure
+  nameWithType: ArticleDetailDto.HasEnclosure
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.HasEnclosure
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsAudio*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsAudio
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_IsAudio
+  name: IsAudio
+  nameWithType: ArticleDetailDto.IsAudio
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsAudio
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsVideo*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsVideo
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_IsVideo
+  name: IsVideo
+  nameWithType: ArticleDetailDto.IsVideo
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.IsVideo
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ToString*
+  commentId: Overload:NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ToString
+  href: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.html#NeonSuit_RSSReader_Core_DTOs_Article_ArticleDetailDto_ToString
+  name: ToString
+  nameWithType: ArticleDetailDto.ToString
+  fullName: NeonSuit.RSSReader.Core.DTOs.Article.ArticleDetailDto.ToString

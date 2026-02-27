@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Setup
+  commentId: N:NeonSuit.RSSReader.Setup
+  id: NeonSuit.RSSReader.Setup
+  children:
+  - NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Setup
+  nameWithType: NeonSuit.RSSReader.Setup
+  fullName: NeonSuit.RSSReader.Setup
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Setup
+references:
+- uid: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions
+  commentId: T:NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions
+  href: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions.html
+  name: NeonSuitServiceExtensions
+  nameWithType: NeonSuitServiceExtensions
+  fullName: NeonSuit.RSSReader.Setup.NeonSuitServiceExtensions

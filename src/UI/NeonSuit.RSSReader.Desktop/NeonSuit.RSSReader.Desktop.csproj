@@ -11,12 +11,11 @@
 
   <ItemGroup>
     <Folder Include="Themes\" />
+    <Folder Include="Views\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\NeonSuit.RSSReader.Core\NeonSuit.RSSReader.Core.csproj" />
-    <ProjectReference Include="..\..\Core\NeonSuit.RSSReader.Data\NeonSuit.RSSReader.Data.csproj" />
-    <ProjectReference Include="..\..\Core\NeonSuit.RSSReader.Services\NeonSuit.RSSReader.Services.csproj" />
+    <ProjectReference Include="..\..\Core\NeonSuit.RSSReader.Setup\NeonSuit.RSSReader.Setup.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

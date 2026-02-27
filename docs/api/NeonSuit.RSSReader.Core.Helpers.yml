@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Helpers
+  commentId: N:NeonSuit.RSSReader.Core.Helpers
+  id: NeonSuit.RSSReader.Core.Helpers
+  children:
+  - NeonSuit.RSSReader.Core.Helpers.JsonValidationHelper
+  langs:
+  - csharp
+  - vb
+  name: NeonSuit.RSSReader.Core.Helpers
+  nameWithType: NeonSuit.RSSReader.Core.Helpers
+  fullName: NeonSuit.RSSReader.Core.Helpers
+  type: Namespace
+  assemblies:
+  - NeonSuit.RSSReader.Core
+references:
+- uid: NeonSuit.RSSReader.Core.Helpers.JsonValidationHelper
+  commentId: T:NeonSuit.RSSReader.Core.Helpers.JsonValidationHelper
+  href: NeonSuit.RSSReader.Core.Helpers.JsonValidationHelper.html
+  name: JsonValidationHelper
+  nameWithType: JsonValidationHelper
+  fullName: NeonSuit.RSSReader.Core.Helpers.JsonValidationHelper

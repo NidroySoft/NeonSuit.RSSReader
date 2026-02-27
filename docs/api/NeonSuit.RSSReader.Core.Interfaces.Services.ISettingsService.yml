@@ -1,0 +1,1863 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  commentId: T:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  id: ISettingsService
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services
+  children:
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ExportToFileAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllCategorizedAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllSummariesAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetBoolAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetDoubleAsync(System.String,System.Double,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetIntAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetPreferenceAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ImportFromFileAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.OnPreferenceChanged
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetAllToDefaultsAsync(System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetPreferencesAsync(NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetToDefaultAsync(System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetBoolAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetDoubleAsync(System.String,System.Double,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetIntAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferenceAsync(NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto,System.Threading.CancellationToken)
+  - NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferencesBatchAsync(System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ISettingsService
+  nameWithType: ISettingsService
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  type: Interface
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ISettingsService
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 28
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: >-
+    Defines the contract for a centralized settings management service.
+
+    Provides thread-safe access to application preferences with notification events.
+  remarks: >-
+    <p>
+
+    This service manages all application settings with the following guarantees:
+
+    <ul><li>Thread-safe read/write operations for concurrent access</li><li>Type-safe conversion with built-in parsing and validation</li><li>Change notifications via <xref href="NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.OnPreferenceChanged" data-throw-if-not-resolved="false"></xref> event</li><li>Persistence across application restarts</li><li>Caching for performance (with configurable expiration)</li></ul>
+
+    </p>
+
+    <p>
+
+    All methods return DTOs instead of entities to maintain separation of concerns.
+
+    </p>
+  example: []
+  syntax:
+    content: public interface ISettingsService
+    content.vb: Public Interface ISettingsService
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: GetValueAsync(string, string, CancellationToken)
+  nameWithType: ISettingsService.GetValueAsync(string, string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetValueAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetValueAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 41
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves a string value for the specified key.
+  example: []
+  syntax:
+    content: Task<string> GetValueAsync(string key, string defaultValue = "", CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The setting identifier (case-insensitive).
+    - id: defaultValue
+      type: System.String
+      description: The value to return if the key doesn't exist.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The stored string value, or <code class="paramref">defaultValue</code> if not found.
+    content.vb: Function GetValueAsync(key As String, defaultValue As String = "", cancellationToken As CancellationToken = Nothing) As Task(Of String)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetValueAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">key</code> is null or whitespace.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISettingsService.GetValueAsync(String, String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetValueAsync(String, String, System.Threading.CancellationToken)
+  name.vb: GetValueAsync(String, String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetBoolAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetBoolAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  id: GetBoolAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: GetBoolAsync(string, bool, CancellationToken)
+  nameWithType: ISettingsService.GetBoolAsync(string, bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetBoolAsync(string, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetBoolAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 53
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves a boolean value for the specified key.
+  example: []
+  syntax:
+    content: Task<bool> GetBoolAsync(string key, bool defaultValue = false, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The setting identifier (case-insensitive).
+    - id: defaultValue
+      type: System.Boolean
+      description: The value to return if the key doesn't exist.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: The stored boolean value, or <code class="paramref">defaultValue</code> if not found.
+    content.vb: Function GetBoolAsync(key As String, defaultValue As Boolean = False, cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetBoolAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">key</code> is null or whitespace.
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: Thrown if the stored value cannot be converted to boolean.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISettingsService.GetBoolAsync(String, Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetBoolAsync(String, Boolean, System.Threading.CancellationToken)
+  name.vb: GetBoolAsync(String, Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetIntAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetIntAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  id: GetIntAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: GetIntAsync(string, int, CancellationToken)
+  nameWithType: ISettingsService.GetIntAsync(string, int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetIntAsync(string, int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetIntAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 66
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves an integer value for the specified key.
+  example: []
+  syntax:
+    content: Task<int> GetIntAsync(string key, int defaultValue = 0, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The setting identifier (case-insensitive).
+    - id: defaultValue
+      type: System.Int32
+      description: The value to return if the key doesn't exist.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The stored integer value, or <code class="paramref">defaultValue</code> if not found.
+    content.vb: Function GetIntAsync(key As String, defaultValue As Integer = 0, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetIntAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">key</code> is null or whitespace.
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: Thrown if the stored value cannot be converted to integer.
+  - type: System.OverflowException
+    commentId: T:System.OverflowException
+    description: Thrown if the stored value represents a number less than MinValue or greater than MaxValue.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISettingsService.GetIntAsync(String, Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetIntAsync(String, Integer, System.Threading.CancellationToken)
+  name.vb: GetIntAsync(String, Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetDoubleAsync(System.String,System.Double,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetDoubleAsync(System.String,System.Double,System.Threading.CancellationToken)
+  id: GetDoubleAsync(System.String,System.Double,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: GetDoubleAsync(string, double, CancellationToken)
+  nameWithType: ISettingsService.GetDoubleAsync(string, double, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetDoubleAsync(string, double, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetDoubleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 79
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves a double-precision floating point value for the specified key.
+  example: []
+  syntax:
+    content: Task<double> GetDoubleAsync(string key, double defaultValue = 0, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The setting identifier (case-insensitive).
+    - id: defaultValue
+      type: System.Double
+      description: The value to return if the key doesn't exist.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Double}
+      description: The stored double value, or <code class="paramref">defaultValue</code> if not found.
+    content.vb: Function GetDoubleAsync(key As String, defaultValue As Double = 0, cancellationToken As CancellationToken = Nothing) As Task(Of Double)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetDoubleAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">key</code> is null or whitespace.
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: Thrown if the stored value cannot be converted to double.
+  - type: System.OverflowException
+    commentId: T:System.OverflowException
+    description: Thrown if the stored value represents a number less than MinValue or greater than MaxValue.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISettingsService.GetDoubleAsync(String, Double, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetDoubleAsync(String, Double, System.Threading.CancellationToken)
+  name.vb: GetDoubleAsync(String, Double, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetPreferenceAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetPreferenceAsync(System.String,System.Threading.CancellationToken)
+  id: GetPreferenceAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: GetPreferenceAsync(string, CancellationToken)
+  nameWithType: ISettingsService.GetPreferenceAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetPreferenceAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetPreferenceAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 89
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves a complete preference DTO for the specified key.
+  example: []
+  syntax:
+    content: Task<PreferenceDto?> GetPreferenceAsync(string key, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The setting identifier (case-insensitive).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto}
+      description: The preference DTO if found; otherwise, null.
+    content.vb: Function GetPreferenceAsync(key As String, cancellationToken As CancellationToken = Nothing) As Task(Of PreferenceDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetPreferenceAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">key</code> is null or whitespace.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISettingsService.GetPreferenceAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetPreferenceAsync(String, System.Threading.CancellationToken)
+  name.vb: GetPreferenceAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: SetValueAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: SetValueAsync(string, string, CancellationToken)
+  nameWithType: ISettingsService.SetValueAsync(string, string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetValueAsync(string, string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SetValueAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 107
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Stores a string value for the specified key.
+  remarks: Triggers <xref href="NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.OnPreferenceChanged" data-throw-if-not-resolved="false"></xref> event after successful persistence.
+  example: []
+  syntax:
+    content: Task SetValueAsync(string key, string value, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The setting identifier (case-insensitive).
+    - id: value
+      type: System.String
+      description: The value to store (null values are converted to empty string).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Function SetValueAsync(key As String, value As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetValueAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">key</code> is null or whitespace.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISettingsService.SetValueAsync(String, String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetValueAsync(String, String, System.Threading.CancellationToken)
+  name.vb: SetValueAsync(String, String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetBoolAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetBoolAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  id: SetBoolAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: SetBoolAsync(string, bool, CancellationToken)
+  nameWithType: ISettingsService.SetBoolAsync(string, bool, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetBoolAsync(string, bool, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SetBoolAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 118
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Stores a boolean value for the specified key.
+  example: []
+  syntax:
+    content: Task SetBoolAsync(string key, bool value, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The setting identifier (case-insensitive).
+    - id: value
+      type: System.Boolean
+      description: The boolean value to store.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Function SetBoolAsync(key As String, value As Boolean, cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetBoolAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">key</code> is null or whitespace.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISettingsService.SetBoolAsync(String, Boolean, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetBoolAsync(String, Boolean, System.Threading.CancellationToken)
+  name.vb: SetBoolAsync(String, Boolean, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetIntAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetIntAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  id: SetIntAsync(System.String,System.Int32,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: SetIntAsync(string, int, CancellationToken)
+  nameWithType: ISettingsService.SetIntAsync(string, int, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetIntAsync(string, int, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SetIntAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 129
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Stores an integer value for the specified key.
+  example: []
+  syntax:
+    content: Task SetIntAsync(string key, int value, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The setting identifier (case-insensitive).
+    - id: value
+      type: System.Int32
+      description: The integer value to store.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Function SetIntAsync(key As String, value As Integer, cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetIntAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">key</code> is null or whitespace.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISettingsService.SetIntAsync(String, Integer, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetIntAsync(String, Integer, System.Threading.CancellationToken)
+  name.vb: SetIntAsync(String, Integer, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetDoubleAsync(System.String,System.Double,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetDoubleAsync(System.String,System.Double,System.Threading.CancellationToken)
+  id: SetDoubleAsync(System.String,System.Double,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: SetDoubleAsync(string, double, CancellationToken)
+  nameWithType: ISettingsService.SetDoubleAsync(string, double, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetDoubleAsync(string, double, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: SetDoubleAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 140
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Stores a double-precision floating point value for the specified key.
+  example: []
+  syntax:
+    content: Task SetDoubleAsync(string key, double value, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The setting identifier (case-insensitive).
+    - id: value
+      type: System.Double
+      description: The double value to store.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Function SetDoubleAsync(key As String, value As Double, cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetDoubleAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">key</code> is null or whitespace.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISettingsService.SetDoubleAsync(String, Double, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetDoubleAsync(String, Double, System.Threading.CancellationToken)
+  name.vb: SetDoubleAsync(String, Double, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferenceAsync(NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferenceAsync(NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto,System.Threading.CancellationToken)
+  id: UpdatePreferenceAsync(NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: UpdatePreferenceAsync(UpdatePreferenceDto, CancellationToken)
+  nameWithType: ISettingsService.UpdatePreferenceAsync(UpdatePreferenceDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferenceAsync(NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdatePreferenceAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 151
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Updates a preference using the provided DTO.
+  example: []
+  syntax:
+    content: Task<PreferenceDto> UpdatePreferenceAsync(UpdatePreferenceDto updateDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: updateDto
+      type: NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto
+      description: The DTO containing preference update data.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto}
+      description: The updated preference DTO.
+    content.vb: Function UpdatePreferenceAsync(updateDto As UpdatePreferenceDto, cancellationToken As CancellationToken = Nothing) As Task(Of PreferenceDto)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferenceAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">updateDto</code> is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if key is invalid.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferencesBatchAsync(System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto},System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferencesBatchAsync(System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto},System.Threading.CancellationToken)
+  id: UpdatePreferencesBatchAsync(System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto},System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: UpdatePreferencesBatchAsync(List<UpdatePreferenceDto>, CancellationToken)
+  nameWithType: ISettingsService.UpdatePreferencesBatchAsync(List<UpdatePreferenceDto>, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferencesBatchAsync(System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: UpdatePreferencesBatchAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 161
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Updates multiple preferences in a single batch operation.
+  example: []
+  syntax:
+    content: Task<int> UpdatePreferencesBatchAsync(List<UpdatePreferenceDto> updates, CancellationToken cancellationToken = default)
+    parameters:
+    - id: updates
+      type: System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto}
+      description: List of preference updates.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of preferences successfully updated.
+    content.vb: Function UpdatePreferencesBatchAsync(updates As List(Of UpdatePreferenceDto), cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferencesBatchAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">updates</code> is null.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISettingsService.UpdatePreferencesBatchAsync(List(Of UpdatePreferenceDto), CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferencesBatchAsync(System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto), System.Threading.CancellationToken)
+  name.vb: UpdatePreferencesBatchAsync(List(Of UpdatePreferenceDto), CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetToDefaultAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetToDefaultAsync(System.String,System.Threading.CancellationToken)
+  id: ResetToDefaultAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: ResetToDefaultAsync(string, CancellationToken)
+  nameWithType: ISettingsService.ResetToDefaultAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetToDefaultAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ResetToDefaultAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 175
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Resets a specific setting to its default value.
+  example: []
+  syntax:
+    content: Task ResetToDefaultAsync(string key, CancellationToken cancellationToken = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The setting identifier to reset.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Function ResetToDefaultAsync(key As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetToDefaultAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">key</code> is null or whitespace.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISettingsService.ResetToDefaultAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetToDefaultAsync(String, System.Threading.CancellationToken)
+  name.vb: ResetToDefaultAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetPreferencesAsync(NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetPreferencesAsync(NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto,System.Threading.CancellationToken)
+  id: ResetPreferencesAsync(NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: ResetPreferencesAsync(ResetPreferencesDto, CancellationToken)
+  nameWithType: ISettingsService.ResetPreferencesAsync(ResetPreferencesDto, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetPreferencesAsync(NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ResetPreferencesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 185
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Resets multiple preferences to their default values.
+  example: []
+  syntax:
+    content: Task<int> ResetPreferencesAsync(ResetPreferencesDto resetDto, CancellationToken cancellationToken = default)
+    parameters:
+    - id: resetDto
+      type: NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto
+      description: The DTO containing reset information.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of preferences successfully reset.
+    content.vb: Function ResetPreferencesAsync(resetDto As ResetPreferencesDto, cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetPreferencesAsync*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">resetDto</code> is null.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetAllToDefaultsAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetAllToDefaultsAsync(System.Threading.CancellationToken)
+  id: ResetAllToDefaultsAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: ResetAllToDefaultsAsync(CancellationToken)
+  nameWithType: ISettingsService.ResetAllToDefaultsAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetAllToDefaultsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ResetAllToDefaultsAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 193
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Resets all settings to their default values.
+  example: []
+  syntax:
+    content: Task ResetAllToDefaultsAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Function ResetAllToDefaultsAsync(cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetAllToDefaultsAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ExportToFileAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ExportToFileAsync(System.String,System.Threading.CancellationToken)
+  id: ExportToFileAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: ExportToFileAsync(string, CancellationToken)
+  nameWithType: ISettingsService.ExportToFileAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ExportToFileAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ExportToFileAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 206
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Exports all settings to a JSON file at the specified path.
+  example: []
+  syntax:
+    content: Task ExportToFileAsync(string filePath, CancellationToken cancellationToken = default)
+    parameters:
+    - id: filePath
+      type: System.String
+      description: Full path where the settings file will be created.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Function ExportToFileAsync(filePath As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ExportToFileAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">filePath</code> is null or whitespace.
+  - type: System.UnauthorizedAccessException
+    commentId: T:System.UnauthorizedAccessException
+    description: Thrown if write access to the directory is denied.
+  - type: System.IO.DirectoryNotFoundException
+    commentId: T:System.IO.DirectoryNotFoundException
+    description: Thrown if the directory path doesn't exist.
+  - type: System.IO.IOException
+    commentId: T:System.IO.IOException
+    description: Thrown if an I/O error occurs while creating the file.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISettingsService.ExportToFileAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ExportToFileAsync(String, System.Threading.CancellationToken)
+  name.vb: ExportToFileAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ImportFromFileAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ImportFromFileAsync(System.String,System.Threading.CancellationToken)
+  id: ImportFromFileAsync(System.String,System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: ImportFromFileAsync(string, CancellationToken)
+  nameWithType: ISettingsService.ImportFromFileAsync(string, CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ImportFromFileAsync(string, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: ImportFromFileAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 219
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Imports settings from a JSON file at the specified path.
+  example: []
+  syntax:
+    content: Task ImportFromFileAsync(string filePath, CancellationToken cancellationToken = default)
+    parameters:
+    - id: filePath
+      type: System.String
+      description: Full path to the settings file to import.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task representing the asynchronous operation.
+    content.vb: Function ImportFromFileAsync(filePath As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ImportFromFileAsync*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">filePath</code> is null or whitespace.
+  - type: System.IO.FileNotFoundException
+    commentId: T:System.IO.FileNotFoundException
+    description: Thrown if the specified file doesn't exist.
+  - type: System.UnauthorizedAccessException
+    commentId: T:System.UnauthorizedAccessException
+    description: Thrown if read access to the file is denied.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the file format is invalid or incompatible.
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+  nameWithType.vb: ISettingsService.ImportFromFileAsync(String, CancellationToken)
+  fullName.vb: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ImportFromFileAsync(String, System.Threading.CancellationToken)
+  name.vb: ImportFromFileAsync(String, CancellationToken)
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllCategorizedAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllCategorizedAsync(System.Threading.CancellationToken)
+  id: GetAllCategorizedAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: GetAllCategorizedAsync(CancellationToken)
+  nameWithType: ISettingsService.GetAllCategorizedAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllCategorizedAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetAllCategorizedAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 231
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all preferences organized by category for UI display.
+  example: []
+  syntax:
+    content: Task<List<PreferenceCategoryDto>> GetAllCategorizedAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto}}
+      description: A list of preference categories with their preferences.
+    content.vb: Function GetAllCategorizedAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of PreferenceCategoryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllCategorizedAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllSummariesAsync(System.Threading.CancellationToken)
+  commentId: M:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllSummariesAsync(System.Threading.CancellationToken)
+  id: GetAllSummariesAsync(System.Threading.CancellationToken)
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: GetAllSummariesAsync(CancellationToken)
+  nameWithType: ISettingsService.GetAllSummariesAsync(CancellationToken)
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllSummariesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: GetAllSummariesAsync
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 239
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Retrieves all preferences as a summary list.
+  example: []
+  syntax:
+    content: Task<List<PreferenceSummaryDto>> GetAllSummariesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> to observe while waiting for the task to complete.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto}}
+      description: A list of preference summaries.
+    content.vb: Function GetAllSummariesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of List(Of PreferenceSummaryDto))
+  overload: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllSummariesAsync*
+  exceptions:
+  - type: System.OperationCanceledException
+    commentId: T:System.OperationCanceledException
+    description: Thrown if the operation is canceled via the cancellation token.
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.OnPreferenceChanged
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.OnPreferenceChanged
+  id: OnPreferenceChanged
+  parent: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService
+  langs:
+  - csharp
+  - vb
+  name: OnPreferenceChanged
+  nameWithType: ISettingsService.OnPreferenceChanged
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.OnPreferenceChanged
+  type: Event
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: OnPreferenceChanged
+    path: ../src/Core/NeonSuit.RSSReader.Core/Interfaces/Services/ISettingsService.cs
+    startLine: 248
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Interfaces.Services
+  summary: Event triggered whenever a preference value is successfully updated.
+  example: []
+  syntax:
+    content: event EventHandler<PreferenceChangedEventArgs> OnPreferenceChanged
+    return:
+      type: System.EventHandler{NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs}
+    content.vb: Event OnPreferenceChanged As EventHandler(Of PreferenceChangedEventArgs)
+references:
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.OnPreferenceChanged
+  commentId: E:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.OnPreferenceChanged
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_OnPreferenceChanged
+  name: OnPreferenceChanged
+  nameWithType: ISettingsService.OnPreferenceChanged
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.OnPreferenceChanged
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services
+  commentId: N:NeonSuit.RSSReader.Core.Interfaces.Services
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Interfaces.Services
+  nameWithType: NeonSuit.RSSReader.Core.Interfaces.Services
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces
+    name: Interfaces
+    href: NeonSuit.RSSReader.Core.Interfaces.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Interfaces.Services
+    name: Services
+    href: NeonSuit.RSSReader.Core.Interfaces.Services.html
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: System.OperationCanceledException
+  commentId: T:System.OperationCanceledException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.operationcanceledexception
+  name: OperationCanceledException
+  nameWithType: OperationCanceledException
+  fullName: System.OperationCanceledException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetValueAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetValueAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_GetValueAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: GetValueAsync
+  nameWithType: ISettingsService.GetValueAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetValueAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.InvalidCastException
+  commentId: T:System.InvalidCastException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidcastexception
+  name: InvalidCastException
+  nameWithType: InvalidCastException
+  fullName: System.InvalidCastException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetBoolAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetBoolAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_GetBoolAsync_System_String_System_Boolean_System_Threading_CancellationToken_
+  name: GetBoolAsync
+  nameWithType: ISettingsService.GetBoolAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetBoolAsync
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.OverflowException
+  commentId: T:System.OverflowException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.overflowexception
+  name: OverflowException
+  nameWithType: OverflowException
+  fullName: System.OverflowException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetIntAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetIntAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_GetIntAsync_System_String_System_Int32_System_Threading_CancellationToken_
+  name: GetIntAsync
+  nameWithType: ISettingsService.GetIntAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetIntAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetDoubleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetDoubleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_GetDoubleAsync_System_String_System_Double_System_Threading_CancellationToken_
+  name: GetDoubleAsync
+  nameWithType: ISettingsService.GetDoubleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetDoubleAsync
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: System.Threading.Tasks.Task{System.Double}
+  commentId: T:System.Threading.Tasks.Task{System.Double}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<double>
+  nameWithType: Task<double>
+  fullName: System.Threading.Tasks.Task<double>
+  nameWithType.vb: Task(Of Double)
+  fullName.vb: System.Threading.Tasks.Task(Of Double)
+  name.vb: Task(Of Double)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetPreferenceAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetPreferenceAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_GetPreferenceAsync_System_String_System_Threading_CancellationToken_
+  name: GetPreferenceAsync
+  nameWithType: ISettingsService.GetPreferenceAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetPreferenceAsync
+- uid: System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto}
+  commentId: T:System.Threading.Tasks.Task{NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<PreferenceDto>
+  nameWithType: Task<PreferenceDto>
+  fullName: System.Threading.Tasks.Task<NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto>
+  nameWithType.vb: Task(Of PreferenceDto)
+  fullName.vb: System.Threading.Tasks.Task(Of NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto)
+  name.vb: Task(Of PreferenceDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto
+    name: PreferenceDto
+    href: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto
+    name: PreferenceDto
+    href: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceDto.html
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetValueAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetValueAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_SetValueAsync_System_String_System_String_System_Threading_CancellationToken_
+  name: SetValueAsync
+  nameWithType: ISettingsService.SetValueAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetValueAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetBoolAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetBoolAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_SetBoolAsync_System_String_System_Boolean_System_Threading_CancellationToken_
+  name: SetBoolAsync
+  nameWithType: ISettingsService.SetBoolAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetBoolAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetIntAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetIntAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_SetIntAsync_System_String_System_Int32_System_Threading_CancellationToken_
+  name: SetIntAsync
+  nameWithType: ISettingsService.SetIntAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetIntAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetDoubleAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetDoubleAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_SetDoubleAsync_System_String_System_Double_System_Threading_CancellationToken_
+  name: SetDoubleAsync
+  nameWithType: ISettingsService.SetDoubleAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.SetDoubleAsync
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferenceAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferenceAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_UpdatePreferenceAsync_NeonSuit_RSSReader_Core_DTOs_Preferences_UpdatePreferenceDto_System_Threading_CancellationToken_
+  name: UpdatePreferenceAsync
+  nameWithType: ISettingsService.UpdatePreferenceAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferenceAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Preferences
+  href: NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto.html
+  name: UpdatePreferenceDto
+  nameWithType: UpdatePreferenceDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto
+- uid: NeonSuit.RSSReader.Core.DTOs.Preferences
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.Preferences
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.Preferences
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.Preferences
+  fullName: NeonSuit.RSSReader.Core.DTOs.Preferences
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences
+    name: Preferences
+    href: NeonSuit.RSSReader.Core.DTOs.Preferences.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences
+    name: Preferences
+    href: NeonSuit.RSSReader.Core.DTOs.Preferences.html
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferencesBatchAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferencesBatchAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_UpdatePreferencesBatchAsync_System_Collections_Generic_List_NeonSuit_RSSReader_Core_DTOs_Preferences_UpdatePreferenceDto__System_Threading_CancellationToken_
+  name: UpdatePreferencesBatchAsync
+  nameWithType: ISettingsService.UpdatePreferencesBatchAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.UpdatePreferencesBatchAsync
+- uid: System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto}
+  commentId: T:System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<UpdatePreferenceDto>
+  nameWithType: List<UpdatePreferenceDto>
+  fullName: System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto>
+  nameWithType.vb: List(Of UpdatePreferenceDto)
+  fullName.vb: System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto)
+  name.vb: List(Of UpdatePreferenceDto)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto
+    name: UpdatePreferenceDto
+    href: NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto
+    name: UpdatePreferenceDto
+    href: NeonSuit.RSSReader.Core.DTOs.Preferences.UpdatePreferenceDto.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetToDefaultAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetToDefaultAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_ResetToDefaultAsync_System_String_System_Threading_CancellationToken_
+  name: ResetToDefaultAsync
+  nameWithType: ISettingsService.ResetToDefaultAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetToDefaultAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetPreferencesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetPreferencesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_ResetPreferencesAsync_NeonSuit_RSSReader_Core_DTOs_Preferences_ResetPreferencesDto_System_Threading_CancellationToken_
+  name: ResetPreferencesAsync
+  nameWithType: ISettingsService.ResetPreferencesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetPreferencesAsync
+- uid: NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto
+  parent: NeonSuit.RSSReader.Core.DTOs.Preferences
+  href: NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto.html
+  name: ResetPreferencesDto
+  nameWithType: ResetPreferencesDto
+  fullName: NeonSuit.RSSReader.Core.DTOs.Preferences.ResetPreferencesDto
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetAllToDefaultsAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetAllToDefaultsAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_ResetAllToDefaultsAsync_System_Threading_CancellationToken_
+  name: ResetAllToDefaultsAsync
+  nameWithType: ISettingsService.ResetAllToDefaultsAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ResetAllToDefaultsAsync
+- uid: System.UnauthorizedAccessException
+  commentId: T:System.UnauthorizedAccessException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.unauthorizedaccessexception
+  name: UnauthorizedAccessException
+  nameWithType: UnauthorizedAccessException
+  fullName: System.UnauthorizedAccessException
+- uid: System.IO.DirectoryNotFoundException
+  commentId: T:System.IO.DirectoryNotFoundException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.directorynotfoundexception
+  name: DirectoryNotFoundException
+  nameWithType: DirectoryNotFoundException
+  fullName: System.IO.DirectoryNotFoundException
+- uid: System.IO.IOException
+  commentId: T:System.IO.IOException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.ioexception
+  name: IOException
+  nameWithType: IOException
+  fullName: System.IO.IOException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ExportToFileAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ExportToFileAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_ExportToFileAsync_System_String_System_Threading_CancellationToken_
+  name: ExportToFileAsync
+  nameWithType: ISettingsService.ExportToFileAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ExportToFileAsync
+- uid: System.IO.FileNotFoundException
+  commentId: T:System.IO.FileNotFoundException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.filenotfoundexception
+  name: FileNotFoundException
+  nameWithType: FileNotFoundException
+  fullName: System.IO.FileNotFoundException
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ImportFromFileAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ImportFromFileAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_ImportFromFileAsync_System_String_System_Threading_CancellationToken_
+  name: ImportFromFileAsync
+  nameWithType: ISettingsService.ImportFromFileAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.ImportFromFileAsync
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllCategorizedAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllCategorizedAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_GetAllCategorizedAsync_System_Threading_CancellationToken_
+  name: GetAllCategorizedAsync
+  nameWithType: ISettingsService.GetAllCategorizedAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllCategorizedAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<PreferenceCategoryDto>>
+  nameWithType: Task<List<PreferenceCategoryDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto>>
+  nameWithType.vb: Task(Of List(Of PreferenceCategoryDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto))
+  name.vb: Task(Of List(Of PreferenceCategoryDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto
+    name: PreferenceCategoryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto
+    name: PreferenceCategoryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceCategoryDto.html
+  - name: )
+  - name: )
+- uid: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllSummariesAsync*
+  commentId: Overload:NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllSummariesAsync
+  href: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.html#NeonSuit_RSSReader_Core_Interfaces_Services_ISettingsService_GetAllSummariesAsync_System_Threading_CancellationToken_
+  name: GetAllSummariesAsync
+  nameWithType: ISettingsService.GetAllSummariesAsync
+  fullName: NeonSuit.RSSReader.Core.Interfaces.Services.ISettingsService.GetAllSummariesAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<PreferenceSummaryDto>>
+  nameWithType: Task<List<PreferenceSummaryDto>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto>>
+  nameWithType.vb: Task(Of List(Of PreferenceSummaryDto))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto))
+  name.vb: Task(Of List(Of PreferenceSummaryDto))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto
+    name: PreferenceSummaryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto
+    name: PreferenceSummaryDto
+    href: NeonSuit.RSSReader.Core.DTOs.Preferences.PreferenceSummaryDto.html
+  - name: )
+  - name: )
+- uid: System.EventHandler{NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs}
+  commentId: T:System.EventHandler{NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<PreferenceChangedEventArgs>
+  nameWithType: EventHandler<PreferenceChangedEventArgs>
+  fullName: System.EventHandler<NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs>
+  nameWithType.vb: EventHandler(Of PreferenceChangedEventArgs)
+  fullName.vb: System.EventHandler(Of NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs)
+  name.vb: EventHandler(Of PreferenceChangedEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs
+    name: PreferenceChangedEventArgs
+    href: NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs
+    name: PreferenceChangedEventArgs
+    href: NeonSuit.RSSReader.Core.Models.Events.PreferenceChangedEventArgs.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )

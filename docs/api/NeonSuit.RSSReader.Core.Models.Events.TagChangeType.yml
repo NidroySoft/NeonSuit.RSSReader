@@ -1,0 +1,258 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  commentId: T:NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  id: TagChangeType
+  parent: NeonSuit.RSSReader.Core.Models.Events
+  children:
+  - NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Created
+  - NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Deleted
+  - NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Pinned
+  - NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Unpinned
+  - NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Updated
+  - NeonSuit.RSSReader.Core.Models.Events.TagChangeType.VisibilityChanged
+  langs:
+  - csharp
+  - vb
+  name: TagChangeType
+  nameWithType: TagChangeType
+  fullName: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: TagChangeType
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+    startLine: 41
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Type of change performed on a tag.
+  example: []
+  syntax:
+    content: public enum TagChangeType
+    content.vb: Public Enum TagChangeType
+- uid: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Created
+  commentId: F:NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Created
+  id: Created
+  parent: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: TagChangeType.Created
+  fullName: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Created
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Created
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+    startLine: 44
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Tag was created.
+  example: []
+  syntax:
+    content: Created = 0
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+- uid: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Updated
+  commentId: F:NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Updated
+  id: Updated
+  parent: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  langs:
+  - csharp
+  - vb
+  name: Updated
+  nameWithType: TagChangeType.Updated
+  fullName: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Updated
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Updated
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+    startLine: 47
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Tag was updated (name, color, etc.).
+  example: []
+  syntax:
+    content: Updated = 1
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+- uid: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Deleted
+  commentId: F:NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Deleted
+  id: Deleted
+  parent: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  langs:
+  - csharp
+  - vb
+  name: Deleted
+  nameWithType: TagChangeType.Deleted
+  fullName: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Deleted
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Deleted
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+    startLine: 50
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Tag was deleted.
+  example: []
+  syntax:
+    content: Deleted = 2
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+- uid: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Pinned
+  commentId: F:NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Pinned
+  id: Pinned
+  parent: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  langs:
+  - csharp
+  - vb
+  name: Pinned
+  nameWithType: TagChangeType.Pinned
+  fullName: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Pinned
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Pinned
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+    startLine: 53
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Tag was pinned.
+  example: []
+  syntax:
+    content: Pinned = 3
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+- uid: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Unpinned
+  commentId: F:NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Unpinned
+  id: Unpinned
+  parent: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  langs:
+  - csharp
+  - vb
+  name: Unpinned
+  nameWithType: TagChangeType.Unpinned
+  fullName: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.Unpinned
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Unpinned
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+    startLine: 56
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Tag was unpinned.
+  example: []
+  syntax:
+    content: Unpinned = 4
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+- uid: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.VisibilityChanged
+  commentId: F:NeonSuit.RSSReader.Core.Models.Events.TagChangeType.VisibilityChanged
+  id: VisibilityChanged
+  parent: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  langs:
+  - csharp
+  - vb
+  name: VisibilityChanged
+  nameWithType: TagChangeType.VisibilityChanged
+  fullName: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.VisibilityChanged
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: VisibilityChanged
+    path: ../src/Core/NeonSuit.RSSReader.Core/Models/Events/TagChangedEventArgs.cs
+    startLine: 59
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.Models.Events
+  summary: Tag visibility was changed (shown/hidden).
+  example: []
+  syntax:
+    content: VisibilityChanged = 5
+    return:
+      type: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+references:
+- uid: NeonSuit.RSSReader.Core.Models.Events
+  commentId: N:NeonSuit.RSSReader.Core.Models.Events
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.Models.Events
+  nameWithType: NeonSuit.RSSReader.Core.Models.Events
+  fullName: NeonSuit.RSSReader.Core.Models.Events
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Events
+    name: Events
+    href: NeonSuit.RSSReader.Core.Models.Events.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models
+    name: Models
+    href: NeonSuit.RSSReader.Core.Models.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.Models.Events
+    name: Events
+    href: NeonSuit.RSSReader.Core.Models.Events.html
+- uid: NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  commentId: T:NeonSuit.RSSReader.Core.Models.Events.TagChangeType
+  parent: NeonSuit.RSSReader.Core.Models.Events
+  href: NeonSuit.RSSReader.Core.Models.Events.TagChangeType.html
+  name: TagChangeType
+  nameWithType: TagChangeType
+  fullName: NeonSuit.RSSReader.Core.Models.Events.TagChangeType

@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CleanupResult | NeonSuit RSS Reader API </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CleanupResult | NeonSuit RSS Reader API ">
+      
+      <meta name="description" content="Represents the comprehensive results of a database cleanup operation. Aggregates results from all sub-operations including article deletion, orphan removal, vacuum, and index rebuild.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/NidroySoft/NeonSuit.RSSReader/new/master/apiSpec/new?filename=NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult.md&amp;value=---%0Auid%3A%20NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult">
+
+
+
+  <h1 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult" class="text-break">
+Class CleanupResult  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="NeonSuit.html">NeonSuit</a>.<a class="xref" href="NeonSuit.RSSReader.html">RSSReader</a>.<a class="xref" href="NeonSuit.RSSReader.Core.html">Core</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Models.html">Models</a>.<a class="xref" href="NeonSuit.RSSReader.Core.Models.Cleanup.html">Cleanup</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>NeonSuit.RSSReader.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents the comprehensive results of a database cleanup operation.
+Aggregates results from all sub-operations including article deletion,
+orphan removal, vacuum, and index rebuild.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CleanupResult</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">CleanupResult</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult__ctor_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.#ctor*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult__ctor" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.#ctor">
+  CleanupResult()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.html">CleanupResult</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CleanupResult()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_ArticleCleanup_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ArticleCleanup*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_ArticleCleanup" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ArticleCleanup">
+  ArticleCleanup
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the detailed results of the article cleanup sub-operation.
+Contains information about deleted articles and retention statistics.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ArticleDeletionResult? ArticleCleanup { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NeonSuit.RSSReader.Core.Models.Cleanup.ArticleDeletionResult.html">ArticleDeletionResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Duration_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Duration*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Duration" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Duration">
+  Duration
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the total duration of the cleanup operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan Duration { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Errors_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Errors*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Errors" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Errors">
+  Errors
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the collection of error messages encountered during the cleanup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; Errors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_HasErrors_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasErrors*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_HasErrors" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasErrors">
+  HasErrors
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether any errors occurred during cleanup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasErrors { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_HasWarnings_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasWarnings*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_HasWarnings" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.HasWarnings">
+  HasWarnings
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether any warnings occurred during cleanup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasWarnings { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_ImageCacheCleanup_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ImageCacheCleanup*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_ImageCacheCleanup" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ImageCacheCleanup">
+  ImageCacheCleanup
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the results of the image cache cleanup sub-operation.
+Contains information about deleted images and space reclaimed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ImageCacheCleanupResult ImageCacheCleanup { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NeonSuit.RSSReader.Core.Models.Cleanup.ImageCacheCleanupResult.html">ImageCacheCleanupResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_OrphanCleanup_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.OrphanCleanup*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_OrphanCleanup" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.OrphanCleanup">
+  OrphanCleanup
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the detailed results of the orphan record removal sub-operation.
+Contains counts of removed orphaned records from junction tables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrphanRemovalResult OrphanCleanup { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NeonSuit.RSSReader.Core.Models.Cleanup.OrphanRemovalResult.html">OrphanRemovalResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_PerformedAt_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.PerformedAt*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_PerformedAt" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.PerformedAt">
+  PerformedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the UTC timestamp when the cleanup operation was performed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime PerformedAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Skipped_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Skipped*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Skipped" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Skipped">
+  Skipped
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the cleanup was skipped
+(e.g., if auto-cleanup is disabled).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Skipped { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_SpaceFreedBytes_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedBytes*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_SpaceFreedBytes" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedBytes">
+  SpaceFreedBytes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the total space freed in bytes across all operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long SpaceFreedBytes { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_SpaceFreedFormatted_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedFormatted*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_SpaceFreedFormatted" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedFormatted">
+  SpaceFreedFormatted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the total space freed in a human-readable format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SpaceFreedFormatted { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_SpaceFreedMB_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedMB*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_SpaceFreedMB" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.SpaceFreedMB">
+  SpaceFreedMB
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the total space freed in megabytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double SpaceFreedMB { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Success_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Success*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Success" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Success">
+  Success
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the cleanup operation completed successfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Success { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_TotalArticlesDeleted_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalArticlesDeleted*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_TotalArticlesDeleted" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalArticlesDeleted">
+  TotalArticlesDeleted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the total number of articles deleted during the cleanup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TotalArticlesDeleted { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_TotalRecordsDeleted_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalRecordsDeleted*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_TotalRecordsDeleted" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.TotalRecordsDeleted">
+  TotalRecordsDeleted
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the total number of records deleted (articles + orphans + tags).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TotalRecordsDeleted { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_VacuumResult_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.VacuumResult*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_VacuumResult" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.VacuumResult">
+  VacuumResult
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the results of the database vacuum sub-operation.
+Contains space statistics before and after the vacuum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VacuumResult VacuumResult { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="NeonSuit.RSSReader.Core.Models.Cleanup.VacuumResult.html">VacuumResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Warnings_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Warnings*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_Warnings" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.Warnings">
+  Warnings
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the collection of warning messages encountered during the cleanup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; Warnings { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_AddError_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddError*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_AddError_System_String_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddError(System.String)">
+  AddError(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an error message to the result and sets Success to false.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddError(string error)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>error</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The error message to add.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_AddWarning_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddWarning*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_AddWarning_System_String_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.AddWarning(System.String)">
+  AddWarning(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a warning message to the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddWarning(string warning)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>warning</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The warning message to add.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_GenerateReport_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.GenerateReport*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_GenerateReport" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.GenerateReport">
+  GenerateReport()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a summary report of the cleanup operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GenerateReport()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A formatted multi-line string suitable for logging or display.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_ToString_" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ToString*"></a>
+
+  <h3 id="NeonSuit_RSSReader_Core_Models_Cleanup_CleanupResult_ToString" data-uid="NeonSuit.RSSReader.Core.Models.Cleanup.CleanupResult.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a brief summary of the cleanup result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/NidroySoft/NeonSuit.RSSReader/blob/master/src/Core/NeonSuit.RSSReader.Core/Models/Cleanup/CleanupResult.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2026 NeonSuit - Professional RSS Engine
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+### YamlMime:ManagedReference
+items:
+- uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType
+  id: BulkTagOperationType
+  parent: NeonSuit.RSSReader.Core.DTOs.ArticleTags
+  children:
+  - NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType.Add
+  - NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType.Remove
+  langs:
+  - csharp
+  - vb
+  name: BulkTagOperationType
+  nameWithType: BulkTagOperationType
+  fullName: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType
+  type: Enum
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/ArticleTags/BulkTagOperationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: BulkTagOperationType
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/ArticleTags/BulkTagOperationDto.cs
+    startLine: 48
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.ArticleTags
+  summary: Type of bulk tag operation.
+  example: []
+  syntax:
+    content: public enum BulkTagOperationType
+    content.vb: Public Enum BulkTagOperationType
+- uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType.Add
+  commentId: F:NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType.Add
+  id: Add
+  parent: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType
+  langs:
+  - csharp
+  - vb
+  name: Add
+  nameWithType: BulkTagOperationType.Add
+  fullName: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType.Add
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/ArticleTags/BulkTagOperationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Add
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/ArticleTags/BulkTagOperationDto.cs
+    startLine: 51
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.ArticleTags
+  summary: Add tags to articles.
+  example: []
+  syntax:
+    content: Add = 0
+    return:
+      type: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType
+- uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType.Remove
+  commentId: F:NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType.Remove
+  id: Remove
+  parent: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType
+  langs:
+  - csharp
+  - vb
+  name: Remove
+  nameWithType: BulkTagOperationType.Remove
+  fullName: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType.Remove
+  type: Field
+  source:
+    remote:
+      path: src/Core/NeonSuit.RSSReader.Core/DTOs/ArticleTags/BulkTagOperationDto.cs
+      branch: master
+      repo: https://github.com/NidroySoft/NeonSuit.RSSReader.git
+    id: Remove
+    path: ../src/Core/NeonSuit.RSSReader.Core/DTOs/ArticleTags/BulkTagOperationDto.cs
+    startLine: 53
+  assemblies:
+  - NeonSuit.RSSReader.Core
+  namespace: NeonSuit.RSSReader.Core.DTOs.ArticleTags
+  summary: Remove tags from articles.
+  example: []
+  syntax:
+    content: Remove = 1
+    return:
+      type: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType
+references:
+- uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags
+  commentId: N:NeonSuit.RSSReader.Core.DTOs.ArticleTags
+  href: NeonSuit.html
+  name: NeonSuit.RSSReader.Core.DTOs.ArticleTags
+  nameWithType: NeonSuit.RSSReader.Core.DTOs.ArticleTags
+  fullName: NeonSuit.RSSReader.Core.DTOs.ArticleTags
+  spec.csharp:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags
+    name: ArticleTags
+    href: NeonSuit.RSSReader.Core.DTOs.ArticleTags.html
+  spec.vb:
+  - uid: NeonSuit
+    name: NeonSuit
+    href: NeonSuit.html
+  - name: .
+  - uid: NeonSuit.RSSReader
+    name: RSSReader
+    href: NeonSuit.RSSReader.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core
+    name: Core
+    href: NeonSuit.RSSReader.Core.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs
+    name: DTOs
+    href: NeonSuit.RSSReader.Core.DTOs.html
+  - name: .
+  - uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags
+    name: ArticleTags
+    href: NeonSuit.RSSReader.Core.DTOs.ArticleTags.html
+- uid: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType
+  commentId: T:NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType
+  parent: NeonSuit.RSSReader.Core.DTOs.ArticleTags
+  href: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType.html
+  name: BulkTagOperationType
+  nameWithType: BulkTagOperationType
+  fullName: NeonSuit.RSSReader.Core.DTOs.ArticleTags.BulkTagOperationType
