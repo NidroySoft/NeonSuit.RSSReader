@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
 using NeonSuit.RSSReader.Core.Models;
 using NeonSuit.RSSReader.Data.Database;
@@ -93,7 +93,7 @@ namespace NeonSuit.RSSReader.Data.Repositories
 
             try
             {
-                var existing = await _context.Set<SyncTaskConfig>()
+                var existing = await _context.Set<SyncTaskConfig>().AsTracking()
                     .FirstOrDefaultAsync(t => t.TaskType == config.TaskType, cancellationToken)
                     .ConfigureAwait(false);
 
@@ -163,7 +163,7 @@ namespace NeonSuit.RSSReader.Data.Repositories
 
             try
             {
-                var existing = await _context.Set<SyncStatistics>()
+                var existing = await _context.Set<SyncStatistics>().AsTracking()
                     .FirstOrDefaultAsync(cancellationToken)
                     .ConfigureAwait(false);
 

@@ -1,4 +1,4 @@
-﻿// =======================================================
+// =======================================================
 // Core/Profiles/CategoryProfile.cs
 // =======================================================
 
@@ -60,6 +60,8 @@ namespace NeonSuit.RSSReader.Core.Profiles
             #region CreateCategoryDto → Category
 
             CreateMap<CreateCategoryDto, Category>()
+                .ForMember(dest => dest.IsExpanded, opt => opt.Ignore())
+                .ForMember(dest => dest.Color, opt => opt.Ignore())
                 .ForMember(dest => dest.Id,
                     opt => opt.Ignore())
                 .ForMember(dest => dest.CreatedAt,
@@ -78,6 +80,14 @@ namespace NeonSuit.RSSReader.Core.Profiles
             #region UpdateCategoryDto → Category (partial updates)
 
             CreateMap<UpdateCategoryDto, Category>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.ParentCategory, opt => opt.Ignore())
+                .ForMember(dest => dest.Subcategories, opt => opt.Ignore())
+                .ForMember(dest => dest.IsExpanded, opt => opt.Ignore())
+                .ForMember(dest => dest.Color, opt => opt.Ignore())
+                .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.LastModified, opt => opt.Ignore())
+                .ForMember(dest => dest.Feeds, opt => opt.Ignore())
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
             #endregion

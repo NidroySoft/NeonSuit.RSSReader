@@ -47,6 +47,17 @@ namespace NeonSuit.RSSReader.Data.Database
                 DatabasePath ?? "unknown");
         }
 
+        /// <summary>Persistent synchronization state.</summary>
+        public DbSet<SyncState> SyncStates => Set<SyncState>();
+        /// <summary>Task scheduling configuration.</summary>
+        public DbSet<SyncTaskConfig> SyncTaskConfigs => Set<SyncTaskConfig>();
+        /// <summary>Synchronization statistics.</summary>
+        public DbSet<SyncStatistics> SyncStatistics => Set<SyncStatistics>();
+        /// <summary>Recorded synchronization errors.</summary>
+        public DbSet<SyncError> SyncErrors => Set<SyncError>();
+        /// <summary>Real task execution history.</summary>
+        public DbSet<SyncTaskExecution> SyncTaskExecutions => Set<SyncTaskExecution>();
+
         #region DbSets
 
         /// <summary>

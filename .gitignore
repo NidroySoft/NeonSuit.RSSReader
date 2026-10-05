@@ -139,3 +139,6 @@ ipch/
 *.bak
 Backup*/
 *.~*
+
+# Test runner output
+**/TestResults/

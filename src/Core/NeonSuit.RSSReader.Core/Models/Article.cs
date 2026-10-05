@@ -32,6 +32,10 @@ namespace NeonSuit.RSSReader.Core.Models
             NotificationLogs = new HashSet<NotificationLog>();
         }
 
+        /// <summary>Optional highlight color applied by automation rules.</summary>
+        [MaxLength(9)]
+        public string? HighlightColor { get; set; }
+
         #region Identity
 
         /// <summary>

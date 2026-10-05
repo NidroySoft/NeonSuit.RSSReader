@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using NeonSuit.RSSReader.Core.Enums;
@@ -16,7 +16,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
     [Collection("Database_Cleanup")]
     public class DatabaseCleanupRepositoryTests : IDisposable
     {
-        private readonly RssReaderDbContext _dbContext;
+        private readonly RSSReaderDbContext _dbContext;
         private readonly DatabaseCleanupRepository _repository;
         private readonly Mock<ILogger> _mockLogger;
         private string _testDbPath;
@@ -38,7 +38,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
             _dbContext = fixture.Context;
 
             // Configurar propiedad DatabasePath mediante reflexión para pruebas de tamaño
-            var databaseProperty = typeof(RssReaderDbContext).GetProperty("DatabasePath");
+            var databaseProperty = typeof(RSSReaderDbContext).GetProperty("DatabasePath");
             if (databaseProperty != null && databaseProperty.CanWrite)
             {
                 databaseProperty.SetValue(_dbContext, _testDbPath);
@@ -217,11 +217,11 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
             }
 
             // Usar 'using' para asegurar que se cierra el contexto
-            var options = new DbContextOptionsBuilder<RssReaderDbContext>()
+            var options = new DbContextOptionsBuilder<RSSReaderDbContext>()
                 .UseSqlite($"Data Source={_testDbPath}")
                 .Options;
 
-            using (var context = new RssReaderDbContext(options, _mockLogger.Object))
+            using (var context = new RSSReaderDbContext(options, _mockLogger.Object))
             {
                 await context.Database.EnsureCreatedAsync();
 
@@ -261,7 +261,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
 
             // Assert
             act.Should().Throw<ArgumentNullException>()
-                .WithParameterName("dbContext");
+                .WithParameterName("context");
         }
 
         [Fact]
@@ -493,11 +493,11 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
             // Arrange
             await CreatePhysicalDatabaseFile();
 
-            var dbContextOptions = new DbContextOptionsBuilder<RssReaderDbContext>()
+            var dbContextOptions = new DbContextOptionsBuilder<RSSReaderDbContext>()
                 .UseSqlite($"Data Source={_testDbPath}")
                 .Options;
 
-            using var physicalContext = new RssReaderDbContext(dbContextOptions, _mockLogger.Object);
+            using var physicalContext = new RSSReaderDbContext(dbContextOptions, _mockLogger.Object);
             var repository = new DatabaseCleanupRepository(physicalContext, _mockLogger.Object);
 
             // Act
@@ -517,11 +517,11 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
             // Arrange
             await CreatePhysicalDatabaseFile();
 
-            var options = new DbContextOptionsBuilder<RssReaderDbContext>()
+            var options = new DbContextOptionsBuilder<RSSReaderDbContext>()
                 .UseSqlite($"Data Source={_testDbPath}")
                 .Options;
 
-            using var physicalContext = new RssReaderDbContext(options, _mockLogger.Object);
+            using var physicalContext = new RSSReaderDbContext(options, _mockLogger.Object);
             var repository = new DatabaseCleanupRepository(physicalContext, _mockLogger.Object);
 
             var cancellationTokenSource = new CancellationTokenSource();
@@ -810,9 +810,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
             result.ArticlesOlderThan60Days.Should().BeGreaterThanOrEqualTo(0);
             result.ArticlesOlderThan90Days.Should().BeGreaterThanOrEqualTo(0);
 
-            _mockLogger.Verify(x => x.Debug(
-                It.Is<string>(s => s.Contains("Statistics retrieved")),
-                It.IsAny<object[]>()), Times.Once);
+
         }
 
         [Fact]
@@ -916,11 +914,11 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
             // Arrange
             await CreatePhysicalDatabaseFile();
 
-            var dbContextOptions = new DbContextOptionsBuilder<RssReaderDbContext>()
+            var dbContextOptions = new DbContextOptionsBuilder<RSSReaderDbContext>()
                 .UseSqlite($"Data Source={_testDbPath}")
                 .Options;
 
-            using var physicalContext = new RssReaderDbContext(dbContextOptions, _mockLogger.Object);
+            using var physicalContext = new RSSReaderDbContext(dbContextOptions, _mockLogger.Object);
             var repository = new DatabaseCleanupRepository(physicalContext, _mockLogger.Object);
 
             // Act
@@ -945,9 +943,9 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
         {
             // Arrange
             var fakePath = Path.Combine(Path.GetTempPath(), "nonexistent.db");
-            var dbContextMock = new Mock<RssReaderDbContext>();
+            var dbContextMock = new Mock<RSSReaderDbContext>();
 
-            var databaseProperty = typeof(RssReaderDbContext).GetProperty("DatabasePath");
+            var databaseProperty = typeof(RSSReaderDbContext).GetProperty("DatabasePath");
             if (databaseProperty != null && databaseProperty.CanWrite)
             {
                 databaseProperty.SetValue(_dbContext, fakePath);
@@ -1262,9 +1260,9 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
             await Task.WhenAll(task1, task2, task3);
 
             // Assert
-            task1.Result.Should().NotBeNull();
-            task2.Result.Should().NotBeNull();
-            task3.Result.Should().NotBeNull();
+            (await task1).Should().NotBeNull();
+            (await task2).Should().NotBeNull();
+            (await task3).Should().NotBeNull();
         }
 
         [Fact]

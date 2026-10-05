@@ -679,8 +679,7 @@ namespace NeonSuit.RSSReader.Data.Repositories
                 var result = await _dbSet
                     .Where(f => f.Id == feedId)
                     .ExecuteUpdateAsync(setters => setters
-                        .SetProperty(f => f.TotalArticleCount, totalCount)
-                        .SetProperty(f => f.UnreadCount, unreadCount), cancellationToken)
+                        .SetProperty(f => f.TotalArticleCount, totalCount), cancellationToken)
                     .ConfigureAwait(false);
 
                 if (result > 0)

@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using NeonSuit.RSSReader.Core.Enums;
@@ -15,7 +15,7 @@ public class RuleConditionData : ICollectionFixture<DatabaseFixture> { }
 [Collection("Database_RuleCondition")]
 public class RuleConditionRepositoryTests : IAsyncLifetime
 {
-    private readonly RssReaderDbContext _dbContext;
+    private readonly RSSReaderDbContext _dbContext;
     private readonly RuleConditionRepository _repository;
     private readonly Mock<ILogger> _mockLogger;
     private readonly DatabaseFixture _fixture;
@@ -79,7 +79,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     {
         new Rule
         {
-            Id = -2001,
+            Id = 2001,
             Name = "Test Rule 1",
             Target = RuleFieldTarget.Title,
             Operator = RuleOperator.Contains,
@@ -94,13 +94,13 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         },
         new Rule
         {
-            Id = -2002,
+            Id = 2002,
             Name = "Test Rule 2",
             Target = RuleFieldTarget.Content,
             Operator = RuleOperator.Contains,
             Value = "urgent",
             Scope = RuleScope.SpecificFeeds,
-            FeedIds = "[-1001, -1002]",
+            FeedIds = "[1001, 1002]",
             IsEnabled = true,
             ActionType = RuleActionType.SendNotification,
             NotificationTemplate = "Alert: {Title}",
@@ -112,7 +112,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         },
         new Rule
         {
-            Id = -2003,
+            Id = 2003,
             Name = "Test Rule 3",
             Target = RuleFieldTarget.Author,
             Operator = RuleOperator.Equals,
@@ -135,8 +135,8 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     {
         new RuleCondition
         {
-            Id = -3001,
-            RuleId = -2001,
+            Id = 3001,
+            RuleId = 2001,
             GroupId = 1,
             Order = 1,
             Field = RuleFieldTarget.Title,
@@ -148,8 +148,8 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         },
         new RuleCondition
         {
-            Id = -3002,
-            RuleId = -2001,
+            Id = 3002,
+            RuleId = 2001,
             GroupId = 1,
             Order = 2,
             Field = RuleFieldTarget.Content,
@@ -161,8 +161,8 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         },
         new RuleCondition
         {
-            Id = -3003,
-            RuleId = -2002,
+            Id = 3003,
+            RuleId = 2002,
             GroupId = 1,
             Order = 1,
             Field = RuleFieldTarget.Author,
@@ -174,8 +174,8 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         },
         new RuleCondition
         {
-            Id = -3004,
-            RuleId = -2002,
+            Id = 3004,
+            RuleId = 2002,
             GroupId = 2,
             Order = 1,
             Field = RuleFieldTarget.Title,
@@ -187,8 +187,8 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         },
         new RuleCondition
         {
-            Id = -3005,
-            RuleId = -2003,
+            Id = 3005,
+            RuleId = 2003,
             GroupId = 1,
             Order = 1,
             Field = RuleFieldTarget.Categories,
@@ -200,8 +200,8 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         },
         new RuleCondition
         {
-            Id = -3006,
-            RuleId = -2002,
+            Id = 3006,
+            RuleId = 2002,
             GroupId = 1,
             Order = 2,
             Field = RuleFieldTarget.Content,
@@ -225,21 +225,21 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task GetByRuleIdAsync_WithExistingRule_ReturnsOrderedConditions()
     {
         // Act
-        var result = await _repository.GetByRuleIdAsync(-2001);
+        var result = await _repository.GetByRuleIdAsync(2001);
 
         // Assert
         result.Should().NotBeNull();
         result.Should().HaveCount(2);
         result.Should().BeInAscendingOrder(x => x.GroupId)
             .And.ThenBeInAscendingOrder(x => x.Order);
-        result.Should().AllSatisfy(c => c.RuleId.Should().Be(-2001));
+        result.Should().AllSatisfy(c => c.RuleId.Should().Be(2001));
     }
 
     [Fact]
     public async Task GetByRuleIdAsync_WithNonExistingRule_ReturnsEmptyList()
     {
         // Act
-        var result = await _repository.GetByRuleIdAsync(-9999);
+        var result = await _repository.GetByRuleIdAsync(9999);
 
         // Assert
         result.Should().NotBeNull();
@@ -250,12 +250,12 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task GetByRuleIdAsync_WithInactiveRule_ReturnsConditions()
     {
         // Act
-        var result = await _repository.GetByRuleIdAsync(-2003);
+        var result = await _repository.GetByRuleIdAsync(2003);
 
         // Assert
         result.Should().NotBeNull();
         result.Should().HaveCount(1);
-        result.First().RuleId.Should().Be(-2003);
+        result.First().RuleId.Should().Be(2003);
     }
 
     #endregion
@@ -266,7 +266,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task GetConditionGroupsAsync_WithExistingRule_ReturnsGroupedConditions()
     {
         // Act
-        var result = await _repository.GetConditionGroupsAsync(-2002);
+        var result = await _repository.GetConditionGroupsAsync(2002);
 
         // Assert
         result.Should().NotBeNull();
@@ -286,7 +286,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task GetConditionGroupsAsync_WithNonExistingRule_ReturnsEmptyDictionary()
     {
         // Act
-        var result = await _repository.GetConditionGroupsAsync(-9999);
+        var result = await _repository.GetConditionGroupsAsync(9999);
 
         // Assert
         result.Should().NotBeNull();
@@ -299,7 +299,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         // Arrange
         var ruleWithNoConditions = new Rule
         {
-            Id = -2004,
+            Id = 2004,
             Name = "Rule Without Conditions",
             // ❌ ELIMINAR FeedId - NO EXISTE en el modelo
             Scope = RuleScope.AllFeeds,
@@ -317,7 +317,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         _dbContext.ChangeTracker.Clear();
 
         // Act
-        var result = await _repository.GetConditionGroupsAsync(-2004);
+        var result = await _repository.GetConditionGroupsAsync(2004);
 
         // Assert
         result.Should().NotBeNull();
@@ -335,7 +335,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         var condition = new RuleCondition
         {
             // Id = -3101,  // QUITAR - la BD lo genera
-            RuleId = -2001,
+            RuleId = 2001,
             GroupId = 2,
             Order = 1,
             Field = RuleFieldTarget.Content,
@@ -351,12 +351,12 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         _dbContext.ChangeTracker.Clear();
 
         // ✅ Buscar por el ID que DEVOLVIÓ el repositorio
-        var inserted = await _dbContext.RuleConditions.FindAsync(result);
+        var inserted = await _dbContext.RuleConditions.FindAsync(condition.Id);
 
         // Assert
         result.Should().BePositive();  // ✅ Solo verificar que es positivo
         inserted.Should().NotBeNull();
-        inserted!.RuleId.Should().Be(-2001);
+        inserted!.RuleId.Should().Be(2001);
         inserted.Field.Should().Be(RuleFieldTarget.Content);
         inserted.Operator.Should().Be(RuleOperator.Contains);
         inserted.Value.Should().Be("critical");
@@ -371,7 +371,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         var condition = new RuleCondition
         {
             Id = -3102,
-            RuleId = -2001,
+            RuleId = 2001,
             GroupId = 2,
             Order = 1,
             Field = RuleFieldTarget.Title,
@@ -385,7 +385,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
 
         // Assert
         await act.Should().ThrowAsync<ArgumentException>()
-            .WithMessage("Condition configuration is invalid");
+            .WithMessage("*Invalid rule condition*");
     }
 
     [Fact]
@@ -405,7 +405,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         var condition = new RuleCondition
         {
             Id = -3103,
-            RuleId = -9999,  // ❌ No existe
+            RuleId = 9999,  // ❌ No existe
             GroupId = 1,
             Order = 1,
             Field = RuleFieldTarget.Title,
@@ -429,7 +429,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task UpdateAsync_WithExistingCondition_UpdatesProperties()
     {
         // Arrange
-        var condition = await _dbContext.RuleConditions.FindAsync(-3001);
+        var condition = await _dbContext.RuleConditions.FindAsync(3001);
         condition!.Value = "very important";
         condition.Operator = RuleOperator.StartsWith;
         condition.Order = 3;
@@ -437,7 +437,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         // Act
         var result = await _repository.UpdateAsync(condition);
         _dbContext.ChangeTracker.Clear();
-        var updated = await _dbContext.RuleConditions.FindAsync(-3001);
+        var updated = await _dbContext.RuleConditions.FindAsync(3001);
 
         // Assert
         result.Should().Be(1);
@@ -451,7 +451,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task UpdateAsync_WithInvalidCondition_ThrowsArgumentException()
     {
         // Arrange
-        var condition = await _dbContext.RuleConditions.FindAsync(-3001);
+        var condition = await _dbContext.RuleConditions.FindAsync(3001);
         condition!.Value = "";  // ❌ Vacío, IsValid = false
 
         // Act
@@ -459,7 +459,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
 
         // Assert
         await act.Should().ThrowAsync<ArgumentException>()
-            .WithMessage("Condition configuration is invalid");
+            .WithMessage("*Invalid rule condition*");
     }
 
     [Fact]
@@ -477,12 +477,12 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         };
 
         // Act & Assert
-        var exception = await Assert.ThrowsAsync<DbUpdateException>(() =>
+        var exception = await Assert.ThrowsAsync<DbUpdateConcurrencyException>(() =>
             _repository.UpdateAsync(nonExistentCondition));
 
         // Assert - Verificar que el inner exception es de tipo DbUpdateConcurrencyException
-        exception.InnerException.Should().BeOfType<DbUpdateConcurrencyException>();
-        exception.InnerException?.Message.Should().Contain("expected to affect 1 row(s), but actually affected 0");
+        exception.Should().BeOfType<DbUpdateConcurrencyException>();
+        exception.Message.Should().Contain("expected to affect 1 row(s), but actually affected 0");
     }
 
     #endregion
@@ -493,9 +493,9 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task DeleteAsync_WithExistingId_RemovesFromDatabase()
     {
         // Act
-        var result = await _repository.DeleteAsync(-3001);
+        var result = await _repository.DeleteAsync(3001);
         _dbContext.ChangeTracker.Clear();
-        var deleted = await _dbContext.RuleConditions.FindAsync(-3001);
+        var deleted = await _dbContext.RuleConditions.FindAsync(3001);
 
         // Assert
         result.Should().Be(1);
@@ -506,7 +506,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task DeleteAsync_WithNonExistingId_ReturnsZero()
     {
         // Act
-        var result = await _repository.DeleteAsync(-9999);
+        var result = await _repository.DeleteAsync(9999);
 
         // Assert
         result.Should().Be(0);
@@ -520,10 +520,10 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task DeleteByRuleIdAsync_WithExistingRule_DeletesAllConditions()
     {
         // Act
-        var result = await _repository.DeleteByRuleIdAsync(-2001);
+        var result = await _repository.DeleteByRuleIdAsync(2001);
         _dbContext.ChangeTracker.Clear();
         var remaining = await _dbContext.RuleConditions
-            .Where(c => c.RuleId == -2001)
+            .Where(c => c.RuleId == 2001)
             .ToListAsync();
 
         // Assert
@@ -535,7 +535,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task DeleteByRuleIdAsync_WithNonExistingRule_ReturnsZero()
     {
         // Act
-        var result = await _repository.DeleteByRuleIdAsync(-9999);
+        var result = await _repository.DeleteByRuleIdAsync(9999);
 
         // Assert
         result.Should().Be(0);
@@ -547,7 +547,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         // Arrange
         var ruleWithNoConditions = new Rule
         {
-            Id = -2005,
+            Id = 2005,
             Name = "No Conditions Rule",
             // ❌ ELIMINAR FeedId - NO EXISTE en el modelo
             Scope = RuleScope.AllFeeds,
@@ -565,7 +565,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         _dbContext.ChangeTracker.Clear();
 
         // Act
-        var result = await _repository.DeleteByRuleIdAsync(-2005);
+        var result = await _repository.DeleteByRuleIdAsync(2005);
 
         // Assert
         result.Should().Be(0);
@@ -581,7 +581,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         // Arrange
         var condition = new RuleCondition
         {
-            RuleId = -2001,
+            RuleId = 2001,
             GroupId = 1,
             Order = 1,
             Field = RuleFieldTarget.Title,
@@ -607,7 +607,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         // Arrange
         var condition = new RuleCondition
         {
-            RuleId = -2001,
+            RuleId = 2001,
             GroupId = 1,
             Order = 1,
             Field = RuleFieldTarget.Title,
@@ -635,7 +635,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         {
             new RuleCondition
             {
-                RuleId = -2001,
+                RuleId = 2001,
                 GroupId = 1,
                 Order = 1,
                 Field = RuleFieldTarget.Title,
@@ -645,7 +645,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
             },
             new RuleCondition
             {
-                RuleId = -2001,
+                RuleId = 2001,
                 GroupId = 1,
                 Order = 2,
                 Field = RuleFieldTarget.Content,
@@ -670,7 +670,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         {
             new RuleCondition
             {
-                RuleId = -2001,
+                RuleId = 2001,
                 GroupId = 1,
                 Order = 1,  // Duplicado
                 Field = RuleFieldTarget.Title,
@@ -680,7 +680,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
             },
             new RuleCondition
             {
-                RuleId = -2001,
+                RuleId = 2001,
                 GroupId = 1,
                 Order = 1,  // Duplicado
                 Field = RuleFieldTarget.Content,
@@ -705,7 +705,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         {
             new RuleCondition
             {
-                RuleId = -2001,
+                RuleId = 2001,
                 GroupId = 1,
                 Order = 1,
                 Field = RuleFieldTarget.Title,
@@ -715,7 +715,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
             },
             new RuleCondition
             {
-                RuleId = -2001,
+                RuleId = 2001,
                 GroupId = 1,
                 Order = 2,
                 Field = RuleFieldTarget.Content,
@@ -760,7 +760,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task GetMaxOrderInGroupAsync_WithExistingGroup_ReturnsMaxOrder()
     {
         // Act
-        var result = await _repository.GetMaxOrderInGroupAsync(-2001, 1);
+        var result = await _repository.GetMaxOrderInGroupAsync(2001, 1);
 
         // Assert
         result.Should().Be(2);
@@ -770,7 +770,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task GetMaxOrderInGroupAsync_WithEmptyGroup_ReturnsZero()
     {
         // Act
-        var result = await _repository.GetMaxOrderInGroupAsync(-2001, 99);
+        var result = await _repository.GetMaxOrderInGroupAsync(2001, 99);
 
         // Assert
         result.Should().Be(0);
@@ -780,7 +780,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task GetMaxOrderInGroupAsync_WithSingleCondition_ReturnsOrder()
     {
         // Act
-        var result = await _repository.GetMaxOrderInGroupAsync(-2003, 1);
+        var result = await _repository.GetMaxOrderInGroupAsync(2003, 1);
 
         // Assert
         result.Should().Be(1);
@@ -795,14 +795,14 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         // Arrange - ESPERAR 1 SOLA ACTUALIZACIÓN
         var orderMap = new Dictionary<int, int>
     {
-        { -3001, 3 }  // ✅ Solo UNA condición
+        { 3001, 3 }  // ✅ Solo UNA condición
     };
 
         // Act
-        var result = await _repository.ReorderConditionsAsync(-2001, 1, orderMap);
+        var result = await _repository.ReorderConditionsAsync(2001, 1, orderMap);
         _dbContext.ChangeTracker.Clear();
-        var condition1 = await _dbContext.RuleConditions.FindAsync(-3001);
-        var condition2 = await _dbContext.RuleConditions.FindAsync(-3002);
+        var condition1 = await _dbContext.RuleConditions.FindAsync(3001);
+        var condition2 = await _dbContext.RuleConditions.FindAsync(3002);
 
         // Assert
         result.Should().Be(1);  // ✅ Cambiado de 2 a 1
@@ -817,11 +817,11 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         // Arrange
         var orderMap = new Dictionary<int, int>
         {
-            { -9999, 1 }  // ❌ No existe
+            { 9999, 1 }  // ❌ No existe
         };
 
         // Act
-        var result = await _repository.ReorderConditionsAsync(-2001, 1, orderMap);
+        var result = await _repository.ReorderConditionsAsync(2001, 1, orderMap);
 
         // Assert
         result.Should().Be(0);
@@ -831,7 +831,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     public async Task ReorderConditionsAsync_WithEmptyOrderMap_ReturnsZero()
     {
         // Act
-        var result = await _repository.ReorderConditionsAsync(-2001, 1, new Dictionary<int, int>());
+        var result = await _repository.ReorderConditionsAsync(2001, 1, new Dictionary<int, int>());
 
         // Assert
         result.Should().Be(0);
@@ -843,11 +843,11 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         // Arrange
         var orderMap = new Dictionary<int, int>
         {
-            { -3001, 3 }
+            { 3001, 3 }
         };
 
         // Act
-        var result = await _repository.ReorderConditionsAsync(-9999, 1, orderMap);  // ❌ Rule incorrecto
+        var result = await _repository.ReorderConditionsAsync(9999, 1, orderMap);  // ❌ Rule incorrecto
 
         // Assert
         result.Should().Be(0);
@@ -859,11 +859,11 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         // Arrange
         var orderMap = new Dictionary<int, int>
         {
-            { -3001, 3 }
+            { 3001, 3 }
         };
 
         // Act
-        var result = await _repository.ReorderConditionsAsync(-2001, 99, orderMap);  // ❌ Group incorrecto
+        var result = await _repository.ReorderConditionsAsync(2001, 99, orderMap);  // ❌ Group incorrecto
 
         // Assert
         result.Should().Be(0);
@@ -874,14 +874,9 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
     #region Edge Cases
 
     [Fact]
-    public async Task GetByRuleIdAsync_WithNegativeRuleId_ReturnsEmptyList()
+    public async Task GetByRuleIdAsync_WithNegativeRuleId_ThrowsArgumentOutOfRangeException()
     {
-        // Act
-        var result = await _repository.GetByRuleIdAsync(-9999);
-
-        // Assert
-        result.Should().NotBeNull();
-        result.Should().BeEmpty();
+        await Assert.ThrowsAsync<ArgumentOutOfRangeException>(() => _repository.GetByRuleIdAsync(-9999));
     }
 
     [Fact]
@@ -891,7 +886,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         var condition = new RuleCondition
         {
             // ❌ NO asignar Id - dejar que la BD lo genere
-            RuleId = -2001,
+            RuleId = 2001,
             GroupId = 1,
             Order = 999,
             Field = RuleFieldTarget.AllFields,
@@ -907,13 +902,13 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         _dbContext.ChangeTracker.Clear();
 
         // ✅ Buscar por el ID que devolvió el repositorio
-        var inserted = await _dbContext.RuleConditions.FindAsync(result);
+        var inserted = await _dbContext.RuleConditions.FindAsync(condition.Id);
 
         // Assert
         result.Should().BePositive();  // ✅ Solo verificar que es positivo
         inserted.Should().NotBeNull();
         inserted!.Order.Should().Be(999);
-        inserted.RuleId.Should().Be(-2001);
+        inserted.RuleId.Should().Be(2001);
         inserted.Field.Should().Be(RuleFieldTarget.AllFields);
         inserted.Operator.Should().Be(RuleOperator.Contains);
         inserted.Value.Should().Be("test");
@@ -929,7 +924,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
             // Arrange - Configurar según el operador
             var condition = new RuleCondition
             {
-                RuleId = -2001,
+                RuleId = 2001,
                 GroupId = 1,
                 Order = 1,
                 Field = RuleFieldTarget.Title,
@@ -952,6 +947,11 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
                     condition.RegexPattern = @"\btest\b";  // ✅ Patrón válido
                     break;
 
+                case RuleOperator.Between:
+                case RuleOperator.NotBetween:
+                    condition.Value = "1";
+                    condition.Value2 = "10";
+                    break;
                 case RuleOperator.GreaterThan:
                 case RuleOperator.LessThan:
                     condition.Value = "2024-01-01";  // ✅ Requerido
@@ -982,7 +982,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
         // Act
-        var result = await _repository.GetByRuleIdAsync(-2001);
+        var result = await _repository.GetByRuleIdAsync(2001);
 
         // Assert
         stopwatch.Stop();
@@ -996,7 +996,7 @@ public class RuleConditionRepositoryTests : IAsyncLifetime
         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
         // Act
-        var result = await _repository.DeleteByRuleIdAsync(-2001);
+        var result = await _repository.DeleteByRuleIdAsync(2001);
 
         // Assert
         stopwatch.Stop();

@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using NeonSuit.RSSReader.Core.Enums;
@@ -17,7 +17,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
     [Collection("Database_Articles")]
     public class ArticleRepositoryTests : IDisposable
     {
-        private readonly RssReaderDbContext _dbContext;
+        private readonly RSSReaderDbContext _dbContext;
         private readonly ArticleRepository _repository;
         private readonly Mock<ILogger> _mockLogger;
         private bool _disposed;
@@ -697,7 +697,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
             // Assert
             result.Should().Contain(a =>
                 a.Title.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-                a.Content.Contains(searchText, StringComparison.OrdinalIgnoreCase));
+                (a.Content != null && a.Content.Contains(searchText, StringComparison.OrdinalIgnoreCase)));
         }
 
         [Fact]
@@ -726,6 +726,14 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
             // Act & Assert
             var result = await _repository.SearchAsync(searchText);
             result.Should().HaveCount(1);
+            var matched = expectedField switch
+            {
+                "Author" => result.Single().Author,
+                "Categories" => result.Single().Categories,
+                "Summary" => result.Single().Summary,
+                _ => throw new InvalidOperationException(expectedField)
+            };
+            matched.Should().Contain(searchText);
         }
 
         #endregion
@@ -1125,7 +1133,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
     public class DatabaseFixture : IDisposable
     {
         public TestDbContextFactory Factory { get; }
-        public RssReaderDbContext Context { get; }
+        internal RSSReaderDbContext Context { get; }
 
         public DatabaseFixture()
         {

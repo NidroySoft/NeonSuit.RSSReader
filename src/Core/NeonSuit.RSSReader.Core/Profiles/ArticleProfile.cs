@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using NeonSuit.RSSReader.Core.DTOs.Article;
 using NeonSuit.RSSReader.Core.Enums;
 using NeonSuit.RSSReader.Core.Models;
@@ -24,6 +24,8 @@ namespace NeonSuit.RSSReader.Core.Profiles
             #region Basic Summary DTO (for lists)
 
             CreateMap<Article, ArticleSummaryDto>()
+                .ForMember(dest => dest.Excerpt, opt => opt.MapFrom(src => src.Summary ?? ""))
+                .ForMember(dest => dest.TimeAgo, opt => opt.Ignore())
                 .ForMember(dest => dest.FeedTitle,
                     opt => opt.MapFrom(src => src.Feed == null ? "Unknown Feed" : src.Feed.Title))
                 .ForMember(dest => dest.FeedIconUrl,
@@ -72,6 +74,9 @@ namespace NeonSuit.RSSReader.Core.Profiles
             #region Create DTO → Entity
 
             CreateMap<CreateArticleDto, Article>()
+                .ForMember(dest => dest.HighlightColor, opt => opt.Ignore())
+                .ForMember(dest => dest.LastReadAt, opt => opt.Ignore())
+                .ForMember(dest => dest.Tags, opt => opt.Ignore())
                 .ForMember(dest => dest.Id, opt => opt.Ignore())
                 .ForMember(dest => dest.AddedDate, opt => opt.MapFrom(_ => DateTime.UtcNow))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(_ => ArticleStatus.Unread))
@@ -90,6 +95,25 @@ namespace NeonSuit.RSSReader.Core.Profiles
             #region Update DTO → Entity (partial updates)
 
             CreateMap<UpdateArticleDto, Article>()
+                .ForMember(dest => dest.HighlightColor, opt => opt.Ignore())
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.Guid, opt => opt.Ignore())
+                .ForMember(dest => dest.ContentHash, opt => opt.Ignore())
+                .ForMember(dest => dest.FeedId, opt => opt.Ignore())
+                .ForMember(dest => dest.Feed, opt => opt.Ignore())
+                .ForMember(dest => dest.NotificationLogs, opt => opt.Ignore())
+                .ForMember(dest => dest.ArticleTags, opt => opt.Ignore())
+                .ForMember(dest => dest.Link, opt => opt.Ignore())
+                .ForMember(dest => dest.Content, opt => opt.Ignore())
+                .ForMember(dest => dest.PublishedDate, opt => opt.Ignore())
+                .ForMember(dest => dest.AddedDate, opt => opt.Ignore())
+                .ForMember(dest => dest.Language, opt => opt.Ignore())
+                .ForMember(dest => dest.EnclosureUrl, opt => opt.Ignore())
+                .ForMember(dest => dest.EnclosureType, opt => opt.Ignore())
+                .ForMember(dest => dest.EnclosureLength, opt => opt.Ignore())
+                .ForMember(dest => dest.IsNotified, opt => opt.Ignore())
+                .ForMember(dest => dest.ProcessedByRules, opt => opt.Ignore())
+                .ForMember(dest => dest.Tags, opt => opt.Ignore())
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
             #endregion
@@ -97,6 +121,30 @@ namespace NeonSuit.RSSReader.Core.Profiles
             #region State DTO → Entity (quick state changes)
 
             CreateMap<ArticleStateDto, Article>()
+                .ForMember(dest => dest.HighlightColor, opt => opt.Ignore())
+                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.Guid, opt => opt.Ignore())
+                .ForMember(dest => dest.ContentHash, opt => opt.Ignore())
+                .ForMember(dest => dest.FeedId, opt => opt.Ignore())
+                .ForMember(dest => dest.Feed, opt => opt.Ignore())
+                .ForMember(dest => dest.NotificationLogs, opt => opt.Ignore())
+                .ForMember(dest => dest.ArticleTags, opt => opt.Ignore())
+                .ForMember(dest => dest.Title, opt => opt.Ignore())
+                .ForMember(dest => dest.Link, opt => opt.Ignore())
+                .ForMember(dest => dest.Summary, opt => opt.Ignore())
+                .ForMember(dest => dest.Content, opt => opt.Ignore())
+                .ForMember(dest => dest.Author, opt => opt.Ignore())
+                .ForMember(dest => dest.PublishedDate, opt => opt.Ignore())
+                .ForMember(dest => dest.AddedDate, opt => opt.Ignore())
+                .ForMember(dest => dest.ImageUrl, opt => opt.Ignore())
+                .ForMember(dest => dest.Categories, opt => opt.Ignore())
+                .ForMember(dest => dest.Language, opt => opt.Ignore())
+                .ForMember(dest => dest.EnclosureUrl, opt => opt.Ignore())
+                .ForMember(dest => dest.EnclosureType, opt => opt.Ignore())
+                .ForMember(dest => dest.EnclosureLength, opt => opt.Ignore())
+                .ForMember(dest => dest.IsNotified, opt => opt.Ignore())
+                .ForMember(dest => dest.ProcessedByRules, opt => opt.Ignore())
+                .ForMember(dest => dest.Tags, opt => opt.Ignore())
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
             #endregion

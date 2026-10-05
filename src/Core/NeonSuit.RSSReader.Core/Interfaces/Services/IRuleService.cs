@@ -1,4 +1,4 @@
-﻿using NeonSuit.RSSReader.Core.DTOs.Rules;
+using NeonSuit.RSSReader.Core.DTOs.Rules;
 using NeonSuit.RSSReader.Core.Enums;
 using System;
 using System.Collections.Generic;
@@ -28,6 +28,8 @@ namespace NeonSuit.RSSReader.Core.Interfaces.Services
     /// </remarks>
     public interface IRuleService
     {
+        /// <summary>Presentation requests such as sound playback; the host supplies a handler.</summary>
+        event EventHandler<NeonSuit.RSSReader.Core.Models.Events.RuleActionRequestedEventArgs>? OnActionRequested;
         #region Rule Management
 
         /// <summary>

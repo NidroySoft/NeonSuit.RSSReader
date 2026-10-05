@@ -1,4 +1,4 @@
-﻿// =======================================================
+// =======================================================
 // Data/Database/RssReaderDbContext.Relationships.cs
 // =======================================================
 
@@ -34,7 +34,10 @@ namespace NeonSuit.RSSReader.Data.Database
 
             // Article ↔ Tag many-to-many
             modelBuilder.Entity<ArticleTag>()
-                .HasKey(at => new { at.ArticleId, at.TagId });
+                .HasKey(at => at.Id);
+
+            modelBuilder.Entity<ArticleTag>()
+                .HasIndex(at => new { at.ArticleId, at.TagId }).IsUnique();
 
             modelBuilder.Entity<ArticleTag>()
                 .HasOne(at => at.Article)

@@ -1,10 +1,10 @@
-﻿// =======================================================
+// =======================================================
 // Data/Database/RssReaderDbContext.Maintenance.cs
 // =======================================================
 
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
+using Microsoft.Data.Sqlite;
 
 namespace NeonSuit.RSSReader.Data.Database
 {
@@ -85,9 +85,22 @@ namespace NeonSuit.RSSReader.Data.Database
 
             try
             {
-                var safePath = backupPath.Replace("'", "''");
-                var sql = FormattableStringFactory.Create($"VACUUM INTO '{safePath}';");
-                await Database.ExecuteSqlAsync(sql, cancellationToken);
+                cancellationToken.ThrowIfCancellationRequested();
+                // SQLite's online backup API preserves committed WAL data and avoids SQL path interpolation.
+                var connection = (SqliteConnection)Database.GetDbConnection();
+                var alreadyOpen = connection.State == System.Data.ConnectionState.Open;
+                if (!alreadyOpen) await connection.OpenAsync(cancellationToken);
+                try
+                {
+                    var targetOptions = new SqliteConnectionStringBuilder { DataSource = fullPath };
+                    await using var target = new SqliteConnection(targetOptions.ToString());
+                    await target.OpenAsync(cancellationToken);
+                    connection.BackupDatabase(target);
+                }
+                finally
+                {
+                    if (!alreadyOpen) await connection.CloseAsync();
+                }
 
                 stopwatch.Stop();
                 var backupSize = new FileInfo(fullPath).Length;

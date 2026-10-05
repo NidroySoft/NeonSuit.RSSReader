@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using NeonSuit.RSSReader.Core.DTOs.Sync;
 using NeonSuit.RSSReader.Core.Models;
 
@@ -18,6 +18,7 @@ namespace NeonSuit.RSSReader.Core.Profiles
             // SyncStatistics -> SyncStatisticsDto
             // =========================================================================
             CreateMap<SyncStatistics, SyncStatisticsDto>()
+                .ForMember(dest => dest.LastStatisticsUpdate, opt => opt.MapFrom(src => src.LastUpdated))
                 .ForMember(dest => dest.TotalSyncTimeFormatted, opt => opt.Ignore())
                 .ForMember(dest => dest.LastUpdateFormatted, opt => opt.MapFrom(src =>
                     FormatDateTime(src.LastUpdated)))

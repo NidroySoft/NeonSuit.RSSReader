@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+using AutoMapper;
+using Microsoft.Extensions.DependencyInjection;
 using NeonSuit.RSSReader.Core.DTOs.Sync;
 using NeonSuit.RSSReader.Core.Enums;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
@@ -14,11 +15,10 @@ namespace NeonSuit.RSSReader.Services
     /// Implementation of <see cref="ISyncCoordinatorService"/> that coordinates and manages all background synchronization tasks.
     /// Implements a producer-consumer pattern with proper scheduling, error handling, and resource management for low-resource environments.
     /// </summary>
-    internal class SyncCoordinatorService : ISyncCoordinatorService
+    internal class SyncCoordinatorService : ISyncCoordinatorService, IAsyncDisposable
     {
         private readonly ILogger _logger;
-        private readonly ISettingsService _settingsService;
-        private readonly ISyncRepository _syncRepository;
+        private readonly IServiceScopeFactory _scopeFactory;
         private readonly IMapper _mapper;
 
         // Synchronization state
@@ -52,6 +52,15 @@ namespace NeonSuit.RSSReader.Services
         private event EventHandler<SyncTaskExecutionInfoDto>? _onTaskCompleted;
         private event EventHandler<SyncErrorInfoDto>? _onSyncError;
         private event EventHandler<SyncProgressDto>? _onSyncProgress;
+
+        /// <summary>Stops background tasks before the application container is disposed.</summary>
+        public async ValueTask DisposeAsync()
+        {
+            await StopAsync().ConfigureAwait(false);
+            _syncCancellationTokenSource?.Dispose();
+            _statusLock.Dispose();
+            _queueSemaphore.Dispose();
+        }
 
         #region Properties
 
@@ -122,31 +131,23 @@ namespace NeonSuit.RSSReader.Services
         /// <summary>
         /// Initializes a new instance of the <see cref="SyncCoordinatorService"/> class.
         /// </summary>
-        /// <param name="settingsService">The settings service for configuration.</param>
-        /// <param name="syncRepository">The sync repository for persistence.</param>
+        /// <param name="scopeFactory">Creates an isolated scope for each persistence operation.</param>
         /// <param name="mapper">AutoMapper instance for DTO transformations.</param>
         /// <param name="logger">The logger for diagnostic output.</param>
         /// <exception cref="ArgumentNullException">Thrown if any parameter is null.</exception>
-        public SyncCoordinatorService(
-            ISettingsService settingsService,
-            ISyncRepository syncRepository,
-            IMapper mapper,
-            ILogger logger)
+        public SyncCoordinatorService(IServiceScopeFactory scopeFactory, IMapper mapper, ILogger logger)
         {
-            ArgumentNullException.ThrowIfNull(settingsService);
-            ArgumentNullException.ThrowIfNull(syncRepository);
+            ArgumentNullException.ThrowIfNull(scopeFactory);
             ArgumentNullException.ThrowIfNull(mapper);
             ArgumentNullException.ThrowIfNull(logger);
-
-            _settingsService = settingsService;
-            _syncRepository = syncRepository;
+            _scopeFactory = scopeFactory;
             _mapper = mapper;
             _logger = logger.ForContext<SyncCoordinatorService>();
 
             _syncTasks = new Dictionary<SyncTaskType, SyncTaskInfo>();
             _taskQueue = new ConcurrentQueue<SyncTaskRequest>();
             _workerTasks = new List<Task>();
-            _maxConcurrentTasks = Environment.ProcessorCount; // Optimized for i3-10105T (4 cores)
+            _maxConcurrentTasks = 1; // Serialize maintenance and rule processing; each operation has its own DbContext.
 
             _taskExecutionInfo = new ConcurrentDictionary<SyncTaskType, SyncTaskExecutionInfo>();
 
@@ -293,6 +294,9 @@ namespace NeonSuit.RSSReader.Services
         /// <inheritdoc />
         public async Task PauseAsync(CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+
             await _statusLock.WaitAsync(cancellationToken).ConfigureAwait(false);
             try
             {
@@ -328,6 +332,9 @@ namespace NeonSuit.RSSReader.Services
         /// <inheritdoc />
         public async Task ResumeAsync(CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+
             await _statusLock.WaitAsync(cancellationToken).ConfigureAwait(false);
             try
             {
@@ -420,6 +427,9 @@ namespace NeonSuit.RSSReader.Services
         /// <inheritdoc />
         public async Task<SyncActionResultDto> ConfigureTaskAsync(ConfigureTaskDto configureDto, CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+
             ArgumentNullException.ThrowIfNull(configureDto);
 
             try
@@ -483,6 +493,10 @@ namespace NeonSuit.RSSReader.Services
         /// <inheritdoc />
         public async Task<SyncActionResultDto> SetMaxSyncDurationAsync(ConfigureMaxDurationDto configureDto, CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+            var _settingsService = scope.ServiceProvider.GetRequiredService<ISettingsService>();
+
             ArgumentNullException.ThrowIfNull(configureDto);
 
             try
@@ -542,6 +556,9 @@ namespace NeonSuit.RSSReader.Services
         /// <inheritdoc />
         public async Task<List<SyncTaskStatusDto>> GetTaskStatusesAsync(CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+
             var statuses = new List<SyncTaskStatusDto>();
 
             foreach (var kvp in _syncTasks)
@@ -612,6 +629,9 @@ namespace NeonSuit.RSSReader.Services
         /// <inheritdoc />
         public async Task<List<SyncErrorInfoDto>> GetRecentErrorsAsync(int maxErrors = 50, CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+
             if (maxErrors < 1)
             {
                 _logger.Warning("Invalid max errors parameter: {MaxErrors}. Using default of 50.", maxErrors);
@@ -635,6 +655,9 @@ namespace NeonSuit.RSSReader.Services
         /// <inheritdoc />
         public async Task<SyncActionResultDto> ClearErrorHistoryAsync(CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+
             try
             {
                 await _syncRepository.ClearErrorsOlderThanAsync(DateTime.UtcNow.AddYears(-100), cancellationToken).ConfigureAwait(false);
@@ -663,6 +686,9 @@ namespace NeonSuit.RSSReader.Services
         /// <param name="cancellationToken">Cancellation token.</param>
         private async Task LoadPersistentStateAsync(CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+
             try
             {
                 var states = await _syncRepository.GetAllAsync(cancellationToken).ConfigureAwait(false);
@@ -680,6 +706,18 @@ namespace NeonSuit.RSSReader.Services
                     await _syncRepository.InsertAsync(_syncState, cancellationToken).ConfigureAwait(false);
                 }
 
+                var storedStatistics = await _syncRepository.GetStatisticsAsync(cancellationToken).ConfigureAwait(false);
+                _statistics.Id = storedStatistics.Id;
+                _statistics.TotalSyncCycles = storedStatistics.TotalSyncCycles;
+                _statistics.SuccessfulSyncs = storedStatistics.SuccessfulSyncs;
+                _statistics.FailedSyncs = storedStatistics.FailedSyncs;
+                _statistics.AverageSyncDurationSeconds = storedStatistics.AverageSyncDurationSeconds;
+                _statistics.TotalSyncTimeSeconds = storedStatistics.TotalSyncTimeSeconds;
+                _statistics.ArticlesProcessed = storedStatistics.ArticlesProcessed;
+                _statistics.FeedsUpdated = storedStatistics.FeedsUpdated;
+                _statistics.TagsApplied = storedStatistics.TagsApplied;
+                _statistics.LastUpdated = storedStatistics.LastUpdated;
+
                 _isPaused = _syncState.IsPaused;
                 _maxSyncDurationMinutes = _syncState.MaxSyncDurationMinutes;
                 _lastSyncCompleted = _syncState.LastSyncCompleted;
@@ -688,8 +726,8 @@ namespace NeonSuit.RSSReader.Services
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Failed to load persistent state, using defaults");
-                _syncState = new SyncState { LastUpdated = DateTime.UtcNow };
+                _logger.Error(ex, "Failed to load persistent synchronization state");
+                throw;
             }
         }
 
@@ -699,6 +737,9 @@ namespace NeonSuit.RSSReader.Services
         /// <param name="cancellationToken">Cancellation token.</param>
         private async Task SavePersistentStateAsync(CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+
             if (_syncState == null) return;
 
             try
@@ -724,6 +765,9 @@ namespace NeonSuit.RSSReader.Services
         /// <param name="cancellationToken">Cancellation token.</param>
         private async Task InitializeTasksFromRepositoryAsync(CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+
             var configs = await _syncRepository.GetAllTaskConfigsAsync(cancellationToken).ConfigureAwait(false);
 
             // Default tasks if none exist
@@ -791,6 +835,9 @@ namespace NeonSuit.RSSReader.Services
         /// <param name="cancellationToken">Cancellation token.</param>
         private async Task CreateDefaultTaskConfigsAsync(CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+
             var defaults = new[]
             {
                 new SyncTaskConfig { TaskType = SyncTaskType.FeedUpdate.ToString(), Name = "Feed Update", Enabled = true, IntervalMinutes = 60, Priority = SyncPriority.High.ToString(), MaxRetries = 3, RetryDelayMinutes = 5 },
@@ -805,6 +852,7 @@ namespace NeonSuit.RSSReader.Services
 
             foreach (var config in defaults)
             {
+                config.NextScheduled = DateTime.UtcNow.AddMinutes(config.IntervalMinutes);
                 await _syncRepository.SaveTaskConfigAsync(config, cancellationToken).ConfigureAwait(false);
             }
 
@@ -821,6 +869,9 @@ namespace NeonSuit.RSSReader.Services
         /// <param name="cancellationToken">Cancellation token.</param>
         private async Task LoadConfigurationAsync(CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _settingsService = scope.ServiceProvider.GetRequiredService<ISettingsService>();
+
             try
             {
                 _maxSyncDurationMinutes = await _settingsService.GetIntAsync("sync_max_duration_minutes", 30, cancellationToken).ConfigureAwait(false);
@@ -860,6 +911,8 @@ namespace NeonSuit.RSSReader.Services
             {
                 try
                 {
+                    await using var scope = _scopeFactory.CreateAsyncScope();
+                    var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
                     if (_isPaused)
                     {
                         await Task.Delay(5000, cancellationToken).ConfigureAwait(false);
@@ -1033,6 +1086,9 @@ namespace NeonSuit.RSSReader.Services
         /// <param name="cancellationToken">Cancellation token.</param>
         private async Task ExecuteSyncTaskAsync(SyncTaskRequest request, CancellationToken cancellationToken)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+
             if (!_syncTasks.TryGetValue(request.TaskType, out var taskInfo))
             {
                 _logger.Error("Unknown task type: {TaskType}", request.TaskType);
@@ -1140,12 +1196,12 @@ namespace NeonSuit.RSSReader.Services
                     executionInfo.NextScheduledRun = taskInfo.NextScheduled;
 
                     // Update config in repository
-                    var config = await _syncRepository.GetTaskConfigAsync(request.TaskType.ToString(), cancellationToken).ConfigureAwait(false);
+                    var config = await _syncRepository.GetTaskConfigAsync(request.TaskType.ToString(), CancellationToken.None).ConfigureAwait(false);
                     if (config != null)
                     {
                         config.LastScheduled = taskInfo.LastScheduled;
                         config.NextScheduled = taskInfo.NextScheduled;
-                        await _syncRepository.SaveTaskConfigAsync(config, cancellationToken).ConfigureAwait(false);
+                        await _syncRepository.SaveTaskConfigAsync(config, CancellationToken.None).ConfigureAwait(false);
                     }
                 }
 
@@ -1157,7 +1213,7 @@ namespace NeonSuit.RSSReader.Services
                     {
                         _syncState.LastSyncCompleted = _lastSyncCompleted;
                         _syncState.LastUpdated = DateTime.UtcNow;
-                        await _syncRepository.UpdateAsync(_syncState, cancellationToken).ConfigureAwait(false);
+                        await _syncRepository.UpdateAsync(_syncState, CancellationToken.None).ConfigureAwait(false);
                     }
                 }
 
@@ -1168,7 +1224,7 @@ namespace NeonSuit.RSSReader.Services
                 executionRecord.DurationSeconds = (executionRecord.EndTime.Value - executionRecord.StartTime).TotalSeconds;
                 executionRecord.ResultsJson = results.Any() ? JsonSerializer.Serialize(results) : null;
 
-                await _syncRepository.RecordTaskExecutionAsync(executionRecord, cancellationToken).ConfigureAwait(false);
+                await _syncRepository.RecordTaskExecutionAsync(executionRecord, CancellationToken.None).ConfigureAwait(false);
 
                 // Raise completion event
                 _onTaskCompleted?.Invoke(this, new SyncTaskExecutionInfoDto
@@ -1193,107 +1249,17 @@ namespace NeonSuit.RSSReader.Services
         /// <returns>Task results.</returns>
         private async Task<Dictionary<string, object>> ExecuteTaskInternalAsync(SyncTaskRequest request, CancellationToken cancellationToken)
         {
-            var results = new Dictionary<string, object>();
-
-            _logger.Debug("Executing internal logic for task: {TaskType} (ID: {RequestId})",
-                request.TaskType, request.RequestId);
-
-            // Simulate work with progress reporting
-            int totalSteps = request.TaskType switch
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var executor = scope.ServiceProvider.GetRequiredService<SyncTaskExecutor>();
+            _onSyncProgress?.Invoke(this, new SyncProgressDto
             {
-                SyncTaskType.FeedUpdate => 15,
-                SyncTaskType.FullSync => 30,
-                SyncTaskType.TagProcessing => 12,
-                SyncTaskType.ArticleCleanup => 8,
-                SyncTaskType.RuleProcessing => 10,
-                SyncTaskType.BackupCreation => 20,
-                SyncTaskType.StatisticsUpdate => 5,
-                SyncTaskType.CacheMaintenance => 6,
-                _ => 10
-            };
-
-            for (int i = 0; i < totalSteps; i++)
+                TaskType = request.TaskType.ToString(), Operation = "Starting", Current = 0, Total = 1, Percentage = 0
+            });
+            var results = await executor.ExecuteAsync(request.TaskType, request.Parameters, cancellationToken).ConfigureAwait(false);
+            _onSyncProgress?.Invoke(this, new SyncProgressDto
             {
-                cancellationToken.ThrowIfCancellationRequested();
-
-                // Throttle progress events to prevent UI flooding
-                if (i % 3 == 0 || i == totalSteps - 1)
-                {
-                    _onSyncProgress?.Invoke(this, new SyncProgressDto
-                    {
-                        TaskType = request.TaskType.ToString(),
-                        Operation = $"Processing step {i + 1}",
-                        Current = i + 1,
-                        Total = totalSteps,
-                        Percentage = (i + 1) * 100.0 / totalSteps
-                    });
-                }
-
-                // Simulate actual work
-                await Task.Delay(50, cancellationToken).ConfigureAwait(false);
-            }
-
-            results["success"] = true;
-            results["timestamp"] = DateTime.UtcNow;
-            results["request_id"] = request.RequestId;
-
-            // Add task-specific results
-            switch (request.TaskType)
-            {
-                case SyncTaskType.FeedUpdate:
-                    if (request.Parameters?.TryGetValue("feedId", out var feedId) == true)
-                    {
-                        results["feeds_updated"] = 1;
-                        results["feed_id"] = feedId;
-                    }
-                    else
-                    {
-                        results["feeds_updated"] = new Random().Next(3, 8);
-                    }
-                    results["articles_fetched"] = new Random().Next(5, 25);
-                    break;
-
-                case SyncTaskType.TagProcessing:
-                    results["tags_applied"] = new Random().Next(3, 10);
-                    results["articles_processed"] = new Random().Next(10, 50);
-                    break;
-
-                case SyncTaskType.ArticleCleanup:
-                    results["articles_cleaned"] = new Random().Next(5, 20);
-                    results["space_freed_mb"] = Math.Round(new Random().NextDouble() * 5, 2);
-                    break;
-
-                case SyncTaskType.BackupCreation:
-                    results["backup_size_mb"] = new Random().Next(10, 100);
-                    results["backup_path"] = $"backups/backup_{DateTime.UtcNow:yyyyMMdd_HHmmss}.db";
-                    results["duration_seconds"] = new Random().Next(5, 30);
-                    break;
-
-                case SyncTaskType.StatisticsUpdate:
-                    results["feeds_count"] = new Random().Next(5, 30);
-                    results["articles_count"] = new Random().Next(500, 5000);
-                    results["tags_count"] = new Random().Next(10, 50);
-                    break;
-
-                case SyncTaskType.RuleProcessing:
-                    results["rules_evaluated"] = new Random().Next(5, 15);
-                    results["articles_matched"] = new Random().Next(2, 8);
-                    break;
-
-                case SyncTaskType.CacheMaintenance:
-                    results["cache_entries_cleared"] = new Random().Next(10, 50);
-                    results["cache_size_freed_mb"] = Math.Round(new Random().NextDouble() * 10, 2);
-                    break;
-
-                case SyncTaskType.FullSync:
-                    results["feeds_updated"] = new Random().Next(3, 8);
-                    results["articles_fetched"] = new Random().Next(10, 40);
-                    results["tags_applied"] = new Random().Next(2, 8);
-                    results["articles_cleaned"] = new Random().Next(3, 15);
-                    results["backup_created"] = true;
-                    break;
-            }
-
+                TaskType = request.TaskType.ToString(), Operation = "Completed", Current = 1, Total = 1, Percentage = 100
+            });
             return results;
         }
 
@@ -1306,6 +1272,9 @@ namespace NeonSuit.RSSReader.Services
         /// <param name="cancellationToken">Cancellation token.</param>
         private async Task UpdateStatisticsAsync(SyncTaskType taskType, Dictionary<string, object> results, TimeSpan duration, CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+
             _statistics.TotalSyncCycles++;
 
             if (results.TryGetValue("success", out var successObj) && successObj is bool success && success)
@@ -1335,6 +1304,7 @@ namespace NeonSuit.RSSReader.Services
                         _statistics.ArticlesProcessed += articlesFetched;
                     break;
 
+                case SyncTaskType.RuleProcessing:
                 case SyncTaskType.TagProcessing:
                     if (results.TryGetValue("tags_applied", out var tagsObj) && tagsObj is int tagsApplied)
                         _statistics.TagsApplied += tagsApplied;
@@ -1370,6 +1340,9 @@ namespace NeonSuit.RSSReader.Services
         /// <param name="cancellationToken">Cancellation token.</param>
         private async Task RecordErrorAsync(SyncTaskType taskType, Exception exception, bool isFatal, CancellationToken cancellationToken = default)
         {
+            await using var scope = _scopeFactory.CreateAsyncScope();
+            var _syncRepository = scope.ServiceProvider.GetRequiredService<ISyncRepository>();
+
             var error = new SyncError
             {
                 ErrorTime = DateTime.UtcNow,

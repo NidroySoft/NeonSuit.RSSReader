@@ -318,8 +318,22 @@ namespace NeonSuit.RSSReader.Data.Repositories
 
                 if (entry.State == EntityState.Detached)
                 {
-                    _dbSet.Attach(entity);
-                    entry.State = EntityState.Modified;
+                    var key = entry.Metadata.FindPrimaryKey()
+                        ?? throw new InvalidOperationException("Entity has no primary key.");
+                    var tracked = _dbSet.Local.FirstOrDefault(candidate => key.Properties.All(property =>
+                        Equals(_context.Entry(candidate).Property(property.Name).CurrentValue,
+                               entry.Property(property.Name).CurrentValue)));
+                    if (tracked != null)
+                    {
+                        var trackedEntry = _context.Entry(tracked);
+                        trackedEntry.CurrentValues.SetValues(entity);
+                        trackedEntry.State = EntityState.Modified;
+                    }
+                    else
+                    {
+                        _dbSet.Attach(entity);
+                        entry.State = EntityState.Modified;
+                    }
                 }
                 else
                 {
@@ -359,7 +373,12 @@ namespace NeonSuit.RSSReader.Data.Repositories
 
                 if (entry.State == EntityState.Detached)
                 {
-                    _dbSet.Attach(entity);
+                    var key = entry.Metadata.FindPrimaryKey()!;
+                    var tracked = _dbSet.Local.FirstOrDefault(candidate => key.Properties.All(property =>
+                        Equals(_context.Entry(candidate).Property(property.Name).CurrentValue,
+                               entry.Property(property.Name).CurrentValue)));
+                    if (tracked != null) entity = tracked;
+                    else _dbSet.Attach(entity);
                 }
 
                 _dbSet.Remove(entity);

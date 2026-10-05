@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.Sqlite;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using NeonSuit.RSSReader.Data.Database;
@@ -24,21 +24,21 @@ namespace NeonSuit.RSSReader.Tests.Unit.DbContextFactory
         /// <summary>
         /// Crea un nuevo DbContext con su propia base de datos en memoria.
         /// </summary>
-        public RssReaderDbContext CreateContext()
+        internal RSSReaderDbContext CreateContext()
         {
             // Cada contexto tiene SU propia conexion
             var connection = new SqliteConnection("DataSource=:memory:");
             connection.Open();
             _connections.Add(connection);
 
-            var options = new DbContextOptionsBuilder<RssReaderDbContext>()
+            var options = new DbContextOptionsBuilder<RSSReaderDbContext>()
                 .UseSqlite(connection)
                 .EnableSensitiveDataLogging()
                 .EnableDetailedErrors()
                 .ConfigureWarnings(w => w.Ignore(RelationalEventId.AmbientTransactionWarning))
                 .Options;
 
-            var context = new RssReaderDbContext(options, _logger);
+            var context = new RSSReaderDbContext(options, _logger);
 
             // Dejar que EF Core cree el esquema (mantiene consistencia con migraciones)
             context.Database.EnsureCreated();
@@ -50,7 +50,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.DbContextFactory
         /// <summary>
         /// Crea contexto y ejecuta seed opcional.
         /// </summary>
-        public RssReaderDbContext CreateContextWithSeed(Action<RssReaderDbContext> seedAction)
+        internal RSSReaderDbContext CreateContextWithSeed(Action<RSSReaderDbContext> seedAction)
         {
             var context = CreateContext();
             seedAction(context);

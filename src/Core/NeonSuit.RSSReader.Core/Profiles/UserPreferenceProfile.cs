@@ -1,4 +1,4 @@
-﻿// =======================================================
+// =======================================================
 // Core/Profiles/UserPreferenceProfile.cs
 // =======================================================
 
@@ -64,6 +64,9 @@ namespace NeonSuit.RSSReader.Core.Profiles
 
             // Note: This mapping is typically used when updating an existing entity
             CreateMap<UpdatePreferenceDto, UserPreferences>()
+                .ForMember(dest => dest.BoolValue, opt => opt.Ignore())
+                .ForMember(dest => dest.IntValue, opt => opt.Ignore())
+                .ForMember(dest => dest.DoubleValue, opt => opt.Ignore())
                 .ForMember(dest => dest.Id,
                     opt => opt.Ignore())
                 .ForMember(dest => dest.LastModified,
@@ -74,6 +77,9 @@ namespace NeonSuit.RSSReader.Core.Profiles
             #region Create from Key-Value pair (for imports)
 
             CreateMap<KeyValuePair<string, string>, UserPreferences>()
+                .ForMember(dest => dest.BoolValue, opt => opt.Ignore())
+                .ForMember(dest => dest.IntValue, opt => opt.Ignore())
+                .ForMember(dest => dest.DoubleValue, opt => opt.Ignore())
                 .ForMember(dest => dest.Id,
                     opt => opt.Ignore())
                 .ForMember(dest => dest.Key,

@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
 using NeonSuit.RSSReader.Core.Models;
 using NeonSuit.RSSReader.Data.Database;
@@ -153,6 +153,7 @@ internal class RuleConditionRepository : BaseRepository<RuleCondition>, IRuleCon
     public override async Task<int> InsertAsync(RuleCondition condition, CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(condition);
+        if (!condition.IsValid) throw new ArgumentException("Invalid rule condition.", nameof(condition));
 
         try
         {
@@ -181,6 +182,7 @@ internal class RuleConditionRepository : BaseRepository<RuleCondition>, IRuleCon
     public override async Task<int> UpdateAsync(RuleCondition condition, CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(condition);
+        if (!condition.IsValid) throw new ArgumentException("Invalid rule condition.", nameof(condition));
 
         try
         {

@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using NeonSuit.RSSReader.Core.DTOs.Notifications;
 using NeonSuit.RSSReader.Core.Enums;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
@@ -18,6 +18,7 @@ namespace NeonSuit.RSSReader.Services
         private readonly IArticleRepository _articleRepository;
         private readonly IRuleRepository _ruleRepository;
         private readonly IMapper _mapper;
+        private readonly BackendEvents _events;
         private readonly ILogger _logger;
 
         #region Constructor
@@ -28,6 +29,7 @@ namespace NeonSuit.RSSReader.Services
         /// <param name="notificationLogRepository">Repository for notification log data access.</param>
         /// <param name="articleRepository">Repository for article data access.</param>
         /// <param name="ruleRepository">Repository for rule data access.</param>
+        /// <param name="events">Application-wide notification events.</param>
         /// <param name="mapper">AutoMapper instance for entity-DTO transformations.</param>
         /// <param name="logger">Serilog logger instance for structured logging.</param>
         /// <exception cref="ArgumentNullException">Thrown if any parameter is null.</exception>
@@ -36,6 +38,7 @@ namespace NeonSuit.RSSReader.Services
             IArticleRepository articleRepository,
             IRuleRepository ruleRepository,
             IMapper mapper,
+            BackendEvents events,
             ILogger logger)
         {
             ArgumentNullException.ThrowIfNull(notificationLogRepository);
@@ -48,6 +51,7 @@ namespace NeonSuit.RSSReader.Services
             _articleRepository = articleRepository;
             _ruleRepository = ruleRepository;
             _mapper = mapper;
+            _events = events ?? throw new ArgumentNullException(nameof(events));
             _logger = logger.ForContext<NotificationService>();
 
 #if DEBUG
@@ -133,6 +137,7 @@ namespace NeonSuit.RSSReader.Services
                 // Raise event for UI to display notification
                 try
                 {
+                    _events.PublishNotification(notificationDto);
                     OnNotificationCreated?.Invoke(this, notificationDto);
                 }
                 catch (Exception ex)
