@@ -19,6 +19,14 @@ namespace NeonSuit.RSSReader.Core.Models.Cleanup
         /// Gets or sets a value indicating whether the database passed integrity verification.
         /// </summary>
         public bool IsValid { get; set; }
+        /// <summary>Number of inspected tables.</summary>
+        public int TablesChecked { get; set; }
+        /// <summary>Number of inspected indexes.</summary>
+        public int IndexesChecked { get; set; }
+        /// <summary>Number of checked foreign key declarations.</summary>
+        public int ForeignKeysChecked { get; set; }
+        /// <summary>Rows reported by SQLite foreign_key_check.</summary>
+        public int OrphanedRecordsFound { get; set; }
 
         /// <summary>
         /// Gets or sets the error messages from integrity check.

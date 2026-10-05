@@ -1,4 +1,4 @@
-﻿// =======================================================
+// =======================================================
 // Core/Profiles/RuleConditionProfile.cs
 // =======================================================
 
@@ -43,6 +43,7 @@ namespace NeonSuit.RSSReader.Core.Profiles
             #region RuleCondition Grouping (for advanced UI)
 
             CreateMap<IGrouping<int, RuleCondition>, RuleConditionGroupDto>()
+                .ForMember(dest => dest.GroupOperator, opt => opt.MapFrom(_ => LogicalOperator.AND))
                 .ForMember(dest => dest.GroupId,
                     opt => opt.MapFrom(src => src.Key))
                 .ForMember(dest => dest.Conditions,

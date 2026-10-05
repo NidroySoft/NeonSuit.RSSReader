@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using NeonSuit.RSSReader.Core.Enums;
@@ -16,7 +16,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
     [Collection("Database_Feed")]
     public class FeedRepositoryTests : IDisposable
     {
-        private readonly RssReaderDbContext _dbContext;
+        private readonly RSSReaderDbContext _dbContext;
         private readonly FeedRepository _repository;
         private readonly Mock<ILogger> _mockLogger;
         private bool _disposed;
@@ -395,13 +395,9 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
         }
 
         [Fact]
-        public async Task GetByUrlAsync_WithNullUrl_ShouldReturnNull()
+        public async Task GetByUrlAsync_WithNullUrl_ShouldRejectNull()
         {
-            // Act
-            var result = await _repository.GetByUrlAsync(null!);
-
-            // Assert
-            result.Should().BeNull();
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _repository.GetByUrlAsync(null!));
         }
 
         #endregion
@@ -476,6 +472,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
             foreach (var feed in recentFeeds)
             {
                 feed.LastUpdated = DateTime.UtcNow;
+                feed.NextUpdateSchedule = DateTime.UtcNow.AddHours(1);
                 feed.UpdateFrequency = FeedUpdateFrequency.EveryHour;
             }
             await _dbContext.SaveChangesAsync();
@@ -904,45 +901,21 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
         }
 
         [Fact]
-        public async Task SearchAsync_WithEmptySearchText_ShouldReturnEmptyList()
+        public async Task SearchAsync_WithEmptySearchText_ShouldRejectInvalidInput()
         {
-            // Arrange
-            await SeedTestFeedsAsync(5);
-            ClearEntityTracking();
-
-            // Act
-            var result = await _repository.SearchAsync("");
-
-            // Assert
-            result.Should().NotBeNull().And.BeEmpty();
+            await Assert.ThrowsAsync<ArgumentException>(() => _repository.SearchAsync(""));
         }
 
         [Fact]
-        public async Task SearchAsync_WithWhitespace_ShouldReturnEmptyList()
+        public async Task SearchAsync_WithWhitespace_ShouldRejectInvalidInput()
         {
-            // Arrange
-            await SeedTestFeedsAsync(5);
-            ClearEntityTracking();
-
-            // Act
-            var result = await _repository.SearchAsync("   ");
-
-            // Assert
-            result.Should().NotBeNull().And.BeEmpty();
+            await Assert.ThrowsAsync<ArgumentException>(() => _repository.SearchAsync("   "));
         }
 
         [Fact]
-        public async Task SearchAsync_WithNull_ShouldReturnEmptyList()
+        public async Task SearchAsync_WithNull_ShouldRejectInvalidInput()
         {
-            // Arrange
-            await SeedTestFeedsAsync(5);
-            ClearEntityTracking();
-
-            // Act
-            var result = await _repository.SearchAsync(null!);
-
-            // Assert
-            result.Should().NotBeNull().And.BeEmpty();
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _repository.SearchAsync(null!));
         }
 
         #endregion
@@ -985,7 +958,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
             // Create feeds without categories
             for (int i = 1; i <= 5; i++)
             {
-                _dbContext.Feeds.Add(CreateTestFeed(id: i, categoryId: null));
+                _dbContext.Feeds.Add(CreateTestFeed(id: i, categoryId: null, url: $"https://example.com/uncategorized/{i}"));
             }
             await _dbContext.SaveChangesAsync();
             ClearEntityTracking();

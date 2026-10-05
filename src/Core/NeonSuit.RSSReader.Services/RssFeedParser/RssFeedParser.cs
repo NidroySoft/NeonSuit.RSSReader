@@ -18,7 +18,7 @@ namespace NeonSuit.RSSReader.Services.RssFeedParser;
 /// Implementation of <see cref="IRssFeedParser"/> using CodeHollow.FeedReader for RSS/Atom parsing.
 /// Handles downloading, decompression, cleaning, sanitization, and structured extraction of feed metadata and articles.
 /// </summary>
-internal class RssFeedParser : IRssFeedParser
+internal class RssFeedParser : IRssFeedParser, IDisposable
 {
     private readonly HttpClient _httpClient;
     private readonly ILogger _logger;
@@ -78,6 +78,9 @@ internal class RssFeedParser : IRssFeedParser
     }
 
     #endregion
+
+    /// <summary>Releases the HTTP client owned by this parser.</summary>
+    public void Dispose() => _httpClient.Dispose();
 
     #region Public Methods
 

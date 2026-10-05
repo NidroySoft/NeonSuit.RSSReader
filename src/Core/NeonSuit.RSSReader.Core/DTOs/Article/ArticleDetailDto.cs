@@ -1,4 +1,4 @@
-﻿// =======================================================
+// =======================================================
 // File: Core/DTOs/Articles/ArticleDetailDto.cs
 // =======================================================
 
@@ -26,6 +26,9 @@ namespace NeonSuit.RSSReader.Core.DTOs.Article
         /// Unique identifier of the article.
         /// </summary>
         public int Id { get; set; }
+
+        /// <summary>Optional highlight color applied by a rule.</summary>
+        public string? HighlightColor { get; set; }
 
         /// <summary>
         /// Feed-provided globally unique identifier.

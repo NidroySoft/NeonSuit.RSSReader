@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NeonSuit.RSSReader.Core.Enums;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
 using NeonSuit.RSSReader.Core.Models;
@@ -417,7 +417,7 @@ internal class ArticleRepository : BaseRepository<Article>, IArticleRepository
     {
         try
         {
-            var article = await _dbSet.FindAsync(new object[] { articleId }, cancellationToken).ConfigureAwait(false);
+            var article = await _dbSet.AsTracking().FirstOrDefaultAsync(a => a.Id == articleId, cancellationToken).ConfigureAwait(false);
             if (article == null)
             {
                 _logger.Warning("Article {ArticleId} not found for status update", articleId);
@@ -444,7 +444,7 @@ internal class ArticleRepository : BaseRepository<Article>, IArticleRepository
     {
         try
         {
-            var article = await _dbSet.FindAsync(new object[] { articleId }, cancellationToken).ConfigureAwait(false);
+            var article = await _dbSet.AsTracking().FirstOrDefaultAsync(a => a.Id == articleId, cancellationToken).ConfigureAwait(false);
             if (article == null)
             {
                 _logger.Warning("Article {ArticleId} not found for star toggle", articleId);
@@ -471,7 +471,7 @@ internal class ArticleRepository : BaseRepository<Article>, IArticleRepository
     {
         try
         {
-            var article = await _dbSet.FindAsync(new object[] { articleId }, cancellationToken).ConfigureAwait(false);
+            var article = await _dbSet.AsTracking().FirstOrDefaultAsync(a => a.Id == articleId, cancellationToken).ConfigureAwait(false);
             if (article == null)
             {
                 _logger.Warning("Article {ArticleId} not found for favorite toggle", articleId);
@@ -748,7 +748,7 @@ internal class ArticleRepository : BaseRepository<Article>, IArticleRepository
     {
         try
         {
-            var article = await _dbSet.FindAsync(new object[] { articleId }, cancellationToken).ConfigureAwait(false);
+            var article = await _dbSet.AsTracking().FirstOrDefaultAsync(a => a.Id == articleId, cancellationToken).ConfigureAwait(false);
             if (article == null)
             {
                 _logger.Warning("Article {ArticleId} not found for processing mark", articleId);
@@ -775,7 +775,7 @@ internal class ArticleRepository : BaseRepository<Article>, IArticleRepository
     {
         try
         {
-            var article = await _dbSet.FindAsync(new object[] { articleId }, cancellationToken).ConfigureAwait(false);
+            var article = await _dbSet.AsTracking().FirstOrDefaultAsync(a => a.Id == articleId, cancellationToken).ConfigureAwait(false);
             if (article == null)
             {
                 _logger.Warning("Article {ArticleId} not found for notification mark", articleId);

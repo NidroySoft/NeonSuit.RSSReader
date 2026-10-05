@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<IsPackable>false</IsPackable>
@@ -11,7 +11,7 @@
 	<ItemGroup>
 		<PackageReference Include="coverlet.collector" Version="6.0.2" />
 		<PackageReference Include="FluentAssertions" Version="8.8.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.24" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.12" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
 		<PackageReference Include="Serilog.Sinks.XUnit" Version="3.0.19" />
 		<PackageReference Include="xunit" Version="2.9.3" />
@@ -24,6 +24,7 @@
 	  <ProjectReference Include="..\..\..\src\Core\NeonSuit.RSSReader.Services\NeonSuit.RSSReader.Services.csproj" />
 	</ItemGroup>
 
+	<ItemGroup><ProjectReference Include="../../../src/Core/NeonSuit.RSSReader.Setup/NeonSuit.RSSReader.Setup.csproj" /></ItemGroup>
 	<ItemGroup>
 		<Using Include="Xunit" />
 	</ItemGroup>

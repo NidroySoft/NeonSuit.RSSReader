@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NeonSuit.RSSReader.Core.Enums;
 using NeonSuit.RSSReader.Core.Interfaces.Repositories;
 using NeonSuit.RSSReader.Core.Models;
@@ -425,6 +425,24 @@ namespace NeonSuit.RSSReader.Data.Repositories
                         result.Errors.Add($"Integrity check failed: {integrityResult}");
                 }
 
+                await using (var command = _dbContext.Database.GetDbConnection().CreateCommand())
+                {
+                    command.CommandText = "PRAGMA foreign_key_check";
+                    await using var reader = await command.ExecuteReaderAsync(cancellationToken).ConfigureAwait(false);
+                    var violations = 0;
+                    while (await reader.ReadAsync(cancellationToken).ConfigureAwait(false)) violations++;
+                    result.OrphanedRecordsFound = violations;
+                    if (violations > 0) result.Warnings.Add($"Database contains {violations} foreign key violations.");
+                }
+                await using (var countCommand = _dbContext.Database.GetDbConnection().CreateCommand())
+                {
+                    countCommand.CommandText = "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'";
+                    result.TablesChecked = Convert.ToInt32(await countCommand.ExecuteScalarAsync(cancellationToken));
+                    countCommand.CommandText = "SELECT COUNT(*) FROM sqlite_master WHERE type='index'";
+                    result.IndexesChecked = Convert.ToInt32(await countCommand.ExecuteScalarAsync(cancellationToken));
+                    countCommand.CommandText = "SELECT COUNT(*) FROM sqlite_master, pragma_foreign_key_list(sqlite_master.name) WHERE sqlite_master.type='table'";
+                    result.ForeignKeysChecked = Convert.ToInt32(await countCommand.ExecuteScalarAsync(cancellationToken));
+                }
                 result.CheckDuration = DateTime.UtcNow - startTime;
                 return result;
             }
@@ -524,6 +542,8 @@ namespace NeonSuit.RSSReader.Data.Repositories
                     .AsNoTracking()
                     .CountAsync(cancellationToken)
                     .ConfigureAwait(false);
+
+                stats.TotalCategories = await _dbContext.Categories.CountAsync(cancellationToken).ConfigureAwait(false);
 
                 // Database size
                 stats.DatabaseSizeBytes = await GetDatabaseSizeAsync(cancellationToken).ConfigureAwait(false);

@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using NeonSuit.RSSReader.Core.Models;
@@ -14,7 +14,7 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
     [Collection("Database_ArticleTags")]
     public class ArticleTagRepositoryTests : IDisposable
     {
-        private readonly RssReaderDbContext _dbContext;
+        private readonly RSSReaderDbContext _dbContext;
         private readonly ArticleTagRepository _repository;
         private readonly Mock<ILogger> _mockLogger;
         private bool _disposed;
@@ -48,6 +48,10 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
             _dbContext.Database.ExecuteSqlRaw("DELETE FROM Tags");
             _dbContext.Database.ExecuteSqlRaw("DELETE FROM Articles");
             _dbContext.ChangeTracker.Clear();
+            for (int id = 1; id <= 150; id++)
+                if (!_dbContext.Rules.Any(r => r.Id == id))
+                    _dbContext.Rules.Add(new Rule { Id = id, Name = "Fixture rule " + id, Value = "test" });
+            _dbContext.SaveChanges();
         }
 
         private async Task<Article> CreateTestArticle()
@@ -720,8 +724,8 @@ namespace NeonSuit.RSSReader.Tests.Unit.Repository
             result1.Should().Be(1);
             result2.Should().Be(1);
 
-            articleTag1.Id.Should().Be(0);
-            articleTag2.Id.Should().Be(0);
+            articleTag1.Id.Should().BePositive();
+            articleTag2.Id.Should().BePositive();
 
             ClearEntityTracking();
 

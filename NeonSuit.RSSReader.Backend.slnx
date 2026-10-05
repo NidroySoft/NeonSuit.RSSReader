@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/Backend/">
+    <Project Path="src/Core/NeonSuit.RSSReader.Core/NeonSuit.RSSReader.Core.csproj" />
+    <Project Path="src/Core/NeonSuit.RSSReader.Data/NeonSuit.RSSReader.Data.csproj" />
+    <Project Path="src/Core/NeonSuit.RSSReader.Services/NeonSuit.RSSReader.Services.csproj" />
+    <Project Path="src/Core/NeonSuit.RSSReader.Setup/NeonSuit.RSSReader.Setup.csproj" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="tests/Core/NeonSuit.RSSReader.Tests.Unit/NeonSuit.RSSReader.Tests.Unit.csproj" />
+    <Project Path="tests/Core/NeonSuit.RSSReader.Tests.Integration/NeonSuit.RSSReader.Tests.Integration.csproj" />
+  </Folder>
+</Solution>

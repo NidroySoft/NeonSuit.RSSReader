@@ -78,17 +78,14 @@ namespace NeonSuit.RSSReader.Services
 
                 var categoryDtos = _mapper.Map<List<CategoryDto>>(categories);
 
+                var categoryIndex = categories.ToDictionary(c => c.Id);
                 // Populate statistics
                 foreach (var dto in categoryDtos)
                 {
                     dto.FeedCount = feedCounts.GetValueOrDefault(dto.Id, 0);
                     dto.UnreadCount = unreadCounts.GetValueOrDefault(dto.Id, 0);
 
-                    // TODO (Medium - v1.x): Calculate FullPath and Depth efficiently
-                    // What to do: Implement recursive path building or store precomputed path in database
-                    // Why: Current implementation leaves these properties empty
-                    // Risk level: Medium - affects UI display of hierarchical information
-                    // Estimated effort: 4 hours
+                    PopulateHierarchy(dto, categoryIndex);
                 }
 
                 _logger.Information("Retrieved {Count} categories with statistics", categoryDtos.Count);
@@ -132,6 +129,8 @@ namespace NeonSuit.RSSReader.Services
                 var categoryDto = _mapper.Map<CategoryDto>(category);
                 categoryDto.FeedCount = feedCounts.GetValueOrDefault(categoryId, 0);
                 categoryDto.UnreadCount = unreadCounts.GetValueOrDefault(categoryId, 0);
+
+                PopulateHierarchy(categoryDto, (await _categoryRepository.GetAllOrderedAsync(cancellationToken).ConfigureAwait(false)).ToDictionary(c => c.Id));
 
                 _logger.Debug("Retrieved category: {CategoryName} (ID: {CategoryId})", category.Name, categoryId);
                 return categoryDto;
@@ -309,11 +308,7 @@ namespace NeonSuit.RSSReader.Services
                         throw new InvalidOperationException($"Parent category with ID {createDto.ParentCategoryId.Value} does not exist");
                     }
 
-                    // TODO (High - v1.x): Add validation for circular references
-                    // What to do: Prevent creating cycles in category hierarchy
-                    // Why: Current implementation might allow invalid parent-child relationships
-                    // Risk level: High - affects core category creation logic
-                    // Estimated effort: 4 hours
+
                 }
 
                 // Check for duplicate name - usando ExistsByNameAsync que SÍ existe
@@ -346,6 +341,7 @@ namespace NeonSuit.RSSReader.Services
 
                 categoryDto.FeedCount = feedCounts.GetValueOrDefault(category.Id, 0);
                 categoryDto.UnreadCount = unreadCounts.GetValueOrDefault(category.Id, 0);
+                PopulateHierarchy(categoryDto, (await _categoryRepository.GetAllOrderedAsync(cancellationToken).ConfigureAwait(false)).ToDictionary(c => c.Id));
 
                 _logger.Information("Successfully created category: {CategoryName} (ID: {CategoryId})",
                     category.Name, category.Id);
@@ -432,11 +428,16 @@ namespace NeonSuit.RSSReader.Services
                         throw new InvalidOperationException($"Parent category with ID {updateDto.ParentCategoryId.Value} does not exist");
                     }
 
-                    // TODO (High - v1.x): Add validation for circular references in parent-child relationship
-                    // What to do: Prevent assigning a parent that would create a cycle
-                    // Why: Maintain hierarchical integrity
-                    // Risk level: High - affects core category update logic
-                    // Estimated effort: 4 hours
+                    var visited = new HashSet<int> { categoryId };
+                    var ancestor = parentCategory;
+                    while (ancestor != null)
+                    {
+                        if (!visited.Add(ancestor.Id))
+                            throw new InvalidOperationException("The parent assignment would create a category cycle.");
+                        ancestor = ancestor.ParentCategoryId.HasValue
+                            ? await _categoryRepository.GetByIdAsync(ancestor.ParentCategoryId.Value, cancellationToken).ConfigureAwait(false)
+                            : null;
+                    }
 
                     category.ParentCategoryId = updateDto.ParentCategoryId;
                 }
@@ -753,6 +754,22 @@ namespace NeonSuit.RSSReader.Services
         /// <summary>
         /// Builds a hierarchical category tree recursively.
         /// </summary>
+        private static void PopulateHierarchy(CategoryDto dto, IReadOnlyDictionary<int, Category> categories)
+        {
+            var names = new List<string> { dto.Name };
+            var seen = new HashSet<int> { dto.Id };
+            var parentId = dto.ParentCategoryId;
+            while (parentId.HasValue && categories.TryGetValue(parentId.Value, out var parent))
+            {
+                if (!seen.Add(parent.Id)) throw new InvalidOperationException("The stored category hierarchy contains a cycle.");
+                names.Add(parent.Name);
+                parentId = parent.ParentCategoryId;
+            }
+            names.Reverse();
+            dto.Depth = names.Count - 1;
+            dto.FullPath = string.Join(" / ", names);
+        }
+
         private async Task<CategoryTreeDto> BuildCategoryTreeAsync(
             Category category,
             Dictionary<int, List<Category>> childGroups,

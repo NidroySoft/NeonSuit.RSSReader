@@ -1,4 +1,4 @@
-﻿// =======================================================
+// =======================================================
 // Core/Profiles/RuleProfile.cs (CORREGIDO)
 // =======================================================
 
@@ -72,9 +72,7 @@ namespace NeonSuit.RSSReader.Core.Profiles
 
             #region RuleCondition → RuleConditionDto
 
-            CreateMap<RuleCondition, RuleConditionDto>()
-                .ForMember(dest => dest.HumanReadable,
-                    opt => opt.MapFrom(src => src.HumanReadable));
+            // RuleCondition mappings are owned by RuleConditionProfile.
 
             #endregion
 
@@ -85,6 +83,11 @@ namespace NeonSuit.RSSReader.Core.Profiles
             #region CreateRuleDto → Rule
 
             CreateMap<CreateRuleDto, Rule>()
+                .ForMember(dest => dest.ConditionGroup, opt => opt.Ignore())
+                .ForMember(dest => dest.NextConditionOperator, opt => opt.Ignore())
+                .ForMember(dest => dest.FeedIdList, opt => opt.Ignore())
+                .ForMember(dest => dest.CategoryIdList, opt => opt.Ignore())
+                .ForMember(dest => dest.TagIdList, opt => opt.Ignore())
                 .ForMember(dest => dest.Id,
                     opt => opt.Ignore())
                 .ForMember(dest => dest.FeedIds,
@@ -111,6 +114,14 @@ namespace NeonSuit.RSSReader.Core.Profiles
             #region UpdateRuleDto → Rule (partial updates)
 
             CreateMap<UpdateRuleDto, Rule>()
+                .ForMember(dest => dest.ConditionGroup, opt => opt.Ignore())
+                .ForMember(dest => dest.NextConditionOperator, opt => opt.Ignore())
+                .ForMember(dest => dest.LastMatchDate, opt => opt.Ignore())
+                .ForMember(dest => dest.NotificationLogs, opt => opt.Ignore())
+                .ForMember(dest => dest.Conditions, opt => opt.Ignore())
+                .ForMember(dest => dest.FeedIdList, opt => opt.Ignore())
+                .ForMember(dest => dest.CategoryIdList, opt => opt.Ignore())
+                .ForMember(dest => dest.TagIdList, opt => opt.Ignore())
                 .ForMember(dest => dest.Id,
                     opt => opt.Ignore())
                 .ForMember(dest => dest.CreatedAt,

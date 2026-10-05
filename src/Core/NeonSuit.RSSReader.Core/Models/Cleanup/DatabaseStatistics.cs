@@ -105,6 +105,9 @@ namespace NeonSuit.RSSReader.Core.Models.Cleanup
         /// </summary>
         public int TotalFeeds { get; set; }
 
+        /// <summary>Total stored categories.</summary>
+        public int TotalCategories { get; set; }
+
         /// <summary>
         /// Gets or sets the number of active feeds.
         /// </summary>

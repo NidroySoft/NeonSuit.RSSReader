@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using NeonSuit.RSSReader.Core.DTOs.Notifications;
 using NeonSuit.RSSReader.Core.DTOs.Rules;
 using NeonSuit.RSSReader.Core.Enums;
@@ -29,6 +29,10 @@ namespace NeonSuit.RSSReader.Services
         private readonly IFeedRepository _feedRepository;
         private readonly INotificationService _notificationService;
         private readonly IMapper _mapper;
+        private readonly IArticleTagService _articleTagService;
+        private readonly BackendEvents _events;
+
+        public event EventHandler<NeonSuit.RSSReader.Core.Models.Events.RuleActionRequestedEventArgs>? OnActionRequested;
         private readonly ILogger _logger;
         private static readonly ConcurrentDictionary<string, Regex> _regexCache = new();
         private static readonly TimeSpan _regexTimeout = TimeSpan.FromMilliseconds(100);
@@ -43,6 +47,8 @@ namespace NeonSuit.RSSReader.Services
         /// <param name="articleRepository">The article repository.</param>
         /// <param name="feedRepository">The feed repository.</param>
         /// <param name="notificationService">The notification service.</param>
+        /// <param name="events">Application-wide presentation events.</param>
+        /// <param name="articleTagService">Applies rule tags to articles.</param>
         /// <param name="mapper">AutoMapper instance for DTO transformations.</param>
         /// <param name="logger">The logger instance.</param>
         /// <exception cref="ArgumentNullException">Thrown if any parameter is null.</exception>
@@ -53,6 +59,8 @@ namespace NeonSuit.RSSReader.Services
             IFeedRepository feedRepository,
             INotificationService notificationService,
             IMapper mapper,
+            IArticleTagService articleTagService,
+            BackendEvents events,
             ILogger logger)
         {
             ArgumentNullException.ThrowIfNull(ruleRepository);
@@ -69,6 +77,8 @@ namespace NeonSuit.RSSReader.Services
             _feedRepository = feedRepository;
             _notificationService = notificationService;
             _mapper = mapper;
+            _articleTagService = articleTagService ?? throw new ArgumentNullException(nameof(articleTagService));
+            _events = events ?? throw new ArgumentNullException(nameof(events));
             _logger = logger.ForContext<RuleService>();
 
 #if DEBUG
@@ -506,8 +516,8 @@ namespace NeonSuit.RSSReader.Services
                         break;
 
                     case RuleActionType.ApplyTags:
-                        _logger.Debug("ApplyTags action not yet fully implemented for rule {RuleName}", rule.Name);
-                        // TODO: Implement tag application
+                        await _articleTagService.TagArticleWithMultipleAsync(article.Id, rule.TagIdList,
+                            "rule", rule.Id, cancellationToken).ConfigureAwait(false);
                         break;
 
                     case RuleActionType.MoveToCategory:
@@ -527,18 +537,20 @@ namespace NeonSuit.RSSReader.Services
                     case RuleActionType.HighlightArticle:
                         if (!string.IsNullOrEmpty(rule.HighlightColor))
                         {
-                            // TODO: Implement article highlighting
-                            _logger.Debug("Highlight action with color {Color} for rule {RuleName}",
-                                rule.HighlightColor, rule.Name);
+                            article.HighlightColor = rule.HighlightColor;
+                            articleModified = true;
                         }
                         break;
 
                     case RuleActionType.PlaySound:
                         if (!string.IsNullOrEmpty(rule.SoundPath))
                         {
-                            // TODO: Implement sound playing
-                            _logger.Debug("PlaySound action with sound {SoundPath} for rule {RuleName}",
-                                rule.SoundPath, rule.Name);
+                            if (OnActionRequested == null && !_events.HasActionHandler)
+                                throw new InvalidOperationException("No presentation handler is registered for PlaySound.");
+                            var request = new NeonSuit.RSSReader.Core.Models.Events.RuleActionRequestedEventArgs
+                            { RuleId = rule.Id, ArticleId = article.Id, ActionType = rule.ActionType, Value = rule.SoundPath };
+                            _events.PublishAction(request);
+                            OnActionRequested?.Invoke(this, request);
                         }
                         break;
                 }

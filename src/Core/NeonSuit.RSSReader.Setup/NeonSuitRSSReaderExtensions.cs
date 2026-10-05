@@ -1,8 +1,10 @@
-﻿// =======================================================
+// =======================================================
 // Setup/NeonSuitServiceExtensions.cs
 // =======================================================
 
 using AutoMapper;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using NeonSuit.RSSReader.Core.Interfaces.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -67,6 +69,16 @@ namespace NeonSuit.RSSReader.Setup
             ArgumentNullException.ThrowIfNull(services);
             ArgumentException.ThrowIfNullOrWhiteSpace(dbPath, nameof(dbPath));
 
+            // Accept either a file path or a SQLite connection string; quote paths safely.
+            var connection = dbPath.Contains('=')
+                ? new Microsoft.Data.Sqlite.SqliteConnectionStringBuilder(dbPath)
+                : new Microsoft.Data.Sqlite.SqliteConnectionStringBuilder { DataSource = dbPath };
+            if (connection.DataSource != ":memory:" && !string.IsNullOrWhiteSpace(connection.DataSource))
+            {
+                var directory = Path.GetDirectoryName(Path.GetFullPath(connection.DataSource));
+                if (directory != null) Directory.CreateDirectory(directory);
+            }
+
             // =========================================================================
             // AUTOMAPPER REGISTRATION
             // =========================================================================
@@ -85,7 +97,7 @@ namespace NeonSuit.RSSReader.Setup
             // Configured for SQLite with optimizations for low-resource environments
             services.AddDbContext<RSSReaderDbContext>(options =>
             {
-                options.UseSqlite($"Data Source={dbPath}", sqlite =>
+                options.UseSqlite(connection.ToString(), sqlite =>
                 {
                     // Timeout for long-running queries
                     sqlite.CommandTimeout(30);
@@ -107,10 +119,16 @@ namespace NeonSuit.RSSReader.Setup
 #endif
             });
 
+            services.AddScoped<IRSSReaderDbContext>(sp => sp.GetRequiredService<RSSReaderDbContext>());
+
             // =========================================================================
             // CONFIGURATION & SETTINGS (Singleton)
             // =========================================================================
             services.AddSingleton<LogSettings>();
+            services.AddSingleton<BackendEvents>();
+            services.AddSingleton<IBackendEvents>(sp => sp.GetRequiredService<BackendEvents>());
+            services.AddLogging();
+            services.TryAddSingleton<Serilog.ILogger>(_ => Serilog.Log.Logger);
 
             // =========================================================================
             // REPOSITORY LAYER (Scoped)
@@ -153,6 +171,7 @@ namespace NeonSuit.RSSReader.Setup
             // Background processes and rule engines
             services.AddSingleton<ISyncCoordinatorService, SyncCoordinatorService>();
             services.AddTransient<IRuleEngine, RuleEngine>();
+            services.AddScoped<SyncTaskExecutor>();
 
             // =========================================================================
             // UTILITIES & PARSERS (Transient)
@@ -194,23 +213,25 @@ namespace NeonSuit.RSSReader.Setup
             return services.AddNeonSuitBackend(dbPath, configureOptions);
         }
 
-        /// <summary>
-        /// Ensures the database is created and all migrations are applied.
-        /// Should be called once at application startup.
-        /// </summary>
-        /// <param name="serviceProvider">The application's service provider.</param>
-        /// <returns>The same service provider for chaining.</returns>
-        /// <remarks>
-        /// This method creates a new scope to resolve the DbContext and applies any pending migrations.
-        /// It's safe to call multiple times (migrations are only applied once).
-        /// </remarks>
+        /// <summary>Asynchronously initializes the SQLite schema and applies pending migrations.</summary>
+        /// <param name="serviceProvider">Backend service provider.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        public static async Task UseNeonSuitDatabaseAsync(this IServiceProvider serviceProvider, CancellationToken cancellationToken = default)
+        {
+            ArgumentNullException.ThrowIfNull(serviceProvider);
+            await using var scope = serviceProvider.CreateAsyncScope();
+            await scope.ServiceProvider.GetRequiredService<RSSReaderDbContext>().InitializeAsync(cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>Initializes the schema synchronously; prefer the async overload at application startup.</summary>
+        /// <param name="serviceProvider">Backend service provider.</param>
         public static IServiceProvider UseNeonSuitDatabase(this IServiceProvider serviceProvider)
         {
             using var scope = serviceProvider.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<RSSReaderDbContext>();
 
             // Apply any pending migrations
-            context.Database.Migrate();
+            context.InitializeAsync().GetAwaiter().GetResult();
 
             return serviceProvider;
         }

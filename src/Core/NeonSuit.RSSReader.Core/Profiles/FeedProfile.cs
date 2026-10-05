@@ -1,4 +1,4 @@
-﻿// =======================================================
+// =======================================================
 // Core/Profiles/FeedProfile.cs
 // =======================================================
 
@@ -70,6 +70,8 @@ namespace NeonSuit.RSSReader.Core.Profiles
             #region CreateFeedDto → Feed
 
             CreateMap<CreateFeedDto, Feed>()
+                .ForMember(dest => dest.Language, opt => opt.Ignore())
+                .ForMember(dest => dest.IsActive, opt => opt.Ignore())
                 .ForMember(dest => dest.Id,
                     opt => opt.Ignore())
                 .ForMember(dest => dest.CreatedAt,
@@ -104,6 +106,11 @@ namespace NeonSuit.RSSReader.Core.Profiles
             #region UpdateFeedDto → Feed (partial updates)
 
             CreateMap<UpdateFeedDto, Feed>()
+                .ForMember(dest => dest.Language, opt => opt.Ignore())
+                .ForMember(dest => dest.Category, opt => opt.Ignore())
+                .ForMember(dest => dest.Articles, opt => opt.Ignore())
+                .ForMember(dest => dest.IsUpdating, opt => opt.Ignore())
+                .ForMember(dest => dest.UnreadCount, opt => opt.Ignore())
                 .ForMember(dest => dest.Id,
                     opt => opt.Ignore())
                 .ForMember(dest => dest.Url,
