@@ -4,9 +4,14 @@
 
 - Repositorio: https://github.com/NidroySoft/NeonSuit.RSSReader
 - Base previa: `a9e9205a44d393fff7ae1e106bf809c2350a7bb9`.
-- Migración y estabilización: `1ccdcea`.
+- Migración y estabilización del paquete: `1ccdcea`; equivalente publicado: `d2784b37271a23dbffcd51b1a4d5f6599b4a7b93`.
+- Documentación del paquete: `1029970`; equivalente publicado: `9162f6694535fb8a4b406f97fde8798673b06c44`.
+- PR de integración: https://github.com/NidroySoft/NeonSuit.RSSReader/pull/1.
+- Punto de recuperación remoto: `recovery/backend-before-net10-20261005`, apuntando al commit base.
 - Rama de trabajo: `backend/net10-stabilization`.
 - Etiqueta local de recuperación: `backend-before-net10-20261005`, apuntando al commit base.
+
+Los hashes publicados difieren porque la API de GitHub genera nuevos metadatos de commit. Los árboles Git de ambos commits son idénticos a los originales; ver `PUBLICACION_NET10_ES.md`. La etiqueta del paquete se conserva localmente; el punto de recuperación publicado es la rama remota indicada arriba.
 
 Los cambios se publican primero en una rama separada. La etiqueta anterior identifica el código original aunque master avance. No reescribir el historial ni usar force-push para una recuperación. La existencia local de una rama/etiqueta no implica que ya esté publicada; comprobar su presencia en GitHub.
 

@@ -22,7 +22,7 @@ El backend es un conjunto de bibliotecas locales, no un servidor HTTP. La soluci
 - Eventos globales `IBackendEvents` para notificaciones y acciones de sonido desde scopes de segundo plano. PlaySound falla explícitamente sin un consumidor registrado; el cliente WPF implementará la reproducción.
 - Prevención de ciclos al cambiar el padre de una categoría y cálculo de rutas/profundidad en las consultas.
 - Backup con la API online de SQLite, incluyendo datos confirmados en WAL. El coordinador se detiene durante la liberación asíncrona del contenedor.
-- Workflow .NET 10 con matriz Linux/Windows. No se ha ejecutado GitHub Actions ni se han publicado cambios en GitHub durante esta revisión.
+- Workflow .NET 10 con matriz Linux/Windows. La publicación y su evidencia se registran en [PUBLICACION_NET10_ES.md](PUBLICACION_NET10_ES.md).
 
 ## Compilar y comprobar
 
@@ -34,7 +34,7 @@ dotnet build NeonSuit.RSSReader.Backend.slnx --no-restore -c Release -m:1
 dotnet test NeonSuit.RSSReader.Backend.slnx --no-build -c Release -m:1 --logger trx
 ```
 
-Se usó SDK 10.0.401/runtime 10.0.12 en Linux. Los archivos TRX y el log final de esta entrega se adjuntan en `verification/` dentro del ZIP. Las pruebas usan archivos SQLite temporales, DI de producción con validación de scopes y mapeos, HTTP local para el parser real y un parser controlado para escenarios de orquestación.
+Se usó SDK 10.0.401/runtime 10.0.12 en Linux. El workflow publica los archivos TRX como artefactos `backend-tests-ubuntu-latest` y `backend-tests-windows-latest` de cada ejecución; la validación local repetida se registra en `PUBLICACION_NET10_ES.md`. Las pruebas usan archivos SQLite temporales, DI de producción con validación de scopes y mapeos, HTTP local para el parser real y un parser controlado para escenarios de orquestación.
 
 **Resultado final Release: 241 pruebas aprobadas (213 unitarias y 28 de integración), cero fallos y cuatro benchmarks omitidos; 245 casos descubiertos. Compilación sin advertencias en el log final.**
 
@@ -81,7 +81,7 @@ No resolver servicios scoped desde el proveedor raíz ni compartirlos simultáne
 
 ## Límites de la validación
 
-- Falta ejecutar las pruebas en Windows y conectar Dispatcher, reproducción de sonido, presentación de notificaciones y WebView2 al crear WPF.
+- Las suites activas pasaron también en Windows mediante GitHub Actions (ver `PUBLICACION_NET10_ES.md`). Falta conectar Dispatcher, reproducción de sonido, presentación de notificaciones y WebView2 al crear WPF.
 - La notificación emitida es una solicitud a la presentación; el backend no demuestra que Windows haya mostrado un toast.
 - No se han medido sesiones prolongadas, carga masiva ni variedad de feeds externos. El parser real se comprueba con fixtures RSS/Atom por HTTP local.
 - Persisten propuestas de mejoras futuras en comentarios del repositorio. La entrega corrige los bloqueos funcionales detectados; no implementa todas las funcionalidades sugeridas allí.
