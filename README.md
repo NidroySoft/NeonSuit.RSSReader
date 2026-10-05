@@ -3,143 +3,113 @@
 <div align="center">
 
 ![NeonSuit](https://img.shields.io/badge/NeonSuit-RSS%20Reader-8A2BE2)
-![.NET](https://img.shields.io/badge/.NET-8.0-512BD4)
-![WPF](https://img.shields.io/badge/WPF-Windows-0078D6)
+![.NET](https://img.shields.io/badge/Backend-.NET%2010-512BD4)
+![WPF](https://img.shields.io/badge/WPF-Frontend%20in%20development-0078D6)
 ![License](https://img.shields.io/badge/license-MIT-green)
+[![Backend .NET 10 CI](https://github.com/NidroySoft/NeonSuit.RSSReader/actions/workflows/dotnet.yml/badge.svg)](https://github.com/NidroySoft/NeonSuit.RSSReader/actions/workflows/dotnet.yml)
 
-**A modern, lightweight RSS/Atom feed reader for Windows – part of the NeonSuit productivity suite.**
+**An RSS/Atom reader backend for a Windows desktop client — part of the NeonSuit productivity suite.**
 
-[Features](#features) •
-[Getting Started](#getting-started) •
-[Architecture](#architecture) •
-[Usage](#usage) •
-[Contributing](#contributing) •
-[Support](#support)
+[Features](#features) • [Getting Started](#getting-started) • [Architecture](#architecture) • [Testing](#testing) • [Documentation](#documentation) • [Contributing](#-contributing)
 
 </div>
 
----
+## Project Status
 
-## 📋 About NeonSuit
+The backend has been migrated to **.NET 10** and integrated into `master` through [PR #1](https://github.com/NidroySoft/NeonSuit.RSSReader/pull/1). It is a set of local libraries, with SQLite persistence and background synchronization, ready to serve as the foundation for the new WPF client.
 
-NeonSuit is a suite of productivity applications designed to enhance your workflow. **NeonSuit.RSSReader** is part of this ecosystem, providing a clean and efficient way to stay updated with your favorite content sources.
+**The existing WPF project is incomplete and was outside the backend migration.** The commands below build and test the backend; they do not launch a finished desktop application. WPF integration, UI behavior and long-running workload validation remain development work.
 
-Built with **.NET 8** and **WPF**, this reader offers a modern interface, offline support, and smart organization features.
+## Features
 
----
+| Area | Backend capabilities |
+| --- | --- |
+| Feeds | RSS/Atom parsing, feed updates and article deduplication |
+| Organization | Categories and hierarchy, tags, favorites, read states, search and pagination |
+| Rules | Persistent article actions, tagging and highlighting |
+| Synchronization | Scoped background tasks, execution history, cancellation and statistics |
+| Persistence | EF Core SQLite migrations, compatible legacy-schema adoption and online backups |
+| Interchange | OPML import/export and preference import/export |
+| Presentation integration | Shared notification and rule-action events for the future WPF client |
 
-## ✨ Features
+Sound playback and desktop notifications require a presentation-layer consumer. See the [backend guide](docs/BACKEND_NET10_ES.md) for the validated contracts and remaining limitations.
 
-| Category | Features |
-|----------|----------|
-| **Feed Management** | 📰 Multi-feed support, 📁 Smart categories, 🔄 Auto-refresh |
-| **Reading Experience** | 🌐 Offline reading, ⭐ Favorites, 🔍 Advanced search |
-| **Interface** | 🎨 Clean WPF design, ⌨️ Keyboard shortcuts, 📱 Responsive layout |
-| **Performance** | 💾 SQLite local storage, ⚡ Fast indexing, 🔌 Low memory footprint |
-
----
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- Windows 10 or 11
-- [.NET 8.0 Runtime](https://dotnet.microsoft.com/download/dotnet/8.0)
+- A stable **.NET 10 SDK**. `global.json` selects the latest installed feature band in the 10.0 family.
+- Git.
+- Windows or Linux for the validated backend build. The future WPF client will require Windows and target `net10.0-windows`.
 
-### Installation
+### Build the Backend
 
-#### Option 1: Download Release (Recommended)
-
-```bash
-# 1. Download the latest release from the Releases page
-# 2. Extract the ZIP file
-# 3. Run NeonSuit.RSSReader.Desktop.exe
-```
-
-#### Option 2: Build from Source
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/NeonSuit.RSSReader.git
+```sh
+git clone https://github.com/NidroySoft/NeonSuit.RSSReader.git
 cd NeonSuit.RSSReader
 
-# Restore dependencies
-dotnet restore
-
-# Build the solution
-dotnet build
-
-# Run the application
-dotnet run --project NeonSuit.RSSReader.Desktop
+dotnet restore NeonSuit.RSSReader.Backend.slnx -p:RestoreDisableParallel=true
+dotnet build NeonSuit.RSSReader.Backend.slnx --no-restore -c Release -m:1
 ```
 
----
+Use `NeonSuit.RSSReader.Backend.slnx` explicitly: the original full solution also contains projects outside the validated backend scope.
 
-## 🏗️ Architecture
+### Connect a Client
 
-The project follows **Clean Architecture** principles with clear separation of concerns:
+Reference `NeonSuit.RSSReader.Setup` and `NeonSuit.RSSReader.Core`. Register services with `AddNeonSuitBackend(databasePath)`, initialize the database with `UseNeonSuitDatabaseAsync()`, subscribe to `IBackendEvents`, then start `ISyncCoordinatorService`.
 
-```
-NeonSuit.RSSReader/
-├── 📁 Core/              # Domain models, interfaces, enums
-├── 📁 Data/              # Data access layer (SQLite)
-├── 📁 Services/          # Business logic and RSS parsing
-└── 📁 Desktop/           # WPF user interface (MVVM)
-```
+Resolve scoped services inside a service scope and dispose the root provider asynchronously when the application closes. The [backend guide](docs/BACKEND_NET10_ES.md#uso-desde-el-futuro-wpf) includes a complete example and WPF integration guidance.
+
+**Before opening an existing SQLite database, preserve a backup and test migration on a copy.** Code rollback and database restoration are separate operations; follow the [recovery guide](docs/ROLLBACK_NET10_ES.md).
+
+## Architecture
+
+| Project or directory | Responsibility |
+| --- | --- |
+| `src/Core/NeonSuit.RSSReader.Core` | Models, DTOs, contracts and mapping profiles |
+| `src/Core/NeonSuit.RSSReader.Data` | EF Core SQLite context, migrations and repositories |
+| `src/Core/NeonSuit.RSSReader.Services` | Services, RSS parsing, rules and synchronization |
+| `src/Core/NeonSuit.RSSReader.Setup` | Dependency injection and database initialization |
+| `src/UI/NeonSuit.RSSReader.Desktop` | Existing WPF project, outside the migrated backend solution |
+| `tests/Core` | Active backend unit and integration suites |
+| `tests/LegacyContracts` | Preserved historical tests with incompatible contracts, excluded from active suites |
 
 ### Technology Stack
 
-| Layer | Technology |
-|-------|------------|
-| **Frontend** | WPF (Windows Presentation Foundation) |
-| **Pattern** | MVVM (Model-View-ViewModel) |
-| **Database** | SQLite with sqlite-net-pcl |
-| **RSS Parser** | CodeHollow.FeedReader |
-| **DI** | Microsoft.Extensions.DependencyInjection |
-| **MVVM Toolkit** | CommunityToolkit.Mvvm |
+| Component | Technology |
+| --- | --- |
+| Backend | .NET 10 / C# |
+| Persistence | Entity Framework Core 10 and Microsoft.Data.Sqlite |
+| RSS/Atom parsing | CodeHollow.FeedReader |
+| HTML processing | AngleSharp |
+| Mapping | AutoMapper |
+| Dependency injection | Microsoft.Extensions.DependencyInjection |
+| Logging | Serilog |
+| Tests | xUnit, SQLite fixtures and local HTTP fixtures |
+| Planned desktop client | WPF / MVVM |
 
----
+## Testing
 
-## 📖 Usage
+[**View backend CI runs and test results**](https://github.com/NidroySoft/NeonSuit.RSSReader/actions/workflows/dotnet.yml)
 
-### Adding a Feed
+[**Successful validation before integration**](https://github.com/NidroySoft/NeonSuit.RSSReader/actions/runs/37333873924): Release build and tests passed on **Linux and Windows**, with **241 tests passed, 0 failed and 4 historical benchmarks skipped per platform**. Builds reported **0 warnings and 0 errors**. This result applies to the tested migration commit; the badge above tracks the workflow's current status.
 
-1. Click the **"Add Feed"** button in the toolbar
-2. Enter the RSS/Atom feed URL
-3. (Optional) Assign to an existing category
-4. Click **"Subscribe"**
+The workflow restores, builds and tests the backend on both platforms and uploads TRX results as `backend-tests-ubuntu-latest` and `backend-tests-windows-latest` artifacts.
 
-### Managing Categories
+After the Release build above, run:
 
-1. Right-click on the categories panel
-2. Select **"New Category"**
-3. Drag and drop feeds to organize them
-
-### Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| `Ctrl + N` | Add new feed |
-| `Ctrl + F` | Search articles |
-| `Ctrl + R` | Refresh all feeds |
-| `Space` | Mark current article as read |
-| `S` | Star/Unstar article |
-| `Ctrl + ,` | Open settings |
-
----
-
-## 🧪 Testing
-
-```bash
-# Run unit tests
-dotnet test tests/NeonSuit.RSSReader.Tests.Unit
-
-# Run integration tests
-dotnet test tests/NeonSuit.RSSReader.Tests.Integration
-
-# Run all tests
-dotnet test
+```sh
+dotnet test NeonSuit.RSSReader.Backend.slnx --no-build -c Release -m:1 --logger trx --results-directory TestResults
 ```
+
+There are 245 discovered cases in the validated suites. The 33 historical files under `tests/LegacyContracts` are preserved outside the active test projects and are not counted as passing. Functional tests do not establish performance under sustained or large workloads.
+
+## Documentation
+
+- [Backend migration, validation scope and WPF integration (Spanish)](docs/BACKEND_NET10_ES.md)
+- [Publication evidence and original-to-published commit mapping (Spanish)](docs/PUBLICACION_NET10_ES.md)
+- [Code rollback and SQLite recovery (Spanish)](docs/ROLLBACK_NET10_ES.md)
+- [Migration pull request and exact merge-reversal command](https://github.com/NidroySoft/NeonSuit.RSSReader/pull/1)
 
 ---
 
@@ -206,7 +176,7 @@ of this software and associated documentation files...
 ## 🙏 Acknowledgments
 
 - [CodeHollow.FeedReader](https://github.com/codehollow/FeedReader) – Excellent RSS/Atom parser
-- [sqlite-net-pcl](https://github.com/praeclarum/sqlite-net) – Lightweight SQLite ORM
+- [Entity Framework Core](https://github.com/dotnet/efcore) – SQLite persistence and migrations
 - [CommunityToolkit.Mvvm](https://github.com/CommunityToolkit/dotnet) – MVVM helpers and utilities
 
 ---
